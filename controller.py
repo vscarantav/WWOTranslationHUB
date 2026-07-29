@@ -1,5 +1,6 @@
 import os
 import collections
+from tqdm import tqdm
 import json
 import argparse
 import shutil
@@ -188,8 +189,9 @@ class TranslationController:
                 
         # Run translations concurrently to speed up the process (up to 3 files at once)
         with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
-            # list() to force evaluation of the map and wait for completion
-            list(executor.map(self.process_file, filepaths))
+            futures = [executor.submit(self.process_file, path) for path in filepaths]
+            for _ in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Translating", unit="file"):
+                pass
             
         self.compress_to_imscc()
         
@@ -259,7 +261,6 @@ class TranslationController:
 
         if not os.path.exists(target_filepath):
             msg = f"File not found: {target_filepath}"
-            print(f"[Controller] {msg}")
             self._log(msg)
             return
 
@@ -267,33 +268,28 @@ class TranslationController:
         
         if ext in ["ds_store"]:
             msg = f"Skipping ignored system file: {filepath}"
-            print(f"[Controller] {msg}")
             self._log(msg)
             return
             
         if "setup-notes-and-course-settings" in target_filepath:
             msg = f"Skipping setup notes page: {filepath}"
-            print(f"[Controller] {msg}")
             self._log(msg)
             return
 
         bot = self.bots.get(ext)
         if not bot:
             msg = f"Skipping unsupported file architecture for extension '{ext}': {filepath}"
-            print(f"[Controller] {msg}")
             self._log(msg)
             return
 
         # Check if already translated
         if self._is_already_translated(target_filepath, ext):
             msg = f"Skipping already translated file: {filepath}"
-            print(f"[Controller] {msg}")
             self._log(msg)
             return
 
         # 1. Translate
         msg = f"Delegating {target_filepath} to {bot.__class__.__name__}"
-        print(f"\n[Controller] {msg}...")
         self._log(msg)
         
         with open(target_filepath, "r", encoding="utf-8") as f:
@@ -314,11 +310,11 @@ class TranslationController:
         
         
         # 3. Save
-        print(f"[Controller] Saving translated content to {target_filepath}")
+        self._log(f"Saving translated content to {target_filepath}")
         with open(target_filepath, "w", encoding="utf-8") as f:
             f.write(translated_content)
             
-        print("[Controller] Translation complete for this file.")
+        self._log("Translation complete for this file.")
 
     def update_excel_dashboard(self):
         msg = "Generating Excel Analytics Dashboard..."
