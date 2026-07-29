@@ -101,6 +101,31 @@ Sub BuildReport()
         .VerticalAlignment = xlCenter
     End With
     
+    ' ADD COURSE INFO
+    Dim courseName As String
+    Dim courseCode As String
+    Dim rawMsg As String
+    courseName = "Unknown Course"
+    courseCode = "UNKNOWN"
+    For i = 2 To lastRow
+        If wsRaw.Cells(i, 5).Value = "Course Info" Then
+            rawMsg = wsRaw.Cells(i, 10).Value
+            If InStr(rawMsg, "|") > 0 Then
+                courseName = Split(rawMsg, "|")(0)
+                courseCode = Split(rawMsg, "|")(1)
+            End If
+        End If
+    Next i
+    
+    With wsDash.Range("B4:G4")
+        .Merge
+        .Value = "Course: " & courseName & " (" & courseCode & ")"
+        .Font.Size = 14
+        .Font.Bold = True
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlCenter
+    End With
+    
     wsDash.Range("B5").Value = "Total Events"
     wsDash.Range("B6").Formula = "=COUNTA('Raw Logs'!A:A)-1"
     
@@ -238,10 +263,71 @@ Sub BuildReport()
         On Error GoTo 0
     End With
     
+    ' ADD SKIPPED FILES
+    wsDash.Range("I5").Value = "Skipped Files"
+    With wsDash.Range("I5")
+        .Font.Bold = True
+        .Font.Color = vbWhite
+        .Interior.Color = RGB(52, 73, 94)
+        .HorizontalAlignment = xlCenter
+        .Borders.LineStyle = xlContinuous
+    End With
+    wsDash.Columns("I:I").ColumnWidth = 40
+    
+    Dim skipRow As Long
+    skipRow = 6
+    For i = 2 To lastRow
+        If InStr(wsRaw.Cells(i, 5).Value, "Skipped") > 0 Then
+            wsDash.Cells(skipRow, 9).Value = wsRaw.Cells(i, 8).Value
+            wsDash.Cells(skipRow, 9).Borders.LineStyle = xlContinuous
+            skipRow = skipRow + 1
+        End If
+    Next i
+
+    ' ADD EXTERNAL LINKS LOG
+    Dim linkRow As Long
+    linkRow = 40
+    wsDash.Range("B" & linkRow).Value = "External Links Log"
+    wsDash.Range("B" & linkRow).Font.Bold = True
+    wsDash.Range("B" & linkRow).Font.Size = 14
+    
+    wsDash.Range("B" & (linkRow + 1)).Value = "Location (Page Name)"
+    wsDash.Range("C" & (linkRow + 1)).Value = "Link Text"
+    wsDash.Range("D" & (linkRow + 1)).Value = "Link"
+    
+    With wsDash.Range("B" & (linkRow + 1) & ":D" & (linkRow + 1))
+        .Font.Bold = True
+        .Font.Color = vbWhite
+        .Interior.Color = RGB(52, 73, 94)
+        .HorizontalAlignment = xlCenter
+        .Borders.LineStyle = xlContinuous
+    End With
+    
+    linkRow = linkRow + 2
+    Dim linkParts() As String
+    For i = 2 To lastRow
+        If wsRaw.Cells(i, 5).Value = "External Link" Then
+            wsDash.Cells(linkRow, 2).Value = wsRaw.Cells(i, 8).Value ' File Name
+            rawMsg = wsRaw.Cells(i, 10).Value
+            If InStr(rawMsg, " | ") > 0 Then
+                linkParts = Split(rawMsg, " | ", 2)
+                wsDash.Cells(linkRow, 3).Value = linkParts(0)
+                If UBound(linkParts) >= 1 Then
+                    wsDash.Cells(linkRow, 4).Value = linkParts(1)
+                End If
+            End If
+            
+            With wsDash.Range("B" & linkRow & ":D" & linkRow)
+                .Borders.LineStyle = xlContinuous
+            End With
+            
+            linkRow = linkRow + 1
+        End If
+    Next i
+    
     ' Final touch: adjust column widths
     wsDash.Columns("A:A").ColumnWidth = 2
-    wsDash.Columns("B:C").EntireColumn.AutoFit
-    wsDash.Columns("D:D").ColumnWidth = 2
+    wsDash.Columns("B:D").EntireColumn.AutoFit
     
     Application.ScreenUpdating = True
     MsgBox "Interactive Report successfully built!" & vbCrLf & vbCrLf & _

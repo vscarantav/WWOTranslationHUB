@@ -9,6 +9,7 @@ import pandas as pd
 from datetime import datetime
 import xlsxwriter
 from dotenv import load_dotenv
+from bs4 import BeautifulSoup
 load_dotenv()
 from bots.html_bot import HTMLTranslationBot
 from bots.xml_bot import XMLTranslationBot
@@ -97,6 +98,55 @@ class TranslationController:
                 shutil.copytree(self.original_dir, self.output_dir)
             else:
                 print(f"[Controller] WARNING: Original directory {self.original_dir} not found.")
+
+        self._extract_course_info()
+
+    def _extract_course_info(self):
+        course_name = "Unknown Course"
+        course_code = "UNKNOWN"
+        manifest_path = os.path.join(self.original_dir, 'imsmanifest.xml')
+        if os.path.exists(manifest_path):
+            try:
+                with open(manifest_path, 'r', encoding='utf-8') as f:
+                    soup = BeautifulSoup(f.read(), 'xml')
+                    title_tag = soup.find('lom:title') or soup.find('title')
+                    if title_tag:
+                        string_tag = title_tag.find('lom:string') or title_tag.find('string')
+                        if string_tag:
+                            course_name = string_tag.text.strip()
+                        else:
+                            course_name = title_tag.text.strip()
+            except Exception as e:
+                pass
+
+        settings_path = os.path.join(self.original_dir, 'course_settings', 'course_settings.xml')
+        if os.path.exists(settings_path):
+            try:
+                with open(settings_path, 'r', encoding='utf-8') as f:
+                    soup = BeautifulSoup(f.read(), 'xml')
+                    code_tag = soup.find('course_code')
+                    if code_tag:
+                        course_code = code_tag.text.strip()
+                    title_tag = soup.find('title')
+                    if title_tag and course_name == "Unknown Course":
+                        course_name = title_tag.text.strip()
+            except Exception as e:
+                pass
+
+        self._log(f"[System] CourseInfo: {course_name}|{course_code}")
+
+    def _extract_and_log_links(self, filepath: str, content: str):
+        try:
+            soup = BeautifulSoup(content, 'html.parser')
+            links = soup.find_all('a', href=True)
+            filename = os.path.basename(filepath)
+            for a in links:
+                href = a['href']
+                if href.startswith('http') or href.startswith('www'):
+                    text = a.get_text(strip=True).replace(',', ' ').replace('\n', ' ').replace('|', ' ')
+                    self._log(f"[LinkBot] ExtLink: {filename},{text},{href}")
+        except Exception as e:
+            print(f"[Controller] Error extracting links from {filepath}: {e}")
 
     def _load_instructions(self) -> dict:
         filepath = os.path.join(self.hub_dir, "Course_Translation_Hub_ArchitectureAndInstructions.json")
@@ -200,6 +250,9 @@ class TranslationController:
         with open(target_filepath, "r", encoding="utf-8") as f:
             original_content = f.read()
             
+        if ext in ["html", "xml", "qti"]:
+            self._extract_and_log_links(target_filepath, original_content)
+            
         relevant_glossary = self.auditor.get_relevant_terms(original_content)
         relevant_scriptures = self.scripture_checker.get_scriptures_for_text(original_content)
             
@@ -279,6 +332,18 @@ class TranslationController:
                         elif 'Skipping AuditorBot' in message:
                             entry['Event Type'] = 'Skipped (Size Limit)'
                             entry['Status'] = 'Warning'
+                        elif message.startswith('CourseInfo: '):
+                            entry['Event Type'] = 'Course Info'
+                            entry['Message'] = message.replace('CourseInfo: ', '')
+                            entry['Status'] = 'Info'
+                        elif message.startswith('ExtLink: '):
+                            entry['Event Type'] = 'External Link'
+                            entry['Bot'] = 'LinkBot'
+                            parts = message.replace('ExtLink: ', '').split(',', 2)
+                            if len(parts) == 3:
+                                entry['File Name'] = parts[0]
+                                entry['Message'] = f"{parts[1]} | {parts[2]}"
+                            entry['Status'] = 'Info'
                         elif 'error' in message.lower() or 'exception' in message.lower():
                             entry['Status'] = 'Error'
                             entry['Event Type'] = 'Error'
@@ -315,6 +380,18 @@ class TranslationController:
         dash.set_row(1, 40)
         dash.merge_range('B2:G2', 'Course Translation Hub Analytics', title_fmt)
         dash.merge_range('B3:G3', 'Automated Bot Performance & Log Analysis', subtitle_fmt)
+        
+        course_name = "Unknown Course"
+        course_code = "UNKNOWN"
+        course_info_rows = df[df['Event Type'] == 'Course Info']
+        if not course_info_rows.empty:
+            msg = course_info_rows.iloc[-1]['Message']
+            parts = msg.split('|')
+            if len(parts) >= 2:
+                course_name = parts[0]
+                course_code = parts[1]
+                
+        dash.merge_range('B4:G4', f'Course: {course_name} ({course_code})', workbook.add_format({'bold': True, 'font_size': 14, 'align': 'center'}))
         
         dash.write('B5', 'Total Log Events', kpi_header_fmt)
         dash.write_formula('B6', '=COUNTA(\'Raw Logs\'!A:A)-1', kpi_val_fmt)
@@ -354,6 +431,37 @@ class TranslationController:
         chart.set_y_axis({'name': 'Event Count'})
         chart.set_legend({'none': True})
         dash.insert_chart('E11', chart, {'x_scale': 1.1, 'y_scale': 1.4})
+
+        # Add Skipped Files
+        dash.write('I5', 'Skipped Files', header_fmt)
+        dash.set_column('I:I', 40)
+        skipped_df = df[df['Event Type'].str.contains('Skipped', na=False)]
+        row_idx = 5
+        for idx, row in skipped_df.iterrows():
+            dash.write(row_idx, 8, str(row['File Name']), cell_fmt)
+            row_idx += 1
+            
+        # Add External Links Log
+        start_row = 40
+        dash.write(start_row, 1, 'External Links Log', workbook.add_format({'bold': True, 'font_size': 14}))
+        dash.write_row(start_row+1, 1, ['Location (Page Name)', 'Link Text', 'Link'], header_fmt)
+        dash.set_column('B:B', 30)
+        dash.set_column('C:C', 40)
+        dash.set_column('D:D', 60)
+        
+        links_df = df[df['Event Type'] == 'External Link']
+        r_idx = start_row + 2
+        for idx, row in links_df.iterrows():
+            loc = str(row['File Name'])
+            msg = str(row['Message'])
+            parts = msg.split(' | ', 1)
+            link_text = parts[0] if len(parts) > 0 else ""
+            link_url = parts[1] if len(parts) > 1 else ""
+            
+            dash.write(r_idx, 1, loc, cell_fmt)
+            dash.write(r_idx, 2, link_text, cell_fmt)
+            dash.write(r_idx, 3, link_url, cell_fmt)
+            r_idx += 1
 
         # SHEET 2: Bot Statistics
         bot_stats = workbook.add_worksheet('Bot Analysis')

@@ -17,10 +17,9 @@ class XMLTranslationBot:
             
         self.target_language = target_language
         self.model = genai.GenerativeModel(
-            "gemini-3.5-flash",
-            generation_config={"response_mime_type": "application/json"}
+            "gemini-3.5-flash"
         )
-        self.system_prompt = f"You are an expert academic text translator. Translate the given JSON string values to {self.target_language}. Maintain any HTML tags within the strings exactly as they are. Do not translate URLs or filenames. Return a JSON object with the exact same keys."
+        self.system_prompt = f"You are an expert academic text translator. Translate the text inside each <translate_item> to {self.target_language}. Maintain any HTML tags within the strings exactly as they are. Do not translate URLs or filenames. Return exactly the same XML-like structure with the translated text, ensuring you keep the 'id' attributes intact. Do NOT modify the 'id' attribute."
         
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
@@ -35,7 +34,7 @@ class XMLTranslationBot:
     def set_system_prompt(self, prompt: str):
         pass
 
-    def _translate_json_batch(self, batch: dict, constraints: str) -> dict:
+    def _translate_batch(self, batch: dict, constraints: str) -> dict:
         if not self.client_ready:
             return batch
         if not batch:
@@ -43,41 +42,43 @@ class XMLTranslationBot:
 
         from bots.api_utils import call_gemini_with_retry
         
-        # Proper newlines in f-string
-        full_prompt = f"System Instructions:\n{self.system_prompt}{constraints}\n\nContent:\n{json.dumps(batch, ensure_ascii=False)}"
+        # Construct XML-like payload
+        payload = ""
+        for k, v in batch.items():
+            payload += f'<translate_item id="{k}">{v}</translate_item>\n'
+            
+        full_prompt = f"System Instructions:\n{self.system_prompt}{constraints}\n\nContent:\n{payload}"
         
         for attempt in range(3):
             try:
                 response = call_gemini_with_retry(self.model, full_prompt, log_func=self._log)
-                output = response.text.strip() if response.text else "{}"
+                output = response.text.strip() if response.text else ""
                 
-                # Try parsing exactly as returned
-                try:
-                    return json.loads(output)
-                except json.JSONDecodeError:
-                    pass
+                # Parse output using BeautifulSoup
+                soup_out = BeautifulSoup(output, 'html.parser')
+                translated_batch = {}
+                
+                items = soup_out.find_all('translate_item')
+                if not items:
+                    raise ValueError("No <translate_item> tags found in the response.")
                     
-                # Try extracting from markdown code blocks
-                match = re.search(r"```(?:json)?\n?(.*?)\n?```", output, re.DOTALL)
-                if match:
-                    try:
-                        return json.loads(match.group(1).strip())
-                    except json.JSONDecodeError:
-                        pass
-                
-                # Fallback: Extract everything between the first '{' and last '}'
-                start = output.find('{')
-                end = output.rfind('}')
-                if start != -1 and end != -1 and end > start:
-                    try:
-                        return json.loads(output[start:end+1])
-                    except json.JSONDecodeError:
-                        pass
+                for item in items:
+                    item_id = item.get('id')
+                    if item_id is not None:
+                        translated_batch[item_id] = item.decode_contents().strip()
                         
-                # If all fail, let it raise the error to trigger the retry loop
-                return json.loads(output)
+                # Check if we got at least some translations back
+                if not translated_batch:
+                    raise ValueError("Could not extract any translations.")
+                    
+                # For any missing keys, fall back to the original
+                for k, v in batch.items():
+                    if k not in translated_batch:
+                        translated_batch[k] = v
+                        
+                return translated_batch
             except Exception as e:
-                msg = f"[XMLBot] JSON Error on attempt {attempt+1}: {e}"
+                msg = f"[XMLBot] XML Parse Error on attempt {attempt+1}: {e}"
                 print(msg)
                 self._log(msg)
                 time.sleep(2)
@@ -158,7 +159,7 @@ class XMLTranslationBot:
             msg = f"[XMLBot] Translating batch {i + 1}/{len(batches)} (approx {len(json.dumps(batch))} chars)..."
             self._log(msg)
             
-            translated_batch = self._translate_json_batch(batch, constraints)
+            translated_batch = self._translate_batch(batch, constraints)
             translated_strings.update(translated_batch)
             
         for key, tag in tag_references.items():

@@ -24,7 +24,9 @@
       "All bots (including the controller and specialized bots) MUST implement an internal logging mechanism.",
       "Each bot must initialize its own text-based log file (e.g., translation_log.txt, html_bot_log.txt, xml_bot_log.txt, etc.) in the root hub directory when a new session starts.",
       "Every significant action, such as file delegation, successful translation, skipped files, errors, and warnings, must be recorded in the bot's respective log file as well as printed to standard output.",
-      "The text logs are parsed and visualized using an Excel Dashboard macro (Translation_Dashboard_Macro.bas) that updates Course_Translation_Hub_Analytics.xlsx."
+      "The controller bot must extract the Course Name and Course Code from the imsmanifest.xml or course_settings.xml and log it as CourseInfo.",
+      "The bots must extract and log all external links (starting with http/www) found in HTML/XML files into the text log as 'ExtLink: Location,Link Text,URL'.",
+      "The text logs are parsed and visualized using an Excel Dashboard macro (Translation_Dashboard_Macro.bas) or directly by the controller into Course_Translation_Hub_Analytics.xlsx. The dashboard must display the Course Name and Code, list all skipped files, and contain a 3-column table of External Links."
     ],
     "api_assignments": {
       "ChatGPT": "Use for ImageTranslationAgent (jpg, png, gif, svg) due to excellent OCR and vision capabilities.",
@@ -42,7 +44,7 @@
       "auditing_bot": "A local pre-processing utility that scans the source text for English glossary terms and passes only the relevant glossary terms as constraints to the translation prompt.",
       "agent_mapping": {
         "html": "HTMLTranslationAgent - Responsible for parsing HTML DOM using BeautifulSoup to dynamically map and protect sensitive attributes (like src and href URLs) before translating textual content, preventing broken assets in Canvas.",
-        "xml": "XMLTranslationAgent - Responsible for safely translating localized text strings inside XML tags using BeautifulSoup. Extracts only the inner text of specific nodes (e.g., <title>, <mattext>, <description>) and translates them via structured JSON to guarantee 100% structural integrity without chunking.",
+        "xml": "XMLTranslationAgent - Responsible for safely translating localized text strings inside XML tags using BeautifulSoup. Extracts only the inner text of specific nodes (e.g., <title>, <mattext>, <description>) and translates them via a custom XML-like delimiter (e.g., <translate_item>) to bypass strict JSON parsing errors caused by nested HTML quotes.",
         "qti": "QTITranslationAgent - Responsible for specialized Canvas QTI assessment files (quizzes), ensuring assessment structures remain valid.",
         "txt": "TextTranslationAgent - Responsible for plain text file translation.",
         "docx": "DocumentTranslationAgent - Responsible for extracting, translating, and repacking Microsoft Word documents.",
