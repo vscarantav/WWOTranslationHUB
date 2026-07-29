@@ -97,7 +97,7 @@ class XMLTranslationBot:
             if item.has_attr('title'):
                 item['title'] = re.sub(r'(?i)Question', question_trans, item['title'])
         
-        target_tags = ['title', 'mattext', 'description']
+        target_tags = ['title', 'mattext', 'description', 'fieldentry']
         
         strings_to_translate = {}
         tag_references = {}
@@ -105,6 +105,11 @@ class XMLTranslationBot:
         
         counter = 0
         for tag in soup.find_all(target_tags):
+            if tag.name == 'fieldentry':
+                label = tag.find_previous_sibling('fieldlabel')
+                if not (label and label.text.strip() == 'bank_title'):
+                    continue
+                    
             inner_str = tag.decode_contents().strip()
             if inner_str:
                 unescaped = html.unescape(inner_str)
