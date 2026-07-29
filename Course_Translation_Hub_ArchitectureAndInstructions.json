@@ -1,0 +1,76 @@
+{
+  "project_overview": {
+    "name": "Course Translation Hub",
+    "description": "An unzipped IMSCC Canvas course export used as a hub for translating course content.",
+    "root_directory": "career-development-english-master-export"
+  },
+  "architecture": {
+    "core_files": {
+      "imsmanifest.xml": "The main manifest file. It maps resource identifiers (used in the hash directories) to their corresponding files and outlines the course structure (modules, item sequences). Treat this as the definitive index."
+    },
+    "directories": {
+      "course_settings/": "Contains global configuration files for the course, including the main syllabus page (e.g., syllabus.html).",
+      "wiki_content/": "Contains Canvas Pages stored as standard HTML files. These are primary targets for textual translation.",
+      "web_resources/": "Contains static files, images, or documents linked within the course pages.",
+      "non_cc_assessments/": "Contains quizzes and assessments that might not follow the standard Common Cartridge specification.",
+      "hash_directories/": "Folders named with unique alphanumeric hashes (e.g., 'g038b...'). These contain metadata for assignments, discussions, quizzes, and rubrics (e.g., assessment_meta.xml, assessment_qti.xml, assignment_settings.xml). Look inside these XML files for description tags and text that require translation.",
+      "scriptures/": "Contains the modern scriptures used to crosscheck if the text of the scriptures in the course matches what the scriptures really say."
+    }
+  },
+  "bot_instructions": {
+    "temporary_override": "CRITICAL: The user currently only has the Gemini API key. All agents (including HTML, XML, QTI, Document, and Image bots) MUST temporarily use Gemini instead of Claude or ChatGPT.",
+    "mandatory_pre_check": "All agent bots MUST read this file (Course_Translation_Hub_ArchitectureAndInstructions.json) before beginning any translation tasks.",
+    "logging_requirements": [
+      "All bots (including the controller and specialized bots) MUST implement an internal logging mechanism.",
+      "Each bot must initialize its own text-based log file (e.g., translation_log.txt, html_bot_log.txt, xml_bot_log.txt, etc.) in the root hub directory when a new session starts.",
+      "Every significant action, such as file delegation, successful translation, skipped files, errors, and warnings, must be recorded in the bot's respective log file as well as printed to standard output.",
+      "The text logs are parsed and visualized using an Excel Dashboard macro (Translation_Dashboard_Macro.bas) that updates Course_Translation_Hub_Analytics.xlsx."
+    ],
+    "api_assignments": {
+      "ChatGPT": "Use for ImageTranslationAgent (jpg, png, gif, svg) due to excellent OCR and vision capabilities.",
+      "Claude": "Use for HTMLTranslationAgent, XMLTranslationAgent, QTITranslationAgent, and DocumentTranslationAgent (docx, pptx). Crucial for strict adherence to complex formatting constraints, preserving brackets, and ensuring zero tag modification.",
+      "Gemini": "Use Gemini (e.g., Gemini 3.1 Pro) for controller_bot, auditing_bot, and TextTranslationAgent (txt) to leverage its massive context window and advanced reasoning for state management and large glossary cross-referencing."
+    },
+    "api_resilience": {
+      "rate_limits": "All bots MUST implement an exponential backoff retry mechanism to gracefully handle 429 Rate Limit errors and internal server errors (500/503), given the concurrency of translations.",
+      "invalid_keys": "All bots MUST validate their API keys on initialization and catch 400 Bad Request/Invalid Key exceptions to prevent empty file overwrites or silent failures."
+    },
+    "multi_agent_strategy": {
+      "controller_bot": "The primary bot acts as the controller. Its responsibility is to iterate through the directory structure and files. It MUST NOT perform translations itself.",
+      "specialized_bots": "For each file or specific file type (e.g., HTML, XML), the controller bot MUST invoke a specialized subagent/bot to perform the actual parsing and translation.",
+      "scripturecheck_bot": "A local pre-processing utility that uses Regular Expressions to extract scripture references from the source text and fetches their official translations from the 'scriptures' folder to be injected into the translation prompt as constraints.",
+      "auditing_bot": "A local pre-processing utility that scans the source text for English glossary terms and passes only the relevant glossary terms as constraints to the translation prompt.",
+      "agent_mapping": {
+        "html": "HTMLTranslationAgent - Responsible for parsing HTML DOM using BeautifulSoup to dynamically map and protect sensitive attributes (like src and href URLs) before translating textual content, preventing broken assets in Canvas.",
+        "xml": "XMLTranslationAgent - Responsible for safely translating localized text strings inside XML tags using BeautifulSoup. Extracts only the inner text of specific nodes (e.g., <title>, <mattext>, <description>) and translates them via structured JSON to guarantee 100% structural integrity without chunking.",
+        "qti": "QTITranslationAgent - Responsible for specialized Canvas QTI assessment files (quizzes), ensuring assessment structures remain valid.",
+        "txt": "TextTranslationAgent - Responsible for plain text file translation.",
+        "docx": "DocumentTranslationAgent - Responsible for extracting, translating, and repacking Microsoft Word documents.",
+        "pptx": "DocumentTranslationAgent - Responsible for extracting, translating, and repacking Microsoft PowerPoint presentations.",
+        "jpg": "ImageTranslationAgent - Responsible for performing OCR or providing localized versions of images containing embedded text.",
+        "JPG": "ImageTranslationAgent - Same as jpg.",
+        "png": "ImageTranslationAgent - Same as jpg.",
+        "PNG": "ImageTranslationAgent - Same as jpg.",
+        "gif": "ImageTranslationAgent - Same as jpg.",
+        "svg": "ImageTranslationAgent - Responsible for translating embedded text elements inside SVG vector images.",
+        "DS_Store": "IGNORE - System files should be skipped by the controller.",
+        "UNKNOWN": "CRITICAL: Any unmapped file extension should trigger the unknown_architecture_protocol."
+      }
+    },
+    "translation_guidelines": [
+      "The target language for all translations will be either Portuguese (Brazil) or Spanish, as directed by the user.",
+      "Only translate textual content intended for students.",
+      "The setup notes page (files containing 'setup-notes-and-course-settings') should be completely skipped and NOT translated.",
+      "For files related to the Teaching Notes and Student Outreach page (e.g., containing 'teaching-notes-and-student-outreach'), the HTML translation bot must automatically apply a specific hardcoded glossary to ensure instructor-facing terminology matches expected standards.",
+      "For XML question banks and quizzes, the word 'Question' in the title attribute of <item> nodes must be translated to the target language.",
+      "Preserve all HTML structure, Canvas-specific classes, div wrappers, and inline styles exactly as they are.",
+      "Preserve all XML tags, attributes, and file names. Do not translate metadata keys, IDs, or manifest identifiers (except for the 'title' attribute on <item> nodes where 'Question' is translated).",
+      "Ensure translated HTML or XML does not break parsing rules."
+    ],
+    "unknown_architecture_protocol": "CRITICAL: If a bot encounters a file type, a folder structure, or a data format that is NOT explicitly described in the 'architecture' section above, the bot MUST immediately halt execution.",
+    "user_intervention_required": "When halted due to unknown architecture or missing guidelines, the bot MUST ask the user to update this JSON file with new instructions/architecture details before making any changes to the project.",
+    "agent_prompts": {
+      "HTMLTranslationAgent_PTBR": "Role & Objective\n\nYou are an expert academic translator specializing in Portuguese. Your singular objective is to translate text within HTML tags into standard, grammatically correct Portuguese that is universally understood across all Portuguese-speaking regions (including Europe, Africa, and Brazil), appropriate for undergraduate students. In the rare event of an irreconcilable regional conflict, fall back to Brazilian Portuguese conventions.\n\nInput Context\n\nYou will receive fragmented HTML chunks. The code will often be incomplete or have unmatched/open tags.\n\nStrict Constraints\n\nOutput Format: You MUST wrap your entire final output inside an HTML markdown code block (```html at the beginning and ``` at the end). Never output raw HTML outside of these backticks.\n\nZero Interaction: Do NOT output any conversational filler, greetings, acknowledgments, or explanations. Only output the code block.\n\nZero Tag Modification: Do NOT translate, modify, add, or remove ANY HTML tags. Do NOT attempt to \"fix\" or auto-close open tags. Output the exact original tag structure. Translate ONLY inner text values.\n\nFormatting Integrity: Maintain exact original indentation, line breaks, and spacing of the HTML structure.\n\nLanguage & Gender Neutrality: Use grammatically correct, gender-neutral terminology naturally available in the language (e.g., prefer estudante over aluno(a) or pessoa over homem/mulher). Strict Restriction: You must completely avoid artificial gender-neutral word endings (such as substituting \"o\" or \"a\" with \"e\") and neologisms (such as todes).\n\nSTRICT WHITESPACE NORMALIZATION: You must NEVER output the invisible Alt+0160 character (non-breaking space / U+00A0), and you must NEVER output the HTML entity &nbsp;. You must actively replace any non-breaking spaces or &nbsp; entities from the original text with standard normal spaces (U+0020) in your final output.\n\nInstitutional Guidelines\n\nDeity & Reverence: Capitalize all names, titles, and pronouns referring to Deity (e.g., Ele, Dele). However, lowercase pronouns referring to heavenly parents.  \n\nScriptural Formats: Do not italicize the titles of the standard works or their specific parts (e.g., Bíblia, O Livro de Mórmon).  \n\nChurch Nomenclature: Always use the full official name of the Church as defined in the glossary. Do not use terms like \"Mormon Church\", \"LDS Church\", or \"Mormonism\".  \n\nQuotation Integrity: Maintain the exact formatting, spelling, and punctuation of quoted material. If an interpolation, translation of a term, or grammatical correction is necessary within a quote, you must enclose the added text in brackets [ ]."
+    }
+  }
+}

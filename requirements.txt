@@ -1,0 +1,6 @@
+beautifulsoup4==4.12.3
+lxml==5.1.0
+openai==1.14.3
+google-generativeai==0.5.2
+anthropic==0.21.3
+python-dotenv==1.0.1

@@ -1,0 +1,4873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+<objectbank ident="g556d3c83ca6d941709b812732dde9351">
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>bank_title</fieldlabel>
+<fieldentry>QB: GS 170 W04 Level 1 Assessment Questions</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_type</fieldlabel>
+<fieldentry>Course</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_context_uuid</fieldlabel>
+<fieldentry>wqxM3YelMSOoe6KM2hzYYOQG9VlwUJQBTBiWHADR</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_state</fieldlabel>
+<fieldentry>active</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+<item ident="g40840e5a1296b898a757726be71a1574" title="Question 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>42951,25891,86859,24365</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como o método STAR aprimorado difere do storytelling STAR básico?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="42951">
+<material>
+<mattext texttype="text/plain">Ele fornece diretrizes de tempo específicas e estratégias de adaptação cultural para histórias mais envolventes</mattext>
+</material>
+</response_label>
+<response_label ident="25891">
+<material>
+<mattext texttype="text/plain">Ele elimina a necessidade de exemplos específicos</mattext>
+</material>
+</response_label>
+<response_label ident="86859">
+<material>
+<mattext texttype="text/plain">Ele foca apenas em resultados sem contexto</mattext>
+</material>
+</response_label>
+<response_label ident="24365">
+<material>
+<mattext texttype="text/plain">Ele remove o componente de Ação para economizar tempo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25891</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25891_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">86859</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="86859_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24365</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24365_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">42951</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="25891_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O método STAR aprimorado exige exemplos mais detalhados, não menos. O texto enfatiza que o aprimoramento adiciona diretrizes de tempo e estratégias de adaptação cultural para criar histórias mais envolventes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="86859_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O método aprimorado mantém todos os quatro componentes ao mesmo tempo que adiciona uma estrutura de tempo. O texto indica que o aprimoramento fornece diretrizes de tempo e estratégias de adaptação cultural para cada componente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="24365_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O método aprimorado aloca mais tempo para a Ação, não menos. O texto especifica que o aprimoramento adiciona diretrizes de tempo ao mesmo tempo que mantém todos os quatro componentes do STAR.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g605aabd5c28aa69a9ce3d8e7c18e7062" title="Question 10">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>99660,12065,92522,41598</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a preparação para entrevistas virtuais difere da preparação para entrevistas presenciais?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="99660">
+<material>
+<mattext texttype="text/plain">A preparação virtual requer configuração técnica adicional, conscientização sobre fusos horários interculturais e manutenção da presença digital</mattext>
+</material>
+</response_label>
+<response_label ident="12065">
+<material>
+<mattext texttype="text/plain">Entrevistas virtuais eliminam a necessidade de preparação</mattext>
+</material>
+</response_label>
+<response_label ident="92522">
+<material>
+<mattext texttype="text/plain">Apenas habilidades técnicas importam para entrevistas virtuais</mattext>
+</material>
+</response_label>
+<response_label ident="41598">
+<material>
+<mattext texttype="text/plain">A preparação virtual é idêntica à preparação presencial</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">12065</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="12065_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">92522</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="92522_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">41598</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="41598_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">99660</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="12065_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Entrevistas virtuais exigem camadas adicionais de preparação. O texto especifica que a preparação virtual inclui configuração técnica, coordenação de fusos horários e manutenção de uma presença autêntica por meio de plataformas digitais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="92522_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Entrevistas virtuais exigem competências técnicas e culturais. O texto indica que a preparação inclui configuração técnica, comunicação intercultural entre fusos horários e uma presença digital autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="41598_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Entrevistas virtuais exigem considerações adicionais. O texto enfatiza que a preparação virtual adiciona configuração técnica, conscientização de fusos horários e manutenção de presença digital à preparação padrão para entrevistas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd5dd5380fa48389a0f51d3bf99720412" title="Question 11">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>24647,25499,27414,20162</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como o processo de quatro etapas do networking à entrevista equilibra a preparação com a autenticidade?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="24647">
+<material>
+<mattext texttype="text/plain">Você pesquisa o suficiente para fazer perguntas significativas, mantendo conexões genuínas construídas por meio de networking</mattext>
+</material>
+</response_label>
+<response_label ident="25499">
+<material>
+<mattext texttype="text/plain">A preparação substitui a necessidade de relacionamentos autênticos</mattext>
+</material>
+</response_label>
+<response_label ident="27414">
+<material>
+<mattext texttype="text/plain">A autenticidade elimina a necessidade de pesquisa</mattext>
+</material>
+</response_label>
+<response_label ident="20162">
+<material>
+<mattext texttype="text/plain">As etapas focam apenas em qualificações técnicas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25499</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25499_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">27414</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="27414_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20162</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20162_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">24647</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="25499_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo integra ambos os elementos. O texto enfatiza pesquisar a fundo para fazer perguntas significativas, ao mesmo tempo em que mantém conexões genuínas de networking.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="27414_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Tanto a preparação quanto a autenticidade importam. O texto indica que o processo equilibra uma pesquisa minuciosa com a manutenção de conexões genuínas provenientes do networking.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="20162_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo valoriza os relacionamentos e a preparação. O texto especifica o equilíbrio entre uma pesquisa minuciosa para perguntas significativas e a manutenção de conexões genuínas de networking.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ga24deda2ca30144cdaf5fcde9f06e154" title="Question 12">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>87025,45992,75519,18287</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que você deve preparar de 5 a 7 histórias STAR que demonstrem competências diferentes?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="87025">
+<material>
+<mattext texttype="text/plain">Múltiplas histórias demonstram capacidades variadas, permitindo que você selecione o exemplo mais relevante para cada pergunta de entrevista</mattext>
+</material>
+</response_label>
+<response_label ident="45992">
+<material>
+<mattext texttype="text/plain">Você deve contar todas as histórias em todas as entrevistas</mattext>
+</material>
+</response_label>
+<response_label ident="75519">
+<material>
+<mattext texttype="text/plain">Os entrevistadores exigem exatamente sete exemplos</mattext>
+</material>
+</response_label>
+<response_label ident="18287">
+<material>
+<mattext texttype="text/plain">Uma história não pode demonstrar nenhuma competência</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45992</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45992_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">75519</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="75519_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18287</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18287_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">87025</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="45992_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Você seleciona histórias relevantes para perguntas específicas. O texto indica que preparar múltiplas histórias permite demonstrar capacidades variadas e escolher os exemplos apropriados.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="75519_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A variedade oferece flexibilidade para diferentes situações. O texto especifica a preparação de 5 a 7 histórias para demonstrar diferentes competências e selecionar exemplos relevantes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="18287_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Múltiplas histórias mostram a gama de capacidades. O texto indica que preparar de 5 a 7 histórias permite que você demonstre diferentes competências e selecione exemplos relevantes para as perguntas. Múltiplas histórias mostram uma gama mais ampla de capacidades. O texto indica que preparar de 5 a 7 histórias permite que você demonstre diferentes competências e selecione os exemplos mais relevantes para cada pergunta.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge99993bbcd16dca32827d33d90cd9e64" title="Question 13">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>75094,7508,8476,87628</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que torna a linguagem profissional transformada de Maria mais eficaz do que sua descrição inicial?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="75094">
+<material>
+<mattext texttype="text/plain">Ela usa números específicos e terminologia profissional, mantendo uma conexão autêntica com o impacto comunitário de seu trabalho</mattext>
+</material>
+</response_label>
+<response_label ident="7508">
+<material>
+<mattext texttype="text/plain">Ela remove todos os elementos pessoais</mattext>
+</material>
+</response_label>
+<response_label ident="8476">
+<material>
+<mattext texttype="text/plain">Ela foca apenas em detalhes técnicos</mattext>
+</material>
+</response_label>
+<response_label ident="87628">
+<material>
+<mattext texttype="text/plain">Ela elimina completamente o contexto cultural</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7508</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7508_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8476</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8476_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87628</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87628_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">75094</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="7508_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A linguagem eficaz mantém a autenticidade. O texto mostra que a transformação de Maria usa números específicos e terminologia profissional, mantendo a conexão com o impacto na comunidade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="8476_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A transformação equilibra profissionalismo com significado. O texto indica o uso de números específicos e terminologia profissional, mantendo uma conexão autêntica com o impacto do trabalho.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="87628_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O contexto cultural continua sendo importante. O texto demonstra o uso de números específicos e terminologia profissional, mantendo uma conexão autêntica com o impacto na comunidade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g444d4f1e5615404fcdca827484210488" title="Question 14">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>45354,91031,32895,46458</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a Abordagem de Integração ajuda você a canalizar a energia nervosa de forma produtiva?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="45354">
+<material>
+<mattext texttype="text/plain">Ela combina uma preparação minuciosa com a paz espiritual para transformar a ansiedade em uma presença autêntica e confiante</mattext>
+</material>
+</response_label>
+<response_label ident="91031">
+<material>
+<mattext texttype="text/plain">Ela elimina todos os sentimentos de nervosismo</mattext>
+</material>
+</response_label>
+<response_label ident="32895">
+<material>
+<mattext texttype="text/plain">Ela se concentra apenas no controle de sintomas físicos</mattext>
+</material>
+</response_label>
+<response_label ident="46458">
+<material>
+<mattext texttype="text/plain">Ela exige evitar todas as situações estressantes</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">91031</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="91031_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32895</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32895_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">46458</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="46458_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">45354</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="91031_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A abordagem gerencia em vez de eliminar a ansiedade. O texto indica a combinação de uma preparação minuciosa com a paz espiritual para canalizar a energia nervosa em uma presença autêntica e confiante.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="32895_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A abordagem aborda múltiplas dimensões. O texto especifica a combinação de uma preparação minuciosa com a paz espiritual para transformar a ansiedade de forma produtiva.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="46458_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A abordagem ajuda você a enfrentar desafios. O texto indica a combinação da preparação com a paz espiritual para canalizar a energia nervosa em uma presença autêntica e confiante.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g71747fcfd89390cb4f7f3bb99d398009" title="Question 15">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>13200,62990,82785,6944</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual relação existe entre a adaptação cultural e a identidade autêntica em contextos de entrevista?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="13200">
+<material>
+<mattext texttype="text/plain">A adaptação ajusta a forma como você apresenta suas capacidades, enquanto seus valores e capacidades fundamentais permanecem constantes</mattext>
+</material>
+</response_label>
+<response_label ident="62990">
+<material>
+<mattext texttype="text/plain">A adaptação exige a alteração da sua identidade essencial</mattext>
+</material>
+</response_label>
+<response_label ident="82785">
+<material>
+<mattext texttype="text/plain">A identidade autêntica impede qualquer adaptação cultural</mattext>
+</material>
+</response_label>
+<response_label ident="6944">
+<material>
+<mattext texttype="text/plain">Eles são conceitos completamente separados</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">62990</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="62990_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">82785</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="82785_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">6944</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="6944_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">13200</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="62990_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A identidade essencial permanece constante durante a adaptação. O texto enfatiza que a adaptação ajusta os métodos de apresentação, enquanto os valores e capacidades essenciais permanecem constantes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="82785_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ambos os elementos trabalham juntos. O texto indica que a adaptação ajusta a forma como você apresenta suas capacidades, mantendo constantes os valores e capacidades essenciais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="6944_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Eles se integram a uma apresentação profissional. O texto especifica que a adaptação ajusta os métodos de apresentação, enquanto seus valores e capacidades essenciais permanecem constantes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g32ab2ac6aee5bea8dd2ccb5df201463b" title="Question 16">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>49319,56742,81574,7052</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que a análise de desempenho dentro de 24 horas se concentra especificamente na eficácia da adaptação cultural?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="49319">
+<material>
+<mattext texttype="text/plain">Esse prazo permite uma avaliação objetiva de quão bem você ajustou a comunicação enquanto mantinha a autenticidade</mattext>
+</material>
+</response_label>
+<response_label ident="56742">
+<material>
+<mattext texttype="text/plain">A adaptação cultural é o único elemento importante da entrevista</mattext>
+</material>
+</response_label>
+<response_label ident="81574">
+<material>
+<mattext texttype="text/plain">Os empregadores fornecem feedback sobre a adaptação cultural imediatamente</mattext>
+</material>
+</response_label>
+<response_label ident="7052">
+<material>
+<mattext texttype="text/plain">A adaptação cultural não pode ser avaliada posteriormente</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56742</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56742_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81574</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81574_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7052</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7052_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">49319</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="56742_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A análise de desempenho avalia múltiplos elementos. O texto indica que o prazo de 24 horas permite uma avaliação objetiva da eficácia da adaptação cultural juntamente com outros fatores de apresentação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="81574_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A análise de desempenho é a sua autoavaliação. O texto especifica que 24 horas permitem que você avalie objetivamente a eficácia da adaptação cultural e a manutenção da identidade autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="7052_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O tempo garante clareza ao avaliar múltiplos fatores. O texto enfatiza que 24 horas permitem a avaliação da eficácia da adaptação cultural juntamente com a qualidade da apresentação STAR.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g83c81ffa7a035722ec7a1a6dd206ec41" title="Question 17">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>2492,29386,29722,3129</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como os três níveis de desenvolvimento progressivo de habilidades evitam que os alunos se sintam sobrecarregados?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="2492">
+<material>
+<mattext texttype="text/plain">Cada nível domina capacidades essenciais antes de adicionar complexidade, construindo confiança por meio de uma progressão alcançável</mattext>
+</material>
+</response_label>
+<response_label ident="29386">
+<material>
+<mattext texttype="text/plain">Todos os níveis ensinam habilidades idênticas</mattext>
+</material>
+</response_label>
+<response_label ident="29722">
+<material>
+<mattext texttype="text/plain">Os níveis podem ser concluídos em qualquer ordem</mattext>
+</material>
+</response_label>
+<response_label ident="3129">
+<material>
+<mattext texttype="text/plain">Apenas o Nível 3 importa para o sucesso na entrevista</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">29386</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="29386_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">29722</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="29722_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">3129</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="3129_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">2492</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="29386_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Cada nível adiciona nova complexidade. O texto indica que os níveis se desenvolvem progressivamente, dominando capacidades essenciais antes de adicionar complexidade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="29722_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os níveis seguem uma sequência intencional. O texto enfatiza que cada nível domina as capacidades antes de adicionar complexidade para evitar a sobrecarga.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="3129_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Todos os níveis contribuem para o desenvolvimento. O texto especifica que cada nível domina capacidades essenciais antes de adicionar complexidade para construir a confiança progressivamente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc07b1b10808a63576d561ad06680a4f2" title="Question 18">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>84997,19998,78708,77297</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que faz com que o processo de avaliação pós-entrevista transforme experiências em oportunidades de desenvolvimento?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="84997">
+<material>
+<mattext texttype="text/plain">Ele separa o processamento emocional do aprendizado estratégico ao mesmo tempo em que cria planos de melhoria acionáveis</mattext>
+</material>
+</response_label>
+<response_label ident="19998">
+<material>
+<mattext texttype="text/plain">Foca apenas em aspectos negativos</mattext>
+</material>
+</response_label>
+<response_label ident="78708">
+<material>
+<mattext texttype="text/plain">Exige perfeição imediata</mattext>
+</material>
+</response_label>
+<response_label ident="77297">
+<material>
+<mattext texttype="text/plain">Elimina a necessidade de preparação futura</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19998</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19998_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78708</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78708_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">77297</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="77297_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">84997</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="19998_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A avaliação inclui pontos fortes e áreas de desenvolvimento. O texto indica que o processo separa o processamento emocional do aprendizado estratégico para criar planos de melhoria acionáveis.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="78708_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo apoia o crescimento contínuo. O texto enfatiza a separação do processamento emocional do aprendizado estratégico enquanto cria planos de melhoria acionáveis.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="77297_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A avaliação orienta o desenvolvimento contínuo. O texto especifica que separar o processamento emocional do aprendizado estratégico cria planos de melhoria acionáveis para o crescimento contínuo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7ce9faccdc38308a523fd170d0b65bcf" title="Question 19">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>29913,63326,98978,21169</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a Etapa 1 do processo de networking para a entrevista apoia as etapas posteriores?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="29913">
+<material>
+<mattext texttype="text/plain">Revisar e categorizar conexões fornece a base para pesquisas direcionadas e acompanhamento estratégico</mattext>
+</material>
+</response_label>
+<response_label ident="63326">
+<material>
+<mattext texttype="text/plain">A Etapa 1 não tem conexão com outras etapas</mattext>
+</material>
+</response_label>
+<response_label ident="98978">
+<material>
+<mattext texttype="text/plain">As etapas posteriores ignoram as informações da Etapa 1</mattext>
+</material>
+</response_label>
+<response_label ident="21169">
+<material>
+<mattext texttype="text/plain">A Etapa 1 foca apenas em habilidades técnicas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">63326</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="63326_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98978</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98978_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21169</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21169_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">29913</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="63326_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Cada etapa se baseia nas anteriores. O texto indica que revisar as conexões fornece a base para pesquisa e acompanhamento nas etapas posteriores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="98978_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo se desenvolve de forma metódica. O texto enfatiza que revisar as conexões fornece a base para pesquisas direcionadas e acompanhamento estratégico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21169_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Etapa 1 analisa relacionamentos e comunicação. O texto especifica que revisar as conexões fornece a base para pesquisas direcionadas e acompanhamento estratégico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g18e322fabd824e031216faea8de94330" title="Question 2">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>14877,48170,10755,13070</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que você deve concluir a análise de desempenho em até 24 horas após uma entrevista?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="14877">
+<material>
+<mattext texttype="text/plain">Você pode avaliar a adaptação cultural e a eficácia das histórias STAR enquanto os detalhes ainda estão claros</mattext>
+</material>
+</response_label>
+<response_label ident="48170">
+<material>
+<mattext texttype="text/plain">Os empregadores exigem feedback imediato</mattext>
+</material>
+</response_label>
+<response_label ident="10755">
+<material>
+<mattext texttype="text/plain">Você precisa enviar notas de agradecimento</mattext>
+</material>
+</response_label>
+<response_label ident="13070">
+<material>
+<mattext texttype="text/plain">Você deve agendar sua próxima entrevista</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">48170</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="48170_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">10755</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="10755_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">13070</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="13070_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">14877</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="48170_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A análise de desempenho é para o seu desenvolvimento, não uma exigência do empregador. O texto indica que o prazo de 24 horas permite uma avaliação objetiva da adaptação cultural e da qualidade da apresentação enquanto a memória está fresca.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="10755_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As notas de agradecimento são separadas da análise de desempenho. O texto especifica que as 24 horas permitem avaliar sua adaptação cultural e a eficácia da apresentação da história no formato STAR.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="13070_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A análise de desempenho concentra-se no aprendizado com a experiência. O texto enfatiza que as 24 horas oferecem tempo para avaliar a adaptação cultural e a qualidade da apresentação de forma objetiva.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g0664edd2cc351ec2e83c7ffe087680c3" title="Question 20">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>57933,88197,2870,58268</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que a preparação para entrevistas virtuais exige a consciência da comunicação intercultural além da configuração técnica?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="57933">
+<material>
+<mattext texttype="text/plain">A coordenação do fuso horário e os estilos de comunicação cultural afetam a forma como você apresenta as informações e mantém uma presença autêntica digitalmente</mattext>
+</material>
+</response_label>
+<response_label ident="88197">
+<material>
+<mattext texttype="text/plain">A configuração técnica é o único requisito da entrevista virtual</mattext>
+</material>
+</response_label>
+<response_label ident="2870">
+<material>
+<mattext texttype="text/plain">A consciência cultural só importa para entrevistas presenciais</mattext>
+</material>
+</response_label>
+<response_label ident="58268">
+<material>
+<mattext texttype="text/plain">Plataformas virtuais eliminam diferenças culturais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88197</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88197_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">2870</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="2870_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58268</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58268_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">57933</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="88197_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Entrevistas virtuais exigem competência cultural além de habilidades técnicas. O texto indica que a coordenação de fusos horários e os estilos de comunicação cultural afetam a apresentação digital e a presença autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="2870_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A competência cultural aplica-se a todos os formatos de entrevista. O texto especifica que a coordenação de fusos horários e os estilos de comunicação cultural afetam a apresentação virtual.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="58268_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A tecnologia não elimina as considerações culturais. O texto enfatiza que a coordenação de fusos horários e os estilos de comunicação cultural afetam a forma como você apresenta as informações digitalmente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6ed5a76f101a15ec44385bbd78aa8eae" title="Question 21">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>85792,20853,86310,16510</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a história STAR de Maria demonstra uma adaptação cultural eficaz?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="85792">
+<material>
+<mattext texttype="text/plain">Ela usa números específicos e terminologia profissional, mantendo a conexão com o impacto comunitário que é importante para ela</mattext>
+</material>
+</response_label>
+<response_label ident="20853">
+<material>
+<mattext texttype="text/plain">Ela remove todo o contexto cultural de sua resposta</mattext>
+</material>
+</response_label>
+<response_label ident="86310">
+<material>
+<mattext texttype="text/plain">Ela foca apenas em detalhes técnicos e logísticos</mattext>
+</material>
+</response_label>
+<response_label ident="16510">
+<material>
+<mattext texttype="text/plain">Ela elimina a menção a comunidades agrícolas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20853</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20853_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">86310</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="86310_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">16510</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="16510_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">85792</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="20853_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A adaptação eficaz mantém uma conexão autêntica. O texto mostra Maria usando números específicos e terminologia profissional, mantendo a conexão com o impacto comunitário.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="86310_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Sua resposta equilibra profissionalismo com significado. O texto indica o uso de números específicos e terminologia profissional, mantendo a conexão com o impacto na comunidade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="16510_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O contexto comunitário fortalece sua história. O texto demonstra o uso de números específicos e terminologia profissional, mantendo a conexão com o impacto na comunidade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g30e214ee37d7b277ef41a028fc503468" title="Question 22">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>67516,26944,14108,71005</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que a Estrutura de Preparação para Entrevistas integra cinco componentes em vez de focar em apenas uma área?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="67516">
+<material>
+<mattext texttype="text/plain">A preparação abrangente requer fundamento espiritual, pesquisa minuciosa, respostas preparadas, flexibilidade cultural e melhoria contínua</mattext>
+</material>
+</response_label>
+<response_label ident="26944">
+<material>
+<mattext texttype="text/plain">Um único componente fornece preparação completa</mattext>
+</material>
+</response_label>
+<response_label ident="14108">
+<material>
+<mattext texttype="text/plain">Os componentes funcionam de forma independente, sem conexão</mattext>
+</material>
+</response_label>
+<response_label ident="71005">
+<material>
+<mattext texttype="text/plain">Apenas a preparação espiritual importa para as entrevistas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">26944</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="26944_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14108</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14108_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">71005</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="71005_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">67516</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="26944_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A preparação eficaz requer múltiplos elementos. O texto indica que a preparação abrangente exige base espiritual, pesquisa, respostas preparadas, flexibilidade cultural e melhoria contínua.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="14108_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os componentes se complementam. O texto enfatiza que a preparação abrangente requer a integração de base espiritual, pesquisa, respostas preparadas, flexibilidade cultural e melhoria contínua.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="71005_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Todos os componentes contribuem para a preparação. O texto especifica que a preparação abrangente requer fundamento espiritual, pesquisa, respostas preparadas, flexibilidade cultural e melhoria contínua.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g4b0d5ab6754168977290012760375d49" title="Question 23">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>59395,87443,98191,79147</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que faz o processo de solução de Blessing demonstrar um desenvolvimento profissional eficaz?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="59395">
+<material>
+<mattext texttype="text/plain">Ela aprende a linguagem organizacional profissional ao mesmo tempo que preserva o compromisso de serviço autêntico que impulsiona seu trabalho</mattext>
+</material>
+</response_label>
+<response_label ident="87443">
+<material>
+<mattext texttype="text/plain">Ela abandona seu foco no serviço comunitário</mattext>
+</material>
+</response_label>
+<response_label ident="98191">
+<material>
+<mattext texttype="text/plain">Ela se concentra apenas na terminologia técnica</mattext>
+</material>
+</response_label>
+<response_label ident="79147">
+<material>
+<mattext texttype="text/plain">Ela elimina a conexão pessoal de sua apresentação</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87443</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87443_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98191</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98191_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">79147</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="79147_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">59395</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="87443_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Blessing mantém seu compromisso autêntico. O texto mostra que ela aprende a linguagem profissional enquanto preserva o compromisso de serviço autêntico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="98191_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Seu desenvolvimento equilibra linguagem com autenticidade. O texto indica o aprendizado da linguagem organizacional profissional enquanto preserva o compromisso de serviço autêntico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="79147_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A conexão pessoal fortalece sua apresentação. O texto demonstra o aprendizado da linguagem profissional ao mesmo tempo em que preserva o compromisso de serviço autêntico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb1557b91a8bae65e7604b9712b703309" title="Question 24">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>19671,16767,43101,49021</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a progressão em três estágios reconhece a relação entre autenticidade e adaptação?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="19671">
+<material>
+<mattext texttype="text/plain">A apresentação profissional autêntica deve ser estabelecida antes de se adicionar a complexidade da adaptação cultural</mattext>
+</material>
+</response_label>
+<response_label ident="16767">
+<material>
+<mattext texttype="text/plain">A adaptação deve preceder o desenvolvimento da identidade autêntica</mattext>
+</material>
+</response_label>
+<response_label ident="43101">
+<material>
+<mattext texttype="text/plain">A autenticidade e a adaptação se desenvolvem simultaneamente</mattext>
+</material>
+</response_label>
+<response_label ident="49021">
+<material>
+<mattext texttype="text/plain">A adaptação elimina a necessidade de autenticidade</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">16767</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="16767_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">43101</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="43101_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49021</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49021_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">19671</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="16767_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A base vem primeiro na progressão. O texto indica que a apresentação profissional autêntica deve ser estabelecida antes de se adicionar a complexidade da adaptação cultural.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="43101_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A progressão se constrói sequencialmente. O texto enfatiza que a apresentação profissional autêntica deve ser estabelecida antes de se adicionar a complexidade da adaptação cultural.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="49021_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ambos os elementos permanecem essenciais. O texto especifica que a apresentação profissional autêntica deve ser estabelecida antes de se adicionar a complexidade da adaptação cultural.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb38d7c5f00864653defbde6b339e955e" title="Question 25">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>55323,70045,81685,78531</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que a análise de desempenho avalia tanto a eficácia da adaptação cultural quanto a manutenção da identidade autêntica?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="55323">
+<material>
+<mattext texttype="text/plain">O sucesso requer o ajuste dos métodos de apresentação, garantindo ao mesmo tempo que os valores fundamentais e a identidade permaneçam constantes ao longo da adaptação</mattext>
+</material>
+</response_label>
+<response_label ident="70045">
+<material>
+<mattext texttype="text/plain">Apenas a adaptação cultural importa para o sucesso na entrevista</mattext>
+</material>
+</response_label>
+<response_label ident="81685">
+<material>
+<mattext texttype="text/plain">A identidade autêntica deve mudar para cada entrevista</mattext>
+</material>
+</response_label>
+<response_label ident="78531">
+<material>
+<mattext texttype="text/plain">Adaptação cultural e autenticidade não estão relacionadas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70045</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70045_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81685</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81685_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78531</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78531_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">55323</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="70045_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ambos os elementos contribuem para uma apresentação eficaz. O texto indica avaliar tanto a eficácia da adaptação cultural quanto a manutenção da identidade autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="81685_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A identidade essencial permanece constante. O texto enfatiza a avaliação tanto da eficácia da adaptação cultural quanto da manutenção da identidade autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="78531_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Eles se integram em uma apresentação profissional. O texto especifica avaliar tanto a eficácia da adaptação cultural quanto a manutenção da identidade autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gee77132f20c689ba69e12a11bf986b0c" title="Question 26">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>72652,28238,5806,97402</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como o desafio de Sarah ilustra considerações exclusivas de entrevistas virtuais?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="72652">
+<material>
+<mattext texttype="text/plain">Entrevistas virtuais em diferentes fusos horários exigem gerenciar limitações técnicas ao mesmo tempo em que se demonstram capacidades que as organizações internacionais valorizam</mattext>
+</material>
+</response_label>
+<response_label ident="28238">
+<material>
+<mattext texttype="text/plain">Entrevistas virtuais eliminam todos os desafios</mattext>
+</material>
+</response_label>
+<response_label ident="5806">
+<material>
+<mattext texttype="text/plain">A localização não tem impacto em entrevistas virtuais</mattext>
+</material>
+</response_label>
+<response_label ident="97402">
+<material>
+<mattext texttype="text/plain">Fusos horários não afetam o desempenho na entrevista</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">28238</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="28238_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">5806</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="5806_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">97402</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="97402_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">72652</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="28238_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os formatos virtuais criam desafios específicos. O texto mostra que entrevistas virtuais em diferentes fusos horários exigem o gerenciamento de limitações técnicas ao mesmo tempo em que demonstram capacidades valorizadas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="5806_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A localização rural afeta a conectividade. O texto indica que entrevistas virtuais exigem gerenciar limitações técnicas ao mesmo tempo em que demonstram capacidades que as organizações valorizam.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="97402_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As diferenças de fuso horário criam desafios adicionais. O texto mostra que entrevistas virtuais em diferentes fusos horários exigem gerenciar limitações técnicas ao mesmo tempo em que demonstram capacidades valorizadas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1f2ebb0b0dfb7cbbb61d68c7b2967f48" title="Question 27">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>89208,45488,26331,45823</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Que relação existe entre as quatro etapas de networking para a entrevista e a manutenção de uma identidade profissional autêntica?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="89208">
+<material>
+<mattext texttype="text/plain">Cada etapa pesquisa o contexto organizacional ao mesmo tempo em que preserva conexões genuínas e a apresentação autêntica de capacidades</mattext>
+</material>
+</response_label>
+<response_label ident="45488">
+<material>
+<mattext texttype="text/plain">As etapas exigem o abandono da identidade autêntica</mattext>
+</material>
+</response_label>
+<response_label ident="26331">
+<material>
+<mattext texttype="text/plain">Apenas a Etapa 4 considera a identidade autêntica</mattext>
+</material>
+</response_label>
+<response_label ident="45823">
+<material>
+<mattext texttype="text/plain">A pesquisa elimina a necessidade de autenticidade</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45488</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45488_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">26331</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="26331_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45823</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45823_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">89208</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="45488_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo mantém a autenticidade do início ao fim. O texto indica que cada etapa pesquisa o contexto organizacional ao mesmo tempo em que preserva conexões genuínas e a apresentação autêntica de capacidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="26331_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Todas as etapas integram a autenticidade. O texto enfatiza que cada etapa pesquisa o contexto organizacional ao mesmo tempo em que preserva conexões genuínas e a apresentação autêntica de capacidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="45823_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ambos os elementos trabalham juntos. O texto especifica que cada etapa pesquisa o contexto organizacional ao mesmo tempo em que preserva conexões genuínas e a apresentação autêntica de capacidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g99192ddf0e2cd93756b620910a416dde" title="Question 28">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>81090,20168,75766,21800</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que o Nível 2 do desenvolvimento progressivo de habilidades se concentra especificamente no desenvolvimento da linguagem profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="81090">
+<material>
+<mattext texttype="text/plain">A terminologia profissional permite que o público reconheça suas capacidades enquanto você mantém a confiança na estrutura STAR básica</mattext>
+</material>
+</response_label>
+<response_label ident="20168">
+<material>
+<mattext texttype="text/plain">A linguagem profissional substitui a narrativa autêntica</mattext>
+</material>
+</response_label>
+<response_label ident="75766">
+<material>
+<mattext texttype="text/plain">A estrutura básica torna-se irrelevante no Nível 2</mattext>
+</material>
+</response_label>
+<response_label ident="21800">
+<material>
+<mattext texttype="text/plain">Apenas o vocabulário importa para o sucesso na entrevista</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20168</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20168_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">75766</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="75766_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21800</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21800_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">81090</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="20168_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A linguagem aprimora, em vez de substituir, a autenticidade. O texto indica que a terminologia profissional permite o reconhecimento de capacidades ao mesmo tempo em que mantém a confiança na estrutura STAR.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="75766_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A estrutura continua sendo fundamental. O texto enfatiza que a terminologia profissional permite o reconhecimento de capacidades enquanto você mantém a confiança na estrutura STAR básica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21800_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Múltiplos elementos contribuem para a eficácia. O texto especifica que a terminologia profissional permite o reconhecimento de capacidades ao mesmo tempo em que mantém a confiança na estrutura STAR.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7d8299d09f8c8cc36d2868efd1897e3e" title="Question 29">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>89095,84728,78028,3970</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como o crescimento do personagem de Emmanuel demonstra a integração de valores culturais com a apresentação profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="89095">
+<material>
+<mattext texttype="text/plain">Ele desenvolve estratégias de entrevista que destacam capacidades técnicas enquanto honra os valores culturais ganeses de respeito e humildade</mattext>
+</material>
+</response_label>
+<response_label ident="84728">
+<material>
+<mattext texttype="text/plain">Ele abandona os valores culturais em prol do sucesso profissional</mattext>
+</material>
+</response_label>
+<response_label ident="78028">
+<material>
+<mattext texttype="text/plain">Ele se concentra apenas nas habilidades técnicas, sem consideração cultural</mattext>
+</material>
+</response_label>
+<response_label ident="3970">
+<material>
+<mattext texttype="text/plain">Os valores culturais impedem ou dificultam a apresentação profissional</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">84728</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="84728_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78028</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78028_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">3970</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="3970_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">89095</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="84728_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Emmanuel mantém sua base cultural. O texto mostra o desenvolvimento de estratégias de entrevista que destacam capacidades, ao mesmo tempo em que honram os valores culturais ganeses.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="78028_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A integração cultural fortalece sua apresentação. O texto indica o desenvolvimento de estratégias que destacam capacidades, ao mesmo tempo em que honram os valores culturais ganeses de respeito e humildade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="3970_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os valores aprimoram sua abordagem. O texto demonstra o desenvolvimento de estratégias que destacam capacidades, ao mesmo tempo em que honram os valores culturais ganeses de respeito e humildade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g2580e77145df72c3e9a668b3d64c114d" title="Question 3">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>66084,88583,67839,43913</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a preparação espiritual apoia as habilidades práticas de entrevista?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="66084">
+<material>
+<mattext texttype="text/plain">A oração proporciona paz, enquanto uma preparação minuciosa demonstra competência, gerando confiança a partir de ambas as fontes</mattext>
+</material>
+</response_label>
+<response_label ident="88583">
+<material>
+<mattext texttype="text/plain">A preparação espiritual substitui a necessidade de preparação prática</mattext>
+</material>
+</response_label>
+<response_label ident="67839">
+<material>
+<mattext texttype="text/plain">A oração garante o sucesso na entrevista, independentemente da preparação</mattext>
+</material>
+</response_label>
+<response_label ident="43913">
+<material>
+<mattext texttype="text/plain">As práticas espirituais eliminam completamente a ansiedade da entrevista</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88583</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88583_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67839</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67839_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">43913</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="43913_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">66084</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="88583_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A preparação espiritual e prática funcionam juntas, não como substitutas. O texto enfatiza que a oração proporciona paz, enquanto a preparação minuciosa demonstra competência, combinando ambas para obter confiança.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67839_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto apresenta a preparação espiritual e prática como complementares. A oração proporciona paz e orientação, enquanto a preparação demonstra competência profissional.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="43913_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A preparação espiritual ajuda a gerenciar a ansiedade em vez de eliminá-la. O texto indica que a oração proporciona paz, enquanto a preparação prática constrói competência, criando confiança a partir de ambas as fontes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6aa01d1e8148214c3723c6a3b6461e23" title="Question 30">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>39305,45468,7091,88093</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que faz com que a Abordagem de Integração para o gerenciamento da ansiedade reconheça o nervosismo em entrevistas como normal, em vez de problemático?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="39305">
+<material>
+<mattext texttype="text/plain">A abordagem canaliza a energia nervosa de forma produtiva por meio da preparação e da paz espiritual, em vez de tentar eliminar a ansiedade por completo</mattext>
+</material>
+</response_label>
+<response_label ident="45468">
+<material>
+<mattext texttype="text/plain">A ansiedade deve ser completamente eliminada</mattext>
+</material>
+</response_label>
+<response_label ident="7091">
+<material>
+<mattext texttype="text/plain">O nervosismo indica preparação inadequada</mattext>
+</material>
+</response_label>
+<response_label ident="88093">
+<material>
+<mattext texttype="text/plain">Apenas pessoas despreparadas sentem ansiedade</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45468</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45468_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7091</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7091_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88093</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88093_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">39305</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="45468_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A abordagem gerencia a ansiedade em vez de eliminá-la. O texto indica a canalização da energia nervosa de forma produtiva por meio da preparação e da paz espiritual.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="7091_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A ansiedade é normal, mesmo com preparação. O texto enfatiza canalizar a energia nervosa de forma produtiva, em vez de tentar eliminar a ansiedade por completo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="88093_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Mesmo profissionais de sucesso sentem nervosismo. O texto especifica canalizar a energia nervosa de forma produtiva por meio da preparação e da paz espiritual.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g5a1be9968269f5f57890c2baf66d6a55" title="Question 31">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>75461,87564,35314,350</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a alocação de tempo nas histórias STAR reflete a importância de diferentes componentes?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="75461">
+<material>
+<mattext texttype="text/plain">A Ação recebe a maior parte do tempo porque detalhar etapas específicas demonstra sua contribuição real e abordagem de resolução de problemas</mattext>
+</material>
+</response_label>
+<response_label ident="87564">
+<material>
+<mattext texttype="text/plain">Todos os componentes recebem o mesmo tempo</mattext>
+</material>
+</response_label>
+<response_label ident="35314">
+<material>
+<mattext texttype="text/plain">A Situação recebe a maior parte do tempo para o contexto</mattext>
+</material>
+</response_label>
+<response_label ident="350">
+<material>
+<mattext texttype="text/plain">O Resultado recebe a maior parte do tempo para o impacto</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87564</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87564_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35314</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35314_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">350</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="350_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">75461</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="87564_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os componentes têm uma alocação de tempo estratégica. O texto indica que a Ação recebe a maior parte do tempo (30 a 45 segundos) porque detalhar etapas específicas demonstra sua contribuição.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="35314_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A definição do contexto exige menos tempo do que o detalhamento da ação. O texto especifica que a Ação recebe a maior parte do tempo para detalhar etapas específicas que demonstram sua contribuição.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="350_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Embora os resultados importem, as ações exigem mais detalhes. O texto indica que a Ação recebe a maior parte do tempo para detalhar etapas específicas que demonstram sua contribuição e abordagem de resolução de problemas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g2a0a927281f56b05ebef8c38ae7eea4c" title="Question 32">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>47905,32939,47373,2641</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que o processo de quatro etapas de networking para entrevista ajuda você a acompanhar múltiplas oportunidades simultaneamente?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="47905">
+<material>
+<mattext texttype="text/plain">A abordagem sistemática organiza os detalhes dos relacionamentos e a pesquisa organizacional para que você mantenha o foco nas conexões individuais enquanto gerencia vários prospectos</mattext>
+</material>
+</response_label>
+<response_label ident="32939">
+<material>
+<mattext texttype="text/plain">O processo ignora detalhes de relacionamentos individuais</mattext>
+</material>
+</response_label>
+<response_label ident="47373">
+<material>
+<mattext texttype="text/plain">Você deve buscar apenas uma oportunidade por vez</mattext>
+</material>
+</response_label>
+<response_label ident="2641">
+<material>
+<mattext texttype="text/plain">O acompanhamento elimina a necessidade de relacionamentos autênticos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32939</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32939_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47373</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47373_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">2641</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="2641_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">47905</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="32939_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo valoriza relacionamentos individuais. O texto indica que a abordagem sistemática organiza os detalhes dos relacionamentos e a pesquisa organizacional para manter o foco nas conexões individuais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="47373_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo apoia múltiplas buscas. O texto enfatiza a organização dos detalhes dos relacionamentos e da pesquisa para manter o foco em conexões individuais enquanto gerencia vários prospectos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="2641_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O acompanhamento apoia em vez de substituir relacionamentos. O texto especifica a organização dos detalhes dos relacionamentos e da pesquisa para manter o foco em conexões individuais enquanto gerencia prospectos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g157e687f2ec6030aa25544599eb419e3" title="Question 33">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>85820,68471,65835,16007</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que faz com que o desenvolvimento de Sarah demonstre a transformação de desafios em pontos fortes profissionais?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="85820">
+<material>
+<mattext texttype="text/plain">Ela transforma desafios anteriores de liderança em uma demonstração de autenticidade na entrevista, ao mesmo tempo em que destaca o sucesso comprovado na organização comunitária</mattext>
+</material>
+</response_label>
+<response_label ident="68471">
+<material>
+<mattext texttype="text/plain">Ela esconde todos os desafios anteriores</mattext>
+</material>
+</response_label>
+<response_label ident="65835">
+<material>
+<mattext texttype="text/plain">Ela se concentra apenas em qualificações técnicas</mattext>
+</material>
+</response_label>
+<response_label ident="16007">
+<material>
+<mattext texttype="text/plain">Ela abandona o foco no serviço comunitário</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68471</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68471_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65835</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65835_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">16007</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="16007_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">85820</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="68471_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Sarah usa desafios para demonstrar crescimento. O texto mostra a transformação de desafios de liderança anteriores em demonstração de autenticidade na entrevista, ao mesmo tempo em que destaca o sucesso na organização.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="65835_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Seu desenvolvimento enfatiza a liderança autêntica. O texto indica a transformação de desafios de liderança anteriores em demonstração de autenticidade, ao mesmo tempo em que destaca o sucesso na organização comunitária.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="16007_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A organização comunitária continua sendo central. O texto demonstra a transformação de desafios de liderança anteriores em demonstração de autenticidade, ao mesmo tempo em que destaca o sucesso comprovado na organização comunitária.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gfab3bb40e97df3180fd87b31d6b326a6" title="Question 34">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>79725,90984,13870,44057</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a preparação física apoia a clareza mental durante as entrevistas?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="79725">
+<material>
+<mattext texttype="text/plain">O sono adequado e a chegada antecipada fornecem energia e tempo de adaptação que possibilitam o pensamento claro e uma apresentação confiante</mattext>
+</material>
+</response_label>
+<response_label ident="90984">
+<material>
+<mattext texttype="text/plain">A preparação física não tem impacto mental</mattext>
+</material>
+</response_label>
+<response_label ident="13870">
+<material>
+<mattext texttype="text/plain">Apenas a prática mental importa para entrevistas</mattext>
+</material>
+</response_label>
+<response_label ident="44057">
+<material>
+<mattext texttype="text/plain">Chegar exatamente no horário cria condições ideais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">90984</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="90984_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">13870</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="13870_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">44057</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="44057_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">79725</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="90984_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os estados físico e mental estão conectados. O texto indica que o sono adequado e a chegada antecipada proporcionam energia e tempo de ajuste, permitindo um pensamento claro.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="13870_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A preparação física apoia o desempenho mental. O texto enfatiza que o sono adequado e a chegada antecipada proporcionam energia e tempo de ajuste, permitindo um pensamento claro e uma apresentação confiante.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="44057_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A chegada antecipada permite o ajuste ao ambiente. O texto especifica que o sono adequado e a chegada antecipada proporcionam energia e tempo de ajuste, permitindo um pensamento claro e uma apresentação confiante.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g415d196342ab15fdd9c355690a95738c" title="Question 35">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>61634,13063,59633,69908</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que o Framework de Prontidão para Entrevistas posiciona a preparação espiritual como o Componente 1?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="61634">
+<material>
+<mattext texttype="text/plain">A preparação espiritual proporciona a paz e a confiança fundamentais que apoiam todos os outros componentes de preparação para entrevistas</mattext>
+</material>
+</response_label>
+<response_label ident="13063">
+<material>
+<mattext texttype="text/plain">A preparação espiritual é a menos importante</mattext>
+</material>
+</response_label>
+<response_label ident="59633">
+<material>
+<mattext texttype="text/plain">Apenas as habilidades técnicas importam para as entrevistas</mattext>
+</material>
+</response_label>
+<response_label ident="69908">
+<material>
+<mattext texttype="text/plain">As preparações espiritual e prática não estão relacionadas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">13063</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="13063_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59633</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59633_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">69908</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="69908_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">61634</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="13063_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O posicionamento como Componente 1 indica importância fundamental. O texto enfatiza que a preparação espiritual proporciona a paz e a confiança fundamentais que apoiam todos os outros componentes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="59633_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">The framework integrates multiple elements. The text indicates spiritual preparation provides foundational peace and confidence that supports all other components.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="69908_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">They integrate for comprehensive readiness. The text specifies spiritual preparation provides foundational peace and confidence supporting all other interview preparation components.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7a29a676bdacf9e4dac1d5c403148da3" title="Question 36">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>71968,44778,64794,59236</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;How does the language transformation example reveal the difference between weak and professional communication?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="71968">
+<material>
+<mattext texttype="text/plain">Professional language uses specific terminology and confident framing while weak language includes hedging words and vague descriptions</mattext>
+</material>
+</response_label>
+<response_label ident="44778">
+<material>
+<mattext texttype="text/plain">Professional language is always longer</mattext>
+</material>
+</response_label>
+<response_label ident="64794">
+<material>
+<mattext texttype="text/plain">Weak language provides more detail</mattext>
+</material>
+</response_label>
+<response_label ident="59236">
+<material>
+<mattext texttype="text/plain">Both approaches communicate equally well</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">44778</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="44778_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">64794</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="64794_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59236</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59236_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">71968</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="44778_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Length does not determine professionalism. The text shows professional language uses specific terminology and confident framing versus hedging words and vague descriptions.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="64794_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Professional language offers clearer specificity. The text indicates professional language uses specific terminology and confident framing while weak language includes hedging words.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="59236_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Professional language creates stronger impact. The text demonstrates professional language uses specific terminology and confident framing versus weak language with hedging words and vague descriptions.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g60894657c13eb2b0ccc8f28da0e8dd70" title="Question 37">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>84716,74217,29721,72929</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual relação existe entre o desenvolvimento da confiança em três estágios e a progressão do curso de quatro semanas?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="84716">
+<material>
+<mattext texttype="text/plain">O Estágio 1 baseia-se na identidade da Semana 1, o Estágio 2 integra as habilidades e o networking das Semanas 2-3, e o Estágio 3 demonstra a integração abrangente das Semanas 1-4</mattext>
+</material>
+</response_label>
+<response_label ident="74217">
+<material>
+<mattext texttype="text/plain">Os estágios ignoram o conteúdo anterior do curso</mattext>
+</material>
+</response_label>
+<response_label ident="29721">
+<material>
+<mattext texttype="text/plain">Apenas o Estágio 3 se conecta ao conteúdo do curso</mattext>
+</material>
+</response_label>
+<response_label ident="72929">
+<material>
+<mattext texttype="text/plain">A progressão do curso e o desenvolvimento da confiança são separados</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74217</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74217_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">29721</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="29721_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">72929</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="72929_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">84716</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="74217_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os estágios baseiam-se diretamente na progressão do curso. O texto indica que o Estágio 1 se baseia na identidade da Semana 1, o Estágio 2 integra o desenvolvimento das Semanas 2-3 e o Estágio 3 demonstra uma integração abrangente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="29721_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Todos os estágios integram o aprendizado do curso. O texto enfatiza que o Estágio 1 se baseia na Semana 1, o Estágio 2 integra as Semanas 2-3 e o Estágio 3 demonstra a integração das Semanas 1-4.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="72929_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Eles se integram ao longo do desenvolvimento. O texto especifica que o Estágio 1 se baseia na identidade da Semana 1, o Estágio 2 integra o desenvolvimento das Semanas 2-3 e o Estágio 3 demonstra uma integração abrangente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g729cfdd98b9aba049212b927ebdad084" title="Question 38">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>79884,15812,31365,54008</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a avaliação após diferentes tipos de entrevista demonstra a importância da avaliação específica do contexto?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="79884">
+<material>
+<mattext texttype="text/plain">Cada contexto organizacional exige a avaliação de diferentes elementos de comunicação porque os ambientes corporativo, sem fins lucrativos e internacional valorizam abordagens de apresentação distintas</mattext>
+</material>
+</response_label>
+<response_label ident="15812">
+<material>
+<mattext texttype="text/plain">Todas as entrevistas devem ser avaliadas de forma idêntica</mattext>
+</material>
+</response_label>
+<response_label ident="31365">
+<material>
+<mattext texttype="text/plain">Apenas a competência técnica importa em todos os contextos</mattext>
+</material>
+</response_label>
+<response_label ident="54008">
+<material>
+<mattext texttype="text/plain">Os critérios de avaliação nunca mudam</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">15812</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="15812_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">31365</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="31365_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">54008</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="54008_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">79884</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="15812_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Contextos diferentes exigem critérios de avaliação diferentes. O texto indica que cada contexto organizacional exige a avaliação de diferentes elementos de comunicação com base no que cada ambiente valoriza.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="31365_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O contexto molda as prioridades de avaliação. O texto enfatiza que cada contexto organizacional exige a avaliação de diferentes elementos de comunicação porque os ambientes valorizam abordagens distintas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="54008_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O contexto determina os fatores de avaliação relevantes. O texto especifica que cada contexto organizacional exige a avaliação de diferentes elementos de comunicação porque os ambientes valorizam abordagens de apresentação distintas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1e5f28c4df5c0e77520edc907436832c" title="Question 39">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>274,39111,34940,18479</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que o método STAR aprimorado conecta exemplos à progressão do curso das Semanas 1 a 3?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="274">
+<material>
+<mattext texttype="text/plain">Conectar-se à progressão do curso demonstra como sua identidade autêntica, habilidades desenvolvidas e relacionamentos de networking se integram em exemplos profissionais convincentes</mattext>
+</material>
+</response_label>
+<response_label ident="39111">
+<material>
+<mattext texttype="text/plain">A progressão do curso é irrelevante para as histórias do STAR</mattext>
+</material>
+</response_label>
+<response_label ident="34940">
+<material>
+<mattext texttype="text/plain">Apenas as experiências atuais importam para os exemplos</mattext>
+</material>
+</response_label>
+<response_label ident="18479">
+<material>
+<mattext texttype="text/plain">Histórias STAR devem ignorar o aprendizado anterior</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39111</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39111_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">34940</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="34940_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18479</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18479_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">274</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="39111_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Elementos do curso fortalecem os exemplos STAR. O texto indica que conectar-se à progressão do curso demonstra como identidade, habilidades e networking se integram em exemplos convincentes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="34940_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O desenvolvimento do curso fornece ricas fontes de exemplos. O texto enfatiza que conectar-se à progressão demonstra como identidade, habilidades e networking se integram em exemplos profissionais convincentes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="18479_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A integração cria exemplos mais poderosos. O texto especifica que conectar-se à progressão do curso demonstra como identidade, habilidades e networking se integram em exemplos profissionais convincentes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g088797a50520e893336f1cc2785f801f" title="Question 4">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9289,14426,73426,92995</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que torna a Abordagem de Integração para a ansiedade em entrevistas diferente de outros métodos?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9289">
+<material>
+<mattext texttype="text/plain">Ela combina técnicas de preparação prática com práticas espirituais em vez de usar apenas uma abordagem</mattext>
+</material>
+</response_label>
+<response_label ident="14426">
+<material>
+<mattext texttype="text/plain">Foca apenas em exercícios de respiração</mattext>
+</material>
+</response_label>
+<response_label ident="73426">
+<material>
+<mattext texttype="text/plain">Elimina toda a ansiedade antes das entrevistas</mattext>
+</material>
+</response_label>
+<response_label ident="92995">
+<material>
+<mattext texttype="text/plain">Baseia-se apenas na preparação espiritual</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14426</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14426_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">73426</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="73426_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">92995</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="92995_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9289</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="14426_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Abordagem de Integração abrange mais do que técnicas de respiração. O texto enfatiza a combinação de preparação prática com práticas espirituais para um gerenciamento abrangente da ansiedade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="73426_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A abordagem gerencia a ansiedade em vez de eliminá-la. O texto indica que a integração ajuda a canalizar a energia nervosa de forma produtiva, mantendo uma presença profissional autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="92995_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Abordagem de Integração combina ambos os elementos. O texto especifica que ela reconhece que a confiança na entrevista surge da interseção entre uma preparação prática minuciosa e a paz espiritual.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc891112d5e310064797f41423273a906" title="Question 40">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>58836,32479,23093,58862</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como o processo de avaliação pós-entrevista equilibra o processamento emocional com o aprendizado estratégico?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="58836">
+<material>
+<mattext texttype="text/plain">O cronograma de três etapas permite a captura emocional imediata, depois a análise objetiva e, em seguida, o planejamento estratégico após a diminuição da intensidade emocional</mattext>
+</material>
+</response_label>
+<response_label ident="32479">
+<material>
+<mattext texttype="text/plain">As emoções devem ser completamente ignoradas</mattext>
+</material>
+</response_label>
+<response_label ident="23093">
+<material>
+<mattext texttype="text/plain">Apenas as reações emocionais importam para o aprendizado</mattext>
+</material>
+</response_label>
+<response_label ident="58862">
+<material>
+<mattext texttype="text/plain">A avaliação deve ocorrer meses após as entrevistas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32479</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32479_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">23093</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="23093_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58862</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58862_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">58836</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="32479_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As emoções fornecem insights valiosos quando processadas adequadamente. O texto indica que o cronograma permite a captura emocional imediata, depois a análise objetiva e, em seguida, o planejamento estratégico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="23093_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A análise estratégica requer objetividade. O texto enfatiza que o cronograma permite a captura emocional imediata, depois a análise objetiva e, em seguida, o planejamento estratégico após a diminuição da intensidade emocional.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="58862_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma avaliação oportuna captura detalhes valiosos. O texto especifica que o cronograma permite a captura emocional imediata, depois a análise objetiva e, em seguida, o planejamento estratégico após a diminuição da intensidade emocional.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g50e16edd7c0a21e01833c55578e1b588" title="Question 41">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>94772,46909,24981,7112</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como o desafio inicial de Maria revela obstáculos comuns na tradução de experiências não tradicionais para uma linguagem profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="94772">
+<material>
+<mattext texttype="text/plain">Ela tem dificuldade para apresentar a coordenação agrícola usando terminologia formal porque considera seu papel na empresa familiar como menos valioso do que a experiência corporativa</mattext>
+</material>
+</response_label>
+<response_label ident="46909">
+<material>
+<mattext texttype="text/plain">Sua experiência carece de qualquer valor profissional</mattext>
+</material>
+</response_label>
+<response_label ident="24981">
+<material>
+<mattext texttype="text/plain">O trabalho agrícola não pode ser descrito de forma profissional</mattext>
+</material>
+</response_label>
+<response_label ident="7112">
+<material>
+<mattext texttype="text/plain">Apenas a experiência corporativa se traduz para entrevistas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">46909</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="46909_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24981</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24981_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7112</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7112_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">94772</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="46909_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Sua experiência demonstra capacidades profissionais significativas. O texto mostra que ela tem dificuldade em apresentar a coordenação usando terminologia formal porque subestima a experiência na empresa familiar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="24981_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Qualquer trabalho pode ser estruturado usando linguagem profissional. O texto indica que ela tem dificuldade porque considera os papéis na empresa familiar menos valiosos do que a experiência corporativa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="7112_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Experiências diversas demonstram capacidades valiosas. O texto mostra que ela tem dificuldade em apresentar a coordenação usando terminologia formal porque subestima os papéis na empresa familiar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb8ed7cca1cb761681e6658b7fb97716a" title="Question 42">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>47162,39843,20307,89713</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que a Estrutura de Preparação para Entrevistas enfatiza que cada componente se baseia nos outros?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="47162">
+<material>
+<mattext texttype="text/plain">A preparação espiritual proporciona paz para a pesquisa, a pesquisa fundamenta as respostas STAR, as respostas exigem adaptação cultural e a adaptação melhora por meio da avaliação</mattext>
+</material>
+</response_label>
+<response_label ident="39843">
+<material>
+<mattext texttype="text/plain">Os componentes funcionam de forma independente, sem conexão</mattext>
+</material>
+</response_label>
+<response_label ident="20307">
+<material>
+<mattext texttype="text/plain">Apenas o primeiro componente importa</mattext>
+</material>
+</response_label>
+<response_label ident="89713">
+<material>
+<mattext texttype="text/plain">Os componentes podem ser concluídos em qualquer sequência</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39843</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39843_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20307</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20307_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89713</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89713_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">47162</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="39843_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os componentes se integram para uma preparação abrangente. O texto indica que a preparação espiritual proporciona paz para a pesquisa, a pesquisa informa as respostas STAR, as respostas exigem adaptação e a adaptação melhora por meio da avaliação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="20307_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Todos os componentes contribuem para a preparação. O texto enfatiza que a preparação espiritual proporciona paz, a pesquisa informa as respostas, as respostas exigem adaptação e a adaptação melhora por meio da avaliação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="89713_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A construção sequencial gera eficácia. O texto especifica que a preparação espiritual proporciona paz para a pesquisa, a pesquisa informa as respostas, as respostas exigem adaptação e a adaptação melhora por meio da avaliação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd8f982d79ef1533ead850952fcd9c3a0" title="Question 43">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>81268,71752,29759,60761</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que faz com que a abordagem progressiva de desenvolvimento de habilidades reconheça a complexidade da apresentação profissional autêntica?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="81268">
+<material>
+<mattext texttype="text/plain">Ela reconhece que a apresentação da identidade autêntica deve ser estabelecida antes de adicionar camadas de linguagem profissional e adaptação cultural</mattext>
+</material>
+</response_label>
+<response_label ident="71752">
+<material>
+<mattext texttype="text/plain">Todas as habilidades podem ser dominadas simultaneamente</mattext>
+</material>
+</response_label>
+<response_label ident="29759">
+<material>
+<mattext texttype="text/plain">Apenas a adaptação cultural importa para o sucesso</mattext>
+</material>
+</response_label>
+<response_label ident="60761">
+<material>
+<mattext texttype="text/plain">A apresentação autêntica não exige desenvolvimento de habilidades</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">71752</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="71752_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">29759</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="29759_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">60761</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="60761_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">81268</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="71752_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A construção sequencial evita a sobrecarga. O texto indica que a apresentação de identidade autêntica deve ser estabelecida antes de adicionar camadas de linguagem profissional e adaptação cultural.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="29759_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Múltiplos elementos contribuem para a eficácia. O texto enfatiza que a apresentação de identidade autêntica deve ser estabelecida antes de adicionar camadas de linguagem profissional e adaptação cultural.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="60761_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O desenvolvimento se constrói por meio de uma progressão deliberada. O texto especifica que a apresentação de identidade autêntica deve ser estabelecida antes de adicionar camadas de linguagem profissional e adaptação cultural.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6c0384cd57d1bf53462ebd3d653af0b5" title="Question 44">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>58903,58786,68670,51141</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a progressão do exemplo do personagem, do desafio inicial ao avanço, demonstra um desenvolvimento profissional eficaz?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="58903">
+<material>
+<mattext texttype="text/plain">Os personagens aprendem a enquadrar capacidades autênticas usando terminologia profissional que ajuda públicos diversos a reconhecer seu valor sem perder a conexão pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="58786">
+<material>
+<mattext texttype="text/plain">Os personagens abandonam completamente suas origens</mattext>
+</material>
+</response_label>
+<response_label ident="68670">
+<material>
+<mattext texttype="text/plain">Apenas habilidades técnicas importam para o avanço</mattext>
+</material>
+</response_label>
+<response_label ident="51141">
+<material>
+<mattext texttype="text/plain">A conexão pessoal impede a apresentação profissional</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58786</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58786_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68670</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68670_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">51141</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="51141_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">58903</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="58786_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O desenvolvimento mantém uma base autêntica. O texto mostra os personagens aprendendo a enquadrar capacidades autênticas usando terminologia profissional sem perder a conexão pessoal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="68670_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O desenvolvimento profissional integra linguagem e autenticidade. O texto indica que os personagens aprendem a enquadrar capacidades usando terminologia profissional que ajuda o público a reconhecer o valor.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="51141_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A conexão fortalece, em vez de enfraquecer, a apresentação. O texto demonstra os personagens aprendendo a enquadrar capacidades autênticas usando terminologia profissional sem perder a conexão pessoal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gac87bb74dcd62916172332fa68c58e04" title="Question 45">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>55738,13658,77519,7762</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que a pesquisa organizacional do Passo 2 foca especificamente no estilo de comunicação e nos valores culturais?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="55738">
+<material>
+<mattext texttype="text/plain">Compreender como as organizações se comunicam e o que valorizam permite que você adapte os métodos de apresentação mantendo uma identidade autêntica</mattext>
+</material>
+</response_label>
+<response_label ident="13658">
+<material>
+<mattext texttype="text/plain">Apenas informações financeiras importam para a pesquisa</mattext>
+</material>
+</response_label>
+<response_label ident="77519">
+<material>
+<mattext texttype="text/plain">O estilo de comunicação é irrelevante para entrevistas</mattext>
+</material>
+</response_label>
+<response_label ident="7762">
+<material>
+<mattext texttype="text/plain">Todas as organizações se comunicam de forma idêntica</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">13658</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="13658_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">77519</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="77519_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7762</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7762_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">55738</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="13658_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A compreensão cultural permite uma adaptação eficaz. O texto indica que compreender o estilo de comunicação e os valores permite adaptar os métodos de apresentação mantendo uma identidade autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="77519_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A compreensão do estilo melhora a eficácia da apresentação. O texto enfatiza que compreender a comunicação e os valores permite adaptar os métodos de apresentação mantendo uma identidade autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="7762_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As organizações possuem culturas de comunicação distintas. O texto especifica que compreender o estilo de comunicação e os valores permite adaptar os métodos de apresentação mantendo uma identidade autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g09ea4c6cf6ba057383c242a7b8580a1f" title="Question 46">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>83879,92678,88690,53563</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a estrutura de tempo da reflexão imediata, análise de desempenho e planejamento de desenvolvimento otimiza o aprendizado a partir de experiências de entrevista?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="83879">
+<material>
+<mattext texttype="text/plain">Cronogramas progressivos permitem a captura emocional enquanto está recente, a análise objetiva após as emoções iniciais se acalmarem e o planejamento estratégico com perspectiva</mattext>
+</material>
+</response_label>
+<response_label ident="92678">
+<material>
+<mattext texttype="text/plain">Toda a avaliação deve ocorrer imediatamente</mattext>
+</material>
+</response_label>
+<response_label ident="88690">
+<material>
+<mattext texttype="text/plain">A avaliação deve esperar meses por perspectiva</mattext>
+</material>
+</response_label>
+<response_label ident="53563">
+<material>
+<mattext texttype="text/plain">Apenas uma etapa de avaliação é necessária</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">92678</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="92678_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88690</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88690_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53563</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53563_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">83879</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="92678_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O tempo separa o processamento emocional do estratégico. O texto indica que cronogramas progressivos permitem a captura emocional, análise objetiva após as emoções se acalmarem e planejamento estratégico com perspectiva.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="88690_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A avaliação oportuna captura detalhes valiosos. O texto enfatiza que cronogramas progressivos permitem a captura emocional enquanto fresca, análise objetiva e planejamento estratégico com a perspectiva apropriada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53563_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Três etapas servem a propósitos distintos. O texto especifica que cronogramas progressivos permitem a captura emocional, análise objetiva após as emoções se acalmarem e planejamento estratégico com perspectiva.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gfedc0e5a3378a23024d19a2541fd9ce9" title="Question 47">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>81973,37916,45208,99166</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Que relação existe entre os componentes da Abordagem de Integração de preparação prática e paz espiritual?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="81973">
+<material>
+<mattext texttype="text/plain">A preparação prática demonstra uma gestão competente, enquanto a paz espiritual proporciona uma confiança que transcende os resultados específicos da entrevista</mattext>
+</material>
+</response_label>
+<response_label ident="37916">
+<material>
+<mattext texttype="text/plain">A preparação prática substitui a preparação espiritual</mattext>
+</material>
+</response_label>
+<response_label ident="45208">
+<material>
+<mattext texttype="text/plain">Apenas a paz espiritual importa para a confiança</mattext>
+</material>
+</response_label>
+<response_label ident="99166">
+<material>
+<mattext texttype="text/plain">Eles abordam preocupações completamente separadas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">37916</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="37916_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45208</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45208_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99166</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99166_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">81973</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="37916_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ambos os elementos trabalham juntos. O texto indica que a preparação prática demonstra uma mordomia competente, enquanto a paz espiritual proporciona uma confiança que transcende os resultados.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="45208_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ambos os elementos contribuem para a confiança. O texto enfatiza que a preparação prática demonstra uma mordomia competente, enquanto a paz espiritual proporciona uma confiança que transcende resultados específicos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="99166_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Eles se integram para uma confiança abrangente. O texto especifica que a preparação prática demonstra uma mordomia competente, enquanto a paz espiritual proporciona uma confiança que transcende os resultados específicos da entrevista.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g015354da77b1c05ab7d79e268561b6af" title="Question 48">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>92498,97462,19521,57628</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como o processo de quatro etapas, do networking à entrevista, mantém o respeito tanto pelos contatos de networking quanto pelos potenciais empregadores?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="92498">
+<material>
+<mattext texttype="text/plain">A pesquisa minuciosa demonstra um interesse genuíno nas organizações, enquanto o acompanhamento estratégico honra o tempo dos contatos ao mostrar como você aplicou as orientações deles</mattext>
+</material>
+</response_label>
+<response_label ident="97462">
+<material>
+<mattext texttype="text/plain">O processo foca apenas nas suas necessidades</mattext>
+</material>
+</response_label>
+<response_label ident="19521">
+<material>
+<mattext texttype="text/plain">Contatos de networking e empregadores não têm relação</mattext>
+</material>
+</response_label>
+<response_label ident="57628">
+<material>
+<mattext texttype="text/plain">O respeito é desnecessário em contextos profissionais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">97462</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="97462_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19521</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19521_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">57628</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="57628_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">92498</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="97462_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo valoriza todos os relacionamentos. O texto indica que uma pesquisa detalhada demonstra interesse genuíno, enquanto o acompanhamento estratégico honra o tempo dos contatos ao mostrar a aplicação das orientações recebidas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="19521_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os contatos frequentemente conectam você a empregadores. O texto enfatiza que uma pesquisa detalhada demonstra interesse genuíno, enquanto o acompanhamento estratégico honra o tempo dos contatos ao mostrar a aplicação das orientações recebidas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="57628_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O respeito fortalece os relacionamentos profissionais. O texto especifica que uma pesquisa detalhada demonstra interesse genuíno, enquanto o acompanhamento estratégico honra o tempo dos contatos ao mostrar a aplicação das orientações recebidas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g825d3032d979924688458901fb9ecca7" title="Question 49">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>31694,77756,65151,99524</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que o método STAR aprimorado enfatiza a inclusão de resultados quantitativos e qualitativos no componente de Resultado?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="31694">
+<material>
+<mattext texttype="text/plain">Resultados quantitativos demonstram impacto mensurável, enquanto os resultados qualitativos mostram seu efeito sobre as pessoas e comunidades, criando uma demonstração de valor abrangente</mattext>
+</material>
+</response_label>
+<response_label ident="77756">
+<material>
+<mattext texttype="text/plain">Apenas números importam para os resultados</mattext>
+</material>
+</response_label>
+<response_label ident="65151">
+<material>
+<mattext texttype="text/plain">Resultados qualitativos carecem de qualquer valor</mattext>
+</material>
+</response_label>
+<response_label ident="99524">
+<material>
+<mattext texttype="text/plain">Os resultados devem se concentrar apenas nas conquistas pessoais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">77756</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="77756_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65151</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65151_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99524</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99524_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">31694</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="77756_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ambos os tipos de resultados demonstram valor. O texto indica que resultados quantitativos demonstram impacto mensurável, enquanto resultados qualitativos mostram o efeito sobre pessoas e comunidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="65151_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O impacto humano importa juntamente com as métricas. O texto enfatiza que resultados quantificados demonstram um impacto mensurável, enquanto os resultados qualitativos mostram o efeito sobre pessoas e comunidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="99524_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O impacto mais amplo fortalece as histórias. O texto especifica que resultados quantificados servem para demonstrar um impacto mensurável, enquanto os resultados qualitativos mostram o efeito sobre pessoas e comunidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6b70d9506a7cfe9369fc7a41b90e4799" title="Question 5">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>66880,14732,13633,53736</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como você deve adaptar a mesma história STAR para diferentes contextos organizacionais?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="66880">
+<material>
+<mattext texttype="text/plain">Apresente as mesmas capacidades usando diferentes exemplos, terminologia e ênfase, dependendo da cultura organizacional</mattext>
+</material>
+</response_label>
+<response_label ident="14732">
+<material>
+<mattext texttype="text/plain">Conte exatamente a mesma história em todas as entrevistas</mattext>
+</material>
+</response_label>
+<response_label ident="13633">
+<material>
+<mattext texttype="text/plain">Mude sua identidade essencial para cada organização</mattext>
+</material>
+</response_label>
+<response_label ident="53736">
+<material>
+<mattext texttype="text/plain">Remova todos os elementos pessoais das histórias</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14732</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14732_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">13633</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="13633_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53736</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53736_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">66880</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="14732_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A adaptação eficaz exige o ajuste da apresentação ao contexto. O texto indica que você deve apresentar as capacidades usando diferentes exemplos, terminologia e ênfase para diferentes culturas organizacionais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="13633_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A adaptação cultural mantém a identidade autêntica. O texto especifica a apresentação das mesmas capacidades usando terminologia e ênfase ajustadas, preservando sua identidade profissional autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53736_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A adaptação envolve o ajuste da apresentação, não a remoção da autenticidade. O texto enfatiza a apresentação de suas capacidades de maneira diferente, mantendo a identidade autêntica em todos os contextos organizacionais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7300d19ab4d0d9bd83f1ee08b0972074" title="Question 50">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>81144,87953,63846,78660</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a descoberta de Sarah demonstra o valor de reformular limitações percebidas como pontos fortes profissionais?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="81144">
+<material>
+<mattext texttype="text/plain">Ela reconhece que gerenciar programas de saúde com recursos limitados demonstra exatamente a gestão de programas e a adaptabilidade cultural de que as organizações internacionais precisam</mattext>
+</material>
+</response_label>
+<response_label ident="87953">
+<material>
+<mattext texttype="text/plain">Ela esconde suas limitações de recursos</mattext>
+</material>
+</response_label>
+<response_label ident="63846">
+<material>
+<mattext texttype="text/plain">Sua localização impede quaisquer oportunidades profissionais</mattext>
+</material>
+</response_label>
+<response_label ident="78660">
+<material>
+<mattext texttype="text/plain">Apenas experiências com recursos abundantes importam profissionalmente</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87953</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87953_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">63846</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="63846_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78660</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78660_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">81144</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="87953_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ela reformula limitações como capacidades demonstradas. O texto mostra que ela reconhece que gerenciar com recursos limitados demonstra a gestão de programas e a adaptabilidade cultural de que as organizações precisam.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="63846_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ela posiciona a experiência local como valiosa. O texto indica que ela reconhece que gerenciar com recursos limitados demonstra a gestão de programas e a adaptabilidade cultural de que as organizações precisam.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="78660_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Restrições de recursos demonstram resolução de problemas. O texto mostra que ela reconhece que gerenciar com recursos limitados demonstra exatamente a gestão de programas e a adaptabilidade cultural de que as organizações precisam.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge5b592b6330bbbe814955487f0a808ae" title="Question 6">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>66892,76574,34797,67924</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual relação existe entre as três etapas de avaliação pós-entrevista?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="66892">
+<material>
+<mattext texttype="text/plain">A reflexão imediata captura impressões, a análise identifica padrões e o planejamento de desenvolvimento cria melhorias acionáveis</mattext>
+</material>
+</response_label>
+<response_label ident="76574">
+<material>
+<mattext texttype="text/plain">Cada etapa repete as mesmas atividades</mattext>
+</material>
+</response_label>
+<response_label ident="34797">
+<material>
+<mattext texttype="text/plain">As etapas podem ser concluídas em qualquer ordem</mattext>
+</material>
+</response_label>
+<response_label ident="67924">
+<material>
+<mattext texttype="text/plain">Apenas a primeira etapa importa para a melhoria</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">76574</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="76574_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">34797</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="34797_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67924</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67924_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">66892</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="76574_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Cada etapa serve a um propósito distinto. O texto indica que a reflexão imediata captura impressões, a análise identifica padrões e o planejamento de desenvolvimento cria etapas de melhoria acionáveis.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="34797_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As etapas seguem uma sequência específica. O texto estabelece que a reflexão imediata leva à análise, que então informa o planejamento de desenvolvimento em ordem sequencial.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67924_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Todas as três etapas contribuem para o desenvolvimento. O texto enfatiza que a reflexão imediata, a análise e o planejamento de desenvolvimento trabalham juntos para transformar as experiências de entrevista em oportunidades de aprendizado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g507d0ac90f9f9e741c18f08e0f3fb5bc" title="Question 7">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>81571,30541,37244,731</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como a abordagem de construção de habilidades progressiva evita a sobrecarga ao desenvolver histórias STAR?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="81571">
+<material>
+<mattext texttype="text/plain">Começa com exemplos confortáveis e adiciona gradualmente linguagem profissional e complexidade de adaptação cultural</mattext>
+</material>
+</response_label>
+<response_label ident="30541">
+<material>
+<mattext texttype="text/plain">Requer dominar todas as habilidades simultaneamente</mattext>
+</material>
+</response_label>
+<response_label ident="37244">
+<material>
+<mattext texttype="text/plain">Elimina a necessidade de adaptação cultural</mattext>
+</material>
+</response_label>
+<response_label ident="731">
+<material>
+<mattext texttype="text/plain">Foca apenas no vocabulário técnico</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">30541</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="30541_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">37244</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="37244_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">731</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="731_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">81571</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="30541_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A construção progressiva evita essa abordagem esmagadora. O texto indica começar com exemplos confortáveis e aumentar gradualmente a complexidade por meio de três níveis distintos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="37244_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A construção progressiva inclui a adaptação cultural como uma etapa posterior de desenvolvimento. O texto descreve a adição da complexidade da adaptação cultural após dominar a estrutura básica e a linguagem profissional.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="731_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A construção progressiva abrange mais do que o vocabulário. O texto enfatiza começar com exemplos simples, depois adicionar a linguagem profissional e, finalmente, integrar a adaptação cultural.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd5224f9a8cfff318ddc7ecb201d47765" title="Question 8">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>76361,24319,73638,18829</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Por que o planejamento de desenvolvimento ocorre dentro de uma semana, em vez de imediatamente após as entrevistas?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="76361">
+<material>
+<mattext texttype="text/plain">Uma semana permite a separação do processamento emocional do aprendizado estratégico, mantendo um impulso prático</mattext>
+</material>
+</response_label>
+<response_label ident="24319">
+<material>
+<mattext texttype="text/plain">Você precisa de tempo para esquecer a experiência da entrevista</mattext>
+</material>
+</response_label>
+<response_label ident="73638">
+<material>
+<mattext texttype="text/plain">Os empregadores exigem uma semana para o feedback</mattext>
+</material>
+</response_label>
+<response_label ident="18829">
+<material>
+<mattext texttype="text/plain">O planejamento imediato é muito difícil</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24319</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24319_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">73638</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="73638_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18829</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18829_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">76361</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="24319_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O planejamento de desenvolvimento baseia-se na reflexão e análise prévias. O texto indica que uma semana permite a separação do processamento emocional do aprendizado estratégico, ao mesmo tempo em que cria planos de melhoria práticos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="73638_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O planejamento de desenvolvimento atende ao seu crescimento, não aos cronogramas do empregador. O texto especifica que o prazo de uma semana permite um aprendizado estratégico, mantendo o ímpeto para etapas práticas de melhoria.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="18829_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O momento adequado permite uma avaliação abrangente em vez da evasão de dificuldades. O texto enfatiza que o intervalo de uma semana separa as reações emocionais do aprendizado estratégico e do planejamento de desenvolvimento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g19167f3f0102779dd0e16a57bd08721d" title="Question 9">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>2288,95315,99143,95993</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual conexão existe entre o conteúdo do curso das semanas 1 a 3 e a preparação para entrevistas?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="2288">
+<material>
+<mattext texttype="text/plain">A identidade da Semana 1 fornece uma base autêntica, as habilidades da Semana 2 demonstram competência e o networking da Semana 3 cria oportunidades</mattext>
+</material>
+</response_label>
+<response_label ident="95315">
+<material>
+<mattext texttype="text/plain">As semanas anteriores não têm relevância para as entrevistas</mattext>
+</material>
+</response_label>
+<response_label ident="99143">
+<material>
+<mattext texttype="text/plain">Apenas o networking da Semana 3 importa para as entrevistas</mattext>
+</material>
+</response_label>
+<response_label ident="95993">
+<material>
+<mattext texttype="text/plain">A preparação para a entrevista começa do zero, sem o conteúdo anterior</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">95315</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="95315_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99143</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99143_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">95993</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="95993_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">2288</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="95315_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A progressão do curso constrói a preparação para entrevistas. O texto enfatiza que a identidade da Semana 1, as habilidades da Semana 2 e o networking da Semana 3 contribuem para uma preparação eficaz para entrevistas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="99143_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Todos os elementos do curso se integram para o sucesso na entrevista. O texto indica que a identidade autêntica da Semana 1, o desenvolvimento de habilidades da Semana 2 e as relações de networking da Semana 3 apoiam as apresentações em entrevistas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="95993_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A preparação para a entrevista baseia-se na progressão do curso. O texto especifica que a identidade da Semana 1, as habilidades da Semana 2 e o networking da Semana 3 se combinam para criar apresentações de entrevista atraentes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+</objectbank>
+</questestinterop>

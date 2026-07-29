@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fileMeta xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <folders>
+    <folder path="assessment_questions">
+      <hidden>true</hidden>
+    </folder>
+    <folder path="Uploaded Media">
+      <hidden>true</hidden>
+    </folder>
+    <folder path="Quiz Files">
+      <hidden>true</hidden>
+    </folder>
+    <folder path="Quiz Files/quiz+%2828%29_64322">
+      <hidden>true</hidden>
+    </folder>
+    <folder path="Quiz Files/quiz+%2829%29_64324">
+      <hidden>true</hidden>
+    </folder>
+    <folder path="Quiz Files/quiz+%2824%29_63729">
+      <hidden>true</hidden>
+    </folder>
+    <folder path="Quiz Files/quiz+%2825%29_63730">
+      <hidden>true</hidden>
+    </folder>
+    <folder path="Quiz Files/quiz+%2826%29_63751">
+      <hidden>true</hidden>
+    </folder>
+    <folder path="Quiz Files/quiz+%2827%29_63761">
+      <hidden>true</hidden>
+    </folder>
+  </folders>
+  <files>
+    <file identifier="g0c1ee7a42c8c4eac999c88dd25f70f83">
+      <display_name>gs170-S02-modelo-de-perfil-profissional-offline-1.pptx</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g4944104841cb2fe1dc5a9dcaa1d192c3">
+      <display_name>S01 Questionário: Ícone de Feedback do Programa do Curso.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g7bd63165197a1423a0c09445cc8d7ac4">
+      <display_name>S01 Questionário: Ícone de Rubrica do Programa do Curso.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g46b652f3926dd53635a46f816a95977c">
+      <display_name>S01 Questionário: Foto de Perfil do Programa do Curso.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g4bee4d20e1dc974516b60eea82d5d8ee">
+      <display_name>S01 Questionário: Notificações do Programa do Curso.JPG</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g69b0f24133079eaebd097eb429fcb69c">
+      <display_name>S01 Questionário: Relógio do Programa do Curso.PNG</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="ga3140d71b51520b26f84a2376231c11b">
+      <display_name>S01 Questionário: Bandeira Laranja do Programa do Curso.PNG</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g2cbb229d4c65eb26140e75dfff5113ad">
+      <display_name>S01 Questionário: Bandeira Amarela do Programa do Curso.PNG</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g4e5ef3c22b5f2bad52cc25a0c17763d7">
+      <display_name>S01 Questionário: Bandeira Verde do Programa do Curso.PNG</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gb6d2d972e714e98c490f7c73b0044dbb">
+      <display_name>S01 Questionário: Bandeira Azul do Programa do Curso.PNG</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g856adaf180ef82061a2de7a3c10c9328">
+      <display_name>S01 Questionário: Bandeira Vermelha do Programa do Curso.PNG</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g635b750f288538e5b58ccf5a447689f0">
+      <display_name>S01 Questionário: Bandeira Cinza do Programa do Curso.PNG</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g25ccfea8d29377aea1799e7384d82435">
+      <hidden>true</hidden>
+      <display_name>Botão de Ajuda do Programa do Curso.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g83805aa105a94dfa52a194bf6263d8d1">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gcf45af60476f1e7c70c42e2ea0e27d23">
+      <hidden>true</hidden>
+      <display_name>Lista de Contatos TN.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gecf8a3662fbf3e2f7dfd2efe4f2ae4f7">
+      <hidden>true</hidden>
+      <display_name>Exemplo de Rastreamento TN.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g3e65820941c3a05904ac16511db93d04">
+      <hidden>true</hidden>
+      <display_name>Computação Leve do Programa do Curso-1.svg</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g88a738fe0240bf868fca52e5f7363996">
+      <hidden>true</hidden>
+      <display_name>Minha Equipe de Sucesso TN.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g2af0218d3e0ffad556f5e72c2a7330b9">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g278435391661077b82d361f314fc2bf9">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gec803f0281ffd4dd42637d30d7e38e14">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g32d35e6c9f5a1f0a02726ba6b9ecdc7c">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gc02951445d5282e1d6be3681edc30a4b">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g0b8d2d6dcb189dc4dde926d8ead43871">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gbb7a5f7cd4219b967647527ea4442dfd">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gcc73f16307f71d8bbc606ed43259d741">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gbb9a4fa14c063664e545578ac1b1e5f0">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="ga5b3c394d9c4054447bb72ad8c0487b4">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g31106b3cbd59b03185320e64932d4708">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gb618809e8b5cd2eb3a476c24d4b82e43">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g05b8078c201c050b00abcba8802e69c9">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g9214473d6bb1e0488bc874d5a3142249">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g4b4021d69ae79fec2d1c7f573c53351b">
+      <hidden>true</hidden>
+      <display_name>BYUI_Ensign-1.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g4c72f3fe5e282917d55c9948644afc00">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g75cc566c6d01da1aa168c29b58cb816f">
+      <hidden>true</hidden>
+      <display_name>Cabeçalho do Estudante do Pathway.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="ge977e4a8ef91250f32008e832b3050c2">
+      <hidden>true</hidden>
+      <display_name>chevrons-1.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g98a267b76ba1c0c9f7fbf8a15a1c71d9">
+      <hidden>true</hidden>
+      <display_name>pergunta-1.png</display_name>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="gffc81a5985f6a83ba3857a3983c89f5e">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g87ec20b9d8372caa1fcd55baa4319d23">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="ga38cb058ef829f120aad6a3e992b7614">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g9c4b37325cf2b41adeac411d3ab6b215">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g2e7ce2a9ff1c2b5454e13a2eebb1bc90">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g51594e26b6d63062a9af46e15e297fd8">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g02542507f644d3c3f19366a228e01914">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g5a639d994a2b1ceee7f67a72d3c815ab">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g6083dccd0f34b6b600acaba1ab4a46da">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g27dd302269b0bb55cb4c05caf45ad55e">
+      <hidden>true</hidden>
+      <category>uncategorized</category>
+    </file>
+    <file identifier="g1aa7ac8973e079a33364f75e00c3ff2b">
+      <display_name>Painel.jpg</display_name>
+      <category>uncategorized</category>
+    </file>
+  </files>
+</fileMeta>

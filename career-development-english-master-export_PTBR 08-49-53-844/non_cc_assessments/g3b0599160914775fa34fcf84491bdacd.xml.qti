@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+<assessment ident="g3b0599160914775fa34fcf84491bdacd" title="S03 Compartilhar">
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>cc_maxattempts</fieldlabel>
+<fieldentry>unlimited</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+<section ident="root_section">
+<section ident="g7de3235043465ad292f02cf410cfb02a" title="Grupo">
+<selection_ordering>
+<selection>
+<sourcebank_ref>g65aa4396c85425afe6969821bde22f7e</sourcebank_ref>
+<selection_number>2</selection_number>
+<selection_extension>
+<points_per_item>1.0</points_per_item>
+</selection_extension>
+</selection>
+</selection_ordering>
+</section>
+</section>
+</assessment>
+</questestinterop>

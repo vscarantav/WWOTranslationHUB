@@ -1,0 +1,4679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+<objectbank ident="g065a20c81f5d9c29ce51cb919a075ef4">
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>bank_title</fieldlabel>
+<fieldentry>QB: GS 170 W05 Level 1 Assessment Questions</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_type</fieldlabel>
+<fieldentry>Course</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_context_uuid</fieldlabel>
+<fieldentry>wqxM3YelMSOoe6KM2hzYYOQG9VlwUJQBTBiWHADR</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_state</fieldlabel>
+<fieldentry>active</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+<item ident="g36f10a792ef737411d3f10624df6156b" title="Question 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>17769,41774,56599,23830</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que a criação de conteúdo profissional documenta de acordo com o princípio da mordomia fiel?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="17769">
+<material>
+<mattext texttype="text/plain">Evidências de como você usou os talentos dados por Deus para servir aos outros e criar mudanças positivas</mattext>
+</material>
+</response_label>
+<response_label ident="41774">
+<material>
+<mattext texttype="text/plain">Sua capacidade de competir com sucesso contra outros candidatos a vagas de emprego</mattext>
+</material>
+</response_label>
+<response_label ident="56599">
+<material>
+<mattext texttype="text/plain">Suas qualificações superiores em comparação com outros profissionais</mattext>
+</material>
+</response_label>
+<response_label ident="23830">
+<material>
+<mattext texttype="text/plain">Seu histórico de trabalho e cargos ao longo do tempo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">41774</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="41774_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56599</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56599_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">23830</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="23830_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">17769</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="41774_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A criação de conteúdo profissional foca em documentar a mordomia fiel sobre os talentos recebidos de Deus, não em competir com os outros. O texto enfatiza a criação de evidências de como você usou suas habilidades para servir aos outros e criar mudanças positivas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="56599_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto afirma que o conteúdo profissional não se trata de autopromoção ou de se comparar com os outros. Ele documenta como você usou os talentos dados por Deus para servir aos outros e criar valor mensurável.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="23830_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O conteúdo profissional vai além de simples listagens de histórico de trabalho. O texto explica que ele documenta a mordomia fiel ao mostrar como você usou suas habilidades para servir aos outros e criar um impacto positivo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gec8c73d65ccf364e2bfb660885c70b3a" title="Question 10">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>30421,23983,67350,60466</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Que tipo de linguagem as comunicações profissionais devem usar ao descrever conquistas?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="30421">
+<material>
+<mattext texttype="text/plain">Linguagem orientada ao serviço que enfatiza as contribuições para o bem-estar dos outros</mattext>
+</material>
+</response_label>
+<response_label ident="23983">
+<material>
+<mattext texttype="text/plain">Linguagem competitiva que demonstra superioridade sobre outros candidatos</mattext>
+</material>
+</response_label>
+<response_label ident="67350">
+<material>
+<mattext texttype="text/plain">Jargão técnico para demonstrar expertise</mattext>
+</material>
+</response_label>
+<response_label ident="60466">
+<material>
+<mattext texttype="text/plain">Voz passiva para parecer modesto</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">23983</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="23983_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67350</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67350_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">60466</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="60466_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">30421</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="23983_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A comunicação profissional não deve se concentrar na competição. O texto enfatiza o uso de uma linguagem orientada para o serviço que mostra como as capacidades contribuem para o bem-estar dos outros e para o sucesso organizacional.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67350_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Embora a competência técnica seja importante, a comunicação deve usar uma linguagem orientada para o serviço. O texto afirma que você deve enfatizar como as capacidades contribuem para o bem-estar dos outros ao mesmo tempo que demonstra competência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="60466_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto recomenda voz ativa e linguagem clara. A comunicação profissional deve usar uma linguagem orientada para o serviço que enfatize as contribuições para o bem-estar dos outros enquanto demonstra capacidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6ee52fdd5996cb476c0255d7506313b9" title="Question 11">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>92298,47170,38181,94707</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais são as três fases do processo de desenvolvimento do portfólio?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="92298">
+<material>
+<mattext texttype="text/plain">Preparação Espiritual e Inventário de Experiência, Avaliação de Habilidades e Contribuições, Coleta de Evidências e Documentação</mattext>
+</material>
+</response_label>
+<response_label ident="47170">
+<material>
+<mattext texttype="text/plain">Pesquisa, Redação, Submissão</mattext>
+</material>
+</response_label>
+<response_label ident="38181">
+<material>
+<mattext texttype="text/plain">Planejamento, Redação, Edição</mattext>
+</material>
+</response_label>
+<response_label ident="94707">
+<material>
+<mattext texttype="text/plain">Definição de Metas, Desenvolvimento de Habilidades, Busca de Emprego</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47170</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47170_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38181</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38181_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">94707</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="94707_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">92298</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="47170_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estas são etapas gerais do projeto, e não as fases específicas de desenvolvimento do portfólio. O texto identifica a Preparação Espiritual e Inventário de Experiências, a Avaliação de Habilidades e Contribuições, e a Coleta e Documentação de Evidências como as três fases.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="38181_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estas são etapas do processo de escrita, e não fases de desenvolvimento do portfólio. O texto lista a Preparação Espiritual e Inventário de Experiências, a Avaliação de Habilidades e Contribuições, e a Coleta e Documentação de Evidências.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="94707_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estas são atividades de desenvolvimento de carreira, e não fases do portfólio. O texto identifica a Preparação Espiritual e Inventário de Experiências, a Avaliação de Habilidades e Contribuições, e a Coleta e Documentação de Evidências como as três fases.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g8997b86392d706402c6327fbd3d5d6a8" title="Question 12">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>47695,3674,47479,33016</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que os contextos de negócios norte-americanos e do norte da Europa normalmente devem enfatizar no conteúdo profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="47695">
+<material>
+<mattext texttype="text/plain">Iniciativa individual, resultados mensuráveis, inovação e exemplos de liderança</mattext>
+</material>
+</response_label>
+<response_label ident="3674">
+<material>
+<mattext texttype="text/plain">Colaboração em equipe e respeito pela hierarquia</mattext>
+</material>
+</response_label>
+<response_label ident="47479">
+<material>
+<mattext texttype="text/plain">Serviço comunitário e tomada de decisão coletiva</mattext>
+</material>
+</response_label>
+<response_label ident="33016">
+<material>
+<mattext texttype="text/plain">Conexões familiares e caráter pessoal</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">3674</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="3674_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47479</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47479_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">33016</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="33016_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">47695</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="3674_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essas características descrevem os contextos do Leste Asiático. Os contextos norte-americanos e do norte da Europa normalmente valorizam a iniciativa individual, resultados mensuráveis, inovação e exemplos de liderança.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="47479_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estas características descrevem contextos das Ilhas do Pacífico. Os contextos da América do Norte e do Norte da Europa normalmente valorizam a iniciativa individual, resultados mensuráveis, inovação e exemplos de liderança.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="33016_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estas características descrevem contextos latino-americanos. Os contextos da América do Norte e do Norte da Europa normalmente valorizam a iniciativa individual, resultados mensuráveis, inovação e exemplos de liderança.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g5ab2267d2f5344d8f1afe5042249fa62" title="Question 13">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>59900,89878,68450,50877</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quanto tempo a Fase 1 do desenvolvimento do portfólio recomenda dedicar à listagem de experiências?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="59900">
+<material>
+<mattext texttype="text/plain">Trinta minutos escrevendo uma frase para cada experiência, descrevendo como você serviu aos outros</mattext>
+</material>
+</response_label>
+<response_label ident="89878">
+<material>
+<mattext texttype="text/plain">Cinco horas criando narrativas detalhadas</mattext>
+</material>
+</response_label>
+<response_label ident="68450">
+<material>
+<mattext texttype="text/plain">Um dia inteiro revisando todas as atividades passadas</mattext>
+</material>
+</response_label>
+<response_label ident="50877">
+<material>
+<mattext texttype="text/plain">Apenas quinze minutos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89878</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89878_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68450</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68450_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">50877</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="50877_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">59900</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="89878_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Fase 1 exige uma documentação focada e concisa. O texto afirma que você deve dedicar trinta minutos escrevendo uma frase para cada experiência, descrevendo como você serviu aos outros.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="68450_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Fase 1 utiliza uma abordagem estruturada e eficiente. O texto recomenda dedicar trinta minutos escrevendo uma frase para cada experiência, descrevendo como você serviu aos outros.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="50877_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto especifica um prazo mais longo para esta atividade. A Fase 1 recomenda dedicar trinta minutos escrevendo uma frase para cada experiência, descrevendo como você serviu aos outros.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gff0b9bb6e9c496fb0b03f8d84e544cbe" title="Question 14">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>41964,96276,59192,74312</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que os contextos de negócios das Ilhas do Pacífico e africanos devem enfatizar no conteúdo profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="41964">
+<material>
+<mattext texttype="text/plain">Serviço comunitário, tomada de decisão coletiva, sensibilidade cultural e desenvolvimento sustentável</mattext>
+</material>
+</response_label>
+<response_label ident="96276">
+<material>
+<mattext texttype="text/plain">Conquistas individuais e vantagem competitiva</mattext>
+</material>
+</response_label>
+<response_label ident="59192">
+<material>
+<mattext texttype="text/plain">Hierarquia rígida e protocolos formais</mattext>
+</material>
+</response_label>
+<response_label ident="74312">
+<material>
+<mattext texttype="text/plain">Inovação rápida e adoção de tecnologia</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">96276</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="96276_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59192</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59192_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74312</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74312_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">41964</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="96276_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essas características descrevem os contextos norte-americanos. Os contextos das Ilhas do Pacífico e africanos costumam enfatizar o serviço comunitário, a tomada de decisão coletiva, a sensibilidade cultural e o desenvolvimento sustentável.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="59192_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Embora o respeito seja valorizado, a ênfase específica difere. Os contextos das Ilhas do Pacífico e africanos enfatizam o serviço comunitário, a tomada de decisão coletiva, a sensibilidade cultural e o desenvolvimento sustentável.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="74312_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essa ênfase se adapta a diferentes contextos culturais. Os contextos das Ilhas do Pacífico e africanos costumam enfatizar o serviço comunitário, a tomada de decisão coletiva, a sensibilidade cultural e o desenvolvimento sustentável.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g5de444ca04a07885744967db66a79c7a" title="Question 15">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>53580,64913,49103,98690</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que o texto define como o duplo propósito da criação de conteúdo profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="53580">
+<material>
+<mattext texttype="text/plain">Documentar uma administração fiel enquanto posiciona você para servir em funções maiores</mattext>
+</material>
+</response_label>
+<response_label ident="64913">
+<material>
+<mattext texttype="text/plain">Ganhar salários mais altos e obter promoções</mattext>
+</material>
+</response_label>
+<response_label ident="49103">
+<material>
+<mattext texttype="text/plain">Impressionar empregadores e ganhar prêmios</mattext>
+</material>
+</response_label>
+<response_label ident="98690">
+<material>
+<mattext texttype="text/plain">Construir uma marca pessoal e presença nas redes sociais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">64913</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="64913_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49103</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49103_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98690</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98690_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">53580</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="64913_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O foco está na mordomia e na capacidade de serviço, não no ganho financeiro. O texto afirma que a criação de conteúdo profissional documenta a mordomia fiel, enquanto posiciona você para servir bem em funções maiores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="49103_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O objetivo não é a autopromoção. O texto define o duplo propósito como documentar a mordomia fiel, enquanto posiciona você para servir bem em funções e responsabilidades maiores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="98690_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O conteúdo profissional concentra-se na documentação da mordomia, não no branding pessoal. O duplo propósito é documentar a mordomia fiel, enquanto posiciona você para servir em funções maiores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gad1eb8c3478232fd1a0f47055ad61d31" title="Question 16">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>24546,71144,70069,47379</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Que tipo de evidência você deve reunir durante a Fase 3 do desenvolvimento do portfólio?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="24546">
+<material>
+<mattext texttype="text/plain">Melhorias percentuais, depoimentos, documentação de antes e depois, fotos de projetos concluídos ou reconhecimento recebido</mattext>
+</material>
+</response_label>
+<response_label ident="71144">
+<material>
+<mattext texttype="text/plain">Apenas histórico salarial e cargos</mattext>
+</material>
+</response_label>
+<response_label ident="70069">
+<material>
+<mattext texttype="text/plain">Opiniões pessoais sobre a qualidade do seu trabalho</mattext>
+</material>
+</response_label>
+<response_label ident="47379">
+<material>
+<mattext texttype="text/plain">Postagens em redes sociais e fotos casuais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">71144</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="71144_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70069</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70069_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47379</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47379_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">24546</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="71144_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Fase 3 requer evidências abrangentes de conquistas. O texto lista melhorias percentuais, depoimentos, documentação de antes e depois, fotos e reconhecimento como tipos de evidências a serem coletadas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="70069_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As evidências devem ser concretas e verificáveis. A Fase 3 envolve a coleta de melhorias percentuais, depoimentos, documentação de antes e depois, fotos ou reconhecimento recebido.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="47379_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As evidências devem ser profissionais e focadas em conquistas. O texto identifica melhorias percentuais, depoimentos, documentação de antes e depois, fotos de projetos concluídos e reconhecimento como evidências adequadas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g2dbdb5a636663d18d960806b960d41ef" title="Question 17">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>44927,22932,36596,70908</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quanto tempo deve durar a Fase 2 do desenvolvimento do portfólio para documentar os benefícios mensuráveis?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="44927">
+<material>
+<mattext texttype="text/plain">Sessenta minutos documentando benefícios mensuráveis que outros receberam de suas contribuições</mattext>
+</material>
+</response_label>
+<response_label ident="22932">
+<material>
+<mattext texttype="text/plain">Apenas quinze minutos</mattext>
+</material>
+</response_label>
+<response_label ident="36596">
+<material>
+<mattext texttype="text/plain">Três horas criando relatórios detalhados</mattext>
+</material>
+</response_label>
+<response_label ident="70908">
+<material>
+<mattext texttype="text/plain">Cinco minutos por experiência</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">22932</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="22932_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36596</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36596_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70908</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70908_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">44927</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="22932_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Fase 2 requer uma documentação mais detalhada. O texto afirma que você deve dedicar sessenta minutos documentando os benefícios mensuráveis que outros receberam de suas contribuições.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="36596_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo utiliza cronogramas focados e eficientes. A Fase 2 envolve dedicar sessenta minutos para documentar os benefícios mensuráveis que outras pessoas receberam de suas contribuições.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="70908_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto especifica uma alocação de tempo total. A Fase 2 recomenda dedicar sessenta minutos para documentar os benefícios mensuráveis que outras pessoas receberam de suas contribuições.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7c1d8346cf34cda41a7d55eb836e08ea" title="Question 18">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>27595,24692,52370,57499</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Do que o texto diz que o conteúdo profissional NÃO trata?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="27595">
+<material>
+<mattext texttype="text/plain">Autopromoção ou vanglória</mattext>
+</material>
+</response_label>
+<response_label ident="24692">
+<material>
+<mattext texttype="text/plain">Documentar conquistas</mattext>
+</material>
+</response_label>
+<response_label ident="52370">
+<material>
+<mattext texttype="text/plain">Servir aos outros</mattext>
+</material>
+</response_label>
+<response_label ident="57499">
+<material>
+<mattext texttype="text/plain">Criar evidências de capacidades</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24692</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24692_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">52370</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="52370_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">57499</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="57499_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">27595</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="24692_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O conteúdo profissional documenta conquistas como parte de uma mordomia fiel. O texto afirma que o conteúdo profissional não se trata de autopromoção ou vanglória.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="52370_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O conteúdo profissional se concentra no serviço aos outros. O texto afirma que o conteúdo profissional não se trata de autopromoção ou vanglória.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="57499_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Criar evidências faz parte da documentação de uma mordomia fiel. O texto afirma que o conteúdo profissional não se trata de autopromoção ou vanglória.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g509d52b2d078761508d262e3e391bec1" title="Question 19">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>47757,17148,49265,86851</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que os contextos de negócios latino-americanos devem enfatizar no conteúdo profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="47757">
+<material>
+<mattext texttype="text/plain">Conquistas individuais equilibradas com conexões familiares e comunitárias, construção de relacionamentos e caráter pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="17148">
+<material>
+<mattext texttype="text/plain">Apenas qualificações técnicas e certificações</mattext>
+</material>
+</response_label>
+<response_label ident="49265">
+<material>
+<mattext texttype="text/plain">Avanço rápido na carreira e competição individual</mattext>
+</material>
+</response_label>
+<response_label ident="86851">
+<material>
+<mattext texttype="text/plain">Apenas hierarquia formal e protocolo estrito</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">17148</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="17148_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49265</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49265_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">86851</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="86851_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">47757</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="17148_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os contextos latino-americanos valorizam as dimensões pessoais ao lado das qualificações. O texto afirma que eles enfatizam as conquistas equilibradas com conexões familiares e comunitárias, construção de relacionamentos e caráter pessoal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="49265_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Isso descreve valores culturais diferentes. Os contextos latino-americanos equilibram conquistas individuais com conexões familiares e comunitárias, enfatizando a construção de relacionamentos e o caráter pessoal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="86851_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Embora o respeito seja importante, a ênfase é mais ampla. Os contextos latino-americanos equilibram conquistas individuais com conexões familiares e comunitárias, enfatizando a construção de relacionamentos e o caráter pessoal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g9772786c776832ae245f0a491abcef9c" title="Question 2">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>7920,71633,94631,93974</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais são os quatro componentes essenciais do conteúdo profissional mencionados no texto?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="7920">
+<material>
+<mattext texttype="text/plain">Portfólios, currículos, cartas de apresentação, materiais de networking</mattext>
+</material>
+</response_label>
+<response_label ident="71633">
+<material>
+<mattext texttype="text/plain">Referências, históricos acadêmicos, certificações, amostras de trabalho</mattext>
+</material>
+</response_label>
+<response_label ident="94631">
+<material>
+<mattext texttype="text/plain">Candidaturas a vagas, notas de entrevista, requisitos salariais, cronogramas de disponibilidade</mattext>
+</material>
+</response_label>
+<response_label ident="93974">
+<material>
+<mattext texttype="text/plain">Avaliações de competências, testes de personalidade, verificações de antecedentes, exames toxicológicos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">71633</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="71633_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">94631</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="94631_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93974</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93974_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">7920</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="71633_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estes são materiais de apoio à carreira, mas não os quatro componentes essenciais identificados no texto. O texto lista portfólios, currículos, cartas de apresentação e materiais de networking como os quatro componentes essenciais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="94631_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estes são elementos práticos de busca de emprego, mas não os quatro componentes essenciais de conteúdo profissional. O texto identifica portfólios, currículos, cartas de apresentação e materiais de networking.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="93974_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estas são ferramentas de triagem do empregador, em vez de conteúdo profissional que você cria. O texto lista portfólios, currículos, cartas de apresentação e materiais de networking como os quatro componentes essenciais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g3da0f060cc74f807ea05818da45eeb16" title="Question 20">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>45426,4423,43683,62833</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é a definição de um portfólio de acordo com a seção Vocabulário?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="45426">
+<material>
+<mattext texttype="text/plain">Uma coleção de exemplos de trabalho e documentação de serviços que demonstra como você usou talentos para servir aos outros e criar valor mensurável</mattext>
+</material>
+</response_label>
+<response_label ident="4423">
+<material>
+<mattext texttype="text/plain">Uma pasta contendo cópias de diplomas e certificados</mattext>
+</material>
+</response_label>
+<response_label ident="43683">
+<material>
+<mattext texttype="text/plain">Uma lista de referências e informações de contato</mattext>
+</material>
+</response_label>
+<response_label ident="62833">
+<material>
+<mattext texttype="text/plain">Um currículo formatado de diferentes maneiras</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">4423</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="4423_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">43683</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="43683_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">62833</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="62833_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">45426</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="4423_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Os portfólios contêm mais do que credenciais. O texto define um portfólio como uma coleção de exemplos de trabalho e documentação de serviços que demonstram como você usou seus talentos para servir aos outros e criar valor mensurável.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="43683_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As referências são separadas do conteúdo do portfólio. O vocabulário define um portfólio como exemplos de trabalho e documentação de serviços que mostram como você usou seus talentos para servir aos outros e criar valor mensurável.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="62833_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Os portfólios diferem dos currículos em escopo e detalhes. O texto define um portfólio como uma coleção de exemplos de trabalho e documentação de serviços que demonstram como você usou seus talentos para servir aos outros.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g9e2db884714dc05f9c0b59e8654a7a91" title="Question 21">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>68198,40349,93564,45656</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quanto tempo a Fase 3 do desenvolvimento do portfólio recomenda para a coleta de evidências?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="68198">
+<material>
+<mattext texttype="text/plain">Noventa minutos reunindo provas concretas de realizações de serviços</mattext>
+</material>
+</response_label>
+<response_label ident="40349">
+<material>
+<mattext texttype="text/plain">Apenas trinta minutos</mattext>
+</material>
+</response_label>
+<response_label ident="93564">
+<material>
+<mattext texttype="text/plain">Cinco horas coletando documentos</mattext>
+</material>
+</response_label>
+<response_label ident="45656">
+<material>
+<mattext texttype="text/plain">Quinze minutos revisando materiais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40349</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40349_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93564</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93564_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45656</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45656_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">68198</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="40349_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Fase 3 requer um tempo mais abrangente. O texto afirma que você deve gastar noventa minutos reunindo provas concretas de suas realizações de serviços.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="93564_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O processo utiliza cronogramas focados e eficientes. A Fase 3 envolve passar noventa minutos reunindo provas concretas de realizações de serviço.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="45656_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A coleta de evidências exige mais tempo do que uma breve revisão. O texto recomenda passar noventa minutos reunindo provas concretas de realizações de serviço.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g412b21f2c95bc70c7fa9263207874af7" title="Question 22">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>47544,19231,85321,38911</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que o vocabulário define como mordomia espiritual?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="47544">
+<material>
+<mattext texttype="text/plain">Desenvolvimento e aplicação fiéis de talentos concedidos por Deus para o serviço ao próximo com perspectiva eterna e foco na edificação do reino</mattext>
+</material>
+</response_label>
+<response_label ident="19231">
+<material>
+<mattext texttype="text/plain">Frequentar serviços religiosos regularmente</mattext>
+</material>
+</response_label>
+<response_label ident="85321">
+<material>
+<mattext texttype="text/plain">Doar dinheiro para causas beneficentes</mattext>
+</material>
+</response_label>
+<response_label ident="38911">
+<material>
+<mattext texttype="text/plain">Ler as escrituras diariamente</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19231</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19231_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85321</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85321_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38911</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38911_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">47544</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="19231_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A mordomia espiritual relaciona-se com o desenvolvimento de talentos, não apenas com a frequência aos cultos. O vocabulário a define como o desenvolvimento e aplicação fiéis de talentos concedidos por Deus para o serviço ao próximo com uma perspectiva eterna.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85321_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Embora a doação para caridade seja importante, a mordomia espiritual é mais ampla. O texto a define como o desenvolvimento e aplicação fiéis de talentos concedidos por Deus para o serviço ao próximo com uma perspectiva eterna.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="38911_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O estudo das escrituras é importante, mas este termo tem uma definição específica. O vocabulário define a mordomia espiritual como o desenvolvimento e aplicação fiéis de talentos concedidos por Deus para o serviço ao próximo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g4c22c5390fe3514953c010fd78fd1c80" title="Question 23">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>5764,58628,1146,60861</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que faz uma carta de apresentação de acordo com a definição do Vocabulário?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="5764">
+<material>
+<mattext texttype="text/plain">Conecta suas qualificações diretamente a cargos específicos, ao mesmo tempo que demonstra consciência cultural e uma orientação genuína para o serviço</mattext>
+</material>
+</response_label>
+<response_label ident="58628">
+<material>
+<mattext texttype="text/plain">Lista toda a sua experiência profissional cronologicamente</mattext>
+</material>
+</response_label>
+<response_label ident="1146">
+<material>
+<mattext texttype="text/plain">Fornece referências e informações de contato</mattext>
+</material>
+</response_label>
+<response_label ident="60861">
+<material>
+<mattext texttype="text/plain">Explica por que você precisa de emprego</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58628</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58628_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1146</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1146_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">60861</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="60861_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">5764</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="58628_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Isso descreve a função de um currículo. O vocabulário define a carta de apresentação como a conexão de qualificações diretamente a cargos específicos, ao mesmo tempo que demonstra consciência cultural e orientação para o serviço.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="1146_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As listas de referências são documentos separados. Uma carta de apresentação conecta qualificações a cargos específicos, ao mesmo tempo que demonstra consciência cultural e uma orientação genuína para o serviço.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="60861_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As cartas de apresentação focam no que você oferece, não em necessidades pessoais. O vocabulário as define como a conexão de qualificações a cargos específicos, ao mesmo tempo que demonstra consciência cultural e orientação para o serviço.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gaff504bb74bedc9fee9436fc10b836d4" title="Question 24">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>16772,35934,8946,78631</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com o texto, o que significa desenvolvimento profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="16772">
+<material>
+<mattext texttype="text/plain">Processo contínuo de desenvolvimento de talentos guiado tanto por propósitos espirituais quanto pelas necessidades do mercado para aumentar a capacidade de serviço e a eficácia na carreira</mattext>
+</material>
+</response_label>
+<response_label ident="35934">
+<material>
+<mattext texttype="text/plain">Realizar quaisquer cursos de capacitação disponíveis</mattext>
+</material>
+</response_label>
+<response_label ident="8946">
+<material>
+<mattext texttype="text/plain">Mudar de emprego frequentemente para ganhar experiência</mattext>
+</material>
+</response_label>
+<response_label ident="78631">
+<material>
+<mattext texttype="text/plain">Obter apenas títulos acadêmicos mais elevados</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35934</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35934_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8946</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8946_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78631</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78631_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">16772</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="35934_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O desenvolvimento profissional é mais intencional e orientado. O vocabulário o define como o desenvolvimento contínuo de talentos guiado por propósitos espirituais e necessidades de mercado para aumentar a capacidade de serviço.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="8946_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Mudanças de emprego por si só não constituem desenvolvimento profissional. O texto o define como o desenvolvimento contínuo de talentos guiado por propósitos espirituais e necessidades de mercado para aumentar a capacidade de serviço.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="78631_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A educação é um aspecto, mas não a definição completa. O desenvolvimento profissional é o desenvolvimento contínuo de talentos guiado por propósitos espirituais e necessidades de mercado para aumentar a capacidade de serviço.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1260a6e35c58de5c76199b8c5c2d5c97" title="Question 25">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>81642,85339,53011,36924</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual referência das Escrituras introduz o princípio da mordomia fiel no texto?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="81642">
+<material>
+<mattext texttype="text/plain">Mateus 25:20 sobre o servo que ganhou cinco talentos adicionais</mattext>
+</material>
+</response_label>
+<response_label ident="85339">
+<material>
+<mattext texttype="text/plain">João 3:16 sobre o amor de Deus pelo mundo</mattext>
+</material>
+</response_label>
+<response_label ident="53011">
+<material>
+<mattext texttype="text/plain">Salmo 23 sobre o Senhor como pastor</mattext>
+</material>
+</response_label>
+<response_label ident="36924">
+<material>
+<mattext texttype="text/plain">Gênesis 1:1 sobre a criação</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85339</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85339_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53011</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53011_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36924</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36924_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">81642</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="85339_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Este versículo não aborda a administração de talentos. O texto começa com Mateus 25:20 sobre o servo que apresentou cinco talentos adicionais obtidos por meio de uma administração fiel.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53011_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Esta passagem não discute a gestão de talentos. O texto faz referência a Mateus 25:20 sobre o servo que obteve cinco talentos adicionais por meio de um trabalho fiel.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="36924_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O relato da criação não aborda esse princípio. O texto cita Mateus 25:20 sobre o servo que obteve cinco talentos adicionais e apresentou resultados específicos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g71b5a75a7b60e4b398338df6a7d0ea17" title="Question 26">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>67067,27142,65661,98269</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com o texto, o que os portfólios devem mostrar além das atribuições do cargo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="67067">
+<material>
+<mattext texttype="text/plain">Exemplos específicos e detalhados de como você usou suas habilidades para servir aos outros e gerar mudanças positivas</mattext>
+</material>
+</response_label>
+<response_label ident="27142">
+<material>
+<mattext texttype="text/plain">Apenas datas de emprego e nomes de supervisores</mattext>
+</material>
+</response_label>
+<response_label ident="65661">
+<material>
+<mattext texttype="text/plain">Histórico salarial e benefícios recebidos</mattext>
+</material>
+</response_label>
+<response_label ident="98269">
+<material>
+<mattext texttype="text/plain">Hobbies e interesses pessoais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">27142</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="27142_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65661</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65661_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98269</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98269_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">67067</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="27142_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Detalhes básicos de emprego são insuficientes. Os portfólios devem mostrar exemplos específicos e detalhados de como você usou suas habilidades para servir aos outros e gerar mudanças positivas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="65661_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As informações sobre remuneração não demonstram o impacto do serviço. Os portfólios devem mostrar exemplos específicos e detalhados de como você usou suas habilidades para servir aos outros e criar mudanças positivas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="98269_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os portfólios focam em contribuições de serviços profissionais. Eles devem mostrar exemplos específicos e detalhados de como você usou suas habilidades para servir aos outros e criar mudanças positivas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc75e62d7b8e0f8fca536a9a510b8e7aa" title="Question 27">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>58132,42427,87170,36592</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa adaptação cultural de acordo com a seção Vocabulário?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="58132">
+<material>
+<mattext texttype="text/plain">Processo de modificar a apresentação do conteúdo profissional para respeitar diferentes contextos de negócios, mantendo total honestidade sobre as capacidades</mattext>
+</material>
+</response_label>
+<response_label ident="42427">
+<material>
+<mattext texttype="text/plain">Aprender a falar vários idiomas fluentemente</mattext>
+</material>
+</response_label>
+<response_label ident="87170">
+<material>
+<mattext texttype="text/plain">Alterar suas qualificações para diferentes candidaturas</mattext>
+</material>
+</response_label>
+<response_label ident="36592">
+<material>
+<mattext texttype="text/plain">Copiar estilos de comunicação de outras culturas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">42427</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="42427_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87170</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87170_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36592</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36592_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">58132</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="42427_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As habilidades linguísticas diferem da adaptação cultural. O vocabulário a define como a modificação da apresentação do conteúdo profissional para respeitar diferentes contextos, mantendo total honestidade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="87170_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A adaptação cultural nunca envolve alterar fatos. O vocabulário a define como a modificação da apresentação do conteúdo para respeitar diferentes contextos, mantendo total honestidade sobre as capacidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="36592_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A adaptação é mais ponderada do que a imitação. O vocabulário a define como a modificação da apresentação do conteúdo profissional para respeitar diferentes contextos de negócios, mantendo a honestidade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g8a0dde01f3fe99ad4dd8ca0530177a37" title="Question 28">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>52992,53610,35458,34269</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que os materiais de networking devem ajudar você a fazer de acordo com o texto?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="52992">
+<material>
+<mattext texttype="text/plain">Construir relacionamentos autênticos que criem apoio mútuo e compartilhamento de oportunidades dentro de comunidades profissionais</mattext>
+</material>
+</response_label>
+<response_label ident="53610">
+<material>
+<mattext texttype="text/plain">Coletar o maior número possível de cartões de visita</mattext>
+</material>
+</response_label>
+<response_label ident="35458">
+<material>
+<mattext texttype="text/plain">Anunciar seus serviços para todos que você encontrar</mattext>
+</material>
+</response_label>
+<response_label ident="34269">
+<material>
+<mattext texttype="text/plain">Encontrar atalhos para oportunidades de emprego</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53610</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53610_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35458</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35458_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">34269</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="34269_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">52992</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="53610_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O networking foca na qualidade do relacionamento, não na quantidade. O texto afirma que os materiais de networking ajudam a construir relacionamentos autênticos, criando apoio mútuo e compartilhamento de oportunidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="35458_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O networking trata-se de relacionamentos, não de autopromoção. O texto afirma que os materiais de networking ajudam a construir relacionamentos autênticos, criando apoio mútuo e compartilhamento de oportunidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="34269_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O networking constrói conexões genuínas, não atalhos. O texto afirma que os materiais de networking ajudam a construir relacionamentos autênticos que criam apoio mútuo e compartilhamento de oportunidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g9a7a935da579998cdde9d4c9159d94c6" title="Question 29">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>2770,38169,84788,2694</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quem ensinou que, à medida que oferecemos nossos talentos e melhores esforços, Seus dons espirituais nos fortalecem e nos abençoam?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="2770">
+<material>
+<mattext texttype="text/plain">Élder Gerrit W. Gong</mattext>
+</material>
+</response_label>
+<response_label ident="38169">
+<material>
+<mattext texttype="text/plain">Élder Dale G. Renlund</mattext>
+</material>
+</response_label>
+<response_label ident="84788">
+<material>
+<mattext texttype="text/plain">Presidente Thomas S. Monson</mattext>
+</material>
+</response_label>
+<response_label ident="2694">
+<material>
+<mattext texttype="text/plain">Élder Dieter F. Uchtdorf</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38169</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38169_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">84788</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="84788_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">2694</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="2694_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">2770</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="38169_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O Élder Renlund é citado anteriormente sobre magnificar habilidades. O Élder Gerrit W. Gong ensinou que, ao oferecermos nossos talentos e melhores esforços, Seus dons espirituais nos fortalecem e nos abençoam.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="84788_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O Presidente Monson não é citado neste texto. O Élder Gerrit W. Gong ensinou que, ao oferecermos nossos talentos e melhores esforços, Seus dons espirituais nos fortalecem e nos abençoam.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="2694_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O Élder Uchtdorf não é citado neste texto. O Élder Gerrit W. Gong ensinou que, ao oferecermos nossos talentos e melhores esforços, Seus dons espirituais nos fortalecem e nos abençoam.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc5cad78b1db3bf074da2ea7acb42afbb" title="Question 3">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>25744,23406,56483,69932</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais três perguntas críticas um portfólio eficaz responde para cada exemplo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="25744">
+<material>
+<mattext texttype="text/plain">Qual desafio você abordou? Como você o abordou? Qual impacto resultou?</mattext>
+</material>
+</response_label>
+<response_label ident="23406">
+<material>
+<mattext texttype="text/plain">Onde você trabalhou? Quando você trabalhou lá? Quem o supervisionou?</mattext>
+</material>
+</response_label>
+<response_label ident="56483">
+<material>
+<mattext texttype="text/plain">Quais diplomas você possui? Quais certificações obteve? Quais treinamentos concluiu?</mattext>
+</material>
+</response_label>
+<response_label ident="69932">
+<material>
+<mattext texttype="text/plain">Quanto você recebeu? Quais benefícios obteve? Quais promoções conquistou?</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">23406</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="23406_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56483</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56483_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">69932</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="69932_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">25744</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="23406_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essas perguntas focam em detalhes básicos de emprego em vez de demonstrar valor. O texto afirma que os portfólios devem responder qual desafio você abordou, como o abordou e qual impacto resultou.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="56483_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essas perguntas focam em credenciais em vez do impacto demonstrado. O texto identifica três perguntas sobre desafios abordados, abordagens utilizadas e impacto mensurável gerado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="69932_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essas perguntas focam em remuneração em vez de serviço e impacto. O texto afirma que os portfólios devem responder qual desafio você abordou, como o abordou e qual impacto mensurável resultou.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g424579a913960c01de1f48f242e24eed" title="Question 30">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>10034,96893,93827,39391</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais são os três componentes do desafio de 15 minutos para criar um pacote de apresentação profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="10034">
+<material>
+<mattext texttype="text/plain">Resumo de currículo personalizado, carta de apresentação conectando a experiência às necessidades, breve descrição de portfólio do melhor exemplo de trabalho</mattext>
+</material>
+</response_label>
+<response_label ident="96893">
+<material>
+<mattext texttype="text/plain">Lista de referências, histórico salarial, cronograma de disponibilidade</mattext>
+</material>
+</response_label>
+<response_label ident="93827">
+<material>
+<mattext texttype="text/plain">Candidatura a emprego, notas de entrevista, carta de agradecimento</mattext>
+</material>
+</response_label>
+<response_label ident="39391">
+<material>
+<mattext texttype="text/plain">Perfil do LinkedIn, cartões de visita, assinatura de e-mail</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">96893</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="96893_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93827</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93827_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39391</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39391_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">10034</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="96893_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estes são materiais de apoio, não os três componentes. O desafio inclui um resumo de currículo personalizado, carta de apresentação conectando a experiência às necessidades e uma breve descrição de portfólio.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="93827_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estas são etapas de busca de emprego, não componentes do pacote de apresentação. O desafio inclui um resumo de currículo personalizado, uma carta de apresentação conectando a experiência às necessidades e uma breve descrição do portfólio.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="39391_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estas são ferramentas de networking, não os três componentes. O desafio inclui um resumo de currículo personalizado, uma carta de apresentação conectando a experiência às necessidades e uma breve descrição do portfólio.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g8e148febf0164c0e7fd52f91ec1ad09e" title="Question 31">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>35200,83363,75970,24748</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual foi o desafio profissional inicial de Emmanuel?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="35200">
+<material>
+<mattext texttype="text/plain">Ele não reconhecia o valor profissional do seu trabalho de suporte de TI local</mattext>
+</material>
+</response_label>
+<response_label ident="83363">
+<material>
+<mattext texttype="text/plain">Ele não tinha habilidades técnicas para cargos de TI</mattext>
+</material>
+</response_label>
+<response_label ident="75970">
+<material>
+<mattext texttype="text/plain">Ele não conseguia encontrar nenhuma oportunidade de emprego</mattext>
+</material>
+</response_label>
+<response_label ident="24748">
+<material>
+<mattext texttype="text/plain">Ele não tinha orçamento para equipamentos de tecnologia</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">83363</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="83363_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">75970</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="75970_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24748</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24748_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">35200</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="83363_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Emmanuel tinha fortes habilidades técnicas. Seu desafio era não reconhecer o valor profissional de seu trabalho de suporte de TI local e como apresentá-lo a empregadores internacionais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="75970_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Seu desafio não era encontrar oportunidades. Emmanuel não reconhecia o valor profissional de seu trabalho de suporte de TI local para empregadores internacionais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="24748_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Restrições orçamentárias não eram seu principal desafio. Emmanuel não reconhecia o valor profissional e as habilidades transferíveis de seu trabalho de suporte de TI local.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g9c6b614c078fe07f89ad3d29632042f9" title="Question 32">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>24062,84734,80809,97538</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual foi o momento de grande avanço de Sarah no desenvolvimento de seu conteúdo profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="24062">
+<material>
+<mattext texttype="text/plain">Ela desenvolveu um conteúdo de portfólio abrangente mostrando iniciativas de saúde coordenadas com 40 por cento de melhora e depoimentos documentados</mattext>
+</material>
+</response_label>
+<response_label ident="84734">
+<material>
+<mattext texttype="text/plain">Ela obteve certificações médicas adicionais</mattext>
+</material>
+</response_label>
+<response_label ident="80809">
+<material>
+<mattext texttype="text/plain">Ela se mudou para um local diferente</mattext>
+</material>
+</response_label>
+<response_label ident="97538">
+<material>
+<mattext texttype="text/plain">Ela contratou um redator de currículos profissional</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">84734</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="84734_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">80809</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="80809_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">97538</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="97538_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">24062</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="84734_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Seu grande avanço não teve a ver com novas credenciais. Sarah desenvolveu um conteúdo de portfólio abrangente mostrando iniciativas coordenadas com melhorias mensuráveis e depoimentos documentados.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="80809_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A mudança geográfica não foi o seu grande avanço. Sarah desenvolveu um conteúdo de portfólio abrangente mostrando iniciativas de saúde coordenadas com melhorias mensuráveis e depoimentos documentados.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="97538_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ela criou seu próprio conteúdo profissional. O grande avanço de Sarah foi desenvolver um conteúdo de portfólio abrangente mostrando iniciativas coordenadas com resultados documentados e depoimentos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ga03400befcd400825911eef7bcfd506a" title="Question 33">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>77843,92958,67563,7398</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual foi o desafio de Ana ao fazer a transição para a liderança corporativa?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="77843">
+<material>
+<mattext texttype="text/plain">Ela tinha experiência corporativa limitada e nenhum treinamento formal em gestão</mattext>
+</material>
+</response_label>
+<response_label ident="92958">
+<material>
+<mattext texttype="text/plain">Ela não possuía habilidades técnicas de desenvolvimento web</mattext>
+</material>
+</response_label>
+<response_label ident="67563">
+<material>
+<mattext texttype="text/plain">Ela não tinha condições financeiras para continuar seus estudos</mattext>
+</material>
+</response_label>
+<response_label ident="7398">
+<material>
+<mattext texttype="text/plain">Ela morava longe demais dos escritórios corporativos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">92958</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="92958_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67563</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67563_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7398</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7398_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">77843</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="92958_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ana tinha fortes habilidades técnicas decorrentes de anos de trabalho freelance bem-sucedido. Seu desafio era a experiência corporativa limitada e a falta de treinamento formal em gestão.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67563_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Restrições financeiras não foram mencionadas como seu desafio. Ana tinha experiência corporativa limitada e nenhum treinamento formal em gestão.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="7398_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A localização não foi o desafio declarado por ela. Ana tinha experiência corporativa limitada e nenhum treinamento formal em gestão enquanto buscava cargos de liderança.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g9af814b2b3fa119cf96f92ee502630c1" title="Question 34">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>62398,89869,42339,66344</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual valor Blessing gerenciou em orçamentos de desenvolvimento comunitário de acordo com seu portfólio?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="62398">
+<material>
+<mattext texttype="text/plain">Mais de 75.000 dólares</mattext>
+</material>
+</response_label>
+<response_label ident="89869">
+<material>
+<mattext texttype="text/plain">Mais de 25.000 dólares</mattext>
+</material>
+</response_label>
+<response_label ident="42339">
+<material>
+<mattext texttype="text/plain">Mais de 150.000 dólares</mattext>
+</material>
+</response_label>
+<response_label ident="66344">
+<material>
+<mattext texttype="text/plain">Mais de 50.000 dólares</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89869</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89869_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">42339</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="42339_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">66344</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="66344_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">62398</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="89869_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O valor era maior. O portfólio de Blessing mostra que ela gerenciou mais de 75.000 dólares em orçamentos de desenvolvimento comunitário em múltiplos projetos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="42339_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto especifica um valor menor. O portfólio de Blessing mostra que ela gerenciou mais de 75.000 dólares em orçamentos de desenvolvimento comunitário.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="66344_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto indica um valor diferente. O portfólio de Blessing mostra que ela gerenciou mais de 75.000 dólares em orçamentos de desenvolvimento comunitário em múltiplos projetos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g345c7e6c8c8c93bf7cb8d647a10fac5e" title="Question 35">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>62350,87815,36701,53791</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Para qual porcentagem de empresas locais Emmanuel alcançou uma melhoria média no tempo de atividade do sistema, de acordo com seu portfólio?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="62350">
+<material>
+<mattext texttype="text/plain">85 por cento</mattext>
+</material>
+</response_label>
+<response_label ident="87815">
+<material>
+<mattext texttype="text/plain">50 por cento</mattext>
+</material>
+</response_label>
+<response_label ident="36701">
+<material>
+<mattext texttype="text/plain">95 por cento</mattext>
+</material>
+</response_label>
+<response_label ident="53791">
+<material>
+<mattext texttype="text/plain">75 por cento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87815</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87815_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36701</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36701_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53791</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53791_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">62350</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="87815_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A porcentagem de melhoria foi maior. O portfólio de Emmanuel demonstra a obtenção de uma melhoria média de 85 por cento no tempo de atividade do sistema para empresas locais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="36701_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto especifica uma porcentagem menor. O portfólio de Emmanuel demonstra o alcance de 85 por cento de melhoria média no tempo de atividade do sistema.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53791_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A melhoria foi maior. O portfólio de Emmanuel demonstra o alcance de 85 por cento de melhoria média no tempo de atividade do sistema para 50 ou mais empresas locais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge1a313caecfad144b4c42422cb3a32d2" title="Question 36">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>85017,32175,704,78990</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual era a dúvida inicial de Blessing sobre suas qualificações profissionais?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="85017">
+<material>
+<mattext texttype="text/plain">Ela carecia de treinamento formal em negócios, experiência corporativa e um MBA</mattext>
+</material>
+</response_label>
+<response_label ident="32175">
+<material>
+<mattext texttype="text/plain">Ela não tinha experiência em desenvolvimento comunitário</mattext>
+</material>
+</response_label>
+<response_label ident="704">
+<material>
+<mattext texttype="text/plain">Ela não conseguia gerenciar orçamentos</mattext>
+</material>
+</response_label>
+<response_label ident="78990">
+<material>
+<mattext texttype="text/plain">Ela não tinha experiência em coordenação de voluntários</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32175</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32175_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">704</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="704_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78990</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78990_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">85017</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="32175_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Blessing tinha ampla experiência comunitária. Sua dúvida era sobre a falta de treinamento formal em negócios, experiência corporativa e um MBA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="704_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ela gerenciava orçamentos com sucesso. Sua dúvida era a falta de treinamento formal em negócios, experiência corporativa e um MBA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="78990_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ela coordenou muitos voluntários. Sua dúvida era a falta de treinamento formal em negócios, experiência corporativa e um MBA, apesar de sua ampla experiência prática.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6807ad0160549488f5c31d51e860d454" title="Question 37">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>4356,33548,9833,74867</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual porcentagem de conclusão de projeto Blessing alcançou de acordo com seu portfólio?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="4356">
+<material>
+<mattext texttype="text/plain">95 por cento</mattext>
+</material>
+</response_label>
+<response_label ident="33548">
+<material>
+<mattext texttype="text/plain">85 por cento</mattext>
+</material>
+</response_label>
+<response_label ident="9833">
+<material>
+<mattext texttype="text/plain">100 por cento</mattext>
+</material>
+</response_label>
+<response_label ident="74867">
+<material>
+<mattext texttype="text/plain">90 por cento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">33548</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="33548_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9833</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9833_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74867</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74867_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4356</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="33548_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Sua taxa de conclusão foi maior. O portfólio de Blessing mostra que ela alcançou 95 por cento de taxa de conclusão de projeto com impacto comunitário mensurável.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="9833_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto especifica uma taxa um pouco menor. Blessing alcançou 95 por cento de taxa de conclusão de projeto com impacto comunitário mensurável.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="74867_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A taxa de conclusão foi maior. O portfólio de Blessing mostra que ela alcançou 95 por cento de taxa de conclusão de projeto com impacto comunitário mensurável.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g85d1fa44e40427021a25c31adcdbee8b" title="Question 38">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>15744,91358,5596,61847</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com o texto, o que sua jornada de desenvolvimento de carreira serve por meio de um excelente desempenho no trabalho?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="15744">
+<material>
+<mattext texttype="text/plain">Propósitos eternos</mattext>
+</material>
+</response_label>
+<response_label ident="91358">
+<material>
+<mattext texttype="text/plain">Apenas metas financeiras</mattext>
+</material>
+</response_label>
+<response_label ident="5596">
+<material>
+<mattext texttype="text/plain">Apenas ambições pessoais</mattext>
+</material>
+</response_label>
+<response_label ident="61847">
+<material>
+<mattext texttype="text/plain">Vantagem competitiva</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">91358</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="91358_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">5596</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="5596_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">61847</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="61847_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">15744</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="91358_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O desenvolvimento de carreira serve a propósitos além das finanças. O texto afirma que sua jornada de desenvolvimento de carreira serve a propósitos eternos por meio de um excelente desempenho no trabalho e de uma contribuição significativa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="5596_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O foco vai além das metas pessoais. Sua jornada de desenvolvimento de carreira serve a propósitos eternos por meio de um excelente desempenho no trabalho e de contribuição para as comunidades.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="61847_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O propósito não se trata de competição. O texto afirma que sua jornada de desenvolvimento de carreira serve a propósitos eternos por meio de um excelente desempenho no trabalho e de uma contribuição significativa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb40735bfd1307c1c176cc45f605819eb" title="Question 39">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>32293,75315,77355,62206</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual porcentagem de melhoria na produtividade da equipe Ana alcançou por meio de suas abordagens de mentoria?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="32293">
+<material>
+<mattext texttype="text/plain">30 por cento</mattext>
+</material>
+</response_label>
+<response_label ident="75315">
+<material>
+<mattext texttype="text/plain">40 por cento</mattext>
+</material>
+</response_label>
+<response_label ident="77355">
+<material>
+<mattext texttype="text/plain">25 por cento</mattext>
+</material>
+</response_label>
+<response_label ident="62206">
+<material>
+<mattext texttype="text/plain">50 por cento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">75315</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="75315_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">77355</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="77355_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">62206</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="62206_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">32293</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="75315_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os programas de saúde da Sarah alcançaram 40 por cento de melhoria. A Ana alcançou 30 por cento de melhoria na produtividade da equipe por meio de suas abordagens de mentoria.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="77355_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto especifica uma porcentagem diferente. A Ana alcançou 30 por cento de melhoria na produtividade da equipe por meio de suas abordagens de mentoria.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="62206_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Emmanuel alcançou melhorias diferentes. A Ana alcançou 30 por cento de melhoria na produtividade da equipe por meio de suas abordagens de mentoria.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ga819798a13eaf2762cb345e54df5a870" title="Question 4">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>22238,89546,15769,9112</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Com o que você deve iniciar cada sessão de criação de conteúdo, de acordo com o texto?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="22238">
+<material>
+<mattext texttype="text/plain">Uma oração sincera pedindo orientação para apresentar as habilidades de maneira adequada</mattext>
+</material>
+</response_label>
+<response_label ident="89546">
+<material>
+<mattext texttype="text/plain">Revisão de portfólios de concorrentes e exemplos de currículos</mattext>
+</material>
+</response_label>
+<response_label ident="15769">
+<material>
+<mattext texttype="text/plain">Análise de tendências do mercado de trabalho e dados salariais</mattext>
+</material>
+</response_label>
+<response_label ident="9112">
+<material>
+<mattext texttype="text/plain">Escrita de rascunho sem planejamento ou preparação</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89546</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89546_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">15769</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="15769_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9112</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9112_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">22238</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="89546_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto enfatiza começar com uma oração, em vez de uma análise competitiva. Você deve começar com uma oração sincera pedindo ao Senhor que o ajude a apresentar suas habilidades de maneira adequada, concentrando-se no serviço ao próximo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="15769_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A pesquisa de mercado vem mais tarde no processo. O texto afirma que você deve iniciar cada sessão de criação de conteúdo com uma oração sincera pedindo orientação para permanecer honesto, humilde e focado no serviço.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="9112_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto recomenda primeiro uma preparação espiritual estruturada. A criação de conteúdo funciona melhor quando você começa com uma oração sincera pedindo orientação divina para apresentar suas habilidades de forma adequada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf16fa3294dc9268c530b2102aac56c42" title="Question 40">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>18809,73980,32563,49675</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que a linguagem orientada para o serviço enfatiza de acordo com a definição do Vocabulário?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="18809">
+<material>
+<mattext texttype="text/plain">Como suas habilidades contribuem para o bem-estar dos outros e para o sucesso organizacional, ao mesmo tempo em que demonstram competência técnica</mattext>
+</material>
+</response_label>
+<response_label ident="73980">
+<material>
+<mattext texttype="text/plain">Seus objetivos pessoais de avanço na carreira</mattext>
+</material>
+</response_label>
+<response_label ident="32563">
+<material>
+<mattext texttype="text/plain">Suas pretensões salariais e expectativas de benefícios</mattext>
+</material>
+</response_label>
+<response_label ident="49675">
+<material>
+<mattext texttype="text/plain">Suas credenciais educacionais e certificações</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">73980</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="73980_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32563</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32563_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49675</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49675_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">18809</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="73980_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A linguagem orientada para o serviço foca externamente nos outros. O vocabulário a define como a ênfase em como as habilidades contribuem para o bem-estar dos outros e para o sucesso organizacional, ao mesmo tempo em que demonstram competência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="32563_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A linguagem orientada para o serviço não foca na remuneração. Ela enfatiza como as habilidades contribuem para o bem-estar dos outros e para o sucesso organizacional, ao mesmo tempo em que demonstram competência técnica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="49675_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A linguagem orientada para o serviço foca na contribuição, não em credenciais. O vocabulário a define como a ênfase em como as habilidades contribuem para o bem-estar dos outros e para o sucesso organizacional.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g70cf30f26bb1c69363c97311fd3b7bf8" title="Question 41">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>83120,35204,29964,8976</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com o resumo de crescimento de personagem de Emmanuel, em que ele transformou sua incerteza?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="83120">
+<material>
+<mattext texttype="text/plain">Confiança a partir de seu forte portfólio técnico</mattext>
+</material>
+</response_label>
+<response_label ident="35204">
+<material>
+<mattext texttype="text/plain">Dúvida sobre sua trajetória profissional</mattext>
+</material>
+</response_label>
+<response_label ident="29964">
+<material>
+<mattext texttype="text/plain">Planos para buscar certificações adicionais</mattext>
+</material>
+</response_label>
+<response_label ident="8976">
+<material>
+<mattext texttype="text/plain">Decisão de mudar de área de atuação</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35204</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35204_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">29964</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="29964_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8976</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8976_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">83120</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="35204_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Emmanuel caminhou em direção à confiança, não à dúvida. O resumo de crescimento do personagem afirma que ele transformou a incerteza em confiança a partir de seu forte portfólio técnico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="29964_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A transformação envolveu reconhecer o valor existente. Emmanuel transformou sua incerteza em confiança a partir de seu forte portfólio técnico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="8976_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Emmanuel permaneceu em sua área de TI. O resumo de crescimento de personagem afirma que ele transformou a incerteza em confiança a partir de seu forte portfólio técnico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb036fa34d9c4e5237092c6758d3b46a3" title="Question 42">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>52067,55565,5970,84473</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais dois tipos de formatos de currículo o texto descreve para diferentes contextos culturais?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="52067">
+<material>
+<mattext texttype="text/plain">Formato focado em conquistas e formato de equipe colaborativa</mattext>
+</material>
+</response_label>
+<response_label ident="55565">
+<material>
+<mattext texttype="text/plain">Formato cronológico e formato funcional</mattext>
+</material>
+</response_label>
+<response_label ident="5970">
+<material>
+<mattext texttype="text/plain">Formato tradicional e formato moderno</mattext>
+</material>
+</response_label>
+<response_label ident="84473">
+<material>
+<mattext texttype="text/plain">Formato de nível inicial e formato executivo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">55565</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="55565_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">5970</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="5970_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">84473</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="84473_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">52067</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="55565_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Estes são tipos de currículo padrão, não os formatos culturais discutidos. O texto descreve o formato focado em conquistas e o formato de equipe colaborativa para diferentes contextos culturais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="5970_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto não discute o tradicional versus o moderno. Ele descreve o formato focado em conquistas e o formato de equipe colaborativa para diferentes contextos culturais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="84473_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto não aborda formatos de nível de experiência. Ele descreve o formato focado em conquistas e o formato de equipe colaborativa para diferentes contextos culturais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf3be0ab6480e9b248589e1d527b15684" title="Question 43">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>36934,68715,67362,61792</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Com quais palavras de ação os currículos focados em conquistas devem iniciar os tópicos, de acordo com o texto?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="36934">
+<material>
+<mattext texttype="text/plain">Palavras de ação que mostram o que você realizou pessoalmente</mattext>
+</material>
+</response_label>
+<response_label ident="68715">
+<material>
+<mattext texttype="text/plain">Frases passivas que minimizam seu papel</mattext>
+</material>
+</response_label>
+<response_label ident="67362">
+<material>
+<mattext texttype="text/plain">Palavras genéricas como "responsável por" ou "deveres incluíam"</mattext>
+</material>
+</response_label>
+<response_label ident="61792">
+<material>
+<mattext texttype="text/plain">Palavras focadas na equipe que evitam a contribuição individual</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68715</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68715_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67362</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67362_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">61792</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="61792_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">36934</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="68715_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O formato focado em conquistas usa uma linguagem ativa e direta. Os tópicos devem começar com palavras de ação que mostrem o que você realizou pessoalmente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67362_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essas frases não são orientadas para a ação. Os tópicos focados em conquistas devem começar com palavras de ação que mostrem o que você realizou pessoalmente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="61792_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Isso descreve o formato colaborativo. Os tópicos focados em conquistas começam com palavras de ação que mostrem o que você realizou pessoalmente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc08ca349e86ae0038e6e7a25b1fa052d" title="Question 44">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>65081,98250,36594,26455</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Com o que devem começar os tópicos do formato de currículo de equipe colaborativa, de acordo com o texto?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="65081">
+<material>
+<mattext texttype="text/plain">Palavras que mostram como você trabalhou com outras pessoas para alcançar resultados positivos</mattext>
+</material>
+</response_label>
+<response_label ident="98250">
+<material>
+<mattext texttype="text/plain">Palavras que enfatizam a superioridade individual sobre os colegas de equipe</mattext>
+</material>
+</response_label>
+<response_label ident="36594">
+<material>
+<mattext texttype="text/plain">Jargão técnico para demonstrar especialidade</mattext>
+</material>
+</response_label>
+<response_label ident="26455">
+<material>
+<mattext texttype="text/plain">Linguagem competitiva que mostra que você superou os outros</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98250</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98250_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36594</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36594_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">26455</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="26455_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">65081</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="98250_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O formato colaborativo não enfatiza a superioridade. Os tópicos devem começar com palavras que mostrem como você trabalhou com outras pessoas para alcançar resultados positivos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="36594_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O formato colaborativo foca no trabalho em equipe, não em jargões. Os tópicos devem começar com palavras que mostrem como você trabalhou com outras pessoas para alcançar resultados positivos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="26455_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O formato colaborativo evita a competição. Os tópicos devem começar com palavras que mostrem como você trabalhou com outras pessoas para alcançar resultados positivos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g836da3d3985fbab9d3b52fe0270ba44f" title="Question 45">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>3440,54265,40942,30186</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com o resumo de crescimento da personagem de Sarah, para o que ela agora cria conteúdo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="3440">
+<material>
+<mattext texttype="text/plain">Tanto para programas de saúde locais das Filipinas quanto para organizações de saúde internacionais</mattext>
+</material>
+</response_label>
+<response_label ident="54265">
+<material>
+<mattext texttype="text/plain">Apenas organizações de saúde internacionais</mattext>
+</material>
+</response_label>
+<response_label ident="40942">
+<material>
+<mattext texttype="text/plain">Apenas programas comunitários locais das Filipinas</mattext>
+</material>
+</response_label>
+<response_label ident="30186">
+<material>
+<mattext texttype="text/plain">Apenas agências governamentais de saúde</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">54265</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="54265_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40942</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40942_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">30186</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="30186_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">3440</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="54265_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Sarah atende a ambos os contextos. O resumo de crescimento da personagem afirma que ela cria conteúdo tanto para programas de saúde locais das Filipinas quanto para organizações de saúde internacionais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="40942_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Sarah expandiu seu alcance. O resumo de crescimento da personagem afirma que ela cria conteúdo tanto para programas de saúde locais das Filipinas quanto para organizações de saúde internacionais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="30186_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ela atende a públicos mais amplos. O resumo de crescimento da personagem afirma que ela cria conteúdo tanto para programas de saúde locais das Filipinas quanto para organizações de saúde internacionais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g4a84d4c2dc3f1b7a5bc359f48fbec393" title="Question 46">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>79756,39011,56784,1032</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que você deve fazer se suspeitar que pode estar conversando com um menor, de acordo com as instruções?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="79756">
+<material>
+<mattext texttype="text/plain">Manter a conversa amigável, adequada para a idade e evitar conteúdo inadequado para jovens</mattext>
+</material>
+</response_label>
+<response_label ident="39011">
+<material>
+<mattext texttype="text/plain">Pedir identificação para verificar a idade</mattext>
+</material>
+</response_label>
+<response_label ident="56784">
+<material>
+<mattext texttype="text/plain">Recusar-se a continuar a conversa</mattext>
+</material>
+</response_label>
+<response_label ident="1032">
+<material>
+<mattext texttype="text/plain">Usar linguagem mais complexa para desafiá-los</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39011</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39011_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56784</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56784_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1032</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1032_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">79756</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="39011_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Você não deve solicitar identificação. As instruções determinam manter a conversa amigável, adequada para a idade e evitar conteúdo inadequado para jovens.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="56784_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Você pode continuar com conteúdo apropriado. As instruções determinam manter a conversa amigável, adequada para a idade e evitar conteúdo inadequado para jovens.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="1032_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A linguagem deve ser apropriada para o público. As instruções determinam manter a conversa amigável, adequada para a idade e evitar conteúdo inadequado para jovens.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g2f8e60f7b18ac760245f8a0efc600def" title="Question 47">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>42519,76831,56730,40862</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com o resumo de crescimento da personagem de Ana, o que ela mantém enquanto desenvolve o posicionamento corporativo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="42519">
+<material>
+<mattext texttype="text/plain">Fortes valores familiares e equilíbrio entre vida profissional e pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="76831">
+<material>
+<mattext texttype="text/plain">Foco apenas no avanço de carreira</mattext>
+</material>
+</response_label>
+<response_label ident="56730">
+<material>
+<mattext texttype="text/plain">Regimes de trabalho exclusivamente remotos</mattext>
+</material>
+</response_label>
+<response_label ident="40862">
+<material>
+<mattext texttype="text/plain">Apenas carga horária limitada</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">76831</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="76831_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56730</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56730_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40862</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40862_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">42519</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="76831_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ana equilibra a carreira com a família. O resumo de crescimento da personagem afirma que ela mantém fortes valores familiares e equilíbrio entre vida profissional e pessoal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="56730_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O foco está nos valores, não no local de trabalho. Ana mantém fortes valores familiares e equilíbrio entre vida profissional e pessoal enquanto desenvolve seu posicionamento corporativo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="40862_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A ênfase está no equilíbrio e nos valores. Ana mantém fortes valores familiares e equilíbrio entre vida profissional e pessoal enquanto desenvolve seu posicionamento corporativo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc62778ffb68ede157747edb4be5c1322" title="Question 48">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>57752,97466,83989,2210</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quantos voluntários Ana mentorou de acordo com seu posicionamento de liderança?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="57752">
+<material>
+<mattext texttype="text/plain">25 ou mais desenvolvedores</mattext>
+</material>
+</response_label>
+<response_label ident="97466">
+<material>
+<mattext texttype="text/plain">10 desenvolvedores</mattext>
+</material>
+</response_label>
+<response_label ident="83989">
+<material>
+<mattext texttype="text/plain">50 ou mais desenvolvedores</mattext>
+</material>
+</response_label>
+<response_label ident="2210">
+<material>
+<mattext texttype="text/plain">15 desenvolvedores</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">97466</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="97466_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">83989</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="83989_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">2210</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="2210_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">57752</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="97466_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ana mentorou mais desenvolvedores. O texto afirma que seu posicionamento de liderança inclui a mentoria de 25 ou mais desenvolvedores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="83989_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto especifica um número menor. O posicionamento de liderança de Ana inclui a mentoria de 25 ou mais desenvolvedores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="2210_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ana mentorou mais do que isso. O texto afirma que seu posicionamento de liderança inclui a mentoria de 25 ou mais desenvolvedores com sucesso documentado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g9d86719e55213a83a71c7d3334c3e4aa" title="Question 5">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>72820,18013,40559,67283</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual fase do desenvolvimento de portfólio envolve examinar as experiências para identificar as habilidades utilizadas e o impacto criado?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="72820">
+<material>
+<mattext texttype="text/plain">Fase 2: Avaliando Habilidades e Contribuições</mattext>
+</material>
+</response_label>
+<response_label ident="18013">
+<material>
+<mattext texttype="text/plain">Fase 1: Preparação Espiritual e Inventário de Experiências</mattext>
+</material>
+</response_label>
+<response_label ident="40559">
+<material>
+<mattext texttype="text/plain">Fase 3: Coleta de Evidências e Documentação</mattext>
+</material>
+</response_label>
+<response_label ident="67283">
+<material>
+<mattext texttype="text/plain">Fase 4: Revisão Final e Envio</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18013</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18013_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40559</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40559_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67283</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67283_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">72820</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="18013_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Fase 1 foca na oração e na listagem de experiências. A Fase 2 envolve examinar cada experiência para identificar as habilidades técnicas utilizadas, as habilidades interpessoais desenvolvidas e o impacto criado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="40559_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A Fase 3 concentra-se em reunir provas concretas de conquistas. A Fase 2 é onde você examina experiências para identificar as habilidades usadas e o impacto criado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67283_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O texto descreve apenas três fases do desenvolvimento do portfólio. A Fase 2 envolve examinar experiências para identificar as habilidades usadas e o impacto criado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g97dfbdff037500fb67f5577f0cf42ab9" title="Question 6">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>62563,2426,53244,19984</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que significa adaptação cultural em conteúdo profissional de acordo com o texto?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="62563">
+<material>
+<mattext texttype="text/plain">Apresentar conquistas verdadeiras usando ênfases diferentes com base em preferências culturais</mattext>
+</material>
+</response_label>
+<response_label ident="2426">
+<material>
+<mattext texttype="text/plain">Criar fatos diferentes sobre sua experiência para culturas diferentes</mattext>
+</material>
+</response_label>
+<response_label ident="53244">
+<material>
+<mattext texttype="text/plain">Usar conteúdo de currículo completamente diferente para cada país</mattext>
+</material>
+</response_label>
+<response_label ident="19984">
+<material>
+<mattext texttype="text/plain">Remover experiências que possam não se traduzir culturalmente</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">2426</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="2426_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53244</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53244_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19984</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19984_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">62563</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="2426_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A adaptação cultural nunca envolve alterar fatos ou ser desonesto. O texto afirma que isso significa apresentar as mesmas conquistas verdadeiras usando ênfases diferentes com base no que cada contexto cultural valoriza.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53244_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Você apresenta a mesma experiência honesta com uma ênfase diferente, não um conteúdo completamente diferente. A adaptação cultural significa enfatizar diferentes aspectos de conquistas verdadeiras com base em preferências culturais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="19984_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A adaptação cultural não exige a remoção de experiências. O texto explica que isso significa apresentar as mesmas conquistas verdadeiras usando uma linguagem e uma ênfase que se conectem com expectativas culturais específicas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g19b331c079ca4fb992a367ddb753e981" title="Question 7">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>17665,16426,47613,17171</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que o conteúdo profissional do contexto de negócios do Leste Asiático deve enfatizar?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="17665">
+<material>
+<mattext texttype="text/plain">Colaboração em equipe, respeito à hierarquia e contribuições para o sucesso do grupo</mattext>
+</material>
+</response_label>
+<response_label ident="16426">
+<material>
+<mattext texttype="text/plain">Iniciativa individual, resultados mensuráveis e liderança pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="47613">
+<material>
+<mattext texttype="text/plain">Serviço comunitário, tomada de decisão coletiva e sensibilidade cultural</mattext>
+</material>
+</response_label>
+<response_label ident="17171">
+<material>
+<mattext texttype="text/plain">Conexões familiares, caráter pessoal e lealdade organizacional</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">16426</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="16426_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47613</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47613_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">17171</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="17171_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">17665</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="16426_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essas características descrevem os contextos norte-americanos. Os contextos de negócios do Leste Asiático enfatizam a colaboração em equipe, o respeito à hierarquia e à experiência, e as contribuições para o sucesso do grupo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="47613_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essas características descrevem os contextos das Ilhas do Pacífico. Os contextos de negócios do Leste Asiático enfatizam a colaboração em equipe, o respeito à hierarquia e as contribuições para o sucesso do grupo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="17171_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Essas características descrevem os contextos latino-americanos. Os contextos de negócios do Leste Asiático enfatizam a colaboração em equipe, o respeito à hierarquia e à experiência, e as contribuições para o sucesso do grupo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g8c873b8b667875d3659b5ccf2542104b" title="Question 8">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>78934,55690,93886,60968</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o primeiro passo no processo de Inventário Espiritual para avaliação de habilidades?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="78934">
+<material>
+<mattext texttype="text/plain">Comece com uma oração para buscar a compreensão de seus dons espirituais</mattext>
+</material>
+</response_label>
+<response_label ident="55690">
+<material>
+<mattext texttype="text/plain">Liste todas as certificações técnicas e a educação formal</mattext>
+</material>
+</response_label>
+<response_label ident="93886">
+<material>
+<mattext texttype="text/plain">Pesquise faixas salariais para os cargos pretendidos</mattext>
+</material>
+</response_label>
+<response_label ident="60968">
+<material>
+<mattext texttype="text/plain">Crie uma linha do tempo da experiência profissional</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">55690</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="55690_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93886</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93886_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">60968</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="60968_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">78934</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="55690_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As credenciais técnicas vêm após a reflexão espiritual. O texto afirma que você deve começar com uma oração para buscar a compreensão dos dons espirituais e como eles se relacionam com as habilidades profissionais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="93886_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A pesquisa de mercado acontece mais tarde. O processo de Inventário Espiritual começa com uma oração para buscar a compreensão de seus dons espirituais e sua relação com as habilidades profissionais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="60968_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A documentação da experiência vem após a preparação espiritual. O texto afirma que o primeiro passo é começar com uma oração para buscar a compreensão dos dons espirituais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1d5ab255736c005919aa52145a0574cd" title="Question 9">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>13615,1729,34590,66316</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que a parábola dos talentos ensina sobre a criação de conteúdo profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="13615">
+<material>
+<mattext texttype="text/plain">Mostre evidências específicas de como você usou os dons para criar valor para os outros</mattext>
+</material>
+</response_label>
+<response_label ident="1729">
+<material>
+<mattext texttype="text/plain">Mantenha suas conquistas privadas para permanecer humilde</mattext>
+</material>
+</response_label>
+<response_label ident="34590">
+<material>
+<mattext texttype="text/plain">Compare seus talentos com os de outros servos</mattext>
+</material>
+</response_label>
+<response_label ident="66316">
+<material>
+<mattext texttype="text/plain">Focus on effort expended rather than results achieved</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1729</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1729_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">34590</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="34590_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">66316</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="66316_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">13615</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="1729_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">The faithful servant openly presented his achievements. The parable teaches that you should show specific evidence of how you used God-given gifts to create value for others.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="34590_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">The text states God does not want us to compare abilities to others. The parable teaches showing specific evidence of how you used gifts to create value.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="66316_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">The faithful servant showed concrete results, not just effort. The parable teaches showing specific evidence of how you used gifts to create measurable value for others.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+</objectbank>
+</questestinterop>

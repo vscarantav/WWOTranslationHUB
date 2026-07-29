@@ -1,0 +1,3903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <objectbank ident="g224219a5f7fde3242356635b0593246f">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>bank_title</fieldlabel>
+        <fieldentry>QB: GS 170 W07 Level 1 Assessment Questions</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_type</fieldlabel>
+        <fieldentry>Course</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_context_uuid</fieldlabel>
+        <fieldentry>wqxM3YelMSOoe6KM2hzYYOQG9VlwUJQBTBiWHADR</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_state</fieldlabel>
+        <fieldentry>active</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <item ident="g5519b8d6376450494986b6d84fdb0694" title="Question 1">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>9236,35941,73489,8380</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What does the five-step job offer evaluation process begin with?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="9236">
+              <material>
+                <mattext texttype="text/plain">Gathering complete information about each opportunity</mattext>
+              </material>
+            </response_label>
+            <response_label ident="35941">
+              <material>
+                <mattext texttype="text/plain">Applying a weighted decision framework</mattext>
+              </material>
+            </response_label>
+            <response_label ident="73489">
+              <material>
+                <mattext texttype="text/plain">Seeking spiritual confirmation</mattext>
+              </material>
+            </response_label>
+            <response_label ident="8380">
+              <material>
+                <mattext texttype="text/plain">Testing through service</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">35941</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="35941_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">73489</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="73489_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">8380</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="8380_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">9236</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="35941_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">The weighted decision framework is the second step in the process. The evaluation begins with gathering complete information about each opportunity, including compensation, benefits, growth opportunities, work environment, and cultural fit factors.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="73489_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Spiritual confirmation comes after initial analysis. The process begins with gathering complete information about each opportunity before moving to spiritual seeking.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="8380_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Testing through service is a later step when possible. The evaluation process starts with gathering complete information about each opportunity.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g30058ed608978d361be81a8dfc1bfa40" title="Question 12">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>2790,20060,5134,18245</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What percentage of time is allocated to the Confirmation Phase in revelation-based decisions?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="2790">
+              <material>
+                <mattext texttype="text/plain">20% of decision-making time</mattext>
+              </material>
+            </response_label>
+            <response_label ident="20060">
+              <material>
+                <mattext texttype="text/plain">40% of decision-making time</mattext>
+              </material>
+            </response_label>
+            <response_label ident="5134">
+              <material>
+                <mattext texttype="text/plain">60% of decision-making time</mattext>
+              </material>
+            </response_label>
+            <response_label ident="18245">
+              <material>
+                <mattext texttype="text/plain">80% of decision-making time</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">20060</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="20060_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">5134</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="5134_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">18245</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="18245_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">2790</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="20060_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Both Study Phase and Spiritual Seeking Phase receive 40% each. The Confirmation Phase receives 20% of decision-making time for identifying multiple witnesses.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="5134_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">No single phase receives 60% of time. The Confirmation Phase is allocated 20% of decision-making time for looking for spiritual impressions and external confirmations.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="18245_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">No phase receives 80% of time. The Confirmation Phase uses 20% of decision-making time to identify multiple witnesses through spiritual impressions.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gf4e9531ecb97e8566679757ebdfa9b0e" title="Question 13">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>10189,95643,26372,89061</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is the second step in the Four-Step Professional Negotiation Method?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="10189">
+              <material>
+                <mattext texttype="text/plain">Frame as Problem-Solving</mattext>
+              </material>
+            </response_label>
+            <response_label ident="95643">
+              <material>
+                <mattext texttype="text/plain">Research and Prepare</mattext>
+              </material>
+            </response_label>
+            <response_label ident="26372">
+              <material>
+                <mattext texttype="text/plain">Propose Specific Value Exchange</mattext>
+              </material>
+            </response_label>
+            <response_label ident="89061">
+              <material>
+                <mattext texttype="text/plain">Maintain Relationship Focus</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">95643</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="95643_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">26372</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="26372_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">89061</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="89061_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">10189</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="95643_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Research and Prepare is the first step. The second step is Frame as Problem-Solving, presenting negotiations as collaborative solutions.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="26372_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Proposing value exchange is the third step. The second step is Frame as Problem-Solving to present negotiations collaboratively.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="89061_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maintaining relationship focus is the fourth step. The second step is Frame as Problem-Solving rather than making adversarial demands.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="ge32eb57841c2157cb47466cff0cd5b47" title="Question 14">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>34949,92599,55669,89595</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What should you do first when mastering basic professional competencies?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="34949">
+              <material>
+                <mattext texttype="text/plain">Show up on time, every time</mattext>
+              </material>
+            </response_label>
+            <response_label ident="92599">
+              <material>
+                <mattext texttype="text/plain">Seek advancement opportunities</mattext>
+              </material>
+            </response_label>
+            <response_label ident="55669">
+              <material>
+                <mattext texttype="text/plain">Negotiate for higher compensation</mattext>
+              </material>
+            </response_label>
+            <response_label ident="89595">
+              <material>
+                <mattext texttype="text/plain">Build an extensive professional network</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">92599</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="92599_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">55669</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="55669_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">89595</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="89595_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">34949</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="92599_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Advancement comes after mastering basics. You must first demonstrate consistent excellence in fundamental behaviors like showing up on time.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="55669_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Negotiation comes after demonstrating competence. First, you must master basic expectations like punctuality and deadline completion.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="89595_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Networking is important but comes after basics. You must first demonstrate fundamental workplace behaviors like consistent punctuality.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gd33c8772127f21181b5e2765e0a189e7" title="Question 15">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>92915,61247,35844,93395</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;What is the third step in the Five-Step Job Offer Evaluation Process?&lt;/p&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="92915">
+              <material>
+                <mattext texttype="text/plain">Seek Spiritual Confirmation</mattext>
+              </material>
+            </response_label>
+            <response_label ident="61247">
+              <material>
+                <mattext texttype="text/plain">Gather Complete Information</mattext>
+              </material>
+            </response_label>
+            <response_label ident="35844">
+              <material>
+                <mattext texttype="text/plain">Apply Weighted Decision Framework</mattext>
+              </material>
+            </response_label>
+            <response_label ident="93395">
+              <material>
+                <mattext texttype="text/plain">Test Through Service</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">61247</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="61247_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">35844</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="35844_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">93395</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="93395_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">92915</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="61247_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">Gathering information is the first step. The third step is Seek Spiritual Confirmation through fasting and temple worship after initial analysis.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="35844_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">Applying the framework is the second step. The third step is Seek Spiritual Confirmation after practical analysis is complete.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="93395_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">Testing through service is the fourth step when possible. The third step is Seek Spiritual Confirmation after completing practical analysis.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g532e53c0f58daa8a52664ca4281726c4" title="Question 16">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>15714,98321,13988,9708</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What approach should you take when negotiations do not go your way?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="15714">
+              <material>
+                <mattext texttype="text/plain">Respond professionally and ask what would need to change</mattext>
+              </material>
+            </response_label>
+            <response_label ident="98321">
+              <material>
+                <mattext texttype="text/plain">Accuse employers of unfair treatment</mattext>
+              </material>
+            </response_label>
+            <response_label ident="13988">
+              <material>
+                <mattext texttype="text/plain">Post complaints on social media</mattext>
+              </material>
+            </response_label>
+            <response_label ident="9708">
+              <material>
+                <mattext texttype="text/plain">Argue with decision makers</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">98321</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="98321_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">13988</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="13988_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">9708</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="9708_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">15714</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="98321_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Accusations damage professional reputation permanently. You should respond professionally and ask what would need to change for future consideration.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="13988_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Social media complaints harm your career prospects. You should respond professionally and ask about conditions for revisiting the request.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="9708_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Arguing destroys professional relationships. You should respond professionally, thank them for considering your request, and ask about future possibilities.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g41bddb4a19f4a930c7dfe69fa31b7ea8" title="Question 17">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>49356,52228,22943,60068</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What defines Value-Creating Negotiation?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="49356">
+              <material>
+                <mattext texttype="text/plain">Professional negotiation that focuses on creating mutual benefits</mattext>
+              </material>
+            </response_label>
+            <response_label ident="52228">
+              <material>
+                <mattext texttype="text/plain">Negotiation that extracts maximum personal advantage</mattext>
+              </material>
+            </response_label>
+            <response_label ident="22943">
+              <material>
+                <mattext texttype="text/plain">Negotiation that avoids discussing compensation</mattext>
+              </material>
+            </response_label>
+            <response_label ident="60068">
+              <material>
+                <mattext texttype="text/plain">Negotiation that applies only to senior positions</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">52228</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="52228_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">22943</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="22943_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">60068</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="60068_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">49356</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="52228_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Value-creating negotiation does the opposite. It focuses on creating mutual benefits rather than extracting maximum personal advantage.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="22943_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Value-creating negotiation includes compensation discussions. It focuses on creating mutual benefits for both parties involved.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="60068_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This approach works at all levels. Value-creating negotiation focuses on mutual benefits rather than being limited to senior roles.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g6e99003226a83dfe853d88833f5e2d15" title="Question 18">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>39164,96000,72347,36848</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is Employment Transition Planning?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="39164">
+              <material>
+                <mattext texttype="text/plain">Approach to workplace integration over a 90-day timeline</mattext>
+              </material>
+            </response_label>
+            <response_label ident="96000">
+              <material>
+                <mattext texttype="text/plain">Process for leaving your current position</mattext>
+              </material>
+            </response_label>
+            <response_label ident="72347">
+              <material>
+                <mattext texttype="text/plain">Strategy for negotiating salary increases</mattext>
+              </material>
+            </response_label>
+            <response_label ident="36848">
+              <material>
+                <mattext texttype="text/plain">Method for remote work setup</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">96000</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="96000_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">72347</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="72347_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">36848</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="36848_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">39164</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="96000_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Employment Transition Planning focuses on starting, not leaving. It is an approach to workplace integration that combines relationship building and performance establishment over 90 days.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="72347_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This term does not refer to salary negotiation. Employment Transition Planning is an approach to workplace integration over a 90-day timeline.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="36848_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is not specific to remote work. Employment Transition Planning is an approach to workplace integration combining relationship building and cultural adaptation over 90 days.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g0b7dd329cecfae11024e79f72235af5e" title="Question 19">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>66440,22806,29438,89262</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is Spiritual Career Discernment?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="66440">
+              <material>
+                <mattext texttype="text/plain">Process of seeking divine revelation for career decisions</mattext>
+              </material>
+            </response_label>
+            <response_label ident="22806">
+              <material>
+                <mattext texttype="text/plain">Method for calculating salary requirements</mattext>
+              </material>
+            </response_label>
+            <response_label ident="29438">
+              <material>
+                <mattext texttype="text/plain">Strategy for networking with professionals</mattext>
+              </material>
+            </response_label>
+            <response_label ident="89262">
+              <material>
+                <mattext texttype="text/plain">Technique for resume writing</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">22806</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="22806_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">29438</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="29438_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">89262</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="89262_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">66440</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="22806_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This term does not refer to salary calculations. Spiritual Career Discernment is the process of seeking divine revelation through prayer and fasting for career decisions.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="29438_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This term does not describe networking. Spiritual Career Discernment is the process of seeking divine revelation while integrating spiritual confirmation with practical analysis.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="89262_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This term is not about resumes. Spiritual Career Discernment is the process of seeking divine revelation for career decisions through prayer, fasting, and temple worship.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gaf9dfc188adcae82437dc7767a7b55ef" title="Question 2">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>69770,52667,82543,42791</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is the first step in the Four-Step Professional Negotiation Method?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="69770">
+              <material>
+                <mattext texttype="text/plain">Research and Prepare</mattext>
+              </material>
+            </response_label>
+            <response_label ident="52667">
+              <material>
+                <mattext texttype="text/plain">Frame as Problem-Solving</mattext>
+              </material>
+            </response_label>
+            <response_label ident="82543">
+              <material>
+                <mattext texttype="text/plain">Propose Specific Value Exchange</mattext>
+              </material>
+            </response_label>
+            <response_label ident="42791">
+              <material>
+                <mattext texttype="text/plain">Maintain Relationship Focus</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">52667</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="52667_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">82543</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="82543_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">42791</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="42791_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">69770</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="52667_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Framing as problem-solving is the second step. The method begins with research and preparation, studying market rates, organizational priorities, and specific challenges you can address.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="82543_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Proposing value exchange is the third step. The negotiation method starts with research and preparation to understand market rates and organizational needs.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="42791_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maintaining relationship focus is the fourth step. The method begins with research and preparation before moving to other phases.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="ga5a2091f6d5ea3f152ebb94f20e8daa6" title="Question 20">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>21537,18575,10771,75749</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What does Professional Communication Excellence require?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="21537">
+              <material>
+                <mattext texttype="text/plain">Ability to discuss career decisions using confident, strategic language</mattext>
+              </material>
+            </response_label>
+            <response_label ident="18575">
+              <material>
+                <mattext texttype="text/plain">Using the longest possible sentences</mattext>
+              </material>
+            </response_label>
+            <response_label ident="10771">
+              <material>
+                <mattext texttype="text/plain">Avoiding all discussion of work experience</mattext>
+              </material>
+            </response_label>
+            <response_label ident="75749">
+              <material>
+                <mattext texttype="text/plain">Speaking only about personal needs</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">18575</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="18575_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">10771</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="10771_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">75749</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="75749_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">21537</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="18575_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Length does not indicate excellence. Professional Communication Excellence is the ability to discuss career decisions using confident, strategic language that demonstrates competence.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="10771_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Discussion is essential, not avoided. Professional Communication Excellence involves discussing career decisions and work experience using strategic language.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="75749_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Focus should be broader than personal needs. Professional Communication Excellence involves discussing career decisions using language that demonstrates competence and thoughtful planning.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g6907d1e727d030482fe0b4dad6ed5b6d" title="Question 22">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>9784,88044,91572,57451</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is the fourth step in the Four-Step Professional Negotiation Method?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="9784">
+              <material>
+                <mattext texttype="text/plain">Maintain Relationship Focus</mattext>
+              </material>
+            </response_label>
+            <response_label ident="88044">
+              <material>
+                <mattext texttype="text/plain">Research and Prepare</mattext>
+              </material>
+            </response_label>
+            <response_label ident="91572">
+              <material>
+                <mattext texttype="text/plain">Frame as Problem-Solving</mattext>
+              </material>
+            </response_label>
+            <response_label ident="57451">
+              <material>
+                <mattext texttype="text/plain">Propose Specific Value Exchange</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">88044</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="88044_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">91572</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="91572_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">57451</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="57451_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">9784</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="88044_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Research and Prepare is the first step. The fourth step is Maintain Relationship Focus to preserve positive relationships regardless of outcomes.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="91572_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Framing as problem-solving is the second step. The fourth step is Maintain Relationship Focus for long-term career prospects.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="57451_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Proposing value exchange is the third step. The fourth step is Maintain Relationship Focus because professional reputation affects career prospects.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gf7545e67c7b8072011f902ed54f1b5ef" title="Question 23">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>25814,3166,55106,87655</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is the fourth step in the Four-Step Revelation-Based Decision Process?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="25814">
+              <material>
+                <mattext texttype="text/plain">Faithful Implementation</mattext>
+              </material>
+            </response_label>
+            <response_label ident="3166">
+              <material>
+                <mattext texttype="text/plain">Study Phase</mattext>
+              </material>
+            </response_label>
+            <response_label ident="55106">
+              <material>
+                <mattext texttype="text/plain">Spiritual Seeking</mattext>
+              </material>
+            </response_label>
+            <response_label ident="87655">
+              <material>
+                <mattext texttype="text/plain">Confirmation Phase</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">3166</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="3166_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">55106</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="55106_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">87655</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="87655_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">25814</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="3166_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Study Phase is the first step at 40% of time. The fourth step is Faithful Implementation, acting on confirmed impressions with commitment.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="55106_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Spiritual Seeking is the second step at 40% of time. The fourth step is Faithful Implementation based on spiritually confirmed decisions.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="87655_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Confirmation Phase is the third step at 20% of time. The fourth step is Faithful Implementation, committing fully to the confirmed decision.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gc71722b1f5e7e27752c86674bd18f642" title="Question 24">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>76585,69050,55714,85327</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is the second step in the Five-Step Job Offer Evaluation Process?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="76585">
+              <material>
+                <mattext texttype="text/plain">Apply Weighted Decision Framework</mattext>
+              </material>
+            </response_label>
+            <response_label ident="69050">
+              <material>
+                <mattext texttype="text/plain">Gather Complete Information</mattext>
+              </material>
+            </response_label>
+            <response_label ident="55714">
+              <material>
+                <mattext texttype="text/plain">Seek Spiritual Confirmation</mattext>
+              </material>
+            </response_label>
+            <response_label ident="85327">
+              <material>
+                <mattext texttype="text/plain">Test Through Service</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">69050</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="69050_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">55714</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="55714_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">85327</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="85327_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">76585</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="69050_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Gathering information is the first step. The second step is Apply Weighted Decision Framework by assigning importance percentages to factors.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="55714_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Seeking spiritual confirmation is the third step. The second step is Apply Weighted Decision Framework based on life priorities.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="85327_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Testing through service is the fourth step. The second step is Apply Weighted Decision Framework to evaluate opportunities systematically.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g82397fa2be0984646b2799cdbd468812" title="Question 25">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>34863,87493,86905,25811</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What should you establish first when working remotely?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="34863">
+              <material>
+                <mattext texttype="text/plain">Consistent work schedules that align with team needs</mattext>
+              </material>
+            </response_label>
+            <response_label ident="87493">
+              <material>
+                <mattext texttype="text/plain">A home entertainment system</mattext>
+              </material>
+            </response_label>
+            <response_label ident="86905">
+              <material>
+                <mattext texttype="text/plain">Multiple social media accounts</mattext>
+              </material>
+            </response_label>
+            <response_label ident="25811">
+              <material>
+                <mattext texttype="text/plain">Personal project deadlines only</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">87493</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="87493_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">86905</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="86905_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">25811</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="25811_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">34863</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="87493_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Entertainment is not a professional priority. You should establish consistent work schedules that align with your team's needs and organizational expectations.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="86905_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Social media is not the priority. You should establish consistent work schedules that align with team needs for remote work success.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="25811_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Personal projects are secondary. You should establish consistent work schedules that align with organizational expectations and team needs.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g6c53450217e778be520453da5e039cd9" title="Question 26">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>4993,47431,70912,37794</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is Service-Centered Advancement?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="4993">
+              <material>
+                <mattext texttype="text/plain">Career development strategy focusing on expanding capacity to serve others</mattext>
+              </material>
+            </response_label>
+            <response_label ident="47431">
+              <material>
+                <mattext texttype="text/plain">Strategy that requires volunteering without compensation</mattext>
+              </material>
+            </response_label>
+            <response_label ident="70912">
+              <material>
+                <mattext texttype="text/plain">Method that eliminates personal career goals</mattext>
+              </material>
+            </response_label>
+            <response_label ident="37794">
+              <material>
+                <mattext texttype="text/plain">Approach that applies only to entry-level positions</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">47431</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="47431_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">70912</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="70912_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">37794</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="37794_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">4993</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="47431_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Service-centered advancement is not about unpaid work. It is a career development strategy that focuses on expanding capacity to serve others, leading to natural advancement.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="70912_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Personal goals are not eliminated. Service-Centered Advancement is a strategy that focuses on expanding capacity to serve others while achieving advancement.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="37794_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This strategy works at all levels. Service-Centered Advancement focuses on expanding capacity to serve others throughout your career.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g6903d3540af782f6a605bf547e761975" title="Question 27">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>41341,77419,43596,15156</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is a Weighted Decision Framework?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="41341">
+              <material>
+                <mattext texttype="text/plain">Evaluation method that assigns percentage importance to different job factors</mattext>
+              </material>
+            </response_label>
+            <response_label ident="77419">
+              <material>
+                <mattext texttype="text/plain">Calculator for determining total compensation</mattext>
+              </material>
+            </response_label>
+            <response_label ident="43596">
+              <material>
+                <mattext texttype="text/plain">System for ranking all available job offers</mattext>
+              </material>
+            </response_label>
+            <response_label ident="15156">
+              <material>
+                <mattext texttype="text/plain">Tool that eliminates subjective decision-making</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">77419</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="77419_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">43596</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="43596_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">15156</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="15156_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">41341</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="77419_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This framework does not just calculate compensation. It is an evaluation method that assigns percentage importance to different job factors based on values.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="43596_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This framework does more than rank offers. It is an evaluation method that assigns percentage importance to factors based on personal values and priorities.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="15156_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Personal values remain central. A Weighted Decision Framework assigns percentage importance to job factors based on personal values and life priorities.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g3043d674e376df7a33944202dd93bb2c" title="Question 28">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>2496,79846,8151,18963</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What should you do immediately when struggling with performance expectations?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="2496">
+              <material>
+                <mattext texttype="text/plain">Seek guidance from supervisors or mentors</mattext>
+              </material>
+            </response_label>
+            <response_label ident="79846">
+              <material>
+                <mattext texttype="text/plain">Wait for the problem to resolve itself</mattext>
+              </material>
+            </response_label>
+            <response_label ident="8151">
+              <material>
+                <mattext texttype="text/plain">Blame others for the difficulties</mattext>
+              </material>
+            </response_label>
+            <response_label ident="18963">
+              <material>
+                <mattext texttype="text/plain">Post about frustrations on social media</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">79846</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="79846_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">8151</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="8151_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">18963</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="18963_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">2496</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="79846_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Waiting is not appropriate. You should immediately seek guidance from supervisors or mentors rather than hoping problems will resolve themselves.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="8151_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Blaming damages reputation. You should immediately seek guidance from supervisors or mentors to address performance struggles.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="18963_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Social media complaints are unprofessional. You should immediately seek guidance from supervisors or mentors when struggling with expectations.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gb18c659a1115d876e1f8ebada6dc1fb3" title="Question 29">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>28316,63500,49056,52539</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is the third step in the Four-Step Professional Negotiation Method?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="28316">
+              <material>
+                <mattext texttype="text/plain">Propose Specific Value Exchange</mattext>
+              </material>
+            </response_label>
+            <response_label ident="63500">
+              <material>
+                <mattext texttype="text/plain">Research and Prepare</mattext>
+              </material>
+            </response_label>
+            <response_label ident="49056">
+              <material>
+                <mattext texttype="text/plain">Frame as Problem-Solving</mattext>
+              </material>
+            </response_label>
+            <response_label ident="52539">
+              <material>
+                <mattext texttype="text/plain">Maintain Relationship Focus</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">63500</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="63500_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">49056</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="49056_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">52539</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="52539_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">28316</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="63500_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Research and Prepare is the first step. The third step is Propose Specific Value Exchange connecting requests to organizational benefits.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="49056_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Framing as problem-solving is the second step. The third step is Propose Specific Value Exchange with concrete commitments.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="52539_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maintaining relationship focus is the fourth step. The third step is Propose Specific Value Exchange linked to measurable outcomes.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gbae02d9c94782630784879ba4e250b8b" title="Question 3">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>95219,945,6419,1864</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;How much time should be allocated to the Study Phase in the Four-Step Revelation-Based Decision Process?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="95219">
+              <material>
+                <mattext texttype="text/plain">40% of decision-making time</mattext>
+              </material>
+            </response_label>
+            <response_label ident="945">
+              <material>
+                <mattext texttype="text/plain">20% of decision-making time</mattext>
+              </material>
+            </response_label>
+            <response_label ident="6419">
+              <material>
+                <mattext texttype="text/plain">60% of decision-making time</mattext>
+              </material>
+            </response_label>
+            <response_label ident="1864">
+              <material>
+                <mattext texttype="text/plain">80% of decision-making time</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">945</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="945_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">6419</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="6419_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">1864</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="1864_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">95219</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="945_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">The Confirmation Phase receives 20% of time. The Study Phase requires 40% of decision-making time for complete analysis of opportunities and practical considerations.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="6419_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">No single phase receives 60% of time. The Study Phase is allocated 40% of decision-making time for thorough analysis before seeking spiritual confirmation.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="1864_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">No phase receives 80% of time. The Study Phase uses 40% of decision-making time to complete analysis before spiritual seeking.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g66a2d40540512f17d534db6b3cf4167b" title="Question 30">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>64144,21948,33491,86576</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What defines weak language when discussing job opportunities?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="64144">
+              <material>
+                <mattext texttype="text/plain">Phrases like "I guess this offer looks pretty good"</mattext>
+              </material>
+            </response_label>
+            <response_label ident="21948">
+              <material>
+                <mattext texttype="text/plain">Statements about strategic career goals</mattext>
+              </material>
+            </response_label>
+            <response_label ident="33491">
+              <material>
+                <mattext texttype="text/plain">Descriptions of decision-making frameworks</mattext>
+              </material>
+            </response_label>
+            <response_label ident="86576">
+              <material>
+                <mattext texttype="text/plain">References to growth potential and cultural fit</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">21948</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="21948_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">33491</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="33491_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">86576</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="86576_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">64144</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="21948_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Strategic statements demonstrate professionalism. Weak language includes uncertain phrases like "I guess this offer looks pretty good" rather than strategic planning.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="33491_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Framework descriptions show professionalism. Weak language includes uncertain phrases like "I guess" rather than clear evaluation processes.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="86576_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">These references demonstrate professionalism. Weak language includes tentative phrases like "I guess" rather than confident assessment of opportunities.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g028126aaa5f7f33716aec725c0f500f3" title="Question 31">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>63387,38555,45864,22529</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;How would a theater manager use accounting information when determining profitability?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="63387">
+              <material>
+                <mattext texttype="text/plain">Compare ticket revenue against production costs and expenses</mattext>
+              </material>
+            </response_label>
+            <response_label ident="38555">
+              <material>
+                <mattext texttype="text/plain">Count the number of audience members each night</mattext>
+              </material>
+            </response_label>
+            <response_label ident="45864">
+              <material>
+                <mattext texttype="text/plain">Review critic reviews and audience feedback</mattext>
+              </material>
+            </response_label>
+            <response_label ident="22529">
+              <material>
+                <mattext texttype="text/plain">Analyze competitor theater schedules</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">38555</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="38555_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">45864</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="45864_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">22529</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="22529_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">63387</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="38555_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Simply counting audience members does not provide profitability information. A theater manager needs to compare ticket revenue against production costs and expenses to determine profitability.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="45864_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Reviews and feedback measure artistic success but not financial profitability. Profitability requires comparing ticket revenue against production costs and expenses.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="22529_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Competitor analysis might inform future decisions but does not determine current profitability. This requires comparing ticket revenue against production costs and expenses.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g17ffaa55115f786de0c2143c449bdc64" title="Question 32">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>16932,23539,98067,72024</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What percentage did Maria weight spiritual confirmation in her decision framework?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="16932">
+              <material>
+                <mattext texttype="text/plain">40%</mattext>
+              </material>
+            </response_label>
+            <response_label ident="23539">
+              <material>
+                <mattext texttype="text/plain">20%</mattext>
+              </material>
+            </response_label>
+            <response_label ident="98067">
+              <material>
+                <mattext texttype="text/plain">30%</mattext>
+              </material>
+            </response_label>
+            <response_label ident="72024">
+              <material>
+                <mattext texttype="text/plain">10%</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">23539</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="23539_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">98067</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="98067_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">72024</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="72024_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">16932</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="23539_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria assigned 20% to family impact, not spiritual confirmation. She weighted spiritual confirmation at 40% as her highest priority factor.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="98067_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria assigned 30% to long-term growth, not spiritual confirmation. She weighted spiritual confirmation at 40% in her framework.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="72024_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria assigned 10% to cultural fit, not spiritual confirmation. She weighted spiritual confirmation at 40% as her most important factor.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g0644f7c963c655740a249d7c5c3baa35" title="Question 33">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>47255,42741,88948,4567</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What percentage did Maria weight family impact in her decision framework?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="47255">
+              <material>
+                <mattext texttype="text/plain">20%</mattext>
+              </material>
+            </response_label>
+            <response_label ident="42741">
+              <material>
+                <mattext texttype="text/plain">40%</mattext>
+              </material>
+            </response_label>
+            <response_label ident="88948">
+              <material>
+                <mattext texttype="text/plain">30%</mattext>
+              </material>
+            </response_label>
+            <response_label ident="4567">
+              <material>
+                <mattext texttype="text/plain">10%</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">42741</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="42741_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">88948</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="88948_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">4567</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="4567_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">47255</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="42741_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria assigned 40% to spiritual confirmation, not family impact. She weighted family impact at 20% in her framework.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="88948_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria assigned 30% to long-term growth, not family impact. She weighted family impact at 20% in her decision framework.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="4567_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria assigned 10% to cultural fit, not family impact. She weighted family impact at 20% in her framework.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gfbef5a72f5cc986881231401d32bde58" title="Question 34">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>18631,22596,96294,8411</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;How long did it take Maria to receive promotion after choosing the international firm?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="18631">
+              <material>
+                <mattext texttype="text/plain">18 months</mattext>
+              </material>
+            </response_label>
+            <response_label ident="22596">
+              <material>
+                <mattext texttype="text/plain">6 months</mattext>
+              </material>
+            </response_label>
+            <response_label ident="96294">
+              <material>
+                <mattext texttype="text/plain">12 months</mattext>
+              </material>
+            </response_label>
+            <response_label ident="8411">
+              <material>
+                <mattext texttype="text/plain">24 months</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">22596</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="22596_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">96294</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="96294_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">8411</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="8411_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">18631</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="22596_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Six months was Gabriel's and Emmanuel's timeline. Maria was promoted to regional coordinator within 18 months.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="96294_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria's promotion took longer than 12 months. She was promoted to regional coordinator within 18 months.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="8411_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria's promotion came sooner. She was promoted to regional coordinator within 18 months of choosing the international firm.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g81e7631da08a45458778349a0e8b4133" title="Question 35">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>24115,66687,79606,66818</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What amount did Emmanuel propose for cloud infrastructure certification?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="24115">
+              <material>
+                <mattext texttype="text/plain">$3,000</mattext>
+              </material>
+            </response_label>
+            <response_label ident="66687">
+              <material>
+                <mattext texttype="text/plain">$1,500</mattext>
+              </material>
+            </response_label>
+            <response_label ident="79606">
+              <material>
+                <mattext texttype="text/plain">$4,500</mattext>
+              </material>
+            </response_label>
+            <response_label ident="66818">
+              <material>
+                <mattext texttype="text/plain">$6,000</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">66687</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="66687_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">79606</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="79606_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">66818</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="66818_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">24115</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="66687_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel did not propose $1,500. He proposed cloud infrastructure certification at $3,000 in exchange for leading the migration project.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="79606_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">The organization approved $4,500 annual budget, exceeding Emmanuel's proposal. He initially proposed $3,000 for certification.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="66818_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel did not propose $6,000. He proposed cloud infrastructure certification at $3,000 in exchange for specific value commitments.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gbedffaaa5093b0586827cb7c2218f671" title="Question 36">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>78691,40753,89058,16336</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What annual development budget did Emmanuel receive?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="78691">
+              <material>
+                <mattext texttype="text/plain">$4,500</mattext>
+              </material>
+            </response_label>
+            <response_label ident="40753">
+              <material>
+                <mattext texttype="text/plain">$3,000</mattext>
+              </material>
+            </response_label>
+            <response_label ident="89058">
+              <material>
+                <mattext texttype="text/plain">$5,000</mattext>
+              </material>
+            </response_label>
+            <response_label ident="16336">
+              <material>
+                <mattext texttype="text/plain">$6,000</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">40753</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="40753_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">89058</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="89058_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">16336</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="16336_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">78691</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="40753_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel proposed $3,000 but received more. The organization approved $4,500 annual development budget for his professional growth.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="89058_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">The organization did not approve $5,000. Emmanuel received $4,500 annual development budget after his value exchange proposal.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="16336_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">The organization did not approve $6,000. Emmanuel received $4,500 annual development budget for professional development.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g4d162902e9be13def3f1e04933f6d393" title="Question 37">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>52464,37047,75751,12181</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;How many days comprise Phase 1 of the Employment Transition Plan?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="52464">
+              <material>
+                <mattext texttype="text/plain">Days 1-30</mattext>
+              </material>
+            </response_label>
+            <response_label ident="37047">
+              <material>
+                <mattext texttype="text/plain">Days 1-60</mattext>
+              </material>
+            </response_label>
+            <response_label ident="75751">
+              <material>
+                <mattext texttype="text/plain">Days 1-90</mattext>
+              </material>
+            </response_label>
+            <response_label ident="12181">
+              <material>
+                <mattext texttype="text/plain">Days 31-60</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">37047</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="37047_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">75751</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="75751_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">12181</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="12181_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">52464</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="37047_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Days 1-60 covers two phases. Phase 1 (Listen, Learn, and Serve) comprises Days 1-30 of the transition timeline.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="75751_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Days 1-90 covers all three phases. Phase 1 (Listen, Learn, and Serve) comprises Days 1-30 only.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="12181_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Days 31-60 is Phase 2. Phase 1 (Listen, Learn, and Serve) comprises Days 1-30 of the employment transition.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gf87e2653cadaf08c2abdec36c1eb92bc" title="Question 38">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>42381,11309,8861,49136</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;How many days comprise Phase 2 of the Employment Transition Plan?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="42381">
+              <material>
+                <mattext texttype="text/plain">Days 31-60</mattext>
+              </material>
+            </response_label>
+            <response_label ident="11309">
+              <material>
+                <mattext texttype="text/plain">Days 1-30</mattext>
+              </material>
+            </response_label>
+            <response_label ident="8861">
+              <material>
+                <mattext texttype="text/plain">Days 61-90</mattext>
+              </material>
+            </response_label>
+            <response_label ident="49136">
+              <material>
+                <mattext texttype="text/plain">Days 1-60</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">11309</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="11309_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">8861</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="8861_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">49136</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="49136_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">42381</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="11309_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Days 1-30 is Phase 1. Phase 2 (Contribute, Build, and Lead) comprises Days 31-60 of the transition timeline.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="8861_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Days 61-90 is Phase 3. Phase 2 (Contribute, Build, and Lead) comprises Days 31-60 of the employment transition.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="49136_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Days 1-60 covers two phases. Phase 2 (Contribute, Build, and Lead) comprises Days 31-60 only.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g784adaa7dde1401ba560efa5ee420868" title="Question 39">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>34995,25507,21105,30344</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What title did Maria achieve by the end of Week 7?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="34995">
+              <material>
+                <mattext texttype="text/plain">International Logistics Manager</mattext>
+              </material>
+            </response_label>
+            <response_label ident="25507">
+              <material>
+                <mattext texttype="text/plain">Senior Coordinator</mattext>
+              </material>
+            </response_label>
+            <response_label ident="21105">
+              <material>
+                <mattext texttype="text/plain">Regional Administrator</mattext>
+              </material>
+            </response_label>
+            <response_label ident="30344">
+              <material>
+                <mattext texttype="text/plain">Supply Chain Director</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">25507</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="25507_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">21105</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="21105_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">30344</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="30344_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">34995</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="25507_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Senior coordinator was a limited position at the local company. Maria achieved International Logistics Manager coordinating agricultural communities across Latin America.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="21105_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This was not Maria's title. She achieved International Logistics Manager coordinating agricultural communities across Latin America.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="30344_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This was not Maria's specific title. She achieved International Logistics Manager coordinating agricultural communities across Latin America.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g5af2d975a030723d6bacaea39e6026e5" title="Question 40">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>26968,59472,32052,30053</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What title did Emmanuel achieve by the end of Week 7?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="26968">
+              <material>
+                <mattext texttype="text/plain">Senior Systems Administrator</mattext>
+              </material>
+            </response_label>
+            <response_label ident="59472">
+              <material>
+                <mattext texttype="text/plain">Junior IT Specialist</mattext>
+              </material>
+            </response_label>
+            <response_label ident="32052">
+              <material>
+                <mattext texttype="text/plain">Network Engineer</mattext>
+              </material>
+            </response_label>
+            <response_label ident="30053">
+              <material>
+                <mattext texttype="text/plain">Cloud Services Manager</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">59472</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="59472_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">32052</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="32052_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">30053</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="30053_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">26968</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="59472_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel advanced beyond junior levels. He achieved Senior Systems Administrator managing teams across three time zones.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="32052_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This was not Emmanuel's specific title. He achieved Senior Systems Administrator managing 15-person teams.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="30053_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This was not Emmanuel's title. He achieved Senior Systems Administrator managing 15-person teams across three time zones.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g4f014450068f32d518b8e752622d0246" title="Question 41">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>11143,9250,42060,43133</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;How many team members did Emmanuel manage in his Week 7 position?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="11143">
+              <material>
+                <mattext texttype="text/plain">15-person teams</mattext>
+              </material>
+            </response_label>
+            <response_label ident="9250">
+              <material>
+                <mattext texttype="text/plain">5-person teams</mattext>
+              </material>
+            </response_label>
+            <response_label ident="42060">
+              <material>
+                <mattext texttype="text/plain">10-person teams</mattext>
+              </material>
+            </response_label>
+            <response_label ident="43133">
+              <material>
+                <mattext texttype="text/plain">20-person teams</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">9250</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="9250_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">42060</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="42060_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">43133</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="43133_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">11143</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="9250_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel managed larger teams. He managed 15-person teams across three time zones in his senior systems administrator position.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="42060_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel managed more people. He managed 15-person teams across three time zones as senior systems administrator.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="43133_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel managed fewer people. He managed 15-person teams across three time zones in his senior systems administrator role.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g0d5023596b2fda445dd74ba2e3ce38f6" title="Question 42">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>75869,78416,95349,80512</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;Across how many time zones did Emmanuel manage teams?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="75869">
+              <material>
+                <mattext texttype="text/plain">Three time zones</mattext>
+              </material>
+            </response_label>
+            <response_label ident="78416">
+              <material>
+                <mattext texttype="text/plain">One time zone</mattext>
+              </material>
+            </response_label>
+            <response_label ident="95349">
+              <material>
+                <mattext texttype="text/plain">Two time zones</mattext>
+              </material>
+            </response_label>
+            <response_label ident="80512">
+              <material>
+                <mattext texttype="text/plain">Four time zones</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">78416</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="78416_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">95349</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="95349_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">80512</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="80512_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">75869</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="78416_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel's management extended across multiple zones. He managed 15-person teams across three time zones in his role.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="95349_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel managed across more zones. He managed 15-person teams across three time zones as senior systems administrator.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="80512_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel managed across fewer zones. He managed 15-person teams across three time zones in his position.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gf86c65e8f61af9c17be281e7356acf4a" title="Question 43">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>77588,52141,22431,7087</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;How many team members did Emmanuel commit to training in his value exchange proposal?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="77588">
+              <material>
+                <mattext texttype="text/plain">Three team members</mattext>
+              </material>
+            </response_label>
+            <response_label ident="52141">
+              <material>
+                <mattext texttype="text/plain">Two team members</mattext>
+              </material>
+            </response_label>
+            <response_label ident="22431">
+              <material>
+                <mattext texttype="text/plain">Five team members</mattext>
+              </material>
+            </response_label>
+            <response_label ident="7087">
+              <material>
+                <mattext texttype="text/plain">Ten team members</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">52141</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="52141_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">22431</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="22431_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">7087</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="7087_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">77588</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="52141_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel committed to training more people. He proposed training three team members in exchange for certification funding.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="22431_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel committed to training fewer people. He proposed training three team members as part of his value exchange.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="7087_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Emmanuel committed to training fewer people. He proposed training three team members in exchange for certification support.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gaddad36708ee7a49b547fb020e84e376" title="Question 44">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>92631,54356,2052,74864</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;How many provinces did Maria coordinate deliveries across in her previous work?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="92631">
+              <material>
+                <mattext texttype="text/plain">Three provinces</mattext>
+              </material>
+            </response_label>
+            <response_label ident="54356">
+              <material>
+                <mattext texttype="text/plain">One province</mattext>
+              </material>
+            </response_label>
+            <response_label ident="2052">
+              <material>
+                <mattext texttype="text/plain">Two provinces</mattext>
+              </material>
+            </response_label>
+            <response_label ident="74864">
+              <material>
+                <mattext texttype="text/plain">Five provinces</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">54356</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="54356_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">2052</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="2052_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">74864</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="74864_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">92631</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="54356_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria's coordination extended across multiple provinces. She coordinated deliveries of seeds, equipment, and chemicals across three provinces.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="2052_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria coordinated across more provinces. She coordinated deliveries across three provinces to over 200 farms.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="74864_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria coordinated across fewer provinces. She coordinated deliveries across three provinces before her career advancement.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g423d2480401048e026327208aead14bb" title="Question 45">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>99572,96513,64426,89987</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;How many farms did Maria coordinate deliveries to in her previous work?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="99572">
+              <material>
+                <mattext texttype="text/plain">Over 200 farms</mattext>
+              </material>
+            </response_label>
+            <response_label ident="96513">
+              <material>
+                <mattext texttype="text/plain">Over 50 farms</mattext>
+              </material>
+            </response_label>
+            <response_label ident="64426">
+              <material>
+                <mattext texttype="text/plain">Over 100 farms</mattext>
+              </material>
+            </response_label>
+            <response_label ident="89987">
+              <material>
+                <mattext texttype="text/plain">Over 500 farms</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">96513</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="96513_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">64426</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="64426_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">89987</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="89987_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">99572</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="96513_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria coordinated deliveries to more farms. She coordinated deliveries to over 200 farms across three provinces.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="64426_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria coordinated deliveries to more than 100 farms. She coordinated deliveries to over 200 farms across three provinces.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="89987_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">Maria coordinated deliveries to fewer farms. She coordinated deliveries to over 200 farms across three provinces.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="ge8cceb3a9c9a383c5c8827ba4b6cbf2c" title="Question 47">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>64546,9383,57741,73129</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;How many people does Sarah serve as International Health Program Coordinator?&lt;/p&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="64546">
+              <material>
+                <mattext texttype="text/plain">500,000+ people</mattext>
+              </material>
+            </response_label>
+            <response_label ident="9383">
+              <material>
+                <mattext texttype="text/plain">100,000+ people</mattext>
+              </material>
+            </response_label>
+            <response_label ident="57741">
+              <material>
+                <mattext texttype="text/plain">250,000+ people</mattext>
+              </material>
+            </response_label>
+            <response_label ident="73129">
+              <material>
+                <mattext texttype="text/plain">1,000,000+ people</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">9383</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="9383_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">57741</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="57741_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">73129</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="73129_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">64546</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="9383_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">Sarah serves more people. As International Health Program Coordinator, she serves 500,000+ people across Southeast Asia.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="57741_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">Sarah serves more people. She serves 500,000+ people across Southeast Asia in her coordinator role.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="73129_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">Sarah serves fewer people. She serves 500,000+ people across Southeast Asia as International Health Program Coordinator.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gf3d6419bc48180d88b0c7710ea68771f" title="Question 48">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>60297,76334,67422,47872</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is Phase 1 of the Employment Transition Plan called?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="60297">
+              <material>
+                <mattext texttype="text/plain">Listen, Learn, and Serve</mattext>
+              </material>
+            </response_label>
+            <response_label ident="76334">
+              <material>
+                <mattext texttype="text/plain">Contribute, Build, and Lead</mattext>
+              </material>
+            </response_label>
+            <response_label ident="67422">
+              <material>
+                <mattext texttype="text/plain">Establish Leadership and Expand Impact</mattext>
+              </material>
+            </response_label>
+            <response_label ident="47872">
+              <material>
+                <mattext texttype="text/plain">Research, Analyze, and Execute</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">76334</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="76334_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">67422</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="67422_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">47872</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="47872_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">60297</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="76334_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is Phase 2. Phase 1 of the Employment Transition Plan is called Listen, Learn, and Serve for Days 1-30.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="67422_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is Phase 3. Phase 1 of the Employment Transition Plan is called Listen, Learn, and Serve.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="47872_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is not a phase name. Phase 1 of the Employment Transition Plan is called Listen, Learn, and Serve.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gad1d4f6d2b1d579f5c7250f0e8721dae" title="Question 49">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>38212,53808,59203,34707</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is Phase 2 of the Employment Transition Plan called?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="38212">
+              <material>
+                <mattext texttype="text/plain">Contribute, Build, and Lead</mattext>
+              </material>
+            </response_label>
+            <response_label ident="53808">
+              <material>
+                <mattext texttype="text/plain">Listen, Learn, and Serve</mattext>
+              </material>
+            </response_label>
+            <response_label ident="59203">
+              <material>
+                <mattext texttype="text/plain">Establish Leadership and Expand Impact</mattext>
+              </material>
+            </response_label>
+            <response_label ident="34707">
+              <material>
+                <mattext texttype="text/plain">Plan, Implement, and Evaluate</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">53808</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="53808_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">59203</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="59203_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">34707</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="34707_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">38212</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="53808_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is Phase 1. Phase 2 of the Employment Transition Plan is called Contribute, Build, and Lead for Days 31-60.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="59203_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is Phase 3. Phase 2 of the Employment Transition Plan is called Contribute, Build, and Lead.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="34707_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is not a phase name. Phase 2 of the Employment Transition Plan is called Contribute, Build, and Lead.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="g9acc0eba0dfe50cc309c0fdfea15ea84" title="Question 50">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>43838,67965,42548,13739</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is Phase 3 of the Employment Transition Plan called?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="43838">
+              <material>
+                <mattext texttype="text/plain">Establish Leadership and Expand Impact</mattext>
+              </material>
+            </response_label>
+            <response_label ident="67965">
+              <material>
+                <mattext texttype="text/plain">Listen, Learn, and Serve</mattext>
+              </material>
+            </response_label>
+            <response_label ident="42548">
+              <material>
+                <mattext texttype="text/plain">Contribute, Build, and Lead</mattext>
+              </material>
+            </response_label>
+            <response_label ident="13739">
+              <material>
+                <mattext texttype="text/plain">Master, Mentor, and Multiply</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">67965</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="67965_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">42548</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="42548_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">13739</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="13739_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">43838</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="67965_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is Phase 1. Phase 3 of the Employment Transition Plan is called Establish Leadership and Expand Impact for Days 61-90.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="42548_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is Phase 2. Phase 3 of the Employment Transition Plan is called Establish Leadership and Expand Impact.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="13739_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/plain">This is not a phase name. Phase 3 of the Employment Transition Plan is called Establish Leadership and Expand Impact.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+  </objectbank>
+</questestinterop>

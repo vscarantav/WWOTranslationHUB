@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="g4574260271922a1d1299277f8f9aab33" title="S01 Aprender">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>ilimitado</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      <section ident="ge0d6707eb4a83d80ba812249dbf6b99d" title="Grupo">
+        <selection_ordering>
+          <selection>
+            <sourcebank_ref>gab3f3afb611f0b9513faca0c700f31e3</sourcebank_ref>
+            <selection_number>10</selection_number>
+            <selection_extension>
+              <points_per_item>2.0</points_per_item>
+            </selection_extension>
+          </selection>
+        </selection_ordering>
+      </section>
+    </section>
+  </assessment>
+</questestinterop>
