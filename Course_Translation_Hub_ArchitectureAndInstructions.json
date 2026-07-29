@@ -26,7 +26,7 @@
       "Every significant action, such as file delegation, successful translation, skipped files, errors, and warnings, must be recorded in the shared log file as well as printed to standard output.",
       "The controller bot must extract the Course Name and Course Code from the imsmanifest.xml or course_settings.xml and log it as CourseInfo.",
       "The controller bot (not the specialized bots) must extract and log all external links (starting with http/www) found in HTML/XML files into the text log as 'ExtLink: Location,Link Text,URL'.",
-      "The text logs are parsed and visualized using an Excel Dashboard macro (Translation_Dashboard_Macro.bas) or directly by the controller into Course_Translation_Hub_Analytics.xlsx. The dashboard must display the Course Name and Code, list all skipped files, and contain a 3-column table of External Links."
+      "The text logs are parsed and visualized directly by the controller into Course_Translation_Hub_Analytics.xlsx. The dashboard must display the Course Name and Code, list all skipped files, and contain a 3-column table of External Links."
     ],
     "api_assignments": {
       "ChatGPT": "Use for ImageTranslationAgent (jpg, png, gif, svg) due to excellent OCR and vision capabilities. (Note: Image agents are currently unapproved/unimplemented).",
