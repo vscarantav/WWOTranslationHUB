@@ -1,4 +1,5 @@
 import os
+import collections
 import json
 import argparse
 import shutil
@@ -38,11 +39,11 @@ class TranslationController:
         
         # Apply prompts if available in instructions
         self._apply_custom_prompts()
-        self._setup_workspace()
-        
         self.log_filepath = os.path.join(self.hub_dir, "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New Session (Target: {self.target_language}) ---\n")
+            
+        self._setup_workspace()
 
     def _clear_logs(self):
         log_files = [
@@ -173,10 +174,17 @@ class TranslationController:
         print(f"\n[Controller] {msg}")
         self._log(msg)
         
+        file_counts = collections.defaultdict(int)
         filepaths = []
         for root, dirs, files in os.walk(self.output_dir):
             for file in files:
                 filepaths.append(os.path.join(root, file))
+                ext = file.split('.')[-1].lower() if '.' in file else 'unknown'
+                file_counts[ext] += 1
+                
+        # Log the file counts
+        for ext, count in file_counts.items():
+            self._log(f"[System] FileTypeCount: {ext}|{count}")
                 
         # Run translations concurrently to speed up the process (up to 3 files at once)
         with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
@@ -203,6 +211,40 @@ class TranslationController:
         msg = f"Successfully created course package: {imscc_path}"
         print(f"[Controller] {msg}")
         self._log(msg)
+
+    def _is_already_translated(self, filepath: str, ext: str) -> bool:
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                content = f.read()
+            
+            if ext in ["html", "xml", "qti"]:
+                soup = BeautifulSoup(content, 'html.parser')
+                text = soup.get_text(separator=' ').lower()
+            else:
+                text = content.lower()
+                
+            words = re.findall(r'\b[a-z]+\b', text)
+            if len(words) < 10:
+                return False
+                
+            en_stopwords = {"the", "and", "to", "of", "a", "in", "is", "that", "it", "with", "as", "for", "on", "this", "be"}
+            pt_stopwords = {"de", "que", "o", "e", "do", "da", "em", "um", "para", "com", "nao", "os", "uma", "as", "se"}
+            es_stopwords = {"de", "que", "el", "en", "y", "a", "los", "se", "del", "las", "un", "por", "con", "no", "una"}
+            
+            en_count = sum(1 for w in words if w in en_stopwords)
+            
+            target_count = 0
+            if self.target_language == "PTBR":
+                target_count = sum(1 for w in words if w in pt_stopwords)
+            elif self.target_language == "ES":
+                target_count = sum(1 for w in words if w in es_stopwords)
+                
+            if target_count > (en_count + 2):
+                return True
+                
+            return False
+        except Exception:
+            return False
 
     def process_file(self, filepath: str):
         filepath_abs = os.path.abspath(filepath)
@@ -238,6 +280,13 @@ class TranslationController:
         bot = self.bots.get(ext)
         if not bot:
             msg = f"Skipping unsupported file architecture for extension '{ext}': {filepath}"
+            print(f"[Controller] {msg}")
+            self._log(msg)
+            return
+
+        # Check if already translated
+        if self._is_already_translated(target_filepath, ext):
+            msg = f"Skipping already translated file: {filepath}"
             print(f"[Controller] {msg}")
             self._log(msg)
             return
@@ -329,6 +378,11 @@ class TranslationController:
                             entry['Status'] = 'Warning'
                             entry['File Path'] = message.replace('Skipping ignored system file: ', '')
                             entry['File Name'] = entry['File Path'].split('/')[-1]
+                        elif message.startswith('Skipping already translated'):
+                            entry['Event Type'] = 'Skipped (Already Translated)'
+                            entry['Status'] = 'Info'
+                            entry['File Path'] = message.replace('Skipping already translated file: ', '')
+                            entry['File Name'] = entry['File Path'].split('/')[-1]
                         elif 'Skipping AuditorBot' in message:
                             entry['Event Type'] = 'Skipped (Size Limit)'
                             entry['Status'] = 'Warning'
@@ -343,6 +397,13 @@ class TranslationController:
                             if len(parts) == 3:
                                 entry['File Name'] = parts[0]
                                 entry['Message'] = f"{parts[1]} | {parts[2]}"
+                            entry['Status'] = 'Info'
+                        elif message.startswith('FileTypeCount: '):
+                            entry['Event Type'] = 'File Type Count'
+                            parts = message.replace('FileTypeCount: ', '').split('|', 1)
+                            if len(parts) == 2:
+                                entry['File Name'] = parts[0]
+                                entry['Message'] = parts[1]
                             entry['Status'] = 'Info'
                         elif 'error' in message.lower() or 'exception' in message.lower():
                             entry['Status'] = 'Error'
@@ -439,6 +500,18 @@ class TranslationController:
         row_idx = 5
         for idx, row in skipped_df.iterrows():
             dash.write(row_idx, 8, str(row['File Name']), cell_fmt)
+            row_idx += 1
+            
+        # Add File Type Counts
+        dash.write('K5', 'File Extension', header_fmt)
+        dash.write('L5', 'Total Count', header_fmt)
+        dash.set_column('K:L', 15)
+        
+        file_counts_rows = df[df['Event Type'] == 'File Type Count']
+        row_idx = 5
+        for idx, row in file_counts_rows.iterrows():
+            dash.write(row_idx, 10, str(row['File Name']), cell_fmt)
+            dash.write(row_idx, 11, int(row['Message']), cell_fmt)
             row_idx += 1
             
         # Add External Links Log
