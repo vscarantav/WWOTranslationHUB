@@ -19,7 +19,7 @@ class XMLTranslationBot:
         self.model = genai.GenerativeModel(
             "gemini-3.5-flash"
         )
-        self.system_prompt = f"You are an expert academic text translator. Translate the text inside each <translate_item> to {self.target_language}. Maintain any HTML tags within the strings exactly as they are. Do not translate URLs or filenames. Return exactly the same XML-like structure with the translated text, ensuring you keep the 'id' attributes intact. Do NOT modify the 'id' attribute."
+        self.system_prompt = f"You are an expert academic text translator. Translate ALL human-readable text inside each <translate_item> to {self.target_language}. You MUST translate all words, including prefixes, labels, or words wrapped inside inline HTML tags (like <strong>Purpose:</strong> or <b>Task:</b>). Maintain any HTML tags within the strings exactly as they are without translating the tag names themselves. Do not translate URLs or filenames. Return exactly the same XML-like structure with the translated text, ensuring you keep the 'id' attributes intact. Do NOT modify the 'id' attribute."
         
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
