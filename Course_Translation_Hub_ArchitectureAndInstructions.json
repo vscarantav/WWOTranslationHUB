@@ -22,16 +22,16 @@
     "mandatory_pre_check": "All agent bots MUST read this file (Course_Translation_Hub_ArchitectureAndInstructions.json) before beginning any translation tasks.",
     "logging_requirements": [
       "All bots (including the controller and specialized bots) MUST implement an internal logging mechanism.",
-      "Each bot must initialize its own text-based log file (e.g., translation_log.txt, html_bot_log.txt, xml_bot_log.txt, etc.) in the root hub directory when a new session starts.",
-      "Every significant action, such as file delegation, successful translation, skipped files, errors, and warnings, must be recorded in the bot's respective log file as well as printed to standard output.",
+      "All bots and the controller must append their logs to a single shared text-based log file (translation_log.txt) in the root hub directory. Individual log files are not used.",
+      "Every significant action, such as file delegation, successful translation, skipped files, errors, and warnings, must be recorded in the shared log file as well as printed to standard output.",
       "The controller bot must extract the Course Name and Course Code from the imsmanifest.xml or course_settings.xml and log it as CourseInfo.",
-      "The bots must extract and log all external links (starting with http/www) found in HTML/XML files into the text log as 'ExtLink: Location,Link Text,URL'.",
+      "The controller bot (not the specialized bots) must extract and log all external links (starting with http/www) found in HTML/XML files into the text log as 'ExtLink: Location,Link Text,URL'.",
       "The text logs are parsed and visualized using an Excel Dashboard macro (Translation_Dashboard_Macro.bas) or directly by the controller into Course_Translation_Hub_Analytics.xlsx. The dashboard must display the Course Name and Code, list all skipped files, and contain a 3-column table of External Links."
     ],
     "api_assignments": {
-      "ChatGPT": "Use for ImageTranslationAgent (jpg, png, gif, svg) due to excellent OCR and vision capabilities.",
-      "Claude": "Use for HTMLTranslationAgent, XMLTranslationAgent, QTITranslationAgent, and DocumentTranslationAgent (docx, pptx). Crucial for strict adherence to complex formatting constraints, preserving brackets, and ensuring zero tag modification.",
-      "Gemini": "Use Gemini (e.g., Gemini 3.1 Pro) for controller_bot, auditing_bot, and TextTranslationAgent (txt) to leverage its massive context window and advanced reasoning for state management and large glossary cross-referencing."
+      "ChatGPT": "Use for ImageTranslationAgent (jpg, png, gif, svg) due to excellent OCR and vision capabilities. (Note: Image agents are currently unapproved/unimplemented).",
+      "Claude": "Use for HTMLTranslationAgent, XMLTranslationAgent, QTITranslationAgent, and DocumentTranslationAgent (docx, pptx). Crucial for strict adherence to complex formatting constraints, preserving brackets, and ensuring zero tag modification. (Note: Document agents are currently unapproved/unimplemented).",
+      "Gemini": "All current bots (controller, HTML, XML, text, auditor, scripturecheck) currently default to using gemini-3.5-flash for translation and processing."
     },
     "api_resilience": {
       "rate_limits": "All bots MUST implement an exponential backoff retry mechanism to gracefully handle 429 Rate Limit errors and internal server errors (500/503), given the concurrency of translations.",
@@ -47,14 +47,14 @@
         "xml": "XMLTranslationAgent - Responsible for safely translating localized text strings inside XML tags using BeautifulSoup. Extracts only the inner text of specific nodes (e.g., <title>, <mattext>, <description>) and translates them via a custom XML-like delimiter (e.g., <translate_item>) to bypass strict JSON parsing errors caused by nested HTML quotes.",
         "qti": "QTITranslationAgent - Responsible for specialized Canvas QTI assessment files (quizzes), ensuring assessment structures remain valid.",
         "txt": "TextTranslationAgent - Responsible for plain text file translation.",
-        "docx": "DocumentTranslationAgent - Responsible for extracting, translating, and repacking Microsoft Word documents.",
-        "pptx": "DocumentTranslationAgent - Responsible for extracting, translating, and repacking Microsoft PowerPoint presentations.",
-        "jpg": "ImageTranslationAgent - Responsible for performing OCR or providing localized versions of images containing embedded text.",
+        "docx": "DocumentTranslationAgent - [UNIMPLEMENTED/PENDING APPROVAL] Responsible for extracting, translating, and repacking Microsoft Word documents.",
+        "pptx": "DocumentTranslationAgent - [UNIMPLEMENTED/PENDING APPROVAL] Responsible for extracting, translating, and repacking Microsoft PowerPoint presentations.",
+        "jpg": "ImageTranslationAgent - [UNIMPLEMENTED/PENDING APPROVAL] Responsible for performing OCR or providing localized versions of images containing embedded text.",
         "JPG": "ImageTranslationAgent - Same as jpg.",
         "png": "ImageTranslationAgent - Same as jpg.",
         "PNG": "ImageTranslationAgent - Same as jpg.",
         "gif": "ImageTranslationAgent - Same as jpg.",
-        "svg": "ImageTranslationAgent - Responsible for translating embedded text elements inside SVG vector images.",
+        "svg": "ImageTranslationAgent - [UNIMPLEMENTED/PENDING APPROVAL] Responsible for translating embedded text elements inside SVG vector images.",
         "DS_Store": "IGNORE - System files should be skipped by the controller.",
         "UNKNOWN": "CRITICAL: Any unmapped file extension should trigger the unknown_architecture_protocol."
       }
@@ -69,8 +69,8 @@
       "Preserve all XML tags, attributes, and file names. Do not translate metadata keys, IDs, or manifest identifiers (except for the 'title' attribute on <item> nodes where 'Question' is translated).",
       "Ensure translated HTML or XML does not break parsing rules."
     ],
-    "unknown_architecture_protocol": "CRITICAL: If a bot encounters a file type, a folder structure, or a data format that is NOT explicitly described in the 'architecture' section above, the bot MUST immediately halt execution.",
-    "user_intervention_required": "When halted due to unknown architecture or missing guidelines, the bot MUST ask the user to update this JSON file with new instructions/architecture details before making any changes to the project.",
+    "unknown_architecture_protocol": "If the controller encounters a file type that is not mapped to an active bot, it must gracefully skip the file and log a warning ('Skipping unsupported file architecture for extension...'). It should not halt execution.",
+    "user_intervention_required": "User intervention is not required for unknown file types; the controller will simply skip them and proceed with the rest of the translation batch.",
     "agent_prompts": {
       "HTMLTranslationAgent_PTBR": "Role & Objective\n\nYou are an expert academic translator specializing in Portuguese. Your singular objective is to translate text within HTML tags into standard, grammatically correct Portuguese that is universally understood across all Portuguese-speaking regions (including Europe, Africa, and Brazil), appropriate for undergraduate students. In the rare event of an irreconcilable regional conflict, fall back to Brazilian Portuguese conventions.\n\nInput Context\n\nYou will receive fragmented HTML chunks. The code will often be incomplete or have unmatched/open tags.\n\nStrict Constraints\n\nOutput Format: You MUST wrap your entire final output inside an HTML markdown code block (```html at the beginning and ``` at the end). Never output raw HTML outside of these backticks.\n\nZero Interaction: Do NOT output any conversational filler, greetings, acknowledgments, or explanations. Only output the code block.\n\nZero Tag Modification: Do NOT translate, modify, add, or remove ANY HTML tags. Do NOT attempt to \"fix\" or auto-close open tags. Output the exact original tag structure. Translate ONLY inner text values.\n\nFormatting Integrity: Maintain exact original indentation, line breaks, and spacing of the HTML structure.\n\nLanguage & Gender Neutrality: Use grammatically correct, gender-neutral terminology naturally available in the language (e.g., prefer estudante over aluno(a) or pessoa over homem/mulher). Strict Restriction: You must completely avoid artificial gender-neutral word endings (such as substituting \"o\" or \"a\" with \"e\") and neologisms (such as todes).\n\nSTRICT WHITESPACE NORMALIZATION: You must NEVER output the invisible Alt+0160 character (non-breaking space / U+00A0), and you must NEVER output the HTML entity &nbsp;. You must actively replace any non-breaking spaces or &nbsp; entities from the original text with standard normal spaces (U+0020) in your final output.\n\nInstitutional Guidelines\n\nDeity & Reverence: Capitalize all names, titles, and pronouns referring to Deity (e.g., Ele, Dele). However, lowercase pronouns referring to heavenly parents.  \n\nScriptural Formats: Do not italicize the titles of the standard works or their specific parts (e.g., Bíblia, O Livro de Mórmon).  \n\nChurch Nomenclature: Always use the full official name of the Church as defined in the glossary. Do not use terms like \"Mormon Church\", \"LDS Church\", or \"Mormonism\".  \n\nQuotation Integrity: Maintain the exact formatting, spelling, and punctuation of quoted material. If an interpolation, translation of a term, or grammatical correction is necessary within a quote, you must enclose the added text in brackets [ ]."
     }
