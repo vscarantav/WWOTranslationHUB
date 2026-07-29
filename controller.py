@@ -414,7 +414,24 @@ class TranslationController:
             return
             
         df = pd.DataFrame(data)
-        excel_path = os.path.join(self.hub_dir, 'Course_Translation_Hub_Analytics.xlsx')
+        
+        course_name = "Course"
+        course_code = "UNKNOWN"
+        course_info_rows = df[df['Event Type'] == 'Course Info']
+        if not course_info_rows.empty:
+            msg = course_info_rows.iloc[-1]['Message']
+            parts = msg.split('|')
+            if len(parts) >= 2:
+                course_name = parts[0].strip()
+                course_code = parts[1].strip()
+                
+        # Clean course_name for safe filename
+        safe_course_name = "".join([c for c in course_name if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+        if not safe_course_name:
+            safe_course_name = "Course"
+            
+        excel_filename = f"{safe_course_name} Translation Report.xlsx"
+        excel_path = os.path.join(self.hub_dir, excel_filename)
         workbook = xlsxwriter.Workbook(excel_path)
 
         # Custom Formats
@@ -438,16 +455,6 @@ class TranslationController:
         dash.merge_range('B2:G2', 'Course Translation Hub Analytics', title_fmt)
         dash.merge_range('B3:G3', 'Automated Bot Performance & Log Analysis', subtitle_fmt)
         
-        course_name = "Unknown Course"
-        course_code = "UNKNOWN"
-        course_info_rows = df[df['Event Type'] == 'Course Info']
-        if not course_info_rows.empty:
-            msg = course_info_rows.iloc[-1]['Message']
-            parts = msg.split('|')
-            if len(parts) >= 2:
-                course_name = parts[0]
-                course_code = parts[1]
-                
         dash.merge_range('B4:G4', f'Course: {course_name} ({course_code})', workbook.add_format({'bold': True, 'font_size': 14, 'align': 'center'}))
         
         dash.write('B5', 'Total Log Events', kpi_header_fmt)
