@@ -25,3 +25,10 @@ __pycache__/
 # Large binaries / exports
 *.imscc
 *.zip
+
+# Extracted course folders
+*-export/
+*-export_PTBR/
+
+# Excel temp files
+~$*.xlsx

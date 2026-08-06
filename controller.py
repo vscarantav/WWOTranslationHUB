@@ -248,6 +248,17 @@ class TranslationController:
         except Exception:
             return False
 
+    def _extract_page_title(self, content: str, ext: str) -> str:
+        try:
+            if ext in ["html", "xml", "qti"]:
+                soup = BeautifulSoup(content, 'xml' if ext in ['xml', 'qti'] else 'html.parser')
+                title_tag = soup.find('title')
+                if title_tag and title_tag.text:
+                    return title_tag.text.strip()
+        except Exception:
+            pass
+        return ""
+
     def process_file(self, filepath: str):
         filepath_abs = os.path.abspath(filepath)
         
@@ -315,6 +326,11 @@ class TranslationController:
             f.write(translated_content)
             
         self._log("Translation complete for this file.")
+        
+        page_title = self._extract_page_title(original_content, ext)
+        if not page_title:
+            page_title = os.path.splitext(os.path.basename(filepath))[0]
+        self._log(f"[System] TranslatedPage: {page_title} | {filepath}")
 
     def update_excel_dashboard(self):
         msg = "Generating Excel Analytics Dashboard..."
@@ -401,6 +417,16 @@ class TranslationController:
                                 entry['File Name'] = parts[0]
                                 entry['Message'] = parts[1]
                             entry['Status'] = 'Info'
+                        elif message.startswith('TranslatedPage: '):
+                            entry['Event Type'] = 'Translated Page'
+                            entry['Status'] = 'Success'
+                            parts = message.replace('TranslatedPage: ', '').split(' | ', 1)
+                            if len(parts) == 2:
+                                entry['Message'] = parts[0]
+                                entry['File Path'] = parts[1]
+                                entry['File Name'] = parts[1].split('/')[-1]
+                            else:
+                                entry['Message'] = message.replace('TranslatedPage: ', '')
                         elif 'error' in message.lower() or 'exception' in message.lower():
                             entry['Status'] = 'Error'
                             entry['Event Type'] = 'Error'
@@ -602,6 +628,37 @@ class TranslationController:
         logs_sheet.conditional_format(1, 8, len(df), 8, {'type': 'cell', 'criteria': '==', 'value': '"Success"', 'format': success_fmt})
         logs_sheet.conditional_format(1, 8, len(df), 8, {'type': 'cell', 'criteria': '==', 'value': '"Warning"', 'format': warning_fmt})
         logs_sheet.conditional_format(1, 8, len(df), 8, {'type': 'cell', 'criteria': '==', 'value': '"Error"', 'format': error_fmt})
+
+        # SHEET 4: Translated Pages
+        translated_pages_df = df[df['Event Type'] == 'Translated Page'].copy()
+        
+        if not translated_pages_df.empty:
+            # Deduplicate based on 'Message' (which is the page_title) and 'File Path'
+            translated_pages_df = translated_pages_df.drop_duplicates(subset=['Message', 'File Path'])
+            
+            # Now find duplicate page titles (same title, different file paths)
+            title_counts = translated_pages_df['Message'].value_counts()
+            translated_pages_df['Duplicate Flag'] = translated_pages_df['Message'].apply(
+                lambda x: 'Duplicate Name' if title_counts.get(x, 0) > 1 else ''
+            )
+            
+            # Create sheet
+            pages_sheet = workbook.add_worksheet('Translated Pages')
+            pages_sheet.set_column('A:A', 60)
+            pages_sheet.set_column('B:B', 20)
+            
+            pages_sheet.write('A1', 'Page Name', header_fmt)
+            pages_sheet.write('B1', 'Flag', header_fmt)
+            
+            r_idx = 1
+            for idx, row in translated_pages_df.iterrows():
+                pages_sheet.write(r_idx, 0, str(row['Message']), cell_fmt)
+                flag = str(row['Duplicate Flag'])
+                if flag:
+                    pages_sheet.write(r_idx, 1, flag, warning_fmt)
+                else:
+                    pages_sheet.write(r_idx, 1, '', cell_fmt)
+                r_idx += 1
 
         workbook.close()
         print(f"[Controller] Excel successfully created: {excel_path}")
