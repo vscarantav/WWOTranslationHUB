@@ -44,11 +44,83 @@ class CourseAuditor:
                 print(f"Error parsing {manifest_path}: {e}")
         return res_map
         
+    def _clean_text(self, text):
+        if isinstance(text, str):
+            text = text.replace('`', '')
+            text = text.replace('**', '')
+            text = text.replace('*', '')
+            # Strip out any remaining html tags and unescape entities
+            return BeautifulSoup(text, 'html.parser').get_text(separator=' ', strip=True)
+        return text
+
+    def _build_title_map(self, base_dir):
+        manifest_path = os.path.join(base_dir, 'imsmanifest.xml')
+        href_to_title = {}
+        if os.path.exists(manifest_path):
+            try:
+                with open(manifest_path, 'r', encoding='utf-8') as f:
+                    soup = BeautifulSoup(f.read(), 'xml')
+                    
+                    id_to_title = {}
+                    items = soup.find_all('item')
+                    for item in items:
+                        ref = item.get('identifierref')
+                        title_tag = item.find('title', recursive=False)
+                        if ref and title_tag:
+                            id_to_title[ref] = title_tag.get_text(strip=True)
+                            
+                    resources = soup.find_all('resource')
+                    for res in resources:
+                        res_id = res.get('identifier')
+                        title = id_to_title.get(res_id)
+                        if title:
+                            files = res.find_all('file')
+                            for file_tag in files:
+                                href = file_tag.get('href')
+                                if href:
+                                    href_to_title[href] = title
+            except Exception as e:
+                print(f"Error parsing titles from {manifest_path}: {e}")
+        return href_to_title
+
+    def _get_file_title(self, full_path):
+        try:
+            with open(full_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+                soup = BeautifulSoup(content, 'xml' if full_path.endswith('.xml') else 'html.parser')
+                
+                title_tag = soup.find('title')
+                if title_tag and title_tag.get_text(strip=True):
+                    return title_tag.get_text(strip=True)
+                    
+                title_attr_tag = soup.find(lambda tag: tag.has_attr('title'))
+                if title_attr_tag and title_attr_tag.get('title'):
+                    return title_attr_tag.get('title').strip()
+        except:
+            pass
+            
+        try:
+            dir_name = os.path.dirname(full_path)
+            for meta_name in ['assessment_meta.xml', 'assignment_settings.xml', 'discussion_topic_meta.xml']:
+                meta_file = os.path.join(dir_name, meta_name)
+                if os.path.exists(meta_file) and full_path != meta_file:
+                    with open(meta_file, 'r', encoding='utf-8') as f:
+                        soup = BeautifulSoup(f.read(), 'xml')
+                        title_tag = soup.find('title')
+                        if title_tag and title_tag.get_text(strip=True):
+                            return title_tag.get_text(strip=True)
+        except:
+            pass
+            
+        return os.path.basename(full_path)
+        
     def _get_all_translatable_files(self, base_dir):
         files_dict = {}
         for root, _, files in os.walk(base_dir):
             for file in files:
                 if file.endswith('.html') or file.endswith('.xml'):
+                    if file == "imsmanifest.xml":
+                        continue
                     full_path = os.path.join(root, file)
                     rel_path = os.path.relpath(full_path, base_dir)
                     files_dict[rel_path] = full_path
@@ -64,6 +136,9 @@ class CourseAuditor:
         # Build maps
         en_manifest = self._build_manifest_map(self.en_dir)
         pt_manifest = self._build_manifest_map(self.pt_dir)
+        
+        en_titles = self._build_title_map(self.en_dir)
+        pt_titles = self._build_title_map(self.pt_dir)
         
         en_files = self._get_all_translatable_files(self.en_dir)
         pt_files = self._get_all_translatable_files(self.pt_dir)
@@ -94,15 +169,36 @@ class CourseAuditor:
                     matched_pairs.append((en_rel_path, en_rel_path, "Relative Path"))
                     processed_en.add(en_rel_path)
                     processed_pt.add(en_rel_path)
-                else:
-                    # Missing in PT
-                    matched_pairs.append((en_rel_path, None, "Unmatched (EN only)"))
-                    processed_en.add(en_rel_path)
                     
-        # 3. Add remaining PT files
+        # 3. Match remaining via AI Pairing (for W03 -> S03 rename scenarios)
+        unmatched_en_titles = {}
+        for en_rel_path in en_files.keys():
+            if en_rel_path not in processed_en:
+                unmatched_en_titles[en_rel_path] = en_titles.get(en_rel_path) or self._get_file_title(en_files[en_rel_path])
+                
+        unmatched_pt_titles = {}
         for pt_rel_path in pt_files.keys():
             if pt_rel_path not in processed_pt:
-                # Extra in PT
+                unmatched_pt_titles[pt_rel_path] = pt_titles.get(pt_rel_path) or self._get_file_title(pt_files[pt_rel_path])
+                
+        if unmatched_en_titles and unmatched_pt_titles:
+            print(f"  [AI] Pairing {len(unmatched_en_titles)} unmatched EN files with {len(unmatched_pt_titles)} PT files...")
+            paired_files = self.bot.pair_unmatched_files(unmatched_en_titles, unmatched_pt_titles)
+            for en_rel, pt_rel in paired_files.items():
+                if en_rel in unmatched_en_titles and pt_rel in unmatched_pt_titles:
+                    matched_pairs.append((en_rel, pt_rel, "AI Pairing"))
+                    processed_en.add(en_rel)
+                    processed_pt.add(pt_rel)
+                    
+        # 4. Add remaining EN files as Missing
+        for en_rel_path in en_files.keys():
+            if en_rel_path not in processed_en:
+                matched_pairs.append((en_rel_path, None, "Unmatched (EN only)"))
+                processed_en.add(en_rel_path)
+                    
+        # 5. Add remaining PT files as Extra
+        for pt_rel_path in pt_files.keys():
+            if pt_rel_path not in processed_pt:
                 matched_pairs.append((None, pt_rel_path, "Unmatched (PT only)"))
                 processed_pt.add(pt_rel_path)
                 
@@ -120,9 +216,17 @@ class CourseAuditor:
             elif not en_exists and pt_exists:
                 status = "Extra in Translated"
                 
+            en_title = en_titles.get(en_rel, "N/A") if en_rel else "N/A"
+            pt_title = pt_titles.get(pt_rel, "N/A") if pt_rel else "N/A"
+            
+            if en_title in (None, "N/A", "") and en_exists:
+                en_title = self._get_file_title(en_files[en_rel])
+            if pt_title in (None, "N/A", "") and pt_exists:
+                pt_title = self._get_file_title(pt_files[pt_rel])
+                
             page_report.append({
-                "File Path": display_path,
-                "Match Method": match_method,
+                "Page Name (EN)": en_title,
+                "Page Name (PT)": pt_title,
                 "English Exists": "Yes" if en_exists else "No",
                 "Translated Exists": "Yes" if pt_exists else "No",
                 "Status": status
@@ -147,15 +251,19 @@ class CourseAuditor:
                 
                 # Links audit (only for HTML)
                 if display_path.endswith('.html'):
-                    self._audit_links(display_path, en_content, pt_content, links_report)
+                    self._audit_links(en_title, pt_title, display_path, en_content, pt_content, links_report)
                 
                 # Content audit via LLM (skip if very little text to save API calls)
                 if text_len > 10:
                     print(f"  [Auditing via Gemini] {display_path}")
                     discrepancies = self.bot.audit_content(en_content, pt_content)
                     for disc in discrepancies:
-                        ordered_disc = {"File Path": display_path, "Match Method": match_method}
-                        ordered_disc.update(disc)
+                        ordered_disc = {
+                            "Page Name (EN)": en_title, 
+                            "Page Name (PT)": pt_title
+                        }
+                        for k, v in disc.items():
+                            ordered_disc[k] = self._clean_text(v)
                         content_report.append(ordered_disc)
                     
         # Extract course name for output filename
@@ -168,42 +276,47 @@ class CourseAuditor:
         out_path = os.path.join(self.audit_dir, out_name)
         
         print(f"\nSaving reports to {out_path}...")
+        
+        df_page = pd.DataFrame(page_report)
+        df_content = pd.DataFrame(content_report) if content_report else pd.DataFrame([{"Message": "Comparison complete: The Portuguese translation perfectly matches the English canon."}])
+        df_links = pd.DataFrame(links_report) if links_report else pd.DataFrame([{"Message": "Comparison complete: No link discrepancies found."}])
+        
         with pd.ExcelWriter(out_path, engine='xlsxwriter') as writer:
-            pd.DataFrame(page_report).to_excel(writer, sheet_name="Page by Page report", index=False)
-            
-            if content_report:
-                pd.DataFrame(content_report).to_excel(writer, sheet_name="in page content audits", index=False)
-            else:
-                pd.DataFrame([{"Message": "Comparison complete: The Portuguese translation perfectly matches the English canon."}]).to_excel(writer, sheet_name="in page content audits", index=False)
+            df_page.to_excel(writer, sheet_name="Page Audit Report", index=False)
+            df_content.to_excel(writer, sheet_name="Content Audit Report", index=False)
+            df_links.to_excel(writer, sheet_name="Links Audit Reports", index=False)
                 
-            if links_report:
-                pd.DataFrame(links_report).to_excel(writer, sheet_name="links audit", index=False)
-            else:
-                pd.DataFrame([{"Message": "Comparison complete: No link discrepancies found."}]).to_excel(writer, sheet_name="links audit", index=False)
-                
-            # Auto-adjust column widths
-            for sheet_name in writer.sheets:
+            # Formatting
+            for sheet_name, df in [("Page Audit Report", df_page), 
+                                   ("Content Audit Report", df_content), 
+                                   ("Links Audit Reports", df_links)]:
                 worksheet = writer.sheets[sheet_name]
-                if sheet_name == "Page by Page report":
-                    worksheet.set_column('A:A', 50)
-                    worksheet.set_column('B:E', 20)
-                elif sheet_name == "in page content audits":
-                    worksheet.set_column('A:A', 30)
-                    worksheet.set_column('B:C', 20)
+                
+                # Apply autofilter
+                max_row, max_col = df.shape
+                if max_col > 0:
+                    worksheet.autofilter(0, 0, max_row, max_col - 1)
+                
+                # Auto-adjust column widths
+                if sheet_name == "Page Audit Report":
+                    worksheet.set_column('A:B', 40)
+                    worksheet.set_column('C:E', 20)
+                elif sheet_name == "Content Audit Report":
+                    worksheet.set_column('A:C', 30)
                     worksheet.set_column('D:E', 40)
                     worksheet.set_column('F:F', 25)
                     worksheet.set_column('G:G', 50)
-                elif sheet_name == "links audit":
-                    worksheet.set_column('A:A', 50)
-                    worksheet.set_column('B:B', 50)
-                    worksheet.set_column('C:C', 25)
+                elif sheet_name == "Links Audit Reports":
+                    worksheet.set_column('A:B', 30)
+                    worksheet.set_column('C:C', 50)
+                    worksheet.set_column('D:D', 25)
                     
         # Clean up temps
         shutil.rmtree(self.en_dir)
         shutil.rmtree(self.pt_dir)
         print("Audit Complete!")
         
-    def _audit_links(self, rel_path, en_content, pt_content, links_report):
+    def _audit_links(self, en_title, pt_title, rel_path, en_content, pt_content, links_report):
         en_soup = BeautifulSoup(en_content, 'html.parser')
         pt_soup = BeautifulSoup(pt_content, 'html.parser')
         
@@ -220,14 +333,16 @@ class CourseAuditor:
         
         for url in missing_urls:
             links_report.append({
-                "File Path": rel_path,
+                "Page Name (EN)": en_title,
+                "Page Name (PT)": pt_title,
                 "URL": url,
                 "Issue": "Missing in Translated"
             })
             
         for url in extra_urls:
             links_report.append({
-                "File Path": rel_path,
+                "Page Name (EN)": en_title,
+                "Page Name (PT)": pt_title,
                 "URL": url,
                 "Issue": "Extra in Translated"
             })
