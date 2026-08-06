@@ -70,14 +70,24 @@ class TranslationController:
             f.write(f"[{timestamp}] {message}\n")
 
     def _setup_workspace(self):
+        courses_dir = os.path.join(self.hub_dir, "Courses")
+        if not os.path.exists(courses_dir):
+            os.makedirs(courses_dir)
+
         if self.imscc_path:
+            # If the path is relative and doesn't exist, check inside Courses/
+            if not os.path.isabs(self.imscc_path) and not os.path.exists(self.imscc_path):
+                alt_path = os.path.join(courses_dir, self.imscc_path)
+                if os.path.exists(alt_path):
+                    self.imscc_path = alt_path
+
             if not os.path.exists(self.imscc_path):
                 print(f"[Controller] WARNING: IMSCC file {self.imscc_path} not found.")
                 return
             
             base_name = os.path.basename(self.imscc_path)
             root_dir = os.path.splitext(base_name)[0]
-            self.original_dir = os.path.join(self.hub_dir, root_dir)
+            self.original_dir = os.path.join(courses_dir, root_dir)
             
             if not os.path.exists(self.original_dir):
                 print(f"[Controller] Extracting {self.imscc_path} to {self.original_dir}")
@@ -89,7 +99,7 @@ class TranslationController:
             else:
                 root_dir = self.instructions.get("project_overview", {}).get("root_directory", "career-development-english-master-export")
                 
-            self.original_dir = os.path.join(self.hub_dir, root_dir)
+            self.original_dir = os.path.join(courses_dir, root_dir)
             
         # Example output dir: career-development-english-master-export_PTBR
         self.output_dir = f"{self.original_dir}_{self.target_language}"

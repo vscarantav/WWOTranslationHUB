@@ -32,7 +32,7 @@ def run():
     # Typical path: .../BUS116starting-a-business-english-master-export_PTBR/g...
     # We extract 'BUS116starting-a-business-english-master-export'
     first_file = failed_files[0]
-    match = re.search(r"/(.*?_export)_PTBR/", first_file)
+    match = re.search(r"/([^/]*?_export)_PTBR/", first_file)
     if match:
         input_dir = match.group(1)
     else:

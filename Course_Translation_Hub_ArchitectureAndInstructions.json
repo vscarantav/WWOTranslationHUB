@@ -15,10 +15,12 @@
       "non_cc_assessments/": "Contains quizzes and assessments that might not follow the standard Common Cartridge specification.",
       "hash_directories/": "Folders named with unique alphanumeric hashes (e.g., 'g038b...'). These contain metadata for assignments, discussions, quizzes, and rubrics (e.g., assessment_meta.xml, assessment_qti.xml, assignment_settings.xml). Look inside these XML files for description tags and text that require translation.",
       "scriptures/": "Contains the modern scriptures used to crosscheck if the text of the scriptures in the course matches what the scriptures really say.",
+      "Courses/": "Contains the temporary course files, including the raw `.imscc` Canvas exports and their respective unzipped working directories.",
       "Side Quest - IMS Algorithm task/": "An ad-hoc folder used for translating instructor action reports (IMS Actions Excel sheets) into Portuguese. It contains scripts to translate outreach instructions and cross-reference English assignment titles with official translated titles from .imscc course exports."
     }
   },
   "bot_instructions": {
+    "workspace_management": "All controllers and scripts must strictly look for and operate on unzipped course exports and raw .imscc files exclusively within the 'Courses/' directory. Finalized translations (e.g., _PTBR output folders) and repackaged .imscc files must also be saved directly into the 'Courses/' directory. The root hub directory must remain clean of course files.",
     "temporary_override": "CRITICAL: The user currently only has the Gemini API key. All agents (including HTML, XML, QTI, Document, and Image bots) MUST temporarily use Gemini instead of Claude or ChatGPT.",
     "mandatory_pre_check": "All agent bots MUST read this file (Course_Translation_Hub_ArchitectureAndInstructions.json) before beginning any translation tasks.",
     "logging_requirements": [
