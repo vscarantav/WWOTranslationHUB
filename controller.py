@@ -174,9 +174,12 @@ class TranslationController:
             
         return re.sub(r'https?://(?:www\.)?churchofjesuschrist\.org[^\s"\'<>]*', replacer, content)
 
-    def _clean_google_links(self, content: str) -> str:
+    def _clean_google_links(self, content: str, filepath: str) -> str:
         import urllib.parse
         import html
+        import os
+        
+        filename = os.path.basename(filepath)
         
         def replacer(match):
             url = match.group(0)
@@ -187,7 +190,9 @@ class TranslationController:
             qs = urllib.parse.parse_qs(parsed.query)
             if 'q' in qs:
                 clean_url = qs['q'][0]
-                return html.escape(clean_url) if is_escaped else clean_url
+                final_url = html.escape(clean_url) if is_escaped else clean_url
+                self._log(f"[LinkBot] GoogleLinkStripped: {filename},{url},{final_url}")
+                return final_url
             return url
             
         return re.sub(r'https?://(?:www\.)?google\.com/url\?[^\s"\'<>]*', replacer, content)
@@ -348,7 +353,7 @@ class TranslationController:
         with open(target_filepath, "r", encoding="utf-8") as f:
             original_content = f.read()
 
-        original_content = self._clean_google_links(original_content)
+        original_content = self._clean_google_links(original_content, target_filepath)
             
         if ext in ["html", "xml", "qti"]:
             self._extract_and_log_links(target_filepath, original_content)
@@ -503,6 +508,14 @@ class TranslationController:
                                 entry['File Name'] = parts[0]
                                 entry['Message'] = f"{parts[1]} | {parts[2]}"
                             entry['Status'] = 'Info'
+                        elif message.startswith('GoogleLinkStripped: '):
+                            entry['Event Type'] = 'Google Link Stripped'
+                            entry['Bot'] = 'LinkBot'
+                            parts = message.replace('GoogleLinkStripped: ', '').split(',', 2)
+                            if len(parts) == 3:
+                                entry['File Name'] = parts[0]
+                                entry['Message'] = f"{parts[1]} | {parts[2]}"
+                            entry['Status'] = 'Success'
                         elif message.startswith('FileTypeCount: '):
                             entry['Event Type'] = 'File Type Count'
                             parts = message.replace('FileTypeCount: ', '').split('|', 1)
@@ -751,6 +764,32 @@ class TranslationController:
                     pages_sheet.write(r_idx, 1, flag, warning_fmt)
                 else:
                     pages_sheet.write(r_idx, 1, '', cell_fmt)
+                r_idx += 1
+
+        # SHEET 5: Stripped Google Links
+        stripped_links_df = df[df['Event Type'] == 'Google Link Stripped'].copy()
+        
+        if not stripped_links_df.empty:
+            stripped_sheet = workbook.add_worksheet('Google Links')
+            stripped_sheet.set_column('A:A', 30)
+            stripped_sheet.set_column('B:B', 60)
+            stripped_sheet.set_column('C:C', 60)
+            
+            stripped_sheet.write('A1', 'Page Name', header_fmt)
+            stripped_sheet.write('B1', 'Original URL', header_fmt)
+            stripped_sheet.write('C1', 'Clean URL', header_fmt)
+            
+            r_idx = 1
+            for idx, row in stripped_links_df.iterrows():
+                loc = str(row['File Name'])
+                msg = str(row['Message'])
+                parts = msg.split(' | ', 1)
+                orig_url = parts[0] if len(parts) > 0 else ""
+                clean_url = parts[1] if len(parts) > 1 else ""
+                
+                stripped_sheet.write(r_idx, 0, loc, cell_fmt)
+                stripped_sheet.write(r_idx, 1, orig_url, cell_fmt)
+                stripped_sheet.write(r_idx, 2, clean_url, cell_fmt)
                 r_idx += 1
 
         workbook.close()
