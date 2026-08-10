@@ -73,7 +73,8 @@
       "For XML question banks and quizzes, the word 'Question' in the title attribute of <item> nodes must be translated to the target language.",
       "Preserve all HTML structure, Canvas-specific classes, div wrappers, and inline styles exactly as they are.",
       "Preserve all XML tags, attributes, and file names. Do not translate metadata keys, IDs, or manifest identifiers (except for the 'title' attribute on <item> nodes where 'Question' is translated).",
-      "Ensure translated HTML or XML does not break parsing rules."
+      "Ensure translated HTML or XML does not break parsing rules.",
+      "Whenever the controller finds a churchofjesuschrist.org link, it must change the link parameter to the target language (e.g., lang=por for Portuguese or lang=spa for Spanish)."
     ],
     "unknown_architecture_protocol": "If the controller encounters a file type that is not mapped to an active bot, it must gracefully skip the file and log a warning ('Skipping unsupported file architecture for extension...'). It should not halt execution.",
     "user_intervention_required": "User intervention is not required for unknown file types; the controller will simply skip them and proceed with the rest of the translation batch.",

@@ -160,6 +160,38 @@ class TranslationController:
         except Exception as e:
             print(f"[Controller] Error extracting links from {filepath}: {e}")
 
+    def _rewrite_church_links(self, content: str) -> str:
+        lang_code = "por" if self.target_language == "PTBR" else ("spa" if self.target_language == "ES" else "por")
+        
+        def replacer(match):
+            url = match.group(0)
+            if 'lang=' in url:
+                url = re.sub(r'lang=[a-zA-Z]+', f'lang={lang_code}', url)
+            else:
+                sep = '&' if '?' in url else '?'
+                url = f"{url}{sep}lang={lang_code}"
+            return url
+            
+        return re.sub(r'https?://(?:www\.)?churchofjesuschrist\.org[^\s"\'<>]*', replacer, content)
+
+    def _clean_google_links(self, content: str) -> str:
+        import urllib.parse
+        import html
+        
+        def replacer(match):
+            url = match.group(0)
+            is_escaped = '&amp;' in url
+            unescaped_url = html.unescape(url)
+            
+            parsed = urllib.parse.urlparse(unescaped_url)
+            qs = urllib.parse.parse_qs(parsed.query)
+            if 'q' in qs:
+                clean_url = qs['q'][0]
+                return html.escape(clean_url) if is_escaped else clean_url
+            return url
+            
+        return re.sub(r'https?://(?:www\.)?google\.com/url\?[^\s"\'<>]*', replacer, content)
+
     def _load_instructions(self) -> dict:
         filepath = os.path.join(self.hub_dir, "Course_Translation_Hub_ArchitectureAndInstructions.json")
         if os.path.exists(filepath):
@@ -315,6 +347,8 @@ class TranslationController:
         
         with open(target_filepath, "r", encoding="utf-8") as f:
             original_content = f.read()
+
+        original_content = self._clean_google_links(original_content)
             
         if ext in ["html", "xml", "qti"]:
             self._extract_and_log_links(target_filepath, original_content)
@@ -322,6 +356,54 @@ class TranslationController:
         relevant_glossary = self.auditor.get_relevant_terms(original_content)
         relevant_scriptures = self.scripture_checker.get_scriptures_for_text(original_content)
             
+        if "teaching-notes-and-student-outreach" in target_filepath.lower():
+            custom_glossary = {
+                "Dashboard": "Painel de controle",
+                "Courses": "Cursos",
+                "Calendar": "Calendário",
+                "Inbox": "Caixa de entrada",
+                "History": "Histórico",
+                "Help": "Ajuda",
+                "Syllabus": "Programa",
+                "Modules": "Módulos",
+                "Announcements": "Avisos",
+                "Grades": "Notas",
+                "People": "Pessoas",
+                "Assignments": "Tarefas",
+                "Discussions": "Fóruns",
+                "Files": "Arquivos",
+                "Outcomes": "Objetivos",
+                "Pages": "Páginas",
+                "Quizzes": "Testes",
+                "Rubrics": "Rubricas",
+                "Settings": "Configurações",
+                "Teaching Notes and Student Outreach": "Plano de Aula e de Contato com Estudantes",
+                "Instructor Information": "Informações do(a) Instrutor(a)",
+                "Release Notes": "Relatório de Atualizações",
+                "Purpose": "Objetivo",
+                "Overview": "Visão Geral",
+                "Centrally Managed Graders": "Avaliadores Gerenciados Centralmente",
+                "Grade Adjustments": "Ajustes de Notas",
+                "Student Portal": "Portal do Estudante",
+                "Help Center": "Central de Ajuda",
+                "Disruptive Students": "Estudantes Indisciplinados",
+                "Dates and Late Work": "Datas e Atrasos no Trabalho",
+                "Extra Credit": "Crédito Extra",
+                "Every Week": "Toda Semana",
+                "Weekly Learning Objectives": "Objetivos de Aprendizagem da Semana",
+                "High-Stakes Assignment": "Tarefa Crucial",
+                "Student Outreach": "Acompanhamento de Estudantes",
+                "Non-participating and Failing Students": "Estudantes não participantes e ausentes",
+                "Missing Assignments": "Tarefas Incompletas",
+                "Low Performing Students": "Estudantes com baixo desempenho",
+                "Positive Outreach": "Acompanhamento com feedback positivo",
+                "Inspired Outreach": "Acompanhamento específico inspirado"
+            }
+            if relevant_glossary:
+                relevant_glossary.update(custom_glossary)
+            else:
+                relevant_glossary = custom_glossary
+
         if ext in ["xml", "qti"]:
             translated_content = bot.translate_xml_content(original_content, relevant_glossary, relevant_scriptures)
         elif ext == "txt":
@@ -329,6 +411,7 @@ class TranslationController:
         else:
             translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures)
         
+        translated_content = self._rewrite_church_links(translated_content)
         
         # 3. Save
         self._log(f"Saving translated content to {target_filepath}")

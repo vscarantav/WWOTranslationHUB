@@ -3,6 +3,8 @@ from tkinter import ttk, filedialog, messagebox
 import threading
 import sys
 import os
+from dotenv import load_dotenv
+load_dotenv()
 import io
 import shutil
 import re
@@ -129,7 +131,7 @@ class CourseTranslationHubUI:
         filename = os.path.basename(src_path)
         dest_path = os.path.join(target_dir, filename)
         
-        if src_path != dest_path:
+        if os.path.abspath(src_path) != os.path.abspath(dest_path):
             print(f"Copying {filename} to {target_folder}...")
             shutil.copy2(src_path, dest_path)
             
@@ -139,28 +141,33 @@ class CourseTranslationHubUI:
         translate_dir = os.path.join(self.hub_dir, "Courses to Translate")
         os.makedirs(translate_dir, exist_ok=True)
         
-        imscc_path = filedialog.askopenfilename(
+        imscc_paths = filedialog.askopenfilenames(
             initialdir=translate_dir,
-            title="Select IMSCC File to Translate",
+            title="Select IMSCC Files to Translate",
             filetypes=[("IMSCC Files", "*.imscc")]
         )
-        if not imscc_path:
+        if not imscc_paths:
             return
 
         lang = self.lang_var.get()
         self.disable_buttons()
         print(f"\n======================================")
         print(f"Starting Translation to {lang}")
-        print(f"Source: {imscc_path}")
+        print(f"Selected {len(imscc_paths)} file(s).")
+        for p in imscc_paths:
+            print(f" - {os.path.basename(p)}")
         print(f"======================================\n")
 
         def thread_target():
             try:
-                workspace_path = self._copy_to_workspace(imscc_path, "Courses to Translate")
-                controller = TranslationController(target_language=lang, imscc_path=workspace_path)
-                controller.process_directory()
+                for idx, imscc_path in enumerate(imscc_paths, 1):
+                    print(f"\n--- Processing File {idx}/{len(imscc_paths)}: {os.path.basename(imscc_path)} ---")
+                    workspace_path = self._copy_to_workspace(imscc_path, "Courses to Translate")
+                    controller = TranslationController(target_language=lang, imscc_path=workspace_path)
+                    controller.process_directory()
+                    controller.update_excel_dashboard()
                 self.progress['value'] = 100
-                print("\n=== Translation Completed Successfully! ===")
+                print("\n=== All Translations Completed Successfully! ===")
             except Exception as e:
                 print(f"\n=== Error during translation: {e} ===")
             finally:
