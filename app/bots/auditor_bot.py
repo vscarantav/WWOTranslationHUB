@@ -6,8 +6,8 @@ class GlossaryAuditBot:
     def __init__(self, target_language="PTBR", hub_dir=None):
         self.target_language = target_language
         self.hub_dir = hub_dir or os.getcwd()
-        
-        self.log_filepath = os.path.join(self.hub_dir, "translation_log.txt")
+        self.app_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New AuditorBot Session (Target: {self.target_language}) ---\n")
             
@@ -20,12 +20,14 @@ class GlossaryAuditBot:
             f.write(f"[{timestamp}] {message}\n")
 
     def _load_glossary(self) -> dict:
-        filename = (
-            "glossary_ptbr.json"
-            if self.target_language == "PTBR"
+        self.glossary_path = os.path.join(
+            self.hub_dir, 
+            "Glossary",
+            "glossary_ptbr.json" 
+            if self.target_language == "PTBR" 
             else "glossary_es.json"
         )
-        filepath = os.path.join(self.hub_dir, filename)
+        filepath = self.glossary_path
 
         if not os.path.exists(filepath):
             msg = f"[AuditorBot] Warning: Glossary file {filepath} not found."

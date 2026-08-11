@@ -12,10 +12,10 @@ class QAAuditBot:
             self.client_ready = False
             
         self.model = genai.GenerativeModel(model_name)
-        self.system_prompt = self._get_system_prompt()
-        self.hub_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.app_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.hub_dir = os.path.dirname(self.app_dir)
         
-        self.log_filepath = os.path.join(self.hub_dir, "translation_log.txt")
+        self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New QAAuditBot Session ---\n")
 

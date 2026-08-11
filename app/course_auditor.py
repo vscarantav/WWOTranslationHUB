@@ -11,7 +11,8 @@ class CourseAuditor:
     def __init__(self, english_imscc, translated_imscc):
         self.english_imscc = english_imscc
         self.translated_imscc = translated_imscc
-        self.hub_dir = os.path.dirname(os.path.abspath(__file__))
+        self.app_dir = os.path.dirname(os.path.abspath(__file__))
+        self.hub_dir = os.path.dirname(self.app_dir)
         self.audit_dir = os.path.join(self.hub_dir, "Courses to Audit")
         
         self.en_dir = os.path.join(self.audit_dir, "temp_en")
@@ -353,7 +354,8 @@ if __name__ == "__main__":
     parser.add_argument("--pt", help="Path to Translated IMSCC")
     args = parser.parse_args()
     
-    hub_dir = os.path.dirname(os.path.abspath(__file__))
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    hub_dir = os.path.dirname(app_dir)
     audit_dir = os.path.join(hub_dir, "Courses to Audit")
     
     # Ensure audit dir exists

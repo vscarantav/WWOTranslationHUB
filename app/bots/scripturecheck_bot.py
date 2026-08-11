@@ -5,14 +5,15 @@ import re
 class ScriptureCheckBot:
     def __init__(self, target_language="PTBR", hub_dir=None):
         self.target_language = target_language
-        self.hub_dir = hub_dir or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+        self.app_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.hub_dir = hub_dir or os.path.dirname(self.app_dir)
         
-        self.log_filepath = os.path.join(self.hub_dir, "translation_log.txt")
+        self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New ScriptureCheckBot Session (Target: {self.target_language}) ---\n")
             
         self.lang_folder = "por" if self.target_language.upper() == "PTBR" else "spa"
-        self.scriptures_path = os.path.join(self.hub_dir, "scriptures", self.lang_folder)
+        self.scriptures_path = os.path.join(self.hub_dir, "Glossary", "scriptures", self.lang_folder)
 
     def _log(self, message: str):
         import datetime

@@ -1,0 +1,27 @@
+
+--- New AuditorBot Session (Target: PTBR) ---
+
+--- New ScriptureCheckBot Session (Target: PTBR) ---
+
+--- New HTMLBot Session (Target: PTBR) ---
+
+--- New XMLBot Session (Target: PTBR) ---
+
+--- New XMLBot Session (Target: PTBR) ---
+
+--- New TextBot Session (Target: PTBR) ---
+
+--- New Session (Target: PTBR) ---
+[2026-08-11 11:31:53] [System] CourseInfo: Expanding a Business (English Master)|BUS118 (English BYUI Term Master)
+[2026-08-11 11:31:53] Starting batch processing for directory: C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\expanding-a-business-english-master-export_PTBR
+[2026-08-11 11:31:53] [System] FileTypeCount: xml|46
+[2026-08-11 11:31:53] [System] FileTypeCount: txt|1
+[2026-08-11 11:31:53] [System] FileTypeCount: html|18
+[2026-08-11 11:31:53] [System] FileTypeCount: qti|1
+[2026-08-11 11:31:53] [System] FileTypeCount: pdf|1
+[2026-08-11 11:31:53] [System] FileTypeCount: jpeg|2
+[2026-08-11 11:31:53] [System] FileTypeCount: jpg|12
+[2026-08-11 11:31:53] [System] FileTypeCount: png|54
+[2026-08-11 11:31:53] [System] FileTypeCount: svg|2
+[2026-08-11 11:31:53] Starting Phase 1: Pre-processing and Mapping Links
+[2026-08-11 11:32:10] [LinkBot] SkippedLink: g019df99bf72d6c3f20d8b4a7329c534d.xml,https://portal.byupathway.edu/

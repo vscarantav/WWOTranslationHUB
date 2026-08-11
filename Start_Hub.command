@@ -1,3 +1,3 @@
 #!/bin/bash
 cd "$(dirname "$0")"
-python3 main_ui.py
+python3 app/main_ui.py

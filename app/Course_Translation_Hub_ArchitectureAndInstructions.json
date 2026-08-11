@@ -14,7 +14,7 @@
       "web_resources/": "Contains static files, images, or documents linked within the course pages.",
       "non_cc_assessments/": "Contains quizzes and assessments that might not follow the standard Common Cartridge specification.",
       "hash_directories/": "Folders named with unique alphanumeric hashes (e.g., 'g038b...'). These contain metadata for assignments, discussions, quizzes, and rubrics (e.g., assessment_meta.xml, assessment_qti.xml, assignment_settings.xml). Look inside these XML files for description tags and text that require translation.",
-      "scriptures/": "Contains the modern scriptures used to crosscheck if the text of the scriptures in the course matches what the scriptures really say.",
+      "Glossary/": "Contains glossary json files for terms standardization and a 'scriptures/' subfolder containing the modern scriptures used to crosscheck references.",
       "Courses to Translate/": "Contains the temporary course files, including the raw `.imscc` Canvas exports and their respective unzipped working directories.",
       "Courses to Audit/": "Contains the `.imscc` Canvas exports (English Canon and Translated versions) to be unzipped and compared by the course auditor process.",
       "Side Quest - IMS Algorithm task/": "An ad-hoc folder used for translating instructor action reports (IMS Actions Excel sheets) into Portuguese. It contains scripts to translate outreach instructions and cross-reference English assignment titles with official translated titles from .imscc course exports."
@@ -26,12 +26,12 @@
     "mandatory_pre_check": "All agent bots MUST read this file (Course_Translation_Hub_ArchitectureAndInstructions.json) before beginning any translation tasks.",
     "logging_requirements": [
       "All bots (including the controller and specialized bots) MUST implement an internal logging mechanism.",
-      "All bots and the controller must append their logs to a single shared text-based log file (translation_log.txt) in the root hub directory. Individual log files are not used.",
+      "All bots and the controller must append their logs to a single shared text-based log file (translation_log.txt) in the bots/ directory. Individual log files are not used.",
       "Every significant action, such as file delegation, successful translation, skipped files, errors, and warnings, must be recorded in the shared log file as well as printed to standard output.",
       "The controller bot must extract the Course Name and Course Code from the imsmanifest.xml or course_settings.xml and log it as CourseInfo.",
       "The controller bot (not the specialized bots) must extract and log all external links (starting with http/www) found in HTML/XML files into the text log as 'ExtLink: Location,Link Text,URL'.",
       "Upon successful translation of a file, the controller must extract the page's title using BeautifulSoup (falling back to the filename) and log it as '[System] TranslatedPage: {page_title} | {filepath}'.",
-      "The text logs are parsed and visualized directly by the controller into Course_Translation_Hub_Analytics.xlsx. The dashboard must display the Course Name and Code, list all skipped files, contain a 3-column table of External Links, and include a 'Translated Pages' tab that lists only the deduplicated translated page titles, with a flag for any duplicate names corresponding to different files."
+      "The text logs are parsed and visualized directly by the controller into Course_Translation_Hub_Analytics.xlsx. The dashboard must display the Course Name and Code, list all skipped files, contain a 3-column table of External Links, a 'Skipped Links' sheet for unmapped links that were skipped by the user during the interactive prompt, and include a 'Translated Pages' tab that lists only the deduplicated translated page titles, with a flag for any duplicate names corresponding to different files."
     ],
     "api_assignments": {
       "ChatGPT": "Use for ImageTranslationAgent (jpg, png, gif, svg) due to excellent OCR and vision capabilities. (Note: Image agents are currently unapproved/unimplemented).",
@@ -43,7 +43,7 @@
       "invalid_keys": "All bots MUST validate their API keys on initialization and catch 400 Bad Request/Invalid Key exceptions to prevent empty file overwrites or silent failures."
     },
     "multi_agent_strategy": {
-      "controller_bot": "The primary bot acts as the controller. Its responsibility is to iterate through the directory structure and files. It MUST NOT perform translations itself.",
+      "controller_bot": "The primary bot acts as the controller. Its responsibility is to iterate through the directory structure and files in two phases. Phase 1: Sequential link pre-processing, where it extracts all URLs, checks against link_mapping_ptbr.json, prompts the user via UI for unmapped links, and updates files with localized links. Phase 2: Concurrent file delegation to specialized subagents for translation. It MUST NOT perform LLM translations itself.",
       "specialized_bots": "For each file or specific file type (e.g., HTML, XML), the controller bot MUST invoke a specialized subagent/bot to perform the actual parsing and translation.",
       "scripturecheck_bot": "A local pre-processing utility that uses Regular Expressions to extract scripture references from the source text and fetches their official translations from the 'scriptures' folder to be injected into the translation prompt as constraints.",
       "auditing_bot": "A local pre-processing utility that scans the source text for English glossary terms and passes only the relevant glossary terms as constraints to the translation prompt.",

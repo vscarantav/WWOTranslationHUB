@@ -12,7 +12,8 @@ from datetime import datetime
 import xlsxwriter
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
-load_dotenv()
+env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
+load_dotenv(env_path)
 from bots.html_bot import HTMLTranslationBot
 from bots.xml_bot import XMLTranslationBot
 from bots.txt_bot import TextTranslationBot
@@ -20,9 +21,11 @@ from bots.auditor_bot import GlossaryAuditBot
 from bots.scripturecheck_bot import ScriptureCheckBot
 
 class TranslationController:
-    def __init__(self, target_language="PTBR", input_dir=None, imscc_path=None):
+    def __init__(self, target_language="PTBR", input_dir=None, imscc_path=None, link_prompt_callback=None):
         self.target_language = target_language
-        self.hub_dir = os.path.dirname(os.path.abspath(__file__))
+        self.link_prompt_callback = link_prompt_callback
+        self.app_dir = os.path.dirname(os.path.abspath(__file__))
+        self.hub_dir = os.path.dirname(self.app_dir)
         self._clear_logs()
         self.input_dir = input_dir
         self.imscc_path = imscc_path
@@ -40,7 +43,7 @@ class TranslationController:
         
         # Apply prompts if available in instructions
         self._apply_custom_prompts()
-        self.log_filepath = os.path.join(self.hub_dir, "translation_log.txt")
+        self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New Session (Target: {self.target_language}) ---\n")
             
@@ -56,7 +59,7 @@ class TranslationController:
             "scripture_bot_log.txt"
         ]
         for log_file in log_files:
-            log_path = os.path.join(self.hub_dir, log_file)
+            log_path = os.path.join(self.app_dir, "bots", log_file)
             if os.path.exists(log_path):
                 try:
                     os.remove(log_path)
@@ -198,7 +201,7 @@ class TranslationController:
         return re.sub(r'https?://(?:www\.)?google\.com/url\?[^\s"\'<>]*', replacer, content)
 
     def _load_instructions(self) -> dict:
-        filepath = os.path.join(self.hub_dir, "Course_Translation_Hub_ArchitectureAndInstructions.json")
+        filepath = os.path.join(self.app_dir, "Course_Translation_Hub_ArchitectureAndInstructions.json")
         if os.path.exists(filepath):
             with open(filepath, "r", encoding="utf-8") as f:
                 return json.load(f)
@@ -223,10 +226,10 @@ class TranslationController:
         self._log(msg)
         
         file_counts = collections.defaultdict(int)
-        filepaths = []
+        self.filepaths = []
         for root, dirs, files in os.walk(self.output_dir):
             for file in files:
-                filepaths.append(os.path.join(root, file))
+                self.filepaths.append(os.path.join(root, file))
                 ext = file.split('.')[-1].lower() if '.' in file else 'unknown'
                 file_counts[ext] += 1
                 
@@ -234,14 +237,110 @@ class TranslationController:
         for ext, count in file_counts.items():
             self._log(f"[System] FileTypeCount: {ext}|{count}")
                 
-        # Run translations concurrently to speed up the process (up to 3 files at once)
-        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
-            futures = [executor.submit(self.process_file, path) for path in filepaths]
-            for _ in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Translating", unit="file"):
-                pass
+        # Phase 1: Pre-process Links (Sequential)
+        self.pre_process_links()
+        
+        # Phase 2: Run translations (Concurrent)
+        self.translate_files()
             
         self.compress_to_imscc()
         
+    def pre_process_links(self):
+        msg = "Starting Phase 1: Pre-processing and Mapping Links"
+        print(f"\n[Controller] {msg}")
+        self._log(msg)
+        
+        mapping_file = os.path.join(self.app_dir, "link_mapping_ptbr.json")
+        mapping = {}
+        if os.path.exists(mapping_file):
+            with open(mapping_file, 'r', encoding='utf-8') as f:
+                mapping = json.load(f)
+                
+        def save_mapping():
+            with open(mapping_file, 'w', encoding='utf-8') as f:
+                json.dump(mapping, f, indent=2)
+
+        import urllib.parse
+        import html
+
+        def check_and_prompt(url, filepath):
+            clean_url = url
+            is_escaped = '&amp;' in url
+            unescaped_url = html.unescape(url)
+            
+            if 'google.com/url?' in unescaped_url:
+                parsed = urllib.parse.urlparse(unescaped_url)
+                qs = urllib.parse.parse_qs(parsed.query)
+                if 'q' in qs:
+                    clean_url = qs['q'][0]
+                    filename = os.path.basename(filepath)
+                    self._log(f"[LinkBot] GoogleLinkStripped: {filename},{url},{clean_url}")
+                    
+            if clean_url in mapping:
+                pt_link = mapping[clean_url]
+                return html.escape(pt_link) if is_escaped else pt_link
+                
+            if not clean_url.startswith('http'):
+                return url
+                
+            if self.link_prompt_callback:
+                pt_link = self.link_prompt_callback(clean_url, os.path.basename(filepath))
+                if pt_link:
+                    pt_link = pt_link.strip()
+                    mapping[clean_url] = pt_link
+                    save_mapping()
+                    return html.escape(pt_link) if is_escaped else pt_link
+                else:
+                    self._log(f"[LinkBot] SkippedLink: {os.path.basename(filepath)},{clean_url}")
+            
+            return url
+
+        for filepath in tqdm(self.filepaths, desc="Mapping Links", unit="file"):
+            ext = filepath.split('.')[-1].lower() if '.' in filepath else ''
+            
+            if ext in ['html', 'htm', 'xml', 'qti']:
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        
+                    self._extract_and_log_links(filepath, content)
+                    
+                    def html_replacer(match):
+                        return f'href={match.group(1)}{check_and_prompt(match.group(2), filepath)}{match.group(1)}'
+                        
+                    new_content = re.sub(r'href=(["\'])([^"\']+)\1', html_replacer, content)
+                    
+                    if new_content != content:
+                        with open(filepath, 'w', encoding='utf-8') as f:
+                            f.write(new_content)
+                except Exception as e:
+                    print(f"[Controller] Error processing links in {filepath}: {e}")
+                    
+            elif ext == 'txt':
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        
+                    def txt_replacer(match):
+                        return check_and_prompt(match.group(0), filepath)
+                        
+                    new_content = re.sub(r'https?://[^\s"\'<>]+', txt_replacer, content)
+                    
+                    if new_content != content:
+                        with open(filepath, 'w', encoding='utf-8') as f:
+                            f.write(new_content)
+                except Exception as e:
+                    print(f"[Controller] Error processing txt links in {filepath}: {e}")
+
+    def translate_files(self):
+        msg = "Starting Phase 2: LLM Translation (Concurrent)"
+        print(f"\n[Controller] {msg}")
+        self._log(msg)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+            futures = [executor.submit(self.process_file, path) for path in self.filepaths]
+            for _ in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Translating", unit="file"):
+                pass
+
     def compress_to_imscc(self):
         msg = "Compressing translated directory to IMSCC format..."
         print(f"\n[Controller] {msg}")
@@ -516,6 +615,14 @@ class TranslationController:
                                 entry['File Name'] = parts[0]
                                 entry['Message'] = f"{parts[1]} | {parts[2]}"
                             entry['Status'] = 'Success'
+                        elif message.startswith('SkippedLink: '):
+                            entry['Event Type'] = 'Skipped Link'
+                            entry['Bot'] = 'LinkBot'
+                            parts = message.replace('SkippedLink: ', '').split(',', 1)
+                            if len(parts) == 2:
+                                entry['File Name'] = parts[0]
+                                entry['Message'] = parts[1]
+                            entry['Status'] = 'Warning'
                         elif message.startswith('FileTypeCount: '):
                             entry['Event Type'] = 'File Type Count'
                             parts = message.replace('FileTypeCount: ', '').split('|', 1)
@@ -790,6 +897,26 @@ class TranslationController:
                 stripped_sheet.write(r_idx, 0, loc, cell_fmt)
                 stripped_sheet.write(r_idx, 1, orig_url, cell_fmt)
                 stripped_sheet.write(r_idx, 2, clean_url, cell_fmt)
+                r_idx += 1
+
+        # SHEET 6: Skipped Links
+        skipped_links_df = df[df['Event Type'] == 'Skipped Link'].copy()
+        
+        if not skipped_links_df.empty:
+            skipped_sheet = workbook.add_worksheet('Skipped Links')
+            skipped_sheet.set_column('A:A', 30)
+            skipped_sheet.set_column('B:B', 90)
+            
+            skipped_sheet.write('A1', 'Page Name', header_fmt)
+            skipped_sheet.write('B1', 'Unmapped English URL', header_fmt)
+            
+            r_idx = 1
+            for idx, row in skipped_links_df.iterrows():
+                loc = str(row['File Name'])
+                msg = str(row['Message'])
+                
+                skipped_sheet.write(r_idx, 0, loc, cell_fmt)
+                skipped_sheet.write(r_idx, 1, msg, cell_fmt)
                 r_idx += 1
 
         workbook.close()

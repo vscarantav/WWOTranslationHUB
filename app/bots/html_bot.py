@@ -18,7 +18,7 @@ class HTMLTranslationBot:
         self.model = genai.GenerativeModel("gemini-3.5-flash")
         self.system_prompt = self._get_system_prompt()
         
-        self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "translation_log.txt")
+        self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New HTMLBot Session (Target: {self.target_language}) ---\n")
 

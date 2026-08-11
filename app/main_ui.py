@@ -4,10 +4,12 @@ import threading
 import sys
 import os
 from dotenv import load_dotenv
-load_dotenv()
+env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
+load_dotenv(env_path)
 import io
 import shutil
 import re
+import queue
 
 # Import the processors
 from controller import TranslationController
@@ -55,7 +57,8 @@ class CourseTranslationHubUI:
         self.root.title("Course Translation Hub")
         self.root.geometry("850x700")
         
-        self.hub_dir = os.path.dirname(os.path.abspath(__file__))
+        self.app_dir = os.path.dirname(os.path.abspath(__file__))
+        self.hub_dir = os.path.dirname(self.app_dir)
         
         # Configure Grid
         self.root.columnconfigure(0, weight=1)
@@ -158,12 +161,77 @@ class CourseTranslationHubUI:
             print(f" - {os.path.basename(p)}")
         print(f"======================================\n")
 
+        def ask_user_for_link(unmapped_url, context_file):
+            result_queue = queue.Queue()
+            def show_dialog():
+                dialog = tk.Toplevel(self.root)
+                dialog.title("Unmapped Link Found")
+                dialog_width = 550
+                dialog_height = 250
+                screen_width = dialog.winfo_screenwidth()
+                screen_height = dialog.winfo_screenheight()
+                x = int((screen_width - dialog_width) / 2)
+                y = int((screen_height - dialog_height) / 2)
+                dialog.geometry(f"{dialog_width}x{dialog_height}+{x}+{y}")
+                dialog.transient(self.root)
+                dialog.grab_set()
+
+                lbl1 = ttk.Label(dialog, text=f"Found unmapped English link in {context_file}:")
+                lbl1.pack(pady=(15, 5), padx=15, anchor="w")
+
+                url_frame = ttk.Frame(dialog)
+                url_frame.pack(fill='x', padx=15, pady=5)
+
+                url_entry = ttk.Entry(url_frame)
+                url_entry.insert(0, unmapped_url)
+                url_entry.configure(state='readonly')
+                url_entry.pack(side='left', fill='x', expand=True)
+
+                def copy_link():
+                    self.root.clipboard_clear()
+                    self.root.clipboard_append(unmapped_url)
+                    self.root.update()
+                    
+                copy_btn = ttk.Button(url_frame, text="Copy", command=copy_link, width=6)
+                copy_btn.pack(side='left', padx=(5, 0))
+
+                lbl2 = ttk.Label(dialog, text="Please enter the translated version (or cancel to skip):")
+                lbl2.pack(pady=(10, 5), padx=15, anchor="w")
+
+                input_entry = ttk.Entry(dialog)
+                input_entry.pack(fill='x', padx=15, pady=5)
+                input_entry.focus_set()
+
+                result = [None]
+                def on_ok(event=None):
+                    result[0] = input_entry.get().strip() or None
+                    dialog.destroy()
+                def on_cancel(event=None):
+                    dialog.destroy()
+
+                btn_frame = ttk.Frame(dialog)
+                btn_frame.pack(pady=15)
+                ttk.Button(btn_frame, text="OK", command=on_ok).pack(side="left", padx=5)
+                ttk.Button(btn_frame, text="Cancel", command=on_cancel).pack(side="left", padx=5)
+
+                dialog.bind('<Return>', on_ok)
+                dialog.bind('<Escape>', on_cancel)
+
+                self.root.wait_window(dialog)
+                result_queue.put(result[0])
+            self.root.after(0, show_dialog)
+            return result_queue.get()
+
         def thread_target():
             try:
                 for idx, imscc_path in enumerate(imscc_paths, 1):
                     print(f"\n--- Processing File {idx}/{len(imscc_paths)}: {os.path.basename(imscc_path)} ---")
                     workspace_path = self._copy_to_workspace(imscc_path, "Courses to Translate")
-                    controller = TranslationController(target_language=lang, imscc_path=workspace_path)
+                    controller = TranslationController(
+                        target_language=lang, 
+                        imscc_path=workspace_path,
+                        link_prompt_callback=ask_user_for_link
+                    )
                     controller.process_directory()
                     controller.update_excel_dashboard()
                 self.progress['value'] = 100

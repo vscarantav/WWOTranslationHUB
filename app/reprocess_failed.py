@@ -3,7 +3,8 @@ import re
 from controller import TranslationController
 
 def run():
-    log_path = "translation_log.txt"
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    log_path = os.path.join(app_dir, "bots", "translation_log.txt")
     if not os.path.exists(log_path):
         print("No translation log found.")
         return
