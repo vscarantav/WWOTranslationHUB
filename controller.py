@@ -70,12 +70,12 @@ class TranslationController:
             f.write(f"[{timestamp}] {message}\n")
 
     def _setup_workspace(self):
-        courses_dir = os.path.join(self.hub_dir, "Courses")
+        courses_dir = os.path.join(self.hub_dir, "Courses to Translate")
         if not os.path.exists(courses_dir):
             os.makedirs(courses_dir)
 
         if self.imscc_path:
-            # If the path is relative and doesn't exist, check inside Courses/
+            # If the path is relative and doesn't exist, check inside Courses to Translate/
             if not os.path.isabs(self.imscc_path) and not os.path.exists(self.imscc_path):
                 alt_path = os.path.join(courses_dir, self.imscc_path)
                 if os.path.exists(alt_path):
