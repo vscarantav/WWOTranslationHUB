@@ -151,17 +151,9 @@ class TranslationController:
         self._log(f"[System] CourseInfo: {course_name}|{course_code}")
 
     def _extract_and_log_links(self, filepath: str, content: str):
-        try:
-            soup = BeautifulSoup(content, 'html.parser')
-            links = soup.find_all('a', href=True)
-            filename = os.path.basename(filepath)
-            for a in links:
-                href = a['href']
-                if href.startswith('http') or href.startswith('www'):
-                    text = a.get_text(strip=True).replace(',', ' ').replace('\n', ' ').replace('|', ' ')
-                    self._log(f"[LinkBot] ExtLink: {filename},{text},{href}")
-        except Exception as e:
-            print(f"[Controller] Error extracting links from {filepath}: {e}")
+        # By user request, we no longer log every external link here. 
+        # We now only export links to the Excel report if they were explicitly skipped.
+        pass
 
     def _rewrite_church_links(self, content: str) -> str:
         lang_code = "por" if self.target_language == "PTBR" else ("spa" if self.target_language == "ES" else "por")
@@ -264,9 +256,9 @@ class TranslationController:
         import html
 
         def check_and_prompt(url, filepath):
-            clean_url = url
-            is_escaped = '&amp;' in url
+            is_escaped = '&amp;' in url or '&#39;' in url or '&quot;' in url
             unescaped_url = html.unescape(url)
+            clean_url = unescaped_url
             
             if 'google.com/url?' in unescaped_url:
                 parsed = urllib.parse.urlparse(unescaped_url)
@@ -677,7 +669,9 @@ class TranslationController:
             safe_course_name = "Course"
             
         excel_filename = f"{safe_course_name} Translation Report.xlsx"
-        excel_path = os.path.join(self.hub_dir, excel_filename)
+        reports_dir = os.path.join(self.hub_dir, "Reports")
+        os.makedirs(reports_dir, exist_ok=True)
+        excel_path = os.path.join(reports_dir, excel_filename)
         workbook = xlsxwriter.Workbook(excel_path)
 
         # Custom Formats

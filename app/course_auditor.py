@@ -274,7 +274,9 @@ class CourseAuditor:
             course_name = os.path.splitext(base_name)[0]
             
         out_name = f"Audit_Report_{course_name}.xlsx"
-        out_path = os.path.join(self.audit_dir, out_name)
+        reports_dir = os.path.join(self.hub_dir, "Reports")
+        os.makedirs(reports_dir, exist_ok=True)
+        out_path = os.path.join(reports_dir, out_name)
         
         print(f"\nSaving reports to {out_path}...")
         
