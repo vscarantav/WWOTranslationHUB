@@ -195,7 +195,7 @@ class CourseTranslationHubUI:
                 copy_btn = ttk.Button(url_frame, text="Copy", command=copy_link, width=6)
                 copy_btn.pack(side='left', padx=(5, 0))
 
-                lbl2 = ttk.Label(dialog, text="Please enter the translated version (or cancel to skip):")
+                lbl2 = ttk.Label(dialog, text="Please enter the translated version:")
                 lbl2.pack(pady=(10, 5), padx=15, anchor="w")
 
                 input_entry = ttk.Entry(dialog)
@@ -204,18 +204,24 @@ class CourseTranslationHubUI:
 
                 result = [None]
                 def on_ok(event=None):
-                    result[0] = input_entry.get().strip() or None
+                    val = input_entry.get().strip()
+                    if not val:
+                        from tkinter import messagebox
+                        messagebox.showwarning("Missing Link", "Please enter a link, or click Skip.", parent=dialog)
+                        return
+                    result[0] = val
                     dialog.destroy()
-                def on_cancel(event=None):
+                    
+                def on_skip(event=None):
                     dialog.destroy()
 
                 btn_frame = ttk.Frame(dialog)
                 btn_frame.pack(pady=15)
                 ttk.Button(btn_frame, text="OK", command=on_ok).pack(side="left", padx=5)
-                ttk.Button(btn_frame, text="Cancel", command=on_cancel).pack(side="left", padx=5)
+                ttk.Button(btn_frame, text="Skip", command=on_skip).pack(side="left", padx=5)
 
                 dialog.bind('<Return>', on_ok)
-                dialog.bind('<Escape>', on_cancel)
+                dialog.bind('<Escape>', on_skip)
 
                 self.root.wait_window(dialog)
                 result_queue.put(result[0])

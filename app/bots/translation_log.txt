@@ -12,16 +12,19 @@
 --- New TextBot Session (Target: PTBR) ---
 
 --- New Session (Target: PTBR) ---
-[2026-08-11 11:31:53] [System] CourseInfo: Expanding a Business (English Master)|BUS118 (English BYUI Term Master)
-[2026-08-11 11:31:53] Starting batch processing for directory: C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\expanding-a-business-english-master-export_PTBR
-[2026-08-11 11:31:53] [System] FileTypeCount: xml|46
-[2026-08-11 11:31:53] [System] FileTypeCount: txt|1
-[2026-08-11 11:31:53] [System] FileTypeCount: html|18
-[2026-08-11 11:31:53] [System] FileTypeCount: qti|1
-[2026-08-11 11:31:53] [System] FileTypeCount: pdf|1
-[2026-08-11 11:31:53] [System] FileTypeCount: jpeg|2
-[2026-08-11 11:31:53] [System] FileTypeCount: jpg|12
-[2026-08-11 11:31:53] [System] FileTypeCount: png|54
-[2026-08-11 11:31:53] [System] FileTypeCount: svg|2
-[2026-08-11 11:31:53] Starting Phase 1: Pre-processing and Mapping Links
-[2026-08-11 11:32:10] [LinkBot] SkippedLink: g019df99bf72d6c3f20d8b4a7329c534d.xml,https://portal.byupathway.edu/
+[2026-08-11 13:52:48] [System] CourseInfo: Growing a Business (English Master)|BUS117 (English BYUI Term Master)
+[2026-08-11 13:52:48] Starting batch processing for directory: C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\growing-a-business-english-master-export_PTBR
+[2026-08-11 13:52:48] [System] FileTypeCount: xml|46
+[2026-08-11 13:52:48] [System] FileTypeCount: txt|1
+[2026-08-11 13:52:48] [System] FileTypeCount: html|19
+[2026-08-11 13:52:48] [System] FileTypeCount: qti|1
+[2026-08-11 13:52:48] [System] FileTypeCount: pdf|2
+[2026-08-11 13:52:48] [System] FileTypeCount: jpeg|2
+[2026-08-11 13:52:48] [System] FileTypeCount: jpg|10
+[2026-08-11 13:52:48] [System] FileTypeCount: png|43
+[2026-08-11 13:52:48] [System] FileTypeCount: svg|2
+[2026-08-11 13:52:48] Starting Phase 1: Pre-processing and Mapping Links
+[2026-08-11 13:53:10] [LinkBot] SkippedLink: g3205e400d615795154425e67be7f8db0.xml,https://docs.google.com/document/d/1W_TgCKqsi6uWHsosR_1BSFQ1zBchMyY-s7Kes4ertrg/edit?usp=sharing
+[2026-08-11 13:53:15] [LinkBot] SkippedLink: g381c86e280720c6b233a7d05d74aa159.xml,https://sites.google.com/view/imstraining/home?authuser=1
+[2026-08-11 13:53:21] [LinkBot] SkippedLink: g59edae72d0172f5e255df7168261e327.xml,https://content.byui.edu/integ/gen/2db77d0e-9c2e-4395-becc-3b376b9be105/0/?.vi=file&amp;attachment.uuid=483cb0fb-2e44-4479-b186-5179759b2e26
+[2026-08-11 13:53:28] [LinkBot] SkippedLink: g5c68e90bd144403821715b3ede6442cb.xml,https://docs.google.com/spreadsheets/d/1DP6KgwlPPFQWYvMSzJi7WLlyVFdb0EGA/edit?gid=323782621#gid=323782621

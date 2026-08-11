@@ -6,7 +6,8 @@
   },
   "architecture": {
     "core_files": {
-      "imsmanifest.xml": "The main manifest file. It maps resource identifiers (used in the hash directories) to their corresponding files and outlines the course structure (modules, item sequences). Treat this as the definitive index."
+      "imsmanifest.xml": "The main manifest file. It maps resource identifiers (used in the hash directories) to their corresponding files and outlines the course structure (modules, item sequences). Treat this as the definitive index.",
+      "link_mapping.json": "A multi-language JSON mapping of English web links to their localized counterparts (PTBR, SPA, etc.). Used by the controller to automatically replace links before bot translation."
     },
     "directories": {
       "course_settings/": "Contains global configuration files for the course, including the main syllabus page (e.g., syllabus.html).",
@@ -14,7 +15,7 @@
       "web_resources/": "Contains static files, images, or documents linked within the course pages.",
       "non_cc_assessments/": "Contains quizzes and assessments that might not follow the standard Common Cartridge specification.",
       "hash_directories/": "Folders named with unique alphanumeric hashes (e.g., 'g038b...'). These contain metadata for assignments, discussions, quizzes, and rubrics (e.g., assessment_meta.xml, assessment_qti.xml, assignment_settings.xml). Look inside these XML files for description tags and text that require translation.",
-      "Glossary/": "Contains glossary json files for terms standardization and a 'scriptures/' subfolder containing the modern scriptures used to crosscheck references.",
+      "Glossary/": "Contains a unified 'glossary.json' for terms standardization and a 'scriptures/' subfolder containing the modern scriptures used to crosscheck references.",
       "Courses to Translate/": "Contains the temporary course files, including the raw `.imscc` Canvas exports and their respective unzipped working directories.",
       "Courses to Audit/": "Contains the `.imscc` Canvas exports (English Canon and Translated versions) to be unzipped and compared by the course auditor process.",
       "Side Quest - IMS Algorithm task/": "An ad-hoc folder used for translating instructor action reports (IMS Actions Excel sheets) into Portuguese. It contains scripts to translate outreach instructions and cross-reference English assignment titles with official translated titles from .imscc course exports."

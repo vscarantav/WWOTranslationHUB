@@ -250,7 +250,7 @@ class TranslationController:
         print(f"\n[Controller] {msg}")
         self._log(msg)
         
-        mapping_file = os.path.join(self.app_dir, "link_mapping_ptbr.json")
+        mapping_file = os.path.join(self.app_dir, "link_mapping.json")
         mapping = {}
         if os.path.exists(mapping_file):
             with open(mapping_file, 'r', encoding='utf-8') as f:
@@ -276,8 +276,13 @@ class TranslationController:
                     filename = os.path.basename(filepath)
                     self._log(f"[LinkBot] GoogleLinkStripped: {filename},{url},{clean_url}")
                     
-            if clean_url in mapping:
-                pt_link = mapping[clean_url]
+            if clean_url.startswith('https://www.churchofjesuschrist.org/study/scriptures') and 'lang=eng' in clean_url:
+                lang_code = 'por' if self.target_language == 'PTBR' else 'spa'
+                localized_url = clean_url.replace('lang=eng', f'lang={lang_code}')
+                return html.escape(localized_url) if is_escaped else localized_url
+
+            if clean_url in mapping and mapping[clean_url].get(self.target_language):
+                pt_link = mapping[clean_url][self.target_language]
                 return html.escape(pt_link) if is_escaped else pt_link
                 
             if not clean_url.startswith('http'):
@@ -287,7 +292,9 @@ class TranslationController:
                 pt_link = self.link_prompt_callback(clean_url, os.path.basename(filepath))
                 if pt_link:
                     pt_link = pt_link.strip()
-                    mapping[clean_url] = pt_link
+                    if clean_url not in mapping:
+                        mapping[clean_url] = {"PTBR": "", "SPA": ""}
+                    mapping[clean_url][self.target_language] = pt_link
                     save_mapping()
                     return html.escape(pt_link) if is_escaped else pt_link
                 else:

@@ -20,13 +20,7 @@ class GlossaryAuditBot:
             f.write(f"[{timestamp}] {message}\n")
 
     def _load_glossary(self) -> dict:
-        self.glossary_path = os.path.join(
-            self.hub_dir, 
-            "Glossary",
-            "glossary_ptbr.json" 
-            if self.target_language == "PTBR" 
-            else "glossary_es.json"
-        )
+        self.glossary_path = os.path.join(self.hub_dir, "Glossary", "glossary.json")
         filepath = self.glossary_path
 
         if not os.path.exists(filepath):
@@ -36,7 +30,14 @@ class GlossaryAuditBot:
             return {}
 
         with open(filepath, "r", encoding="utf-8") as f:
-            return json.load(f)
+            raw_data = json.load(f)
+            
+        filtered_glossary = {}
+        for eng_term, translations in raw_data.items():
+            if self.target_language in translations and translations[self.target_language]:
+                filtered_glossary[eng_term] = translations[self.target_language]
+                
+        return filtered_glossary
 
     def get_relevant_terms(self, original_content: str) -> dict:
         """
