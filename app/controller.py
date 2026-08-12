@@ -264,7 +264,7 @@ class TranslationController:
             clean_url = unescaped_url
             
             # Ignore standard XML namespaces and Canvas backend links
-            ignore_domains = ['w3.org', 'purl.org', 'imsglobal.org', 'canvas.instructure.com', 'ieee.org']
+            ignore_domains = ['w3.org', 'purl.org', 'imsglobal.org', 'canvas.instructure.com', 'ieee.org', 'instructure.com/api/']
             if any(domain in clean_url for domain in ignore_domains):
                 return url
             
