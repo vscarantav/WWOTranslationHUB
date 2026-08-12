@@ -258,7 +258,7 @@ class TranslationController:
         
         session_skipped_urls = set()
 
-        def check_and_prompt(url, filepath):
+        def check_and_prompt(url, filepath, page_title=None):
             is_escaped = '&amp;' in url or '&#39;' in url or '&quot;' in url
             unescaped_url = html.unescape(url)
             clean_url = unescaped_url
@@ -307,7 +307,8 @@ class TranslationController:
                 return url
                 
             if self.link_prompt_callback:
-                prompt_result = self.link_prompt_callback(clean_url, os.path.basename(filepath))
+                display_name = page_title if page_title else os.path.basename(filepath)
+                prompt_result = self.link_prompt_callback(clean_url, display_name)
                 pt_link = None
                 comment = ""
                 if isinstance(prompt_result, tuple):
@@ -351,19 +352,28 @@ class TranslationController:
                         
                     self._extract_and_log_links(filepath, content)
                     
+                    page_title = os.path.basename(filepath)
+                    title_match = re.search(r'<title[^>]*>(.*?)</title>', content, re.IGNORECASE | re.DOTALL)
+                    if title_match and title_match.group(1).strip():
+                        page_title = f"{title_match.group(1).strip()} ({os.path.basename(filepath)})"
+                    else:
+                        qti_match = re.search(r'<assessment[^>]*title=[\'"]([^\'"]+)[\'"]', content, re.IGNORECASE)
+                        if qti_match and qti_match.group(1).strip():
+                            page_title = f"{qti_match.group(1).strip()} ({os.path.basename(filepath)})"
+
                     def html_replacer(match):
-                        return f'href={match.group(1)}{check_and_prompt(match.group(2), filepath)}{match.group(1)}'
+                        return f'href={match.group(1)}{check_and_prompt(match.group(2), filepath, page_title)}{match.group(1)}'
                         
                     new_content = re.sub(r'href=(["\'])([^"\']+)\1', html_replacer, content)
                     
-                    if ext == 'xml':
+                    if ext == 'xml' or ext == 'qti':
                         def xml_url_replacer(match):
-                            return f'<url>{check_and_prompt(match.group(1), filepath)}</url>'
+                            return f'<url>{check_and_prompt(match.group(1), filepath, page_title)}</url>'
                         new_content = re.sub(r'<url>([^<]+)</url>', xml_url_replacer, new_content)
                     
                     # Universal fallback for any remaining URLs
                     def universal_replacer(match):
-                        return check_and_prompt(match.group(0), filepath)
+                        return check_and_prompt(match.group(0), filepath, page_title)
                     new_content = re.sub(r'https?://[^\s"\'<>]+', universal_replacer, new_content)
                     
                     if new_content != content:
