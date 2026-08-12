@@ -263,6 +263,11 @@ class TranslationController:
             unescaped_url = html.unescape(url)
             clean_url = unescaped_url
             
+            # Ignore standard XML namespaces and Canvas backend links
+            ignore_domains = ['w3.org', 'purl.org', 'imsglobal.org', 'canvas.instructure.com']
+            if any(domain in clean_url for domain in ignore_domains):
+                return url
+            
             # Normalize Google Docs/Drive links by removing /u/<number>/
             if 'google.com' in clean_url:
                 clean_url = re.sub(r'/u/\d+/', '/', clean_url)
