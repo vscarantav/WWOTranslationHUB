@@ -254,17 +254,26 @@ class TranslationController:
 
         import urllib.parse
         import html
+        import re
+        
+        session_skipped_urls = set()
 
         def check_and_prompt(url, filepath):
             is_escaped = '&amp;' in url or '&#39;' in url or '&quot;' in url
             unescaped_url = html.unescape(url)
             clean_url = unescaped_url
             
+            # Normalize Google Docs/Drive links by removing /u/<number>/
+            if 'google.com' in clean_url:
+                clean_url = re.sub(r'/u/\d+/', '/', clean_url)
+            
             if 'google.com/url?' in unescaped_url:
                 parsed = urllib.parse.urlparse(unescaped_url)
                 qs = urllib.parse.parse_qs(parsed.query)
                 if 'q' in qs:
                     clean_url = qs['q'][0]
+                    if 'google.com' in clean_url:
+                        clean_url = re.sub(r'/u/\d+/', '/', clean_url)
                     filename = os.path.basename(filepath)
                     self._log(f"[LinkBot] GoogleLinkStripped: {filename},{url},{clean_url}")
                     
@@ -277,7 +286,15 @@ class TranslationController:
                 pt_link = mapping[clean_url][self.target_language]
                 return html.escape(pt_link) if is_escaped else pt_link
                 
+            # Check if this URL is already a translated value (skip prompting if so)
+            for translations in mapping.values():
+                if clean_url in translations.values():
+                    return url
+                
             if not clean_url.startswith('http'):
+                return url
+                
+            if clean_url in session_skipped_urls:
                 return url
                 
             if self.link_prompt_callback:
@@ -290,6 +307,7 @@ class TranslationController:
                     save_mapping()
                     return html.escape(pt_link) if is_escaped else pt_link
                 else:
+                    session_skipped_urls.add(clean_url)
                     self._log(f"[LinkBot] SkippedLink: {os.path.basename(filepath)},{clean_url}")
             
             return url
@@ -308,6 +326,16 @@ class TranslationController:
                         return f'href={match.group(1)}{check_and_prompt(match.group(2), filepath)}{match.group(1)}'
                         
                     new_content = re.sub(r'href=(["\'])([^"\']+)\1', html_replacer, content)
+                    
+                    if ext == 'xml':
+                        def xml_url_replacer(match):
+                            return f'<url>{check_and_prompt(match.group(1), filepath)}</url>'
+                        new_content = re.sub(r'<url>([^<]+)</url>', xml_url_replacer, new_content)
+                    
+                    # Universal fallback for any remaining URLs
+                    def universal_replacer(match):
+                        return check_and_prompt(match.group(0), filepath)
+                    new_content = re.sub(r'https?://[^\s"\'<>]+', universal_replacer, new_content)
                     
                     if new_content != content:
                         with open(filepath, 'w', encoding='utf-8') as f:
