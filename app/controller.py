@@ -693,7 +693,7 @@ class TranslationController:
                                 entry['Status'] = 'Success'
                             else:
                                 raw_data = message.replace('SkippedLinkWithComment: ', '')
-                                entry['Status'] = 'Warning'
+                                entry['Status'] = 'Info'
                             parts = raw_data.split(',', 2)
                             if len(parts) == 3:
                                 entry['File Name'] = parts[0]
@@ -705,7 +705,7 @@ class TranslationController:
                             if len(parts) == 2:
                                 entry['File Name'] = parts[0]
                                 entry['Message'] = parts[1]
-                            entry['Status'] = 'Warning'
+                            entry['Status'] = 'Info'
                         elif message.startswith('FileTypeCount: '):
                             entry['Event Type'] = 'File Type Count'
                             parts = message.replace('FileTypeCount: ', '').split('|', 1)
@@ -915,78 +915,55 @@ class TranslationController:
                     pages_sheet.write(r_idx, 1, '', cell_fmt)
                 r_idx += 1
 
-        # SHEET 5: Stripped Google Links
-        stripped_links_df = df[df['Event Type'] == 'Google Link Stripped'].copy()
+        # SHEET 5: Link Actions (Consolidated)
+        action_links_df = df[df['Event Type'].isin(['Google Link Stripped', 'Skipped Link', 'Commented Link'])].copy()
         
-        if not stripped_links_df.empty:
-            stripped_sheet = workbook.add_worksheet('Google Links')
-            stripped_sheet.set_column('A:A', 30)
-            stripped_sheet.set_column('B:B', 60)
-            stripped_sheet.set_column('C:C', 60)
+        if not action_links_df.empty:
+            action_sheet = workbook.add_worksheet('Link Actions')
+            action_sheet.set_column('A:A', 25)
+            action_sheet.set_column('B:B', 30)
+            action_sheet.set_column('C:C', 60)
+            action_sheet.set_column('D:D', 60)
+            action_sheet.set_column('E:E', 40)
             
-            stripped_sheet.write('A1', 'Page Name', header_fmt)
-            stripped_sheet.write('B1', 'Original URL', header_fmt)
-            stripped_sheet.write('C1', 'Clean URL', header_fmt)
-            stripped_sheet.write('D1', 'Action Required', header_fmt)
+            action_sheet.write('A1', 'Event Type', header_fmt)
+            action_sheet.write('B1', 'Page Name', header_fmt)
+            action_sheet.write('C1', 'Original URL', header_fmt)
+            action_sheet.write('D1', 'Clean URL', header_fmt)
+            action_sheet.write('E1', 'Notes / Comments', header_fmt)
             
             r_idx = 1
-            for idx, row in stripped_links_df.iterrows():
-                loc = str(row['File Name'])
-                msg = str(row['Message'])
-                parts = msg.split(' | ', 1)
-                orig_url = parts[0] if len(parts) > 0 else ""
-                clean_url = parts[1] if len(parts) > 1 else ""
-                
-                stripped_sheet.write(r_idx, 0, loc, cell_fmt)
-                stripped_sheet.write(r_idx, 1, orig_url, cell_fmt)
-                stripped_sheet.write(r_idx, 2, clean_url, cell_fmt)
-                stripped_sheet.write(r_idx, 3, "FIX EN Course", warning_fmt)
-                r_idx += 1
-
-        # SHEET 6: Skipped Links
-        skipped_links_df = df[df['Event Type'] == 'Skipped Link'].copy()
-        
-        if not skipped_links_df.empty:
-            skipped_sheet = workbook.add_worksheet('Skipped Links')
-            skipped_sheet.set_column('A:A', 30)
-            skipped_sheet.set_column('B:B', 90)
-            
-            skipped_sheet.write('A1', 'Page Name', header_fmt)
-            skipped_sheet.write('B1', 'Unmapped English URL', header_fmt)
-            
-            r_idx = 1
-            for idx, row in skipped_links_df.iterrows():
+            for idx, row in action_links_df.iterrows():
+                event_type = str(row['Event Type'])
                 loc = str(row['File Name'])
                 msg = str(row['Message'])
                 
-                skipped_sheet.write(r_idx, 0, loc, cell_fmt)
-                skipped_sheet.write(r_idx, 1, msg, cell_fmt)
-                r_idx += 1
-
-        # SHEET 7: Commented Links
-        commented_links_df = df[df['Event Type'] == 'Commented Link'].copy()
-        
-        if not commented_links_df.empty:
-            comments_sheet = workbook.add_worksheet('Commented Links')
-            comments_sheet.set_column('A:A', 30)
-            comments_sheet.set_column('B:B', 60)
-            comments_sheet.set_column('C:C', 60)
-            
-            comments_sheet.write('A1', 'Page Name', header_fmt)
-            comments_sheet.write('B1', 'URL', header_fmt)
-            comments_sheet.write('C1', 'Comment', header_fmt)
-            
-            r_idx = 1
-            for idx, row in commented_links_df.iterrows():
-                loc = str(row['File Name'])
-                msg = str(row['Message'])
-                parts = msg.split(' | ', 1)
-                link_url = parts[0] if len(parts) > 0 else ""
-                comment = parts[1] if len(parts) > 1 else ""
+                orig_url = ""
+                clean_url = ""
+                notes = ""
                 
-                comments_sheet.write(r_idx, 0, loc, cell_fmt)
-                comments_sheet.write(r_idx, 1, link_url, cell_fmt)
-                comments_sheet.write(r_idx, 2, comment, cell_fmt)
+                if event_type == 'Google Link Stripped':
+                    parts = msg.split(' | ', 1)
+                    orig_url = parts[0] if len(parts) > 0 else ""
+                    clean_url = parts[1] if len(parts) > 1 else ""
+                    notes = "FIX EN Course"
+                elif event_type == 'Skipped Link':
+                    orig_url = msg
+                elif event_type == 'Commented Link':
+                    parts = msg.split(' | ', 1)
+                    orig_url = parts[0] if len(parts) > 0 else ""
+                    notes = parts[1] if len(parts) > 1 else ""
+                    
+                action_sheet.write(r_idx, 0, event_type, cell_fmt)
+                action_sheet.write(r_idx, 1, loc, cell_fmt)
+                action_sheet.write(r_idx, 2, orig_url, cell_fmt)
+                action_sheet.write(r_idx, 3, clean_url, cell_fmt)
+                
+                if notes == "FIX EN Course":
+                    action_sheet.write(r_idx, 4, notes, warning_fmt)
+                else:
+                    action_sheet.write(r_idx, 4, notes, cell_fmt)
+                    
                 r_idx += 1
 
         workbook.close()
