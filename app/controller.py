@@ -795,30 +795,7 @@ class TranslationController:
             dash.write('C8', bots_list[0], workbook.add_format({'border': 1, 'bg_color': '#FFFFE0'}))
         dash.write('B9', 'Events for Selected Bot:', workbook.add_format({'bold': True}))
         dash.write_formula('C9', '=COUNTIF(\'Raw Logs\'!F:F, C8)', workbook.add_format({'bold': True, 'font_size': 14, 'color': '#2980B9'}))
-        
-        dash.write('B11', 'Hourly Activity Timeline', workbook.add_format({'bold': True, 'font_size': 14}))
-        dash.write_row('B12', ['Hour', 'Event Count', 'Trend'], header_fmt)
-        for i in range(24):
-            row = 12 + i
-            dash.write(row, 1, i, cell_fmt)
-            dash.write_formula(row, 2, f'=COUNTIFS(\'Raw Logs\'!C:C, {i})', cell_fmt)
-            
-        dash.add_sparkline('D13', {'range': 'Dashboard!C13:C36', 'type': 'column', 'style': 4})
-        dash.merge_range('D13:D36', '', cell_fmt)
-        
-        chart = workbook.add_chart({'type': 'area'})
-        chart.add_series({
-            'name': 'Hourly Events',
-            'categories': ['Dashboard', 12, 1, 35, 1],
-            'values': ['Dashboard', 12, 2, 35, 2],
-            'fill': {'color': '#5DADE2', 'transparency': 30},
-            'border': {'color': '#2874A6'}
-        })
-        chart.set_title({'name': 'Log Events Timeline (24h)'})
-        chart.set_x_axis({'name': 'Hour of Day'})
-        chart.set_y_axis({'name': 'Event Count'})
-        chart.set_legend({'none': True})
-        dash.insert_chart('E11', chart, {'x_scale': 1.1, 'y_scale': 1.4})
+
 
         # Add Skipped Files
         dash.write('I5', 'Skipped Files', header_fmt)
