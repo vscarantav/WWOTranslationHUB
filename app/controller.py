@@ -818,27 +818,7 @@ class TranslationController:
             dash.write(row_idx, 11, int(row['Message']), cell_fmt)
             row_idx += 1
             
-        # Add External Links Log
-        start_row = 40
-        dash.write(start_row, 1, 'External Links Log', workbook.add_format({'bold': True, 'font_size': 14}))
-        dash.write_row(start_row+1, 1, ['Location (Page Name)', 'Link Text', 'Link'], header_fmt)
-        dash.set_column('B:B', 30)
-        dash.set_column('C:C', 40)
-        dash.set_column('D:D', 60)
-        
-        links_df = df[df['Event Type'] == 'External Link']
-        r_idx = start_row + 2
-        for idx, row in links_df.iterrows():
-            loc = str(row['File Name'])
-            msg = str(row['Message'])
-            parts = msg.split(' | ', 1)
-            link_text = parts[0] if len(parts) > 0 else ""
-            link_url = parts[1] if len(parts) > 1 else ""
-            
-            dash.write(r_idx, 1, loc, cell_fmt)
-            dash.write(r_idx, 2, link_text, cell_fmt)
-            dash.write(r_idx, 3, link_url, cell_fmt)
-            r_idx += 1
+
 
         # SHEET 2: Bot Statistics
         bot_stats = workbook.add_worksheet('Bot Analysis')
