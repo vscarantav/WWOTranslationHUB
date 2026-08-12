@@ -212,9 +212,9 @@ class CourseTranslationHubUI:
                 def on_ok(event=None):
                     val = input_entry.get().strip()
                     comment = comment_entry.get().strip()
-                    if not val:
+                    if not val and not comment:
                         from tkinter import messagebox
-                        messagebox.showwarning("Missing Link", "Please enter a link, or click Skip.", parent=dialog)
+                        messagebox.showwarning("Missing Input", "Please enter a link, a comment, or click Skip.", parent=dialog)
                         return
                     result[0] = (val, comment)
                     dialog.destroy()
