@@ -317,6 +317,11 @@ class TranslationController:
                     
                 if pt_link:
                     pt_link = pt_link.strip()
+                    
+                    # Normalize Google Docs/Drive links for the user-provided PT link as well
+                    if 'google.com' in pt_link:
+                        pt_link = re.sub(r'/u/\d+/', '/', pt_link)
+                        
                     if clean_url not in mapping:
                         mapping[clean_url] = {"PTBR": "", "SPA": ""}
                     mapping[clean_url][self.target_language] = pt_link
