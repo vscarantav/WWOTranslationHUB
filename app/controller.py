@@ -282,10 +282,14 @@ class TranslationController:
                     filename = os.path.basename(filepath)
                     self._log(f"[LinkBot] GoogleLinkStripped: {filename},{url},{clean_url}")
                     
-            if clean_url.startswith('https://www.churchofjesuschrist.org/study/scriptures') and 'lang=eng' in clean_url:
-                lang_code = 'por' if self.target_language == 'PTBR' else 'spa'
-                localized_url = clean_url.replace('lang=eng', f'lang={lang_code}')
-                return html.escape(localized_url) if is_escaped else localized_url
+            if clean_url.startswith('https://www.churchofjesuschrist.org/study/scriptures'):
+                if 'lang=eng' in clean_url:
+                    lang_code = 'por' if self.target_language == 'PTBR' else 'spa'
+                    localized_url = clean_url.replace('lang=eng', f'lang={lang_code}')
+                    return html.escape(localized_url) if is_escaped else localized_url
+                else:
+                    # Link is likely already localized (e.g., lang=por) or has no lang parameter
+                    return url
 
             if clean_url in mapping and mapping[clean_url].get(self.target_language):
                 pt_link = mapping[clean_url][self.target_language]
@@ -303,17 +307,31 @@ class TranslationController:
                 return url
                 
             if self.link_prompt_callback:
-                pt_link = self.link_prompt_callback(clean_url, os.path.basename(filepath))
+                prompt_result = self.link_prompt_callback(clean_url, os.path.basename(filepath))
+                pt_link = None
+                comment = ""
+                if isinstance(prompt_result, tuple):
+                    pt_link, comment = prompt_result
+                else:
+                    pt_link = prompt_result
+                    
                 if pt_link:
                     pt_link = pt_link.strip()
                     if clean_url not in mapping:
                         mapping[clean_url] = {"PTBR": "", "SPA": ""}
                     mapping[clean_url][self.target_language] = pt_link
                     save_mapping()
+                    
+                    if comment:
+                        self._log(f"[LinkBot] CommentedLink: {os.path.basename(filepath)},{clean_url},{comment}")
+                    
                     return html.escape(pt_link) if is_escaped else pt_link
                 else:
                     session_skipped_urls.add(clean_url)
-                    self._log(f"[LinkBot] SkippedLink: {os.path.basename(filepath)},{clean_url}")
+                    if comment:
+                        self._log(f"[LinkBot] SkippedLinkWithComment: {os.path.basename(filepath)},{clean_url},{comment}")
+                    else:
+                        self._log(f"[LinkBot] SkippedLink: {os.path.basename(filepath)},{clean_url}")
             
             return url
 
@@ -647,6 +665,19 @@ class TranslationController:
                                 entry['File Name'] = parts[0]
                                 entry['Message'] = f"{parts[1]} | {parts[2]}"
                             entry['Status'] = 'Success'
+                        elif message.startswith('CommentedLink: ') or message.startswith('SkippedLinkWithComment: '):
+                            entry['Event Type'] = 'Commented Link'
+                            entry['Bot'] = 'LinkBot'
+                            if message.startswith('CommentedLink: '):
+                                raw_data = message.replace('CommentedLink: ', '')
+                                entry['Status'] = 'Success'
+                            else:
+                                raw_data = message.replace('SkippedLinkWithComment: ', '')
+                                entry['Status'] = 'Warning'
+                            parts = raw_data.split(',', 2)
+                            if len(parts) == 3:
+                                entry['File Name'] = parts[0]
+                                entry['Message'] = f"{parts[1]} | {parts[2]}"
                         elif message.startswith('SkippedLink: '):
                             entry['Event Type'] = 'Skipped Link'
                             entry['Bot'] = 'LinkBot'
@@ -951,6 +982,32 @@ class TranslationController:
                 
                 skipped_sheet.write(r_idx, 0, loc, cell_fmt)
                 skipped_sheet.write(r_idx, 1, msg, cell_fmt)
+                r_idx += 1
+
+        # SHEET 7: Commented Links
+        commented_links_df = df[df['Event Type'] == 'Commented Link'].copy()
+        
+        if not commented_links_df.empty:
+            comments_sheet = workbook.add_worksheet('Commented Links')
+            comments_sheet.set_column('A:A', 30)
+            comments_sheet.set_column('B:B', 60)
+            comments_sheet.set_column('C:C', 60)
+            
+            comments_sheet.write('A1', 'Page Name', header_fmt)
+            comments_sheet.write('B1', 'URL', header_fmt)
+            comments_sheet.write('C1', 'Comment', header_fmt)
+            
+            r_idx = 1
+            for idx, row in commented_links_df.iterrows():
+                loc = str(row['File Name'])
+                msg = str(row['Message'])
+                parts = msg.split(' | ', 1)
+                link_url = parts[0] if len(parts) > 0 else ""
+                comment = parts[1] if len(parts) > 1 else ""
+                
+                comments_sheet.write(r_idx, 0, loc, cell_fmt)
+                comments_sheet.write(r_idx, 1, link_url, cell_fmt)
+                comments_sheet.write(r_idx, 2, comment, cell_fmt)
                 r_idx += 1
 
         workbook.close()

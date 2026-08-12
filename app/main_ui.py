@@ -167,7 +167,7 @@ class CourseTranslationHubUI:
                 dialog = tk.Toplevel(self.root)
                 dialog.title("Unmapped Link Found")
                 dialog_width = 550
-                dialog_height = 250
+                dialog_height = 320
                 screen_width = dialog.winfo_screenwidth()
                 screen_height = dialog.winfo_screenheight()
                 x = int((screen_width - dialog_width) / 2)
@@ -202,17 +202,26 @@ class CourseTranslationHubUI:
                 input_entry.pack(fill='x', padx=15, pady=5)
                 input_entry.focus_set()
 
+                lbl3 = ttk.Label(dialog, text="Optional Comment (will appear in report):")
+                lbl3.pack(pady=(10, 5), padx=15, anchor="w")
+
+                comment_entry = ttk.Entry(dialog)
+                comment_entry.pack(fill='x', padx=15, pady=5)
+
                 result = [None]
                 def on_ok(event=None):
                     val = input_entry.get().strip()
+                    comment = comment_entry.get().strip()
                     if not val:
                         from tkinter import messagebox
                         messagebox.showwarning("Missing Link", "Please enter a link, or click Skip.", parent=dialog)
                         return
-                    result[0] = val
+                    result[0] = (val, comment)
                     dialog.destroy()
                     
                 def on_skip(event=None):
+                    comment = comment_entry.get().strip()
+                    result[0] = (None, comment)
                     dialog.destroy()
 
                 btn_frame = ttk.Frame(dialog)
