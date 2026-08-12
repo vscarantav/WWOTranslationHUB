@@ -894,7 +894,7 @@ class TranslationController:
             # Now find duplicate page titles (same title, different file paths)
             title_counts = translated_pages_df['Message'].value_counts()
             translated_pages_df['Duplicate Flag'] = translated_pages_df['Message'].apply(
-                lambda x: 'Duplicate Name' if title_counts.get(x, 0) > 1 else ''
+                lambda x: 'Duplicate Name (FIX EN Course)' if title_counts.get(x, 0) > 1 else ''
             )
             
             # Create sheet
@@ -927,6 +927,7 @@ class TranslationController:
             stripped_sheet.write('A1', 'Page Name', header_fmt)
             stripped_sheet.write('B1', 'Original URL', header_fmt)
             stripped_sheet.write('C1', 'Clean URL', header_fmt)
+            stripped_sheet.write('D1', 'Action Required', header_fmt)
             
             r_idx = 1
             for idx, row in stripped_links_df.iterrows():
@@ -939,6 +940,7 @@ class TranslationController:
                 stripped_sheet.write(r_idx, 0, loc, cell_fmt)
                 stripped_sheet.write(r_idx, 1, orig_url, cell_fmt)
                 stripped_sheet.write(r_idx, 2, clean_url, cell_fmt)
+                stripped_sheet.write(r_idx, 3, "FIX EN Course", warning_fmt)
                 r_idx += 1
 
         # SHEET 6: Skipped Links
