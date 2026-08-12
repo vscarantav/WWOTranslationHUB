@@ -267,6 +267,10 @@ class TranslationController:
             ignore_domains = ['w3.org', 'purl.org', 'imsglobal.org', 'canvas.instructure.com', 'ieee.org', 'instructure.com/api/', 'byui-lti-to-url.azurewebsites.net', 'googleusercontent.com', 'instructure.com/assessment_questions/']
             if any(domain in clean_url for domain in ignore_domains):
                 return url
+                
+            # Ignore any internal Canvas file links (images, documents, etc.)
+            if 'instructure.com' in clean_url and '/files/' in clean_url:
+                return url
             
             # Normalize Google Docs/Drive links by removing /u/<number>/
             if 'google.com' in clean_url:
