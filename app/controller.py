@@ -262,6 +262,7 @@ class TranslationController:
             is_escaped = '&amp;' in url or '&#39;' in url or '&quot;' in url
             unescaped_url = html.unescape(url)
             clean_url = unescaped_url
+            display_name = page_title if page_title else os.path.basename(filepath)
             
             # Ignore standard XML namespaces and Canvas backend links
             ignore_domains = ['w3.org', 'purl.org', 'imsglobal.org', 'canvas.instructure.com', 'ieee.org', 'instructure.com/api/', 'byui-lti-to-url.azurewebsites.net', 'googleusercontent.com', 'instructure.com/assessment_questions/']
@@ -283,8 +284,7 @@ class TranslationController:
                     clean_url = qs['q'][0]
                     if 'google.com' in clean_url:
                         clean_url = re.sub(r'/u/\d+/', '/', clean_url)
-                    filename = os.path.basename(filepath)
-                    self._log(f"[LinkBot] GoogleLinkStripped: {filename},{url},{clean_url}")
+                    self._log(f"[LinkBot] GoogleLinkStripped: {display_name},{url},{clean_url}")
                     
             if clean_url.startswith('https://www.churchofjesuschrist.org/study/scriptures'):
                 if 'lang=eng' in clean_url:
@@ -311,7 +311,6 @@ class TranslationController:
                 return url
                 
             if self.link_prompt_callback:
-                display_name = page_title if page_title else os.path.basename(filepath)
                 prompt_result = self.link_prompt_callback(clean_url, display_name)
                 pt_link = None
                 comment = ""
@@ -334,15 +333,15 @@ class TranslationController:
                     save_mapping()
                     
                     if comment:
-                        self._log(f"[LinkBot] CommentedLink: {os.path.basename(filepath)},{clean_url},{comment}")
+                        self._log(f"[LinkBot] CommentedLink: {display_name},{clean_url},{comment}")
                     
                     return html.escape(pt_link) if is_escaped else pt_link
                 else:
                     session_skipped_urls.add(clean_url)
                     if comment:
-                        self._log(f"[LinkBot] SkippedLinkWithComment: {os.path.basename(filepath)},{clean_url},{comment}")
+                        self._log(f"[LinkBot] SkippedLinkWithComment: {display_name},{clean_url},{comment}")
                     else:
-                        self._log(f"[LinkBot] SkippedLink: {os.path.basename(filepath)},{clean_url}")
+                        self._log(f"[LinkBot] SkippedLink: {display_name},{clean_url}")
             
             return url
 
