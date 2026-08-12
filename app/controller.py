@@ -317,6 +317,7 @@ class TranslationController:
                     
                 if pt_link:
                     pt_link = pt_link.strip()
+                    pt_link = html.unescape(pt_link)
                     
                     # Normalize Google Docs/Drive links for the user-provided PT link as well
                     if 'google.com' in pt_link:
