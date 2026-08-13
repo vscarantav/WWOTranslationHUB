@@ -92,11 +92,6 @@ class XMLTranslationBot:
         
         soup = BeautifulSoup(xml_content, 'xml')
         
-        question_trans = "Pergunta" if self.target_language == "PTBR" else "Pregunta"
-        for item in soup.find_all('item'):
-            if item.has_attr('title'):
-                item['title'] = re.sub(r'(?i)Question', question_trans, item['title'])
-        
         target_tags = ['title', 'mattext', 'description', 'fieldentry']
         
         strings_to_translate = {}
@@ -114,7 +109,7 @@ class XMLTranslationBot:
             if inner_str:
                 unescaped = html.unescape(inner_str)
                 strings_to_translate[str(counter)] = unescaped
-                tag_references[str(counter)] = tag
+                tag_references[str(counter)] = ('text', tag, None)
                 
                 cdata_found = False
                 for child in tag.contents:
@@ -124,6 +119,16 @@ class XMLTranslationBot:
                 is_cdata_map[str(counter)] = cdata_found
                 
                 counter += 1
+                
+        for item in soup.find_all('item'):
+            if item.has_attr('title'):
+                title_val = item['title'].strip()
+                if title_val:
+                    unescaped = html.unescape(title_val)
+                    strings_to_translate[str(counter)] = unescaped
+                    tag_references[str(counter)] = ('attribute', item, 'title')
+                    is_cdata_map[str(counter)] = False
+                    counter += 1
                 
         if not strings_to_translate:
             return str(soup)
@@ -167,15 +172,19 @@ class XMLTranslationBot:
             translated_batch = self._translate_batch(batch, constraints)
             translated_strings.update(translated_batch)
             
-        for key, tag in tag_references.items():
+        for key, ref in tag_references.items():
             if key in translated_strings:
                 trans_text = translated_strings[key]
-                tag.clear()
+                ref_type, tag_node, attr_name = ref
                 
-                if is_cdata_map[key]:
-                    tag.append(CData(trans_text))
+                if ref_type == 'attribute':
+                    tag_node[attr_name] = trans_text
                 else:
-                    tag.append(trans_text)
+                    tag_node.clear()
+                    if is_cdata_map.get(key, False):
+                        tag_node.append(CData(trans_text))
+                    else:
+                        tag_node.append(trans_text)
                 
         return str(soup)
 
