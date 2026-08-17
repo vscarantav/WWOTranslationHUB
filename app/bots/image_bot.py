@@ -73,18 +73,29 @@ class ImageProcessorBot:
             except Exception as e:
                 self._log(f"[ImageBot] Error translating alt text: {e}")
         else:
-            self._log(f"[ImageBot] MissingAltText: {page_title},{src}")
             try:
                 img_bytes, mime_type = self.get_image_bytes(src)
-                prompt_text = f"Describe this image concisely for an alt text attribute in {self.target_language}. Return only the description, without quotes."
                 
+                # Step 1: Generate description in English
+                prompt_en = "Describe this image concisely for an alt text attribute in English. Return only the description, without quotes."
                 parts = [
                     {"mime_type": mime_type, "data": img_bytes},
-                    prompt_text
+                    prompt_en
                 ]
+                response_en = call_gemini_with_retry(self.model, parts, log_func=self._log)
+                en_alt_text = ""
+                if response_en and response_en.text:
+                    en_alt_text = response_en.text.strip()
                 
-                response = call_gemini_with_retry(self.model, parts, log_func=self._log)
-                if response and response.text:
-                    img_tag['alt'] = response.text.strip()
+                # Log the generated English alt text
+                self._log(f"[ImageBot] MissingAltText: {page_title},{src},{en_alt_text}")
+                
+                # Step 2: Translate the English description to the target language
+                if en_alt_text:
+                    prompt_trans = f"Translate the following image alt text to {self.target_language}. Return only the translated text, no quotes or additional formatting:\n{en_alt_text}"
+                    response_trans = call_gemini_with_retry(self.model, prompt_trans, log_func=self._log)
+                    if response_trans and response_trans.text:
+                        img_tag['alt'] = response_trans.text.strip()
+                        
             except Exception as e:
                 self._log(f"[ImageBot] Error generating alt text for {src}: {e}")

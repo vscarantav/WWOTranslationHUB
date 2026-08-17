@@ -140,10 +140,11 @@ class DashboardGenerator:
                         elif message.startswith('MissingAltText: '):
                             entry['Event Type'] = 'Missing Alt Text'
                             entry['Bot'] = 'ImageBot'
-                            parts = message.replace('MissingAltText: ', '').split(',', 1)
-                            if len(parts) == 2:
+                            parts = message.replace('MissingAltText: ', '').split(',', 2)
+                            if len(parts) >= 2:
                                 entry['File Name'] = parts[0]
                                 entry['Message'] = parts[1]
+                                entry['Generated EN Alt Text'] = parts[2] if len(parts) == 3 else ""
                             entry['Status'] = 'Warning'
                         elif 'Found references' in message or 'Found ' in message:
                             entry['Status'] = 'Success'
@@ -388,13 +389,20 @@ class DashboardGenerator:
             
             alt_sheet.write('A1', 'Page Name', header_fmt)
             alt_sheet.write('B1', 'Image Source', header_fmt)
-            alt_sheet.write('C1', 'Notes', header_fmt)
+            alt_sheet.write('C1', 'Generated EN Alt Text', header_fmt)
+            alt_sheet.write('D1', 'Notes', header_fmt)
             
             r_idx = 1
             for idx, row in missing_alt_df.iterrows():
                 alt_sheet.write(r_idx, 0, str(row['File Name']), cell_fmt)
                 alt_sheet.write(r_idx, 1, str(row['Message']), cell_fmt)
-                alt_sheet.write(r_idx, 2, "FIX EN Course", warning_fmt)
+                
+                en_alt = row.get('Generated EN Alt Text', '')
+                if pd.isna(en_alt):
+                    en_alt = ''
+                alt_sheet.write(r_idx, 2, str(en_alt), cell_fmt)
+                
+                alt_sheet.write(r_idx, 3, "FIX EN Course", warning_fmt)
                 r_idx += 1
 
         workbook.close()
