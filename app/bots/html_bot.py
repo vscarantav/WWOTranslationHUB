@@ -22,8 +22,6 @@ class HTMLTranslationBot:
         self.log_lock = log_lock
         
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"\n--- New HTMLBot Session (Target: {self.target_language}) ---\n")
             
         self.image_bot = None
         if self.workspace_dir:
@@ -93,6 +91,10 @@ class HTMLTranslationBot:
             # Restore URLs
             for placeholder, original_url in url_map.items():
                 output = output.replace(placeholder, original_url)
+
+            # Strict whitespace normalization: replace non-breaking spaces and &nbsp; with regular spaces
+            output = output.replace('\u00A0', ' ')
+            output = output.replace('&nbsp;', ' ')
 
             return output
         except Exception as e:

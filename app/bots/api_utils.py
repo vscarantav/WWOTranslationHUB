@@ -26,7 +26,7 @@ def call_gemini_with_retry(model, prompt, max_retries=8, initial_delay=10, log_f
             raise e
         except Exception as e:
             error_str = str(e)
-            if "429" in error_str or "504" in error_str or "quota" in error_str.lower() or "deadline" in error_str.lower() or isinstance(e, (ResourceExhausted, InternalServerError, ServiceUnavailable)):
+            if "429" in error_str or "500" in error_str or "503" in error_str or "504" in error_str or "quota" in error_str.lower() or "deadline" in error_str.lower() or isinstance(e, (ResourceExhausted, InternalServerError, ServiceUnavailable)):
                 if attempt < max_retries - 1:
                     log_func(f"[API Utils] Caught error '{error_str[:60]}...' (Attempt {attempt + 1}/{max_retries}). Retrying in {delay} seconds...")
                     time.sleep(delay)

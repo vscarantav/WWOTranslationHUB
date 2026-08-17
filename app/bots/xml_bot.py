@@ -25,8 +25,7 @@ class XMLTranslationBot:
         self.system_prompt = f"You are an expert academic text translator. Translate ALL human-readable text inside each <translate_item> to {self.target_language}. You MUST translate all words, including prefixes, labels, or words wrapped inside inline HTML tags (like <strong>Purpose:</strong> or <b>Task:</b>). Maintain any HTML tags within the strings exactly as they are without translating the tag names themselves. Do not translate URLs or filenames. Return exactly the same XML-like structure with the translated text, ensuring you keep the 'id' attributes intact. Do NOT modify the 'id' attribute."
         
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"\n--- New XMLBot Session (Target: {self.target_language}) ---\n")
+            
             
         self.image_bot = None
         if self.workspace_dir:
@@ -209,6 +208,9 @@ class XMLTranslationBot:
         for key, ref in tag_references.items():
             if key in translated_strings:
                 trans_text = translated_strings[key]
+                # Strict whitespace normalization
+                trans_text = trans_text.replace('\u00A0', ' ')
+                trans_text = trans_text.replace('&nbsp;', ' ')
                 ref_type, tag_node, attr_name = ref
                 
                 if ref_type == 'attribute':

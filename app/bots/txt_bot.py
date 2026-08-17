@@ -18,8 +18,6 @@ class TextTranslationBot:
         self.log_lock = log_lock
         
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"\n--- New TextBot Session (Target: {self.target_language}) ---\n")
 
     def _log(self, message: str):
         import datetime
@@ -55,7 +53,11 @@ class TextTranslationBot:
             full_prompt = f"System Instructions:\n{self.system_prompt}{constraints}\n\nContent to translate:\n{text_content}"
             from bots.api_utils import call_gemini_with_retry
             response = call_gemini_with_retry(self.model, full_prompt, log_func=self._log)
-            return response.text.strip()
+            result = response.text.strip()
+            # Strict whitespace normalization
+            result = result.replace('\u00A0', ' ')
+            result = result.replace('&nbsp;', ' ')
+            return result
         except Exception as e:
             msg = f"[TextBot] Error during translation: {e}"
             print(msg)

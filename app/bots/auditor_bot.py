@@ -3,21 +3,25 @@ import os
 import re
 
 class GlossaryAuditBot:
-    def __init__(self, target_language="PTBR", hub_dir=None):
+    def __init__(self, target_language="PTBR", hub_dir=None, log_lock=None):
         self.target_language = target_language
         self.hub_dir = hub_dir or os.getcwd()
         self.app_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.log_lock = log_lock
         self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"\n--- New AuditorBot Session (Target: {self.target_language}) ---\n")
             
         self.glossary = self._load_glossary()
 
     def _log(self, message: str):
         import datetime
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"[{timestamp}] {message}\n")
+        if self.log_lock:
+            with self.log_lock:
+                with open(self.log_filepath, "a", encoding="utf-8") as f:
+                    f.write(f"[{timestamp}] {message}\n")
+        else:
+            with open(self.log_filepath, "a", encoding="utf-8") as f:
+                f.write(f"[{timestamp}] {message}\n")
 
     def _load_glossary(self) -> dict:
         self.glossary_path = os.path.join(self.hub_dir, "Glossary", "glossary.json")

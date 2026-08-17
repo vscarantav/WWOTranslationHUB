@@ -3,14 +3,13 @@ import os
 import re
 
 class ScriptureCheckBot:
-    def __init__(self, target_language="PTBR", hub_dir=None):
+    def __init__(self, target_language="PTBR", hub_dir=None, log_lock=None):
         self.target_language = target_language
         self.app_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.hub_dir = hub_dir or os.path.dirname(self.app_dir)
+        self.log_lock = log_lock
         
         self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"\n--- New ScriptureCheckBot Session (Target: {self.target_language}) ---\n")
             
         self.lang_folder = "por" if self.target_language.upper() == "PTBR" else ("spa" if self.target_language.upper() == "SPA" else "por")
         self.scriptures_path = os.path.join(self.hub_dir, "Glossary", "scriptures", self.lang_folder)
@@ -18,8 +17,13 @@ class ScriptureCheckBot:
     def _log(self, message: str):
         import datetime
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"[{timestamp}] {message}\n")
+        if self.log_lock:
+            with self.log_lock:
+                with open(self.log_filepath, "a", encoding="utf-8") as f:
+                    f.write(f"[{timestamp}] {message}\n")
+        else:
+            with open(self.log_filepath, "a", encoding="utf-8") as f:
+                f.write(f"[{timestamp}] {message}\n")
 
     def _extract_references(self, original_content: str) -> list:
         # Regex to match:

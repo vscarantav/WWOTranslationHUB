@@ -31,10 +31,11 @@ class TranslationController:
         self._clear_logs()
         
         self.instructions = self._load_instructions()
-        self.auditor = GlossaryAuditBot(target_language=self.target_language, hub_dir=self.hub_dir)
-        self.scripture_checker = ScriptureCheckBot(target_language=self.target_language, hub_dir=self.hub_dir)
         
         self.log_lock = threading.Lock()
+        
+        self.auditor = GlossaryAuditBot(target_language=self.target_language, hub_dir=self.hub_dir, log_lock=self.log_lock)
+        self.scripture_checker = ScriptureCheckBot(target_language=self.target_language, hub_dir=self.hub_dir, log_lock=self.log_lock)
         
         self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
@@ -90,6 +91,8 @@ class TranslationController:
                 prompt_key = f"{bot_key}_{self.target_language}"
                 if prompt_key in prompts:
                     self.bots[ext].set_system_prompt(prompts[prompt_key])
+                else:
+                    print(f"[Controller] WARNING: No custom prompt found for '{prompt_key}'. Bot '{ext}' will use its default prompt.")
         except Exception as e:
             print(f"[Controller] Error applying custom prompts: {e}")
 
@@ -247,6 +250,27 @@ class TranslationController:
             translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
         
         translated_content = self.link_processor.rewrite_church_links(translated_content)
+        
+        # Post-processing: Programmatically empty the Release Notes section for Teaching Notes pages
+        # This enforces the spec requirement rather than relying solely on the LLM prompt
+        if "teaching-notes-and-student-outreach" in target_filepath.lower() and ext == "html":
+            try:
+                soup = BeautifulSoup(translated_content, 'html.parser')
+                # Find <details> blocks that contain a <summary> with "Release Notes" (or translated variants)
+                release_notes_keywords = ["release notes", "notas de versão", "notas de lanzamiento", "notas de la versión"]
+                for details_tag in soup.find_all('details'):
+                    summary_tag = details_tag.find('summary')
+                    if summary_tag:
+                        summary_text = summary_tag.get_text(strip=True).lower()
+                        if any(kw in summary_text for kw in release_notes_keywords):
+                            # Keep the <summary> but remove all other content inside <details>
+                            for child in list(details_tag.children):
+                                if child != summary_tag:
+                                    child.extract()
+                            self._log(f"[Controller] Emptied Release Notes section for {os.path.basename(filepath)}")
+                translated_content = str(soup)
+            except Exception as e:
+                self._log(f"[Controller] Warning: Could not process Release Notes section: {e}")
         
         # Validation Check
         if not translated_content or len(translated_content) < len(original_content) * 0.2:

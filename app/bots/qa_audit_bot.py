@@ -16,8 +16,6 @@ class QAAuditBot:
         self.hub_dir = os.path.dirname(self.app_dir)
         
         self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"\n--- New QAAuditBot Session ---\n")
             
         self.system_prompt = self._get_system_prompt()
 

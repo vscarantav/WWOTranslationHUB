@@ -273,12 +273,60 @@ class CourseTranslationHubUI:
                     controller.update_excel_dashboard()
                 self.progress['value'] = 100
                 print("\n=== All Translations Completed Successfully! ===")
+                # Phase 4: Present checklist via UI
+                self.root.after(0, self._show_checklist_dialog)
             except Exception as e:
                 print(f"\n=== Error during translation: {e} ===")
             finally:
                 self.root.after(0, self.enable_buttons)
 
         threading.Thread(target=thread_target, daemon=True).start()
+
+    def _show_checklist_dialog(self):
+        """Phase 4: Post-translation checklist presented as a UI dialog."""
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Post-Import Checklist")
+        dialog_width = 600
+        dialog_height = 400
+        screen_width = dialog.winfo_screenwidth()
+        screen_height = dialog.winfo_screenheight()
+        x = int((screen_width - dialog_width) / 2)
+        y = int((screen_height - dialog_height) / 2)
+        dialog.geometry(f"{dialog_width}x{dialog_height}+{x}+{y}")
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        ttk.Label(dialog, text="Translation Complete!", font=("Helvetica", 14, "bold")).pack(pady=(15, 5))
+        ttk.Label(dialog, text="Please complete these manual steps in Canvas after importing the translated IMSCC:").pack(pady=(0, 10), padx=15)
+
+        checklist_items = [
+            "Import the translated .imscc course package into Canvas.",
+            "Go to Course Settings > Feature Options and DISABLE 'Improved Rubrics'.",
+            "Go to Gradebook Settings > Late Policies, check 'Automatically apply grade for missing submissions', and set it to 0%.",
+            "Remind Jenn Hunter to check the Setup Page.",
+            "Review the Translation Dashboard Report (in the Reports folder) for any warnings or untranslated items."
+        ]
+
+        check_vars = []
+        checks_frame = ttk.Frame(dialog)
+        checks_frame.pack(fill="both", expand=True, padx=15, pady=5)
+
+        for item in checklist_items:
+            var = tk.BooleanVar()
+            check_vars.append(var)
+            cb = ttk.Checkbutton(checks_frame, text=item, variable=var, wraplength=550)
+            cb.pack(anchor="w", pady=3)
+
+        def on_done():
+            unchecked = [checklist_items[i] for i, v in enumerate(check_vars) if not v.get()]
+            if unchecked:
+                if not messagebox.askyesno("Incomplete Checklist", f"You have {len(unchecked)} unchecked item(s). Close anyway?", parent=dialog):
+                    return
+            print("🎉 All post-translation steps reviewed!")
+            dialog.destroy()
+
+        ttk.Button(dialog, text="Done", command=on_done).pack(pady=15)
+        dialog.protocol("WM_DELETE_CLOSE", on_done)
 
     def run_audit(self):
         audit_dir = os.path.join(self.hub_dir, "Courses to Audit")

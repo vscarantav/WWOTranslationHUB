@@ -87,7 +87,11 @@ def run_migration(source_id, target_id, lang, log_func):
             "groups": translated_groups
         })
 
-    export_file = f"groups_export_{source_id}_{lang}.json"
+    # Save export to Reports/ directory to keep hub root clean
+    hub_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    reports_dir = os.path.join(hub_dir, "Reports")
+    os.makedirs(reports_dir, exist_ok=True)
+    export_file = os.path.join(reports_dir, f"groups_export_{source_id}_{lang}.json")
     try:
         with open(export_file, 'w', encoding='utf-8') as f:
             json.dump(export_data, f, indent=4, ensure_ascii=False)
