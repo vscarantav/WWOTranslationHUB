@@ -82,6 +82,7 @@
       "Preserve all XML tags, attributes, and file names. Do not translate metadata keys, IDs, or manifest identifiers (except for the 'title' attribute on <item> nodes where 'Question' is translated, and the <fieldentry> content for 'bank_title' labels).",
       "Ensure translated HTML or XML does not break parsing rules.",
       "Whenever the controller finds a churchofjesuschrist.org link, it must change the link parameter to the target language (e.g., lang=por for Portuguese or lang=spa for Spanish). If no lang parameter exists, one is appended.",
+      "If the controller finds the obsolete Google Forms link (ID: 1FAIpQLSe2Tc7N-ltFhqmqSNXtftVF7wMpyPw5bHPCtuYwnAm4PN7UEA), it must log it as an ObsoleteLink and mark it in the final report to tell the user to remove it from the EN course and make changes in Canvas.",
       "The controller must programmatically replace the standalone word 'Missing' (or 'missing') in XML files (like rubrics) with 'Não Entregue' (for PTBR) or 'No Entregado' (for SPA) prior to passing the content to the XML bot, to ensure accurate rubric rendering.",
       "The XML bot must explicitly skip translating the exact strings 'True' and 'False' inside <mattext> tags to prevent Canvas from demoting true_false_question types to Multiple Choice during import."
     ],

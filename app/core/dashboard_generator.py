@@ -109,6 +109,14 @@ class DashboardGenerator:
                             if len(parts) == 3:
                                 entry['File Name'] = parts[0]
                                 entry['Message'] = f"{parts[1]} | {parts[2]}"
+                        elif message.startswith('ObsoleteLink: '):
+                            entry['Event Type'] = 'Obsolete Link'
+                            entry['Bot'] = 'LinkBot'
+                            parts = message.replace('ObsoleteLink: ', '').split(',', 2)
+                            if len(parts) == 3:
+                                entry['File Name'] = parts[0]
+                                entry['Message'] = f"{parts[1]} | {parts[2]}"
+                            entry['Status'] = 'Warning'
                         elif message.startswith('SkippedLink: '):
                             entry['Event Type'] = 'Skipped Link'
                             entry['Bot'] = 'LinkBot'
@@ -328,7 +336,7 @@ class DashboardGenerator:
                 r_idx += 1
 
         # SHEET 5: Link Actions (Consolidated)
-        action_links_df = df[df['Event Type'].isin(['Google Link Stripped', 'Skipped Link', 'Commented Link'])].copy()
+        action_links_df = df[df['Event Type'].isin(['Google Link Stripped', 'Skipped Link', 'Commented Link', 'Obsolete Link'])].copy()
         
         if not action_links_df.empty:
             action_sheet = workbook.add_worksheet('Link Actions')
@@ -361,7 +369,7 @@ class DashboardGenerator:
                     notes = "FIX EN Course"
                 elif event_type == 'Skipped Link':
                     orig_url = msg_val
-                elif event_type == 'Commented Link':
+                elif event_type in ['Commented Link', 'Obsolete Link']:
                     parts = msg_val.split(' | ', 1)
                     orig_url = parts[0] if len(parts) > 0 else ""
                     notes = parts[1] if len(parts) > 1 else ""
@@ -371,7 +379,7 @@ class DashboardGenerator:
                 action_sheet.write(r_idx, 2, orig_url, cell_fmt)
                 action_sheet.write(r_idx, 3, clean_url, cell_fmt)
                 
-                if notes == "FIX EN Course":
+                if "FIX EN Course" in notes:
                     action_sheet.write(r_idx, 4, notes, warning_fmt)
                 else:
                     action_sheet.write(r_idx, 4, notes, cell_fmt)

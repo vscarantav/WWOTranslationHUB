@@ -90,6 +90,10 @@ class LinkProcessor:
                         clean_url = re.sub(r'/u/\d+/', '/', clean_url)
                     _log_func(f"[LinkBot] GoogleLinkStripped: {display_name},{url},{clean_url}")
                     
+            if "1FAIpQLSe2Tc7N-ltFhqmqSNXtftVF7wMpyPw5bHPCtuYwnAm4PN7UEA" in clean_url:
+                _log_func(f"[LinkBot] ObsoleteLink: {display_name},{url},FIX EN Course: Remove from EN and make changes in Canvas because this is an obsolete tool we don't use anymore.")
+                return url
+
             if clean_url.startswith('https://www.churchofjesuschrist.org/study/scriptures'):
                 if 'lang=eng' in clean_url:
                     lang_code = 'por' if self.target_language == 'PTBR' else 'spa'
