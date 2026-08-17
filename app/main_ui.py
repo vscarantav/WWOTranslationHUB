@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, filedialog, messagebox
+from tkinter import ttk, filedialog, messagebox, simpledialog
 import threading
 import sys
 import os
@@ -154,11 +154,32 @@ class CourseTranslationHubUI:
 
         lang = self.lang_var.get()
         self.disable_buttons()
+        
+        target_course_ids = {}
+        for p in imscc_paths:
+            while True:
+                course_url = simpledialog.askstring(
+                    "Target Course Required", 
+                    f"Enter the full Canvas Target Course URL for:\n{os.path.basename(p)}\n(e.g., https://byupw.instructure.com/courses/12345)",
+                    parent=self.root
+                )
+                if not course_url:
+                    messagebox.showerror("Cancelled", "Translation cancelled. Target course URL is required.")
+                    self.enable_buttons()
+                    return
+                
+                match = re.search(r'^https?://[^/]+/courses/(\d+)', course_url.strip())
+                if match:
+                    target_course_ids[p] = match.group(1)
+                    break
+                else:
+                    messagebox.showerror("Invalid URL", "You must provide a full Canvas course URL containing '/courses/<id>'.\nExample: https://byupw.instructure.com/courses/12345")
+
         print(f"\n======================================")
         print(f"Starting Translation to {lang}")
         print(f"Selected {len(imscc_paths)} file(s).")
         for p in imscc_paths:
-            print(f" - {os.path.basename(p)}")
+            print(f" - {os.path.basename(p)} -> Target Course ID: {target_course_ids[p]}")
         print(f"======================================\n")
 
         def ask_user_for_link(unmapped_url, context_file):
@@ -245,7 +266,8 @@ class CourseTranslationHubUI:
                     controller = TranslationController(
                         target_language=lang, 
                         imscc_path=workspace_path,
-                        link_prompt_callback=ask_user_for_link
+                        link_prompt_callback=ask_user_for_link,
+                        target_course_id=target_course_ids[imscc_path]
                     )
                     controller.process_directory()
                     controller.update_excel_dashboard()

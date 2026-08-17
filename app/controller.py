@@ -22,9 +22,10 @@ from core.link_processor import LinkProcessor
 from core.dashboard_generator import DashboardGenerator
 
 class TranslationController:
-    def __init__(self, target_language="PTBR", input_dir=None, imscc_path=None, link_prompt_callback=None):
+    def __init__(self, target_language="PTBR", input_dir=None, imscc_path=None, link_prompt_callback=None, target_course_id=None):
         self.target_language = target_language
         self.link_prompt_callback = link_prompt_callback
+        self.target_course_id = target_course_id
         self.app_dir = os.path.dirname(os.path.abspath(__file__))
         self.hub_dir = os.path.dirname(self.app_dir)
         self._clear_logs()
@@ -101,6 +102,21 @@ class TranslationController:
         self.link_processor.pre_process_links(self._log)
         self.translate_files()
         self.workspace.compress_to_imscc(self._log)
+        
+        # Trigger group migration if we have the target ID and found the source ID
+        if self.target_course_id and getattr(self.workspace, 'source_course_id', None):
+            self._log(f"[Controller] Starting Group Migration from {self.workspace.source_course_id} to {self.target_course_id}")
+            try:
+                import sys
+                from scripts.migrate_groups import run_migration
+                run_migration(self.workspace.source_course_id, self.target_course_id, self.target_language, self._log)
+            except Exception as e:
+                self._log(f"[Controller] Error during group migration: {e}")
+        else:
+            if not self.target_course_id:
+                self._log("[Controller] Skipping group migration: No target course ID provided.")
+            elif not getattr(self.workspace, 'source_course_id', None):
+                self._log("[Controller] Skipping group migration: No source course ID could be extracted from IMSCC.")
         
     def translate_files(self):
         msg = "Starting Phase 2: LLM Translation (Concurrent)"

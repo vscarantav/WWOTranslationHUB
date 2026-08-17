@@ -13,6 +13,8 @@ class WorkspaceManager:
         self.original_dir = None
         self.output_dir = None
         self.filepaths = []
+        self.canvas_url = None
+        self.source_course_id = None
 
     def setup_workspace(self, root_directory_default: str):
         courses_dir = os.path.join(self.hub_dir, "Courses to Translate")
@@ -88,7 +90,38 @@ class WorkspaceManager:
             except Exception:
                 pass
 
+        context_path = os.path.join(self.original_dir, 'course_settings', 'context.xml')
+        if os.path.exists(context_path):
+            try:
+                with open(context_path, 'r', encoding='utf-8') as f:
+                    soup = BeautifulSoup(f.read(), 'xml')
+                    domain_tag = soup.find('canvas_domain')
+                    if domain_tag:
+                        self.canvas_url = f"https://{domain_tag.text.strip()}"
+            except Exception:
+                pass
+
+        # Try to find the source course ID from a wiki content file
+        wiki_dir = os.path.join(self.original_dir, 'wiki_content')
+        if os.path.exists(wiki_dir):
+            import re
+            for file in os.listdir(wiki_dir):
+                if file.endswith('.html'):
+                    try:
+                        with open(os.path.join(wiki_dir, file), 'r', encoding='utf-8') as f:
+                            content = f.read()
+                            match = re.search(r'data-api-endpoint="[^"]+/api/v1/courses/(\d+)/', content)
+                            if match:
+                                self.source_course_id = match.group(1)
+                                break
+                    except Exception:
+                        pass
+
         _log_func(f"[System] CourseInfo: {course_name}|{course_code}")
+        if self.canvas_url:
+            _log_func(f"[System] Canvas URL: {self.canvas_url}")
+        if self.source_course_id:
+            _log_func(f"[System] Source Course ID: {self.source_course_id}")
 
     def collect_files(self, _log_func) -> list:
         file_counts = collections.defaultdict(int)
