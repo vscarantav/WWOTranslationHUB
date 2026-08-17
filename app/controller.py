@@ -287,7 +287,7 @@ class TranslationController:
         checklist = [
             "Import the translated .imscc course package into Canvas.",
             "Go to Course Settings > Feature Options and DISABLE 'Improved Rubrics' (Rubricas melhoradas / Rúbricas mejoradas).",
-            "Go to Gradebook > Settings (gear icon) > Late Policies and ENABLE 'Automatically apply grade for missing submissions' with 0%.",
+            "Go to Gradebook Settings > Late Policies, check 'Automatically apply grade for missing submissions', and set it to 0%.",
             "Remind Jenn Hunter to check the Setup Page.",
             "Review the Translation Dashboard Report (in the Reports folder) for any warnings or untranslated items."
         ]
