@@ -16,7 +16,7 @@
       "non_cc_assessments/": "Contains quizzes and assessments that might not follow the standard Common Cartridge specification.",
       "hash_directories/": "Folders named with unique alphanumeric hashes (e.g., 'g038b...'). These contain metadata for assignments, discussions, quizzes, and rubrics (e.g., assessment_meta.xml, assessment_qti.xml, assignment_settings.xml). Look inside these XML files for description tags and text that require translation.",
       "app/": "Contains the main application code: controller.py, main_ui.py, course_auditor.py, reprocess_failed.py, and the architecture instructions JSON.",
-      "app/bots/": "Contains the specialized translation and auditing bots (html_bot.py, xml_bot.py, txt_bot.py, auditor_bot.py, scripturecheck_bot.py, qa_audit_bot.py, api_utils.py), plus the shared translation_log.txt.",
+      "app/bots/": "Contains the specialized translation and auditing bots (html_bot.py, xml_bot.py, txt_bot.py, image_bot.py, auditor_bot.py, scripturecheck_bot.py, qa_audit_bot.py, api_utils.py), plus the shared translation_log.txt.",
       "app/core/": "Contains the modularized architecture components: LinkProcessor (link_processor.py), WorkspaceManager (workspace_manager.py), and DashboardGenerator (dashboard_generator.py), decoupled from the main controller.",
       "Glossary/": "Contains a unified 'glossary.json' for terms standardization and a 'scriptures/' subfolder containing language-specific subfolders (por/, spa/) with modern scriptures used to crosscheck references.",
       "Courses to Translate/": "Contains the temporary course files, including the raw .imscc Canvas exports and their respective unzipped working directories. Finalized translations (e.g., _PTBR output folders) and repackaged .imscc files are also saved here.",
@@ -39,9 +39,9 @@
       "The 'Link Actions' tab consolidates Google Links (which get stripped of tracking parameters and flagged with 'FIX EN Course'), Skipped Links (logged as Info without warnings), and Commented Links (where users provided notes during link mapping)."
     ],
     "api_assignments": {
-      "ChatGPT": "Use for ImageTranslationAgent (jpg, png, gif, svg) due to excellent OCR and vision capabilities. (Note: Image agents are currently unapproved/unimplemented).",
+      "ChatGPT": "Use for OCR of images containing embedded text. (Note: Standalone image replacement agents are currently unimplemented).",
       "Claude": "Use for HTMLTranslationAgent, XMLTranslationAgent, QTITranslationAgent, and DocumentTranslationAgent (docx, pptx). Crucial for strict adherence to complex formatting constraints, preserving brackets, and ensuring zero tag modification. (Note: Document agents are currently unapproved/unimplemented).",
-      "Gemini": "All current bots (controller, HTML, XML, text, auditor, scripturecheck, qa_audit) currently default to using gemini-3.5-flash for translation and processing."
+      "Gemini": "All current bots (controller, HTML, XML, text, image, auditor, scripturecheck, qa_audit) currently default to using gemini-1.5-flash for translation, multimodal image description, and processing."
     },
     "api_resilience": {
       "rate_limits": "All bots MUST implement an exponential backoff retry mechanism (via app/bots/api_utils.py call_gemini_with_retry) to gracefully handle 429 Rate Limit errors, internal server errors (500/503), 504 Gateway Timeouts, and deadline exceeded errors, given the concurrency of translations.",
@@ -54,18 +54,18 @@
       "glossary_audit_bot": "A local pre-processing utility (auditor_bot.py, class GlossaryAuditBot) that scans the source text for English glossary terms from Glossary/glossary.json and passes only the relevant glossary terms (filtered by target language) as constraints to the translation prompt.",
       "qa_audit_bot": "A specialized subagent (qa_audit_bot.py, class QAAuditBot) used by course_auditor.py. Has two capabilities: (1) audit_content() which compares the English (Canon) Canvas page against its translated counterpart, identifying Missing, Extra, Different Content, and Different Order discrepancies; (2) pair_unmatched_files() which uses AI to match unmatched English files to their translated counterparts when filenames have changed (e.g., W03 → S03 renaming scenarios).",
       "agent_mapping": {
-        "html": "HTMLTranslationAgent (html_bot.py) - Responsible for parsing HTML DOM using BeautifulSoup to dynamically map and protect sensitive attributes (like src and href URLs) with UUID placeholders before translating textual content, preventing broken assets in Canvas.",
-        "xml": "XMLTranslationAgent (xml_bot.py) - Responsible for safely translating localized text strings inside XML tags using BeautifulSoup. Extracts only the inner text of specific nodes (e.g., <title>, <mattext>, <description>, <long_description>, <fieldentry> for bank_title) and translates them via a custom XML-like delimiter (e.g., <translate_item>) to bypass strict JSON parsing errors caused by nested HTML quotes. Also translates the 'title' attribute on <item> nodes.",
+        "html": "HTMLTranslationAgent (html_bot.py) - Responsible for parsing HTML DOM using BeautifulSoup to dynamically map and protect sensitive attributes (like src and href URLs) with UUID placeholders before translating textual content. It also delegates <img> tags to ImageProcessorBot for alt text translation/generation.",
+        "xml": "XMLTranslationAgent (xml_bot.py) - Responsible for safely translating localized text strings inside XML tags using BeautifulSoup. Extracts only the inner text of specific nodes and translates them via a custom XML-like delimiter. It also delegates <img> tags within inner HTML to ImageProcessorBot for alt text translation/generation.",
         "qti": "QTITranslationAgent - Maps to XMLTranslationBot, sharing the same class as XML. Responsible for specialized Canvas QTI assessment files (quizzes), ensuring assessment structures remain valid.",
         "txt": "TextTranslationAgent (txt_bot.py) - Responsible for plain text file translation.",
         "docx": "DocumentTranslationAgent - [UNIMPLEMENTED/PENDING APPROVAL] Responsible for extracting, translating, and repacking Microsoft Word documents.",
         "pptx": "DocumentTranslationAgent - [UNIMPLEMENTED/PENDING APPROVAL] Responsible for extracting, translating, and repacking Microsoft PowerPoint presentations.",
-        "jpg": "ImageTranslationAgent - [UNIMPLEMENTED/PENDING APPROVAL] Responsible for performing OCR or providing localized versions of images containing embedded text.",
+        "jpg": "ImageTranslationAgent - [UNIMPLEMENTED] For localized versions of images. Note: Alt text is handled inline by ImageProcessorBot.",
         "JPG": "ImageTranslationAgent - Same as jpg.",
         "png": "ImageTranslationAgent - Same as jpg.",
         "PNG": "ImageTranslationAgent - Same as jpg.",
         "gif": "ImageTranslationAgent - Same as jpg.",
-        "svg": "ImageTranslationAgent - [UNIMPLEMENTED/PENDING APPROVAL] Responsible for translating embedded text elements inside SVG vector images.",
+        "svg": "ImageTranslationAgent - Same as jpg.",
         "DS_Store": "IGNORE - System files should be skipped by the controller.",
         "UNKNOWN": "CRITICAL: Any unmapped file extension should trigger the unknown_architecture_protocol."
       }
