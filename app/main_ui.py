@@ -79,7 +79,7 @@ class CourseTranslationHubUI:
         self.lang_var = tk.StringVar(value="PTBR")
         
         ttk.Radiobutton(self.trans_frame, text="Portuguese (PTBR)", variable=self.lang_var, value="PTBR").pack(side="left", padx=10)
-        ttk.Radiobutton(self.trans_frame, text="Spanish (ES)", variable=self.lang_var, value="ES").pack(side="left", padx=10)
+        ttk.Radiobutton(self.trans_frame, text="Spanish (SPA)", variable=self.lang_var, value="SPA").pack(side="left", padx=10)
         
         self.trans_btn = ttk.Button(self.trans_frame, text="Select Course & Translate", command=self.run_translation)
         self.trans_btn.pack(side="right", padx=10)

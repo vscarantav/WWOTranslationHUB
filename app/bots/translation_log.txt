@@ -12,3 +12,35 @@
 --- New TextBot Session (Target: PTBR) ---
 
 --- New Session (Target: PTBR) ---
+[2026-08-14 11:11:26] [System] CourseInfo: Writing in Professional Contexts (English Master)|WRIT101 (English BYUI Term Master)
+[2026-08-14 11:11:26] Starting batch processing for directory: C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\writing-in-professional-contexts-english-master-export_PTBR
+[2026-08-14 11:11:26] [System] FileTypeCount: xml|80
+[2026-08-14 11:11:26] [System] FileTypeCount: txt|1
+[2026-08-14 11:11:26] [System] FileTypeCount: html|33
+[2026-08-14 11:11:26] [System] FileTypeCount: qti|20
+[2026-08-14 11:11:26] [System] FileTypeCount: svg|4
+[2026-08-14 11:11:26] [System] FileTypeCount: png|35
+[2026-08-14 11:11:26] [System] FileTypeCount: jpg|11
+[2026-08-14 11:11:26] [System] FileTypeCount: pdf|1
+[2026-08-14 11:11:26] [System] FileTypeCount: gif|1
+[2026-08-14 11:11:26] Starting Phase 1: Pre-processing and Mapping Links
+[2026-08-14 11:11:47] [LinkBot] SkippedLinkWithComment: Paying for a Course—Go to your student portal (g06b16705b50611d48019a75bdf2e9d2e.xml),https://portal.byupathway.edu/cmcportal/,keep EN
+[2026-08-14 11:11:57] [LinkBot] SkippedLink: Use Your Program Plan to Register For Your Next Class (g075e5347126d7ff27062ed127721bde0.xml),https://players.brightcove.net/5745608613001/default_default/index.html?videoId=6388401127112
+[2026-08-14 11:11:57] [LinkBot] SkippedLink: g2198c5d80eba758c298c40db1c09df35.xml,https://www.edu-apps.org/redirect
+[2026-08-14 11:11:57] [LinkBot] SkippedLink: g2198c5d80eba758c298c40db1c09df35.xml,https://www.edu-apps.org/assets/lti_redirect_engine/redirect_icon.png
+[2026-08-14 11:11:57] [LinkBot] SkippedLink: g2198c5d80eba758c298c40db1c09df35.xml,https://byupathwayworldwideprod.sharepoint.com/sites/WritingPresentationTutoringCenter/SitePages/WRT-101.aspx
+[2026-08-14 11:11:57] [LinkBot] SkippedLink: Addressing Academic Honesty (g2ffa8b6f582a253745e494ef5b6a4f92.xml),https://docs.google.com/document/d/1XkL46ZCztpfbbSVwKkspNM1IWh_RLIzNjIFOMSTBKgE/pub
+[2026-08-14 11:11:57] [LinkBot] SkippedLink: Course Copyright Information (g52ae9887946269fa8ad63d4d4789e142.xml),https://docs.google.com/spreadsheets/d/e/2PACX-1vTVpoJIG72hQUUlgw1L9A6HRO_1ftxaAYUNZxt9UALZkEdDdeUb2_THsngf_bQEJbf8GxxboU3NQc3i/pubhtml
+[2026-08-14 11:11:58] [LinkBot] SkippedLink: Feedback Library (ga5697da5d1e2782ce3994f63d0db276c.xml),https://docs.google.com/spreadsheets/d/16iFFHnVV-zRLJT_TODe3YikJY6kPM-JdbANG6rmb4-U/edit?gid=1070164197#gid=1070164197
+[2026-08-14 11:11:58] [LinkBot] SkippedLink: WhatsApp Resource Center for Instructors (ga76c7dd961e767b1f79bb77ceadab703.xml),https://sites.google.com/byui.edu/wwonlinewhatsappresourcecenter/home
+[2026-08-14 11:11:58] [LinkBot] SkippedLink: Grading Notes (ga98d3b0ea4454bd054159d2c1c9642cb.xml),https://docs.google.com/document/d/1DDG2z237MuvLyskz1eSxPWaEVnrDXqchdWdLwrCy4XU/edit?tab=t.0#heading=h.m5et1gan613g
+[2026-08-14 11:11:58] [LinkBot] SkippedLink: How to be Successful in Online Courses (gd8274cc8cdc36eca22cf487e1396b3b6.xml),https://docs.google.com/document/d/e/2PACX-1vTPWx5FJRdLrVGAtW-yELTBl93zAEhByUIUleGHy1bF7sNapsDopwVjoMfpiNSq5KtLxsTMH5pYUW6W/pub
+[2026-08-14 11:11:58] [LinkBot] SkippedLink: WriteGrader (gdac9ba6cad3d21e5d7b26230e6795c5c.xml),https://writegrader.com/
+[2026-08-14 11:11:58] [LinkBot] SkippedLink: Course Maintenance Form (Suggest a Fix or Improvement) (geda299ddffda03261c7f5497e81ac95a.xml),https://content.byui.edu/integ/gen/2db77d0e-9c2e-4395-becc-3b376b9be105/0/?.vi=file&attachment.uuid=483cb0fb-2e44-4479-b186-5179759b2e26
+[2026-08-14 11:11:58] [LinkBot] SkippedLink: WhatsApp Usage Report (Select your section tab) (gf1ea51b34b6f0f2b5ea19a199b14eb78.xml),https://docs.google.com/spreadsheets/d/1K0l_ajREd9f6emUT5szmhj7UG08hb-yP/edit?gid=323782621#gid=323782621
+[2026-08-14 11:11:59] [LinkBot] SkippedLink: Syllabus (syllabus.html),https://www.byupathway.edu/technology-requirements
+[2026-08-14 11:11:59] [LinkBot] SkippedLink: Syllabus (syllabus.html),https://www.microsoft.com/en-us/videoplayer/embed/RWeolz?pid=ocpVideo0-innerdiv-oneplayer&postJsllMsg=true&maskLevel=20&market=en-us
+[2026-08-14 11:11:59] [LinkBot] SkippedLink: Syllabus (syllabus.html),https://docs.google.com/document/d/e/2PACX-1vSqB0q_bk9e-wcrDJRYbEdLRgawVJUZH_ELGeF3mPIVBnT-r0xBV5Vk1qxv97vc_owgzcAHQSWgqFF5/pub
+[2026-08-14 11:11:59] [LinkBot] SkippedLink: Syllabus (syllabus.html),https://docs.google.com/document/d/e/2PACX-1vTcAfqDGHUDcp8ysdrTeUjLA-QxqVW7AoZt7eEBNEgWN1EhYd3mLUnv1eZU_31sHnk-cmLLlCr5-pHK/pub
+[2026-08-14 11:11:59] [LinkBot] SkippedLink: W06 Study &amp; Quiz (assessment_meta.xml),https://books.byui.edu/writing_in_professional_contexts_wg_V2/ombbpjfcvv
+[2026-08-14 11:11:59] [LinkBot] SkippedLink: W06 Study &amp; Quiz (assessment_meta.xml),https://books.byui.edu/writing_in_professional_contexts_wg_V2/gpgdrtiwkv

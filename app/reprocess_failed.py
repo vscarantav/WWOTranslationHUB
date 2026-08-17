@@ -53,7 +53,7 @@ def run():
             print(f"File not found: {file}")
             
     print("All failed files reprocessed. Compressing back to IMSCC...")
-    controller.compress_to_imscc()
+    controller.workspace.compress_to_imscc(controller._log)
     print("Done!")
 
 if __name__ == "__main__":

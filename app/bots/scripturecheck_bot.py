@@ -12,7 +12,7 @@ class ScriptureCheckBot:
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New ScriptureCheckBot Session (Target: {self.target_language}) ---\n")
             
-        self.lang_folder = "por" if self.target_language.upper() == "PTBR" else "spa"
+        self.lang_folder = "por" if self.target_language.upper() == "PTBR" else ("spa" if self.target_language.upper() == "SPA" else "por")
         self.scriptures_path = os.path.join(self.hub_dir, "Glossary", "scriptures", self.lang_folder)
 
     def _log(self, message: str):

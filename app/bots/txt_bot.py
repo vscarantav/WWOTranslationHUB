@@ -4,7 +4,7 @@ import google.generativeai as genai  # type: ignore
 
 
 class TextTranslationBot:
-    def __init__(self, api_key=None, target_language="PTBR"):
+    def __init__(self, api_key=None, target_language="PTBR", log_lock=None):
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if self.api_key:
             genai.configure(api_key=self.api_key)
@@ -15,6 +15,7 @@ class TextTranslationBot:
         self.target_language = target_language
         self.model = genai.GenerativeModel("gemini-3.5-flash")
         self.system_prompt = f"You are an expert academic translator. Translate the given text accurately into {self.target_language}."
+        self.log_lock = log_lock
         
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
@@ -23,8 +24,13 @@ class TextTranslationBot:
     def _log(self, message: str):
         import datetime
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"[{timestamp}] {message}\n")
+        if self.log_lock:
+            with self.log_lock:
+                with open(self.log_filepath, "a", encoding="utf-8") as f:
+                    f.write(f"[{timestamp}] {message}\n")
+        else:
+            with open(self.log_filepath, "a", encoding="utf-8") as f:
+                f.write(f"[{timestamp}] {message}\n")
 
     def set_system_prompt(self, prompt: str):
         self.system_prompt = prompt

@@ -5,6 +5,12 @@ import google.api_core.exceptions
 def call_gemini_with_retry(model, prompt, max_retries=8, initial_delay=10, log_func=print):
     """
     Calls the Gemini API with exponential backoff for rate limits and server errors.
+
+    Note on genai.configure():
+    This is called multiple times by different bots (HTML, XML, Text, QAAudit) in their __init__ methods.
+    The google.generativeai library uses global state for configuration. This is currently safe because all 
+    bots use the same API key. If future features require different keys per bot, this global state pattern 
+    will cause a race condition and will need to be refactored to pass the client instance or key per call.
     """
     # Base delay removed because Flash models have massive RPM limits.
     # time.sleep(2.5)

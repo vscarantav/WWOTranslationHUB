@@ -67,12 +67,12 @@ class DashboardGenerator:
                             entry['Event Type'] = 'Skipped'
                             entry['Status'] = 'Warning'
                             entry['File Path'] = message.replace('Skipping ignored system file: ', '')
-                            entry['File Name'] = entry['File Path'].split('/')[-1]
+                            entry['File Name'] = os.path.basename(entry['File Path'])
                         elif message.startswith('Skipping already translated'):
                             entry['Event Type'] = 'Skipped (Already Translated)'
                             entry['Status'] = 'Info'
                             entry['File Path'] = message.replace('Skipping already translated file: ', '')
-                            entry['File Name'] = entry['File Path'].split('/')[-1]
+                            entry['File Name'] = os.path.basename(entry['File Path'])
                         elif 'Skipping AuditorBot' in message:
                             entry['Event Type'] = 'Skipped (Size Limit)'
                             entry['Status'] = 'Warning'
@@ -131,7 +131,7 @@ class DashboardGenerator:
                             if len(parts) == 2:
                                 entry['Message'] = parts[0]
                                 entry['File Path'] = parts[1]
-                                entry['File Name'] = parts[1].split('/')[-1]
+                                entry['File Name'] = os.path.basename(parts[1])
                             else:
                                 entry['Message'] = message.replace('TranslatedPage: ', '')
                         elif 'error' in message.lower() or 'exception' in message.lower():

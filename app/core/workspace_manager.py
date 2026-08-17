@@ -118,7 +118,26 @@ class WorkspaceManager:
         print(f"\n[WorkspaceManager] {msg}")
         _log_func(msg)
         
-        zip_path = shutil.make_archive(self.output_dir, 'zip', self.output_dir)
+        # Verify structure before zipping: imsmanifest.xml MUST be at root
+        manifest_path = os.path.join(self.output_dir, 'imsmanifest.xml')
+        if not os.path.exists(manifest_path):
+            # Check if it was nested one level deep
+            subdirs = [os.path.join(self.output_dir, d) for d in os.listdir(self.output_dir) if os.path.isdir(os.path.join(self.output_dir, d))]
+            if len(subdirs) == 1:
+                nested_manifest = os.path.join(subdirs[0], 'imsmanifest.xml')
+                if os.path.exists(nested_manifest):
+                    _log_func("[WorkspaceManager] WARNING: Nested directory structure detected. Correcting for IMSCC...")
+                    # The archive root should be the nested folder
+                    zip_path = shutil.make_archive(self.output_dir, 'zip', subdirs[0])
+                else:
+                    _log_func("[WorkspaceManager] ERROR: imsmanifest.xml not found. Resulting IMSCC may be invalid.")
+                    zip_path = shutil.make_archive(self.output_dir, 'zip', self.output_dir)
+            else:
+                _log_func("[WorkspaceManager] ERROR: imsmanifest.xml not found. Resulting IMSCC may be invalid.")
+                zip_path = shutil.make_archive(self.output_dir, 'zip', self.output_dir)
+        else:
+            zip_path = shutil.make_archive(self.output_dir, 'zip', self.output_dir)
+            
         imscc_path = self.output_dir + ".imscc"
         if os.path.exists(imscc_path):
             os.remove(imscc_path)

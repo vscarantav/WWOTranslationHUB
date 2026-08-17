@@ -32,7 +32,7 @@ class LinkProcessor:
         return re.sub(r'https?://(?:www\.)?google\.com/url\?[^\s"\'<>]*', replacer, content)
 
     def rewrite_church_links(self, content: str) -> str:
-        lang_code = "por" if self.target_language == "PTBR" else ("spa" if self.target_language == "ES" else "por")
+        lang_code = "por" if self.target_language == "PTBR" else ("spa" if self.target_language == "SPA" else "por")
         
         def replacer(match):
             url = match.group(0)
@@ -174,8 +174,19 @@ class LinkProcessor:
                             return f'<url>{check_and_prompt(match.group(1), filepath, page_title)}</url>'
                         new_content = re.sub(r'<url>([^<]+)</url>', xml_url_replacer, new_content)
                     
+                    # Prevent double processing: collect href and url tag contents
+                    already_processed = set()
+                    for m in re.finditer(r'href=(["\'])([^"\']+)\1', content):
+                        already_processed.add(m.group(2))
+                    if ext == 'xml' or ext == 'qti':
+                        for m in re.finditer(r'<url>([^<]+)</url>', content):
+                            already_processed.add(m.group(1))
+                    
                     def universal_replacer(match):
-                        return check_and_prompt(match.group(0), filepath, page_title)
+                        url = match.group(0)
+                        if url in already_processed:
+                            return url
+                        return check_and_prompt(url, filepath, page_title)
                     new_content = re.sub(r'https?://[^\s"\'<>]+', universal_replacer, new_content)
                     
                     if new_content != content:

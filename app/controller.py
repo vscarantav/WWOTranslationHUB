@@ -4,6 +4,7 @@ import concurrent.futures
 from tqdm import tqdm
 import json
 import re
+import threading
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
@@ -32,11 +33,13 @@ class TranslationController:
         self.auditor = GlossaryAuditBot(target_language=self.target_language, hub_dir=self.hub_dir)
         self.scripture_checker = ScriptureCheckBot(target_language=self.target_language, hub_dir=self.hub_dir)
         
+        self.log_lock = threading.Lock()
+        
         self.bots = {
-            "html": HTMLTranslationBot(target_language=self.target_language),
-            "xml": XMLTranslationBot(target_language=self.target_language),
-            "qti": XMLTranslationBot(target_language=self.target_language), 
-            "txt": TextTranslationBot(target_language=self.target_language)
+            "html": HTMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock),
+            "xml": XMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock),
+            "qti": XMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock), 
+            "txt": TextTranslationBot(target_language=self.target_language, log_lock=self.log_lock)
         }
         
         self._apply_custom_prompts()
@@ -52,7 +55,7 @@ class TranslationController:
         self.link_processor = LinkProcessor(self.target_language, self.app_dir, [], self.link_prompt_callback)
 
     def _clear_logs(self):
-        log_files = ["translation_log.txt", "html_bot_log.txt", "xml_bot_log.txt", "txt_bot_log.txt", "auditor_bot_log.txt", "scripture_bot_log.txt"]
+        log_files = ["translation_log.txt"]
         for log_file in log_files:
             log_path = os.path.join(self.app_dir, "bots", log_file)
             if os.path.exists(log_path):
@@ -64,8 +67,9 @@ class TranslationController:
     def _log(self, message: str):
         import datetime
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"[{timestamp}] {message}\n")
+        with self.log_lock:
+            with open(self.log_filepath, "a", encoding="utf-8") as f:
+                f.write(f"[{timestamp}] {message}\n")
 
     def _load_instructions(self) -> dict:
         filepath = os.path.join(self.app_dir, "Course_Translation_Hub_ArchitectureAndInstructions.json")
@@ -78,9 +82,10 @@ class TranslationController:
     def _apply_custom_prompts(self):
         try:
             prompts = self.instructions.get("bot_instructions", {}).get("agent_prompts", {})
-            html_prompt_key = f"HTMLTranslationAgent_{self.target_language}"
-            if html_prompt_key in prompts:
-                self.bots["html"].set_system_prompt(prompts[html_prompt_key])
+            for ext, bot_key in [("html", "HTMLTranslationAgent"), ("xml", "XMLTranslationAgent"), ("qti", "QTITranslationAgent"), ("txt", "TextTranslationAgent")]:
+                prompt_key = f"{bot_key}_{self.target_language}"
+                if prompt_key in prompts:
+                    self.bots[ext].set_system_prompt(prompts[prompt_key])
         except Exception as e:
             print(f"[Controller] Error applying custom prompts: {e}")
 
@@ -124,7 +129,7 @@ class TranslationController:
             en_count = sum(1 for w in words if w in en_stopwords)
             target_count = sum(1 for w in words if w in (pt_stopwords if self.target_language == "PTBR" else es_stopwords))
                 
-            if target_count > (en_count + 2): return True
+            if target_count > (en_count + 5): return True
             return False
         except Exception:
             return False
@@ -176,21 +181,42 @@ class TranslationController:
         relevant_scriptures = self.scripture_checker.get_scriptures_for_text(original_content)
             
         if "teaching-notes-and-student-outreach" in target_filepath.lower():
-            custom_glossary = {
-                "Dashboard": "Painel de controle", "Courses": "Cursos", "Calendar": "Calendário", 
-                "Inbox": "Caixa de entrada", "History": "Histórico", "Help": "Ajuda", 
-                "Syllabus": "Programa", "Modules": "Módulos", "Announcements": "Avisos", 
-                "Grades": "Notas", "People": "Pessoas", "Assignments": "Tarefas", 
-                "Discussions": "Fóruns", "Files": "Arquivos", "Outcomes": "Objetivos", 
-                "Pages": "Páginas", "Quizzes": "Testes", "Rubrics": "Rubricas", 
-                "Settings": "Configurações", "Teaching Notes and Student Outreach": "Plano de Aula e de Contato com Estudantes"
-            }
+            # Apply teaching notes glossary depending on target language
+            if self.target_language == "PTBR":
+                custom_glossary = {
+                    "Dashboard": "Painel de controle", "Courses": "Cursos", "Calendar": "Calendário", 
+                    "Inbox": "Caixa de entrada", "History": "Histórico", "Help": "Ajuda", 
+                    "Syllabus": "Programa", "Modules": "Módulos", "Announcements": "Avisos", 
+                    "Grades": "Notas", "People": "Pessoas", "Assignments": "Tarefas", 
+                    "Discussions": "Fóruns", "Files": "Arquivos", "Outcomes": "Objetivos", 
+                    "Pages": "Páginas", "Quizzes": "Testes", "Rubrics": "Rubricas", 
+                    "Settings": "Configurações", "Teaching Notes and Student Outreach": "Plano de Aula e de Contato com Estudantes"
+                }
+            elif self.target_language == "SPA":
+                custom_glossary = {
+                    "Dashboard": "Tablero", "Courses": "Cursos", "Calendar": "Calendario", 
+                    "Inbox": "Bandeja de entrada", "History": "Historial", "Help": "Ayuda", 
+                    "Syllabus": "Programa", "Modules": "Módulos", "Announcements": "Anuncios", 
+                    "Grades": "Calificaciones", "People": "Personas", "Assignments": "Tareas", 
+                    "Discussions": "Foros", "Files": "Archivos", "Outcomes": "Resultados", 
+                    "Pages": "Páginas", "Quizzes": "Exámenes", "Rubrics": "Rúbricas", 
+                    "Settings": "Configuraciones", "Teaching Notes and Student Outreach": "Notas de enseñanza y contacto con estudiantes"
+                }
+            else:
+                custom_glossary = {}
+
             if relevant_glossary:
                 relevant_glossary.update(custom_glossary)
             else:
                 relevant_glossary = custom_glossary
 
         if ext in ["xml", "qti"]:
+            if self.target_language == "PTBR":
+                original_content = re.sub(r'\bMissing\b', 'Não Entregue', original_content)
+                original_content = re.sub(r'\bmissing\b', 'não entregue', original_content)
+            elif self.target_language == "SPA":
+                original_content = re.sub(r'\bMissing\b', 'No Entregado', original_content)
+                original_content = re.sub(r'\bmissing\b', 'no entregado', original_content)
             translated_content = bot.translate_xml_content(original_content, relevant_glossary, relevant_scriptures)
         elif ext == "txt":
             translated_content = bot.translate_txt_content(original_content, relevant_glossary, relevant_scriptures)
@@ -199,6 +225,23 @@ class TranslationController:
         
         translated_content = self.link_processor.rewrite_church_links(translated_content)
         
+        # Validation Check
+        if not translated_content or len(translated_content) < len(original_content) * 0.2:
+            self._log(f"[System] Error: Translation for {filepath} returned empty or dangerously short content. Restoring original.")
+            with open(target_filepath, "w", encoding="utf-8") as f:
+                f.write(original_content)
+            return
+            
+        if ext in ["html", "xml", "qti"]:
+            try:
+                # Just verifying it parses without crashing
+                BeautifulSoup(translated_content, 'xml' if ext in ['xml', 'qti'] else 'html.parser')
+            except Exception as e:
+                self._log(f"[System] Error: Translation for {filepath} produced invalid markup: {e}. Restoring original.")
+                with open(target_filepath, "w", encoding="utf-8") as f:
+                    f.write(original_content)
+                return
+                
         self._log(f"Saving translated content to {target_filepath}")
         with open(target_filepath, "w", encoding="utf-8") as f:
             f.write(translated_content)
@@ -220,14 +263,14 @@ if __name__ == "__main__":
     parser.add_argument("--file", help="Specific file to translate")
     parser.add_argument("--dir", help="Directory folder to process")
     parser.add_argument("--imscc", help="IMSCC course package to process")
-    parser.add_argument("--lang", choices=["PTBR", "ES"], help="Target Language")
+    parser.add_argument("--lang", choices=["PTBR", "SPA"], help="Target Language")
     
     args = parser.parse_args()
     
     target_language = args.lang
     if not target_language:
-        lang_input = input("Which language would you like to translate to? (Enter 'PTBR' or 'ES'): ").strip().upper()
-        if lang_input in ["PTBR", "ES"]:
+        lang_input = input("Which language would you like to translate to? (Enter 'PTBR' or 'SPA'): ").strip().upper()
+        if lang_input in ["PTBR", "SPA"]:
             target_language = lang_input
         else:
             print("Invalid language selected. Defaulting to PTBR.")

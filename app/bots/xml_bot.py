@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup, CData
 import google.generativeai as genai  # type: ignore
 
 class XMLTranslationBot:
-    def __init__(self, api_key=None, target_language="PTBR"):
+    def __init__(self, api_key=None, target_language="PTBR", log_lock=None):
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if self.api_key:
             genai.configure(api_key=self.api_key)
@@ -16,6 +16,7 @@ class XMLTranslationBot:
             self.client_ready = False
             
         self.target_language = target_language
+        self.log_lock = log_lock
         self.model = genai.GenerativeModel(
             "gemini-3.5-flash"
         )
@@ -28,11 +29,16 @@ class XMLTranslationBot:
     def _log(self, message: str):
         import datetime
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"[{timestamp}] {message}\n")
+        if self.log_lock:
+            with self.log_lock:
+                with open(self.log_filepath, "a", encoding="utf-8") as f:
+                    f.write(f"[{timestamp}] {message}\n")
+        else:
+            with open(self.log_filepath, "a", encoding="utf-8") as f:
+                f.write(f"[{timestamp}] {message}\n")
 
     def set_system_prompt(self, prompt: str):
-        pass
+        self.system_prompt = prompt
 
     def _translate_batch(self, batch: dict, constraints: str) -> dict:
         if not self.client_ready:
@@ -87,12 +93,18 @@ class XMLTranslationBot:
         return batch
 
     def translate_xml_content(self, xml_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None) -> str:
+        if not self.client_ready:
+            msg = "[XMLBot] WARNING: No API key provided. Returning original content."
+            print(msg)
+            self._log(msg)
+            return xml_content
+
         msg = "[XMLBot] Parsing XML safely with BeautifulSoup..."
         self._log(msg)
         
         soup = BeautifulSoup(xml_content, 'xml')
         
-        target_tags = ['title', 'mattext', 'description', 'fieldentry']
+        target_tags = ['title', 'mattext', 'description', 'long_description', 'fieldentry']
         
         strings_to_translate = {}
         tag_references = {}
@@ -106,6 +118,11 @@ class XMLTranslationBot:
                     continue
                     
             inner_str = tag.decode_contents().strip()
+            
+            # Prevent Canvas from converting True/False questions to Multiple Choice
+            if tag.name == 'mattext' and inner_str in ["True", "False"]:
+                continue
+                
             if inner_str:
                 unescaped = html.unescape(inner_str)
                 strings_to_translate[str(counter)] = unescaped
