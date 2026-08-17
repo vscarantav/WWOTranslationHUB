@@ -3,6 +3,11 @@
 
 --- New ScriptureCheckBot Session (Target: PTBR) ---
 
+--- New Session (Target: PTBR) ---
+[2026-08-17 15:45:06] [System] CourseInfo: Web Frontend Development II (English Master)|WDD330 (English BYUI Term Master)
+[2026-08-17 15:45:06] [System] Canvas URL: https://byupw.instructure.com
+[2026-08-17 15:45:06] [System] Source Course ID: 357
+
 --- New HTMLBot Session (Target: PTBR) ---
 
 --- New XMLBot Session (Target: PTBR) ---
@@ -10,39 +15,724 @@
 --- New XMLBot Session (Target: PTBR) ---
 
 --- New TextBot Session (Target: PTBR) ---
-
---- New Session (Target: PTBR) ---
-[2026-08-14 11:11:26] [System] CourseInfo: Writing in Professional Contexts (English Master)|WRIT101 (English BYUI Term Master)
-[2026-08-14 11:11:26] Starting batch processing for directory: C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\writing-in-professional-contexts-english-master-export_PTBR
-[2026-08-14 11:11:26] [System] FileTypeCount: xml|80
-[2026-08-14 11:11:26] [System] FileTypeCount: txt|1
-[2026-08-14 11:11:26] [System] FileTypeCount: html|33
-[2026-08-14 11:11:26] [System] FileTypeCount: qti|20
-[2026-08-14 11:11:26] [System] FileTypeCount: svg|4
-[2026-08-14 11:11:26] [System] FileTypeCount: png|35
-[2026-08-14 11:11:26] [System] FileTypeCount: jpg|11
-[2026-08-14 11:11:26] [System] FileTypeCount: pdf|1
-[2026-08-14 11:11:26] [System] FileTypeCount: gif|1
-[2026-08-14 11:11:26] Starting Phase 1: Pre-processing and Mapping Links
-[2026-08-14 11:11:47] [LinkBot] SkippedLinkWithComment: Paying for a Course—Go to your student portal (g06b16705b50611d48019a75bdf2e9d2e.xml),https://portal.byupathway.edu/cmcportal/,keep EN
-[2026-08-14 11:11:57] [LinkBot] SkippedLink: Use Your Program Plan to Register For Your Next Class (g075e5347126d7ff27062ed127721bde0.xml),https://players.brightcove.net/5745608613001/default_default/index.html?videoId=6388401127112
-[2026-08-14 11:11:57] [LinkBot] SkippedLink: g2198c5d80eba758c298c40db1c09df35.xml,https://www.edu-apps.org/redirect
-[2026-08-14 11:11:57] [LinkBot] SkippedLink: g2198c5d80eba758c298c40db1c09df35.xml,https://www.edu-apps.org/assets/lti_redirect_engine/redirect_icon.png
-[2026-08-14 11:11:57] [LinkBot] SkippedLink: g2198c5d80eba758c298c40db1c09df35.xml,https://byupathwayworldwideprod.sharepoint.com/sites/WritingPresentationTutoringCenter/SitePages/WRT-101.aspx
-[2026-08-14 11:11:57] [LinkBot] SkippedLink: Addressing Academic Honesty (g2ffa8b6f582a253745e494ef5b6a4f92.xml),https://docs.google.com/document/d/1XkL46ZCztpfbbSVwKkspNM1IWh_RLIzNjIFOMSTBKgE/pub
-[2026-08-14 11:11:57] [LinkBot] SkippedLink: Course Copyright Information (g52ae9887946269fa8ad63d4d4789e142.xml),https://docs.google.com/spreadsheets/d/e/2PACX-1vTVpoJIG72hQUUlgw1L9A6HRO_1ftxaAYUNZxt9UALZkEdDdeUb2_THsngf_bQEJbf8GxxboU3NQc3i/pubhtml
-[2026-08-14 11:11:58] [LinkBot] SkippedLink: Feedback Library (ga5697da5d1e2782ce3994f63d0db276c.xml),https://docs.google.com/spreadsheets/d/16iFFHnVV-zRLJT_TODe3YikJY6kPM-JdbANG6rmb4-U/edit?gid=1070164197#gid=1070164197
-[2026-08-14 11:11:58] [LinkBot] SkippedLink: WhatsApp Resource Center for Instructors (ga76c7dd961e767b1f79bb77ceadab703.xml),https://sites.google.com/byui.edu/wwonlinewhatsappresourcecenter/home
-[2026-08-14 11:11:58] [LinkBot] SkippedLink: Grading Notes (ga98d3b0ea4454bd054159d2c1c9642cb.xml),https://docs.google.com/document/d/1DDG2z237MuvLyskz1eSxPWaEVnrDXqchdWdLwrCy4XU/edit?tab=t.0#heading=h.m5et1gan613g
-[2026-08-14 11:11:58] [LinkBot] SkippedLink: How to be Successful in Online Courses (gd8274cc8cdc36eca22cf487e1396b3b6.xml),https://docs.google.com/document/d/e/2PACX-1vTPWx5FJRdLrVGAtW-yELTBl93zAEhByUIUleGHy1bF7sNapsDopwVjoMfpiNSq5KtLxsTMH5pYUW6W/pub
-[2026-08-14 11:11:58] [LinkBot] SkippedLink: WriteGrader (gdac9ba6cad3d21e5d7b26230e6795c5c.xml),https://writegrader.com/
-[2026-08-14 11:11:58] [LinkBot] SkippedLink: Course Maintenance Form (Suggest a Fix or Improvement) (geda299ddffda03261c7f5497e81ac95a.xml),https://content.byui.edu/integ/gen/2db77d0e-9c2e-4395-becc-3b376b9be105/0/?.vi=file&attachment.uuid=483cb0fb-2e44-4479-b186-5179759b2e26
-[2026-08-14 11:11:58] [LinkBot] SkippedLink: WhatsApp Usage Report (Select your section tab) (gf1ea51b34b6f0f2b5ea19a199b14eb78.xml),https://docs.google.com/spreadsheets/d/1K0l_ajREd9f6emUT5szmhj7UG08hb-yP/edit?gid=323782621#gid=323782621
-[2026-08-14 11:11:59] [LinkBot] SkippedLink: Syllabus (syllabus.html),https://www.byupathway.edu/technology-requirements
-[2026-08-14 11:11:59] [LinkBot] SkippedLink: Syllabus (syllabus.html),https://www.microsoft.com/en-us/videoplayer/embed/RWeolz?pid=ocpVideo0-innerdiv-oneplayer&postJsllMsg=true&maskLevel=20&market=en-us
-[2026-08-14 11:11:59] [LinkBot] SkippedLink: Syllabus (syllabus.html),https://docs.google.com/document/d/e/2PACX-1vSqB0q_bk9e-wcrDJRYbEdLRgawVJUZH_ELGeF3mPIVBnT-r0xBV5Vk1qxv97vc_owgzcAHQSWgqFF5/pub
-[2026-08-14 11:11:59] [LinkBot] SkippedLink: Syllabus (syllabus.html),https://docs.google.com/document/d/e/2PACX-1vTcAfqDGHUDcp8ysdrTeUjLA-QxqVW7AoZt7eEBNEgWN1EhYd3mLUnv1eZU_31sHnk-cmLLlCr5-pHK/pub
-[2026-08-14 11:11:59] [LinkBot] SkippedLink: W06 Study &amp; Quiz (assessment_meta.xml),https://books.byui.edu/writing_in_professional_contexts_wg_V2/ombbpjfcvv
-[2026-08-14 11:11:59] [LinkBot] SkippedLink: W06 Study &amp; Quiz (assessment_meta.xml),https://books.byui.edu/writing_in_professional_contexts_wg_V2/gpgdrtiwkv
-
---- New TextBot Session (Target: PTBR) ---
+[2026-08-17 15:45:06] Delegating c:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export\g3903db9c7dc9ad10c2484e3fb83d1636.xml to XMLTranslationBot
+[2026-08-17 15:45:06] [AuditorBot] Found 4 relevant glossary terms in text.
+[2026-08-17 15:45:06] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:45:06] [XMLBot] Found 2 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:45:06] [XMLBot] Translating batch 1/1 (approx 569 chars)...
+[2026-08-17 15:45:07] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\course_settings\module_meta.xml
+[2026-08-17 15:45:07] Translation complete for this file.
+[2026-08-17 15:45:07] [System] TranslatedPage: Course Resources (Do NOT Publish) | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\course_settings\module_meta.xml
+[2026-08-17 15:45:07] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g00755eff8c0c35a16425cdcd7134724d\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:45:07] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:45:07] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:45:07] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:45:07] [XMLBot] Translating batch 1/1 (approx 427 chars)...
+[2026-08-17 15:45:12] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g00755eff8c0c35a16425cdcd7134724d\assessment_meta.xml
+[2026-08-17 15:45:12] Translation complete for this file.
+[2026-08-17 15:45:12] [System] TranslatedPage: W03 Learning Activities | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g00755eff8c0c35a16425cdcd7134724d\assessment_meta.xml
+[2026-08-17 15:45:12] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g00755eff8c0c35a16425cdcd7134724d\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:45:12] [AuditorBot] Found 14 relevant glossary terms in text.
+[2026-08-17 15:45:12] Saving translated content to c:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export\g3903db9c7dc9ad10c2484e3fb83d1636.xml
+[2026-08-17 15:45:12] Translation complete for this file.
+[2026-08-17 15:45:12] [System] TranslatedPage: Use Your Program Plan to Register For Your Next Class | c:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export\g3903db9c7dc9ad10c2484e3fb83d1636.xml
+[2026-08-17 15:45:12] Generating Excel Analytics Dashboard...
+[2026-08-17 15:45:12] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:45:12] [XMLBot] Found 64 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:45:12] [XMLBot] Translating batch 1/2 (approx 7625 chars)...
+[2026-08-17 15:45:12] Excel successfully created: C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Reports\Web Frontend Development II English Master Translation Report.xlsx
+[2026-08-17 15:45:13] [XMLBot] Translating batch 2/2 (approx 3088 chars)...
+[2026-08-17 15:45:30] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\course_settings\rubrics.xml
+[2026-08-17 15:45:30] Translation complete for this file.
+[2026-08-17 15:45:30] [System] TranslatedPage: W07 Skills Development Document and Video | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\course_settings\rubrics.xml
+[2026-08-17 15:45:30] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g068b5cd7bfb2c95c6bc796948251334d\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:45:30] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:45:30] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:45:30] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:45:30] [XMLBot] Translating batch 1/1 (approx 493 chars)...
+[2026-08-17 15:45:37] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g068b5cd7bfb2c95c6bc796948251334d\assessment_meta.xml
+[2026-08-17 15:45:37] Translation complete for this file.
+[2026-08-17 15:45:37] [System] TranslatedPage: W04 Team Activity: Checkout | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g068b5cd7bfb2c95c6bc796948251334d\assessment_meta.xml
+[2026-08-17 15:45:37] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g068b5cd7bfb2c95c6bc796948251334d\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:45:37] [AuditorBot] Found 9 relevant glossary terms in text.
+[2026-08-17 15:45:37] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:45:37] [XMLBot] Found 12 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:45:37] [XMLBot] Translating batch 1/1 (approx 749 chars)...
+[2026-08-17 15:45:40] [XMLBot] Translating batch 2/2 (approx 2674 chars)...
+[2026-08-17 15:45:44] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g068b5cd7bfb2c95c6bc796948251334d\assessment_qti.xml
+[2026-08-17 15:45:44] Translation complete for this file.
+[2026-08-17 15:45:44] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g068b5cd7bfb2c95c6bc796948251334d\assessment_qti.xml
+[2026-08-17 15:45:44] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g13188462b95852b58abd53f0e65d0f97\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:45:44] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:45:44] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:45:44] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:45:44] [XMLBot] Translating batch 1/1 (approx 398 chars)...
+[2026-08-17 15:45:51] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g13188462b95852b58abd53f0e65d0f97\assessment_meta.xml
+[2026-08-17 15:45:51] Translation complete for this file.
+[2026-08-17 15:45:51] [System] TranslatedPage: W05 60-second Status Update | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g13188462b95852b58abd53f0e65d0f97\assessment_meta.xml
+[2026-08-17 15:45:51] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g13188462b95852b58abd53f0e65d0f97\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:45:51] [AuditorBot] Found 9 relevant glossary terms in text.
+[2026-08-17 15:45:51] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:45:51] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:45:51] [XMLBot] Translating batch 1/1 (approx 488 chars)...
+[2026-08-17 15:45:52] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g00755eff8c0c35a16425cdcd7134724d\assessment_qti.xml
+[2026-08-17 15:45:52] Translation complete for this file.
+[2026-08-17 15:45:52] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g00755eff8c0c35a16425cdcd7134724d\assessment_qti.xml
+[2026-08-17 15:45:52] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g183d9bccaeba9185432063ff1538e0ce\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:45:52] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:45:52] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:45:52] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:45:52] [XMLBot] Translating batch 1/1 (approx 767 chars)...
+[2026-08-17 15:46:00] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g13188462b95852b58abd53f0e65d0f97\assessment_qti.xml
+[2026-08-17 15:46:00] Translation complete for this file.
+[2026-08-17 15:46:00] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g13188462b95852b58abd53f0e65d0f97\assessment_qti.xml
+[2026-08-17 15:46:00] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g183d9bccaeba9185432063ff1538e0ce\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:46:00] [AuditorBot] Found 7 relevant glossary terms in text.
+[2026-08-17 15:46:00] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:00] [XMLBot] Found 10 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:00] [XMLBot] Translating batch 1/1 (approx 583 chars)...
+[2026-08-17 15:46:01] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g183d9bccaeba9185432063ff1538e0ce\assessment_meta.xml
+[2026-08-17 15:46:01] Translation complete for this file.
+[2026-08-17 15:46:01] [System] TranslatedPage: W01 Activity: Team Project Setup | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g183d9bccaeba9185432063ff1538e0ce\assessment_meta.xml
+[2026-08-17 15:46:01] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g259e1bd4302695a92895ed7d39d787b5\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:46:01] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:01] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:01] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:01] [XMLBot] Translating batch 1/1 (approx 39 chars)...
+[2026-08-17 15:46:04] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g259e1bd4302695a92895ed7d39d787b5\assignment_settings.xml
+[2026-08-17 15:46:04] Translation complete for this file.
+[2026-08-17 15:46:04] [System] TranslatedPage: W04 Individual Task(s): Report | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g259e1bd4302695a92895ed7d39d787b5\assignment_settings.xml
+[2026-08-17 15:46:04] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g259e1bd4302695a92895ed7d39d787b5\w04-individual-task-s-report.html to HTMLTranslationBot
+[2026-08-17 15:46:04] [AuditorBot] Found 12 relevant glossary terms in text.
+[2026-08-17 15:46:05] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\course_settings\syllabus.html
+[2026-08-17 15:46:05] Translation complete for this file.
+[2026-08-17 15:46:05] [System] TranslatedPage: Syllabus | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\course_settings\syllabus.html
+[2026-08-17 15:46:05] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3167c29664aa6af3c6c0d1789b448c8e\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:46:05] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:05] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:05] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:05] [XMLBot] Translating batch 1/1 (approx 58 chars)...
+[2026-08-17 15:46:05] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g183d9bccaeba9185432063ff1538e0ce\assessment_qti.xml
+[2026-08-17 15:46:05] Translation complete for this file.
+[2026-08-17 15:46:05] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g183d9bccaeba9185432063ff1538e0ce\assessment_qti.xml
+[2026-08-17 15:46:05] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3167c29664aa6af3c6c0d1789b448c8e\w07-assignment-professional-development-document.html to HTMLTranslationBot
+[2026-08-17 15:46:05] [AuditorBot] Found 6 relevant glossary terms in text.
+[2026-08-17 15:46:07] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3167c29664aa6af3c6c0d1789b448c8e\assignment_settings.xml
+[2026-08-17 15:46:07] Translation complete for this file.
+[2026-08-17 15:46:07] [System] TranslatedPage: W07 Assignment: Professional Development Document | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3167c29664aa6af3c6c0d1789b448c8e\assignment_settings.xml
+[2026-08-17 15:46:07] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3e13162c96c64376ed56f3b012b38036\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:46:07] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:07] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:07] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:07] [XMLBot] Translating batch 1/1 (approx 36 chars)...
+[2026-08-17 15:46:10] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3e13162c96c64376ed56f3b012b38036\assignment_settings.xml
+[2026-08-17 15:46:10] Translation complete for this file.
+[2026-08-17 15:46:10] [System] TranslatedPage: W04 Final Project: Proposal | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3e13162c96c64376ed56f3b012b38036\assignment_settings.xml
+[2026-08-17 15:46:10] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3e13162c96c64376ed56f3b012b38036\w04-final-project-proposal.html to HTMLTranslationBot
+[2026-08-17 15:46:10] [AuditorBot] Found 6 relevant glossary terms in text.
+[2026-08-17 15:46:17] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3167c29664aa6af3c6c0d1789b448c8e\w07-assignment-professional-development-document.html
+[2026-08-17 15:46:17] Translation complete for this file.
+[2026-08-17 15:46:17] [System] TranslatedPage: Assignment: W07 Assignment: Professional Development Document | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3167c29664aa6af3c6c0d1789b448c8e\w07-assignment-professional-development-document.html
+[2026-08-17 15:46:17] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g42715aef3a7aca64a2359eb6aad6855b\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:46:17] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:17] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:17] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:17] [XMLBot] Translating batch 1/1 (approx 449 chars)...
+[2026-08-17 15:46:19] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3e13162c96c64376ed56f3b012b38036\w04-final-project-proposal.html
+[2026-08-17 15:46:19] Translation complete for this file.
+[2026-08-17 15:46:19] [System] TranslatedPage: Assignment: W04 Final Project: Proposal | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g3e13162c96c64376ed56f3b012b38036\w04-final-project-proposal.html
+[2026-08-17 15:46:19] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g42715aef3a7aca64a2359eb6aad6855b\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:46:19] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:19] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:19] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:19] [XMLBot] Translating batch 1/1 (approx 644 chars)...
+[2026-08-17 15:46:23] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g42715aef3a7aca64a2359eb6aad6855b\assessment_meta.xml
+[2026-08-17 15:46:23] Translation complete for this file.
+[2026-08-17 15:46:23] [System] TranslatedPage: W02 60-second Status Update | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g42715aef3a7aca64a2359eb6aad6855b\assessment_meta.xml
+[2026-08-17 15:46:23] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g48c8689d16ea28c2e29271f4c762f5bc\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:46:23] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:23] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:23] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:23] [XMLBot] Translating batch 1/1 (approx 39 chars)...
+[2026-08-17 15:46:25] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g48c8689d16ea28c2e29271f4c762f5bc\assignment_settings.xml
+[2026-08-17 15:46:25] Translation complete for this file.
+[2026-08-17 15:46:25] [System] TranslatedPage: W03 Individual Task(s): Report | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g48c8689d16ea28c2e29271f4c762f5bc\assignment_settings.xml
+[2026-08-17 15:46:25] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g48c8689d16ea28c2e29271f4c762f5bc\w03-individual-task-s-report.html to HTMLTranslationBot
+[2026-08-17 15:46:25] [AuditorBot] Found 12 relevant glossary terms in text.
+[2026-08-17 15:46:25] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g259e1bd4302695a92895ed7d39d787b5\w04-individual-task-s-report.html
+[2026-08-17 15:46:25] Translation complete for this file.
+[2026-08-17 15:46:25] [System] TranslatedPage: Assignment: W04 Individual Task(s): Report | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g259e1bd4302695a92895ed7d39d787b5\w04-individual-task-s-report.html
+[2026-08-17 15:46:25] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g4fe618c657763731d015c1af8f3a7853\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:46:25] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:25] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:25] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:25] [XMLBot] Translating batch 1/1 (approx 62 chars)...
+[2026-08-17 15:46:27] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g42715aef3a7aca64a2359eb6aad6855b\assessment_qti.xml
+[2026-08-17 15:46:27] Translation complete for this file.
+[2026-08-17 15:46:27] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g42715aef3a7aca64a2359eb6aad6855b\assessment_qti.xml
+[2026-08-17 15:46:27] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g4fe618c657763731d015c1af8f3a7853\w07-assignment-skills-development-document-and-video.html to HTMLTranslationBot
+[2026-08-17 15:46:27] [AuditorBot] Found 9 relevant glossary terms in text.
+[2026-08-17 15:46:28] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g4fe618c657763731d015c1af8f3a7853\assignment_settings.xml
+[2026-08-17 15:46:28] Translation complete for this file.
+[2026-08-17 15:46:28] [System] TranslatedPage: W07 Assignment: Skills Development Document and Video | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g4fe618c657763731d015c1af8f3a7853\assignment_settings.xml
+[2026-08-17 15:46:28] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g5c09943533627a9dff18221e8d213ea4\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:46:28] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:28] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:28] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:28] [XMLBot] Translating batch 1/1 (approx 43 chars)...
+[2026-08-17 15:46:31] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g5c09943533627a9dff18221e8d213ea4\assignment_settings.xml
+[2026-08-17 15:46:31] Translation complete for this file.
+[2026-08-17 15:46:31] [System] TranslatedPage: W06 Final Project: Report on Tasks | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g5c09943533627a9dff18221e8d213ea4\assignment_settings.xml
+[2026-08-17 15:46:31] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g5c09943533627a9dff18221e8d213ea4\w06-final-project-report-on-tasks.html to HTMLTranslationBot
+[2026-08-17 15:46:31] [AuditorBot] Found 7 relevant glossary terms in text.
+[2026-08-17 15:46:40] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g4fe618c657763731d015c1af8f3a7853\w07-assignment-skills-development-document-and-video.html
+[2026-08-17 15:46:40] Translation complete for this file.
+[2026-08-17 15:46:40] [System] TranslatedPage: Assignment: W07 Assignment: Skills Development Document and Video | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g4fe618c657763731d015c1af8f3a7853\w07-assignment-skills-development-document-and-video.html
+[2026-08-17 15:46:40] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g726bed2ac1b35de9131aed4371106cd0\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:46:40] [AuditorBot] Found 14 relevant glossary terms in text.
+[2026-08-17 15:46:40] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:40] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:40] [XMLBot] Translating batch 1/1 (approx 584 chars)...
+[2026-08-17 15:46:40] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g48c8689d16ea28c2e29271f4c762f5bc\w03-individual-task-s-report.html
+[2026-08-17 15:46:40] Translation complete for this file.
+[2026-08-17 15:46:40] [System] TranslatedPage: Assignment: W03 Individual Task(s): Report | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g48c8689d16ea28c2e29271f4c762f5bc\w03-individual-task-s-report.html
+[2026-08-17 15:46:40] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g726bed2ac1b35de9131aed4371106cd0\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:46:40] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:46:40] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:40] [XMLBot] Found 35 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:40] [XMLBot] Translating batch 1/1 (approx 1950 chars)...
+[2026-08-17 15:46:44] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g5c09943533627a9dff18221e8d213ea4\w06-final-project-report-on-tasks.html
+[2026-08-17 15:46:44] Translation complete for this file.
+[2026-08-17 15:46:44] [System] TranslatedPage: Assignment: W06 Final Project: Report on Tasks | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g5c09943533627a9dff18221e8d213ea4\w06-final-project-report-on-tasks.html
+[2026-08-17 15:46:44] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g759574abe91f1b96532535113c95b1b1\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:46:44] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:44] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:44] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:44] [XMLBot] Translating batch 1/1 (approx 521 chars)...
+[2026-08-17 15:46:47] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g726bed2ac1b35de9131aed4371106cd0\assessment_meta.xml
+[2026-08-17 15:46:47] Translation complete for this file.
+[2026-08-17 15:46:47] [System] TranslatedPage: W05 University Mission Feedback | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g726bed2ac1b35de9131aed4371106cd0\assessment_meta.xml
+[2026-08-17 15:46:47] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g759574abe91f1b96532535113c95b1b1\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:46:47] [AuditorBot] Found 8 relevant glossary terms in text.
+[2026-08-17 15:46:47] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:47] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:47] [XMLBot] Translating batch 1/1 (approx 532 chars)...
+[2026-08-17 15:46:50] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g759574abe91f1b96532535113c95b1b1\assessment_meta.xml
+[2026-08-17 15:46:50] Translation complete for this file.
+[2026-08-17 15:46:50] [System] TranslatedPage: W02 Individual Activity: Dynamic Product List | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g759574abe91f1b96532535113c95b1b1\assessment_meta.xml
+[2026-08-17 15:46:50] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8569f788940730aefc3db1c9e7e186c2\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:46:50] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:50] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:50] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:50] [XMLBot] Translating batch 1/1 (approx 535 chars)...
+[2026-08-17 15:46:52] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g759574abe91f1b96532535113c95b1b1\assessment_qti.xml
+[2026-08-17 15:46:52] Translation complete for this file.
+[2026-08-17 15:46:52] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g759574abe91f1b96532535113c95b1b1\assessment_qti.xml
+[2026-08-17 15:46:52] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8569f788940730aefc3db1c9e7e186c2\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:46:52] [AuditorBot] Found 8 relevant glossary terms in text.
+[2026-08-17 15:46:52] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:52] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:52] [XMLBot] Translating batch 1/1 (approx 495 chars)...
+[2026-08-17 15:46:52] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g726bed2ac1b35de9131aed4371106cd0\assessment_qti.xml
+[2026-08-17 15:46:52] Translation complete for this file.
+[2026-08-17 15:46:52] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g726bed2ac1b35de9131aed4371106cd0\assessment_qti.xml
+[2026-08-17 15:46:52] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8d47b2435ab9f77d5aaeaca8ec868d65\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:46:52] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:46:52] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:52] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:52] [XMLBot] Translating batch 1/1 (approx 388 chars)...
+[2026-08-17 15:46:57] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8569f788940730aefc3db1c9e7e186c2\assessment_meta.xml
+[2026-08-17 15:46:57] Translation complete for this file.
+[2026-08-17 15:46:57] [System] TranslatedPage: W03 Team Activity: Dynamic Header and Footer | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8569f788940730aefc3db1c9e7e186c2\assessment_meta.xml
+[2026-08-17 15:46:57] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8d47b2435ab9f77d5aaeaca8ec868d65\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:46:57] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:46:57] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:57] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:57] [XMLBot] Translating batch 1/1 (approx 670 chars)...
+[2026-08-17 15:46:59] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8d47b2435ab9f77d5aaeaca8ec868d65\assessment_meta.xml
+[2026-08-17 15:46:59] Translation complete for this file.
+[2026-08-17 15:46:59] [System] TranslatedPage: W04 60-second Status Update | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8d47b2435ab9f77d5aaeaca8ec868d65\assessment_meta.xml
+[2026-08-17 15:46:59] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g900283983607b724cae7131fdcb41662\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:46:59] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:46:59] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:59] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:59] [XMLBot] Translating batch 1/1 (approx 427 chars)...
+[2026-08-17 15:46:59] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8569f788940730aefc3db1c9e7e186c2\assessment_qti.xml
+[2026-08-17 15:46:59] Translation complete for this file.
+[2026-08-17 15:46:59] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8569f788940730aefc3db1c9e7e186c2\assessment_qti.xml
+[2026-08-17 15:46:59] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g900283983607b724cae7131fdcb41662\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:46:59] [AuditorBot] Found 9 relevant glossary terms in text.
+[2026-08-17 15:46:59] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:46:59] [XMLBot] Found 41 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:46:59] [XMLBot] Translating batch 1/1 (approx 3998 chars)...
+[2026-08-17 15:47:03] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g900283983607b724cae7131fdcb41662\assessment_meta.xml
+[2026-08-17 15:47:03] Translation complete for this file.
+[2026-08-17 15:47:03] [System] TranslatedPage: W01 Learning Activities | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g900283983607b724cae7131fdcb41662\assessment_meta.xml
+[2026-08-17 15:47:03] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9604760400aad9d474b97bd4479641a2\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:47:03] [AuditorBot] Found 12 relevant glossary terms in text.
+[2026-08-17 15:47:03] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:03] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:03] [XMLBot] Translating batch 1/1 (approx 498 chars)...
+[2026-08-17 15:47:05] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8d47b2435ab9f77d5aaeaca8ec868d65\assessment_qti.xml
+[2026-08-17 15:47:05] Translation complete for this file.
+[2026-08-17 15:47:05] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g8d47b2435ab9f77d5aaeaca8ec868d65\assessment_qti.xml
+[2026-08-17 15:47:05] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9604760400aad9d474b97bd4479641a2\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:47:05] [AuditorBot] Found 14 relevant glossary terms in text.
+[2026-08-17 15:47:05] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:05] [XMLBot] Found 55 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:05] [XMLBot] Translating batch 1/1 (approx 5243 chars)...
+[2026-08-17 15:47:10] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9604760400aad9d474b97bd4479641a2\assessment_meta.xml
+[2026-08-17 15:47:10] Translation complete for this file.
+[2026-08-17 15:47:10] [System] TranslatedPage: W02 Learning Activities | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9604760400aad9d474b97bd4479641a2\assessment_meta.xml
+[2026-08-17 15:47:10] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9e5e5c7ace5808119724e9847a1c44bb\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:47:10] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:47:10] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:10] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:10] [XMLBot] Translating batch 1/1 (approx 570 chars)...
+[2026-08-17 15:47:17] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9e5e5c7ace5808119724e9847a1c44bb\assessment_meta.xml
+[2026-08-17 15:47:17] Translation complete for this file.
+[2026-08-17 15:47:17] [System] TranslatedPage: W03 Individual Activity: Expand Inventory | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9e5e5c7ace5808119724e9847a1c44bb\assessment_meta.xml
+[2026-08-17 15:47:17] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9e5e5c7ace5808119724e9847a1c44bb\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:47:17] [AuditorBot] Found 8 relevant glossary terms in text.
+[2026-08-17 15:47:17] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:17] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:17] [XMLBot] Translating batch 1/1 (approx 495 chars)...
+[2026-08-17 15:47:21] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g900283983607b724cae7131fdcb41662\assessment_qti.xml
+[2026-08-17 15:47:21] Translation complete for this file.
+[2026-08-17 15:47:21] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g900283983607b724cae7131fdcb41662\assessment_qti.xml
+[2026-08-17 15:47:21] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga261e7b7a8831f32e37c95221f649c04\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:47:21] [AuditorBot] Found 13 relevant glossary terms in text.
+[2026-08-17 15:47:21] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:21] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:21] [XMLBot] Translating batch 1/1 (approx 37 chars)...
+[2026-08-17 15:47:22] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9e5e5c7ace5808119724e9847a1c44bb\assessment_qti.xml
+[2026-08-17 15:47:22] Translation complete for this file.
+[2026-08-17 15:47:22] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9e5e5c7ace5808119724e9847a1c44bb\assessment_qti.xml
+[2026-08-17 15:47:22] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga261e7b7a8831f32e37c95221f649c04\w07-end-of-course-evaluation.html to HTMLTranslationBot
+[2026-08-17 15:47:22] [AuditorBot] Found 7 relevant glossary terms in text.
+[2026-08-17 15:47:26] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga261e7b7a8831f32e37c95221f649c04\assignment_settings.xml
+[2026-08-17 15:47:26] Translation complete for this file.
+[2026-08-17 15:47:26] [System] TranslatedPage: W07 End-of-Course Evaluation | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga261e7b7a8831f32e37c95221f649c04\assignment_settings.xml
+[2026-08-17 15:47:26] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga51bc5c1945b4d72ed94869249e3c19a\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:47:26] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:47:26] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:26] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:26] [XMLBot] Translating batch 1/1 (approx 758 chars)...
+[2026-08-17 15:47:30] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga261e7b7a8831f32e37c95221f649c04\w07-end-of-course-evaluation.html
+[2026-08-17 15:47:30] Translation complete for this file.
+[2026-08-17 15:47:30] [System] TranslatedPage: Assignment: W07 End-of-Course Evaluation | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga261e7b7a8831f32e37c95221f649c04\w07-end-of-course-evaluation.html
+[2026-08-17 15:47:30] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga51bc5c1945b4d72ed94869249e3c19a\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:47:30] [AuditorBot] Found 9 relevant glossary terms in text.
+[2026-08-17 15:47:30] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:30] [XMLBot] Found 12 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:30] [XMLBot] Translating batch 1/1 (approx 958 chars)...
+[2026-08-17 15:47:32] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9604760400aad9d474b97bd4479641a2\assessment_qti.xml
+[2026-08-17 15:47:32] Translation complete for this file.
+[2026-08-17 15:47:32] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\g9604760400aad9d474b97bd4479641a2\assessment_qti.xml
+[2026-08-17 15:47:32] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga756e649ddd372da05a62664f3704997\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:47:32] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:47:32] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:32] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:32] [XMLBot] Translating batch 1/1 (approx 592 chars)...
+[2026-08-17 15:47:34] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga51bc5c1945b4d72ed94869249e3c19a\assessment_meta.xml
+[2026-08-17 15:47:34] Translation complete for this file.
+[2026-08-17 15:47:34] [System] TranslatedPage: W02 Team Activity: Dynamic Product Details Page | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga51bc5c1945b4d72ed94869249e3c19a\assessment_meta.xml
+[2026-08-17 15:47:34] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga756e649ddd372da05a62664f3704997\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:47:34] [AuditorBot] Found 8 relevant glossary terms in text.
+[2026-08-17 15:47:34] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:34] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:34] [XMLBot] Translating batch 1/1 (approx 495 chars)...
+[2026-08-17 15:47:37] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga51bc5c1945b4d72ed94869249e3c19a\assessment_qti.xml
+[2026-08-17 15:47:37] Translation complete for this file.
+[2026-08-17 15:47:37] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga51bc5c1945b4d72ed94869249e3c19a\assessment_qti.xml
+[2026-08-17 15:47:37] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad40b5b6e093217e6b9ae0fb83bf9f9f\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:47:37] [AuditorBot] Found 13 relevant glossary terms in text.
+[2026-08-17 15:47:37] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:37] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:37] [XMLBot] Translating batch 1/1 (approx 816 chars)...
+[2026-08-17 15:47:38] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga756e649ddd372da05a62664f3704997\assessment_meta.xml
+[2026-08-17 15:47:38] Translation complete for this file.
+[2026-08-17 15:47:38] [System] TranslatedPage: W04 Individual Activity: Error Checking and Validation | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga756e649ddd372da05a62664f3704997\assessment_meta.xml
+[2026-08-17 15:47:38] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad40b5b6e093217e6b9ae0fb83bf9f9f\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:47:38] [AuditorBot] Found 16 relevant glossary terms in text.
+[2026-08-17 15:47:38] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:38] [XMLBot] Found 23 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:38] [XMLBot] Translating batch 1/1 (approx 2090 chars)...
+[2026-08-17 15:47:40] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga756e649ddd372da05a62664f3704997\assessment_qti.xml
+[2026-08-17 15:47:40] Translation complete for this file.
+[2026-08-17 15:47:40] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ga756e649ddd372da05a62664f3704997\assessment_qti.xml
+[2026-08-17 15:47:40] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad683b2887ce18c573a60336ca0d37f8\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:47:40] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:47:40] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:40] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:40] [XMLBot] Translating batch 1/1 (approx 38 chars)...
+[2026-08-17 15:47:43] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad683b2887ce18c573a60336ca0d37f8\assignment_settings.xml
+[2026-08-17 15:47:43] Translation complete for this file.
+[2026-08-17 15:47:43] [System] TranslatedPage: W03 Final Project: Brainstorm | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad683b2887ce18c573a60336ca0d37f8\assignment_settings.xml
+[2026-08-17 15:47:43] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad683b2887ce18c573a60336ca0d37f8\w03-final-project-brainstorm.html to HTMLTranslationBot
+[2026-08-17 15:47:43] [AuditorBot] Found 5 relevant glossary terms in text.
+[2026-08-17 15:47:47] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad40b5b6e093217e6b9ae0fb83bf9f9f\assessment_meta.xml
+[2026-08-17 15:47:47] Translation complete for this file.
+[2026-08-17 15:47:47] [System] TranslatedPage: W01 Quiz: Course Expectations | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad40b5b6e093217e6b9ae0fb83bf9f9f\assessment_meta.xml
+[2026-08-17 15:47:47] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gafb1afc24504e93a3a1fd3dd98c32246\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:47:47] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:47:47] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:47] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:47] [XMLBot] Translating batch 1/1 (approx 39 chars)...
+[2026-08-17 15:47:49] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gafb1afc24504e93a3a1fd3dd98c32246\assignment_settings.xml
+[2026-08-17 15:47:49] Translation complete for this file.
+[2026-08-17 15:47:49] [System] TranslatedPage: W02 Individual Task(s): Report | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gafb1afc24504e93a3a1fd3dd98c32246\assignment_settings.xml
+[2026-08-17 15:47:49] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gafb1afc24504e93a3a1fd3dd98c32246\w02-individual-task-s-report.html to HTMLTranslationBot
+[2026-08-17 15:47:49] [AuditorBot] Found 12 relevant glossary terms in text.
+[2026-08-17 15:47:52] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad683b2887ce18c573a60336ca0d37f8\w03-final-project-brainstorm.html
+[2026-08-17 15:47:52] Translation complete for this file.
+[2026-08-17 15:47:52] [System] TranslatedPage: Assignment: W03 Final Project: Brainstorm | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad683b2887ce18c573a60336ca0d37f8\w03-final-project-brainstorm.html
+[2026-08-17 15:47:52] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gb226933e8c0e43209f582257d825b81c\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:47:52] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:47:52] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:52] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:52] [XMLBot] Translating batch 1/1 (approx 529 chars)...
+[2026-08-17 15:47:58] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gb226933e8c0e43209f582257d825b81c\assessment_meta.xml
+[2026-08-17 15:47:58] Translation complete for this file.
+[2026-08-17 15:47:58] [System] TranslatedPage: W01 Individual Activity: Add Item to Cart | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gb226933e8c0e43209f582257d825b81c\assessment_meta.xml
+[2026-08-17 15:47:58] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gb226933e8c0e43209f582257d825b81c\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:47:58] [AuditorBot] Found 6 relevant glossary terms in text.
+[2026-08-17 15:47:58] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:47:58] [XMLBot] Found 6 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:47:58] [XMLBot] Translating batch 1/1 (approx 344 chars)...
+[2026-08-17 15:48:00] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad40b5b6e093217e6b9ae0fb83bf9f9f\assessment_qti.xml
+[2026-08-17 15:48:00] Translation complete for this file.
+[2026-08-17 15:48:00] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gad40b5b6e093217e6b9ae0fb83bf9f9f\assessment_qti.xml
+[2026-08-17 15:48:00] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gc6ea87469948d0e2bc4f4e790dbf34b5\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:48:00] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:48:00] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:00] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:00] [XMLBot] Translating batch 1/1 (approx 465 chars)...
+[2026-08-17 15:48:03] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gb226933e8c0e43209f582257d825b81c\assessment_qti.xml
+[2026-08-17 15:48:03] Translation complete for this file.
+[2026-08-17 15:48:03] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gb226933e8c0e43209f582257d825b81c\assessment_qti.xml
+[2026-08-17 15:48:03] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gc6ea87469948d0e2bc4f4e790dbf34b5\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:48:03] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:48:03] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:03] [XMLBot] Found 59 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:03] [XMLBot] Translating batch 1/1 (approx 7830 chars)...
+[2026-08-17 15:48:06] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gc6ea87469948d0e2bc4f4e790dbf34b5\assessment_meta.xml
+[2026-08-17 15:48:06] Translation complete for this file.
+[2026-08-17 15:48:06] [System] TranslatedPage: W04 Learning Activities | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gc6ea87469948d0e2bc4f4e790dbf34b5\assessment_meta.xml
+[2026-08-17 15:48:06] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gd30038c345812bc5f6ab4779d2ebd14d\assignment_settings.xml to XMLTranslationBot
+[2026-08-17 15:48:06] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:48:06] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:06] [XMLBot] Found 1 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:06] [XMLBot] Translating batch 1/1 (approx 43 chars)...
+[2026-08-17 15:48:08] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gd30038c345812bc5f6ab4779d2ebd14d\assignment_settings.xml
+[2026-08-17 15:48:08] Translation complete for this file.
+[2026-08-17 15:48:08] [System] TranslatedPage: W05 Final Project: Report on Tasks | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gd30038c345812bc5f6ab4779d2ebd14d\assignment_settings.xml
+[2026-08-17 15:48:08] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gd30038c345812bc5f6ab4779d2ebd14d\w05-final-project-report-on-tasks.html to HTMLTranslationBot
+[2026-08-17 15:48:08] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:48:10] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gafb1afc24504e93a3a1fd3dd98c32246\w02-individual-task-s-report.html
+[2026-08-17 15:48:10] Translation complete for this file.
+[2026-08-17 15:48:10] [System] TranslatedPage: Assignment: W02 Individual Task(s): Report | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gafb1afc24504e93a3a1fd3dd98c32246\w02-individual-task-s-report.html
+[2026-08-17 15:48:10] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gdd18bf5c12756aa772dea8a35ebf626b\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:48:10] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:48:10] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:10] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:10] [XMLBot] Translating batch 1/1 (approx 546 chars)...
+[2026-08-17 15:48:16] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gdd18bf5c12756aa772dea8a35ebf626b\assessment_meta.xml
+[2026-08-17 15:48:16] Translation complete for this file.
+[2026-08-17 15:48:16] [System] TranslatedPage: W05 Learning Activities | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gdd18bf5c12756aa772dea8a35ebf626b\assessment_meta.xml
+[2026-08-17 15:48:16] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gdd18bf5c12756aa772dea8a35ebf626b\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:48:16] [AuditorBot] Found 9 relevant glossary terms in text.
+[2026-08-17 15:48:16] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:16] [XMLBot] Found 40 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:16] [XMLBot] Translating batch 1/1 (approx 4143 chars)...
+[2026-08-17 15:48:23] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gd30038c345812bc5f6ab4779d2ebd14d\w05-final-project-report-on-tasks.html
+[2026-08-17 15:48:23] Translation complete for this file.
+[2026-08-17 15:48:23] [System] TranslatedPage: Assignment: W05 Final Project: Report on Tasks | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gd30038c345812bc5f6ab4779d2ebd14d\w05-final-project-report-on-tasks.html
+[2026-08-17 15:48:23] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ge5119d06e489f2f62c26677e3553e546\assessment_meta.xml to XMLTranslationBot
+[2026-08-17 15:48:23] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:48:23] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:23] [XMLBot] Found 3 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:23] [XMLBot] Translating batch 1/1 (approx 388 chars)...
+[2026-08-17 15:48:30] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ge5119d06e489f2f62c26677e3553e546\assessment_meta.xml
+[2026-08-17 15:48:30] Translation complete for this file.
+[2026-08-17 15:48:30] [System] TranslatedPage: W03 60-second Status Update | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ge5119d06e489f2f62c26677e3553e546\assessment_meta.xml
+[2026-08-17 15:48:30] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ge5119d06e489f2f62c26677e3553e546\assessment_qti.xml to XMLTranslationBot
+[2026-08-17 15:48:30] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:48:30] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:30] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:30] [XMLBot] Translating batch 1/1 (approx 670 chars)...
+[2026-08-17 15:48:33] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gc6ea87469948d0e2bc4f4e790dbf34b5\assessment_qti.xml
+[2026-08-17 15:48:33] Translation complete for this file.
+[2026-08-17 15:48:33] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gc6ea87469948d0e2bc4f4e790dbf34b5\assessment_qti.xml
+[2026-08-17 15:48:33] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g00755eff8c0c35a16425cdcd7134724d.xml.qti to XMLTranslationBot
+[2026-08-17 15:48:33] [AuditorBot] Found 14 relevant glossary terms in text.
+[2026-08-17 15:48:33] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:33] [XMLBot] Found 64 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:33] [XMLBot] Translating batch 1/2 (approx 7625 chars)...
+[2026-08-17 15:48:39] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gdd18bf5c12756aa772dea8a35ebf626b\assessment_qti.xml
+[2026-08-17 15:48:39] Translation complete for this file.
+[2026-08-17 15:48:39] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\gdd18bf5c12756aa772dea8a35ebf626b\assessment_qti.xml
+[2026-08-17 15:48:39] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g068b5cd7bfb2c95c6bc796948251334d.xml.qti to XMLTranslationBot
+[2026-08-17 15:48:39] [AuditorBot] Found 8 relevant glossary terms in text.
+[2026-08-17 15:48:39] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:39] [XMLBot] Found 12 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:39] [XMLBot] Translating batch 1/1 (approx 749 chars)...
+[2026-08-17 15:48:39] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ge5119d06e489f2f62c26677e3553e546\assessment_qti.xml
+[2026-08-17 15:48:39] Translation complete for this file.
+[2026-08-17 15:48:39] [System] TranslatedPage: assessment_qti | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\ge5119d06e489f2f62c26677e3553e546\assessment_qti.xml
+[2026-08-17 15:48:39] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g13188462b95852b58abd53f0e65d0f97.xml.qti to XMLTranslationBot
+[2026-08-17 15:48:39] [AuditorBot] Found 8 relevant glossary terms in text.
+[2026-08-17 15:48:39] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:39] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:39] [XMLBot] Translating batch 1/1 (approx 488 chars)...
+[2026-08-17 15:48:45] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g13188462b95852b58abd53f0e65d0f97.xml.qti
+[2026-08-17 15:48:45] Translation complete for this file.
+[2026-08-17 15:48:45] [System] TranslatedPage: g13188462b95852b58abd53f0e65d0f97.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g13188462b95852b58abd53f0e65d0f97.xml.qti
+[2026-08-17 15:48:45] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g183d9bccaeba9185432063ff1538e0ce.xml.qti to XMLTranslationBot
+[2026-08-17 15:48:45] [AuditorBot] Found 6 relevant glossary terms in text.
+[2026-08-17 15:48:45] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:45] [XMLBot] Found 10 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:45] [XMLBot] Translating batch 1/1 (approx 583 chars)...
+[2026-08-17 15:48:45] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g068b5cd7bfb2c95c6bc796948251334d.xml.qti
+[2026-08-17 15:48:45] Translation complete for this file.
+[2026-08-17 15:48:45] [System] TranslatedPage: g068b5cd7bfb2c95c6bc796948251334d.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g068b5cd7bfb2c95c6bc796948251334d.xml.qti
+[2026-08-17 15:48:45] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g1992a2e7b5c5104f0fc5296a15f61610.xml.qti to XMLTranslationBot
+[2026-08-17 15:48:46] [AuditorBot] Found 24 relevant glossary terms in text.
+[2026-08-17 15:48:46] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:46] [API Utils] Unexpected error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:48:46] [ImageBot] Error translating alt text: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:48:46] [XMLBot] Found 207 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:46] [XMLBot] Translating batch 1/4 (approx 7601 chars)...
+[2026-08-17 15:48:51] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g183d9bccaeba9185432063ff1538e0ce.xml.qti
+[2026-08-17 15:48:51] Translation complete for this file.
+[2026-08-17 15:48:51] [System] TranslatedPage: g183d9bccaeba9185432063ff1538e0ce.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g183d9bccaeba9185432063ff1538e0ce.xml.qti
+[2026-08-17 15:48:51] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g42715aef3a7aca64a2359eb6aad6855b.xml.qti to XMLTranslationBot
+[2026-08-17 15:48:51] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:48:51] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:48:51] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:48:51] [XMLBot] Translating batch 1/1 (approx 644 chars)...
+[2026-08-17 15:48:55] [XMLBot] Translating batch 2/2 (approx 2674 chars)...
+[2026-08-17 15:49:01] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g42715aef3a7aca64a2359eb6aad6855b.xml.qti
+[2026-08-17 15:49:01] Translation complete for this file.
+[2026-08-17 15:49:01] [System] TranslatedPage: g42715aef3a7aca64a2359eb6aad6855b.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g42715aef3a7aca64a2359eb6aad6855b.xml.qti
+[2026-08-17 15:49:01] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g56797354c45c5af58e455a60f4aafd66.xml.qti to XMLTranslationBot
+[2026-08-17 15:49:01] [AuditorBot] Found 7 relevant glossary terms in text.
+[2026-08-17 15:49:01] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:49:01] [XMLBot] Found 27 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:49:01] [XMLBot] Translating batch 1/1 (approx 2337 chars)...
+[2026-08-17 15:49:07] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g00755eff8c0c35a16425cdcd7134724d.xml.qti
+[2026-08-17 15:49:07] Translation complete for this file.
+[2026-08-17 15:49:07] [System] TranslatedPage: g00755eff8c0c35a16425cdcd7134724d.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g00755eff8c0c35a16425cdcd7134724d.xml.qti
+[2026-08-17 15:49:07] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g726bed2ac1b35de9131aed4371106cd0.xml.qti to XMLTranslationBot
+[2026-08-17 15:49:07] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:49:07] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:49:07] [XMLBot] Found 35 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:49:07] [XMLBot] Translating batch 1/1 (approx 1950 chars)...
+[2026-08-17 15:49:10] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g56797354c45c5af58e455a60f4aafd66.xml.qti
+[2026-08-17 15:49:10] Translation complete for this file.
+[2026-08-17 15:49:10] [System] TranslatedPage: g56797354c45c5af58e455a60f4aafd66.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g56797354c45c5af58e455a60f4aafd66.xml.qti
+[2026-08-17 15:49:10] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g73a75bdb5ae979dfe1649f3f96c7efb5.xml.qti to XMLTranslationBot
+[2026-08-17 15:49:10] [AuditorBot] Found 12 relevant glossary terms in text.
+[2026-08-17 15:49:10] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:49:10] [XMLBot] Found 56 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:49:10] [XMLBot] Translating batch 1/1 (approx 4198 chars)...
+[2026-08-17 15:49:14] [XMLBot] Translating batch 2/4 (approx 7582 chars)...
+[2026-08-17 15:49:18] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g726bed2ac1b35de9131aed4371106cd0.xml.qti
+[2026-08-17 15:49:18] Translation complete for this file.
+[2026-08-17 15:49:18] [System] TranslatedPage: g726bed2ac1b35de9131aed4371106cd0.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g726bed2ac1b35de9131aed4371106cd0.xml.qti
+[2026-08-17 15:49:18] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g759574abe91f1b96532535113c95b1b1.xml.qti to XMLTranslationBot
+[2026-08-17 15:49:18] [AuditorBot] Found 7 relevant glossary terms in text.
+[2026-08-17 15:49:18] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:49:18] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:49:18] [XMLBot] Translating batch 1/1 (approx 532 chars)...
+[2026-08-17 15:49:25] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g759574abe91f1b96532535113c95b1b1.xml.qti
+[2026-08-17 15:49:25] Translation complete for this file.
+[2026-08-17 15:49:25] [System] TranslatedPage: g759574abe91f1b96532535113c95b1b1.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g759574abe91f1b96532535113c95b1b1.xml.qti
+[2026-08-17 15:49:25] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g8569f788940730aefc3db1c9e7e186c2.xml.qti to XMLTranslationBot
+[2026-08-17 15:49:25] [AuditorBot] Found 7 relevant glossary terms in text.
+[2026-08-17 15:49:25] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:49:25] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:49:25] [XMLBot] Translating batch 1/1 (approx 495 chars)...
+[2026-08-17 15:49:31] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g8569f788940730aefc3db1c9e7e186c2.xml.qti
+[2026-08-17 15:49:31] Translation complete for this file.
+[2026-08-17 15:49:31] [System] TranslatedPage: g8569f788940730aefc3db1c9e7e186c2.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g8569f788940730aefc3db1c9e7e186c2.xml.qti
+[2026-08-17 15:49:31] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g8d47b2435ab9f77d5aaeaca8ec868d65.xml.qti to XMLTranslationBot
+[2026-08-17 15:49:31] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:49:31] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:49:31] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:49:31] [XMLBot] Translating batch 1/1 (approx 670 chars)...
+[2026-08-17 15:49:39] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g8d47b2435ab9f77d5aaeaca8ec868d65.xml.qti
+[2026-08-17 15:49:39] Translation complete for this file.
+[2026-08-17 15:49:39] [System] TranslatedPage: g8d47b2435ab9f77d5aaeaca8ec868d65.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g8d47b2435ab9f77d5aaeaca8ec868d65.xml.qti
+[2026-08-17 15:49:39] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g900283983607b724cae7131fdcb41662.xml.qti to XMLTranslationBot
+[2026-08-17 15:49:39] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:49:39] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:49:39] [XMLBot] Found 73 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:49:39] [XMLBot] Translating batch 1/1 (approx 6542 chars)...
+[2026-08-17 15:49:46] [XMLBot] Translating batch 3/4 (approx 8008 chars)...
+[2026-08-17 15:49:58] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g73a75bdb5ae979dfe1649f3f96c7efb5.xml.qti
+[2026-08-17 15:49:58] Translation complete for this file.
+[2026-08-17 15:49:58] [System] TranslatedPage: g73a75bdb5ae979dfe1649f3f96c7efb5.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g73a75bdb5ae979dfe1649f3f96c7efb5.xml.qti
+[2026-08-17 15:49:58] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g9604760400aad9d474b97bd4479641a2.xml.qti to XMLTranslationBot
+[2026-08-17 15:49:58] [AuditorBot] Found 13 relevant glossary terms in text.
+[2026-08-17 15:49:58] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:49:58] [XMLBot] Found 55 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:49:58] [XMLBot] Translating batch 1/1 (approx 5243 chars)...
+[2026-08-17 15:50:06] [XMLBot] Translating batch 4/4 (approx 2019 chars)...
+[2026-08-17 15:50:11] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g900283983607b724cae7131fdcb41662.xml.qti
+[2026-08-17 15:50:11] Translation complete for this file.
+[2026-08-17 15:50:11] [System] TranslatedPage: g900283983607b724cae7131fdcb41662.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g900283983607b724cae7131fdcb41662.xml.qti
+[2026-08-17 15:50:11] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g9bb52a0ea3c7220bea3c6a202a111b77.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:11] [AuditorBot] Found 18 relevant glossary terms in text.
+[2026-08-17 15:50:11] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:11] [XMLBot] Found 89 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:11] [XMLBot] Translating batch 1/1 (approx 5807 chars)...
+[2026-08-17 15:50:19] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g1992a2e7b5c5104f0fc5296a15f61610.xml.qti
+[2026-08-17 15:50:19] Translation complete for this file.
+[2026-08-17 15:50:19] [System] TranslatedPage: g1992a2e7b5c5104f0fc5296a15f61610.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g1992a2e7b5c5104f0fc5296a15f61610.xml.qti
+[2026-08-17 15:50:19] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g9e5e5c7ace5808119724e9847a1c44bb.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:19] [AuditorBot] Found 7 relevant glossary terms in text.
+[2026-08-17 15:50:19] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:19] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:19] [XMLBot] Translating batch 1/1 (approx 495 chars)...
+[2026-08-17 15:50:23] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g9604760400aad9d474b97bd4479641a2.xml.qti
+[2026-08-17 15:50:23] Translation complete for this file.
+[2026-08-17 15:50:23] [System] TranslatedPage: g9604760400aad9d474b97bd4479641a2.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g9604760400aad9d474b97bd4479641a2.xml.qti
+[2026-08-17 15:50:23] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ga08a79aa90c085885586d9908f6c3951.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:23] [AuditorBot] Found 6 relevant glossary terms in text.
+[2026-08-17 15:50:23] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:23] [XMLBot] Found 12 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:23] [XMLBot] Translating batch 1/1 (approx 1129 chars)...
+[2026-08-17 15:50:24] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g9e5e5c7ace5808119724e9847a1c44bb.xml.qti
+[2026-08-17 15:50:24] Translation complete for this file.
+[2026-08-17 15:50:24] [System] TranslatedPage: g9e5e5c7ace5808119724e9847a1c44bb.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g9e5e5c7ace5808119724e9847a1c44bb.xml.qti
+[2026-08-17 15:50:24] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ga51bc5c1945b4d72ed94869249e3c19a.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:24] [AuditorBot] Found 8 relevant glossary terms in text.
+[2026-08-17 15:50:24] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:24] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ga756e649ddd372da05a62664f3704997.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:24] [AuditorBot] Found 7 relevant glossary terms in text.
+[2026-08-17 15:50:24] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:24] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:24] [XMLBot] Translating batch 1/1 (approx 495 chars)...
+[2026-08-17 15:50:30] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ga756e649ddd372da05a62664f3704997.xml.qti
+[2026-08-17 15:50:30] Translation complete for this file.
+[2026-08-17 15:50:30] [System] TranslatedPage: ga756e649ddd372da05a62664f3704997.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ga756e649ddd372da05a62664f3704997.xml.qti
+[2026-08-17 15:50:30] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gad40b5b6e093217e6b9ae0fb83bf9f9f.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:30] [AuditorBot] Found 15 relevant glossary terms in text.
+[2026-08-17 15:50:30] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:30] [XMLBot] Found 23 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:30] [XMLBot] Translating batch 1/1 (approx 2090 chars)...
+[2026-08-17 15:50:32] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ga08a79aa90c085885586d9908f6c3951.xml.qti
+[2026-08-17 15:50:32] Translation complete for this file.
+[2026-08-17 15:50:32] [System] TranslatedPage: ga08a79aa90c085885586d9908f6c3951.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ga08a79aa90c085885586d9908f6c3951.xml.qti
+[2026-08-17 15:50:32] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gb226933e8c0e43209f582257d825b81c.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:32] [AuditorBot] Found 5 relevant glossary terms in text.
+[2026-08-17 15:50:32] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:32] [XMLBot] Found 6 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:32] [XMLBot] Translating batch 1/1 (approx 344 chars)...
+[2026-08-17 15:50:36] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gb226933e8c0e43209f582257d825b81c.xml.qti
+[2026-08-17 15:50:36] Translation complete for this file.
+[2026-08-17 15:50:36] [System] TranslatedPage: gb226933e8c0e43209f582257d825b81c.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gb226933e8c0e43209f582257d825b81c.xml.qti
+[2026-08-17 15:50:36] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gbf060edccd8f55ac2cae801b7462d967.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:36] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:50:36] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:36] [XMLBot] Found 50 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:36] [XMLBot] Translating batch 1/1 (approx 2802 chars)...
+[2026-08-17 15:50:45] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g9bb52a0ea3c7220bea3c6a202a111b77.xml.qti
+[2026-08-17 15:50:45] Translation complete for this file.
+[2026-08-17 15:50:45] [System] TranslatedPage: g9bb52a0ea3c7220bea3c6a202a111b77.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\g9bb52a0ea3c7220bea3c6a202a111b77.xml.qti
+[2026-08-17 15:50:45] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gc6ea87469948d0e2bc4f4e790dbf34b5.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:45] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:50:45] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:45] [XMLBot] Found 59 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:45] [XMLBot] Translating batch 1/1 (approx 7830 chars)...
+[2026-08-17 15:50:51] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gad40b5b6e093217e6b9ae0fb83bf9f9f.xml.qti
+[2026-08-17 15:50:51] Translation complete for this file.
+[2026-08-17 15:50:51] [System] TranslatedPage: gad40b5b6e093217e6b9ae0fb83bf9f9f.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gad40b5b6e093217e6b9ae0fb83bf9f9f.xml.qti
+[2026-08-17 15:50:51] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gdd18bf5c12756aa772dea8a35ebf626b.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:51] [AuditorBot] Found 8 relevant glossary terms in text.
+[2026-08-17 15:50:51] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:51] [XMLBot] Found 40 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:51] [XMLBot] Translating batch 1/1 (approx 4143 chars)...
+[2026-08-17 15:50:55] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gbf060edccd8f55ac2cae801b7462d967.xml.qti
+[2026-08-17 15:50:55] Translation complete for this file.
+[2026-08-17 15:50:55] [System] TranslatedPage: gbf060edccd8f55ac2cae801b7462d967.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gbf060edccd8f55ac2cae801b7462d967.xml.qti
+[2026-08-17 15:50:55] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ge5119d06e489f2f62c26677e3553e546.xml.qti to XMLTranslationBot
+[2026-08-17 15:50:55] [AuditorBot] Found 10 relevant glossary terms in text.
+[2026-08-17 15:50:55] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:50:55] [XMLBot] Found 8 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:50:55] [XMLBot] Translating batch 1/1 (approx 670 chars)...
+[2026-08-17 15:51:03] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ge5119d06e489f2f62c26677e3553e546.xml.qti
+[2026-08-17 15:51:03] Translation complete for this file.
+[2026-08-17 15:51:03] [System] TranslatedPage: ge5119d06e489f2f62c26677e3553e546.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\ge5119d06e489f2f62c26677e3553e546.xml.qti
+[2026-08-17 15:51:03] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gf8a20cf166119dc4af6639b87c0a3c91.xml.qti to XMLTranslationBot
+[2026-08-17 15:51:03] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:51:03] [XMLBot] Parsing XML safely with BeautifulSoup...
+[2026-08-17 15:51:03] [XMLBot] Found 95 translatable nodes. Processing via character-based JSON batches...
+[2026-08-17 15:51:03] [XMLBot] Translating batch 1/2 (approx 7294 chars)...
+[2026-08-17 15:51:10] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gdd18bf5c12756aa772dea8a35ebf626b.xml.qti
+[2026-08-17 15:51:10] Translation complete for this file.
+[2026-08-17 15:51:10] [System] TranslatedPage: gdd18bf5c12756aa772dea8a35ebf626b.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gdd18bf5c12756aa772dea8a35ebf626b.xml.qti
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'png': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\assessment_questions\image.png
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'jpg': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\course_image\Dashboard.jpg
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'png': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\media\How to be Successful in Online Courses.png
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'jpg': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\template\HomeImage.jpg
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'jpg': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\Uploaded Media\comments1.jpg
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'png': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\Uploaded Media\image.png
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'jpg': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\Uploaded Media\inbox2.jpg
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'png': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\Uploaded Media\Student Support FAML220.png
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'svg': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\Uploaded Media\SyllabusHeavyComputing.svg
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'png': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\Uploaded Media\TNContactList.png
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'png': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\Uploaded Media\TNPortalSupport.png
+[2026-08-17 15:51:10] Skipping unsupported file architecture for extension 'png': C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\web_resources\Uploaded Media\TNTrackingExample.png
+[2026-08-17 15:51:10] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\attention-messaging-instructors-and-graders.html to HTMLTranslationBot
+[2026-08-17 15:51:10] [AuditorBot] Found 11 relevant glossary terms in text.
+[2026-08-17 15:51:11] [API Utils] Unexpected error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:51:11] [ImageBot] Error translating alt text: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:51:11] [API Utils] Unexpected error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:51:11] [ImageBot] Error translating alt text: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:51:13] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gc6ea87469948d0e2bc4f4e790dbf34b5.xml.qti
+[2026-08-17 15:51:13] Translation complete for this file.
+[2026-08-17 15:51:13] [System] TranslatedPage: gc6ea87469948d0e2bc4f4e790dbf34b5.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gc6ea87469948d0e2bc4f4e790dbf34b5.xml.qti
+[2026-08-17 15:51:13] Skipping setup notes page: C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\setup-notes-and-course-settings.html
+[2026-08-17 15:51:13] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\teaching-notes-and-outreach.html to HTMLTranslationBot
+[2026-08-17 15:51:13] [AuditorBot] Found 54 relevant glossary terms in text.
+[2026-08-17 15:51:14] [API Utils] Unexpected error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:51:14] [ImageBot] Error translating alt text: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:51:14] [API Utils] Unexpected error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:51:14] [ImageBot] Error translating alt text: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.
+[2026-08-17 15:51:26] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\attention-messaging-instructors-and-graders.html
+[2026-08-17 15:51:26] Translation complete for this file.
+[2026-08-17 15:51:26] [System] TranslatedPage: Attention: Messaging Instructors and Graders | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\attention-messaging-instructors-and-graders.html
+[2026-08-17 15:51:26] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w01-assignment-start-your-development-documents.html to HTMLTranslationBot
+[2026-08-17 15:51:26] [AuditorBot] Found 9 relevant glossary terms in text.
+[2026-08-17 15:51:30] [XMLBot] Translating batch 2/2 (approx 7443 chars)...
+[2026-08-17 15:51:43] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w01-assignment-start-your-development-documents.html
+[2026-08-17 15:51:44] Translation complete for this file.
+[2026-08-17 15:51:44] [System] TranslatedPage: W01 Assignment: Start your Development Documents | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w01-assignment-start-your-development-documents.html
+[2026-08-17 15:51:44] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w01-setup-team-sign-up.html to HTMLTranslationBot
+[2026-08-17 15:51:44] [AuditorBot] Found 9 relevant glossary terms in text.
+[2026-08-17 15:52:00] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gf8a20cf166119dc4af6639b87c0a3c91.xml.qti
+[2026-08-17 15:52:00] Translation complete for this file.
+[2026-08-17 15:52:00] [System] TranslatedPage: gf8a20cf166119dc4af6639b87c0a3c91.xml | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\non_cc_assessments\gf8a20cf166119dc4af6639b87c0a3c91.xml.qti
+[2026-08-17 15:52:00] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w01-setup-tools.html to HTMLTranslationBot
+[2026-08-17 15:52:00] [AuditorBot] Found 3 relevant glossary terms in text.
+[2026-08-17 15:52:09] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w01-setup-tools.html
+[2026-08-17 15:52:09] Translation complete for this file.
+[2026-08-17 15:52:09] [System] TranslatedPage: W01 Setup: Tools | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w01-setup-tools.html
+[2026-08-17 15:52:09] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w05-final-project-work.html to HTMLTranslationBot
+[2026-08-17 15:52:09] [AuditorBot] Found 6 relevant glossary terms in text.
+[2026-08-17 15:52:21] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w05-final-project-work.html
+[2026-08-17 15:52:21] Translation complete for this file.
+[2026-08-17 15:52:21] [System] TranslatedPage: W05 Final Project: Work | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w05-final-project-work.html
+[2026-08-17 15:52:21] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w06-final-project-work.html to HTMLTranslationBot
+[2026-08-17 15:52:21] [AuditorBot] Found 6 relevant glossary terms in text.
+[2026-08-17 15:52:26] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w01-setup-team-sign-up.html
+[2026-08-17 15:52:26] Translation complete for this file.
+[2026-08-17 15:52:26] [System] TranslatedPage: W01 Setup: Team Sign-up | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w01-setup-team-sign-up.html
+[2026-08-17 15:52:40] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w06-final-project-work.html
+[2026-08-17 15:52:40] Translation complete for this file.
+[2026-08-17 15:52:40] [System] TranslatedPage: W06 Final Project: Work | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\w06-final-project-work.html
+[2026-08-17 15:53:36] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\teaching-notes-and-outreach.html
+[2026-08-17 15:53:36] Translation complete for this file.
+[2026-08-17 15:53:36] [System] TranslatedPage: Teaching Notes and Outreach | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\teaching-notes-and-outreach.html

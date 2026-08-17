@@ -285,7 +285,9 @@ class TranslationController:
         print("Press Enter to check off each item.\n")
         
         checklist = [
+            "Import the translated .imscc course package into Canvas.",
             "Go to Course Settings > Feature Options and DISABLE 'Improved Rubrics' (Rubricas melhoradas / Rúbricas mejoradas).",
+            "Remind Jenn Hunter to check the Setup Page.",
             "Review the Translation Dashboard Report (in the Reports folder) for any warnings or untranslated items."
         ]
         
