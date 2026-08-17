@@ -35,10 +35,17 @@ class TranslationController:
         
         self.log_lock = threading.Lock()
         
+        self.workspace = WorkspaceManager(self.target_language, self.hub_dir, input_dir, imscc_path)
+        default_root = self.instructions.get("project_overview", {}).get("root_directory", "career-development-english-master-export")
+        workspace_dir = None
+        if self.workspace.setup_workspace(default_root):
+            self.workspace.extract_course_info(self._log)
+            workspace_dir = self.workspace.output_dir
+            
         self.bots = {
-            "html": HTMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock),
-            "xml": XMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock),
-            "qti": XMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock), 
+            "html": HTMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock, workspace_dir=workspace_dir),
+            "xml": XMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock, workspace_dir=workspace_dir),
+            "qti": XMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock, workspace_dir=workspace_dir), 
             "txt": TextTranslationBot(target_language=self.target_language, log_lock=self.log_lock)
         }
         
@@ -46,11 +53,6 @@ class TranslationController:
         self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New Session (Target: {self.target_language}) ---\n")
-            
-        self.workspace = WorkspaceManager(self.target_language, self.hub_dir, input_dir, imscc_path)
-        default_root = self.instructions.get("project_overview", {}).get("root_directory", "career-development-english-master-export")
-        if self.workspace.setup_workspace(default_root):
-            self.workspace.extract_course_info(self._log)
             
         self.link_processor = LinkProcessor(self.target_language, self.app_dir, [], self.link_prompt_callback)
 
@@ -210,6 +212,10 @@ class TranslationController:
             else:
                 relevant_glossary = custom_glossary
 
+        page_title = self._extract_page_title(original_content, ext)
+        if not page_title:
+            page_title = os.path.splitext(os.path.basename(filepath))[0]
+
         if ext in ["xml", "qti"]:
             if self.target_language == "PTBR":
                 original_content = re.sub(r'\bMissing\b', 'Não Entregue', original_content)
@@ -217,11 +223,11 @@ class TranslationController:
             elif self.target_language == "SPA":
                 original_content = re.sub(r'\bMissing\b', 'No Entregado', original_content)
                 original_content = re.sub(r'\bmissing\b', 'no entregado', original_content)
-            translated_content = bot.translate_xml_content(original_content, relevant_glossary, relevant_scriptures)
+            translated_content = bot.translate_xml_content(original_content, relevant_glossary, relevant_scriptures, page_title)
         elif ext == "txt":
             translated_content = bot.translate_txt_content(original_content, relevant_glossary, relevant_scriptures)
         else:
-            translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures)
+            translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
         
         translated_content = self.link_processor.rewrite_church_links(translated_content)
         
@@ -248,9 +254,6 @@ class TranslationController:
             
         self._log("Translation complete for this file.")
         
-        page_title = self._extract_page_title(original_content, ext)
-        if not page_title:
-            page_title = os.path.splitext(os.path.basename(filepath))[0]
         self._log(f"[System] TranslatedPage: {page_title} | {filepath}")
 
     def update_excel_dashboard(self):

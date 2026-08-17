@@ -6,13 +6,15 @@ from bs4 import BeautifulSoup
 import google.generativeai as genai  # type: ignore
 
 class HTMLTranslationBot:
-    def __init__(self, api_key=None, target_language="PTBR", log_lock=None):
+    def __init__(self, api_key=None, target_language="PTBR", log_lock=None, workspace_dir=None):
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if self.api_key:
             genai.configure(api_key=self.api_key)
             self.client_ready = True
         else:
             self.client_ready = False
+            
+        self.workspace_dir = workspace_dir
             
         self.target_language = target_language
         self.model = genai.GenerativeModel("gemini-3.5-flash")
@@ -22,6 +24,11 @@ class HTMLTranslationBot:
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New HTMLBot Session (Target: {self.target_language}) ---\n")
+            
+        self.image_bot = None
+        if self.workspace_dir:
+            from bots.image_bot import ImageProcessorBot
+            self.image_bot = ImageProcessorBot(self.target_language, self.workspace_dir, self.log_lock, self.log_filepath)
 
     def _log(self, message: str):
         import datetime
@@ -40,7 +47,7 @@ class HTMLTranslationBot:
     def set_system_prompt(self, prompt: str):
         self.system_prompt = prompt
 
-    def translate_html_content(self, html_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None) -> str:
+    def translate_html_content(self, html_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None, page_title: str = "Unknown") -> str:
         if not self.client_ready:
             msg = "[HTMLBot] WARNING: No API key provided. Returning original content."
             print(msg)
@@ -57,6 +64,11 @@ class HTMLTranslationBot:
                     placeholder = f"__URL_{uuid.uuid4().hex}__"
                     url_map[placeholder] = tag[attr]
                     tag[attr] = placeholder
+                    
+        # Process images
+        if self.image_bot:
+            for img in soup.find_all('img'):
+                self.image_bot.process_image_tag(img, page_title)
                     
         protected_html = str(soup)
 
@@ -102,5 +114,6 @@ class HTMLTranslationBot:
             print(msg_size)
             self._log(msg_size)
 
-        translated_content = self.translate_html_content(content, relevant_glossary=relevant_glossary)
+        page_title = os.path.basename(filepath)
+        translated_content = self.translate_html_content(content, relevant_glossary=relevant_glossary, page_title=page_title)
         return translated_content

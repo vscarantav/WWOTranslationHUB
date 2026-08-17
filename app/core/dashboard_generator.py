@@ -137,6 +137,14 @@ class DashboardGenerator:
                         elif 'error' in message.lower() or 'exception' in message.lower():
                             entry['Status'] = 'Error'
                             entry['Event Type'] = 'Error'
+                        elif message.startswith('MissingAltText: '):
+                            entry['Event Type'] = 'Missing Alt Text'
+                            entry['Bot'] = 'ImageBot'
+                            parts = message.replace('MissingAltText: ', '').split(',', 1)
+                            if len(parts) == 2:
+                                entry['File Name'] = parts[0]
+                                entry['Message'] = parts[1]
+                            entry['Status'] = 'Warning'
                         elif 'Found references' in message or 'Found ' in message:
                             entry['Status'] = 'Success'
                             entry['Event Type'] = 'Extraction Found'
@@ -367,6 +375,26 @@ class DashboardGenerator:
                 else:
                     action_sheet.write(r_idx, 4, notes, cell_fmt)
                     
+                r_idx += 1
+
+        # SHEET 6: Missing Alt Texts
+        missing_alt_df = df[df['Event Type'] == 'Missing Alt Text'].copy()
+        
+        if not missing_alt_df.empty:
+            alt_sheet = workbook.add_worksheet('Missing Alt Texts')
+            alt_sheet.set_column('A:A', 60)
+            alt_sheet.set_column('B:B', 60)
+            alt_sheet.set_column('C:C', 30)
+            
+            alt_sheet.write('A1', 'Page Name', header_fmt)
+            alt_sheet.write('B1', 'Image Source', header_fmt)
+            alt_sheet.write('C1', 'Notes', header_fmt)
+            
+            r_idx = 1
+            for idx, row in missing_alt_df.iterrows():
+                alt_sheet.write(r_idx, 0, str(row['File Name']), cell_fmt)
+                alt_sheet.write(r_idx, 1, str(row['Message']), cell_fmt)
+                alt_sheet.write(r_idx, 2, "FIX EN Course", warning_fmt)
                 r_idx += 1
 
         workbook.close()

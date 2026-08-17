@@ -7,13 +7,15 @@ from bs4 import BeautifulSoup, CData
 import google.generativeai as genai  # type: ignore
 
 class XMLTranslationBot:
-    def __init__(self, api_key=None, target_language="PTBR", log_lock=None):
+    def __init__(self, api_key=None, target_language="PTBR", log_lock=None, workspace_dir=None):
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if self.api_key:
             genai.configure(api_key=self.api_key)
             self.client_ready = True
         else:
             self.client_ready = False
+            
+        self.workspace_dir = workspace_dir
             
         self.target_language = target_language
         self.log_lock = log_lock
@@ -25,6 +27,11 @@ class XMLTranslationBot:
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
         with open(self.log_filepath, "a", encoding="utf-8") as f:
             f.write(f"\n--- New XMLBot Session (Target: {self.target_language}) ---\n")
+            
+        self.image_bot = None
+        if self.workspace_dir:
+            from bots.image_bot import ImageProcessorBot
+            self.image_bot = ImageProcessorBot(self.target_language, self.workspace_dir, self.log_lock, self.log_filepath)
 
     def _log(self, message: str):
         import datetime
@@ -92,7 +99,7 @@ class XMLTranslationBot:
         # If it fails completely, return original English batch so we don't crash
         return batch
 
-    def translate_xml_content(self, xml_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None) -> str:
+    def translate_xml_content(self, xml_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None, page_title: str = "Unknown") -> str:
         if not self.client_ready:
             msg = "[XMLBot] WARNING: No API key provided. Returning original content."
             print(msg)
@@ -125,6 +132,16 @@ class XMLTranslationBot:
                 
             if inner_str:
                 unescaped = html.unescape(inner_str)
+                
+                # Check for images if we have an image bot
+                if self.image_bot and '<img' in unescaped:
+                    inner_soup = BeautifulSoup(unescaped, 'html.parser')
+                    img_tags = inner_soup.find_all('img')
+                    if img_tags:
+                        for img in img_tags:
+                            self.image_bot.process_image_tag(img, page_title)
+                        unescaped = str(inner_soup)
+                        
                 strings_to_translate[str(counter)] = unescaped
                 tag_references[str(counter)] = ('text', tag, None)
                 
@@ -212,5 +229,7 @@ class XMLTranslationBot:
         msg = f"[XMLBot] Translating {filepath} to {self.target_language}..."
         print(msg)
         self._log(msg)
-        translated_content = self.translate_xml_content(content)
+        
+        page_title = os.path.basename(filepath)
+        translated_content = self.translate_xml_content(content, page_title=page_title)
         return translated_content
