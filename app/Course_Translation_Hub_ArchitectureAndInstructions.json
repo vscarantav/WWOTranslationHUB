@@ -73,7 +73,7 @@
     "translation_guidelines": [
       "The target language for all translations will be either Portuguese (Brazil) or Spanish, as directed by the user.",
       "Only translate textual content intended for students.",
-      "The setup notes page (files containing 'setup-notes-and-course-settings') should be completely skipped and NOT translated.",
+      "The setup notes page (files containing 'setup-notes') should be completely skipped and NOT translated.",
       "For files related to the Teaching Notes and Student Outreach page (e.g., containing 'teaching-notes-and-student-outreach'), the controller must automatically apply a hardcoded glossary of Canvas navigation terms to ensure instructor-facing terminology matches expected standards. NOTE: The current hardcoded glossary is Portuguese-only and must be extended for Spanish when SPA translation of Teaching Notes pages is needed.",
       "For files related to the Teaching Notes and Student Outreach page, the bots must empty the contents of the 'Release Notes' section (leaving only the translated 'Release Notes' header), as translated courses start with a fresh version history.",
       "For XML question banks and quizzes, the word 'Question' in the title attribute of <item> nodes must be translated to the target language.",
@@ -81,7 +81,8 @@
       "Preserve all XML tags, attributes, and file names. Do not translate metadata keys, IDs, or manifest identifiers (except for the 'title' attribute on <item> nodes where 'Question' is translated, and the <fieldentry> content for 'bank_title' labels).",
       "Ensure translated HTML or XML does not break parsing rules.",
       "Whenever the controller finds a churchofjesuschrist.org link, it must change the link parameter to the target language (e.g., lang=por for Portuguese or lang=spa for Spanish). If no lang parameter exists, one is appended.",
-      "The controller must programmatically replace the standalone word 'Missing' (or 'missing') in XML files (like rubrics) with 'Não Entregue' (for PTBR) or 'No Entregado' (for SPA) prior to passing the content to the XML bot, to ensure accurate rubric rendering."
+      "The controller must programmatically replace the standalone word 'Missing' (or 'missing') in XML files (like rubrics) with 'Não Entregue' (for PTBR) or 'No Entregado' (for SPA) prior to passing the content to the XML bot, to ensure accurate rubric rendering.",
+      "The XML bot must explicitly skip translating the exact strings 'True' and 'False' inside <mattext> tags to prevent Canvas from demoting true_false_question types to Multiple Choice during import."
     ],
     "unknown_architecture_protocol": "If the controller encounters a file type that is not mapped to an active bot, it must gracefully skip the file and log a warning ('Skipping unsupported file architecture for extension...'). It should not halt execution.",
     "user_intervention_required": "User intervention is not required for unknown file types; the controller will simply skip them and proceed with the rest of the translation batch.",

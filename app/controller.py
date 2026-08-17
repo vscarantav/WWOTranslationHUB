@@ -157,7 +157,7 @@ class TranslationController:
             self._log(f"Skipping ignored system file: {filepath}")
             return
             
-        if "setup-notes-and-course-settings" in target_filepath:
+        if "setup-notes" in target_filepath.lower():
             self._log(f"Skipping setup notes page: {filepath}")
             return
 
