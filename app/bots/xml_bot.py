@@ -111,7 +111,7 @@ class XMLTranslationBot:
         
         soup = BeautifulSoup(xml_content, 'xml')
         
-        target_tags = ['title', 'mattext', 'description', 'long_description', 'fieldentry']
+        target_tags = ['title', 'mattext', 'description', 'long_description', 'fieldentry', 'text']
         
         strings_to_translate = {}
         tag_references = {}

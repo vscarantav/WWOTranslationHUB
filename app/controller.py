@@ -36,6 +36,10 @@ class TranslationController:
         
         self.log_lock = threading.Lock()
         
+        self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
+        with open(self.log_filepath, "a", encoding="utf-8") as f:
+            f.write(f"\n--- New Session (Target: {self.target_language}) ---\n")
+            
         self.workspace = WorkspaceManager(self.target_language, self.hub_dir, input_dir, imscc_path)
         default_root = self.instructions.get("project_overview", {}).get("root_directory", "career-development-english-master-export")
         workspace_dir = None
@@ -51,9 +55,6 @@ class TranslationController:
         }
         
         self._apply_custom_prompts()
-        self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
-        with open(self.log_filepath, "a", encoding="utf-8") as f:
-            f.write(f"\n--- New Session (Target: {self.target_language}) ---\n")
             
         self.link_processor = LinkProcessor(self.target_language, self.app_dir, [], self.link_prompt_callback)
 
@@ -276,6 +277,24 @@ class TranslationController:
         generator = DashboardGenerator(self.log_filepath, self.hub_dir, self.target_language)
         generator.generate(self._log)
 
+    def present_checklist(self):
+        print("\n" + "="*60)
+        print(" TRANSLATION COMPLETE - POST-IMPORT CHECKLIST ")
+        print("="*60)
+        print("Please complete the following manual steps in Canvas after importing the translated IMSCC.")
+        print("Press Enter to check off each item.\n")
+        
+        checklist = [
+            "Go to Course Settings > Feature Options and DISABLE 'Improved Rubrics' (Rubricas melhoradas / Rúbricas mejoradas).",
+            "Review the Translation Dashboard Report (in the Reports folder) for any warnings or untranslated items."
+        ]
+        
+        for i, item in enumerate(checklist, 1):
+            input(f"[ ] {i}. {item}\n    (Press Enter when done)")
+            print(f"    ✅ Checked!\n")
+            
+        print("🎉 All post-translation steps completed! You're good to go!\n")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Course Translation Hub Controller Bot")
@@ -300,9 +319,11 @@ if __name__ == "__main__":
     if args.file:
         controller.process_file(args.file)
         controller.update_excel_dashboard()
+        controller.present_checklist()
     elif args.dir or args.imscc:
         controller.process_directory()
         controller.update_excel_dashboard()
+        controller.present_checklist()
     else:
         print("[Controller] Running in test mode. Please provide --file, --dir, or --imscc to process.")
         print("Example: python controller.py --imscc course.imscc")
