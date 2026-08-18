@@ -1,3394 +1,3398 @@
 {
-  "(+) Credits Added": {
-    "PTBR": "(+) Créditos Adicionados",
-    "SPA": "(+) Créditos Agregados"
-  },
-  "(-) Credits Completed": {
-    "PTBR": "(-) Créditos Concluídos",
-    "SPA": "(-) Créditos Completados"
-  },
-  "(-) Credits Current/Scheduled": {
-    "PTBR": "(-) Créditos Atuais/Agendados",
-    "SPA": "(-) Créditos Actuales/Programados"
-  },
-  "(-) Credits Waived": {
-    "PTBR": "(-) Créditos Dispensados",
-    "SPA": "(-) Créditos Eximidos"
-  },
-  "(=) Credits Remaining": {
-    "PTBR": "(=) Créditos Restantes",
-    "SPA": "(=) Créditos Restantes"
-  },
-  "1 Select": {
-    "PTBR": "1 Selecionar",
-    "SPA": "1 Seleccionar"
-  },
-  "100% online": {
-    "PTBR": "100% on-line",
-    "SPA": "100% en Línea"
-  },
-  "100% online and flexible to fit your busy life": {
-    "PTBR": "100% on-line e flexível para se adaptar à sua vida corrida",
-    "SPA": "100% en Línea y tiene la flexibilidad de adaptarse a su vida ocupada"
-  },
-  "18-30-year-old students": {
-    "PTBR": "estudantes de 18 a 30 anos",
-    "SPA": "Estudiantes de entre 18 a 30 años de edad"
-  },
-  "180+ countries": {
-    "PTBR": "mais de 180 países",
-    "SPA": "Más de 180 países"
-  },
-  "2 View": {
-    "PTBR": "2 Visualizar",
-    "SPA": "2 Ver"
-  },
-  "3 Register": {
-    "PTBR": "3 Registrar",
-    "SPA": "3 Registro"
-  },
-  "31-and-older students": {
-    "PTBR": "estudantes de 31 anos ou mais",
-    "SPA": "Estudiantes de 31 años o más"
-  },
-  "6 blocks per year": {
-    "PTBR": "6 blocos por ano",
-    "SPA": "6 bloques por año"
-  },
-  "Academic Advisor": {
-    "PTBR": "Orientador Acadêmico",
-    "SPA": "Consejero Académico"
-  },
-  "Academic honesty": {
-    "PTBR": "honestidade acadêmica",
-    "SPA": "Honestidad académica"
-  },
-  "Academic Integrity": {
-    "PTBR": "Integridade acadêmica",
-    "SPA": "Integridad Académica"
-  },
-  "Academic Support Center": {
-    "PTBR": "Centro de Suporte Acadêmico",
-    "SPA": "Centro de Apoyo Académico"
-  },
-  "Academics": {
-    "PTBR": "Acadêmico",
-    "SPA": "Asuntos Académicos"
-  },
-  "Accessibility": {
-    "PTBR": "Acessibilidade",
-    "SPA": "Accesibilidad"
-  },
-  "Accessibility Resource Center": {
-    "PTBR": "Centro de Recursos de Acessibilidade",
-    "SPA": "Centro de recursos de accesibilidad"
-  },
-  "Accommodations Portal": {
-    "PTBR": "Portal de Adaptações",
-    "SPA": "Portal de adaptaciones académicas"
-  },
-  "Account Information": {
-    "PTBR": "Informações da Conta",
-    "SPA": "Información de Cuenta"
-  },
-  "Account Summary": {
-    "PTBR": "Resumo da Conta",
-    "SPA": "Resumen de Cuenta"
-  },
-  "ACCTG180 Survey of Accounting": {
-    "PTBR": "ACCTG180 Fundamentos de Contabilidade",
-    "SPA": "ACCTG180 Introducción a la Contabilidad"
-  },
-  "Action": {
-    "PTBR": "Ação",
-    "SPA": "Acción"
-  },
-  "Active learner": {
-    "PTBR": "estudante ativo(a)",
-    "SPA": "Aprendiz activo"
-  },
-  "Add": {
-    "PTBR": "Adicionar",
-    "SPA": "Agregar"
-  },
-  "ADHD": {
-    "PTBR": "TDAH",
-    "SPA": "TDAH"
-  },
-  "Advising": {
-    "PTBR": "Orientação Acadêmica",
-    "SPA": "Asesoría"
-  },
-  "AI Outputs": {
-    "PTBR": "Resultados gerados por IA",
-    "SPA": "Resultados de la IA"
-  },
-  "All courses": {
-    "PTBR": "Todas as disciplinas",
-    "SPA": "Todos los cursos"
-  },
-  "All enrollments": {
-    "PTBR": "Todas as matrículas",
-    "SPA": "Todas las inscripciones"
-  },
-  "Alumni": {
-    "PTBR": "Ex-alunos",
-    "SPA": "Egresados"
-  },
-  "Annex / Appendix": {
-    "PTBR": "Anexo",
-    "SPA": "Anexo / Apéndice"
-  },
-  "Anxiety": {
-    "PTBR": "Ansiedade",
-    "SPA": "Ansiedad"
-  },
-  "Applicants": {
-    "PTBR": "Candidatos",
-    "SPA": "Postulantes"
-  },
-  "Application": {
-    "PTBR": "Formulário de aplicação",
-    "SPA": "Solicitud de admisión"
-  },
-  "Application activity": {
-    "PTBR": "atividade prática",
-    "SPA": "Actividad de la solicitud"
-  },
-  "Applications are open year-round": {
-    "PTBR": "as inscrições estão abertas o ano todo",
-    "SPA": "Las solicitudes están abiertas todo el año"
-  },
-  "Applied Business Management Degree": {
-    "PTBR": "Bacharelado em Administração de Empresas Aplicada",
-    "SPA": "Licenciatura en Gestión Empresarial Aplicada"
-  },
-  "Applies to course category": {
-    "PTBR": "Aplicável à Categoria da Disciplina",
-    "SPA": "Se aplica a la categoría de curso"
-  },
-  "Apply Today": {
-    "PTBR": "Inscreva-se Hoje",
-    "SPA": "Aplique hoy"
-  },
-  "Area coordination missionary": {
-    "PTBR": "missionário de coordenação de área",
-    "SPA": "Misionero de coordinación de área"
-  },
-  "Area managers": {
-    "PTBR": "gerentes de área",
-    "SPA": "Gerentes de área"
-  },
-  "Areas with limited access": {
-    "PTBR": "áreas com acesso limitado",
-    "SPA": "Áreas de acceso limitado"
-  },
-  "Artificial Intelligence Systems": {
-    "PTBR": "Sistemas de inteligência artificial",
-    "SPA": "Sistemas de Inteligencia Artificial"
-  },
-  "Assignment": {
-    "PTBR": "Atividade",
-    "SPA": "Asignación"
-  },
-  "Associate degree": {
-    "PTBR": "Diploma de Associado",
-    "SPA": "Grado de asociado"
-  },
-  "Attendance": {
-    "PTBR": "frequência",
-    "SPA": "Asistencia"
-  },
-  "Audience": {
-    "PTBR": "Público-alvo",
-    "SPA": "Audiencia/público"
-  },
-  "Automatically Collected Data": {
-    "PTBR": "Dados coletados automaticamente",
-    "SPA": "Recopilación de datos automatico"
-  },
-  "Bachelor's degree": {
-    "PTBR": "Diploma de Bacharelado",
-    "SPA": "Licenciatura"
-  },
-  "Background Check": {
-    "PTBR": "Verificação de antecedentes",
-    "SPA": "Verificación de antecedentes"
-  },
-  "Basic essay": {
-    "PTBR": "redação básica",
-    "SPA": "Ensayo básico"
-  },
-  "Belonging": {
-    "PTBR": "Inclusão",
-    "SPA": "Pertenecer"
-  },
-  "Best Practices": {
-    "PTBR": "Boas Práticas",
-    "SPA": "Mejores prácticas"
-  },
-  "Better prepared": {
-    "PTBR": "melhor preparado(a)",
-    "SPA": "Mejor preparado"
-  },
-  "Biometric Data": {
-    "PTBR": "Dados biométricos",
-    "SPA": "Datos biométricos"
-  },
-  "Block": {
-    "PTBR": "bloco / período letivo",
-    "SPA": "Bloque"
-  },
-  "Body paragraph": {
-    "PTBR": "Parágrafo-padrão",
-    "SPA": "Párrafo de desarrollo"
-  },
-  "Book title": {
-    "PTBR": "título do livro",
-    "SPA": "Título del libro"
-  },
-  "Booklet": {
-    "PTBR": "Livreto",
-    "SPA": "Folleto"
-  },
-  "Brief description": {
-    "PTBR": "descrição resumida",
-    "SPA": "Breve descripción"
-  },
-  "Browser Information": {
-    "PTBR": "Informações do navegador",
-    "SPA": "Información del navegador"
-  },
-  "Build confidence": {
-    "PTBR": "desenvolver confiança",
-    "SPA": "Generar confianza"
-  },
-  "Building/room": {
-    "PTBR": "edifício/sala",
-    "SPA": "Edificio/salón"
-  },
-  "Bulletin inserts": {
-    "PTBR": "informativos para boletim",
-    "SPA": "Encartes para el boletín"
-  },
-  "BUS 105 Spreadsheet Essentials": {
-    "PTBR": "BUS 105 Fundamentos de Planilhas",
-    "SPA": "BUS 105: Fundamentos de Hojas de Cálculo"
-  },
-  "BUS 115 Business Applications": {
-    "PTBR": "BUS 115 Aplicações Empresariais",
-    "SPA": "BUS 115 Aplicaciones Empresariales"
-  },
-  "BUS 180 Cycle of Cash": {
-    "PTBR": "BUS 180 Fluxo de Caixa",
-    "SPA": "BUS 180: Ciclo del flujo de dinero"
-  },
-  "BUS 301 - Advanced Writing in Professional Contexts": {
-    "PTBR": "BUS 301 - Escrita Avançada em Contextos Profissionais",
-    "SPA": "BUS 301- Redacción Avanzada en Contextos Profesionales"
-  },
-  "BUS 321 Organizational Leadership": {
-    "PTBR": "BUS 321 Liderança Organizacional",
-    "SPA": "BUS 321 Liderazgo organizacional"
-  },
-  "BUS 374 - Social Innovation": {
-    "PTBR": "BUS 374 - Inovação Social",
-    "SPA": "BUS 374 - Innovación Social"
-  },
-  "BUS 375 - Business Law": {
-    "PTBR": "BUS 375 - Direito Empresarial",
-    "SPA": "BUS 375 - Derecho Empresarial"
-  },
-  "BUS 380 International Business": {
-    "PTBR": "BUS 380 Comércio Internacional",
-    "SPA": "BUS 380 Negocios Internacionales"
-  },
-  "BUS 410 Advanced Business Management": {
-    "PTBR": "BUS 410 Gestão Empresarial Avançada",
-    "SPA": "BUS 410 Gestión Empresarial Avanzada"
-  },
-  "Business administration": {
-    "PTBR": "Administração de Empresas",
-    "SPA": "Administración de Empresas"
-  },
-  "Business and leadership skills": {
-    "PTBR": "Habilidades de Negócios e Liderança",
-    "SPA": "Habilidades Empresariales y de liderazgo"
-  },
-  "BYU-Pathway": {
-    "PTBR": "BYU-Pathway",
-    "SPA": "BYU-Pathway"
-  },
-  "BYU-Pathway area manager": {
-    "PTBR": "gerente de área da BYU-Pathway",
-    "SPA": "Gerente de área de BYU-Pathway"
-  },
-  "BYU-Pathway is not a degree-granting institution": {
-    "PTBR": "A BYU-Pathway não é uma instituição que concede diplomas",
-    "SPA": "BYU-Pathway no es una institución que otorga títulos"
-  },
-  "BYU-Pathway Portal": {
-    "PTBR": "Portal da BYU-Pathway",
-    "SPA": "Portal de BYU-Pathway"
-  },
-  "BYU-Pathway Service Missionaries": {
-    "PTBR": "Missionários de Serviço da BYU-Pathway",
-    "SPA": "Misioneros de Servicio de BYU-Pathway"
-  },
-  "BYU-Pathway Support": {
-    "PTBR": "Suporte da BYU-Pathway",
-    "SPA": "Soporte de BYU-Pathway"
-  },
-  "BYU-Pathway Worldwide": {
-    "PTBR": "BYU-Pathway Worldwide",
-    "SPA": "BYU-Pathway Worldwide"
-  },
-  "BYU-Pathway Worldwide Global Education Center": {
-    "PTBR": "Centro de Educação Global da BYU-Pathway Worldwide",
-    "SPA": "Centro de Educación Global de BYU-Pathway Worldwide"
-  },
-  "BYUI Testing Center": {
-    "PTBR": "Centro de Testes da BYUI",
-    "SPA": "Centro de evaluación de BYU–Idaho"
-  },
-  "Campuses": {
-    "PTBR": "Campi",
-    "SPA": "Campus"
-  },
-  "Cell References": {
-    "PTBR": "Referências de Célula",
-    "SPA": "Referencias de celda"
-  },
-  "Certificate-first approach": {
-    "PTBR": "abordagem de certificado primeiro",
-    "SPA": "Enfoque de certificado primero"
-  },
-  "Certificates and Courses": {
-    "PTBR": "Certificados e Disciplinas",
-    "SPA": "Cursos y Certificados"
-  },
-  "Certificates and Degrees": {
-    "PTBR": "Certificados e Diplomas",
-    "SPA": "Certificados y Títulos"
-  },
-  "Certificates can be completed in one year or less": {
-    "PTBR": "os certificados podem ser concluídos em um ano ou menos",
-    "SPA": "Los certificados se pueden completar en un año o menos"
-  },
-  "CES Institutions": {
-    "PTBR": "Instituições do SEI",
-    "SPA": "Instituto del SEI"
-  },
-  "Change Program/Areas of Study": {
-    "PTBR": "Alterar Programa/Áreas de Estudo",
-    "SPA": "Cambiar Programa/Áreas de Estudio"
-  },
-  "Changing lives": {
-    "PTBR": "mudando vidas",
-    "SPA": "Cambiando vidas"
-  },
-  "Chatbot (or bot)": {
-    "PTBR": "assistente virtual",
-    "SPA": "Chatbot (o bot)"
-  },
-  "Church Board of Education": {
-    "PTBR": "Conselho de Educação da Igreja",
-    "SPA": "Consejo Educativo de la Iglesia"
-  },
-  "Church calling": {
-    "PTBR": "chamado da Igreja",
-    "SPA": "Llamamiento"
-  },
-  "Church Educational System (CES)": {
-    "PTBR": "Sistema Educacional da Igreja (SEI)",
-    "SPA": "Sistema Educativo de la Iglesia (SEI)"
-  },
-  "Clark G. Gilbert": {
-    "PTBR": "Clark G. Gilbert",
-    "SPA": "Clark G. Gilbert"
-  },
-  "Class schedule": {
-    "PTBR": "Agendamento das Disciplinas",
-    "SPA": "Horario de clases"
-  },
-  "Classes": {
-    "PTBR": "Disciplinas",
-    "SPA": "clases"
-  },
-  "Classes/Credits": {
-    "PTBR": "Disciplinas/Créditos",
-    "SPA": "Clases/Créditos"
-  },
-  "Cloud Storage": {
-    "PTBR": "Armazenamento em nuvem",
-    "SPA": "Almacenamiento en la nube"
-  },
-  "Code": {
-    "PTBR": "Código",
-    "SPA": "Código"
-  },
-  "Come and see": {
-    "PTBR": "Venha e Veja",
-    "SPA": "Ven y ve"
-  },
-  "COMM 150 Interpersonal Theory and Practice": {
-    "PTBR": "COMM 150 Comunicação Interpessoal: Teoria e Prática",
-    "SPA": "COMM 150: Teoría y Práctica Interpersonal"
-  },
-  "Commercial Fundamentals": {
-    "PTBR": "Fundamentos Comerciais",
-    "SPA": "Fundamentos Comerciales"
-  },
-  "Commitment statements": {
-    "PTBR": "Declarações de Compromisso",
-    "SPA": "Declaraciones de compromiso"
-  },
-  "Completion certificate": {
-    "PTBR": "certificado de conclusão",
-    "SPA": "Certificado de finalización"
-  },
-  "Computer lab": {
-    "PTBR": "laboratório de informática",
-    "SPA": "Laboratorio de computación"
-  },
-  "Concluding paragraph": {
-    "PTBR": "parágrafo de conclusão",
-    "SPA": "Párrafo de conclusión"
-  },
-  "Concluding sentence": {
-    "PTBR": "oração de conclusão",
-    "SPA": "Oración de conclusión"
-  },
-  "Condolences": {
-    "PTBR": "Condolências",
-    "SPA": "Condolencias"
-  },
-  "Confirmation": {
-    "PTBR": "confirmação",
-    "SPA": "Confirmación"
-  },
-  "Consent": {
-    "PTBR": "Consentimento",
-    "SPA": "Consentimiento"
-  },
-  "Constant Rate = R (Math exercises)": {
-    "PTBR": "Velocidade Média = Vm",
-    "SPA": "Problemas de tasa constante (R)"
-  },
-  "Consumers": {
-    "PTBR": "Consumidores",
-    "SPA": "Consumidores"
-  },
-  "Contractual Obligations": {
-    "PTBR": "Obrigações contratuais",
-    "SPA": "Obligaciones del contrato"
-  },
-  "Controlling idea": {
-    "PTBR": "ideia central",
-    "SPA": "Idea directriz"
-  },
-  "Conventions": {
-    "PTBR": "convenções",
-    "SPA": "Convenciones"
-  },
-  "Conversation group": {
-    "PTBR": "grupo de conversação",
-    "SPA": "Grupo de conversación"
-  },
-  "Cookies": {
-    "PTBR": "Cookies",
-    "SPA": "Cookies"
-  },
-  "Copyright infringement": {
-    "PTBR": "violação de direitos autorais",
-    "SPA": "Infracción de derechos de autor"
-  },
-  "Cost": {
-    "PTBR": "custo",
-    "SPA": "Costo"
-  },
-  "Counseling Services": {
-    "PTBR": "Serviços de Aconselhamento",
-    "SPA": "Servicios de consejería"
-  },
-  "Counselor": {
-    "PTBR": "Conselheiro",
-    "SPA": "Consejero"
-  },
-  "Course": {
-    "PTBR": "Disciplina/curso",
-    "SPA": "Curso"
-  },
-  "Course evaluation": {
-    "PTBR": "avaliação do curso",
-    "SPA": "Evaluación del curso"
-  },
-  "Course outcome": {
-    "PTBR": "objetivo do curso",
-    "SPA": "Resultado del curso"
-  },
-  "Course setup": {
-    "PTBR": "configuração do curso",
-    "SPA": "Configuración del curso"
-  },
-  "Course-specific notes": {
-    "PTBR": "observações específicas do curso",
-    "SPA": "Notas específicas del curso"
-  },
-  "Create Effective Announcements": {
-    "PTBR": "Criar Avisos Eficazes",
-    "SPA": "Crear Anuncios efectivos"
-  },
-  "Create Effective Batch Messages": {
-    "PTBR": "Criar Mensagens em Lote Eficazes",
-    "SPA": "Crear mensajes masivos efectivos"
-  },
-  "Create Effective Role Model Outreach": {
-    "PTBR": "Criar Ações de Acompanhamento Eficazes com Modelos de Referência",
-    "SPA": "Crear una comunicación efectiva con modelos a seguir"
-  },
-  "Credit Check": {
-    "PTBR": "Verificação de crédito",
-    "SPA": "Consulta de historial crediticio"
-  },
-  "Credit load": {
-    "PTBR": "carga de créditos",
-    "SPA": "Carga de créditos"
-  },
-  "Credits": {
-    "PTBR": "créditos",
-    "SPA": "Créditos"
-  },
-  "Credits Required": {
-    "PTBR": "Créditos Exigidos",
-    "SPA": "Créditos Requeridos"
-  },
-  "Criminal History": {
-    "PTBR": "Antecedentes criminais",
-    "SPA": "Antecedentes penales"
-  },
-  "CSE110 - Introduction to Programming": {
-    "PTBR": "CSE110 – Introdução à Programação",
-    "SPA": "CSE110 - Introducción a la Programación"
-  },
-  "CSE111 - Programming with Functions": {
-    "PTBR": "CSE111 – Programação com Funções",
-    "SPA": "CSE111 - Programación con Funciones"
-  },
-  "CSE210 - Programming with Classes": {
-    "PTBR": "CSE210 – Programação com Classes",
-    "SPA": "CSE210 - Programación con Clases"
-  },
-  "CSE212 - Programming with Data Structures": {
-    "PTBR": "CSE212 – Programação com Estruturas de Dados",
-    "SPA": "CSE212 - Programación con Estructuras de Datos"
-  },
-  "CSE270 - Software Testing": {
-    "PTBR": "CSE270 – Testes de Software",
-    "SPA": "CSE270 - Pruebas de Software"
-  },
-  "CSE300 - Professional Readiness": {
-    "PTBR": "CSE300 – Preparação Profissional",
-    "SPA": "CSE300 - Preparación Profesional"
-  },
-  "CSE310 - Applied Programming": {
-    "PTBR": "CSE310 – Programação Aplicada",
-    "SPA": "CSE310 - Programación Aplicada"
-  },
-  "CSE325 - .NET Software Development": {
-    "PTBR": "CSE325 – Desenvolvimento de Software com .NET",
-    "SPA": "CSE325 - Desarrollo de Software .NET"
-  },
-  "CSE340 - Web Backend Development": {
-    "PTBR": "CSE340 – Desenvolvimento Backend para Web",
-    "SPA": "CSE340 - Desarrollo Web Back-end"
-  },
-  "CSE341 - Web Services": {
-    "PTBR": "CSE341 – Serviços Web",
-    "SPA": "CSE341 - Servicios Web"
-  },
-  "CSE370 - Software Engineering Principles": {
-    "PTBR": "CSE370 – Princípios da Engenharia de Software",
-    "SPA": "CSE370 - Principios de Ingeniería de Software"
-  },
-  "CSE499 - Senior Project": {
-    "PTBR": "CSE499 – Projeto Final",
-    "SPA": "CSE499 – Proyecto Fin de Carrera"
-  },
-  "Current balance": {
-    "PTBR": "Saldo Atual",
-    "SPA": "Saldo actual"
-  },
-  "Currently no courses available": {
-    "PTBR": "Não há disciplinas disponíveis atualmente",
-    "SPA": "Actualmente no hay cursos disponibles"
-  },
-  "Customers": {
-    "PTBR": "Clientes",
-    "SPA": "Clientes"
-  },
-  "Data Access": {
-    "PTBR": "Acesso aos dados",
-    "SPA": "Acceso de Datos"
-  },
-  "Data Controller": {
-    "PTBR": "Controlador de dados",
-    "SPA": "Administrador de Datos"
-  },
-  "Data Erasure / Deletion": {
-    "PTBR": "Exclusão de dados",
-    "SPA": "Eliminación de datos"
-  },
-  "Data Privacy Office": {
-    "PTBR": "Centro de Privacidade do SEI",
-    "SPA": "Oficina de Protección de Datos"
-  },
-  "Data Privacy Officer": {
-    "PTBR": "Encarregado de Proteção de Dados",
-    "SPA": "Oficial de Protección de Datos"
-  },
-  "Data Processing": {
-    "PTBR": "Tratamento de dados",
-    "SPA": "Procesamiento de Datos"
-  },
-  "Data Rectification": {
-    "PTBR": "Retificação de dados",
-    "SPA": "Rectificación de datos"
-  },
-  "Dean of students": {
-    "PTBR": "Decano dos estudantes",
-    "SPA": "Decano de estudiantes"
-  },
-  "Dean of Students Office": {
-    "PTBR": "Escritório do Decano dos Estudantes",
-    "SPA": "Oficina de Asuntos Estudiantiles"
-  },
-  "Death in the Family": {
-    "PTBR": "Falecimento na Família",
-    "SPA": "Fallecimiento de un familiar"
-  },
-  "Deep learning": {
-    "PTBR": "aprendizagem aprofundada",
-    "SPA": "Aprendizaje profundo"
-  },
-  "Degree": {
-    "PTBR": "Diploma",
-    "SPA": "Título"
-  },
-  "Degree Progress Audit": {
-    "PTBR": "Auditoria de Progresso Acadêmico",
-    "SPA": "Auditoría de progreso académico"
-  },
-  "Degree pursued": {
-    "PTBR": "Tipo de Documento",
-    "SPA": "Grado que se cursa"
-  },
-  "Degrees are awarded": {
-    "PTBR": "diplomas são concedidos",
-    "SPA": "Se otorgan títulos"
-  },
-  "Depression": {
-    "PTBR": "Depressão",
-    "SPA": "Depresión"
-  },
-  "Develop disciples of Jesus Christ...": {
-    "PTBR": "desenvolver discípulos de Jesus Cristo...",
-    "SPA": "Desarrollar discípulos de Jesucristo..."
-  },
-  "Devotional": {
-    "PTBR": "devocional",
-    "SPA": "Devocional"
-  },
-  "Disabilities": {
-    "PTBR": "Deficiências",
-    "SPA": "Discapacidades"
-  },
-  "Disability Services Office": {
-    "PTBR": "Escritório de Atendimento para Pessoas com Deficiência",
-    "SPA": "Oficina de Servicios para Personas con Discapacidad"
-  },
-  "Disciple leader": {
-    "PTBR": "Líder discípulo",
-    "SPA": "Líder discípulo"
-  },
-  "Disciple Leadership": {
-    "PTBR": "Liderança do Discipulado",
-    "SPA": "Liderazgo de discipulado"
-  },
-  "District leader": {
-    "PTBR": "líder do Distrito",
-    "SPA": "Líder de distrito"
-  },
-  "Document Center": {
-    "PTBR": "Central de Documentos",
-    "SPA": "Central de Documentos"
-  },
-  "Documents": {
-    "PTBR": "Documentos",
-    "SPA": "Documentos"
-  },
-  "Donors": {
-    "PTBR": "Doadores",
-    "SPA": "Donantes"
-  },
-  "Drop a course": {
-    "PTBR": "Cancelar uma disciplina",
-    "SPA": "Abandonar un curso"
-  },
-  "Earn a degree and make more money": {
-    "PTBR": "obter um diploma e ganhar mais dinheiro",
-    "SPA": "Obtén un título y gana más dinero"
-  },
-  "Ecclesiastical endorsement": {
-    "PTBR": "endosso eclesiástico",
-    "SPA": "Recomendación eclesiástica"
-  },
-  "Econ 100 Essentials of Economics": {
-    "PTBR": "Econ 100 Fundamentos de Economia",
-    "SPA": "Econ 100 Fundamentos de Economía"
-  },
-  "Education Records": {
-    "PTBR": "Registros educacionais",
-    "SPA": "Registros educativos"
-  },
-  "Emotional well-being": {
-    "PTBR": "Bem-estar emocional",
-    "SPA": "Bienestar emocional"
-  },
-  "Employable credentials": {
-    "PTBR": "credenciais empregáveis",
-    "SPA": "Credenciales laborales"
-  },
-  "Eng": {
-    "PTBR": "Ing",
-    "SPA": "Ing"
-  },
-  "English language assessment": {
-    "PTBR": "avaliação de proficiência em inglês",
-    "SPA": "Evaluación del idioma inglés"
-  },
-  "Enrolled Students": {
-    "PTBR": "Estudantes Matriculados",
-    "SPA": "Estudiantes inscritos"
-  },
-  "Enrollment counselor": {
-    "PTBR": "assistente de matrícula",
-    "SPA": "Asesor de inscripciones"
-  },
-  "Enrollment ID": {
-    "PTBR": "Número de Matrícula",
-    "SPA": "Número de Inscripción"
-  },
-  "Enter to Learn, Go Forth to Serve": {
-    "PTBR": "Entre para Aprender, Saia para Servir",
-    "SPA": "Entra para Aprender, Sal para Servir"
-  },
-  "Entirely online and affordable": {
-    "PTBR": "inteiramente on-line e acessível",
-    "SPA": "Totalmente en línea y económico"
-  },
-  "Essay": {
-    "PTBR": "Redação",
-    "SPA": "Ensayo"
-  },
-  "Exam": {
-    "PTBR": "prova",
-    "SPA": "Examen"
-  },
-  "Expert testimony": {
-    "PTBR": "depoimento de especialista",
-    "SPA": "Testimonio de expertos"
-  },
-  "Extenuating circumstances": {
-    "PTBR": "circunstâncias difíceis",
-    "SPA": "Circunstancias atenuantes"
-  },
-  "Fact": {
-    "PTBR": "fato",
-    "SPA": "Hecho"
-  },
-  "Faith-based curriculum": {
-    "PTBR": "currículo baseado na fé",
-    "SPA": "Plan de estudios basado en la fe"
-  },
-  "False growth mindset": {
-    "PTBR": "mentalidade de crescimento falsa",
-    "SPA": "Falsa mentalidad de crecimiento"
-  },
-  "Family Educational Rights and Privacy Act (FERPA)": {
-    "PTBR": "Lei dos Direitos Educacionais e Privacidade da Família (FERPA)",
-    "SPA": "Ley de Privacidad y Derechos Educativos de la Familia (FERPA)"
-  },
-  "Family Emergency": {
-    "PTBR": "Emergência Familiar",
-    "SPA": "Emergencia familiar"
-  },
-  "FCS160- Family Leadership": {
-    "PTBR": "FCS160- Liderança Familiar e Gestão de Recursos",
-    "SPA": "FCS160- Liderazgo familiar"
-  },
-  "File upload": {
-    "PTBR": "carregamento de arquivo",
-    "SPA": "Carga de archivo"
-  },
-  "FIN 300 Business Finance": {
-    "PTBR": "FIN 300 Finanças Empresariais",
-    "SPA": "FIN 300 Finanza Empresarial"
-  },
-  "FIN 301 Financial Management": {
-    "PTBR": "FIN 301 Gestão Financeira",
-    "SPA": "FIN 301 Gestión Financiera"
-  },
-  "Finances": {
-    "PTBR": "Finanças",
-    "SPA": "Finanzas"
-  },
-  "Financial Distress": {
-    "PTBR": "Dificuldades Financeiras",
-    "SPA": "Dificultades financieras"
-  },
-  "Financial Information": {
-    "PTBR": "Informações financeiras",
-    "SPA": "Información financiera"
-  },
-  "Fingerprints": {
-    "PTBR": "Impressões digitais",
-    "SPA": "Huellas dactilares"
-  },
-  "Fixed mindset": {
-    "PTBR": "mentalidade fixa",
-    "SPA": "Mentalidad fija"
-  },
-  "Flashcards": {
-    "PTBR": "Cartões de estudo",
-    "SPA": "Tarjetas de estudio"
-  },
-  "Flexible payment": {
-    "PTBR": "pagamento flexível",
-    "SPA": "Pago flexible"
-  },
-  "Foundational academic and religion courses": {
-    "PTBR": "cursos acadêmicos e religiosos fundamentais",
-    "SPA": "Cursos fundamentales académicos y de religión"
-  },
-  "Fraud Prevention": {
-    "PTBR": "Prevenção de fraudes",
-    "SPA": "Prevención contra el fraude"
-  },
-  "Gain confidence": {
-    "PTBR": "ganhar confiança",
-    "SPA": "Adquirir confianza"
-  },
-  "Gateway course": {
-    "PTBR": "curso de transição",
-    "SPA": "Curso de acceso"
-  },
-  "Gateway to college": {
-    "PTBR": "porta de entrada para a universidade",
-    "SPA": "Puerta de acceso a la universidad"
-  },
-  "Gathering": {
-    "PTBR": "reunião",
-    "SPA": "Reunión de integración"
-  },
-  "Gathering agenda": {
-    "PTBR": "agenda da reunião",
-    "SPA": "Agenda de la reunión de integración"
-  },
-  "Gathering Guide": {
-    "PTBR": "Manual de Reunião",
-    "SPA": "Guía de recopilación"
-  },
-  "Gathering selection": {
-    "PTBR": "seleção de reunião",
-    "SPA": "Selección de reunión de integración"
-  },
-  "General Education Courses": {
-    "PTBR": "Disciplinas de Educação Geral",
-    "SPA": "Cursos de Educación General"
-  },
-  "General Teaching Notes": {
-    "PTBR": "Notas Gerais de Ensino",
-    "SPA": "Notas generales de enseñanza"
-  },
-  "GESCI-110 Sustaining Human Life": {
-    "PTBR": "GESCI110- Sustentando a Vida Humana",
-    "SPA": "GESCI-110 Subsistencia de la Vida Humana"
-  },
-  "Getting Started": {
-    "PTBR": "Introdução",
-    "SPA": "Primeros Pasos"
-  },
-  "Global Education Centers": {
-    "PTBR": "Centros de Educação Global",
-    "SPA": "Centros de Educación Global"
-  },
-  "Go to Class": {
-    "PTBR": "Vá para os Cursos",
-    "SPA": "Ir a Clase"
-  },
-  "Gospel-centered environment": {
-    "PTBR": "ambiente centrado no evangelho",
-    "SPA": "Entorno centrado en el Evangelio"
-  },
-  "GPA": {
-    "PTBR": "GPA (Média de Pontuação)",
-    "SPA": "GPA (Promedio académico)"
-  },
-  "Grade": {
-    "PTBR": "nota",
-    "SPA": "Calificación"
-  },
-  "Gradebook": {
-    "PTBR": "Boletim",
-    "SPA": "Libro de calificaciones"
-  },
-  "Grader Number Folder": {
-    "PTBR": "Pasta Numérica do(a) Avaliador(a)",
-    "SPA": "Carpeta del número de calificador"
-  },
-  "Graders & Grading": {
-    "PTBR": "Avaliadores e Avaliações",
-    "SPA": "Calificadores y calificación"
-  },
-  "Grief": {
-    "PTBR": "Luto",
-    "SPA": "Duelo"
-  },
-  "Grievances": {
-    "PTBR": "Reclamações",
-    "SPA": "Reclamos"
-  },
-  "Group work": {
-    "PTBR": "trabalho em grupo",
-    "SPA": "Trabajo en grupo"
-  },
-  "Growth mindset": {
-    "PTBR": "mentalidade de crescimento",
-    "SPA": "Mentalidad de crecimiento"
-  },
-  "GS170- Career Development": {
-    "PTBR": "GS170- Desenvolvimento de Carreira",
-    "SPA": "GS170- Desarrollo Profesional"
-  },
-  "Guideline": {
-    "PTBR": "orientação",
-    "SPA": "Directriz"
-  },
-  "HealthCare Provider": {
-    "PTBR": "Profissional de Saúde",
-    "SPA": "Proveedor de atención médica"
-  },
-  "Heartbreak": {
-    "PTBR": "Sofrimento Emocional",
-    "SPA": "Desamor"
-  },
-  "Help": {
-    "PTBR": "Ajuda",
-    "SPA": "Ayuda"
-  },
-  "High school": {
-    "PTBR": "ensino médio",
-    "SPA": "Escuela secundaria"
-  },
-  "High stakes exam": {
-    "PTBR": "Prova de Alta Importância",
-    "SPA": "Examen de gran importancia"
-  },
-  "Highly relevant": {
-    "PTBR": "altamente relevante",
-    "SPA": "Altamente relevante"
-  },
-  "Holds & alerts": {
-    "PTBR": "Pendências e Alertas",
-    "SPA": "Retenciones y alertas"
-  },
-  "Honor / Honor Code": {
-    "PTBR": "Código de Honra",
-    "SPA": "Honor / Código de Honor"
-  },
-  "Hook": {
-    "PTBR": "gancho",
-    "SPA": "Gancho"
-  },
-  "Hope of getting an education": {
-    "PTBR": "Esperança de obter uma educação",
-    "SPA": "Esperanza de obtener una educación"
-  },
-  "HUM110 - Discovery and Discernment": {
-    "PTBR": "HUM110- Descoberta e Discernimento por Meio das Artes",
-    "SPA": "HUM110 - Descubrimiento y discernimiento"
-  },
-  "Hundred Millions": {
-    "PTBR": "Centenas de Milhões",
-    "SPA": "Centenas de millón"
-  },
-  "Identity Verification": {
-    "PTBR": "Verificação de identidade",
-    "SPA": "Verificación de identidad"
-  },
-  "Immediate job improvement": {
-    "PTBR": "melhoria imediata no emprego",
-    "SPA": "Mejora laboral inmediata"
-  },
-  "Inbox": {
-    "PTBR": "caixa de entrada",
-    "SPA": "Bandeja de entrada"
-  },
-  "Includes required and elective courses": {
-    "PTBR": "Inclui Disciplinas Obrigatórias e Eletivas",
-    "SPA": "Incluye cursos obligatorios y electivos"
-  },
-  "Income": {
-    "PTBR": "Renda",
-    "SPA": "Ingresos"
-  },
-  "Increase faith": {
-    "PTBR": "aumentar a fé",
-    "SPA": "Aumentar la fe"
-  },
-  "Increase your chances of academic success": {
-    "PTBR": "aumentar suas chances de sucesso acadêmico",
-    "SPA": "Aumenta tus posibilidades de éxito académico"
-  },
-  "Independent Data Controller": {
-    "PTBR": "Controlador independente de dados",
-    "SPA": "Administrador independiente de datos"
-  },
-  "Individuals Involved in Research": {
-    "PTBR": "Indivíduos Envolvidos em Pesquisas ou Estudos",
-    "SPA": "Personas involucradas en la investigación"
-  },
-  "Informational presentation": {
-    "PTBR": "apresentação informativa",
-    "SPA": "Presentación informativa"
-  },
-  "Insert External Tool": {
-    "PTBR": "Inserir Ferramenta Externa",
-    "SPA": "Insertar herramienta externa"
-  },
-  "Institute": {
-    "PTBR": "Instituto",
-    "SPA": "Instituto"
-  },
-  "Instruction Management System (IMS)": {
-    "PTBR": "Sistema de Gerenciamento de Instrução (IMS)",
-    "SPA": "Sistema de Gestión Educativa (SGE)"
-  },
-  "Instructor": {
-    "PTBR": "Instrutor(a)",
-    "SPA": "Docente"
-  },
-  "Instructor General Notes": {
-    "PTBR": "Notas Gerais para os Instrutores",
-    "SPA": "Notas generales del docente"
-  },
-  "Instructor Lead": {
-    "PTBR": "Instrutor(a) Sênior",
-    "SPA": "Instructor principal"
-  },
-  "Instructor Support Line": {
-    "PTBR": "Linha de Suporte para Instrutores",
-    "SPA": "Línea de asistencia para docentes"
-  },
-  "Instructor Support Table": {
-    "PTBR": "Tabela de Recursos de Suporte para Instrutores",
-    "SPA": "Tabla de apoyo al instructor"
-  },
-  "Instructor Tools": {
-    "PTBR": "Ferramentas para Instrutores",
-    "SPA": "Recursos para el Docente"
-  },
-  "Integers": {
-    "PTBR": "Números Inteiros",
-    "SPA": "Números enteros"
-  },
-  "International programs": {
-    "PTBR": "programas internacionais",
-    "SPA": "Programas internacionales"
-  },
-  "International students": {
-    "PTBR": "estudantes internacionais",
-    "SPA": "Estudiantes internacionales"
-  },
-  "Introductory paragraph": {
-    "PTBR": "parágrafo introdutório",
-    "SPA": "Párrafo introductorio"
-  },
-  "IP Address": {
-    "PTBR": "Endereço IP",
-    "SPA": "Dirección IP"
-  },
-  "ITM111 - Introduction to Databases": {
-    "PTBR": "ITM111 – Introdução a Bancos de Dados",
-    "SPA": "ITM111 - Introducción a las Bases de Datos"
-  },
-  "Job Applicants": {
-    "PTBR": "Candidatos a Vagas de Emprego",
-    "SPA": "Candidatos de empleo"
-  },
-  "Job crafting": {
-    "PTBR": "Redefinição do trabalho",
-    "SPA": "Personalización del trabajo"
-  },
-  "Job readiness": {
-    "PTBR": "preparação para o mercado de trabalho",
-    "SPA": "Preparación laboral"
-  },
-  "Joint Controllers": {
-    "PTBR": "Controladores conjuntos",
-    "SPA": "Administradores conjuntos"
-  },
-  "Language Models": {
-    "PTBR": "Modelos de linguagem",
-    "SPA": "Modelos de lenguaje"
-  },
-  "Last Day to Add": {
-    "PTBR": "Último Dia para Adicionar",
-    "SPA": "Último Día para Agregar {Cursos}"
-  },
-  "Last Day to Drop": {
-    "PTBR": "Último Dia para Cancelar",
-    "SPA": "Último Día para Abandonar {Cursos}"
-  },
-  "LDS member pricing": {
-    "PTBR": "preços para membros SUD",
-    "SPA": "Precio para miembros de la Iglesia (de Jesucristo) SUD"
-  },
-  "Lead student": {
-    "PTBR": "estudante líder",
-    "SPA": "Estudiante director"
-  },
-  "Learn English. Expand your opportunities.": {
-    "PTBR": "Aprenda inglês. Expanda suas oportunidades.",
-    "SPA": "Aprende inglés. Expande tus oportunidades"
-  },
-  "Learner manual": {
-    "PTBR": "manual do aluno",
-    "SPA": "Manual del estudiante"
-  },
-  "Learning English can open doors...": {
-    "PTBR": "Aprender inglês pode abrir portas para novos empregos...",
-    "SPA": "Aprender inglés puede abrir puertas..."
-  },
-  "Learning Library": {
-    "PTBR": "Biblioteca de Aprendizado",
-    "SPA": "Biblioteca de aprendizaje"
-  },
-  "Learning Model": {
-    "PTBR": "Modelo de Ensino",
-    "SPA": "Modelo de aprendizaje"
-  },
-  "Legal Basis": {
-    "PTBR": "Base legal",
-    "SPA": "Base legal"
-  },
-  "Legal Obligation": {
-    "PTBR": "Obrigação legal",
-    "SPA": "Obligación legal"
-  },
-  "Legitimate Interest": {
-    "PTBR": "Interesse legítimo",
-    "SPA": "Interés legítimo"
-  },
-  "Loading Selected Courses": {
-    "PTBR": "Carregando Disciplinas Selecionadas",
-    "SPA": "Cargando Cursos Seleccionados"
-  },
-  "Local communities": {
-    "PTBR": "comunidades locais",
-    "SPA": "Comunidades locales"
-  },
-  "Location": {
-    "PTBR": "Localização",
-    "SPA": "Ubicación"
-  },
-  "Loss": {
-    "PTBR": "Perda",
-    "SPA": "Pérdida"
-  },
-  "Marketable certificates": {
-    "PTBR": "certificados comercializáveis",
-    "SPA": "Certificados con demanda laboral"
-  },
-  "Marketable skills": {
-    "PTBR": "habilidades comercializáveis",
-    "SPA": "Habilidades con demanda laboral"
-  },
-  "Math108X- Math for the Real World": {
-    "PTBR": "Math108X- Matemática para o Mundo Real",
-    "SPA": "Math108X- Matemáticas Prácticas para el Mundo real"
-  },
-  "Matriculate": {
-    "PTBR": "matricular-se",
-    "SPA": "Matricularse"
-  },
-  "Mental Health": {
-    "PTBR": "Saúde Mental",
-    "SPA": "Salud mental"
-  },
-  "Mental Health Diagnosis": {
-    "PTBR": "Diagnóstico de Saúde Mental",
-    "SPA": "Diagnóstico de salud mental"
-  },
-  "Message Center": {
-    "PTBR": "Central de Mensagens",
-    "SPA": "Centro de Mensajes"
-  },
-  "Mid-Course Evaluation": {
-    "PTBR": "Avaliação Intermediária e Final do Curso",
-    "SPA": "Evaluación de mitad de curso"
-  },
-  "Millions": {
-    "PTBR": "Unidades de Milhão",
-    "SPA": "Millones"
-  },
-  "Min Grade": {
-    "PTBR": "Nota Mínima",
-    "SPA": "Calificación Mínima"
-  },
-  "MKT 120 Introduction to Marketing": {
-    "PTBR": "MKT 120 Fundamentos de Marketing",
-    "SPA": "MKT 120 – Introducción a Marketing"
-  },
-  "MKT 351 Social Media Marketing": {
-    "PTBR": "MKT 351 Marketing de Mídias Sociais",
-    "SPA": "MKT 351 Marketing en Redes Sociales"
-  },
-  "Mobile-first design": {
-    "PTBR": "design mobile-first",
-    "SPA": "Diseño optimizado para dispositivos móviles"
-  },
-  "Module": {
-    "PTBR": "módulo",
-    "SPA": "Módulo"
-  },
-  "My Information": {
-    "PTBR": "Minhas Informações",
-    "SPA": "Mi Información"
-  },
-  "My Profile": {
-    "PTBR": "Meu Perfil",
-    "SPA": "Mi Perfil"
-  },
-  "No ACT/SAT required for admission": {
-    "PTBR": "Não é necessário ACT/SAT para admissão",
-    "SPA": "No se requiere ACT/SAT para la admisión"
-  },
-  "No Classes Scheduled": {
-    "PTBR": "Nenhuma Disciplina Agendada",
-    "SPA": "No Hay Clases Programadas"
-  },
-  "NO COST TO APPLY": {
-    "PTBR": "SEM CUSTO PARA SE INSCREVER",
-    "SPA": "Aplicación sin costo"
-  },
-  "Not degree-granting": {
-    "PTBR": "não concede diplomas",
-    "SPA": "No otorga un título"
-  },
-  "Not Yet": {
-    "PTBR": "Abaixo da Expectativas",
-    "SPA": "Aún no"
-  },
-  "Observation and feedback": {
-    "PTBR": "observação e feedback",
-    "SPA": "Observación y retroalimentación"
-  },
-  "Observation sheet": {
-    "PTBR": "folha de observação e feedback",
-    "SPA": "Hoja de observación"
-  },
-  "Observing student": {
-    "PTBR": "estudante observador(a)",
-    "SPA": "Estudiante observador"
-  },
-  "One year": {
-    "PTBR": "um ano",
-    "SPA": "Un año"
-  },
-  "One-year reduced-cost online program": {
-    "PTBR": "programa on-line de um ano com custo reduzido",
-    "SPA": "Programa en línea de un año a costo reducido"
-  },
-  "Ones (decimal system)": {
-    "PTBR": "unidades",
-    "SPA": "Unidades (sistema decimal)"
-  },
-  "Online Academic Support": {
-    "PTBR": "Suporte Acadêmico On-line",
-    "SPA": "Soporte Académico en Línea"
-  },
-  "Online courses": {
-    "PTBR": "cursos on-line",
-    "SPA": "Cursos en línea"
-  },
-  "Online degree-seeking": {
-    "PTBR": "estudantes que buscam diploma on-line",
-    "SPA": "Estudiantes que buscan un título en línea"
-  },
-  "Online Instructor Community": {
-    "PTBR": "Comunidade de Instrutores On-line",
-    "SPA": "Comunidad de Instructores en Línea"
-  },
-  "Online learning": {
-    "PTBR": "aprendizagem on-line",
-    "SPA": "Aprendizaje en línea"
-  },
-  "Online registration": {
-    "PTBR": "Registro On-line",
-    "SPA": "Inscripción en línea"
-  },
-  "Online Services": {
-    "PTBR": "Serviços on-line",
-    "SPA": "Servicios en Línea"
-  },
-  "Online Support Center": {
-    "PTBR": "Centro de Suporte On-line",
-    "SPA": "Centro de soporte en línea"
-  },
-  "Online web portal": {
-    "PTBR": "portal on-line",
-    "SPA": "Portal web en línea"
-  },
-  "Open": {
-    "PTBR": "Aberto",
-    "SPA": "Abierto"
-  },
-  "Opt Out": {
-    "PTBR": "Optar por não receber / cancelar recebimento",
-    "SPA": "Darse de baja"
-  },
-  "Organizational Measures": {
-    "PTBR": "Medidas organizacionais",
-    "SPA": "Medidas organizativas"
-  },
-  "Outlook email": {
-    "PTBR": "Signature",
-    "SPA": "Signature"
-  },
-  "Outreach Samples": {
-    "PTBR": "Exemplos de Ações de Acompanhamento",
-    "SPA": "Ejemplos de comunicación"
-  },
-  "Pacing Guide": {
-    "PTBR": "Tabela de Rotina",
-    "SPA": "Guía de avance del semestre"
-  },
-  "Pain": {
-    "PTBR": "Dor",
-    "SPA": "Dolor"
-  },
-  "Participants / Attendees": {
-    "PTBR": "Participantes / Visitantes",
-    "SPA": "Participantes"
-  },
-  "PathwayConnect completion": {
-    "PTBR": "conclusão do PathwayConnect",
-    "SPA": "Finalización de PathwayConnect"
-  },
-  "PathwayConnect is the recommended start...": {
-    "PTBR": "PathwayConnect é o início recomendado...",
-    "SPA": "PathwayConnect es el inicio recomendado..."
-  },
-  "PathwayConnect tuition rate": {
-    "PTBR": "valor do PathwayConnect",
-    "SPA": "Costo de matrícula de PathwayConnect"
-  },
-  "Pay Tuition": {
-    "PTBR": "Realizar Pagamento",
-    "SPA": "Pagar Matrícula"
-  },
-  "PC 101: Life Skills": {
-    "PTBR": "PC 101: Habilidades para a Vida",
-    "SPA": "PC 101: Habilidades para la Vida"
-  },
-  "PC 102: Professional Skills": {
-    "PTBR": "PC 102: Habilidades Profissionais",
-    "SPA": "PC 102: Habilidades Profesionales"
-  },
-  "PC 103: University Skills": {
-    "PTBR": "PC 103: Habilidades Universitárias",
-    "SPA": "PC 103: Habilidades Universitarias"
-  },
-  "PEACE101 - Conflict and Peace": {
-    "PTBR": "PEACE101- Conflito e Paz",
-    "SPA": "PEACE101- Conflicto y Paz"
-  },
-  "Peer mentor": {
-    "PTBR": "mentor colega",
-    "SPA": "Compañero mentor"
-  },
-  "Personal Data": {
-    "PTBR": "Dados pessoais",
-    "SPA": "Datos personales"
-  },
-  "Personal experience": {
-    "PTBR": "experiência pessoal",
-    "SPA": "Experiencia personal"
-  },
-  "Personal study": {
-    "PTBR": "estudo pessoal",
-    "SPA": "Estudio personal"
-  },
-  "Physical Characteristics": {
-    "PTBR": "Características físicas",
-    "SPA": "Características físicas"
-  },
-  "Physical well-being": {
-    "PTBR": "Bem-estar físico",
-    "SPA": "Bienestar físico"
-  },
-  "Placement assessment": {
-    "PTBR": "avaliação de nivelamento",
-    "SPA": "Evaluación de nivelación"
-  },
-  "Please select your term below...": {
-    "PTBR": "Por favor, selecione o seu período letivo abaixo...",
-    "SPA": "Por favor seleccione su período a continuación"
-  },
-  "Pre-Block": {
-    "PTBR": "Pré-Bloco",
-    "SPA": "Periodo previo al bloque"
-  },
-  "Prep": {
-    "PTBR": "preparação",
-    "SPA": "Preparación"
-  },
-  "Prerequisites": {
-    "PTBR": "Pré-requisito",
-    "SPA": "Requisitos Previos"
-  },
-  "President Brian K. Ashton": {
-    "PTBR": "Presidente Brian K. Ashton",
-    "SPA": "Presidente Brian K. Ashton"
-  },
-  "Priority deadline": {
-    "PTBR": "prazo prioritário",
-    "SPA": "Fecha límite de prioridad"
-  },
-  "Privacy settings": {
-    "PTBR": "Configurações de Privacidade",
-    "SPA": "Configuración de privacidad"
-  },
-  "Process / To Process": {
-    "PTBR": "Tratar / Processar",
-    "SPA": "Proceso / Procesar"
-  },
-  "Professional Guidance": {
-    "PTBR": "Orientação Profissional",
-    "SPA": "Orientación profesional"
-  },
-  "Professional Help": {
-    "PTBR": "Ajuda Profissional",
-    "SPA": "Ayuda profesional"
-  },
-  "Program options": {
-    "PTBR": "Opções do Programa",
-    "SPA": "Opciones de programas"
-  },
-  "Program Plan": {
-    "PTBR": "Plano do Programa",
-    "SPA": "Plan del programa"
-  },
-  "Program version comments": {
-    "PTBR": "Comentários sobre a Versão do Programa",
-    "SPA": "Comentarios de la versión del programa"
-  },
-  "Programs of study": {
-    "PTBR": "Programas de Estudo",
-    "SPA": "Programas de estudio"
-  },
-  "Prospective Students": {
-    "PTBR": "Estudantes Potenciais",
-    "SPA": "Estudiantes potenciales"
-  },
-  "Provides access to higher education for all": {
-    "PTBR": "oferece acesso ao ensino superior para todos",
-    "SPA": "Brinda acceso a la educación superior para todos"
-  },
-  "PUBH132- Personal Health and Wellness": {
-    "PTBR": "PUBH132- Saúde Pessoal e Bem-Estar",
-    "SPA": "PUBH132 - Salud y Bienestar Personal"
-  },
-  "Quote": {
-    "PTBR": "Citação",
-    "SPA": "Cita"
-  },
-  "Quote Integration": {
-    "PTBR": "Integração de Citação",
-    "SPA": "Integración de citas"
-  },
-  "Rate - R (Math exercises)": {
-    "PTBR": "Velocidade = V",
-    "SPA": "Ejercicios de razón (R)= Razón – R"
-  },
-  "Rectangular solid": {
-    "PTBR": "retângulo sólido",
-    "SPA": "Prisma rectangular"
-  },
-  "Reduced-cost": {
-    "PTBR": "custo reduzido",
-    "SPA": "Costo reducido"
-  },
-  "Referral": {
-    "PTBR": "Encaminhamento",
-    "SPA": "Referencia"
-  },
-  "Registering for": {
-    "PTBR": "Registrar-se para",
-    "SPA": "Inscribirse en"
-  },
-  "Registration": {
-    "PTBR": "inscrição",
-    "SPA": "Inscripción"
-  },
-  "Registration period": {
-    "PTBR": "Período de Vigência",
-    "SPA": "Período de inscripción"
-  },
-  "Registration status": {
-    "PTBR": "Status do Registro",
-    "SPA": "Estado de inscripción"
-  },
-  "Registration summary": {
-    "PTBR": "Resumo do Registro",
-    "SPA": "Resumen de inscripción"
-  },
-  "REL200A- The Eternal Family A": {
-    "PTBR": "REL200A- A Família Eterna A",
-    "SPA": "REL200A - La familia Eterna A"
-  },
-  "REL225A- Foundations of the Restoration A": {
-    "PTBR": "REL225A- Alicerces da Restauração A",
-    "SPA": "REL225A - Fundamentos de la Restauración A"
-  },
-  "REL250A- Jesus Christ and His Everlasting Gospel A": {
-    "PTBR": "REL250A- Jesus Cristo e o Evangelho Eterno A",
-    "SPA": "REL250A - Jesucristo y Su Evangelio Eterno A"
-  },
-  "REL275A- Teachings/Doctrine of the Book of Mormon A": {
-    "PTBR": "REL275A-Ensinamentos e Doutrina do Livro de Mórmon A",
-    "SPA": "REL275A- Enseñanzas y Doctrina del Libro de Mormón A"
-  },
-  "REL280A- Answering my Gospel Questions A": {
-    "PTBR": "REL280A- Responder às minhas perguntas do Evangelho A",
-    "SPA": "REL280A- Respuestas a mis preguntas sobre el Evangelio (A)"
-  },
-  "REL290A- The Divine Gift of Forgiveness A": {
-    "PTBR": "REL290A- O Dom Divino do Perdão A",
-    "SPA": "REL290A- El Don Divino del Perdón (A)"
-  },
-  "REL333A Teachings of the Living Prophets A": {
-    "PTBR": "REL333A- Ensinamentos dos Profetas Vivos A",
-    "SPA": "REL333A Enseñanzas de los Profetas Vivientes A"
-  },
-  "Relative Reference": {
-    "PTBR": "Referência Relativa",
-    "SPA": "Relativa"
-  },
-  "Release notes": {
-    "PTBR": "Notas de Versão",
-    "SPA": "Notas de la versión"
-  },
-  "Religion gathering": {
-    "PTBR": "reunião de religião",
-    "SPA": "Reunión de integración de religión"
-  },
-  "Residency credits": {
-    "PTBR": "créditos de residência",
-    "SPA": "Créditos de residencia"
-  },
-  "Resource Center": {
-    "PTBR": "Centro de Recursos",
-    "SPA": "Centro de Recursos"
-  },
-  "Resourcefulness and self-advocacy": {
-    "PTBR": "Desenvoltura e Autodefesa",
-    "SPA": "Ingenio y autodefensa"
-  },
-  "Resources": {
-    "PTBR": "Recursos",
-    "SPA": "Recursos"
-  },
-  "Restricted-Access Labs": {
-    "PTBR": "Laboratórios com acesso restrito",
-    "SPA": "Laboratorios de acceso restringido"
-  },
-  "Restriction of Processing": {
-    "PTBR": "Restrição de processamento",
-    "SPA": "Restricción del Procesamiento"
-  },
-  "Retries": {
-    "PTBR": "novas tentativas",
-    "SPA": "Reintentar"
-  },
-  "Returned missionary": {
-    "PTBR": "missionário retornado",
-    "SPA": "Misionero retornado"
-  },
-  "Revocation of Consent": {
-    "PTBR": "Revogação do consentimento",
-    "SPA": "Retiro del consentimiento"
-  },
-  "RISE": {
-    "PTBR": "Variação em Y",
-    "SPA": "run = Δx (cambio horizontal)"
-  },
-  "Rubric": {
-    "PTBR": "rubrica",
-    "SPA": "Rúbrica"
-  },
-  "RUN": {
-    "PTBR": "Variação em X",
-    "SPA": "run = Δx (cambio horizontal)"
-  },
-  "Safety and Welfare": {
-    "PTBR": "Segurança e bem-estar",
-    "SPA": "Seguridad y bienestar"
-  },
-  "Scalable transformation": {
-    "PTBR": "transformação escalável",
-    "SPA": "Transformación escalable"
-  },
-  "SCM 361 Operations Management": {
-    "PTBR": "SCM 361 Gestão de Operações",
-    "SPA": "SCM 361 Gestión de Operaciones"
-  },
-  "Scriptures": {
-    "PTBR": "escrituras",
-    "SPA": "Escrituras"
-  },
-  "Search Courses and Quick Add": {
-    "PTBR": "Selecione Disciplinas e Adicione Rapidamente",
-    "SPA": "Buscar Cursos y Agregar Rápidamente"
-  },
-  "Second-semester students": {
-    "PTBR": "estudantes do segundo semestre",
-    "SPA": "Estudiantes de segundo semestre"
-  },
-  "Section": {
-    "PTBR": "Seção",
-    "SPA": "Sección"
-  },
-  "Secure Access": {
-    "PTBR": "Acesso seguro",
-    "SPA": "Acceso Seguro"
-  },
-  "Secure Facilities": {
-    "PTBR": "Instalações seguras",
-    "SPA": "Instalaciones seguras"
-  },
-  "See increased success": {
-    "PTBR": "ver sucesso aumentado",
-    "SPA": "Tener un mayor éxito"
-  },
-  "Selected courses": {
-    "PTBR": "Disciplinas Selecionadas",
-    "SPA": "Cursos seleccionados"
-  },
-  "Self-reliant approach": {
-    "PTBR": "abordagem autossuficiente",
-    "SPA": "Enfoque de autosuficiencia"
-  },
-  "Semester": {
-    "PTBR": "semestre",
-    "SPA": "Semestre"
-  },
-  "Sensitive Personal Data": {
-    "PTBR": "Dados pessoais sensíveis",
-    "SPA": "Información personal sensible"
-  },
-  "Sentence": {
-    "PTBR": "Oração",
-    "SPA": "Oración"
-  },
-  "Service missionaries": {
-    "PTBR": "missionários de serviço",
-    "SPA": "Misioneros de servicio"
-  },
-  "Service provider": {
-    "PTBR": "provedor de serviços",
-    "SPA": "Proveedor de servicios"
-  },
-  "Sexual Misconduct": {
-    "PTBR": "Má Conduta Sexual",
-    "SPA": "Conducta sexual inapropiada"
-  },
-  "Share the good news of BYU-Pathway!": {
-    "PTBR": "Compartilhe as boas notícias da BYU-Pathway!",
-    "SPA": "¡Comparta las buenas noticias sobre BYU-Pathway!"
-  },
-  "Shift": {
-    "PTBR": "Turno",
-    "SPA": "Turno"
-  },
-  "Significantly lower than traditional universities": {
-    "PTBR": "significativamente menor que as universidades tradicionais",
-    "SPA": "Significativamente más bajo que las universidades tradicionales"
-  },
-  "Significantly reduced cost": {
-    "PTBR": "custo significativamente reduzido",
-    "SPA": "Costo significativamente reducido"
-  },
-  "Single Controlling Idea": {
-    "PTBR": "Ideia Única Central",
-    "SPA": "Idea central única"
-  },
-  "Sister": {
-    "PTBR": "irmã",
-    "SPA": "Hermana"
-  },
-  "Skills-based certificates": {
-    "PTBR": "certificados baseados em habilidades",
-    "SPA": "Certificados basados en habilidades"
-  },
-  "Slope-Intercept Form of a Line": {
-    "PTBR": "Equação Reduzida de uma Reta",
-    "SPA": "Forma de ecuación de una recta con la pendiente y el punto de intersección"
-  },
-  "SMS Communications": {
-    "PTBR": "Comunicações por SMS",
-    "SPA": "Mensajes de texto (SMS)"
-  },
-  "Software Development Degree": {
-    "PTBR": "Bacharelado em Desenvolvimento de Software",
-    "SPA": "Licenciatura en Desarrollo de Software"
-  },
-  "Solve for a variable": {
-    "PTBR": "Encontre o valor de uma variável",
-    "SPA": "Despejar una variable"
-  },
-  "Source Integration": {
-    "PTBR": "Integração de Fonte",
-    "SPA": "Integración de fuentes"
-  },
-  "Spiritually based": {
-    "PTBR": "baseado espiritualmente",
-    "SPA": "Con base espiritual"
-  },
-  "Stackable certificate": {
-    "PTBR": "certificado empilhável",
-    "SPA": "Certificado acumulable"
-  },
-  "Start date": {
-    "PTBR": "Data de Início",
-    "SPA": "Fecha de inicio"
-  },
-  "Statistics": {
-    "PTBR": "estatísticas",
-    "SPA": "Estadísticas"
-  },
-  "Status": {
-    "PTBR": "Status",
-    "SPA": "Estado"
-  },
-  "Strong employment opportunities": {
-    "PTBR": "fortes oportunidades de emprego",
-    "SPA": "Sólidas oportunidades de empleo"
-  },
-  "Student": {
-    "PTBR": "estudante",
-    "SPA": "Estudiante"
-  },
-  "Student academic progress": {
-    "PTBR": "Progresso Acadêmico do(a) Estudante",
-    "SPA": "Progreso académico del estudiante"
-  },
-  "Student Career Services": {
-    "PTBR": "Serviços de Carreira para Estudantes",
-    "SPA": "Servicios de orientación profesional para estudiantes"
-  },
-  "Student Death": {
-    "PTBR": "Falecimento do Estudante",
-    "SPA": "Fallecimiento de un estudiante"
-  },
-  "Student dropped": {
-    "PTBR": "Estudante Desistente",
-    "SPA": "Estudiante retirado"
-  },
-  "Student FAQs & Resources": {
-    "PTBR": "Perguntas Frequentes e Recursos para Estudantes",
-    "SPA": "Preguntas frecuentes y materiales de apoyo para el estudiante"
-  },
-  "Student honor": {
-    "PTBR": "Código de Honra dos Estudantes",
-    "SPA": "Honor del estudiante"
-  },
-  "Student Notes and Tasks": {
-    "PTBR": "Notas sobre os Estudantes e Tarefas",
-    "SPA": "Apuntes y tareas del estudiante"
-  },
-  "Student portal": {
-    "PTBR": "Portal do Estudante",
-    "SPA": "Portal del estudiante"
-  },
-  "Student resources": {
-    "PTBR": "Recursos para Estudantes",
-    "SPA": "Recursos para estudiantes"
-  },
-  "Student Services": {
-    "PTBR": "Serviços estudantis",
-    "SPA": "Servicios Estudiantiles"
-  },
-  "Student wellness": {
-    "PTBR": "Bem-estar dos Estudantes",
-    "SPA": "Bienestar del estudiante"
-  },
-  "Students around the world": {
-    "PTBR": "estudantes ao redor do mundo",
-    "SPA": "Estudiantes de todo el mundo"
-  },
-  "Students in Crisis": {
-    "PTBR": "Estudantes em Crise",
-    "SPA": "Estudiantes en crisis"
-  },
-  "Submission": {
-    "PTBR": "Envio de Tarefa",
-    "SPA": "Entrega"
-  },
-  "Support": {
-    "PTBR": "Suporte",
-    "SPA": "Soporte"
-  },
-  "Supporting details": {
-    "PTBR": "detalhes de apoio",
-    "SPA": "Detalles de apoyo"
-  },
-  "Supporting Documentation": {
-    "PTBR": "Documentação Comprobatória",
-    "SPA": "Documentación de apoyo"
-  },
-  "Sustainable living wage": {
-    "PTBR": "salário de subsistência sustentável",
-    "SPA": "Salario digno sostenible"
-  },
-  "Syllabus": {
-    "PTBR": "Programa do Curso",
-    "SPA": "Programa de estudios"
-  },
-  "System issues": {
-    "PTBR": "problemas do sistema",
-    "SPA": "Problemas del sistema"
-  },
-  "TA Management": {
-    "PTBR": "Gestão de Assistentes de Ensino",
-    "SPA": "Gestión de asistentes de docencia"
-  },
-  "Tab": {
-    "PTBR": "guia",
-    "SPA": "Pestaña"
-  },
-  "Tax Information": {
-    "PTBR": "Informações fiscais / de impostos",
-    "SPA": "Información fiscal"
-  },
-  "Teach one another": {
-    "PTBR": "ensinar uns aos outros",
-    "SPA": "Enseñarse unos a otros"
-  },
-  "Teaching assistant": {
-    "PTBR": "assistentes de ensino",
-    "SPA": "Asistente de enseñanza"
-  },
-  "Teaching Group Directory": {
-    "PTBR": "Diretório de Grupos de Ensino",
-    "SPA": "Directorio del grupo de enseñanza"
-  },
-  "Teaching notes": {
-    "PTBR": "notas de ensino",
-    "SPA": "Notas de enseñanza"
-  },
-  "Teaching Notes and Outreach": {
-    "PTBR": "Plano de Aula e de Contato Com Os Estudantes",
-    "SPA": "Notas de enseñanza y contacto"
-  },
-  "Teaching Notes and Student Outreach": {
-    "PTBR": "Plano de Aula e de Contato Com Os Estudantes",
-    "SPA": "Notas de enseñanza y contacto con los estudiantes"
-  },
-  "Team work": {
-    "PTBR": "trabalho em equipe",
-    "SPA": "Trabajo en equipo"
-  },
-  "Technical Measures": {
-    "PTBR": "Medidas técnicas",
-    "SPA": "Medidas Técnicas"
-  },
-  "Template": {
-    "PTBR": "modelo",
-    "SPA": "Plantilla"
-  },
-  "Ten Billions": {
-    "PTBR": "Dezenas de Bilhão",
-    "SPA": "Decenas de miles de millones"
-  },
-  "Ten Millions": {
-    "PTBR": "Dezenas de Milhão",
-    "SPA": "Decenas de millón"
-  },
-  "Ten Thousands": {
-    "PTBR": "Dezenas de Milhar",
-    "SPA": "Decenas de mil"
-  },
-  "Term": {
-    "PTBR": "período letivo",
-    "SPA": "Periodo"
-  },
-  "Term description": {
-    "PTBR": "Descrição do Período Letivo",
-    "SPA": "Descripción del periodo"
-  },
-  "Testing Center": {
-    "PTBR": "Centro de Provas",
-    "SPA": "Centro de Evaluación"
-  },
-  "Textbook": {
-    "PTBR": "Livro didático",
-    "SPA": "Libro de texto"
-  },
-  "Thank you": {
-    "PTBR": "Agradeço",
-    "SPA": "Gracias"
-  },
-  "The hidden many": {
-    "PTBR": "os muitos ocultos",
-    "SPA": "La multitud oculta"
-  },
-  "Therapist / Therapy": {
-    "PTBR": "Terapeuta / Terapia",
-    "SPA": "Terapeuta / Terapia"
-  },
-  "Thesis statement": {
-    "PTBR": "declaração de tese",
-    "SPA": "Enunciado de tesis"
-  },
-  "Thinking error": {
-    "PTBR": "erro de pensamento",
-    "SPA": "Error de pensamiento"
-  },
-  "Three levels to help you progress...": {
-    "PTBR": "três níveis para ajudá-lo a progredir...",
-    "SPA": "Tres niveles para ayudarte a progresar..."
-  },
-  "Three-year bachelor's degrees": {
-    "PTBR": "diplomas de bacharelado de três anos",
-    "SPA": "Licenciaturas de tres años"
-  },
-  "Tips for Math Outreach": {
-    "PTBR": "Dicas para Ações de Acompanhamento de Matemática",
-    "SPA": "Estrategias de acompañamiento en matemáticas"
-  },
-  "Tips for Writing Outreach": {
-    "PTBR": "Dicas para Ações de Acompanhamento de Escrita",
-    "SPA": "Estrategias de acompañamiento en redacción"
-  },
-  "Title Case": {
-    "PTBR": "Iniciais Maiúsculas",
-    "SPA": "Letra mayúscula"
-  },
-  "Topic": {
-    "PTBR": "Assunto",
-    "SPA": "Tema"
-  },
-  "Topic sentence": {
-    "PTBR": "oração inicial",
-    "SPA": "Oración principal"
-  },
-  "Transcripts": {
-    "PTBR": "Histórico Escolar",
-    "SPA": "Expedientes Académicos"
-  },
-  "Transfer credit": {
-    "PTBR": "crédito de transferência",
-    "SPA": "Transferencia de créditos"
-  },
-  "Tuition costs significantly less than other schools": {
-    "PTBR": "Os cursos custam significativamente menos que outras escolas",
-    "SPA": "La matrícula cuesta significativamente menos que en otras escuelas"
-  },
-  "Tuition discount": {
-    "PTBR": "desconto no valor dos cursos",
-    "SPA": "Descuento de matrícula"
-  },
-  "Tutor": {
-    "PTBR": "Tutor",
-    "SPA": "Tutor"
-  },
-  "Tutoring": {
-    "PTBR": "Tutoria",
-    "SPA": "Tutoría"
-  },
-  "U.S. Tax 1098-T": {
-    "PTBR": "Formulário Fiscal 1098-T (EUA)",
-    "SPA": "Formulario fiscal 1098-T de EE. UU."
-  },
-  "University": {
-    "PTBR": "universidade",
-    "SPA": "Universidad"
-  },
-  "University policies": {
-    "PTBR": "políticas da universidade",
-    "SPA": "Políticas universitarias"
-  },
-  "Username & emails": {
-    "PTBR": "Nome de Usuário e E-mails",
-    "SPA": "Nombre de usuario y correos electrónicos"
-  },
-  "Video Surveillance": {
-    "PTBR": "Vigilância por vídeo",
-    "SPA": "Vigilancia por video"
-  },
-  "View holds and alerts": {
-    "PTBR": "Verificar Pendências e Alertas",
-    "SPA": "Ver retenciones y alertas"
-  },
-  "Virtual gathering": {
-    "PTBR": "reunião virtual",
-    "SPA": "Reunión de integración virtual"
-  },
-  "W01": {
-    "PTBR": "S01",
-    "SPA": "S01"
-  },
-  "W01, W02": {
-    "PTBR": "S01, S02",
-    "SPA": "W01, W02"
-  },
-  "W02": {
-    "PTBR": "S02",
-    "SPA": "S02"
-  },
-  "W03": {
-    "PTBR": "S03",
-    "SPA": "S03"
-  },
-  "W04": {
-    "PTBR": "S04",
-    "SPA": "S04"
-  },
-  "W05": {
-    "PTBR": "S05",
-    "SPA": "S05"
-  },
-  "W06": {
-    "PTBR": "S06",
-    "SPA": "S06"
-  },
-  "W07": {
-    "PTBR": "S07",
-    "SPA": "S07"
-  },
-  "W08": {
-    "PTBR": "S08",
-    "SPA": "S08"
-  },
-  "W09": {
-    "PTBR": "S09",
-    "SPA": "S09"
-  },
-  "W10": {
-    "PTBR": "S10",
-    "SPA": "S10"
-  },
-  "W11": {
-    "PTBR": "S11",
-    "SPA": "S11"
-  },
-  "W12": {
-    "PTBR": "S12",
-    "SPA": "S12"
-  },
-  "W13": {
-    "PTBR": "S13",
-    "SPA": "S13"
-  },
-  "W14": {
-    "PTBR": "S14",
-    "SPA": "S14"
-  },
-  "W15": {
-    "PTBR": "S15",
-    "SPA": "S15"
-  },
-  "WDD130 - Web Fundamentals": {
-    "PTBR": "WDD130 – Fundamentos da Web",
-    "SPA": "WDD130 - Fundamentos de la Web"
-  },
-  "WDD131 - Dynamic Web Fundamentals": {
-    "PTBR": "WDD131 – Fundamentos da Web Dinâmica",
-    "SPA": "WDD131 - Fundamentos de la web dinámica"
-  },
-  "WDD231 - Web Frontend Development I": {
-    "PTBR": "WDD231 – Desenvolvimento Frontend para Web I",
-    "SPA": "WDD231 - Desarrollo Web Frontend I"
-  },
-  "WDD330 - Web Frontend Development II": {
-    "PTBR": "WDD330 – Desenvolvimento Frontend para Web II",
-    "SPA": "WDD330 - Desarrollo Web Front-end II"
-  },
-  "WDD430 - Web Full-Stack Development": {
-    "PTBR": "WDD430 – Desenvolvimento Full-Stack para Web",
-    "SPA": "WDD430 - Desarrollo Web Full-Stack"
-  },
-  "Web Beacons": {
-    "PTBR": "Web beacons (pixels de rastreamento)",
-    "SPA": "Balizas web"
-  },
-  "Week 00": {
-    "PTBR": "Semana 00",
-    "SPA": "Semana 00"
-  },
-  "Week 01": {
-    "PTBR": "Semana 01",
-    "SPA": "Semana 01"
-  },
-  "Week 01…": {
-    "PTBR": "Semana 01…",
-    "SPA": "Semana 01…"
-  },
-  "Week 02": {
-    "PTBR": "Semana 02",
-    "SPA": "Semana 02"
-  },
-  "Week 03": {
-    "PTBR": "Semana 03",
-    "SPA": "Semana 03"
-  },
-  "Week 04": {
-    "PTBR": "Semana 04",
-    "SPA": "Semana 04"
-  },
-  "Week 05": {
-    "PTBR": "Semana 05",
-    "SPA": "Semana 05"
-  },
-  "Week 06": {
-    "PTBR": "Semana 06",
-    "SPA": "Semana 06"
-  },
-  "Week 07": {
-    "PTBR": "Semana 07",
-    "SPA": "Semana 07"
-  },
-  "Week 08": {
-    "PTBR": "Semana 08",
-    "SPA": "Semana 08"
-  },
-  "Week 09": {
-    "PTBR": "Semana 09",
-    "SPA": "Semana 09"
-  },
-  "Week 10": {
-    "PTBR": "Semana 10",
-    "SPA": "Semana 10"
-  },
-  "Week 11": {
-    "PTBR": "Semana 11",
-    "SPA": "Semana 11"
-  },
-  "Week 12": {
-    "PTBR": "Semana 12",
-    "SPA": "Semana 12"
-  },
-  "Week 13": {
-    "PTBR": "Semana 13",
-    "SPA": "Semana 13"
-  },
-  "Week 14": {
-    "PTBR": "Semana 14",
-    "SPA": "Semana 14"
-  },
-  "Week 15": {
-    "PTBR": "Semana 15",
-    "SPA": "Semana 15"
-  },
-  "Weekly gatherings": {
-    "PTBR": "reuniões semanais",
-    "SPA": "Reuniones de integración semanales"
-  },
-  "Welcome": {
-    "PTBR": "Bem-vindo(a)",
-    "SPA": "Bienvenido(a)"
-  },
-  "Well-being": {
-    "PTBR": "Bem-estar",
-    "SPA": "Bienestar"
-  },
-  "Wellness Plan": {
-    "PTBR": "Plano de Bem-Estar",
-    "SPA": "Plan de bienestar"
-  },
-  "Whole Numbers": {
-    "PTBR": "Números Inteiros Positivos ou Naturais",
-    "SPA": "Números enteros"
-  },
-  "Withdraw from a course": {
-    "PTBR": "Desistir de uma disciplina",
-    "SPA": "Retirarse de un curso"
-  },
-  "Without leaving your home": {
-    "PTBR": "sem sair de casa",
-    "SPA": "Sin salir de casa"
-  },
-  "Workbook": {
-    "PTBR": "Livro de exercícios",
-    "SPA": "Cuaderno de trabajo"
-  },
-  "WRI 101- Writing in Professional Contexts": {
-    "PTBR": "WRIT101-Escrita em Contextos Profissionais",
-    "SPA": "WRI 101- Redacción en Contextos Profesionales"
-  },
-  "Writing": {
-    "PTBR": "Escrita",
-    "SPA": "Redacción / Escritura"
-  },
-  "Writing Prep": {
-    "PTBR": "Preparação para a Escrita",
-    "SPA": "Proceso de escritura"
-  },
-  "Writing prompt": {
-    "PTBR": "proposta de escrita",
-    "SPA": "Indicación de escritura"
-  },
-  "You have # alert": {
-    "PTBR": "Você tem # alerta",
-    "SPA": "Usted tiene # alerta"
-  },
-  "You have # holds": {
-    "PTBR": "Você tem # pendência",
-    "SPA": "Tiene # de Resctricciones Academicas"
-  },
-  "Young Men's Program": {
-    "PTBR": "Programa dos Rapazes",
-    "SPA": "Programa de los Hombres Jóvenes"
-  },
-  "Young Women's Program": {
-    "PTBR": "Programa das Moças",
-    "SPA": "Programa de las Mujeres Jóvenes"
-  },
-  "Absolute Reference": {
-    "PTBR": "",
-    "SPA": "Referencia Absoluta"
-  },
-  "academic honesty": {
-    "PTBR": "",
-    "SPA": "Honestidad académica"
-  },
-  "active learner": {
-    "PTBR": "",
-    "SPA": "Estudiante activo(a)"
-  },
-  "ADDITIONAL REQUIRED COURSES": {
-    "PTBR": "",
-    "SPA": "CURSOS ADICIONALES REQUERIDOS"
-  },
-  "advisor": {
-    "PTBR": "",
-    "SPA": "Asesor"
-  },
-  "All Enrollments": {
-    "PTBR": "",
-    "SPA": "Todas las inscripciones"
-  },
-  "application": {
-    "PTBR": "",
-    "SPA": "Solicitud"
-  },
-  "application activity": {
-    "PTBR": "",
-    "SPA": "Actividad práctica"
-  },
-  "applications are open year-round": {
-    "PTBR": "",
-    "SPA": "Las solicitudes están abiertas todo el año"
-  },
-  "Applies to Course Category": {
-    "PTBR": "",
-    "SPA": "Aplica a la Categoría del Curso"
-  },
-  "area coordination missionary": {
-    "PTBR": "",
-    "SPA": "Misionero de coordinación de área"
-  },
-  "area managers": {
-    "PTBR": "",
-    "SPA": "Gerentes de área"
-  },
-  "areas with limited access": {
-    "PTBR": "",
-    "SPA": "Áreas con acceso limitado"
-  },
-  "Associate Degree": {
-    "PTBR": "",
-    "SPA": "Título técnico superior"
-  },
-  "attandance": {
-    "PTBR": "",
-    "SPA": "Asistencia"
-  },
-  "Bachelor's Degree": {
-    "PTBR": "",
-    "SPA": "Licenciatura"
-  },
-  "Basic Essay": {
-    "PTBR": "",
-    "SPA": "Ensayo básico"
-  },
-  "better prepared": {
-    "PTBR": "",
-    "SPA": "Mejor preparado"
-  },
-  "bishop": {
-    "PTBR": "",
-    "SPA": "Obispo"
-  },
-  "bishopric": {
-    "PTBR": "",
-    "SPA": "Obispado"
-  },
-  "block": {
-    "PTBR": "",
-    "SPA": "Bloque"
-  },
-  "blocks": {
-    "PTBR": "",
-    "SPA": "Bloques"
-  },
-  "book title": {
-    "PTBR": "",
-    "SPA": "Título del libro"
-  },
-  "branch": {
-    "PTBR": "",
-    "SPA": "Rama"
-  },
-  "branch president": {
-    "PTBR": "",
-    "SPA": "Presidente de rama"
-  },
-  "brief description": {
-    "PTBR": "",
-    "SPA": "Descripción breve"
-  },
-  "build confidence": {
-    "PTBR": "",
-    "SPA": "Desarrollar confianza"
-  },
-  "Building/Room": {
-    "PTBR": "",
-    "SPA": "Edificio/Sala"
-  },
-  "bulletin inserts": {
-    "PTBR": "",
-    "SPA": "Insertos para boletín"
-  },
-  "BUS 321 – Organizational Leadership": {
-    "PTBR": "",
-    "SPA": "BUS 321 – Liderazgo Organizacional"
-  },
-  "business management degree": {
-    "PTBR": "",
-    "SPA": "Título en Administración de Empresas"
-  },
-  "BYU-Pathway Worldwide provides access to spiritually based degrees completely online at an affordable price": {
-    "PTBR": "",
-    "SPA": "BYU-Pathway Worldwide brinda acceso a títulos con base espiritual completamente en línea a un precio accesible"
-  },
-  "certificate and degree courses": {
-    "PTBR": "",
-    "SPA": "Certificado y cursos de título"
-  },
-  "CERTIFICATE I: WEB AND COMPUTER PROGRAMMING": {
-    "PTBR": "",
-    "SPA": "CERTIFICADO I: PROGRAMACIÓN WEB e INFORMÁTICA"
-  },
-  "CERTIFICATE II: WEB DEVELOPMENT": {
-    "PTBR": "",
-    "SPA": "CERTIFICADO II: DESARROLLO WEB"
-  },
-  "CERTIFICATE III: SOFTWARE DEVELOPMENT": {
-    "PTBR": "",
-    "SPA": "CERTIFICADO III: DESARROLLO DE SOFTWARE"
-  },
-  "certificate-first approach": {
-    "PTBR": "",
-    "SPA": "Enfoque de certificado primero"
-  },
-  "certificates can be completed in one year or less and lead to immediate job improvement": {
-    "PTBR": "",
-    "SPA": "Los certificados se pueden completar en un año o menos y conducen a una mejora laboral inmediata"
-  },
-  "CES": {
-    "PTBR": "",
-    "SPA": "Sistema Educativo de la Iglesia"
-  },
-  "changing lives": {
-    "PTBR": "",
-    "SPA": "Transformando vidas"
-  },
-  "chatbot (or bot)": {
-    "PTBR": "",
-    "SPA": "Asistente Virtual"
-  },
-  "Class Schedule": {
-    "PTBR": "",
-    "SPA": "Horario de Clases"
-  },
-  "come and see": {
-    "PTBR": "",
-    "SPA": "Ven y observa"
-  },
-  "Commitment Statements": {
-    "PTBR": "",
-    "SPA": "Declaraciones de compromiso"
-  },
-  "completion certificate": {
-    "PTBR": "",
-    "SPA": "Certificado de finalización"
-  },
-  "computer lab": {
-    "PTBR": "",
-    "SPA": "Laboratorio de computación"
-  },
-  "concluding paragraph": {
-    "PTBR": "",
-    "SPA": "Párrafo de conclusión"
-  },
-  "concluding sentence": {
-    "PTBR": "",
-    "SPA": "Oración de conclusión"
-  },
-  "confirmation": {
-    "PTBR": "",
-    "SPA": "Confirmación"
-  },
-  "controlling idea": {
-    "PTBR": "",
-    "SPA": "Idea principal"
-  },
-  "conventions": {
-    "PTBR": "",
-    "SPA": "Normas"
-  },
-  "conversation group": {
-    "PTBR": "",
-    "SPA": "Grupo de conversación"
-  },
-  "copyright infringement": {
-    "PTBR": "",
-    "SPA": "Infracción de derechos de autor"
-  },
-  "cost": {
-    "PTBR": "",
-    "SPA": "Costo"
-  },
-  "course evaluation": {
-    "PTBR": "",
-    "SPA": "Evaluación del curso"
-  },
-  "course fees": {
-    "PTBR": "",
-    "SPA": "Costo del curso"
-  },
-  "Course Outcome": {
-    "PTBR": "",
-    "SPA": "Resultados del curso"
-  },
-  "course setup": {
-    "PTBR": "",
-    "SPA": "Configuración del curso"
-  },
-  "course-specific notes": {
-    "PTBR": "",
-    "SPA": "Notas específicas del curso"
-  },
-  "credit load": {
-    "PTBR": "",
-    "SPA": "Carga académica"
-  },
-  "credits": {
-    "PTBR": "",
-    "SPA": "Créditos"
-  },
-  "Credits Current/Scheduled": {
-    "PTBR": "",
-    "SPA": "Créditos Actuales/Programados"
-  },
-  "Current Balance": {
-    "PTBR": "",
-    "SPA": "Saldo Actual"
-  },
-  "Dean of Students": {
-    "PTBR": "",
-    "SPA": "Decano de Estudiantes"
-  },
-  "deep learning": {
-    "PTBR": "",
-    "SPA": "Aprendizaje profundo"
-  },
-  "Degree Pursued": {
-    "PTBR": "",
-    "SPA": "Título en Curso"
-  },
-  "degrees are awarded": {
-    "PTBR": "",
-    "SPA": "Se otorgan títulos"
-  },
-  "develop disciples of Jesus Christ who are leaders in their homes, the Church, and their communities": {
-    "PTBR": "",
-    "SPA": "Formar discípulos de Jesucristo que sean líderes en sus hogares, la Iglesia y sus comunidades"
-  },
-  "Disciple Leader": {
-    "PTBR": "",
-    "SPA": "Líder de discipulado"
-  },
-  "district leader": {
-    "PTBR": "",
-    "SPA": "Líder de distrito"
-  },
-  "earn a degree and make more money": {
-    "PTBR": "",
-    "SPA": "Obtén un título y gana más dinero"
-  },
-  "ecclesiastical endorsement": {
-    "PTBR": "",
-    "SPA": "Recomendación eclesiástica"
-  },
-  "Elective Religion Courses": {
-    "PTBR": "",
-    "SPA": "Cursos electivos de religión"
-  },
-  "employable credentials": {
-    "PTBR": "",
-    "SPA": "Credenciales laborales"
-  },
-  "EnglishConnect 1": {
-    "PTBR": "",
-    "SPA": "EnglishConnect 1"
-  },
-  "EnglishConnect 2": {
-    "PTBR": "",
-    "SPA": "EnglishConnect 2"
-  },
-  "EnglishConnect 3": {
-    "PTBR": "",
-    "SPA": "EnglishConnect 3"
-  },
-  "enroll": {
-    "PTBR": "",
-    "SPA": "Inscribirse"
-  },
-  "enrollment counselor": {
-    "PTBR": "",
-    "SPA": "Asesor de inscripción"
-  },
-  "entirely online": {
-    "PTBR": "",
-    "SPA": "Completamente en línea"
-  },
-  "entirely online and affordable": {
-    "PTBR": "",
-    "SPA": "Completamente en línea y económicamente accesible"
-  },
-  "exam": {
-    "PTBR": "",
-    "SPA": "Examen"
-  },
-  "expert testimony": {
-    "PTBR": "",
-    "SPA": "testimonio de experto"
-  },
-  "extenuating circumstances": {
-    "PTBR": "",
-    "SPA": "Circunstancias atenuantes"
-  },
-  "fact": {
-    "PTBR": "",
-    "SPA": "Hecho"
-  },
-  "faith-based curriculum": {
-    "PTBR": "",
-    "SPA": "Plan de estudios basado en la fe"
-  },
-  "false growth mindset": {
-    "PTBR": "",
-    "SPA": "Falsa mentalidad de crecimiento"
-  },
-  "FCS160- Family Leadership and Resources Management": {
-    "PTBR": "",
-    "SPA": "FCS160- Liderazgo Familiar y Gestión de Recursos"
-  },
-  "fixed mindset": {
-    "PTBR": "",
-    "SPA": "Mentalidad cerrada"
-  },
-  "flashcards": {
-    "PTBR": "",
-    "SPA": "Fichas de estudio"
-  },
-  "flexible payment": {
-    "PTBR": "",
-    "SPA": "Pago flexible"
-  },
-  "foundational academic and religion courses": {
-    "PTBR": "",
-    "SPA": "Cursos fundamentales académicos y de religión"
-  },
-  "gain confidence": {
-    "PTBR": "",
-    "SPA": "Ganar confianza"
-  },
-  "gateway course": {
-    "PTBR": "",
-    "SPA": "Curso de acceso"
-  },
-  "gateway to college": {
-    "PTBR": "",
-    "SPA": "Puerta de entrada a la universidad"
-  },
-  "gathering": {
-    "PTBR": "",
-    "SPA": "Reunión"
-  },
-  "gathering agenda": {
-    "PTBR": "",
-    "SPA": "Agenda de la reunión"
-  },
-  "gathering selection": {
-    "PTBR": "",
-    "SPA": "Selección de reunión"
-  },
-  "Gatherings": {
-    "PTBR": "",
-    "SPA": "Reuniones"
-  },
-  "gatherings occur virtually through online groups or at local church facilities": {
-    "PTBR": "",
-    "SPA": "Las reuniones se realizan de forma virtual a través de grupos en línea o en las instalaciones locales de la Iglesia"
-  },
-  "Go to EnglishConnect": {
-    "PTBR": "",
-    "SPA": "Ir a EnglishConnect"
-  },
-  "gospel-centered environment": {
-    "PTBR": "",
-    "SPA": "Ambiente centrado en el evangelio"
-  },
-  "grade": {
-    "PTBR": "",
-    "SPA": "Calificación"
-  },
-  "gradebook": {
-    "PTBR": "",
-    "SPA": "Reporte de calificaciones"
-  },
-  "group": {
-    "PTBR": "",
-    "SPA": "Grupo"
-  },
-  "group work": {
-    "PTBR": "",
-    "SPA": "Trabajo en grupo"
-  },
-  "growth mindset": {
-    "PTBR": "",
-    "SPA": "Mentalidad de desarrollo continuo"
-  },
-  "guideline": {
-    "PTBR": "",
-    "SPA": "Lineamiento"
-  },
-  "Healthcare Provider": {
-    "PTBR": "",
-    "SPA": "Proveedor de servicios de salud"
-  },
-  "high school": {
-    "PTBR": "",
-    "SPA": "Secundaria"
-  },
-  "High Stakes Exam": {
-    "PTBR": "",
-    "SPA": "Examen de alto impacto"
-  },
-  "highly relevant": {
-    "PTBR": "",
-    "SPA": "Altamente relevante"
-  },
-  "Holds & Alerts": {
-    "PTBR": "",
-    "SPA": "Restricciones y Alertas Académicas"
-  },
-  "honor": {
-    "PTBR": "",
-    "SPA": "Honor"
-  },
-  "Honor Code": {
-    "PTBR": "",
-    "SPA": "Código de Honor"
-  },
-  "hook": {
-    "PTBR": "",
-    "SPA": "El enganche"
-  },
-  "HUM110 - Discovery and Discernment Through the Arts": {
-    "PTBR": "",
-    "SPA": "HUM110 - Descubrimiento y Discernimiento a través de las Artes"
-  },
-  "I-Learn": {
-    "PTBR": "",
-    "SPA": "I-Learn"
-  },
-  "immediate job improvement": {
-    "PTBR": "",
-    "SPA": "Mejora laboral inmediata"
-  },
-  "inbox": {
-    "PTBR": "",
-    "SPA": "Bandeja de entrada"
-  },
-  "Includes Required and Elective Courses": {
-    "PTBR": "",
-    "SPA": "Incluye Cursos Obligatorios y Electivos"
-  },
-  "increase faith": {
-    "PTBR": "",
-    "SPA": "Fortalecer la fe"
-  },
-  "increase your chances of academic success": {
-    "PTBR": "",
-    "SPA": "Aumenta tus posibilidades de éxito académico"
-  },
-  "informational presentation": {
-    "PTBR": "",
-    "SPA": "Presentación informativa"
-  },
-  "Instructor Support Table of Resources": {
-    "PTBR": "",
-    "SPA": "Tabla de recursos de apoyo para docentes"
-  },
-  "international programs": {
-    "PTBR": "",
-    "SPA": "Programas internacionales"
-  },
-  "international students": {
-    "PTBR": "",
-    "SPA": "Estudiantes internacionales"
-  },
-  "introductory paragraph": {
-    "PTBR": "",
-    "SPA": "Párrafo Introductorio"
-  },
-  "job readiness": {
-    "PTBR": "",
-    "SPA": "Preparación laboral"
-  },
-  "lead student": {
-    "PTBR": "",
-    "SPA": "Líder estudiantil"
-  },
-  "learner manual": {
-    "PTBR": "",
-    "SPA": "Manual del estudiante"
-  },
-  "Learning English can open doors to new jobs, cultures, interactions, and people": {
-    "PTBR": "",
-    "SPA": "Aprender inglés puede abrirte puertas a nuevos empleos, culturas, interacciones y personas"
-  },
-  "local communities": {
-    "PTBR": "",
-    "SPA": "Comunidades locales"
-  },
-  "marketable certificates": {
-    "PTBR": "",
-    "SPA": "Certificados con valor en el mercado laboral"
-  },
-  "marketable skills": {
-    "PTBR": "",
-    "SPA": "Habilidades con valor en el mercado laboral"
-  },
-  "Marketing Communications": {
-    "PTBR": "",
-    "SPA": "Comunicación de Marketing"
-  },
-  "matriculate": {
-    "PTBR": "",
-    "SPA": "Matricularse"
-  },
-  "member of Seventy": {
-    "PTBR": "",
-    "SPA": "Miembro de los Setenta"
-  },
-  "Mid-Course and End-of-Course Evaluation": {
-    "PTBR": "",
-    "SPA": "Evaluación a mitad y al final del curso"
-  },
-  "mobile-first design": {
-    "PTBR": "",
-    "SPA": "Diseño enfocado para dispositivos móviles"
-  },
-  "module": {
-    "PTBR": "",
-    "SPA": "Módulo"
-  },
-  "more than 180 countries": {
-    "PTBR": "",
-    "SPA": "Más de 180 países"
-  },
-  "not degree-granting": {
-    "PTBR": "",
-    "SPA": "No otorga títulos"
-  },
-  "observation and feedback": {
-    "PTBR": "",
-    "SPA": "Comentarios y sugerencias"
-  },
-  "observation and feedback sheet": {
-    "PTBR": "",
-    "SPA": "Hoja de Comentarios y sugerencias"
-  },
-  "observation sheet": {
-    "PTBR": "",
-    "SPA": "Hoja de observación"
-  },
-  "observing student": {
-    "PTBR": "",
-    "SPA": "Observación del estudiante"
-  },
-  "one year": {
-    "PTBR": "",
-    "SPA": "Un año"
-  },
-  "one-year reduced-cost online program": {
-    "PTBR": "",
-    "SPA": "Programa en línea de un año a precio reducido"
-  },
-  "one-year, low-cost online program": {
-    "PTBR": "",
-    "SPA": "Programa en línea de un año y bajo costo"
-  },
-  "ones (decimal system)": {
-    "PTBR": "",
-    "SPA": "Unidades"
-  },
-  "online": {
-    "PTBR": "",
-    "SPA": "En línea"
-  },
-  "online courses": {
-    "PTBR": "",
-    "SPA": "Cursos en línea"
-  },
-  "online degree": {
-    "PTBR": "",
-    "SPA": "Título en línea"
-  },
-  "online degree-seeking": {
-    "PTBR": "",
-    "SPA": "Estudiante de titulación en línea"
-  },
-  "Online Learning": {
-    "PTBR": "",
-    "SPA": "Aprendizaje en línea"
-  },
-  "Online Registration": {
-    "PTBR": "",
-    "SPA": "Registro en Línea"
-  },
-  "online web portal": {
-    "PTBR": "",
-    "SPA": "Portal web"
-  },
-  "PathwayConnect": {
-    "PTBR": "",
-    "SPA": "PathwayConnect"
-  },
-  "PathwayConnect Courses": {
-    "PTBR": "",
-    "SPA": "Cursos de PathwayConnect"
-  },
-  "PathwayConnect is the recommended start to every degree": {
-    "PTBR": "",
-    "SPA": "PathwayConnect es el punto de partida para cualquier carrera universitaria"
-  },
-  "PC 101": {
-    "PTBR": "",
-    "SPA": "PC 101"
-  },
-  "PC 101, PC 102, PC 103": {
-    "PTBR": "",
-    "SPA": "PC 101, PC 102, PC 103 curso"
-  },
-  "PC 102": {
-    "PTBR": "",
-    "SPA": "PC 102 curso"
-  },
-  "PC 103": {
-    "PTBR": "",
-    "SPA": "PC 103 curso"
-  },
-  "peer mentor": {
-    "PTBR": "",
-    "SPA": "Mentor"
-  },
-  "personal experience": {
-    "PTBR": "",
-    "SPA": "Experiencia personal"
-  },
-  "personal study": {
-    "PTBR": "",
-    "SPA": "Estudio personal"
-  },
-  "physical well-being": {
-    "PTBR": "",
-    "SPA": "Bienestar físico"
-  },
-  "placement assessment": {
-    "PTBR": "",
-    "SPA": "Evaluación de ubicación académica"
-  },
-  "prep": {
-    "PTBR": "",
-    "SPA": "Preparación"
-  },
-  "priesthood": {
-    "PTBR": "",
-    "SPA": "Sacerdocio"
-  },
-  "Priesthood Blessing": {
-    "PTBR": "",
-    "SPA": "Bendición del sacerdocio"
-  },
-  "priority deadline": {
-    "PTBR": "",
-    "SPA": "Prioridad de fecha límite"
-  },
-  "Privacy Settings": {
-    "PTBR": "",
-    "SPA": "Configuración de Privacidad"
-  },
-  "Program Options": {
-    "PTBR": "",
-    "SPA": "Opciones de Programa"
-  },
-  "Program Version": {
-    "PTBR": "",
-    "SPA": "Versión del Programa"
-  },
-  "Program Version Comments": {
-    "PTBR": "",
-    "SPA": "Comentarios de la Versión del Programa"
-  },
-  "Programs of Study": {
-    "PTBR": "",
-    "SPA": "Programas de Estudio"
-  },
-  "provides access to higher education for all": {
-    "PTBR": "",
-    "SPA": "Ofrece acceso a la educación superior para todos"
-  },
-  "quote": {
-    "PTBR": "",
-    "SPA": "Cita"
-  },
-  "rectangular solid": {
-    "PTBR": "",
-    "SPA": "Prisma rectangular"
-  },
-  "reduced-cost": {
-    "PTBR": "",
-    "SPA": "A precio reducido"
-  },
-  "register": {
-    "PTBR": "",
-    "SPA": "Inscripción"
-  },
-  "registering for": {
-    "PTBR": "",
-    "SPA": "Inscribirse en"
-  },
-  "registration": {
-    "PTBR": "",
-    "SPA": "Inscripción"
-  },
-  "Registration Period": {
-    "PTBR": "",
-    "SPA": "período de inscripción"
-  },
-  "registration status": {
-    "PTBR": "",
-    "SPA": "Estado de la inscripción"
-  },
-  "registration summary": {
-    "PTBR": "",
-    "SPA": "Resumen de inscripción"
-  },
-  "REL200B- The Eternal Family B": {
-    "PTBR": "",
-    "SPA": "REL200B - La familia Eterna B"
-  },
-  "REL225B- Foundations of the Restoration B": {
-    "PTBR": "",
-    "SPA": "REL225B - Fundamentos de la Restauración B"
-  },
-  "REL250B- Jesus Christ and His Everlasting Gospel B": {
-    "PTBR": "",
-    "SPA": "REL250B - Jesucristo y Su Evangelio Eterno B"
-  },
-  "REL275A- The Teachings and Doctrine of the Book of Mormon A": {
-    "PTBR": "",
-    "SPA": "REL275A - Las Enseñanzas y la Doctrina del Libro de Mormón A"
-  },
-  "REL275B- The Teachings and Doctrine of the Book of Mormon B": {
-    "PTBR": "",
-    "SPA": "REL275B- Las Enseñanzas y la Doctrina del Libro de Mormón B"
-  },
-  "REL280B- Answering my Gospel Questions B": {
-    "PTBR": "",
-    "SPA": "REL280B- Respuestas a mis preguntas sobre el Evangelio (B)"
-  },
-  "REL290B- The Divine Gift of Forgiveness B": {
-    "PTBR": "",
-    "SPA": "REL290B- El Don Divino del Perdón (B)"
-  },
-  "REL333B Teachings of the Living Prophets B": {
-    "PTBR": "",
-    "SPA": "REL333B Enseñanzas de los Profetas Vivientes B"
-  },
-  "Release Notes": {
-    "PTBR": "",
-    "SPA": "Actualización de notas"
-  },
-  "Religion Courses": {
-    "PTBR": "",
-    "SPA": "Cursos de religión"
-  },
-  "religion gathering": {
-    "PTBR": "",
-    "SPA": "Reunión religiosa"
-  },
-  "residency credits": {
-    "PTBR": "",
-    "SPA": "Créditos de residencia"
-  },
-  "Resourcefulness and Self-advocacy": {
-    "PTBR": "",
-    "SPA": "Ingenio y autodefensa académica"
-  },
-  "returned missionary": {
-    "PTBR": "",
-    "SPA": "Misionero retornado"
-  },
-  "returning missionaries": {
-    "PTBR": "",
-    "SPA": "Misioneros retornados"
-  },
-  "saint": {
-    "PTBR": "",
-    "SPA": "Santo/Santa"
-  },
-  "scalable transformation": {
-    "PTBR": "",
-    "SPA": "Transformación escalable"
-  },
-  "scriptures": {
-    "PTBR": "",
-    "SPA": "Escrituras"
-  },
-  "Security Measures": {
-    "PTBR": "",
-    "SPA": "Medidas de seguridad"
-  },
-  "see increased success": {
-    "PTBR": "",
-    "SPA": "Ver un mayor éxito"
-  },
-  "Selected Courses": {
-    "PTBR": "",
-    "SPA": "Cursos Seleccionados"
-  },
-  "self-reliant approach": {
-    "PTBR": "",
-    "SPA": "Enfoque de autosuficiencia"
-  },
-  "semester": {
-    "PTBR": "",
-    "SPA": "Semestre"
-  },
-  "service missionaries": {
-    "PTBR": "",
-    "SPA": "Misioneros de servicio"
-  },
-  "service provider": {
-    "PTBR": "",
-    "SPA": "Proveedor de servicios"
-  },
-  "significantly lower than traditional universities": {
-    "PTBR": "",
-    "SPA": "Significativamente más bajo que el de las universidades tradicionales"
-  },
-  "significantly reduced cost": {
-    "PTBR": "",
-    "SPA": "Costo significativamente reducido"
-  },
-  "sister": {
-    "PTBR": "",
-    "SPA": "Hermana"
-  },
-  "skills-based certificates": {
-    "PTBR": "",
-    "SPA": "Certificados basados en habilidades"
-  },
-  "Solving for a variable": {
-    "PTBR": "",
-    "SPA": "Despejar una variable en una ecuación"
-  },
-  "Spiritual well-being": {
-    "PTBR": "",
-    "SPA": "Bienestar espiritual"
-  },
-  "spiritually based": {
-    "PTBR": "",
-    "SPA": "De carácter espiritual"
-  },
-  "spiritually-based degrees completely online at an affordable price": {
-    "PTBR": "",
-    "SPA": "Títulos basados en lo espiritual completamente en línea a un precio accesible"
-  },
-  "stackable certificate": {
-    "PTBR": "",
-    "SPA": "Certificado acumulable"
-  },
-  "stake": {
-    "PTBR": "",
-    "SPA": "Estaca"
-  },
-  "stake president": {
-    "PTBR": "",
-    "SPA": "Presidente de estaca"
-  },
-  "Start Date": {
-    "PTBR": "",
-    "SPA": "Fecha de Inicio"
-  },
-  "statistics": {
-    "PTBR": "",
-    "SPA": "Estadísticas"
-  },
-  "student": {
-    "PTBR": "",
-    "SPA": "Estudiante"
-  },
-  "Student Academic Progress": {
-    "PTBR": "",
-    "SPA": "Progreso Académico del Estudiante"
-  },
-  "Student Carrer Services": {
-    "PTBR": "",
-    "SPA": "Servicio de Orientación profesional"
-  },
-  "Student Dropped": {
-    "PTBR": "",
-    "SPA": "Estudiante dado de baja"
-  },
-  "student honor": {
-    "PTBR": "",
-    "SPA": "Código de honor estudiantil"
-  },
-  "Student Portal": {
-    "PTBR": "",
-    "SPA": "Portal del Estudiante"
-  },
-  "student resources": {
-    "PTBR": "",
-    "SPA": "Recursos estudiantiles"
-  },
-  "Student Support": {
-    "PTBR": "",
-    "SPA": "Apoyo estudiantil"
-  },
-  "Student Support Services": {
-    "PTBR": "",
-    "SPA": "Servicios de apoyo estudiantil"
-  },
-  "Student Wellness": {
-    "PTBR": "",
-    "SPA": "Bienestar del Estudiante"
-  },
-  "Student Wellness & Accessibility": {
-    "PTBR": "",
-    "SPA": "Bienestar y accesibilidad estudiantil"
-  },
-  "students around the world": {
-    "PTBR": "",
-    "SPA": "Estudiantes de todo el mundo"
-  },
-  "students worldwide": {
-    "PTBR": "",
-    "SPA": "Estudiantes a nivel mundial"
-  },
-  "submission": {
-    "PTBR": "",
-    "SPA": "Envío de tarea"
-  },
-  "supporting details": {
-    "PTBR": "",
-    "SPA": "Datos complementarios"
-  },
-  "sustainable living wage": {
-    "PTBR": "",
-    "SPA": "Salario de subsistencia"
-  },
-  "syllabus": {
-    "PTBR": "",
-    "SPA": "Programa de estudios"
-  },
-  "system issues": {
-    "PTBR": "",
-    "SPA": "Problemas de sistema"
-  },
-  "teaching assistant": {
-    "PTBR": "",
-    "SPA": "Asistente de docente"
-  },
-  "Teaching Assistants (TA)": {
-    "PTBR": "",
-    "SPA": "Asistentes de docentes (AD)"
-  },
-  "teaching group directory": {
-    "PTBR": "",
-    "SPA": "directorio de grupo de enseñanza"
-  },
-  "teaching notes": {
-    "PTBR": "",
-    "SPA": "notas de enseñanza"
-  },
-  "Teamwork": {
-    "PTBR": "",
-    "SPA": "Trabajo en equipo"
-  },
-  "template": {
-    "PTBR": "",
-    "SPA": "Plantilla"
-  },
-  "temple": {
-    "PTBR": "",
-    "SPA": "Templo"
-  },
-  "term": {
-    "PTBR": "",
-    "SPA": "período"
-  },
-  "Term Description": {
-    "PTBR": "",
-    "SPA": "Descripción del Período"
-  },
-  "the Church": {
-    "PTBR": "",
-    "SPA": "La Iglesia"
-  },
-  "the hidden many": {
-    "PTBR": "",
-    "SPA": "Los muchos ocultos"
-  },
-  "the Second Coming": {
-    "PTBR": "",
-    "SPA": "La Segunda Venida"
-  },
-  "Therapist": {
-    "PTBR": "",
-    "SPA": "Terapeuta"
-  },
-  "Therapy": {
-    "PTBR": "",
-    "SPA": "Terapia"
-  },
-  "thesis statement": {
-    "PTBR": "",
-    "SPA": "Planteamiento de tesis"
-  },
-  "thinking error": {
-    "PTBR": "",
-    "SPA": "Error de razonamiento"
-  },
-  "three levels": {
-    "PTBR": "",
-    "SPA": "Tres niveles"
-  },
-  "three levels to help you progress from a basic to an intermediate English level": {
-    "PTBR": "",
-    "SPA": "Tres niveles para ayudarle a progresar de un nivel básico a un nivel intermedio de inglés"
-  },
-  "three-year bachelor's degrees": {
-    "PTBR": "",
-    "SPA": "Licenciaturas de tres años"
-  },
-  "topic sentence": {
-    "PTBR": "",
-    "SPA": "Oración Principal"
-  },
-  "transfer credit": {
-    "PTBR": "",
-    "SPA": "Créditos transferidos"
-  },
-  "tuition costs significantly less than other schools": {
-    "PTBR": "",
-    "SPA": "La matrícula cuesta mucho menos que en otras instituciones"
-  },
-  "Tuition Discount": {
-    "PTBR": "",
-    "SPA": "Descuento en Matrícula"
-  },
-  "university": {
-    "PTBR": "",
-    "SPA": "Universidad"
-  },
-  "university policies": {
-    "PTBR": "",
-    "SPA": "Políticas de la Universidad"
-  },
-  "username & emails": {
-    "PTBR": "",
-    "SPA": "nombre de usuario y correos electrónicos"
-  },
-  "View Holds and Alerts": {
-    "PTBR": "",
-    "SPA": "Ver Restricciones y Alertas Académicas"
-  },
-  "virtual gathering": {
-    "PTBR": "",
-    "SPA": "Reunión virtual"
-  },
-  "weekly gatherings": {
-    "PTBR": "",
-    "SPA": "Reuniones semanales"
-  },
-  "Welcome to Online Registration": {
-    "PTBR": "",
-    "SPA": "Bienvenido(a) al Registro en Línea"
-  },
-  "without leaving your home": {
-    "PTBR": "",
-    "SPA": "Sin salir de su hogar"
-  },
-  "workbook": {
-    "PTBR": "",
-    "SPA": "Cuaderno de trabajo/ejercicios"
-  },
-  "writing prompt": {
-    "PTBR": "",
-    "SPA": "Consigna de redacción"
-  },
-  "Young Men Program": {
-    "PTBR": "",
-    "SPA": "Programa para Hombres Jóvenes"
-  },
-  "young single adults": {
-    "PTBR": "",
-    "SPA": "Jóvenes adultos solteros"
-  },
-  "Young Women Program": {
-    "PTBR": "",
-    "SPA": "Programa para Mujeres Jóvenes"
-  }
+    "(+) Credits Added": {
+        "PTBR": "(+) Créditos Adicionados",
+        "SPA": "(+) Créditos Agregados"
+    },
+    "(-) Credits Completed": {
+        "PTBR": "(-) Créditos Concluídos",
+        "SPA": "(-) Créditos Completados"
+    },
+    "(-) Credits Current/Scheduled": {
+        "PTBR": "(-) Créditos Atuais/Agendados",
+        "SPA": "(-) Créditos Actuales/Programados"
+    },
+    "(-) Credits Waived": {
+        "PTBR": "(-) Créditos Dispensados",
+        "SPA": "(-) Créditos Eximidos"
+    },
+    "(=) Credits Remaining": {
+        "PTBR": "(=) Créditos Restantes",
+        "SPA": "(=) Créditos Restantes"
+    },
+    "1 Select": {
+        "PTBR": "1 Selecionar",
+        "SPA": "1 Seleccionar"
+    },
+    "100% online": {
+        "PTBR": "100% on-line",
+        "SPA": "100% en Línea"
+    },
+    "100% online and flexible to fit your busy life": {
+        "PTBR": "100% on-line e flexível para se adaptar à sua vida corrida",
+        "SPA": "100% en Línea y tiene la flexibilidad de adaptarse a su vida ocupada"
+    },
+    "18-30-year-old students": {
+        "PTBR": "estudantes de 18 a 30 anos",
+        "SPA": "Estudiantes de entre 18 a 30 años de edad"
+    },
+    "180+ countries": {
+        "PTBR": "mais de 180 países",
+        "SPA": "Más de 180 países"
+    },
+    "2 View": {
+        "PTBR": "2 Visualizar",
+        "SPA": "2 Ver"
+    },
+    "3 Register": {
+        "PTBR": "3 Registrar",
+        "SPA": "3 Registro"
+    },
+    "31-and-older students": {
+        "PTBR": "estudantes de 31 anos ou mais",
+        "SPA": "Estudiantes de 31 años o más"
+    },
+    "6 blocks per year": {
+        "PTBR": "6 blocos por ano",
+        "SPA": "6 bloques por año"
+    },
+    "Academic Advisor": {
+        "PTBR": "Orientador Acadêmico",
+        "SPA": "Consejero Académico"
+    },
+    "Academic honesty": {
+        "PTBR": "honestidade acadêmica",
+        "SPA": "Honestidad académica"
+    },
+    "Academic Integrity": {
+        "PTBR": "Integridade acadêmica",
+        "SPA": "Integridad Académica"
+    },
+    "Academic Support Center": {
+        "PTBR": "Centro de Suporte Acadêmico",
+        "SPA": "Centro de Apoyo Académico"
+    },
+    "Academics": {
+        "PTBR": "Acadêmico",
+        "SPA": "Asuntos Académicos"
+    },
+    "Accessibility": {
+        "PTBR": "Acessibilidade",
+        "SPA": "Accesibilidad"
+    },
+    "Accessibility Resource Center": {
+        "PTBR": "Centro de Recursos de Acessibilidade",
+        "SPA": "Centro de recursos de accesibilidad"
+    },
+    "Accommodations Portal": {
+        "PTBR": "Portal de Adaptações",
+        "SPA": "Portal de adaptaciones académicas"
+    },
+    "Account Information": {
+        "PTBR": "Informações da Conta",
+        "SPA": "Información de Cuenta"
+    },
+    "Account Summary": {
+        "PTBR": "Resumo da Conta",
+        "SPA": "Resumen de Cuenta"
+    },
+    "ACCTG180 Survey of Accounting": {
+        "PTBR": "ACCTG180 Fundamentos de Contabilidade",
+        "SPA": "ACCTG180 Introducción a la Contabilidad"
+    },
+    "Action": {
+        "PTBR": "Ação",
+        "SPA": "Acción"
+    },
+    "Active learner": {
+        "PTBR": "estudante ativo(a)",
+        "SPA": "Aprendiz activo"
+    },
+    "Add": {
+        "PTBR": "Adicionar",
+        "SPA": "Agregar"
+    },
+    "ADHD": {
+        "PTBR": "TDAH",
+        "SPA": "TDAH"
+    },
+    "Advising": {
+        "PTBR": "Orientação Acadêmica",
+        "SPA": "Asesoría"
+    },
+    "AI Outputs": {
+        "PTBR": "Resultados gerados por IA",
+        "SPA": "Resultados de la IA"
+    },
+    "All courses": {
+        "PTBR": "Todas as disciplinas",
+        "SPA": "Todos los cursos"
+    },
+    "All enrollments": {
+        "PTBR": "Todas as matrículas",
+        "SPA": "Todas las inscripciones"
+    },
+    "Alumni": {
+        "PTBR": "Ex-alunos",
+        "SPA": "Egresados"
+    },
+    "Annex / Appendix": {
+        "PTBR": "Anexo",
+        "SPA": "Anexo / Apéndice"
+    },
+    "Anxiety": {
+        "PTBR": "Ansiedade",
+        "SPA": "Ansiedad"
+    },
+    "Applicants": {
+        "PTBR": "Candidatos",
+        "SPA": "Postulantes"
+    },
+    "Application": {
+        "PTBR": "Formulário de aplicação",
+        "SPA": "Solicitud de admisión"
+    },
+    "Application activity": {
+        "PTBR": "atividade prática",
+        "SPA": "Actividad de la solicitud"
+    },
+    "Applications are open year-round": {
+        "PTBR": "as inscrições estão abertas o ano todo",
+        "SPA": "Las solicitudes están abiertas todo el año"
+    },
+    "Applied Business Management Degree": {
+        "PTBR": "Bacharelado em Administração de Empresas Aplicada",
+        "SPA": "Licenciatura en Gestión Empresarial Aplicada"
+    },
+    "Applies to course category": {
+        "PTBR": "Aplicável à Categoria da Disciplina",
+        "SPA": "Se aplica a la categoría de curso"
+    },
+    "Apply Today": {
+        "PTBR": "Inscreva-se Hoje",
+        "SPA": "Aplique hoy"
+    },
+    "Area coordination missionary": {
+        "PTBR": "missionário de coordenação de área",
+        "SPA": "Misionero de coordinación de área"
+    },
+    "Area managers": {
+        "PTBR": "gerentes de área",
+        "SPA": "Gerentes de área"
+    },
+    "Areas with limited access": {
+        "PTBR": "áreas com acesso limitado",
+        "SPA": "Áreas de acceso limitado"
+    },
+    "Artificial Intelligence Systems": {
+        "PTBR": "Sistemas de inteligência artificial",
+        "SPA": "Sistemas de Inteligencia Artificial"
+    },
+    "Assignment": {
+        "PTBR": "Atividade",
+        "SPA": "Asignación"
+    },
+    "Associate degree": {
+        "PTBR": "Diploma de Associado",
+        "SPA": "Grado de asociado"
+    },
+    "Attendance": {
+        "PTBR": "frequência",
+        "SPA": "Asistencia"
+    },
+    "Audience": {
+        "PTBR": "Público-alvo",
+        "SPA": "Audiencia/público"
+    },
+    "Automatically Collected Data": {
+        "PTBR": "Dados coletados automaticamente",
+        "SPA": "Recopilación de datos automatico"
+    },
+    "Bachelor's degree": {
+        "PTBR": "Diploma de Bacharelado",
+        "SPA": "Licenciatura"
+    },
+    "Background Check": {
+        "PTBR": "Verificação de antecedentes",
+        "SPA": "Verificación de antecedentes"
+    },
+    "Basic essay": {
+        "PTBR": "redação básica",
+        "SPA": "Ensayo básico"
+    },
+    "Belonging": {
+        "PTBR": "Inclusão",
+        "SPA": "Pertenecer"
+    },
+    "Best Practices": {
+        "PTBR": "Boas Práticas",
+        "SPA": "Mejores prácticas"
+    },
+    "Better prepared": {
+        "PTBR": "melhor preparado(a)",
+        "SPA": "Mejor preparado"
+    },
+    "Biometric Data": {
+        "PTBR": "Dados biométricos",
+        "SPA": "Datos biométricos"
+    },
+    "Block": {
+        "PTBR": "bloco / período letivo",
+        "SPA": "Bloque"
+    },
+    "Body paragraph": {
+        "PTBR": "Parágrafo-padrão",
+        "SPA": "Párrafo de desarrollo"
+    },
+    "Book title": {
+        "PTBR": "título do livro",
+        "SPA": "Título del libro"
+    },
+    "Booklet": {
+        "PTBR": "Livreto",
+        "SPA": "Folleto"
+    },
+    "Brief description": {
+        "PTBR": "descrição resumida",
+        "SPA": "Breve descripción"
+    },
+    "Browser Information": {
+        "PTBR": "Informações do navegador",
+        "SPA": "Información del navegador"
+    },
+    "Build confidence": {
+        "PTBR": "desenvolver confiança",
+        "SPA": "Generar confianza"
+    },
+    "Building/room": {
+        "PTBR": "edifício/sala",
+        "SPA": "Edificio/salón"
+    },
+    "Bulletin inserts": {
+        "PTBR": "informativos para boletim",
+        "SPA": "Encartes para el boletín"
+    },
+    "BUS 105 Spreadsheet Essentials": {
+        "PTBR": "BUS 105 Fundamentos de Planilhas",
+        "SPA": "BUS 105: Fundamentos de Hojas de Cálculo"
+    },
+    "BUS 115 Business Applications": {
+        "PTBR": "BUS 115 Aplicações Empresariais",
+        "SPA": "BUS 115 Aplicaciones Empresariales"
+    },
+    "BUS 180 Cycle of Cash": {
+        "PTBR": "BUS 180 Fluxo de Caixa",
+        "SPA": "BUS 180: Ciclo del flujo de dinero"
+    },
+    "BUS 301 - Advanced Writing in Professional Contexts": {
+        "PTBR": "BUS 301 - Escrita Avançada em Contextos Profissionais",
+        "SPA": "BUS 301- Redacción Avanzada en Contextos Profesionales"
+    },
+    "BUS 321 Organizational Leadership": {
+        "PTBR": "BUS 321 Liderança Organizacional",
+        "SPA": "BUS 321 Liderazgo organizacional"
+    },
+    "BUS 374 - Social Innovation": {
+        "PTBR": "BUS 374 - Inovação Social",
+        "SPA": "BUS 374 - Innovación Social"
+    },
+    "BUS 375 - Business Law": {
+        "PTBR": "BUS 375 - Direito Empresarial",
+        "SPA": "BUS 375 - Derecho Empresarial"
+    },
+    "BUS 380 International Business": {
+        "PTBR": "BUS 380 Comércio Internacional",
+        "SPA": "BUS 380 Negocios Internacionales"
+    },
+    "BUS 410 Advanced Business Management": {
+        "PTBR": "BUS 410 Gestão Empresarial Avançada",
+        "SPA": "BUS 410 Gestión Empresarial Avanzada"
+    },
+    "Business administration": {
+        "PTBR": "Administração de Empresas",
+        "SPA": "Administración de Empresas"
+    },
+    "Business and leadership skills": {
+        "PTBR": "Habilidades de Negócios e Liderança",
+        "SPA": "Habilidades Empresariales y de liderazgo"
+    },
+    "BYU-Pathway": {
+        "PTBR": "BYU-Pathway",
+        "SPA": "BYU-Pathway"
+    },
+    "BYU-Pathway area manager": {
+        "PTBR": "gerente de área da BYU-Pathway",
+        "SPA": "Gerente de área de BYU-Pathway"
+    },
+    "BYU-Pathway is not a degree-granting institution": {
+        "PTBR": "A BYU-Pathway não é uma instituição que concede diplomas",
+        "SPA": "BYU-Pathway no es una institución que otorga títulos"
+    },
+    "BYU-Pathway Portal": {
+        "PTBR": "Portal da BYU-Pathway",
+        "SPA": "Portal de BYU-Pathway"
+    },
+    "BYU-Pathway Service Missionaries": {
+        "PTBR": "Missionários de Serviço da BYU-Pathway",
+        "SPA": "Misioneros de Servicio de BYU-Pathway"
+    },
+    "BYU-Pathway Support": {
+        "PTBR": "Suporte da BYU-Pathway",
+        "SPA": "Soporte de BYU-Pathway"
+    },
+    "BYU-Pathway Worldwide": {
+        "PTBR": "BYU-Pathway Worldwide",
+        "SPA": "BYU-Pathway Worldwide"
+    },
+    "BYU-Pathway Worldwide Global Education Center": {
+        "PTBR": "Centro de Educação Global da BYU-Pathway Worldwide",
+        "SPA": "Centro de Educación Global de BYU-Pathway Worldwide"
+    },
+    "BYUI Testing Center": {
+        "PTBR": "Centro de Testes da BYUI",
+        "SPA": "Centro de evaluación de BYU–Idaho"
+    },
+    "Campuses": {
+        "PTBR": "Campi",
+        "SPA": "Campus"
+    },
+    "Cell References": {
+        "PTBR": "Referências de Célula",
+        "SPA": "Referencias de celda"
+    },
+    "Certificate-first approach": {
+        "PTBR": "abordagem de certificado primeiro",
+        "SPA": "Enfoque de certificado primero"
+    },
+    "Certificates and Courses": {
+        "PTBR": "Certificados e Disciplinas",
+        "SPA": "Cursos y Certificados"
+    },
+    "Certificates and Degrees": {
+        "PTBR": "Certificados e Diplomas",
+        "SPA": "Certificados y Títulos"
+    },
+    "Certificates can be completed in one year or less": {
+        "PTBR": "os certificados podem ser concluídos em um ano ou menos",
+        "SPA": "Los certificados se pueden completar en un año o menos"
+    },
+    "CES Institutions": {
+        "PTBR": "Instituições do SEI",
+        "SPA": "Instituto del SEI"
+    },
+    "Change Program/Areas of Study": {
+        "PTBR": "Alterar Programa/Áreas de Estudo",
+        "SPA": "Cambiar Programa/Áreas de Estudio"
+    },
+    "Changing lives": {
+        "PTBR": "mudando vidas",
+        "SPA": "Cambiando vidas"
+    },
+    "Chatbot (or bot)": {
+        "PTBR": "assistente virtual",
+        "SPA": "Chatbot (o bot)"
+    },
+    "Church Board of Education": {
+        "PTBR": "Conselho de Educação da Igreja",
+        "SPA": "Consejo Educativo de la Iglesia"
+    },
+    "Church calling": {
+        "PTBR": "chamado da Igreja",
+        "SPA": "Llamamiento"
+    },
+    "Church Educational System (CES)": {
+        "PTBR": "Sistema Educacional da Igreja (SEI)",
+        "SPA": "Sistema Educativo de la Iglesia (SEI)"
+    },
+    "Clark G. Gilbert": {
+        "PTBR": "Clark G. Gilbert",
+        "SPA": "Clark G. Gilbert"
+    },
+    "Class schedule": {
+        "PTBR": "Agendamento das Disciplinas",
+        "SPA": "Horario de clases"
+    },
+    "Classes": {
+        "PTBR": "Disciplinas",
+        "SPA": "clases"
+    },
+    "Classes/Credits": {
+        "PTBR": "Disciplinas/Créditos",
+        "SPA": "Clases/Créditos"
+    },
+    "Cloud Storage": {
+        "PTBR": "Armazenamento em nuvem",
+        "SPA": "Almacenamiento en la nube"
+    },
+    "Code": {
+        "PTBR": "Código",
+        "SPA": "Código"
+    },
+    "Come and see": {
+        "PTBR": "Venha e Veja",
+        "SPA": "Ven y ve"
+    },
+    "COMM 150 Interpersonal Theory and Practice": {
+        "PTBR": "COMM 150 Comunicação Interpessoal: Teoria e Prática",
+        "SPA": "COMM 150: Teoría y Práctica Interpersonal"
+    },
+    "Commercial Fundamentals": {
+        "PTBR": "Fundamentos Comerciais",
+        "SPA": "Fundamentos Comerciales"
+    },
+    "Commitment statements": {
+        "PTBR": "Declarações de Compromisso",
+        "SPA": "Declaraciones de compromiso"
+    },
+    "Completion certificate": {
+        "PTBR": "certificado de conclusão",
+        "SPA": "Certificado de finalización"
+    },
+    "Computer lab": {
+        "PTBR": "laboratório de informática",
+        "SPA": "Laboratorio de computación"
+    },
+    "Concluding paragraph": {
+        "PTBR": "parágrafo de conclusão",
+        "SPA": "Párrafo de conclusión"
+    },
+    "Concluding sentence": {
+        "PTBR": "oração de conclusão",
+        "SPA": "Oración de conclusión"
+    },
+    "Condolences": {
+        "PTBR": "Condolências",
+        "SPA": "Condolencias"
+    },
+    "Confirmation": {
+        "PTBR": "confirmação",
+        "SPA": "Confirmación"
+    },
+    "Consent": {
+        "PTBR": "Consentimento",
+        "SPA": "Consentimiento"
+    },
+    "Constant Rate = R (Math exercises)": {
+        "PTBR": "Velocidade Média = Vm",
+        "SPA": "Problemas de tasa constante (R)"
+    },
+    "Consumers": {
+        "PTBR": "Consumidores",
+        "SPA": "Consumidores"
+    },
+    "Contractual Obligations": {
+        "PTBR": "Obrigações contratuais",
+        "SPA": "Obligaciones del contrato"
+    },
+    "Controlling idea": {
+        "PTBR": "ideia central",
+        "SPA": "Idea directriz"
+    },
+    "Conventions": {
+        "PTBR": "convenções",
+        "SPA": "Convenciones"
+    },
+    "Conversation group": {
+        "PTBR": "grupo de conversação",
+        "SPA": "Grupo de conversación"
+    },
+    "Cookies": {
+        "PTBR": "Cookies",
+        "SPA": "Cookies"
+    },
+    "Copyright infringement": {
+        "PTBR": "violação de direitos autorais",
+        "SPA": "Infracción de derechos de autor"
+    },
+    "Cost": {
+        "PTBR": "custo",
+        "SPA": "Costo"
+    },
+    "Counseling Services": {
+        "PTBR": "Serviços de Aconselhamento",
+        "SPA": "Servicios de consejería"
+    },
+    "Counselor": {
+        "PTBR": "Conselheiro",
+        "SPA": "Consejero"
+    },
+    "Course": {
+        "PTBR": "Disciplina/curso",
+        "SPA": "Curso"
+    },
+    "Course evaluation": {
+        "PTBR": "avaliação do curso",
+        "SPA": "Evaluación del curso"
+    },
+    "Course outcome": {
+        "PTBR": "objetivo do curso",
+        "SPA": "Resultado del curso"
+    },
+    "Course setup": {
+        "PTBR": "configuração do curso",
+        "SPA": "Configuración del curso"
+    },
+    "Course-specific notes": {
+        "PTBR": "observações específicas do curso",
+        "SPA": "Notas específicas del curso"
+    },
+    "Create Effective Announcements": {
+        "PTBR": "Criar Avisos Eficazes",
+        "SPA": "Crear Anuncios efectivos"
+    },
+    "Create Effective Batch Messages": {
+        "PTBR": "Criar Mensagens em Lote Eficazes",
+        "SPA": "Crear mensajes masivos efectivos"
+    },
+    "Create Effective Role Model Outreach": {
+        "PTBR": "Criar Ações de Acompanhamento Eficazes com Modelos de Referência",
+        "SPA": "Crear una comunicación efectiva con modelos a seguir"
+    },
+    "Credit Check": {
+        "PTBR": "Verificação de crédito",
+        "SPA": "Consulta de historial crediticio"
+    },
+    "Credit load": {
+        "PTBR": "carga de créditos",
+        "SPA": "Carga de créditos"
+    },
+    "Credits": {
+        "PTBR": "créditos",
+        "SPA": "Créditos"
+    },
+    "Credits Required": {
+        "PTBR": "Créditos Exigidos",
+        "SPA": "Créditos Requeridos"
+    },
+    "Criminal History": {
+        "PTBR": "Antecedentes criminais",
+        "SPA": "Antecedentes penales"
+    },
+    "CSE110 - Introduction to Programming": {
+        "PTBR": "CSE110 – Introdução à Programação",
+        "SPA": "CSE110 - Introducción a la Programación"
+    },
+    "CSE111 - Programming with Functions": {
+        "PTBR": "CSE111 – Programação com Funções",
+        "SPA": "CSE111 - Programación con Funciones"
+    },
+    "CSE210 - Programming with Classes": {
+        "PTBR": "CSE210 – Programação com Classes",
+        "SPA": "CSE210 - Programación con Clases"
+    },
+    "CSE212 - Programming with Data Structures": {
+        "PTBR": "CSE212 – Programação com Estruturas de Dados",
+        "SPA": "CSE212 - Programación con Estructuras de Datos"
+    },
+    "CSE270 - Software Testing": {
+        "PTBR": "CSE270 – Testes de Software",
+        "SPA": "CSE270 - Pruebas de Software"
+    },
+    "CSE300 - Professional Readiness": {
+        "PTBR": "CSE300 – Preparação Profissional",
+        "SPA": "CSE300 - Preparación Profesional"
+    },
+    "CSE310 - Applied Programming": {
+        "PTBR": "CSE310 – Programação Aplicada",
+        "SPA": "CSE310 - Programación Aplicada"
+    },
+    "CSE325 - .NET Software Development": {
+        "PTBR": "CSE325 – Desenvolvimento de Software com .NET",
+        "SPA": "CSE325 - Desarrollo de Software .NET"
+    },
+    "CSE340 - Web Backend Development": {
+        "PTBR": "CSE340 – Desenvolvimento Backend para Web",
+        "SPA": "CSE340 - Desarrollo Web Back-end"
+    },
+    "CSE341 - Web Services": {
+        "PTBR": "CSE341 – Serviços Web",
+        "SPA": "CSE341 - Servicios Web"
+    },
+    "CSE370 - Software Engineering Principles": {
+        "PTBR": "CSE370 – Princípios da Engenharia de Software",
+        "SPA": "CSE370 - Principios de Ingeniería de Software"
+    },
+    "CSE499 - Senior Project": {
+        "PTBR": "CSE499 – Projeto Final",
+        "SPA": "CSE499 – Proyecto Fin de Carrera"
+    },
+    "Current balance": {
+        "PTBR": "Saldo Atual",
+        "SPA": "Saldo actual"
+    },
+    "Currently no courses available": {
+        "PTBR": "Não há disciplinas disponíveis atualmente",
+        "SPA": "Actualmente no hay cursos disponibles"
+    },
+    "Customers": {
+        "PTBR": "Clientes",
+        "SPA": "Clientes"
+    },
+    "Data Access": {
+        "PTBR": "Acesso aos dados",
+        "SPA": "Acceso de Datos"
+    },
+    "Data Controller": {
+        "PTBR": "Controlador de dados",
+        "SPA": "Administrador de Datos"
+    },
+    "Data Erasure / Deletion": {
+        "PTBR": "Exclusão de dados",
+        "SPA": "Eliminación de datos"
+    },
+    "Data Privacy Office": {
+        "PTBR": "Centro de Privacidade do SEI",
+        "SPA": "Oficina de Protección de Datos"
+    },
+    "Data Privacy Officer": {
+        "PTBR": "Encarregado de Proteção de Dados",
+        "SPA": "Oficial de Protección de Datos"
+    },
+    "Data Processing": {
+        "PTBR": "Tratamento de dados",
+        "SPA": "Procesamiento de Datos"
+    },
+    "Data Rectification": {
+        "PTBR": "Retificação de dados",
+        "SPA": "Rectificación de datos"
+    },
+    "Dean of students": {
+        "PTBR": "Decano dos estudantes",
+        "SPA": "Decano de estudiantes"
+    },
+    "Dean of Students Office": {
+        "PTBR": "Escritório do Decano dos Estudantes",
+        "SPA": "Oficina de Asuntos Estudiantiles"
+    },
+    "Death in the Family": {
+        "PTBR": "Falecimento na Família",
+        "SPA": "Fallecimiento de un familiar"
+    },
+    "Deep learning": {
+        "PTBR": "aprendizagem aprofundada",
+        "SPA": "Aprendizaje profundo"
+    },
+    "Degree": {
+        "PTBR": "Diploma",
+        "SPA": "Título"
+    },
+    "Degree Progress Audit": {
+        "PTBR": "Auditoria de Progresso Acadêmico",
+        "SPA": "Auditoría de progreso académico"
+    },
+    "Degree pursued": {
+        "PTBR": "Tipo de Documento",
+        "SPA": "Grado que se cursa"
+    },
+    "Degrees are awarded": {
+        "PTBR": "diplomas são concedidos",
+        "SPA": "Se otorgan títulos"
+    },
+    "Depression": {
+        "PTBR": "Depressão",
+        "SPA": "Depresión"
+    },
+    "Develop disciples of Jesus Christ...": {
+        "PTBR": "desenvolver discípulos de Jesus Cristo...",
+        "SPA": "Desarrollar discípulos de Jesucristo..."
+    },
+    "Devotional": {
+        "PTBR": "devocional",
+        "SPA": "Devocional"
+    },
+    "Disabilities": {
+        "PTBR": "Deficiências",
+        "SPA": "Discapacidades"
+    },
+    "Disability Services Office": {
+        "PTBR": "Escritório de Atendimento para Pessoas com Deficiência",
+        "SPA": "Oficina de Servicios para Personas con Discapacidad"
+    },
+    "Disciple leader": {
+        "PTBR": "Líder discípulo",
+        "SPA": "Líder discípulo"
+    },
+    "Disciple Leadership": {
+        "PTBR": "Liderança do Discipulado",
+        "SPA": "Liderazgo de discipulado"
+    },
+    "District leader": {
+        "PTBR": "líder do Distrito",
+        "SPA": "Líder de distrito"
+    },
+    "Document Center": {
+        "PTBR": "Central de Documentos",
+        "SPA": "Central de Documentos"
+    },
+    "Documents": {
+        "PTBR": "Documentos",
+        "SPA": "Documentos"
+    },
+    "Donors": {
+        "PTBR": "Doadores",
+        "SPA": "Donantes"
+    },
+    "Drop a course": {
+        "PTBR": "Cancelar uma disciplina",
+        "SPA": "Abandonar un curso"
+    },
+    "Earn a degree and make more money": {
+        "PTBR": "obter um diploma e ganhar mais dinheiro",
+        "SPA": "Obtén un título y gana más dinero"
+    },
+    "Ecclesiastical endorsement": {
+        "PTBR": "endosso eclesiástico",
+        "SPA": "Recomendación eclesiástica"
+    },
+    "Econ 100 Essentials of Economics": {
+        "PTBR": "Econ 100 Fundamentos de Economia",
+        "SPA": "Econ 100 Fundamentos de Economía"
+    },
+    "Education Records": {
+        "PTBR": "Registros educacionais",
+        "SPA": "Registros educativos"
+    },
+    "Emotional well-being": {
+        "PTBR": "Bem-estar emocional",
+        "SPA": "Bienestar emocional"
+    },
+    "Employable credentials": {
+        "PTBR": "credenciais empregáveis",
+        "SPA": "Credenciales laborales"
+    },
+    "Eng": {
+        "PTBR": "Ing",
+        "SPA": "Ing"
+    },
+    "English language assessment": {
+        "PTBR": "avaliação de proficiência em inglês",
+        "SPA": "Evaluación del idioma inglés"
+    },
+    "Enrolled Students": {
+        "PTBR": "Estudantes Matriculados",
+        "SPA": "Estudiantes inscritos"
+    },
+    "Enrollment counselor": {
+        "PTBR": "assistente de matrícula",
+        "SPA": "Asesor de inscripciones"
+    },
+    "Enrollment ID": {
+        "PTBR": "Número de Matrícula",
+        "SPA": "Número de Inscripción"
+    },
+    "Enter to Learn, Go Forth to Serve": {
+        "PTBR": "Entre para Aprender, Saia para Servir",
+        "SPA": "Entra para Aprender, Sal para Servir"
+    },
+    "Entirely online and affordable": {
+        "PTBR": "inteiramente on-line e acessível",
+        "SPA": "Totalmente en línea y económico"
+    },
+    "Essay": {
+        "PTBR": "Redação",
+        "SPA": "Ensayo"
+    },
+    "Exam": {
+        "PTBR": "prova",
+        "SPA": "Examen"
+    },
+    "Expert testimony": {
+        "PTBR": "depoimento de especialista",
+        "SPA": "Testimonio de expertos"
+    },
+    "Extenuating circumstances": {
+        "PTBR": "circunstâncias difíceis",
+        "SPA": "Circunstancias atenuantes"
+    },
+    "Fact": {
+        "PTBR": "fato",
+        "SPA": "Hecho"
+    },
+    "Faith-based curriculum": {
+        "PTBR": "currículo baseado na fé",
+        "SPA": "Plan de estudios basado en la fe"
+    },
+    "False growth mindset": {
+        "PTBR": "mentalidade de crescimento falsa",
+        "SPA": "Falsa mentalidad de crecimiento"
+    },
+    "Family Educational Rights and Privacy Act (FERPA)": {
+        "PTBR": "Lei dos Direitos Educacionais e Privacidade da Família (FERPA)",
+        "SPA": "Ley de Privacidad y Derechos Educativos de la Familia (FERPA)"
+    },
+    "Family Emergency": {
+        "PTBR": "Emergência Familiar",
+        "SPA": "Emergencia familiar"
+    },
+    "FCS160- Family Leadership": {
+        "PTBR": "FCS160- Liderança Familiar e Gestão de Recursos",
+        "SPA": "FCS160- Liderazgo familiar"
+    },
+    "File upload": {
+        "PTBR": "carregamento de arquivo",
+        "SPA": "Carga de archivo"
+    },
+    "FIN 300 Business Finance": {
+        "PTBR": "FIN 300 Finanças Empresariais",
+        "SPA": "FIN 300 Finanza Empresarial"
+    },
+    "FIN 301 Financial Management": {
+        "PTBR": "FIN 301 Gestão Financeira",
+        "SPA": "FIN 301 Gestión Financiera"
+    },
+    "Finances": {
+        "PTBR": "Finanças",
+        "SPA": "Finanzas"
+    },
+    "Financial Distress": {
+        "PTBR": "Dificuldades Financeiras",
+        "SPA": "Dificultades financieras"
+    },
+    "Financial Information": {
+        "PTBR": "Informações financeiras",
+        "SPA": "Información financiera"
+    },
+    "Fingerprints": {
+        "PTBR": "Impressões digitais",
+        "SPA": "Huellas dactilares"
+    },
+    "Fixed mindset": {
+        "PTBR": "mentalidade fixa",
+        "SPA": "Mentalidad fija"
+    },
+    "Flashcards": {
+        "PTBR": "Cartões de estudo",
+        "SPA": "Tarjetas de estudio"
+    },
+    "Flexible payment": {
+        "PTBR": "pagamento flexível",
+        "SPA": "Pago flexible"
+    },
+    "Foundational academic and religion courses": {
+        "PTBR": "cursos acadêmicos e religiosos fundamentais",
+        "SPA": "Cursos fundamentales académicos y de religión"
+    },
+    "Fraud Prevention": {
+        "PTBR": "Prevenção de fraudes",
+        "SPA": "Prevención contra el fraude"
+    },
+    "Gain confidence": {
+        "PTBR": "ganhar confiança",
+        "SPA": "Adquirir confianza"
+    },
+    "Gateway course": {
+        "PTBR": "curso de transição",
+        "SPA": "Curso de acceso"
+    },
+    "Gateway to college": {
+        "PTBR": "porta de entrada para a universidade",
+        "SPA": "Puerta de acceso a la universidad"
+    },
+    "Gathering": {
+        "PTBR": "reunião",
+        "SPA": "Reunión de integración"
+    },
+    "Gathering agenda": {
+        "PTBR": "agenda da reunião",
+        "SPA": "Agenda de la reunión de integración"
+    },
+    "Gathering Guide": {
+        "PTBR": "Manual de Reunião",
+        "SPA": "Guía de recopilación"
+    },
+    "Gathering selection": {
+        "PTBR": "seleção de reunião",
+        "SPA": "Selección de reunión de integración"
+    },
+    "General Education Courses": {
+        "PTBR": "Disciplinas de Educação Geral",
+        "SPA": "Cursos de Educación General"
+    },
+    "General Teaching Notes": {
+        "PTBR": "Notas Gerais de Ensino",
+        "SPA": "Notas generales de enseñanza"
+    },
+    "GESCI-110 Sustaining Human Life": {
+        "PTBR": "GESCI110- Sustentando a Vida Humana",
+        "SPA": "GESCI-110 Subsistencia de la Vida Humana"
+    },
+    "Getting Started": {
+        "PTBR": "Introdução",
+        "SPA": "Primeros Pasos"
+    },
+    "Global Education Centers": {
+        "PTBR": "Centros de Educação Global",
+        "SPA": "Centros de Educación Global"
+    },
+    "Go to Class": {
+        "PTBR": "Vá para os Cursos",
+        "SPA": "Ir a Clase"
+    },
+    "Gospel-centered environment": {
+        "PTBR": "ambiente centrado no evangelho",
+        "SPA": "Entorno centrado en el Evangelio"
+    },
+    "GPA": {
+        "PTBR": "GPA (Média de Pontuação)",
+        "SPA": "GPA (Promedio académico)"
+    },
+    "Grade": {
+        "PTBR": "nota",
+        "SPA": "Calificación"
+    },
+    "Gradebook": {
+        "PTBR": "Boletim",
+        "SPA": "Libro de calificaciones"
+    },
+    "Grader Number Folder": {
+        "PTBR": "Pasta Numérica do(a) Avaliador(a)",
+        "SPA": "Carpeta del número de calificador"
+    },
+    "Graders & Grading": {
+        "PTBR": "Avaliadores e Avaliações",
+        "SPA": "Calificadores y calificación"
+    },
+    "Grief": {
+        "PTBR": "Luto",
+        "SPA": "Duelo"
+    },
+    "Grievances": {
+        "PTBR": "Reclamações",
+        "SPA": "Reclamos"
+    },
+    "Group work": {
+        "PTBR": "trabalho em grupo",
+        "SPA": "Trabajo en grupo"
+    },
+    "Growth mindset": {
+        "PTBR": "mentalidade de crescimento",
+        "SPA": "Mentalidad de crecimiento"
+    },
+    "GS170- Career Development": {
+        "PTBR": "GS170- Desenvolvimento de Carreira",
+        "SPA": "GS170- Desarrollo Profesional"
+    },
+    "Guideline": {
+        "PTBR": "orientação",
+        "SPA": "Directriz"
+    },
+    "HealthCare Provider": {
+        "PTBR": "Profissional de Saúde",
+        "SPA": "Proveedor de atención médica"
+    },
+    "Heartbreak": {
+        "PTBR": "Sofrimento Emocional",
+        "SPA": "Desamor"
+    },
+    "Help": {
+        "PTBR": "Ajuda",
+        "SPA": "Ayuda"
+    },
+    "High school": {
+        "PTBR": "ensino médio",
+        "SPA": "Escuela secundaria"
+    },
+    "High stakes exam": {
+        "PTBR": "Prova de Alta Importância",
+        "SPA": "Examen de gran importancia"
+    },
+    "Highly relevant": {
+        "PTBR": "altamente relevante",
+        "SPA": "Altamente relevante"
+    },
+    "Holds & alerts": {
+        "PTBR": "Pendências e Alertas",
+        "SPA": "Retenciones y alertas"
+    },
+    "Honor / Honor Code": {
+        "PTBR": "Código de Honra",
+        "SPA": "Honor / Código de Honor"
+    },
+    "Hook": {
+        "PTBR": "gancho",
+        "SPA": "Gancho"
+    },
+    "Hope of getting an education": {
+        "PTBR": "Esperança de obter uma educação",
+        "SPA": "Esperanza de obtener una educación"
+    },
+    "HUM110 - Discovery and Discernment": {
+        "PTBR": "HUM110- Descoberta e Discernimento por Meio das Artes",
+        "SPA": "HUM110 - Descubrimiento y discernimiento"
+    },
+    "Hundred Millions": {
+        "PTBR": "Centenas de Milhões",
+        "SPA": "Centenas de millón"
+    },
+    "Identity Verification": {
+        "PTBR": "Verificação de identidade",
+        "SPA": "Verificación de identidad"
+    },
+    "Immediate job improvement": {
+        "PTBR": "melhoria imediata no emprego",
+        "SPA": "Mejora laboral inmediata"
+    },
+    "Inbox": {
+        "PTBR": "caixa de entrada",
+        "SPA": "Bandeja de entrada"
+    },
+    "Includes required and elective courses": {
+        "PTBR": "Inclui Disciplinas Obrigatórias e Eletivas",
+        "SPA": "Incluye cursos obligatorios y electivos"
+    },
+    "Income": {
+        "PTBR": "Renda",
+        "SPA": "Ingresos"
+    },
+    "Increase faith": {
+        "PTBR": "aumentar a fé",
+        "SPA": "Aumentar la fe"
+    },
+    "Increase your chances of academic success": {
+        "PTBR": "aumentar suas chances de sucesso acadêmico",
+        "SPA": "Aumenta tus posibilidades de éxito académico"
+    },
+    "Independent Data Controller": {
+        "PTBR": "Controlador independente de dados",
+        "SPA": "Administrador independiente de datos"
+    },
+    "Individuals Involved in Research": {
+        "PTBR": "Indivíduos Envolvidos em Pesquisas ou Estudos",
+        "SPA": "Personas involucradas en la investigación"
+    },
+    "Informational presentation": {
+        "PTBR": "apresentação informativa",
+        "SPA": "Presentación informativa"
+    },
+    "Insert External Tool": {
+        "PTBR": "Inserir Ferramenta Externa",
+        "SPA": "Insertar herramienta externa"
+    },
+    "Institute": {
+        "PTBR": "Instituto",
+        "SPA": "Instituto"
+    },
+    "Instruction Management System (IMS)": {
+        "PTBR": "Sistema de Gerenciamento de Instrução (IMS)",
+        "SPA": "Sistema de Gestión Educativa (SGE)"
+    },
+    "Instructor": {
+        "PTBR": "Instrutor(a)",
+        "SPA": "Docente"
+    },
+    "Instructor General Notes": {
+        "PTBR": "Notas Gerais para os Instrutores",
+        "SPA": "Notas generales del docente"
+    },
+    "Instructor Lead": {
+        "PTBR": "Instrutor(a) Sênior",
+        "SPA": "Instructor principal"
+    },
+    "Instructor Support Line": {
+        "PTBR": "Linha de Suporte para Instrutores",
+        "SPA": "Línea de asistencia para docentes"
+    },
+    "Instructor Support Table": {
+        "PTBR": "Tabela de Recursos de Suporte para Instrutores",
+        "SPA": "Tabla de apoyo al instructor"
+    },
+    "Instructor Tools": {
+        "PTBR": "Ferramentas para Instrutores",
+        "SPA": "Recursos para el Docente"
+    },
+    "Integers": {
+        "PTBR": "Números Inteiros",
+        "SPA": "Números enteros"
+    },
+    "International programs": {
+        "PTBR": "programas internacionais",
+        "SPA": "Programas internacionales"
+    },
+    "International students": {
+        "PTBR": "estudantes internacionais",
+        "SPA": "Estudiantes internacionales"
+    },
+    "Introductory paragraph": {
+        "PTBR": "parágrafo introdutório",
+        "SPA": "Párrafo introductorio"
+    },
+    "IP Address": {
+        "PTBR": "Endereço IP",
+        "SPA": "Dirección IP"
+    },
+    "ITM111 - Introduction to Databases": {
+        "PTBR": "ITM111 – Introdução a Bancos de Dados",
+        "SPA": "ITM111 - Introducción a las Bases de Datos"
+    },
+    "Job Applicants": {
+        "PTBR": "Candidatos a Vagas de Emprego",
+        "SPA": "Candidatos de empleo"
+    },
+    "Job crafting": {
+        "PTBR": "Redefinição do trabalho",
+        "SPA": "Personalización del trabajo"
+    },
+    "Job readiness": {
+        "PTBR": "preparação para o mercado de trabalho",
+        "SPA": "Preparación laboral"
+    },
+    "Joint Controllers": {
+        "PTBR": "Controladores conjuntos",
+        "SPA": "Administradores conjuntos"
+    },
+    "Language Models": {
+        "PTBR": "Modelos de linguagem",
+        "SPA": "Modelos de lenguaje"
+    },
+    "Last Day to Add": {
+        "PTBR": "Último Dia para Adicionar",
+        "SPA": "Último Día para Agregar {Cursos}"
+    },
+    "Last Day to Drop": {
+        "PTBR": "Último Dia para Cancelar",
+        "SPA": "Último Día para Abandonar {Cursos}"
+    },
+    "LDS member pricing": {
+        "PTBR": "preços para membros SUD",
+        "SPA": "Precio para miembros de la Iglesia (de Jesucristo) SUD"
+    },
+    "Lead student": {
+        "PTBR": "estudante líder",
+        "SPA": "Estudiante director"
+    },
+    "Learn English. Expand your opportunities.": {
+        "PTBR": "Aprenda inglês. Expanda suas oportunidades.",
+        "SPA": "Aprende inglés. Expande tus oportunidades"
+    },
+    "Learner manual": {
+        "PTBR": "manual do aluno",
+        "SPA": "Manual del estudiante"
+    },
+    "Learning English can open doors...": {
+        "PTBR": "Aprender inglês pode abrir portas para novos empregos...",
+        "SPA": "Aprender inglés puede abrir puertas..."
+    },
+    "Learning Library": {
+        "PTBR": "Biblioteca de Aprendizado",
+        "SPA": "Biblioteca de aprendizaje"
+    },
+    "Learning Model": {
+        "PTBR": "Modelo de Ensino",
+        "SPA": "Modelo de aprendizaje"
+    },
+    "Legal Basis": {
+        "PTBR": "Base legal",
+        "SPA": "Base legal"
+    },
+    "Legal Obligation": {
+        "PTBR": "Obrigação legal",
+        "SPA": "Obligación legal"
+    },
+    "Legitimate Interest": {
+        "PTBR": "Interesse legítimo",
+        "SPA": "Interés legítimo"
+    },
+    "Loading Selected Courses": {
+        "PTBR": "Carregando Disciplinas Selecionadas",
+        "SPA": "Cargando Cursos Seleccionados"
+    },
+    "Local communities": {
+        "PTBR": "comunidades locais",
+        "SPA": "Comunidades locales"
+    },
+    "Location": {
+        "PTBR": "Localização",
+        "SPA": "Ubicación"
+    },
+    "Loss": {
+        "PTBR": "Perda",
+        "SPA": "Pérdida"
+    },
+    "Marketable certificates": {
+        "PTBR": "certificados comercializáveis",
+        "SPA": "Certificados con demanda laboral"
+    },
+    "Marketable skills": {
+        "PTBR": "habilidades comercializáveis",
+        "SPA": "Habilidades con demanda laboral"
+    },
+    "Math108X- Math for the Real World": {
+        "PTBR": "Math108X- Matemática para o Mundo Real",
+        "SPA": "Math108X- Matemáticas Prácticas para el Mundo real"
+    },
+    "Matriculate": {
+        "PTBR": "matricular-se",
+        "SPA": "Matricularse"
+    },
+    "Mental Health": {
+        "PTBR": "Saúde Mental",
+        "SPA": "Salud mental"
+    },
+    "Mental Health Diagnosis": {
+        "PTBR": "Diagnóstico de Saúde Mental",
+        "SPA": "Diagnóstico de salud mental"
+    },
+    "Message Center": {
+        "PTBR": "Central de Mensagens",
+        "SPA": "Centro de Mensajes"
+    },
+    "Mid-Course Evaluation": {
+        "PTBR": "Avaliação Intermediária e Final do Curso",
+        "SPA": "Evaluación de mitad de curso"
+    },
+    "Millions": {
+        "PTBR": "Unidades de Milhão",
+        "SPA": "Millones"
+    },
+    "Min Grade": {
+        "PTBR": "Nota Mínima",
+        "SPA": "Calificación Mínima"
+    },
+    "MKT 120 Introduction to Marketing": {
+        "PTBR": "MKT 120 Fundamentos de Marketing",
+        "SPA": "MKT 120 – Introducción a Marketing"
+    },
+    "MKT 351 Social Media Marketing": {
+        "PTBR": "MKT 351 Marketing de Mídias Sociais",
+        "SPA": "MKT 351 Marketing en Redes Sociales"
+    },
+    "Mobile-first design": {
+        "PTBR": "design mobile-first",
+        "SPA": "Diseño optimizado para dispositivos móviles"
+    },
+    "Module": {
+        "PTBR": "módulo",
+        "SPA": "Módulo"
+    },
+    "My Information": {
+        "PTBR": "Minhas Informações",
+        "SPA": "Mi Información"
+    },
+    "My Profile": {
+        "PTBR": "Meu Perfil",
+        "SPA": "Mi Perfil"
+    },
+    "No ACT/SAT required for admission": {
+        "PTBR": "Não é necessário ACT/SAT para admissão",
+        "SPA": "No se requiere ACT/SAT para la admisión"
+    },
+    "No Classes Scheduled": {
+        "PTBR": "Nenhuma Disciplina Agendada",
+        "SPA": "No Hay Clases Programadas"
+    },
+    "NO COST TO APPLY": {
+        "PTBR": "SEM CUSTO PARA SE INSCREVER",
+        "SPA": "Aplicación sin costo"
+    },
+    "Not degree-granting": {
+        "PTBR": "não concede diplomas",
+        "SPA": "No otorga un título"
+    },
+    "Not Yet": {
+        "PTBR": "Abaixo da Expectativas",
+        "SPA": "Aún no"
+    },
+    "Observation and feedback": {
+        "PTBR": "observação e feedback",
+        "SPA": "Observación y retroalimentación"
+    },
+    "Observation sheet": {
+        "PTBR": "folha de observação e feedback",
+        "SPA": "Hoja de observación"
+    },
+    "Observing student": {
+        "PTBR": "estudante observador(a)",
+        "SPA": "Estudiante observador"
+    },
+    "One year": {
+        "PTBR": "um ano",
+        "SPA": "Un año"
+    },
+    "One-year reduced-cost online program": {
+        "PTBR": "programa on-line de um ano com custo reduzido",
+        "SPA": "Programa en línea de un año a costo reducido"
+    },
+    "Ones (decimal system)": {
+        "PTBR": "unidades",
+        "SPA": "Unidades (sistema decimal)"
+    },
+    "Online Academic Support": {
+        "PTBR": "Suporte Acadêmico On-line",
+        "SPA": "Soporte Académico en Línea"
+    },
+    "Online courses": {
+        "PTBR": "cursos on-line",
+        "SPA": "Cursos en línea"
+    },
+    "Online degree-seeking": {
+        "PTBR": "estudantes que buscam diploma on-line",
+        "SPA": "Estudiantes que buscan un título en línea"
+    },
+    "Online Instructor Community": {
+        "PTBR": "Comunidade de Instrutores On-line",
+        "SPA": "Comunidad de Instructores en Línea"
+    },
+    "Online learning": {
+        "PTBR": "aprendizagem on-line",
+        "SPA": "Aprendizaje en línea"
+    },
+    "Online registration": {
+        "PTBR": "Registro On-line",
+        "SPA": "Inscripción en línea"
+    },
+    "Online Services": {
+        "PTBR": "Serviços on-line",
+        "SPA": "Servicios en Línea"
+    },
+    "Online Support Center": {
+        "PTBR": "Centro de Suporte On-line",
+        "SPA": "Centro de soporte en línea"
+    },
+    "Online web portal": {
+        "PTBR": "portal on-line",
+        "SPA": "Portal web en línea"
+    },
+    "Open": {
+        "PTBR": "Aberto",
+        "SPA": "Abierto"
+    },
+    "Opt Out": {
+        "PTBR": "Optar por não receber / cancelar recebimento",
+        "SPA": "Darse de baja"
+    },
+    "Organizational Measures": {
+        "PTBR": "Medidas organizacionais",
+        "SPA": "Medidas organizativas"
+    },
+    "Outlook email": {
+        "PTBR": "Signature",
+        "SPA": "Signature"
+    },
+    "Outreach Samples": {
+        "PTBR": "Exemplos de Ações de Acompanhamento",
+        "SPA": "Ejemplos de comunicación"
+    },
+    "Pacing Guide": {
+        "PTBR": "Tabela de Rotina",
+        "SPA": "Guía de avance del semestre"
+    },
+    "Pain": {
+        "PTBR": "Dor",
+        "SPA": "Dolor"
+    },
+    "Participants / Attendees": {
+        "PTBR": "Participantes / Visitantes",
+        "SPA": "Participantes"
+    },
+    "PathwayConnect completion": {
+        "PTBR": "conclusão do PathwayConnect",
+        "SPA": "Finalización de PathwayConnect"
+    },
+    "PathwayConnect is the recommended start...": {
+        "PTBR": "PathwayConnect é o início recomendado...",
+        "SPA": "PathwayConnect es el inicio recomendado..."
+    },
+    "PathwayConnect tuition rate": {
+        "PTBR": "valor do PathwayConnect",
+        "SPA": "Costo de matrícula de PathwayConnect"
+    },
+    "Pay Tuition": {
+        "PTBR": "Realizar Pagamento",
+        "SPA": "Pagar Matrícula"
+    },
+    "PC 101: Life Skills": {
+        "PTBR": "PC 101: Habilidades para a Vida",
+        "SPA": "PC 101: Habilidades para la Vida"
+    },
+    "PC 102: Professional Skills": {
+        "PTBR": "PC 102: Habilidades Profissionais",
+        "SPA": "PC 102: Habilidades Profesionales"
+    },
+    "PC 103: University Skills": {
+        "PTBR": "PC 103: Habilidades Universitárias",
+        "SPA": "PC 103: Habilidades Universitarias"
+    },
+    "PEACE101 - Conflict and Peace": {
+        "PTBR": "PEACE101- Conflito e Paz",
+        "SPA": "PEACE101- Conflicto y Paz"
+    },
+    "Peer mentor": {
+        "PTBR": "mentor colega",
+        "SPA": "Compañero mentor"
+    },
+    "Personal Data": {
+        "PTBR": "Dados pessoais",
+        "SPA": "Datos personales"
+    },
+    "Personal experience": {
+        "PTBR": "experiência pessoal",
+        "SPA": "Experiencia personal"
+    },
+    "Personal study": {
+        "PTBR": "estudo pessoal",
+        "SPA": "Estudio personal"
+    },
+    "Physical Characteristics": {
+        "PTBR": "Características físicas",
+        "SPA": "Características físicas"
+    },
+    "Physical well-being": {
+        "PTBR": "Bem-estar físico",
+        "SPA": "Bienestar físico"
+    },
+    "Placement assessment": {
+        "PTBR": "avaliação de nivelamento",
+        "SPA": "Evaluación de nivelación"
+    },
+    "Please select your term below...": {
+        "PTBR": "Por favor, selecione o seu período letivo abaixo...",
+        "SPA": "Por favor seleccione su período a continuación"
+    },
+    "Pre-Block": {
+        "PTBR": "Pré-Bloco",
+        "SPA": "Periodo previo al bloque"
+    },
+    "Prep": {
+        "PTBR": "preparação",
+        "SPA": "Preparación"
+    },
+    "Prerequisites": {
+        "PTBR": "Pré-requisito",
+        "SPA": "Requisitos Previos"
+    },
+    "President Brian K. Ashton": {
+        "PTBR": "Presidente Brian K. Ashton",
+        "SPA": "Presidente Brian K. Ashton"
+    },
+    "Priority deadline": {
+        "PTBR": "prazo prioritário",
+        "SPA": "Fecha límite de prioridad"
+    },
+    "Privacy settings": {
+        "PTBR": "Configurações de Privacidade",
+        "SPA": "Configuración de privacidad"
+    },
+    "Process / To Process": {
+        "PTBR": "Tratar / Processar",
+        "SPA": "Proceso / Procesar"
+    },
+    "Professional Guidance": {
+        "PTBR": "Orientação Profissional",
+        "SPA": "Orientación profesional"
+    },
+    "Professional Help": {
+        "PTBR": "Ajuda Profissional",
+        "SPA": "Ayuda profesional"
+    },
+    "Program options": {
+        "PTBR": "Opções do Programa",
+        "SPA": "Opciones de programas"
+    },
+    "Program Plan": {
+        "PTBR": "Plano do Programa",
+        "SPA": "Plan del programa"
+    },
+    "Program version comments": {
+        "PTBR": "Comentários sobre a Versão do Programa",
+        "SPA": "Comentarios de la versión del programa"
+    },
+    "Programs of study": {
+        "PTBR": "Programas de Estudo",
+        "SPA": "Programas de estudio"
+    },
+    "Prospective Students": {
+        "PTBR": "Estudantes Potenciais",
+        "SPA": "Estudiantes potenciales"
+    },
+    "Provides access to higher education for all": {
+        "PTBR": "oferece acesso ao ensino superior para todos",
+        "SPA": "Brinda acceso a la educación superior para todos"
+    },
+    "PUBH132- Personal Health and Wellness": {
+        "PTBR": "PUBH132- Saúde Pessoal e Bem-Estar",
+        "SPA": "PUBH132 - Salud y Bienestar Personal"
+    },
+    "Quote": {
+        "PTBR": "Citação",
+        "SPA": "Cita"
+    },
+    "Quote Integration": {
+        "PTBR": "Integração de Citação",
+        "SPA": "Integración de citas"
+    },
+    "Rate - R (Math exercises)": {
+        "PTBR": "Velocidade = V",
+        "SPA": "Ejercicios de razón (R)= Razón – R"
+    },
+    "Rectangular solid": {
+        "PTBR": "retângulo sólido",
+        "SPA": "Prisma rectangular"
+    },
+    "Reduced-cost": {
+        "PTBR": "custo reduzido",
+        "SPA": "Costo reducido"
+    },
+    "Referral": {
+        "PTBR": "Encaminhamento",
+        "SPA": "Referencia"
+    },
+    "Registering for": {
+        "PTBR": "Registrar-se para",
+        "SPA": "Inscribirse en"
+    },
+    "Registration": {
+        "PTBR": "inscrição",
+        "SPA": "Inscripción"
+    },
+    "Registration period": {
+        "PTBR": "Período de Vigência",
+        "SPA": "Período de inscripción"
+    },
+    "Registration status": {
+        "PTBR": "Status do Registro",
+        "SPA": "Estado de inscripción"
+    },
+    "Registration summary": {
+        "PTBR": "Resumo do Registro",
+        "SPA": "Resumen de inscripción"
+    },
+    "REL200A- The Eternal Family A": {
+        "PTBR": "REL200A- A Família Eterna A",
+        "SPA": "REL200A - La familia Eterna A"
+    },
+    "REL225A- Foundations of the Restoration A": {
+        "PTBR": "REL225A- Alicerces da Restauração A",
+        "SPA": "REL225A - Fundamentos de la Restauración A"
+    },
+    "REL250A- Jesus Christ and His Everlasting Gospel A": {
+        "PTBR": "REL250A- Jesus Cristo e o Evangelho Eterno A",
+        "SPA": "REL250A - Jesucristo y Su Evangelio Eterno A"
+    },
+    "REL275A- Teachings/Doctrine of the Book of Mormon A": {
+        "PTBR": "REL275A-Ensinamentos e Doutrina do Livro de Mórmon A",
+        "SPA": "REL275A- Enseñanzas y Doctrina del Libro de Mormón A"
+    },
+    "REL280A- Answering my Gospel Questions A": {
+        "PTBR": "REL280A- Responder às minhas perguntas do Evangelho A",
+        "SPA": "REL280A- Respuestas a mis preguntas sobre el Evangelio (A)"
+    },
+    "REL290A- The Divine Gift of Forgiveness A": {
+        "PTBR": "REL290A- O Dom Divino do Perdão A",
+        "SPA": "REL290A- El Don Divino del Perdón (A)"
+    },
+    "REL333A Teachings of the Living Prophets A": {
+        "PTBR": "REL333A- Ensinamentos dos Profetas Vivos A",
+        "SPA": "REL333A Enseñanzas de los Profetas Vivientes A"
+    },
+    "Relative Reference": {
+        "PTBR": "Referência Relativa",
+        "SPA": "Relativa"
+    },
+    "Release notes": {
+        "PTBR": "Notas de Versão",
+        "SPA": "Notas de la versión"
+    },
+    "Religion gathering": {
+        "PTBR": "reunião de religião",
+        "SPA": "Reunión de integración de religión"
+    },
+    "Residency credits": {
+        "PTBR": "créditos de residência",
+        "SPA": "Créditos de residencia"
+    },
+    "Resource Center": {
+        "PTBR": "Centro de Recursos",
+        "SPA": "Centro de Recursos"
+    },
+    "Resourcefulness and self-advocacy": {
+        "PTBR": "Desenvoltura e Autodefesa",
+        "SPA": "Ingenio y autodefensa"
+    },
+    "Resources": {
+        "PTBR": "Recursos",
+        "SPA": "Recursos"
+    },
+    "Restricted-Access Labs": {
+        "PTBR": "Laboratórios com acesso restrito",
+        "SPA": "Laboratorios de acceso restringido"
+    },
+    "Restriction of Processing": {
+        "PTBR": "Restrição de processamento",
+        "SPA": "Restricción del Procesamiento"
+    },
+    "Retries": {
+        "PTBR": "novas tentativas",
+        "SPA": "Reintentar"
+    },
+    "Returned missionary": {
+        "PTBR": "missionário retornado",
+        "SPA": "Misionero retornado"
+    },
+    "Revocation of Consent": {
+        "PTBR": "Revogação do consentimento",
+        "SPA": "Retiro del consentimiento"
+    },
+    "RISE": {
+        "PTBR": "Variação em Y",
+        "SPA": "run = Δx (cambio horizontal)"
+    },
+    "Rubric": {
+        "PTBR": "rubrica",
+        "SPA": "Rúbrica"
+    },
+    "RUN": {
+        "PTBR": "Variação em X",
+        "SPA": "run = Δx (cambio horizontal)"
+    },
+    "Safety and Welfare": {
+        "PTBR": "Segurança e bem-estar",
+        "SPA": "Seguridad y bienestar"
+    },
+    "Scalable transformation": {
+        "PTBR": "transformação escalável",
+        "SPA": "Transformación escalable"
+    },
+    "SCM 361 Operations Management": {
+        "PTBR": "SCM 361 Gestão de Operações",
+        "SPA": "SCM 361 Gestión de Operaciones"
+    },
+    "Scriptures": {
+        "PTBR": "escrituras",
+        "SPA": "Escrituras"
+    },
+    "Search Courses and Quick Add": {
+        "PTBR": "Selecione Disciplinas e Adicione Rapidamente",
+        "SPA": "Buscar Cursos y Agregar Rápidamente"
+    },
+    "Second-semester students": {
+        "PTBR": "estudantes do segundo semestre",
+        "SPA": "Estudiantes de segundo semestre"
+    },
+    "Section": {
+        "PTBR": "Seção",
+        "SPA": "Sección"
+    },
+    "Secure Access": {
+        "PTBR": "Acesso seguro",
+        "SPA": "Acceso Seguro"
+    },
+    "Secure Facilities": {
+        "PTBR": "Instalações seguras",
+        "SPA": "Instalaciones seguras"
+    },
+    "See increased success": {
+        "PTBR": "ver sucesso aumentado",
+        "SPA": "Tener un mayor éxito"
+    },
+    "Selected courses": {
+        "PTBR": "Disciplinas Selecionadas",
+        "SPA": "Cursos seleccionados"
+    },
+    "Self-reliant approach": {
+        "PTBR": "abordagem autossuficiente",
+        "SPA": "Enfoque de autosuficiencia"
+    },
+    "Semester": {
+        "PTBR": "semestre",
+        "SPA": "Semestre"
+    },
+    "Sensitive Personal Data": {
+        "PTBR": "Dados pessoais sensíveis",
+        "SPA": "Información personal sensible"
+    },
+    "Sentence": {
+        "PTBR": "Oração",
+        "SPA": "Oración"
+    },
+    "Service missionaries": {
+        "PTBR": "missionários de serviço",
+        "SPA": "Misioneros de servicio"
+    },
+    "Service provider": {
+        "PTBR": "provedor de serviços",
+        "SPA": "Proveedor de servicios"
+    },
+    "Sexual Misconduct": {
+        "PTBR": "Má Conduta Sexual",
+        "SPA": "Conducta sexual inapropiada"
+    },
+    "Share the good news of BYU-Pathway!": {
+        "PTBR": "Compartilhe as boas notícias da BYU-Pathway!",
+        "SPA": "¡Comparta las buenas noticias sobre BYU-Pathway!"
+    },
+    "Shift": {
+        "PTBR": "Turno",
+        "SPA": "Turno"
+    },
+    "Significantly lower than traditional universities": {
+        "PTBR": "significativamente menor que as universidades tradicionais",
+        "SPA": "Significativamente más bajo que las universidades tradicionales"
+    },
+    "Significantly reduced cost": {
+        "PTBR": "custo significativamente reduzido",
+        "SPA": "Costo significativamente reducido"
+    },
+    "Single Controlling Idea": {
+        "PTBR": "Ideia Única Central",
+        "SPA": "Idea central única"
+    },
+    "Sister": {
+        "PTBR": "irmã",
+        "SPA": "Hermana"
+    },
+    "Skills-based certificates": {
+        "PTBR": "certificados baseados em habilidades",
+        "SPA": "Certificados basados en habilidades"
+    },
+    "Slope-Intercept Form of a Line": {
+        "PTBR": "Equação Reduzida de uma Reta",
+        "SPA": "Forma de ecuación de una recta con la pendiente y el punto de intersección"
+    },
+    "SMS Communications": {
+        "PTBR": "Comunicações por SMS",
+        "SPA": "Mensajes de texto (SMS)"
+    },
+    "Software Development Degree": {
+        "PTBR": "Bacharelado em Desenvolvimento de Software",
+        "SPA": "Licenciatura en Desarrollo de Software"
+    },
+    "Solve for a variable": {
+        "PTBR": "Encontre o valor de uma variável",
+        "SPA": "Despejar una variable"
+    },
+    "Source Integration": {
+        "PTBR": "Integração de Fonte",
+        "SPA": "Integración de fuentes"
+    },
+    "Spiritually based": {
+        "PTBR": "baseado espiritualmente",
+        "SPA": "Con base espiritual"
+    },
+    "Stackable certificate": {
+        "PTBR": "certificado empilhável",
+        "SPA": "Certificado acumulable"
+    },
+    "Start date": {
+        "PTBR": "Data de Início",
+        "SPA": "Fecha de inicio"
+    },
+    "Statistics": {
+        "PTBR": "estatísticas",
+        "SPA": "Estadísticas"
+    },
+    "Status": {
+        "PTBR": "Status",
+        "SPA": "Estado"
+    },
+    "Strong employment opportunities": {
+        "PTBR": "fortes oportunidades de emprego",
+        "SPA": "Sólidas oportunidades de empleo"
+    },
+    "Student": {
+        "PTBR": "estudante",
+        "SPA": "Estudiante"
+    },
+    "Student academic progress": {
+        "PTBR": "Progresso Acadêmico do(a) Estudante",
+        "SPA": "Progreso académico del estudiante"
+    },
+    "Student Career Services": {
+        "PTBR": "Serviços de Carreira para Estudantes",
+        "SPA": "Servicios de orientación profesional para estudiantes"
+    },
+    "Student Death": {
+        "PTBR": "Falecimento do Estudante",
+        "SPA": "Fallecimiento de un estudiante"
+    },
+    "Student dropped": {
+        "PTBR": "Estudante Desistente",
+        "SPA": "Estudiante retirado"
+    },
+    "Student FAQs & Resources": {
+        "PTBR": "Perguntas Frequentes e Recursos para Estudantes",
+        "SPA": "Preguntas frecuentes y materiales de apoyo para el estudiante"
+    },
+    "Student honor": {
+        "PTBR": "Código de Honra dos Estudantes",
+        "SPA": "Honor del estudiante"
+    },
+    "Student Notes and Tasks": {
+        "PTBR": "Notas sobre os Estudantes e Tarefas",
+        "SPA": "Apuntes y tareas del estudiante"
+    },
+    "Student portal": {
+        "PTBR": "Portal do Estudante",
+        "SPA": "Portal del estudiante"
+    },
+    "Student resources": {
+        "PTBR": "Recursos para Estudantes",
+        "SPA": "Recursos para estudiantes"
+    },
+    "Student Services": {
+        "PTBR": "Serviços estudantis",
+        "SPA": "Servicios Estudiantiles"
+    },
+    "Student wellness": {
+        "PTBR": "Bem-estar dos Estudantes",
+        "SPA": "Bienestar del estudiante"
+    },
+    "Students around the world": {
+        "PTBR": "estudantes ao redor do mundo",
+        "SPA": "Estudiantes de todo el mundo"
+    },
+    "Students in Crisis": {
+        "PTBR": "Estudantes em Crise",
+        "SPA": "Estudiantes en crisis"
+    },
+    "Submission": {
+        "PTBR": "Envio de Tarefa",
+        "SPA": "Entrega"
+    },
+    "Support": {
+        "PTBR": "Suporte",
+        "SPA": "Soporte"
+    },
+    "Supporting details": {
+        "PTBR": "detalhes de apoio",
+        "SPA": "Detalles de apoyo"
+    },
+    "Supporting Documentation": {
+        "PTBR": "Documentação Comprobatória",
+        "SPA": "Documentación de apoyo"
+    },
+    "Sustainable living wage": {
+        "PTBR": "salário de subsistência sustentável",
+        "SPA": "Salario digno sostenible"
+    },
+    "Syllabus": {
+        "PTBR": "Programa do Curso",
+        "SPA": "Programa de estudios"
+    },
+    "System issues": {
+        "PTBR": "problemas do sistema",
+        "SPA": "Problemas del sistema"
+    },
+    "TA Management": {
+        "PTBR": "Gestão de Assistentes de Ensino",
+        "SPA": "Gestión de asistentes de docencia"
+    },
+    "Tab": {
+        "PTBR": "guia",
+        "SPA": "Pestaña"
+    },
+    "Tax Information": {
+        "PTBR": "Informações fiscais / de impostos",
+        "SPA": "Información fiscal"
+    },
+    "Teach one another": {
+        "PTBR": "ensinar uns aos outros",
+        "SPA": "Enseñarse unos a otros"
+    },
+    "Teaching assistant": {
+        "PTBR": "assistentes de ensino",
+        "SPA": "Asistente de enseñanza"
+    },
+    "Teaching Group Directory": {
+        "PTBR": "Diretório de Grupos de Ensino",
+        "SPA": "Directorio del grupo de enseñanza"
+    },
+    "Teaching notes": {
+        "PTBR": "notas de ensino",
+        "SPA": "Notas de enseñanza"
+    },
+    "Teaching Notes and Outreach": {
+        "PTBR": "Plano de Aula e de Contato Com Os Estudantes",
+        "SPA": "Notas de enseñanza y contacto"
+    },
+    "Teaching Notes and Student Outreach": {
+        "PTBR": "Plano de Aula e de Contato Com Os Estudantes",
+        "SPA": "Notas de enseñanza y contacto con los estudiantes"
+    },
+    "Team work": {
+        "PTBR": "trabalho em equipe",
+        "SPA": "Trabajo en equipo"
+    },
+    "Technical Measures": {
+        "PTBR": "Medidas técnicas",
+        "SPA": "Medidas Técnicas"
+    },
+    "Template": {
+        "PTBR": "modelo",
+        "SPA": "Plantilla"
+    },
+    "Ten Billions": {
+        "PTBR": "Dezenas de Bilhão",
+        "SPA": "Decenas de miles de millones"
+    },
+    "Ten Millions": {
+        "PTBR": "Dezenas de Milhão",
+        "SPA": "Decenas de millón"
+    },
+    "Ten Thousands": {
+        "PTBR": "Dezenas de Milhar",
+        "SPA": "Decenas de mil"
+    },
+    "Term": {
+        "PTBR": "período letivo",
+        "SPA": "Periodo"
+    },
+    "Term description": {
+        "PTBR": "Descrição do Período Letivo",
+        "SPA": "Descripción del periodo"
+    },
+    "Testing Center": {
+        "PTBR": "Centro de Provas",
+        "SPA": "Centro de Evaluación"
+    },
+    "Textbook": {
+        "PTBR": "Livro didático",
+        "SPA": "Libro de texto"
+    },
+    "Thank you": {
+        "PTBR": "Agradeço",
+        "SPA": "Gracias"
+    },
+    "The hidden many": {
+        "PTBR": "os muitos ocultos",
+        "SPA": "La multitud oculta"
+    },
+    "Therapist / Therapy": {
+        "PTBR": "Terapeuta / Terapia",
+        "SPA": "Terapeuta / Terapia"
+    },
+    "Thesis statement": {
+        "PTBR": "declaração de tese",
+        "SPA": "Enunciado de tesis"
+    },
+    "Thinking error": {
+        "PTBR": "erro de pensamento",
+        "SPA": "Error de pensamiento"
+    },
+    "Three levels to help you progress...": {
+        "PTBR": "três níveis para ajudá-lo a progredir...",
+        "SPA": "Tres niveles para ayudarte a progresar..."
+    },
+    "Three-year bachelor's degrees": {
+        "PTBR": "diplomas de bacharelado de três anos",
+        "SPA": "Licenciaturas de tres años"
+    },
+    "Tips for Math Outreach": {
+        "PTBR": "Dicas para Ações de Acompanhamento de Matemática",
+        "SPA": "Estrategias de acompañamiento en matemáticas"
+    },
+    "Tips for Writing Outreach": {
+        "PTBR": "Dicas para Ações de Acompanhamento de Escrita",
+        "SPA": "Estrategias de acompañamiento en redacción"
+    },
+    "Title Case": {
+        "PTBR": "Iniciais Maiúsculas",
+        "SPA": "Letra mayúscula"
+    },
+    "Topic": {
+        "PTBR": "Assunto",
+        "SPA": "Tema"
+    },
+    "Topic sentence": {
+        "PTBR": "oração inicial",
+        "SPA": "Oración principal"
+    },
+    "Transcripts": {
+        "PTBR": "Histórico Escolar",
+        "SPA": "Expedientes Académicos"
+    },
+    "Transfer credit": {
+        "PTBR": "crédito de transferência",
+        "SPA": "Transferencia de créditos"
+    },
+    "Tuition costs significantly less than other schools": {
+        "PTBR": "Os cursos custam significativamente menos que outras escolas",
+        "SPA": "La matrícula cuesta significativamente menos que en otras escuelas"
+    },
+    "Tuition discount": {
+        "PTBR": "desconto no valor dos cursos",
+        "SPA": "Descuento de matrícula"
+    },
+    "Tutor": {
+        "PTBR": "Tutor",
+        "SPA": "Tutor"
+    },
+    "Tutoring": {
+        "PTBR": "Tutoria",
+        "SPA": "Tutoría"
+    },
+    "U.S. Tax 1098-T": {
+        "PTBR": "Formulário Fiscal 1098-T (EUA)",
+        "SPA": "Formulario fiscal 1098-T de EE. UU."
+    },
+    "University": {
+        "PTBR": "universidade",
+        "SPA": "Universidad"
+    },
+    "University policies": {
+        "PTBR": "políticas da universidade",
+        "SPA": "Políticas universitarias"
+    },
+    "Username & emails": {
+        "PTBR": "Nome de Usuário e E-mails",
+        "SPA": "Nombre de usuario y correos electrónicos"
+    },
+    "Video Surveillance": {
+        "PTBR": "Vigilância por vídeo",
+        "SPA": "Vigilancia por video"
+    },
+    "View holds and alerts": {
+        "PTBR": "Verificar Pendências e Alertas",
+        "SPA": "Ver retenciones y alertas"
+    },
+    "Virtual gathering": {
+        "PTBR": "reunião virtual",
+        "SPA": "Reunión de integración virtual"
+    },
+    "W01": {
+        "PTBR": "S01",
+        "SPA": "S01"
+    },
+    "W01, W02": {
+        "PTBR": "S01, S02",
+        "SPA": "W01, W02"
+    },
+    "W02": {
+        "PTBR": "S02",
+        "SPA": "S02"
+    },
+    "W03": {
+        "PTBR": "S03",
+        "SPA": "S03"
+    },
+    "W04": {
+        "PTBR": "S04",
+        "SPA": "S04"
+    },
+    "W05": {
+        "PTBR": "S05",
+        "SPA": "S05"
+    },
+    "W06": {
+        "PTBR": "S06",
+        "SPA": "S06"
+    },
+    "W07": {
+        "PTBR": "S07",
+        "SPA": "S07"
+    },
+    "W08": {
+        "PTBR": "S08",
+        "SPA": "S08"
+    },
+    "W09": {
+        "PTBR": "S09",
+        "SPA": "S09"
+    },
+    "W10": {
+        "PTBR": "S10",
+        "SPA": "S10"
+    },
+    "W11": {
+        "PTBR": "S11",
+        "SPA": "S11"
+    },
+    "W12": {
+        "PTBR": "S12",
+        "SPA": "S12"
+    },
+    "W13": {
+        "PTBR": "S13",
+        "SPA": "S13"
+    },
+    "W14": {
+        "PTBR": "S14",
+        "SPA": "S14"
+    },
+    "W15": {
+        "PTBR": "S15",
+        "SPA": "S15"
+    },
+    "WDD130 - Web Fundamentals": {
+        "PTBR": "WDD130 – Fundamentos da Web",
+        "SPA": "WDD130 - Fundamentos de la Web"
+    },
+    "WDD131 - Dynamic Web Fundamentals": {
+        "PTBR": "WDD131 – Fundamentos da Web Dinâmica",
+        "SPA": "WDD131 - Fundamentos de la web dinámica"
+    },
+    "WDD231 - Web Frontend Development I": {
+        "PTBR": "WDD231 – Desenvolvimento Frontend para Web I",
+        "SPA": "WDD231 - Desarrollo Web Frontend I"
+    },
+    "WDD330 - Web Frontend Development II": {
+        "PTBR": "WDD330 – Desenvolvimento Frontend para Web II",
+        "SPA": "WDD330 - Desarrollo Web Front-end II"
+    },
+    "WDD430 - Web Full-Stack Development": {
+        "PTBR": "WDD430 – Desenvolvimento Full-Stack para Web",
+        "SPA": "WDD430 - Desarrollo Web Full-Stack"
+    },
+    "Web Beacons": {
+        "PTBR": "Web beacons (pixels de rastreamento)",
+        "SPA": "Balizas web"
+    },
+    "Week 00": {
+        "PTBR": "Semana 00",
+        "SPA": "Semana 00"
+    },
+    "Week 01": {
+        "PTBR": "Semana 01",
+        "SPA": "Semana 01"
+    },
+    "Week 01…": {
+        "PTBR": "Semana 01…",
+        "SPA": "Semana 01…"
+    },
+    "Week 02": {
+        "PTBR": "Semana 02",
+        "SPA": "Semana 02"
+    },
+    "Week 03": {
+        "PTBR": "Semana 03",
+        "SPA": "Semana 03"
+    },
+    "Week 04": {
+        "PTBR": "Semana 04",
+        "SPA": "Semana 04"
+    },
+    "Week 05": {
+        "PTBR": "Semana 05",
+        "SPA": "Semana 05"
+    },
+    "Week 06": {
+        "PTBR": "Semana 06",
+        "SPA": "Semana 06"
+    },
+    "Week 07": {
+        "PTBR": "Semana 07",
+        "SPA": "Semana 07"
+    },
+    "Week 08": {
+        "PTBR": "Semana 08",
+        "SPA": "Semana 08"
+    },
+    "Week 09": {
+        "PTBR": "Semana 09",
+        "SPA": "Semana 09"
+    },
+    "Week 10": {
+        "PTBR": "Semana 10",
+        "SPA": "Semana 10"
+    },
+    "Week 11": {
+        "PTBR": "Semana 11",
+        "SPA": "Semana 11"
+    },
+    "Week 12": {
+        "PTBR": "Semana 12",
+        "SPA": "Semana 12"
+    },
+    "Week 13": {
+        "PTBR": "Semana 13",
+        "SPA": "Semana 13"
+    },
+    "Week 14": {
+        "PTBR": "Semana 14",
+        "SPA": "Semana 14"
+    },
+    "Week 15": {
+        "PTBR": "Semana 15",
+        "SPA": "Semana 15"
+    },
+    "Weekly gatherings": {
+        "PTBR": "reuniões semanais",
+        "SPA": "Reuniones de integración semanales"
+    },
+    "Welcome": {
+        "PTBR": "Bem-vindo(a)",
+        "SPA": "Bienvenido(a)"
+    },
+    "Well-being": {
+        "PTBR": "Bem-estar",
+        "SPA": "Bienestar"
+    },
+    "Wellness Plan": {
+        "PTBR": "Plano de Bem-Estar",
+        "SPA": "Plan de bienestar"
+    },
+    "Whole Numbers": {
+        "PTBR": "Números Inteiros Positivos ou Naturais",
+        "SPA": "Números enteros"
+    },
+    "Withdraw from a course": {
+        "PTBR": "Desistir de uma disciplina",
+        "SPA": "Retirarse de un curso"
+    },
+    "Without leaving your home": {
+        "PTBR": "sem sair de casa",
+        "SPA": "Sin salir de casa"
+    },
+    "Workbook": {
+        "PTBR": "Livro de exercícios",
+        "SPA": "Cuaderno de trabajo"
+    },
+    "WRI 101- Writing in Professional Contexts": {
+        "PTBR": "WRIT101-Escrita em Contextos Profissionais",
+        "SPA": "WRI 101- Redacción en Contextos Profesionales"
+    },
+    "Writing": {
+        "PTBR": "Escrita",
+        "SPA": "Redacción / Escritura"
+    },
+    "Writing Prep": {
+        "PTBR": "Preparação para a Escrita",
+        "SPA": "Proceso de escritura"
+    },
+    "Writing prompt": {
+        "PTBR": "proposta de escrita",
+        "SPA": "Indicación de escritura"
+    },
+    "You have # alert": {
+        "PTBR": "Você tem # alerta",
+        "SPA": "Usted tiene # alerta"
+    },
+    "You have # holds": {
+        "PTBR": "Você tem # pendência",
+        "SPA": "Tiene # de Resctricciones Academicas"
+    },
+    "Young Men's Program": {
+        "PTBR": "Programa dos Rapazes",
+        "SPA": "Programa de los Hombres Jóvenes"
+    },
+    "Young Women's Program": {
+        "PTBR": "Programa das Moças",
+        "SPA": "Programa de las Mujeres Jóvenes"
+    },
+    "Absolute Reference": {
+        "PTBR": "",
+        "SPA": "Referencia Absoluta"
+    },
+    "academic honesty": {
+        "PTBR": "",
+        "SPA": "Honestidad académica"
+    },
+    "active learner": {
+        "PTBR": "",
+        "SPA": "Estudiante activo(a)"
+    },
+    "ADDITIONAL REQUIRED COURSES": {
+        "PTBR": "",
+        "SPA": "CURSOS ADICIONALES REQUERIDOS"
+    },
+    "advisor": {
+        "PTBR": "",
+        "SPA": "Asesor"
+    },
+    "All Enrollments": {
+        "PTBR": "",
+        "SPA": "Todas las inscripciones"
+    },
+    "application": {
+        "PTBR": "",
+        "SPA": "Solicitud"
+    },
+    "application activity": {
+        "PTBR": "",
+        "SPA": "Actividad práctica"
+    },
+    "applications are open year-round": {
+        "PTBR": "",
+        "SPA": "Las solicitudes están abiertas todo el año"
+    },
+    "Applies to Course Category": {
+        "PTBR": "",
+        "SPA": "Aplica a la Categoría del Curso"
+    },
+    "area coordination missionary": {
+        "PTBR": "",
+        "SPA": "Misionero de coordinación de área"
+    },
+    "area managers": {
+        "PTBR": "",
+        "SPA": "Gerentes de área"
+    },
+    "areas with limited access": {
+        "PTBR": "",
+        "SPA": "Áreas con acceso limitado"
+    },
+    "Associate Degree": {
+        "PTBR": "",
+        "SPA": "Título técnico superior"
+    },
+    "attandance": {
+        "PTBR": "",
+        "SPA": "Asistencia"
+    },
+    "Bachelor's Degree": {
+        "PTBR": "",
+        "SPA": "Licenciatura"
+    },
+    "Basic Essay": {
+        "PTBR": "",
+        "SPA": "Ensayo básico"
+    },
+    "better prepared": {
+        "PTBR": "",
+        "SPA": "Mejor preparado"
+    },
+    "bishop": {
+        "PTBR": "",
+        "SPA": "Obispo"
+    },
+    "bishopric": {
+        "PTBR": "",
+        "SPA": "Obispado"
+    },
+    "block": {
+        "PTBR": "",
+        "SPA": "Bloque"
+    },
+    "blocks": {
+        "PTBR": "",
+        "SPA": "Bloques"
+    },
+    "book title": {
+        "PTBR": "",
+        "SPA": "Título del libro"
+    },
+    "branch": {
+        "PTBR": "",
+        "SPA": "Rama"
+    },
+    "branch president": {
+        "PTBR": "",
+        "SPA": "Presidente de rama"
+    },
+    "brief description": {
+        "PTBR": "",
+        "SPA": "Descripción breve"
+    },
+    "build confidence": {
+        "PTBR": "",
+        "SPA": "Desarrollar confianza"
+    },
+    "Building/Room": {
+        "PTBR": "",
+        "SPA": "Edificio/Sala"
+    },
+    "bulletin inserts": {
+        "PTBR": "",
+        "SPA": "Insertos para boletín"
+    },
+    "BUS 321 – Organizational Leadership": {
+        "PTBR": "",
+        "SPA": "BUS 321 – Liderazgo Organizacional"
+    },
+    "business management degree": {
+        "PTBR": "",
+        "SPA": "Título en Administración de Empresas"
+    },
+    "BYU-Pathway Worldwide provides access to spiritually based degrees completely online at an affordable price": {
+        "PTBR": "",
+        "SPA": "BYU-Pathway Worldwide brinda acceso a títulos con base espiritual completamente en línea a un precio accesible"
+    },
+    "certificate and degree courses": {
+        "PTBR": "",
+        "SPA": "Certificado y cursos de título"
+    },
+    "CERTIFICATE I: WEB AND COMPUTER PROGRAMMING": {
+        "PTBR": "",
+        "SPA": "CERTIFICADO I: PROGRAMACIÓN WEB e INFORMÁTICA"
+    },
+    "CERTIFICATE II: WEB DEVELOPMENT": {
+        "PTBR": "",
+        "SPA": "CERTIFICADO II: DESARROLLO WEB"
+    },
+    "CERTIFICATE III: SOFTWARE DEVELOPMENT": {
+        "PTBR": "",
+        "SPA": "CERTIFICADO III: DESARROLLO DE SOFTWARE"
+    },
+    "certificate-first approach": {
+        "PTBR": "",
+        "SPA": "Enfoque de certificado primero"
+    },
+    "certificates can be completed in one year or less and lead to immediate job improvement": {
+        "PTBR": "",
+        "SPA": "Los certificados se pueden completar en un año o menos y conducen a una mejora laboral inmediata"
+    },
+    "CES": {
+        "PTBR": "",
+        "SPA": "Sistema Educativo de la Iglesia"
+    },
+    "changing lives": {
+        "PTBR": "",
+        "SPA": "Transformando vidas"
+    },
+    "chatbot (or bot)": {
+        "PTBR": "",
+        "SPA": "Asistente Virtual"
+    },
+    "Class Schedule": {
+        "PTBR": "",
+        "SPA": "Horario de Clases"
+    },
+    "come and see": {
+        "PTBR": "",
+        "SPA": "Ven y observa"
+    },
+    "Commitment Statements": {
+        "PTBR": "",
+        "SPA": "Declaraciones de compromiso"
+    },
+    "completion certificate": {
+        "PTBR": "",
+        "SPA": "Certificado de finalización"
+    },
+    "computer lab": {
+        "PTBR": "",
+        "SPA": "Laboratorio de computación"
+    },
+    "concluding paragraph": {
+        "PTBR": "",
+        "SPA": "Párrafo de conclusión"
+    },
+    "concluding sentence": {
+        "PTBR": "",
+        "SPA": "Oración de conclusión"
+    },
+    "confirmation": {
+        "PTBR": "",
+        "SPA": "Confirmación"
+    },
+    "controlling idea": {
+        "PTBR": "",
+        "SPA": "Idea principal"
+    },
+    "conventions": {
+        "PTBR": "",
+        "SPA": "Normas"
+    },
+    "conversation group": {
+        "PTBR": "",
+        "SPA": "Grupo de conversación"
+    },
+    "copyright infringement": {
+        "PTBR": "",
+        "SPA": "Infracción de derechos de autor"
+    },
+    "cost": {
+        "PTBR": "",
+        "SPA": "Costo"
+    },
+    "course evaluation": {
+        "PTBR": "",
+        "SPA": "Evaluación del curso"
+    },
+    "course fees": {
+        "PTBR": "",
+        "SPA": "Costo del curso"
+    },
+    "Course Outcome": {
+        "PTBR": "",
+        "SPA": "Resultados del curso"
+    },
+    "course setup": {
+        "PTBR": "",
+        "SPA": "Configuración del curso"
+    },
+    "course-specific notes": {
+        "PTBR": "",
+        "SPA": "Notas específicas del curso"
+    },
+    "credit load": {
+        "PTBR": "",
+        "SPA": "Carga académica"
+    },
+    "credits": {
+        "PTBR": "",
+        "SPA": "Créditos"
+    },
+    "Credits Current/Scheduled": {
+        "PTBR": "",
+        "SPA": "Créditos Actuales/Programados"
+    },
+    "Current Balance": {
+        "PTBR": "",
+        "SPA": "Saldo Actual"
+    },
+    "Dean of Students": {
+        "PTBR": "",
+        "SPA": "Decano de Estudiantes"
+    },
+    "deep learning": {
+        "PTBR": "",
+        "SPA": "Aprendizaje profundo"
+    },
+    "Degree Pursued": {
+        "PTBR": "",
+        "SPA": "Título en Curso"
+    },
+    "degrees are awarded": {
+        "PTBR": "",
+        "SPA": "Se otorgan títulos"
+    },
+    "develop disciples of Jesus Christ who are leaders in their homes, the Church, and their communities": {
+        "PTBR": "",
+        "SPA": "Formar discípulos de Jesucristo que sean líderes en sus hogares, la Iglesia y sus comunidades"
+    },
+    "Disciple Leader": {
+        "PTBR": "",
+        "SPA": "Líder de discipulado"
+    },
+    "district leader": {
+        "PTBR": "",
+        "SPA": "Líder de distrito"
+    },
+    "earn a degree and make more money": {
+        "PTBR": "",
+        "SPA": "Obtén un título y gana más dinero"
+    },
+    "ecclesiastical endorsement": {
+        "PTBR": "",
+        "SPA": "Recomendación eclesiástica"
+    },
+    "Elective Religion Courses": {
+        "PTBR": "",
+        "SPA": "Cursos electivos de religión"
+    },
+    "employable credentials": {
+        "PTBR": "",
+        "SPA": "Credenciales laborales"
+    },
+    "EnglishConnect 1": {
+        "PTBR": "",
+        "SPA": "EnglishConnect 1"
+    },
+    "EnglishConnect 2": {
+        "PTBR": "",
+        "SPA": "EnglishConnect 2"
+    },
+    "EnglishConnect 3": {
+        "PTBR": "",
+        "SPA": "EnglishConnect 3"
+    },
+    "enroll": {
+        "PTBR": "",
+        "SPA": "Inscribirse"
+    },
+    "enrollment counselor": {
+        "PTBR": "",
+        "SPA": "Asesor de inscripción"
+    },
+    "entirely online": {
+        "PTBR": "",
+        "SPA": "Completamente en línea"
+    },
+    "entirely online and affordable": {
+        "PTBR": "",
+        "SPA": "Completamente en línea y económicamente accesible"
+    },
+    "exam": {
+        "PTBR": "",
+        "SPA": "Examen"
+    },
+    "expert testimony": {
+        "PTBR": "",
+        "SPA": "testimonio de experto"
+    },
+    "extenuating circumstances": {
+        "PTBR": "",
+        "SPA": "Circunstancias atenuantes"
+    },
+    "fact": {
+        "PTBR": "",
+        "SPA": "Hecho"
+    },
+    "faith-based curriculum": {
+        "PTBR": "",
+        "SPA": "Plan de estudios basado en la fe"
+    },
+    "false growth mindset": {
+        "PTBR": "",
+        "SPA": "Falsa mentalidad de crecimiento"
+    },
+    "FCS160- Family Leadership and Resources Management": {
+        "PTBR": "",
+        "SPA": "FCS160- Liderazgo Familiar y Gestión de Recursos"
+    },
+    "fixed mindset": {
+        "PTBR": "",
+        "SPA": "Mentalidad cerrada"
+    },
+    "flashcards": {
+        "PTBR": "",
+        "SPA": "Fichas de estudio"
+    },
+    "flexible payment": {
+        "PTBR": "",
+        "SPA": "Pago flexible"
+    },
+    "foundational academic and religion courses": {
+        "PTBR": "",
+        "SPA": "Cursos fundamentales académicos y de religión"
+    },
+    "gain confidence": {
+        "PTBR": "",
+        "SPA": "Ganar confianza"
+    },
+    "gateway course": {
+        "PTBR": "",
+        "SPA": "Curso de acceso"
+    },
+    "gateway to college": {
+        "PTBR": "",
+        "SPA": "Puerta de entrada a la universidad"
+    },
+    "gathering": {
+        "PTBR": "",
+        "SPA": "Reunión"
+    },
+    "gathering agenda": {
+        "PTBR": "",
+        "SPA": "Agenda de la reunión"
+    },
+    "gathering selection": {
+        "PTBR": "",
+        "SPA": "Selección de reunión"
+    },
+    "Gatherings": {
+        "PTBR": "",
+        "SPA": "Reuniones"
+    },
+    "gatherings occur virtually through online groups or at local church facilities": {
+        "PTBR": "",
+        "SPA": "Las reuniones se realizan de forma virtual a través de grupos en línea o en las instalaciones locales de la Iglesia"
+    },
+    "Go to EnglishConnect": {
+        "PTBR": "",
+        "SPA": "Ir a EnglishConnect"
+    },
+    "gospel-centered environment": {
+        "PTBR": "",
+        "SPA": "Ambiente centrado en el evangelio"
+    },
+    "grade": {
+        "PTBR": "",
+        "SPA": "Calificación"
+    },
+    "gradebook": {
+        "PTBR": "",
+        "SPA": "Reporte de calificaciones"
+    },
+    "group": {
+        "PTBR": "",
+        "SPA": "Grupo"
+    },
+    "group work": {
+        "PTBR": "",
+        "SPA": "Trabajo en grupo"
+    },
+    "growth mindset": {
+        "PTBR": "",
+        "SPA": "Mentalidad de desarrollo continuo"
+    },
+    "guideline": {
+        "PTBR": "",
+        "SPA": "Lineamiento"
+    },
+    "Healthcare Provider": {
+        "PTBR": "",
+        "SPA": "Proveedor de servicios de salud"
+    },
+    "high school": {
+        "PTBR": "",
+        "SPA": "Secundaria"
+    },
+    "High Stakes Exam": {
+        "PTBR": "",
+        "SPA": "Examen de alto impacto"
+    },
+    "highly relevant": {
+        "PTBR": "",
+        "SPA": "Altamente relevante"
+    },
+    "Holds & Alerts": {
+        "PTBR": "",
+        "SPA": "Restricciones y Alertas Académicas"
+    },
+    "honor": {
+        "PTBR": "",
+        "SPA": "Honor"
+    },
+    "Honor Code": {
+        "PTBR": "",
+        "SPA": "Código de Honor"
+    },
+    "hook": {
+        "PTBR": "",
+        "SPA": "El enganche"
+    },
+    "HUM110 - Discovery and Discernment Through the Arts": {
+        "PTBR": "",
+        "SPA": "HUM110 - Descubrimiento y Discernimiento a través de las Artes"
+    },
+    "I-Learn": {
+        "PTBR": "",
+        "SPA": "I-Learn"
+    },
+    "immediate job improvement": {
+        "PTBR": "",
+        "SPA": "Mejora laboral inmediata"
+    },
+    "inbox": {
+        "PTBR": "",
+        "SPA": "Bandeja de entrada"
+    },
+    "Includes Required and Elective Courses": {
+        "PTBR": "",
+        "SPA": "Incluye Cursos Obligatorios y Electivos"
+    },
+    "increase faith": {
+        "PTBR": "",
+        "SPA": "Fortalecer la fe"
+    },
+    "increase your chances of academic success": {
+        "PTBR": "",
+        "SPA": "Aumenta tus posibilidades de éxito académico"
+    },
+    "informational presentation": {
+        "PTBR": "",
+        "SPA": "Presentación informativa"
+    },
+    "Instructor Support Table of Resources": {
+        "PTBR": "",
+        "SPA": "Tabla de recursos de apoyo para docentes"
+    },
+    "international programs": {
+        "PTBR": "",
+        "SPA": "Programas internacionales"
+    },
+    "international students": {
+        "PTBR": "",
+        "SPA": "Estudiantes internacionales"
+    },
+    "introductory paragraph": {
+        "PTBR": "",
+        "SPA": "Párrafo Introductorio"
+    },
+    "job readiness": {
+        "PTBR": "",
+        "SPA": "Preparación laboral"
+    },
+    "lead student": {
+        "PTBR": "",
+        "SPA": "Líder estudiantil"
+    },
+    "learner manual": {
+        "PTBR": "",
+        "SPA": "Manual del estudiante"
+    },
+    "Learning English can open doors to new jobs, cultures, interactions, and people": {
+        "PTBR": "",
+        "SPA": "Aprender inglés puede abrirte puertas a nuevos empleos, culturas, interacciones y personas"
+    },
+    "local communities": {
+        "PTBR": "",
+        "SPA": "Comunidades locales"
+    },
+    "marketable certificates": {
+        "PTBR": "",
+        "SPA": "Certificados con valor en el mercado laboral"
+    },
+    "marketable skills": {
+        "PTBR": "",
+        "SPA": "Habilidades con valor en el mercado laboral"
+    },
+    "Marketing Communications": {
+        "PTBR": "",
+        "SPA": "Comunicación de Marketing"
+    },
+    "matriculate": {
+        "PTBR": "",
+        "SPA": "Matricularse"
+    },
+    "member of Seventy": {
+        "PTBR": "",
+        "SPA": "Miembro de los Setenta"
+    },
+    "Mid-Course and End-of-Course Evaluation": {
+        "PTBR": "",
+        "SPA": "Evaluación a mitad y al final del curso"
+    },
+    "mobile-first design": {
+        "PTBR": "",
+        "SPA": "Diseño enfocado para dispositivos móviles"
+    },
+    "module": {
+        "PTBR": "",
+        "SPA": "Módulo"
+    },
+    "more than 180 countries": {
+        "PTBR": "",
+        "SPA": "Más de 180 países"
+    },
+    "not degree-granting": {
+        "PTBR": "",
+        "SPA": "No otorga títulos"
+    },
+    "observation and feedback": {
+        "PTBR": "",
+        "SPA": "Comentarios y sugerencias"
+    },
+    "observation and feedback sheet": {
+        "PTBR": "",
+        "SPA": "Hoja de Comentarios y sugerencias"
+    },
+    "observation sheet": {
+        "PTBR": "",
+        "SPA": "Hoja de observación"
+    },
+    "observing student": {
+        "PTBR": "",
+        "SPA": "Observación del estudiante"
+    },
+    "one year": {
+        "PTBR": "",
+        "SPA": "Un año"
+    },
+    "one-year reduced-cost online program": {
+        "PTBR": "",
+        "SPA": "Programa en línea de un año a precio reducido"
+    },
+    "one-year, low-cost online program": {
+        "PTBR": "",
+        "SPA": "Programa en línea de un año y bajo costo"
+    },
+    "ones (decimal system)": {
+        "PTBR": "",
+        "SPA": "Unidades"
+    },
+    "online": {
+        "PTBR": "",
+        "SPA": "En línea"
+    },
+    "online courses": {
+        "PTBR": "",
+        "SPA": "Cursos en línea"
+    },
+    "online degree": {
+        "PTBR": "",
+        "SPA": "Título en línea"
+    },
+    "online degree-seeking": {
+        "PTBR": "",
+        "SPA": "Estudiante de titulación en línea"
+    },
+    "Online Learning": {
+        "PTBR": "",
+        "SPA": "Aprendizaje en línea"
+    },
+    "Online Registration": {
+        "PTBR": "",
+        "SPA": "Registro en Línea"
+    },
+    "online web portal": {
+        "PTBR": "",
+        "SPA": "Portal web"
+    },
+    "PathwayConnect": {
+        "PTBR": "",
+        "SPA": "PathwayConnect"
+    },
+    "PathwayConnect Courses": {
+        "PTBR": "",
+        "SPA": "Cursos de PathwayConnect"
+    },
+    "PathwayConnect is the recommended start to every degree": {
+        "PTBR": "",
+        "SPA": "PathwayConnect es el punto de partida para cualquier carrera universitaria"
+    },
+    "PC 101": {
+        "PTBR": "",
+        "SPA": "PC 101"
+    },
+    "PC 101, PC 102, PC 103": {
+        "PTBR": "",
+        "SPA": "PC 101, PC 102, PC 103 curso"
+    },
+    "PC 102": {
+        "PTBR": "",
+        "SPA": "PC 102 curso"
+    },
+    "PC 103": {
+        "PTBR": "",
+        "SPA": "PC 103 curso"
+    },
+    "peer mentor": {
+        "PTBR": "",
+        "SPA": "Mentor"
+    },
+    "personal experience": {
+        "PTBR": "",
+        "SPA": "Experiencia personal"
+    },
+    "personal study": {
+        "PTBR": "",
+        "SPA": "Estudio personal"
+    },
+    "physical well-being": {
+        "PTBR": "",
+        "SPA": "Bienestar físico"
+    },
+    "placement assessment": {
+        "PTBR": "",
+        "SPA": "Evaluación de ubicación académica"
+    },
+    "prep": {
+        "PTBR": "",
+        "SPA": "Preparación"
+    },
+    "priesthood": {
+        "PTBR": "",
+        "SPA": "Sacerdocio"
+    },
+    "Priesthood Blessing": {
+        "PTBR": "",
+        "SPA": "Bendición del sacerdocio"
+    },
+    "priority deadline": {
+        "PTBR": "",
+        "SPA": "Prioridad de fecha límite"
+    },
+    "Privacy Settings": {
+        "PTBR": "",
+        "SPA": "Configuración de Privacidad"
+    },
+    "Program Options": {
+        "PTBR": "",
+        "SPA": "Opciones de Programa"
+    },
+    "Program Version": {
+        "PTBR": "",
+        "SPA": "Versión del Programa"
+    },
+    "Program Version Comments": {
+        "PTBR": "",
+        "SPA": "Comentarios de la Versión del Programa"
+    },
+    "Programs of Study": {
+        "PTBR": "",
+        "SPA": "Programas de Estudio"
+    },
+    "provides access to higher education for all": {
+        "PTBR": "",
+        "SPA": "Ofrece acceso a la educación superior para todos"
+    },
+    "quote": {
+        "PTBR": "",
+        "SPA": "Cita"
+    },
+    "rectangular solid": {
+        "PTBR": "",
+        "SPA": "Prisma rectangular"
+    },
+    "reduced-cost": {
+        "PTBR": "",
+        "SPA": "A precio reducido"
+    },
+    "register": {
+        "PTBR": "",
+        "SPA": "Inscripción"
+    },
+    "registering for": {
+        "PTBR": "",
+        "SPA": "Inscribirse en"
+    },
+    "registration": {
+        "PTBR": "",
+        "SPA": "Inscripción"
+    },
+    "Registration Period": {
+        "PTBR": "",
+        "SPA": "período de inscripción"
+    },
+    "registration status": {
+        "PTBR": "",
+        "SPA": "Estado de la inscripción"
+    },
+    "registration summary": {
+        "PTBR": "",
+        "SPA": "Resumen de inscripción"
+    },
+    "REL200B- The Eternal Family B": {
+        "PTBR": "",
+        "SPA": "REL200B - La familia Eterna B"
+    },
+    "REL225B- Foundations of the Restoration B": {
+        "PTBR": "",
+        "SPA": "REL225B - Fundamentos de la Restauración B"
+    },
+    "REL250B- Jesus Christ and His Everlasting Gospel B": {
+        "PTBR": "",
+        "SPA": "REL250B - Jesucristo y Su Evangelio Eterno B"
+    },
+    "REL275A- The Teachings and Doctrine of the Book of Mormon A": {
+        "PTBR": "",
+        "SPA": "REL275A - Las Enseñanzas y la Doctrina del Libro de Mormón A"
+    },
+    "REL275B- The Teachings and Doctrine of the Book of Mormon B": {
+        "PTBR": "",
+        "SPA": "REL275B- Las Enseñanzas y la Doctrina del Libro de Mormón B"
+    },
+    "REL280B- Answering my Gospel Questions B": {
+        "PTBR": "",
+        "SPA": "REL280B- Respuestas a mis preguntas sobre el Evangelio (B)"
+    },
+    "REL290B- The Divine Gift of Forgiveness B": {
+        "PTBR": "",
+        "SPA": "REL290B- El Don Divino del Perdón (B)"
+    },
+    "REL333B Teachings of the Living Prophets B": {
+        "PTBR": "",
+        "SPA": "REL333B Enseñanzas de los Profetas Vivientes B"
+    },
+    "Release Notes": {
+        "PTBR": "",
+        "SPA": "Actualización de notas"
+    },
+    "Religion Courses": {
+        "PTBR": "",
+        "SPA": "Cursos de religión"
+    },
+    "religion gathering": {
+        "PTBR": "",
+        "SPA": "Reunión religiosa"
+    },
+    "residency credits": {
+        "PTBR": "",
+        "SPA": "Créditos de residencia"
+    },
+    "Resourcefulness and Self-advocacy": {
+        "PTBR": "",
+        "SPA": "Ingenio y autodefensa académica"
+    },
+    "returned missionary": {
+        "PTBR": "",
+        "SPA": "Misionero retornado"
+    },
+    "returning missionaries": {
+        "PTBR": "",
+        "SPA": "Misioneros retornados"
+    },
+    "saint": {
+        "PTBR": "",
+        "SPA": "Santo/Santa"
+    },
+    "scalable transformation": {
+        "PTBR": "",
+        "SPA": "Transformación escalable"
+    },
+    "scriptures": {
+        "PTBR": "",
+        "SPA": "Escrituras"
+    },
+    "Security Measures": {
+        "PTBR": "",
+        "SPA": "Medidas de seguridad"
+    },
+    "see increased success": {
+        "PTBR": "",
+        "SPA": "Ver un mayor éxito"
+    },
+    "Selected Courses": {
+        "PTBR": "",
+        "SPA": "Cursos Seleccionados"
+    },
+    "self-reliant approach": {
+        "PTBR": "",
+        "SPA": "Enfoque de autosuficiencia"
+    },
+    "semester": {
+        "PTBR": "",
+        "SPA": "Semestre"
+    },
+    "service missionaries": {
+        "PTBR": "",
+        "SPA": "Misioneros de servicio"
+    },
+    "service provider": {
+        "PTBR": "",
+        "SPA": "Proveedor de servicios"
+    },
+    "significantly lower than traditional universities": {
+        "PTBR": "",
+        "SPA": "Significativamente más bajo que el de las universidades tradicionales"
+    },
+    "significantly reduced cost": {
+        "PTBR": "",
+        "SPA": "Costo significativamente reducido"
+    },
+    "sister": {
+        "PTBR": "",
+        "SPA": "Hermana"
+    },
+    "skills-based certificates": {
+        "PTBR": "",
+        "SPA": "Certificados basados en habilidades"
+    },
+    "Solving for a variable": {
+        "PTBR": "",
+        "SPA": "Despejar una variable en una ecuación"
+    },
+    "Spiritual well-being": {
+        "PTBR": "",
+        "SPA": "Bienestar espiritual"
+    },
+    "spiritually based": {
+        "PTBR": "",
+        "SPA": "De carácter espiritual"
+    },
+    "spiritually-based degrees completely online at an affordable price": {
+        "PTBR": "",
+        "SPA": "Títulos basados en lo espiritual completamente en línea a un precio accesible"
+    },
+    "stackable certificate": {
+        "PTBR": "",
+        "SPA": "Certificado acumulable"
+    },
+    "stake": {
+        "PTBR": "",
+        "SPA": "Estaca"
+    },
+    "stake president": {
+        "PTBR": "",
+        "SPA": "Presidente de estaca"
+    },
+    "Start Date": {
+        "PTBR": "",
+        "SPA": "Fecha de Inicio"
+    },
+    "statistics": {
+        "PTBR": "",
+        "SPA": "Estadísticas"
+    },
+    "student": {
+        "PTBR": "",
+        "SPA": "Estudiante"
+    },
+    "Student Academic Progress": {
+        "PTBR": "",
+        "SPA": "Progreso Académico del Estudiante"
+    },
+    "Student Carrer Services": {
+        "PTBR": "",
+        "SPA": "Servicio de Orientación profesional"
+    },
+    "Student Dropped": {
+        "PTBR": "",
+        "SPA": "Estudiante dado de baja"
+    },
+    "student honor": {
+        "PTBR": "",
+        "SPA": "Código de honor estudiantil"
+    },
+    "Student Portal": {
+        "PTBR": "",
+        "SPA": "Portal del Estudiante"
+    },
+    "student resources": {
+        "PTBR": "",
+        "SPA": "Recursos estudiantiles"
+    },
+    "Student Support": {
+        "PTBR": "",
+        "SPA": "Apoyo estudiantil"
+    },
+    "Student Support Services": {
+        "PTBR": "",
+        "SPA": "Servicios de apoyo estudiantil"
+    },
+    "Student Wellness": {
+        "PTBR": "",
+        "SPA": "Bienestar del Estudiante"
+    },
+    "Student Wellness & Accessibility": {
+        "PTBR": "",
+        "SPA": "Bienestar y accesibilidad estudiantil"
+    },
+    "students around the world": {
+        "PTBR": "",
+        "SPA": "Estudiantes de todo el mundo"
+    },
+    "students worldwide": {
+        "PTBR": "",
+        "SPA": "Estudiantes a nivel mundial"
+    },
+    "submission": {
+        "PTBR": "",
+        "SPA": "Envío de tarea"
+    },
+    "supporting details": {
+        "PTBR": "",
+        "SPA": "Datos complementarios"
+    },
+    "sustainable living wage": {
+        "PTBR": "",
+        "SPA": "Salario de subsistencia"
+    },
+    "syllabus": {
+        "PTBR": "",
+        "SPA": "Programa de estudios"
+    },
+    "system issues": {
+        "PTBR": "",
+        "SPA": "Problemas de sistema"
+    },
+    "teaching assistant": {
+        "PTBR": "",
+        "SPA": "Asistente de docente"
+    },
+    "Teaching Assistants (TA)": {
+        "PTBR": "",
+        "SPA": "Asistentes de docentes (AD)"
+    },
+    "teaching group directory": {
+        "PTBR": "",
+        "SPA": "directorio de grupo de enseñanza"
+    },
+    "teaching notes": {
+        "PTBR": "",
+        "SPA": "notas de enseñanza"
+    },
+    "Teamwork": {
+        "PTBR": "",
+        "SPA": "Trabajo en equipo"
+    },
+    "template": {
+        "PTBR": "",
+        "SPA": "Plantilla"
+    },
+    "temple": {
+        "PTBR": "",
+        "SPA": "Templo"
+    },
+    "term": {
+        "PTBR": "",
+        "SPA": "período"
+    },
+    "Term Description": {
+        "PTBR": "",
+        "SPA": "Descripción del Período"
+    },
+    "the Church": {
+        "PTBR": "",
+        "SPA": "La Iglesia"
+    },
+    "the hidden many": {
+        "PTBR": "",
+        "SPA": "Los muchos ocultos"
+    },
+    "the Second Coming": {
+        "PTBR": "",
+        "SPA": "La Segunda Venida"
+    },
+    "Therapist": {
+        "PTBR": "",
+        "SPA": "Terapeuta"
+    },
+    "Therapy": {
+        "PTBR": "",
+        "SPA": "Terapia"
+    },
+    "thesis statement": {
+        "PTBR": "",
+        "SPA": "Planteamiento de tesis"
+    },
+    "thinking error": {
+        "PTBR": "",
+        "SPA": "Error de razonamiento"
+    },
+    "three levels": {
+        "PTBR": "",
+        "SPA": "Tres niveles"
+    },
+    "three levels to help you progress from a basic to an intermediate English level": {
+        "PTBR": "",
+        "SPA": "Tres niveles para ayudarle a progresar de un nivel básico a un nivel intermedio de inglés"
+    },
+    "three-year bachelor's degrees": {
+        "PTBR": "",
+        "SPA": "Licenciaturas de tres años"
+    },
+    "topic sentence": {
+        "PTBR": "",
+        "SPA": "Oración Principal"
+    },
+    "transfer credit": {
+        "PTBR": "",
+        "SPA": "Créditos transferidos"
+    },
+    "tuition costs significantly less than other schools": {
+        "PTBR": "",
+        "SPA": "La matrícula cuesta mucho menos que en otras instituciones"
+    },
+    "Tuition Discount": {
+        "PTBR": "",
+        "SPA": "Descuento en Matrícula"
+    },
+    "university": {
+        "PTBR": "",
+        "SPA": "Universidad"
+    },
+    "university policies": {
+        "PTBR": "",
+        "SPA": "Políticas de la Universidad"
+    },
+    "username & emails": {
+        "PTBR": "",
+        "SPA": "nombre de usuario y correos electrónicos"
+    },
+    "View Holds and Alerts": {
+        "PTBR": "",
+        "SPA": "Ver Restricciones y Alertas Académicas"
+    },
+    "virtual gathering": {
+        "PTBR": "",
+        "SPA": "Reunión virtual"
+    },
+    "weekly gatherings": {
+        "PTBR": "",
+        "SPA": "Reuniones semanales"
+    },
+    "Welcome to Online Registration": {
+        "PTBR": "",
+        "SPA": "Bienvenido(a) al Registro en Línea"
+    },
+    "without leaving your home": {
+        "PTBR": "",
+        "SPA": "Sin salir de su hogar"
+    },
+    "workbook": {
+        "PTBR": "",
+        "SPA": "Cuaderno de trabajo/ejercicios"
+    },
+    "writing prompt": {
+        "PTBR": "",
+        "SPA": "Consigna de redacción"
+    },
+    "Young Men Program": {
+        "PTBR": "",
+        "SPA": "Programa para Hombres Jóvenes"
+    },
+    "young single adults": {
+        "PTBR": "",
+        "SPA": "Jóvenes adultos solteros"
+    },
+    "Young Women Program": {
+        "PTBR": "",
+        "SPA": "Programa para Mujeres Jóvenes"
+    },
+    "Addressing Academic Honesty": {
+        "PTBR": "Abordando a honestidade acadêmica",
+        "SPA": ""
+    }
 }

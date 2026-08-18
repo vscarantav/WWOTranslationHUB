@@ -1,7 +1,7 @@
 {
   "project_overview": {
     "name": "Course Translation Hub",
-    "description": "An unzipped IMSCC Canvas course export used as a hub for translating course content.",
+    "description": "An automated system leveraging AI agents to parse, translate, and repackage IMSCC Canvas course exports.",
     "root_directory": "career-development-english-master-export"
   },
   "architecture": {
