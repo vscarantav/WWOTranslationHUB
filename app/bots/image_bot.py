@@ -12,8 +12,8 @@ class ImageProcessorBot:
         self.log_lock = log_lock
         self.log_filepath = log_filepath or os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
         
-        # Use gemini-1.5-flash for both text translation and multimodal generation as it is fast and cost-effective
-        self.model = genai.GenerativeModel("gemini-1.5-flash")
+        # Use gemini-3.5-flash for both text translation and multimodal generation as it is fast and cost-effective
+        self.model = genai.GenerativeModel("gemini-3.5-flash")
         
     def _log(self, message: str):
         import datetime

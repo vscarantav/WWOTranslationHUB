@@ -200,7 +200,7 @@ class CourseTranslationHubUI:
                 while True:
                     course_url = simpledialog.askstring(
                         "Target Course Required", 
-                        f"Enter the full Canvas Target Course URL for:\n{os.path.basename(p)}\n(e.g., https://byupw.instructure.com/courses/12345)",
+                        f"Enter the full Canvas Target Course URL for:\n{os.path.basename(p)}\n(e.g., https://byui.instructure.com/courses/12345)",
                         parent=self.root
                     )
                     if not course_url:
@@ -214,7 +214,7 @@ class CourseTranslationHubUI:
                         config['target_id'] = match.group(2)
                         break
                     else:
-                        messagebox.showerror("Invalid URL", "You must provide a full Canvas course URL containing '/courses/<id>'.\nExample: https://byupw.instructure.com/courses/12345")
+                        messagebox.showerror("Invalid URL", "You must provide a full Canvas course URL containing '/courses/<id>'.\nExample: https://byui.instructure.com/courses/12345")
             
             course_configs[p] = config
 
