@@ -3,8 +3,11 @@ import json
 import re
 import html
 import time
-from bs4 import BeautifulSoup, CData
+from bs4 import BeautifulSoup, CData, XMLParsedAsHTMLWarning
+import warnings
 import google.generativeai as genai  # type: ignore
+
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 class XMLTranslationBot:
     def __init__(self, api_key=None, target_language="PTBR", log_lock=None, workspace_dir=None):
@@ -91,7 +94,6 @@ class XMLTranslationBot:
                 return translated_batch
             except Exception as e:
                 msg = f"[XMLBot] XML Parse Error on attempt {attempt+1}: {e}"
-                print(msg)
                 self._log(msg)
                 time.sleep(2)
                 
@@ -101,7 +103,6 @@ class XMLTranslationBot:
     def translate_xml_content(self, xml_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None, page_title: str = "Unknown") -> str:
         if not self.client_ready:
             msg = "[XMLBot] WARNING: No API key provided. Returning original content."
-            print(msg)
             self._log(msg)
             return xml_content
 
@@ -173,7 +174,6 @@ class XMLTranslationBot:
             constraints += f"\n\nSCRIPTURE CONSTRAINTS: When translating scriptures, use these exact official translations instead of translating them yourself:\n{json.dumps(relevant_scriptures, indent=2, ensure_ascii=False)}"
 
         msg = f"[XMLBot] Found {len(strings_to_translate)} translatable nodes. Processing via character-based JSON batches..."
-        print(msg)
         self._log(msg)
         
         translated_strings = {}
@@ -229,7 +229,6 @@ class XMLTranslationBot:
             content = f.read()
 
         msg = f"[XMLBot] Translating {filepath} to {self.target_language}..."
-        print(msg)
         self._log(msg)
         
         page_title = os.path.basename(filepath)

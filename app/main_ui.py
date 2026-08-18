@@ -152,34 +152,78 @@ class CourseTranslationHubUI:
         if not imscc_paths:
             return
 
+        from core.workspace_manager import WorkspaceManager
+        from scripts.migrate_groups import check_course_has_groups
+        from scripts.migrate_groups import run_migration
+
         lang = self.lang_var.get()
         self.disable_buttons()
         
-        target_course_ids = {}
+        course_configs = {}
         for p in imscc_paths:
-            while True:
-                course_url = simpledialog.askstring(
-                    "Target Course Required", 
-                    f"Enter the full Canvas Target Course URL for:\n{os.path.basename(p)}\n(e.g., https://byupw.instructure.com/courses/12345)",
-                    parent=self.root
-                )
-                if not course_url:
-                    messagebox.showerror("Cancelled", "Translation cancelled. Target course URL is required.")
-                    self.enable_buttons()
-                    return
+            print(f"Checking {os.path.basename(p)} for groups...")
+            temp_workspace = WorkspaceManager(lang, self.hub_dir, imscc_path=p)
+            temp_workspace.setup_workspace("temp")
+            temp_workspace.extract_course_info(lambda x: None)
+            
+            source_course_id = getattr(temp_workspace, 'source_course_id', None)
+            has_groups = False
+            
+            if source_course_id:
+                has_groups = check_course_has_groups(source_course_id)
                 
-                match = re.search(r'^https?://[^/]+/courses/(\d+)', course_url.strip())
-                if match:
-                    target_course_ids[p] = match.group(1)
-                    break
-                else:
-                    messagebox.showerror("Invalid URL", "You must provide a full Canvas course URL containing '/courses/<id>'.\nExample: https://byupw.instructure.com/courses/12345")
+            config = {
+                'has_groups': has_groups,
+                'source_id': source_course_id,
+                'target_id': None,
+                'target_domain': None
+            }
+
+            if has_groups:
+                while True:
+                    en_url = simpledialog.askstring(
+                        "Source Course Verification", 
+                        f"Groups detected in {os.path.basename(p)}!\nPlease enter the EN Master Link (Source Course URL) to verify:",
+                        parent=self.root
+                    )
+                    if not en_url:
+                        messagebox.showerror("Cancelled", "Translation cancelled. Verification is required.")
+                        self.enable_buttons()
+                        return
+                    
+                    match = re.search(r'^https?://[^/]+/courses/(\d+)', en_url.strip())
+                    if match and match.group(1) == source_course_id:
+                        break
+                    else:
+                        messagebox.showerror("Validation Failed", f"The URL provided does not match the internal Source ID of this package ({source_course_id}). Please try again.")
+
+                while True:
+                    course_url = simpledialog.askstring(
+                        "Target Course Required", 
+                        f"Enter the full Canvas Target Course URL for:\n{os.path.basename(p)}\n(e.g., https://byupw.instructure.com/courses/12345)",
+                        parent=self.root
+                    )
+                    if not course_url:
+                        messagebox.showerror("Cancelled", "Translation cancelled. Target course URL is required.")
+                        self.enable_buttons()
+                        return
+                    
+                    match = re.search(r'^https?://([^/]+)/courses/(\d+)', course_url.strip())
+                    if match:
+                        config['target_domain'] = match.group(1)
+                        config['target_id'] = match.group(2)
+                        break
+                    else:
+                        messagebox.showerror("Invalid URL", "You must provide a full Canvas course URL containing '/courses/<id>'.\nExample: https://byupw.instructure.com/courses/12345")
+            
+            course_configs[p] = config
 
         print(f"\n======================================")
         print(f"Starting Translation to {lang}")
         print(f"Selected {len(imscc_paths)} file(s).")
         for p in imscc_paths:
-            print(f" - {os.path.basename(p)} -> Target Course ID: {target_course_ids[p]}")
+            tid = course_configs[p]['target_id']
+            print(f" - {os.path.basename(p)} -> Target Course ID: {tid if tid else 'None'}")
         print(f"======================================\n")
 
         def ask_user_for_link(unmapped_url, context_file):
@@ -237,6 +281,12 @@ class CourseTranslationHubUI:
                         from tkinter import messagebox
                         messagebox.showwarning("Missing Input", "Please enter a link, a comment, or click Skip.", parent=dialog)
                         return
+                    
+                    if val and not re.match(r'^https?://\S+$', val):
+                        from tkinter import messagebox
+                        messagebox.showwarning("Invalid Link", "Please enter a valid link starting with http:// or https://, and containing no spaces.", parent=dialog)
+                        return
+
                     result[0] = (val, comment)
                     dialog.destroy()
                     
@@ -263,14 +313,33 @@ class CourseTranslationHubUI:
                 for idx, imscc_path in enumerate(imscc_paths, 1):
                     print(f"\n--- Processing File {idx}/{len(imscc_paths)}: {os.path.basename(imscc_path)} ---")
                     workspace_path = self._copy_to_workspace(imscc_path, "Courses to Translate")
+                    conf = course_configs[imscc_path]
                     controller = TranslationController(
                         target_language=lang, 
                         imscc_path=workspace_path,
                         link_prompt_callback=ask_user_for_link,
-                        target_course_id=target_course_ids[imscc_path]
+                        target_course_id=conf['target_id']
                     )
                     controller.process_directory()
                     controller.update_excel_dashboard()
+                    
+                    if conf['has_groups'] and conf['target_id']:
+                        def wait_for_import():
+                            result_queue = queue.Queue()
+                            def show_msg():
+                                res = messagebox.showinfo(
+                                    "Manual Import Required", 
+                                    f"Please import the translated .imscc file into Canvas for {os.path.basename(imscc_path)}.\n\nClick OK once the import is 100% complete so we can migrate the groups.",
+                                    parent=self.root
+                                )
+                                result_queue.put(res)
+                            self.root.after(0, show_msg)
+                            return result_queue.get()
+                            
+                        wait_for_import()
+                        print(f"\n[Hub] Running Group Migration for {os.path.basename(imscc_path)}...")
+                        run_migration(conf['source_id'], conf['target_id'], lang, print, conf['target_domain'])
+
                 self.progress['value'] = 100
                 print("\n=== All Translations Completed Successfully! ===")
                 # Phase 4: Present checklist via UI
@@ -314,7 +383,7 @@ class CourseTranslationHubUI:
         for item in checklist_items:
             var = tk.BooleanVar()
             check_vars.append(var)
-            cb = ttk.Checkbutton(checks_frame, text=item, variable=var, wraplength=550)
+            cb = tk.Checkbutton(checks_frame, text=item, variable=var, wraplength=550, justify="left")
             cb.pack(anchor="w", pady=3)
 
         def on_done():

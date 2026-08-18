@@ -12,7 +12,7 @@ class LinkProcessor:
         self.filepaths = filepaths
         self.link_prompt_callback = link_prompt_callback
 
-    def clean_google_links(self, content: str, filepath: str, _log_func) -> str:
+    def clean_pre_translation_links(self, content: str, filepath: str, _log_func) -> str:
         filename = os.path.basename(filepath)
         
         def replacer(match):
@@ -29,7 +29,13 @@ class LinkProcessor:
                 return final_url
             return url
             
-        return re.sub(r'https?://(?:www\.)?google\.com/url\?[^\s"\'<>]*', replacer, content)
+        content = re.sub(r'https?://(?:www\.)?google\.com/url\?[^\s"\'<>]*', replacer, content)
+        
+        # 2. Filter out specific redirect icon link
+        content = re.sub(r'<img[^>]*src=["\']https://www\.edu-apps\.org/assets/lti_redirect_engine/redirect_icon\.png["\'][^>]*>', '', content)
+        content = content.replace("https://www.edu-apps.org/assets/lti_redirect_engine/redirect_icon.png", "")
+        
+        return content
 
     def rewrite_church_links(self, content: str) -> str:
         lang_code = "por" if self.target_language == "PTBR" else ("spa" if self.target_language == "SPA" else "por")
