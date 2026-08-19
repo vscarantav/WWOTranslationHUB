@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gradingStandards xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <gradingStandard identifier="g01edc77845663a004ef4bef15bbe8322" version="2">
+    <title>BYUI-Standard</title>
+    <data>[["A",0.93],["A-",0.9],["B+",0.87],["B",0.83],["B-",0.8],["C+",0.77],["C",0.73],["C-",0.7],["D+",0.67],["D",0.63],["D-",0.6],["F",0.0]]</data>
+    <points_based>false</points_based>
+    <scaling_factor>1.0</scaling_factor>
+  </gradingStandard>
+  <gradingStandard identifier="ga668c3a320438a6190ffed77b4e9cf4a" version="2">
+    <title>BYU-Idaho Standard</title>
+    <data>[["A",0.93],["A-",0.9],["B+",0.87],["B",0.83],["B-",0.8],["C+",0.77],["C",0.73],["C-",0.7],["D+",0.67],["D",0.63],["D-",0.6],["F",0.0]]</data>
+    <points_based>false</points_based>
+    <scaling_factor>1.0</scaling_factor>
+  </gradingStandard>
+  <gradingStandard identifier="gc3618fcc08f3a650de093f3d2c621a72" version="2">
+    <title>BYU-Idaho Standard</title>
+    <data>[["A",0.93],["A-",0.9],["B+",0.87],["B",0.83],["B-",0.8],["C+",0.77],["C",0.73],["C-",0.7],["D+",0.67],["D",0.63],["D-",0.6],["F",0.0]]</data>
+    <points_based>false</points_based>
+    <scaling_factor>1.0</scaling_factor>
+  </gradingStandard>
+  <gradingStandard identifier="g2d0a89f4e08c126d8a7072f16236bb7b" version="2">
+    <title>BYU-Idaho Standard</title>
+    <data>[["A",0.93],["A-",0.9],["B+",0.87],["B",0.83],["B-",0.8],["C+",0.77],["C",0.73],["C-",0.7],["D+",0.67],["D",0.63],["D-",0.6],["F",0.0]]</data>
+    <points_based>false</points_based>
+    <scaling_factor>1.0</scaling_factor>
+  </gradingStandard>
+  <gradingStandard identifier="g3c00d6fab0525886e19430c4acaf9138" version="2">
+    <title>BYU-Idaho Standard</title>
+    <data>[["A",0.93],["A-",0.9],["B+",0.87],["B",0.83],["B-",0.8],["C+",0.77],["C",0.73],["C-",0.7],["D+",0.67],["D",0.63],["D-",0.6],["F",0.0]]</data>
+    <points_based>false</points_based>
+    <scaling_factor>1.0</scaling_factor>
+  </gradingStandard>
+  <gradingStandard identifier="gd6ff22675fc6f24daf670f864f9b3e3e" version="2">
+    <title>BYU-Idaho Standard</title>
+    <data>[["A",0.93],["A-",0.9],["B+",0.87],["B",0.83],["B-",0.8],["C+",0.77],["C",0.73],["C-",0.7],["D+",0.67],["D",0.63],["D-",0.6],["F",0.0]]</data>
+    <points_based>false</points_based>
+    <scaling_factor>1.0</scaling_factor>
+  </gradingStandard>
+  <gradingStandard identifier="g60aff34e2ae134c058865e4ba7bd7cae" version="2">
+    <title>BYUI-Standard</title>
+    <data>[["A",0.93],["A-",0.9],["B+",0.87],["B",0.83],["B-",0.8],["C+",0.77],["C",0.73],["C-",0.7],["D+",0.67],["D",0.63],["D-",0.6],["F",0.0]]</data>
+    <points_based>false</points_based>
+    <scaling_factor>1.0</scaling_factor>
+  </gradingStandard>
+  <gradingStandard identifier="gacf969145ea67c9f4add238d6282b1bd" version="2">
+    <title>BYU-Idaho Standard</title>
+    <data>[["A",0.93],["A-",0.9],["B+",0.87],["B",0.83],["B-",0.8],["C+",0.77],["C",0.73],["C-",0.7],["D+",0.67],["D",0.63],["D-",0.6],["F",0.0]]</data>
+    <points_based>false</points_based>
+    <scaling_factor>1.0</scaling_factor>
+  </gradingStandard>
+</gradingStandards>

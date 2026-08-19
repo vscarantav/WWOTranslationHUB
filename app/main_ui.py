@@ -10,6 +10,7 @@ import io
 import shutil
 import re
 import queue
+import json
 
 # Import the processors
 from controller import TranslationController
@@ -96,6 +97,28 @@ class CourseTranslationHubUI:
         self.trans_btn = ttk.Button(self.trans_frame, text="Select Course & Translate", command=self.run_translation)
         self.trans_btn.pack(side="right", padx=10)
 
+        # EdTech Section
+        self.edtech_frame = ttk.LabelFrame(self.top_frame, text="EdTech Master Translator", padding="10")
+        self.edtech_frame.pack(fill="x", pady=10)
+        
+        self.edtech_lang_var = tk.StringVar(value="PTBR")
+        
+        ttk.Radiobutton(self.edtech_frame, text="Portuguese (PTBR)", variable=self.edtech_lang_var, value="PTBR").pack(side="left", padx=10)
+        ttk.Radiobutton(self.edtech_frame, text="Spanish (SPA)", variable=self.edtech_lang_var, value="SPA").pack(side="left", padx=10)
+
+        self.edtech_btn = ttk.Button(self.edtech_frame, text="Scrape & Translate Book", command=self.run_edtech)
+        self.edtech_btn.pack(side="right", padx=10, pady=5)
+        
+        # Post-Translation Checklist
+        self.checklist_frame = ttk.Frame(self.edtech_frame)
+        self.checklist_frame.pack(side="left", padx=20, pady=5)
+        ttk.Label(self.checklist_frame, text="Post-Translation Checklist:").pack(anchor="w")
+        
+        self.check_cover = tk.BooleanVar()
+        self.check_css = tk.BooleanVar()
+        ttk.Checkbutton(self.checklist_frame, text="Add Cover Image", variable=self.check_cover).pack(anchor="w")
+        ttk.Checkbutton(self.checklist_frame, text="Add CSS in book settings", variable=self.check_css).pack(anchor="w")
+
         # Audit Section
         self.audit_frame = ttk.LabelFrame(self.top_frame, text="Quality Assurance Audit", padding="10")
         self.audit_frame.pack(fill="x", pady=10)
@@ -133,11 +156,13 @@ class CourseTranslationHubUI:
     def disable_buttons(self):
         self.trans_btn.config(state="disabled")
         self.audit_btn.config(state="disabled")
+        self.edtech_btn.config(state="disabled")
         self.progress['value'] = 0
 
     def enable_buttons(self):
         self.trans_btn.config(state="normal")
         self.audit_btn.config(state="normal")
+        self.edtech_btn.config(state="normal")
 
     def _copy_to_workspace(self, src_path, target_folder):
         """Copies the selected file into the internal workspace folder and returns the new path."""
@@ -151,6 +176,57 @@ class CourseTranslationHubUI:
             shutil.copy2(src_path, dest_path)
             
         return dest_path
+
+    def run_edtech(self):
+        url = simpledialog.askstring("EdTech URL", "Enter the Table of Contents URL for the EdTech book:")
+        if not url:
+            return
+            
+        lang = self.edtech_lang_var.get()
+        self.disable_buttons()
+        print(f"\n--- Starting EdTech Master Translator ---")
+        print(f"Target Language: {lang}")
+        print(f"Book URL: {url}")
+        
+        def process():
+            try:
+                from bots.edtech_bot import EdTechScraperBot
+                workspace = os.path.join(self.hub_dir, "edtech_workspace")
+                os.makedirs(workspace, exist_ok=True)
+                
+                # 1. Extract
+                bot = EdTechScraperBot(url, lang, workspace, print_callback=print)
+                extracted = bot.run_extraction()
+                
+                if not extracted:
+                    print("No files extracted. Aborting.")
+                    return
+                
+                # 2. Translate using Controller
+                print("\nStarting Translation Controller...")
+                controller = TranslationController(target_language=lang, input_dir=bot.raw_dir)
+                
+                # Update the mapping file with the correct translated_filepath
+                for item in extracted:
+                    item['translated_filepath'] = os.path.join(controller.workspace.output_dir, item['filename'])
+                with open(os.path.join(workspace, "edtech_mapping.json"), 'w', encoding='utf-8') as f:
+                    json.dump(extracted, f, indent=4)
+                
+                # Collect files and translate
+                controller.filepaths = controller.workspace.collect_files(controller._log)
+                controller.translate_files()
+                print("Translation complete.")
+                
+                # 3. Inject
+                bot.run_injection()
+                
+                print("\n--- EdTech Master Translator Complete ---")
+            except Exception as e:
+                print(f"Error in EdTech process: {e}")
+            finally:
+                self.root.after(0, self.enable_buttons)
+
+        threading.Thread(target=process, daemon=True).start()
 
     def run_translation(self):
         translate_dir = os.path.join(self.hub_dir, "Courses to Translate")

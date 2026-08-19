@@ -84,9 +84,10 @@ class HTMLTranslationBot:
             raw_content = response.text
             output = raw_content.strip() if raw_content else ""
 
-            match = re.search(r"```html\n(.*?)\n```", output, re.DOTALL)
-            if match:
-                output = match.group(1).strip()
+            # Strip markdown wrappers if present
+            output = re.sub(r"^```html\s*?\n", "", output, flags=re.IGNORECASE)
+            output = re.sub(r"\n```\s*?$", "", output)
+            output = output.strip()
 
             # Restore URLs
             for placeholder, original_url in url_map.items():

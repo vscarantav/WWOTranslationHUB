@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rubrics xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <rubric identifier="g7b65294f678b67b16389ff7858d50ccd">
+    <read_only>false</read_only>
+    <title>W07 Skills Development Document and Video</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>100.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_1282</criterion_id>
+        <points>25.0</points>
+        <description>1. JavaScript</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>25.0</points>
+            <criterion_id>_1282</criterion_id>
+            <long_description>Robust programming logic was demonstrated including multiple examples of non-trivial work most likely outside the bounds of the given examples in the course. JS was used to dynamically create a web application from JSON data retrieved from a third-party API.</long_description>
+            <id>_5064</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>20.0</points>
+            <criterion_id>_1282</criterion_id>
+            <long_description>JavaScript usage was demonstrated including multiple examples of non-trivial work.</long_description>
+            <id>_5012</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>12.0</points>
+            <criterion_id>_1282</criterion_id>
+            <long_description>Some JavaScript programming was demonstrated.</long_description>
+            <id>_4115</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>_1282</criterion_id>
+            <long_description>No examples were provided or the examples do not demonstrate the principle.</long_description>
+            <id>_3420</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_5915</criterion_id>
+        <points>25.0</points>
+        <description>2. Third-party APIs</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>25.0</points>
+            <criterion_id>_5915</criterion_id>
+            <long_description>Extensive use of API(s) was used effectively to produce a rich experience, including 2 or more unique endpoints.</long_description>
+            <id>_3014</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>20.0</points>
+            <criterion_id>_5915</criterion_id>
+            <long_description>Effective use of a non-trivial API call or calls.</long_description>
+            <id>_7530</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>12.0</points>
+            <criterion_id>_5915</criterion_id>
+            <long_description>An API was attempted and is partially complete. Or the API was trivial (returned a minimal amount of JSON data &lt; 10 attributes).</long_description>
+            <id>_5394</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>_5915</criterion_id>
+            <long_description>No example was provided or the example does not demonstrate the principle.</long_description>
+            <id>_1930</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_7220</criterion_id>
+        <points>10.0</points>
+        <description>3. JSON</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_7220</criterion_id>
+            <long_description>Extensive use of non-trivial JSON data to provide a dynamic website experience. Required: arrays of JSON data with 8+ unique attributes.</long_description>
+            <id>_4663</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>5.0</points>
+            <criterion_id>_7220</criterion_id>
+            <long_description>JSON was attempted at some level of success but lacked required volume and/or may contain errors or was not completely functional.</long_description>
+            <id>_3475</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>_7220</criterion_id>
+            <long_description>No example was provided or the example does not demonstrate the principle.</long_description>
+            <id>_5995</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_5313</criterion_id>
+        <points>10.0</points>
+        <description>4. Advanced CSS</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_5313</criterion_id>
+            <long_description>Advanced features of CSS were used in 4+ places and evident. Advanced features include: animations, transitions, card flips, hover events.</long_description>
+            <id>_7978</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>5.0</points>
+            <criterion_id>_5313</criterion_id>
+            <long_description>Required CSS was evident and applied without error and within validation and usage standards. Features included: 1 or 2 animations/transitions and 2+ transforms  (rounded edges, multiple styling rules based on class) and clean CSS</long_description>
+            <id>_9388</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>_5313</criterion_id>
+            <long_description>CSS was not applied as required or consistently or was very limited with errors.</long_description>
+            <id>_8633</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_1619</criterion_id>
+        <points>10.0</points>
+        <description>5. Events</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_1619</criterion_id>
+            <long_description>Five or more events were used to produce a responsive experience.</long_description>
+            <id>_5542</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>5.0</points>
+            <criterion_id>_1619</criterion_id>
+            <long_description>2 to 4 events were used.</long_description>
+            <id>_8928</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>_1619</criterion_id>
+            <long_description>Less than 2 events were used.</long_description>
+            <id>_8673</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_5660</criterion_id>
+        <points>5.0</points>
+        <description>6. LocalStorage Used Effectively</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>5.0</points>
+            <criterion_id>_5660</criterion_id>
+            <long_description>Local storage was used to save and retrieve multiple (3-5) properties to enhance the site experience.</long_description>
+            <id>_4748</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>3.0</points>
+            <criterion_id>_5660</criterion_id>
+            <long_description>Used but less than the required number of properties were used.</long_description>
+            <id>_6955</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>_5660</criterion_id>
+            <long_description>No example was provided or the example does not demonstrate the principle.</long_description>
+            <id>_204</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>blank</criterion_id>
+        <points>5.0</points>
+        <description>7. Trello Board</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>5.0</points>
+            <criterion_id>blank</criterion_id>
+            <long_description>The student's project Trello board was provided and demonstrates evidence of use with tasks.</long_description>
+            <id>852_500</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>blank</criterion_id>
+            <long_description>The Trello board was incomplete or missing.</long_description>
+            <id>852_2611</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>852_8699</criterion_id>
+        <points>10.0</points>
+        <description>8. Video</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>852_8699</criterion_id>
+            <long_description>The student's video is about 5 minutes long, shows the student face, and demonstrates the functionality of their application.</long_description>
+            <id>852_4418</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>5.0</points>
+            <criterion_id>852_8699</criterion_id>
+            <long_description>The video is provided but is missing one or more required components.</long_description>
+            <id>852_9144</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>852_8699</criterion_id>
+            <long_description>The video is missing.</long_description>
+            <id>852_8398</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+  <rubric identifier="g3b1d754a2a6f9daefed1eb4f841aa53f">
+    <read_only>false</read_only>
+    <title>W03 Final Project: Brainstorm</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>10.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_8209</criterion_id>
+        <points>10.0</points>
+        <description>1. Application Ideas</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_8209</criterion_id>
+            <long_description>Submitted a list of at least four ideas each with a corresponding third-party APIs that meet the requirements.</long_description>
+            <id>blank</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>5.0</points>
+            <criterion_id>_8209</criterion_id>
+            <long_description>Submitted less than four complete, project application ideas.</long_description>
+            <id>_7043</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_8209</criterion_id>
+            <long_description>Incomplete (no APIs listed) or missing submission.</long_description>
+            <id>blank_2</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+  <rubric identifier="g15a1fdfbc997fbf803c2cb477d7ff8c3">
+    <read_only>false</read_only>
+    <title>W04 Final Project: Proposal Rubric</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>20.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_3208</criterion_id>
+        <points>2.0</points>
+        <description>1. Overview</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>_3208</criterion_id>
+            <long_description>A complete overview of why the project is being done and what problem or opportunity is being solved and who the target audience is provided.</long_description>
+            <id>_2830</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_3208</criterion_id>
+            <long_description>The overview is incomplete or missing.</long_description>
+            <id>_5907</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>blank</criterion_id>
+        <points>2.0</points>
+        <description>2. Target Audience</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>blank</criterion_id>
+            <long_description>This section provides an overview of who the target audience is and how it will serve them.</long_description>
+            <id>849_222</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>blank</criterion_id>
+            <long_description>The target audience section is incomplete or missing.</long_description>
+            <id>849_4699</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_7842</criterion_id>
+        <points>2.0</points>
+        <description>3. Major Functions</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>_7842</criterion_id>
+            <long_description>8 to 10 major functions of the application are provided with detailed information on each of the functions purpose.</long_description>
+            <id>_9284</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_7842</criterion_id>
+            <long_description>Less than eight functions are described with detail.</long_description>
+            <id>_7881</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_3603</criterion_id>
+        <points>2.0</points>
+        <description>4. Wireframes</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>_3603</criterion_id>
+            <long_description>Two complete wireframes are provided.</long_description>
+            <id>_5912</id>
+          </rating>
+          <rating>
+            <description>Partial</description>
+            <points>1.0</points>
+            <criterion_id>_3603</criterion_id>
+            <long_description>Only one complete wireframe is provided.</long_description>
+            <id>1810210_5506</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_3603</criterion_id>
+            <long_description>The wireframes are incomplete or missing.</long_description>
+            <id>_9565</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_9685</criterion_id>
+        <points>2.0</points>
+        <description>5. External Data Sources</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>_9685</criterion_id>
+            <long_description>Your source of data should return a data set sufficient to challenge you in your use of data between using JS and JSON. For instance: An array with a 6–10 attributes per element.</long_description>
+            <id>_5650</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_9685</criterion_id>
+            <long_description>API returns less than six data attributes. Giving you little information to present to the user.</long_description>
+            <id>_4539</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_6998</criterion_id>
+        <points>2.0</points>
+        <description>6. Initial Module List</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>_6998</criterion_id>
+            <long_description>List of the initial files you know you will be creating (JS, CSS, JSON, HTML).</long_description>
+            <id>_9480</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_6998</criterion_id>
+            <long_description>The module list is incomplete or missing.</long_description>
+            <id>_3477</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_7838</criterion_id>
+        <points>2.0</points>
+        <description>7. Graphic Identity</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>_7838</criterion_id>
+            <long_description>Includes color scheme, typography, and icon (description OK)</long_description>
+            <id>_6381</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_7838</criterion_id>
+            <long_description>Any of the required components are incomplete or missing.</long_description>
+            <id>_8612</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_451</criterion_id>
+        <points>2.0</points>
+        <description>8. Schedule</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>_451</criterion_id>
+            <long_description>A complete schedule of weeks 5–7 are provided including specific deliverables for each week.</long_description>
+            <id>_6541</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_451</criterion_id>
+            <long_description>Any scheduling details are incomplete or missing.</long_description>
+            <id>_8678</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>_1632</criterion_id>
+        <points>2.0</points>
+        <description>9. Trello Board</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>_1632</criterion_id>
+            <long_description>A link to a working Trello board is provided and the board has information on all the scheduled tasks are provided.</long_description>
+            <id>_3095</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_1632</criterion_id>
+            <long_description>The Trello board is incomplete or missing.</long_description>
+            <id>_2867</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>849_8070</criterion_id>
+        <points>2.0</points>
+        <description>10. Challenges</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>2.0</points>
+            <criterion_id>849_8070</criterion_id>
+            <long_description>The student's anticipated challenges in building this application is described.</long_description>
+            <id>849_3481</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>849_8070</criterion_id>
+            <long_description>The biggest challenge descriptions are incomplete or missing.</long_description>
+            <id>849_2480</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+  <rubric identifier="g6a3d8ccf0460d19185ceda8a3be55191">
+    <read_only>false</read_only>
+    <title>W04 Task Completion</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>10.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_3787</criterion_id>
+        <points>10.0</points>
+        <description>1. Task Completion</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Task was completed and links were provided.</long_description>
+            <id>blank</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>5.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Some progress was made on the task and links were provided.</long_description>
+            <id>_3861</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>No meaningful progress was made on the task or links were not provided.</long_description>
+            <id>blank_2</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+  <rubric identifier="g22b704c7a77f618566dc416bbc53fc52">
+    <read_only>false</read_only>
+    <title>W07 Professional Development Document</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>15.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_7518</criterion_id>
+        <points>3.0</points>
+        <description>1. Course Outcome: Creativity</description>
+        <long_description>Become more efficient at applying your innate curiosity and creativity.</long_description>
+        <ratings>
+          <rating>
+            <description>Mastery</description>
+            <points>3.0</points>
+            <criterion_id>_7518</criterion_id>
+            <long_description>An example was provided and the student selected "Mastery".</long_description>
+            <id>blank</id>
+          </rating>
+          <rating>
+            <description>Proficient</description>
+            <points>2.0</points>
+            <criterion_id>_7518</criterion_id>
+            <long_description>An example was provided and the student selected "Proficient".</long_description>
+            <id>2472992_8445</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>1.0</points>
+            <criterion_id>_7518</criterion_id>
+            <long_description>An example was provided and the student selected "Developing".</long_description>
+            <id>2472992_9146</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>_7518</criterion_id>
+            <long_description>No example was provided or the student selected "Unsatisfactory".</long_description>
+            <id>blank_2</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>2472992_2655</criterion_id>
+        <points>3.0</points>
+        <description>2. Course Outcome: Exploration</description>
+        <long_description>Become more dexterous at exploring your environment.</long_description>
+        <ratings>
+          <rating>
+            <description>Mastery</description>
+            <points>3.0</points>
+            <criterion_id>2472992_2655</criterion_id>
+            <long_description>An example was provided and the student selected "Mastery".</long_description>
+            <id>2472992_2610</id>
+          </rating>
+          <rating>
+            <description>Proficient</description>
+            <points>2.0</points>
+            <criterion_id>2472992_2655</criterion_id>
+            <long_description>An example was provided and the student selected "Proficient".</long_description>
+            <id>2472992_120</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>1.0</points>
+            <criterion_id>2472992_2655</criterion_id>
+            <long_description>An example was provided and the student selected "Developing".</long_description>
+            <id>2472992_8160</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>2472992_2655</criterion_id>
+            <long_description>No example was provided or the student selected "Unsatisfactory".</long_description>
+            <id>2472992_4880</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>2472992_52</criterion_id>
+        <points>3.0</points>
+        <description>3. Course Outcome: Collaboration</description>
+        <long_description>Become a person who enjoys helping and learning from others.</long_description>
+        <ratings>
+          <rating>
+            <description>Mastery</description>
+            <points>3.0</points>
+            <criterion_id>2472992_52</criterion_id>
+            <long_description>An example was provided and the student selected "Mastery".</long_description>
+            <id>2472992_6513</id>
+          </rating>
+          <rating>
+            <description>Proficient</description>
+            <points>2.0</points>
+            <criterion_id>2472992_52</criterion_id>
+            <long_description>An example was provided and the student selected "Proficient".</long_description>
+            <id>2472992_809</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>1.0</points>
+            <criterion_id>2472992_52</criterion_id>
+            <long_description>An example was provided and the student selected "Developing".</long_description>
+            <id>2472992_2091</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>2472992_52</criterion_id>
+            <long_description>No example was provided or the student selected "Unsatisfactory".</long_description>
+            <id>2472992_4330</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>2472992_6875</criterion_id>
+        <points>3.0</points>
+        <description>4. Course Outcome: Problem-solving</description>
+        <long_description>Use a divide-and-conquer approach to design solutions for programming problems.</long_description>
+        <ratings>
+          <rating>
+            <description>Mastery</description>
+            <points>3.0</points>
+            <criterion_id>2472992_6875</criterion_id>
+            <long_description>An example was provided and the student selected "Mastery".</long_description>
+            <id>2472992_978</id>
+          </rating>
+          <rating>
+            <description>Proficient</description>
+            <points>2.0</points>
+            <criterion_id>2472992_6875</criterion_id>
+            <long_description>An example was provided and the student selected "Proficient".</long_description>
+            <id>2472992_108</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>1.0</points>
+            <criterion_id>2472992_6875</criterion_id>
+            <long_description>An example was provided and the student selected "Developing".</long_description>
+            <id>2472992_3244</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>2472992_6875</criterion_id>
+            <long_description>No example was provided or the student selected "Unsatisfactory".</long_description>
+            <id>2472992_6273</id>
+          </rating>
+        </ratings>
+      </criterion>
+      <criterion>
+        <criterion_id>2472992_8626</criterion_id>
+        <points>3.0</points>
+        <description>5. Course Outcome: Troubleshooting</description>
+        <long_description>Finding and trouble-shooting bugs you and others will have in the code you write.</long_description>
+        <ratings>
+          <rating>
+            <description>Mastery</description>
+            <points>3.0</points>
+            <criterion_id>2472992_8626</criterion_id>
+            <long_description>An example was provided and the student selected "Mastery".</long_description>
+            <id>2472992_8634</id>
+          </rating>
+          <rating>
+            <description>Proficient</description>
+            <points>2.0</points>
+            <criterion_id>2472992_8626</criterion_id>
+            <long_description>An example was provided and the student selected "Proficient".</long_description>
+            <id>2472992_5770</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>1.0</points>
+            <criterion_id>2472992_8626</criterion_id>
+            <long_description>An example was provided and the student selected "Developing".</long_description>
+            <id>2472992_7939</id>
+          </rating>
+          <rating>
+            <description>Unsatisfactory</description>
+            <points>0.0</points>
+            <criterion_id>2472992_8626</criterion_id>
+            <long_description>No example was provided or the student selected "Unsatisfactory".</long_description>
+            <id>2472992_7071</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+  <rubric identifier="g57879f4a05ebb69bc98764fd1d32ff3e">
+    <read_only>false</read_only>
+    <title>W05 Final Project: Report on Tasks</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>10.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_3787</criterion_id>
+        <points>10.0</points>
+        <description>1. Task Completion</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Task was completed and links were provided.</long_description>
+            <id>blank</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>5.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Some progress was made on the task and some links were provided.</long_description>
+            <id>_3861</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>No meaningful progress was made on the task or links were not provided.</long_description>
+            <id>blank_2</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+  <rubric identifier="g6a872c674788e9e172349e849dc7fb3c">
+    <read_only>false</read_only>
+    <title>W06 Final Project: Report on Tasks</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>10.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_3787</criterion_id>
+        <points>10.0</points>
+        <description>1. Task Completion</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Task was completed and links were provided.</long_description>
+            <id>blank</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>5.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Some progress was made on the task and links were provided.</long_description>
+            <id>_3861</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>No meaningful progress was made on the task or links were not provided.</long_description>
+            <id>blank_2</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+  <rubric identifier="g67feae7d9b99c0842cbff84334a37de0">
+    <read_only>true</read_only>
+    <title>Task Completion</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>10.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_3787</criterion_id>
+        <points>10.0</points>
+        <description>1. Task Completion</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Task was completed and links were provided.</long_description>
+            <id>blank</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>5.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Some progress was made on the task and links were provided.</long_description>
+            <id>_3861</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>No meaningful progress was made on the task or links were not provided.</long_description>
+            <id>blank_2</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+  <rubric identifier="gf41848285e2cb3a18321905a2f62d229">
+    <read_only>false</read_only>
+    <title>W03 Task Completion</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>10.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_3787</criterion_id>
+        <points>10.0</points>
+        <description>1. Task Completion</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Task was completed and links were provided.</long_description>
+            <id>blank</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>5.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Some progress was made on the task and links were provided.</long_description>
+            <id>_3861</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>No meaningful progress was made on the task or links were not provided.</long_description>
+            <id>blank_2</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+  <rubric identifier="gbb48065b88c74865e7eeaed7d74ba72b">
+    <read_only>false</read_only>
+    <title>W02 Task Completion</title>
+    <reusable>false</reusable>
+    <public>false</public>
+    <points_possible>10.0</points_possible>
+    <hide_score_total>false</hide_score_total>
+    <free_form_criterion_comments>false</free_form_criterion_comments>
+    <rating_order>descending</rating_order>
+    <criteria>
+      <criterion>
+        <criterion_id>_3787</criterion_id>
+        <points>10.0</points>
+        <description>1. Task Completion</description>
+        <ratings>
+          <rating>
+            <description>Complete</description>
+            <points>10.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Task was completed and links were provided.</long_description>
+            <id>blank</id>
+          </rating>
+          <rating>
+            <description>Developing</description>
+            <points>5.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>Some progress was made on the task and links were provided.</long_description>
+            <id>_3861</id>
+          </rating>
+          <rating>
+            <description>Incomplete</description>
+            <points>0.0</points>
+            <criterion_id>_3787</criterion_id>
+            <long_description>No meaningful progress was made on the task or links were not provided.</long_description>
+            <id>blank_2</id>
+          </rating>
+        </ratings>
+      </criterion>
+    </criteria>
+  </rubric>
+</rubrics>

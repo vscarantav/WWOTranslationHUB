@@ -1,0 +1,1679 @@
+<div class="callout">
+<h3 class="tips">
+Tips for Being a Successful Online Student
+<br>
+</h3>
+<p>
+<em>
+Communicate with professors: Don’t hesitate to reach out to your instructors with questions or concerns. Establishing good communication early on can be beneficial. Check the course announcements and your email often.
+</em>
+<br>
+</p>
+</div>
+<h3 id="H3_yekcw">
+Summarizing Data
+</h3>
+<p>
+You are constantly surrounded by information, and you must be able to make sense of what you hear. Another term for making sense of information is
+<strong>
+summarizing data
+</strong>
+. You are required to summarize data every day, with the goal of gaining an improved understanding of a situation.
+</p>
+<p>
+Knowing how to summarize data or make sense of information is a highly valued skill in today’s workplace. It is also an important attribute of a smart consumer, an informed citizen, and an educated person.
+</p>
+<p>
+In this lesson you will learn some of the most commonly used tools for summarizing data. You will also learn how to use Excel to do these calculations.
+</p>
+<hr class="my-4">
+<h3 id="H3_kev83">
+Tools for Summarizing Data
+</h3>
+<p>
+Basic statistical calculations help you summarize information, especially information that consists of numbers. This lesson is about how understanding and calculating the minimum, maximum, mean, median, mode, standard deviation, and percentiles can help you summarize information.
+</p>
+<hr class="my-4">
+<h3 id="H3_cilgb">
+Minimum and Maximum
+</h3>
+<p>
+The concepts of minimum and maximum are ways of summarizing the most extreme values that have occurred or may occur in a particular scenario.
+</p>
+<div class="callout">
+<p>
+The
+<strong>
+minimum
+</strong>
+value in a list of observations is the smallest value that occurs.
+</p>
+<p>
+The
+<strong>
+maximum
+</strong>
+value in a list of observations is the largest value that occurs.
+</p>
+</div>
+<p>
+The minimum and maximum help us see what values are possible, since we would expect all the other observations to be between these two extremes.
+</p>
+<div class="callout">
+<h3 id="H3_bpzzh">
+Example 1
+</h3>
+<p>
+Looking at a weather report, you will typically see information about the highest and lowest temperatures. Here is an example of a typical weekly weather forecast with temperatures in Celsius. Identify the minimum and maximum temperatures for the week and explain what it means.
+</p>
+<p>
+</p>
+<img src="/images/content_images/694/owtcgxlgng.png" alt="Weather Report" class="img-fluid">
+<h4>
+Solution
+</h4>
+<p>
+This report shows the high and low temperature for each day listed. If you compare the predicted high temperatures for each day of the week, you will see the largest (or highest) temperature of 33° Celsius is predicted to occur on Saturday and Sunday. The smallest (or lowest) temperature of 19° Celsius is predicted to occur on Wednesday and Thursday. Therefore, the maximum temperature is 33°C and the minimum temperature is 19°C. That means all other temperatures during this given week should range between 19°C and 33°C.
+</p>
+<p>
+<strong>
+Note:
+</strong>
+Locating the maximum and minimum values can always be done by hand. However, if you have a lot of values to look at it can be more practical to use an Excel spreadsheet to find the maximum and minimum for you.
+</p>
+</div>
+<hr class="my-4">
+<h3 id="H3_4k1dn">
+Excel Instructions: Maximum and Minimum
+</h3>
+<p>
+Follow these steps to learn how to calculate the maximum and minimum in Excel:
+</p>
+<p>
+<strong>
+Step 1
+</strong>
+: Open a new workbook.
+</p>
+<img src="/images/content_images/694/xescjcuzbf.png" alt="Open a New Workbook in Excel" class="img-md img-center">
+<p>
+</p>
+<p>
+<strong>
+Step 2:
+</strong>
+Type in the data for which you want to calculate the minimum or maximum. For this example, you will use the predicted high and low temperatures shown in the typical weather forecast depicted in the example above.
+</p>
+<img src="/images/content_images/694/frjikuhbpk.png" alt="Excel spreadsheet with data. Column A: Day; Column B: High Temp; Column C: Low Temp" class="img-md img-center">
+<p>
+</p>
+<p>
+<strong>
+Step 3
+</strong>
+: In any blank cell of the document, do the following:
+</p>
+<ul>
+<li>
+<p>
+Type the command:
+<strong>
+=max(
+</strong>
+</p>
+</li>
+<li>
+<p>
+Use your mouse to highlight the data you are interested in
+</p>
+</li>
+<li>
+<p>
+Finish typing the closing parenthesis:
+<strong>
+)
+</strong>
+</p>
+</li>
+</ul>
+<p>
+For this example, this gives:
+<strong>
+=max (B2:B9)
+</strong>
+</p>
+<img src="/images/content_images/694/Math_108X_image-_Re-resized_png" class="img-md img-center">
+<p>
+<strong>
+<br>
+</strong>
+</p>
+<p>
+<strong>
+Step 4
+</strong>
+: Press
+<strong>
+Enter
+</strong>
+(or
+<strong>
+Return
+</strong>
+) and the cursor will move to the next line with the result for the maximum of 33°C now showing. Repeat the above process using the
+<strong>
+=MIN(
+</strong>
+command to obtain the minimum.
+</p>
+<img src="/images/content_images/694/phszctqjpd.png" alt="Press enter or return" class="img-md img-center">
+<p>
+</p>
+<p>
+<strong>
+Step 5:
+</strong>
+Labeling these values is optional but helpful for remembering what they are.
+</p>
+<p>
+<br>
+</p>
+<img src="/images/content_images/694/Replace_MATH108X_1_png" class="img-md img-center">
+<p>
+</p>
+<hr class="my-4">
+<h3 id="H3_py752">
+Measures of Center
+</h3>
+<p>
+The mean, median, and mode are ways of summarizing the most typical values that occur in a given scenario. They are called “measures of center” because they give a good feel for the values that occur “right in the center” of all of the observed values.
+</p>
+<h4 id="H4_o1vmqk">
+Mean
+</h4>
+<div class="callout">
+<p>
+The
+<strong>
+mean
+</strong>
+is more commonly known as the average.
+</p>
+</div>
+<p>
+The average of a series of numbers can be found by adding all the values and dividing them by the total number of values. For example, if your income is different each month based on being self-employed or other variable factors, you can calculate your average monthly income by taking your total income for twelve months and dividing that number by twelve. This demonstrates why calculating averages can be a useful tool for summarizing the measure of center for values that are similar to each other.
+</p>
+<h4 id="H4_m5sah">
+Median
+</h4>
+<div class="callout">
+<p>
+The
+<strong>
+median
+</strong>
+is the middle number in a list of numbers that is sorted from smallest to largest.
+</p>
+</div>
+<p>
+Thus, fifty percent (or half) of the values are lower than the median, and fifty percent of the values are larger than the median. The median is a useful tool to summarize the center of values where most of the values are similar but some are dramatically higher (or lower) than the rest.
+</p>
+<h4 id="H4_dxt7">
+Mode
+</h4>
+<div class="callout">
+<p>
+The
+<strong>
+mode
+</strong>
+is the value that occurs most often in a list of numbers.
+</p>
+</div>
+<p>
+It is used to summarize data that only has a few possible distinct (different) values.
+</p>
+<div class="callout">
+<h3 id="H3_yayjq">
+Example 2
+</h3>
+<p>
+How long does a human pregnancy last? The common answer is nine months, but we know that not every pregnancy is the same length. Should you use the mean, median, or mode to describe the length of human pregnancies? Why?
+</p>
+<h5 id="H5_k98ati">
+Solution
+</h5>
+<p>
+The
+<em>
+mean (or average)
+</em>
+is a good estimate of the length of pregnancies because most pregnancies last about the same amount of time.
+</p>
+<p>
+The mean length of a pregnancy is 266 days from conception (or 38 weeks). This mean can be calculated by taking the number of days every pregnancy lasts and dividing by the total number of pregnancies. The mean, or average, is a good estimate of the length of a pregnancy because two-thirds of births fall within 2 weeks of this estimate. In other words, the lengths of most pregnancies are very close to 266 days even though a rare few are much longer or much shorter than that.
+</p>
+<p>
+(
+<strong>
+NOTE:
+</strong>
+Sometimes the last menstrual period rather than date of conception is used to predict a pregnancy. In this case, the mean is two weeks longer, such as 280 days, or 40 weeks.)
+</p>
+</div>
+<hr class="my-4">
+<div class="callout">
+<h3 id="H3_xwnys">
+Example 3
+</h3>
+<p>
+What is a typical household annual income? Not every household has the same income, so you need to summarize this data in order to understand it better. Should you use the mean, median, or mode to describe household income? Why?
+</p>
+<h5 id="H5_k98ati">
+Solution
+</h5>
+<p>
+The
+<em>
+median
+</em>
+is often used to summarize incomes for a given region. For example, a news headline states, “Worldwide, Median Household Income About $10,000” (
+<a href="https://news.gallup.com/poll/166211/worldwide-median-household-income-000.aspx">
+Worldwide, Median Household Income
+</a>
+). What this means is that while most people earn around the same amount of money each month, with some earning more than others, there are others who earn extraordinarily more money than the rest of us. The median income is reported in order to keep the extremely high incomes from misrepresenting the results. Thus, the median income gives a better feel than calculating the mean to know what most people actually make.
+</p>
+</div>
+<hr class="my-4">
+<div class="callout">
+<h3 id="H3_wq05g">
+Example 4
+</h3>
+<p>
+If you have ever tried to find a certain size of clothing at a store you may have noticed that some sizes are more commonly sold than others. This information can be summarized to get a better idea of what clothing sizes are available. Should you use the mean, median, or mode to describe available clothing sizes? Why?
+</p>
+<h5 id="H5_k98ati">
+Solution
+</h5>
+<p>
+This is an example of the
+<em>
+mode
+</em>
+, or the most commonly occurring clothing sizes. The mode is a good value to use because there are only a few sizes possible.
+</p>
+</div>
+<hr class="my-4">
+<h4 id="H4_nc6ivf">
+Excel Instructions: Mean, Median, and Mode
+</h4>
+<p>
+Follow these steps to calculate the mean, median, or mode in Excel:
+</p>
+<p>
+<strong>
+Step 1
+</strong>
+: Enter the data into Excel. For this example, you will continue using the weather data from the previous Excel instructions, where we found the maximum and minimum values.
+</p>
+<img src="/images/content_images/694/Replace_MATH108X_1_png" class="img-md img-center">
+<p>
+<strong>
+Step 2
+</strong>
+: To compute the
+<strong>
+mean
+</strong>
+, do the following:
+</p>
+<ul>
+<li>
+<p>
+Type the command
+<strong>
+=AVERAGE(
+</strong>
+in a blank cell.
+</p>
+</li>
+<li>
+<p>
+Highlight the data you are interested in.
+</p>
+</li>
+<li>
+<p>
+Finish by typing the closing parenthesis
+<strong>
+)
+</strong>
+and pressing
+<strong>
+Enter
+</strong>
+or
+<strong>
+Return
+</strong>
+.
+</p>
+</li>
+</ul>
+<img src="/images/content_images/694/Replace_2__png" class="img-md img-center">
+<p>
+<strong>
+Step 3
+</strong>
+: To compute the
+<strong>
+median
+</strong>
+, do the following:
+</p>
+<ul>
+<li>
+<p>
+Type the command
+<strong>
+=MEDIAN(
+</strong>
+in a blank cell.
+</p>
+</li>
+<li>
+<p>
+Highlight the data you are interested in.
+</p>
+</li>
+<li>
+<p>
+Finish by typing the closing parenthesis
+<strong>
+)
+</strong>
+and pressing
+<strong>
+Enter
+</strong>
+or
+<strong>
+Return
+</strong>
+.
+</p>
+</li>
+</ul>
+<img src="/images/content_images/694/Replace_3_1__png" class="img-center img-md">
+<p>
+<strong>
+<br>
+</strong>
+</p>
+<p>
+<strong>
+Step 4
+</strong>
+: To compute the
+<strong>
+mode
+</strong>
+, do the following:
+</p>
+<ul>
+<li>
+<p>
+Type the command
+<strong>
+=MODE(
+</strong>
+in a blank cell.
+</p>
+</li>
+<li>
+<p>
+Highlight the data you are interested in.
+</p>
+</li>
+<li>
+<p>
+Finish by typing the closing parenthesis
+<strong>
+)
+</strong>
+and pressing
+<strong>
+Enter
+</strong>
+or
+<strong>
+Return
+</strong>
+.
+</p>
+</li>
+<li>
+<p>
+Note that Excel will find just one mode, but there might be more than one.
+</p>
+</li>
+</ul>
+<img src="/images/content_images/694/Replace_4_1__png" class="img-md img-center">
+<p>
+<strong>
+<br>
+Step 5:
+</strong>
+Here is the final result.
+</p>
+<img src="/images/content_images/694/Replace_5__1__png" class="img-md img-center">
+<p>
+<br>
+</p>
+<h3 id="H3_crfgyl">
+Standard Deviation
+</h3>
+<p>
+The
+<strong>
+standard deviation
+</strong>
+helps us know how close to the mean all the values in a data set are. This is helpful because it tells us if all the points in a data set are close together or spread out.
+</p>
+<div class="callout">
+<p>
+The
+<strong>
+standard deviation
+</strong>
+is a summary of how much values vary from the mean of a set of data. When the values are all very close to the mean, the standard deviation is small. When the values vary dramatically from the mean, the standard deviation is large.
+</p>
+</div>
+<p>
+The following diagram demonstrates the idea of standard deviation. In each picture, the red dot in the center represents the mean. Notice in the diagram representing a small standard deviation most of the points are quite close to the mean. In the diagram representing a large standard deviation, we can see the points are quite spread out and not as close to the mean.
+</p>
+<img src="/images/content_images/694/xfozphtgcq.png" alt="" class="img-fluid">
+<p>
+</p>
+<div class="callout">
+<h3 id="H3_hb8nv">
+Example 5
+</h3>
+<p>
+Consider the following two sets of data:
+</p>
+<ol type="1">
+<li>
+<p>
+All the daily high temperatures in 2016 in Honolulu, Hawaii.
+</p>
+</li>
+<li>
+<p>
+All the daily high temperatures in 2016 in Rexburg, Idaho.
+</p>
+</li>
+</ol>
+<p>
+Which set of data would have a larger standard deviation? Explain.
+</p>
+<h5 id="H5_k98ati">
+Solution
+</h5>
+<p>
+<br>
+The temperature in Hawaii remains similar all year long. The temperature in Idaho, however, can vary a lot. In the summer, the high temperature in Rexburg might be 35°C while in the winter, the high temperature might only be -23°C.
+</p>
+<p>
+During 2016, the average annual temperature in Honolulu, Hawaii, was 28.94°C and the standard deviation was 1.65°C. The warmest days of the year were July 14 and August 12, 2016. On both of those days, the high temperature was 33°C. The coldest day of the year was December 30th when the high temperature was 24°C (
+<a href="https://www.ncei.noaa.gov/">
+National Center for Environmental Information
+</a>
+).
+</p>
+<p>
+During 2016, the average annual temperature in Rexburg, Idaho was 14.07°C with a standard deviation of 12.22°C. The warmest day of the year was August 2, 2016, when the high temperature was 35°C. The coldest day of the year was December 17th when the high temperature was only -16°C.
+</p>
+<p>
+If we compare the standard deviations for Honolulu and Rexburg, we see that Honolulu’s standard deviation of 1.65°C is much smaller than Rexburg’s standard deviation of 12.22°C. This tells us the temperatures in Honolulu are usually much closer to the average when compared to the temperatures in Rexburg, which vary a lot from the average.
+</p>
+</div>
+<hr class="my-4">
+<h4 id="H4_vhfgk">
+Excel Instructions: Standard Deviation
+</h4>
+<p>
+To compute the standard deviation in Excel, do the following:
+</p>
+<p>
+<strong>
+Step 1:
+</strong>
+Open your data in Excel.
+</p>
+<ul>
+<li>
+<p>
+Type the command
+<strong>
+=STDEV(
+</strong>
+in a blank cell.
+</p>
+</li>
+<li>
+<p>
+Highlight the data you are interested in.
+</p>
+</li>
+<li>
+<p>
+Finish by typing the closing parenthesis
+<strong>
+)
+</strong>
+and pressing
+<strong>
+Enter
+</strong>
+or
+<strong>
+Return
+</strong>
+.
+</p>
+</li>
+</ul>
+<img src="/images/content_images/694/Replace_6_1__png" class="img-md img-center">
+<p>
+</p>
+<p>
+<strong>
+Step 2
+</strong>
+: Here is the final result.
+</p>
+<img src="/images/content_images/694/Replace_7__1__png" class="img-md img-center">
+<p>
+<br>
+</p>
+<p>
+</p>
+<hr class="my-4">
+<h3 id="H3_40rp">
+Percentiles
+</h3>
+<p>
+<strong>
+Percentiles
+</strong>
+help us see how a certain value compares to all the other values in a set of data.
+</p>
+<div class="callout">
+<p>
+A
+<strong>
+percentile
+</strong>
+<em>
+</em>
+measures the percentage of values that are the same as or less than the specified value. They are typically used to measure the performance of an individual with respect to their peers.
+</p>
+</div>
+<p>
+Context is important to consider when looking at percentiles. Being at the 5th percentile might be good, it might be bad, and it might not be significant at all. It really just depends on the situation. You should never consider a percentile without looking at the related context.
+</p>
+<div class="callout">
+<h3 id="H3_uzcfr">
+Example 6
+</h3>
+<p>
+Juan took a standardized test and was told that he scored at the 82nd percentile. Interpret what the percentile means.
+</p>
+<h5 id="H5_k98ati">
+Solution
+</h5>
+<p>
+Knowing that Juan’s score is at the 82nd percentile helps us understand how he scored compared to the other students who took the standardized test. The percentile tells us he scored as well or better than 82% of all the people who took the test. This means 18% of students who took the test scored better than Juan did. Juan's percentile score provides information about his relative performance compared to other students but does not reveal his exact exam score. It indicates the percentage of students who scored lower than he or achieved the same score.
+</p>
+</div>
+<div class="callout">
+<h3 id="H3_wnr4b">
+Example 7
+</h3>
+<p>
+A doctor tells Lucas and Amanda their daughter Emmy is in the 4th percentile for girls her age. Explain what this means.
+</p>
+<h5 id="H5_k98ati">
+Solution
+</h5>
+<p>
+Since Emmy is in the 4th percentile you know that out of all the baby girls her age, only 4% weigh the same or less than Emmy does. That means 96% of the babies weigh more than Emmy. We could also think of it as 4 out of every 100 babies will be the same weight or smaller. The doctor says: “It is something to keep an eye on, but it’s actually not that unusual.” In this case the context is very important. The doctor does not solely use a percentile to make a decision about Emmy’s care. He also considers other indicators of her health.
+</p>
+</div>
+<hr class="my-4">
+<h3 id="H3_z1f4f">
+</h3>
+<h3 id="H3_dxxug">
+Excel Instructions Percentiles
+</h3>
+<p>
+To compute a percentile in Excel, do the following:
+</p>
+<p>
+<strong>
+Step 1
+</strong>
+: Open your data in Excel.
+</p>
+<ul>
+<li>
+<p>
+Type the command
+<strong>
+=PERCENTILE(
+</strong>
+in a blank cell.
+</p>
+</li>
+<li>
+<p>
+Highlight the data you are interested in.
+</p>
+</li>
+<li>
+<p>
+Type a comma
+<strong>
+,
+</strong>
+and the desired percentile as a decimal, like
+<strong>
+0.9
+</strong>
+.
+</p>
+</li>
+<li>
+<p>
+Finish by typing the closing parenthesis
+<strong>
+)
+</strong>
+and pressing
+<strong>
+Enter
+</strong>
+or
+<strong>
+Return
+</strong>
+.
+</p>
+</li>
+</ul>
+<img src="/images/content_images/694/Replace_8__1__png" class="img-md img-center">
+<p>
+<strong>
+<br>
+</strong>
+</p>
+<p>
+<strong>
+Step 2
+</strong>
+: Here is the result.
+</p>
+<p>
+</p>
+<img src="/images/content_images/694/Replace_9_1__png" class="img-md img-center">
+<div class="callout">
+<h3 id="H3_qccru">
+Practice Problem 1
+</h3>
+<p>
+The color of an individual's eyes can make a difference in how well they can detect a flickering light. If the light flickers fast enough, it looks like a steady light.
+</p>
+<p>
+The following data shows how many flickers per second could be detected by individuals with brown, green, and blue eyes. The means for brown eyes and green eyes have already been found.
+</p>
+<p>
+In box D-10, type in the Excel formula you would use to find the mean for blue eyes.
+</p>
+<table class=" table">
+<tbody>
+<tr>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+A
+</p>
+</td>
+<td>
+<p>
+B
+</p>
+</td>
+<td>
+<p>
+C
+</p>
+</td>
+<td>
+<p>
+D
+</p>
+</td>
+<td>
+<p>
+E
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+1
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+Brown
+</p>
+</td>
+<td>
+<p>
+Green
+</p>
+</td>
+<td>
+<p>
+Blue
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+2
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+26.8
+</p>
+</td>
+<td>
+<p>
+26.4
+</p>
+</td>
+<td>
+<p>
+25.7
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+3
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+27.9
+</p>
+</td>
+<td>
+<p>
+24.2
+</p>
+</td>
+<td>
+<p>
+27.2
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+4
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+23.7
+</p>
+</td>
+<td>
+<p>
+28
+</p>
+</td>
+<td>
+<p>
+29.9
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+5
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+25
+</p>
+</td>
+<td>
+<p>
+26.9
+</p>
+</td>
+<td>
+<p>
+28.5
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+6
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+26.3
+</p>
+</td>
+<td>
+<p>
+29.1
+</p>
+</td>
+<td>
+<p>
+29.4
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+7
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+24.8
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+28.3
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+8
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+25.7
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+9
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+24.5
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+10
+</p>
+</td>
+<td>
+<p>
+Mean=
+</p>
+</td>
+<td>
+<p>
+25.59
+</p>
+</td>
+<td>
+<p>
+26.92
+</p>
+</td>
+<td>
+<p>
+<input class="fib" type="text" value="=average(D2:D7)" data-role="fib">
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+11
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="accordion">
+<button class="accordion-button fs-4" type="button">
+Check your answer.
+</button>
+<div class="accordion-body">
+<p>
+=average(D2:D7)
+</p>
+</div>
+</div>
+</div>
+<div class="callout">
+<h3 id="H3_2fuxf">
+Practice Problem 2
+</h3>
+<p>
+Use the information in the Excel sheet to match each of the following questions with the correct answer.
+</p>
+<table class=" table">
+<tbody>
+<tr>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+A
+</p>
+</td>
+<td>
+<p>
+B
+</p>
+</td>
+<td>
+<p>
+C
+</p>
+</td>
+<td>
+<p>
+D
+</p>
+</td>
+<td>
+<p>
+E
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+1
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+Brown
+</p>
+</td>
+<td>
+<p>
+Green
+</p>
+</td>
+<td>
+<p>
+Blue
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+2
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+26.8
+</p>
+</td>
+<td>
+<p>
+26.4
+</p>
+</td>
+<td>
+<p>
+25.7
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+3
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+27.9
+</p>
+</td>
+<td>
+<p>
+24.2
+</p>
+</td>
+<td>
+<p>
+27.2
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+4
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+23.7
+</p>
+</td>
+<td>
+<p>
+28
+</p>
+</td>
+<td>
+<p>
+29.9
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+5
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+25
+</p>
+</td>
+<td>
+<p>
+26.9
+</p>
+</td>
+<td>
+<p>
+28.5
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+6
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+26.3
+</p>
+</td>
+<td>
+<p>
+29.1
+</p>
+</td>
+<td>
+<p>
+29.4
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+7
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+24.8
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+28.3
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+8
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+25.7
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+9
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+24.5
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+10
+</p>
+</td>
+<td>
+<p>
+Mean=
+</p>
+</td>
+<td>
+<p>
+25.59
+</p>
+</td>
+<td>
+<p>
+26.92
+</p>
+</td>
+<td>
+<p>
+28.167
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+11
+</p>
+</td>
+<td>
+<p>
+Standard Dev=
+</p>
+</td>
+<td>
+<p>
+1.37
+</p>
+</td>
+<td>
+<p>
+1.84
+</p>
+</td>
+<td>
+<p>
+1.53
+</p>
+</td>
+<td>
+<p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+Fill in the blank.
+</p>
+<p>
+On average, which eye color can best see flickering light?
+<input class="fib" type="text" value="Blue" data-role="fib">
+</p>
+<p>
+For which eye color are the measurements closest to the mean?
+<input class="fib" type="text" value="Brown" data-role="fib">
+</p>
+<p>
+For which eye color do the measurements tend to be furthest from the mean?
+<input class="fib" type="text" value="Green" data-role="fib">
+</p>
+<div class="accordion">
+<button class="accordion-button fs-4" type="button">
+Check your answers.
+</button>
+<div class="accordion-body">
+<p>
+On average, which eye color can best see flickering light? Blue.
+</p>
+<p>
+For which eye color are the measurements closest to the mean? Brown.
+</p>
+<p>
+For which eye color do the measurements trend to be furthest from the mean? Green.
+</p>
+</div>
+</div>
+</div>
+<hr class="my-4">
+<h3 id="H3_u3ctm">
+</h3>
+<h3 id="H3_gdbzp">
+Putting it All Together
+</h3>
+<p>
+Now that you know how to compute numbers that summarize data, you are able to use these tools as part of the quantitative reasoning process to help you make informed decisions.
+</p>
+<hr class="my-4">
+<h3 id="H3_q7055">
+1. Understand the Problem
+</h3>
+<p>
+Lucas and Amanda’s baby girl, Emmy, hasn’t been eating well and spits up a lot after she eats. Lucas and Amanda are justifiably concerned about Emmy’s weight. They want to know how to proceed to care for Emmy to make sure she is healthy.
+</p>
+<p>
+The doctor states, “I don’t think we need to be concerned unless it worsens. We’ll watch her progress closely.” (
+<strong>
+NOTE:
+</strong>
+This scenario is based on a real situation, but keep in mind that just having a low percentile for weight is not necessarily a cause for concern).
+</p>
+<hr class="my-4">
+<h3 id="H3_an4dg">
+2. Identify Variables &amp; Assumptions
+</h3>
+<h4 id="H4_gpujg">
+Variables
+</h4>
+<p>
+The variables of interest in this situation include the following:
+</p>
+<ul>
+<li>
+<p>
+How often Emmy spits up
+</p>
+</li>
+<li>
+<p>
+Emmy’s weight
+</p>
+</li>
+<li>
+<p>
+Emmy’s height
+</p>
+</li>
+</ul>
+<h4 id="H4_7no8r">
+Assumptions
+</h4>
+<p>
+Lucas and Amanda need to make a few assumptions:
+</p>
+<ul>
+<li>
+<p>
+Emmy’s weight and height are an indication of her health.
+</p>
+</li>
+<li>
+<p>
+Emmy’s weight and height are going to continue to be smaller than average.
+</p>
+</li>
+<li>
+<p>
+Emmy is going to continue to spit up often.
+</p>
+</li>
+</ul>
+<hr class="my-4">
+<h3 id="H3_6l84g">
+3. Apply Quantitative Tools
+</h3>
+<p>
+The percentile is a useful statistical tool in this situation. Knowing that Emmy’s weight is in the 4th percentile helps Lucas and Amanda understand how her weight compares to the weight of other babies her age. The chart the doctor showed is also a helpful tool because it gives them a visual tool that shows Emmy’s weight on the low end of the scale for her age. Lucas and Amanda understand that percentiles should always be considered in context. Being small isn’t necessarily a concern, but because Emmy is also not eating well and spitting up a lot, they are wondering if something is wrong.
+</p>
+<hr class="my-4">
+<h3 id="H3_k1ld2">
+4. Make an Informed Decision
+</h3>
+<p>
+After further discussion with the doctor, Lucas and Amanda decide not to do any medical tests immediately. The doctor wants to watch Emmy’s progress, but he is not overly concerned. Lucas and Amanda are worried about doing medical tests because they are not covered by their health insurance, and they would have to pay about $100 each for the six tests that might apply. Based on their doctor’s recommendation, they decide to wait and see if Emmy’s weight improves.
+</p>
+<hr class="my-4">
+<h3 id="H3_a3dgmf">
+5. Evaluate Your Reasoning
+</h3>
+<p>
+After carefully considering their decision, discussing it with the doctor, and praying about it, Lucas and Amanda are comfortable with waiting.
+</p>
+<p>
+In two months, they return to the doctor to follow up on Emmy’s progress. At that visit, they find that Emmy’s weight has dropped to the 2nd percentile for baby girls her age. She is spitting up more often and has other signs of poor health. Based on this new information, they again discuss their decision with the doctor and decide to go ahead and do the tests. The doctor helps them find a clinic where the tests can be done for less money than they would be at the hospital.
+</p>
+<p>
+The tests come back and show that Emmy has a small health issue that is able to be fixed with medication. In a follow-up visit a few months later, Emmy’s weight has increased to the 15th percentile for baby girls her age.
+</p>
+<p>
+This example uses percentiles as a tool to help understand Emmy’s weight. In this case, the doctor calculated and reported the percentile to Lucas and Amanda.
+</p>
+<hr class="my-4">
+<h3 id="H3_kkr3xi">
+Lesson Checklist
+</h3>
+<p>
+At the end of this lesson, you should be able to do the following:
+</p>
+<ul>
+<li>
+<p>
+Use Excel to calculate the minimum, maximum, mean, median, mode, standard deviation, and percentile.
+</p>
+</li>
+<li>
+<p>
+Interpret the maximum and minimum as measures of the extreme values in a set of data.
+</p>
+</li>
+<li>
+<p>
+Interpret the mean, median, and mode as measures of the center in a set of data.
+</p>
+</li>
+<li>
+<p>
+Be able to determine whether to use the mean, median, or mode to find a measure of the center of a set of data.
+</p>
+</li>
+<li>
+<p>
+Interpret the standard deviation as a measure of variability of a set of data.
+</p>
+</li>
+<li>
+<p>
+Interpret percentiles as a way to compare an individual value to the rest of the data set.
+</p>
+</li>
+<li>
+<p>
+Use the minimum, maximum, mean, median, mode, standard deviation, and percentiles as a quantitative tool in the Quantitative Reasoning Process.
+</p>
+</li>
+</ul>
+<div class="callout">
+<h3 class="study">
+The Lord Loves Effort
+<br>
+</h3>
+<p>
+<em>
+Give your best effort each week, even if you feel like you might be struggling. Elder Jeffrey R. Holland (2016), a modern-day prophet, shared this advice to those who want to improve: “Please remember tomorrow, and all the days after that, that the Lord blesses those who want to improve, who accept the need for commandments and try to keep them, who cherish Christlike virtues and strive to the best of their ability to acquire them. If you stumble in that pursuit, so does everyone; the Savior is there to help you keep going. If you fall, summon His strength. Call out like Alma, ‘O Jesus, . . . have mercy on me.’ He will help you get back up. He will help you repent, repair, fix whatever you have to fix, and keep going. Soon enough you will have the success you seek.”
+</em>
+<br>
+</p>
+</div>
+<hr class="my-4">
+<p>
+© 2020 Brigham Young University-Idaho
+</p>
+<p>
+</p>
+<p>
+</p>

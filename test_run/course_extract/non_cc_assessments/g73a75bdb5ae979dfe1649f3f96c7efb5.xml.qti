@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <objectbank ident="g73a75bdb5ae979dfe1649f3f96c7efb5">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>bank_title</fieldlabel>
+        <fieldentry>Advanced HTML &amp; CSS</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_type</fieldlabel>
+        <fieldentry>Course</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_context_uuid</fieldlabel>
+        <fieldentry>GiIC9LIjJSPRR8sCu6BXMvk9cRq43CQjx5LVKR6F</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_state</fieldlabel>
+        <fieldentry>active</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <item ident="ga6d791b04cb544d6711bcabfbacda1bb" title=":valid">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>7553,17,3257,165,8445</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;The &lt;code&gt;__________&lt;/code&gt; pseudo-class in CSS selects and applies styles to form elements that are considered valid based on their input type or HTML attributes like &lt;code&gt;required&lt;/code&gt;, &lt;code&gt;pattern&lt;/code&gt;, &lt;code&gt;minlength&lt;/code&gt;, etc. It is commonly used for real-time form validation styling.&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="7553">
+              <material>
+                <mattext texttype="text/plain">:valid</mattext>
+              </material>
+            </response_label>
+            <response_label ident="17">
+              <material>
+                <mattext texttype="text/plain">:required-field</mattext>
+              </material>
+            </response_label>
+            <response_label ident="3257">
+              <material>
+                <mattext texttype="text/plain">:field</mattext>
+              </material>
+            </response_label>
+            <response_label ident="165">
+              <material>
+                <mattext texttype="text/plain">:true</mattext>
+              </material>
+            </response_label>
+            <response_label ident="8445">
+              <material>
+                <mattext texttype="text/plain">:checked</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">7553</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="g22d132e9e102b11dd436f54d798c8516" title="CSS Transitions">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>5151,2462,9391,1157</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Which of the following CSS declarations is &lt;strong data-start="954" data-end="974"&gt;most appropriate&lt;/strong&gt; to add a smooth transition to multiple properties?&lt;/p&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="5151">
+              <material>
+                <mattext texttype="text/plain">transition: background-color 0.5s, transform 0.3s;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="2462">
+              <material>
+                <mattext texttype="text/plain">transition: all ease-in-out;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="9391">
+              <material>
+                <mattext texttype="text/plain">transition: 1s;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="1157">
+              <material>
+                <mattext texttype="text/plain">animation: hover 2s infinite;</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">5151</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="5151_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">2462</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="2462_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">9391</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="9391_fb"/>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <varequal respident="response1">1157</varequal>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="1157_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">5151</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="5151_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;explicitly defines &lt;strong data-start="1308" data-end="1328"&gt;which properties&lt;/strong&gt; to transition and their individual durations — a best practice.&lt;/p&gt;</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="2462_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;uses &lt;code data-start="1408" data-end="1413"&gt;all&lt;/code&gt;, which can be inefficient and sometimes problematic.&lt;/p&gt;</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="9391_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;lacks specificity (what should transition?).&lt;/p&gt;</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+      <itemfeedback ident="1157_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;uses &lt;code data-start="1533" data-end="1544"&gt;animation&lt;/code&gt;, which is different from &lt;code data-start="1570" data-end="1582"&gt;transition&lt;/code&gt;.&lt;/p&gt;</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="gc77997613c49ae7fe21ccfbad161355a" title="Client Side Validation">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>9484,8553,5038,9253,6152</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;In client-side form validation, if you want to &lt;strong data-start="157" data-end="222"&gt;customize or change the text of native browser error messages&lt;/strong&gt;, which of the following technologies?&lt;/p&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="9484">
+              <material>
+                <mattext texttype="text/plain">JavaScript</mattext>
+              </material>
+            </response_label>
+            <response_label ident="8553">
+              <material>
+                <mattext texttype="text/plain">HTML</mattext>
+              </material>
+            </response_label>
+            <response_label ident="5038">
+              <material>
+                <mattext texttype="text/plain">CSS</mattext>
+              </material>
+            </response_label>
+            <response_label ident="9253">
+              <material>
+                <mattext texttype="text/plain">Java</mattext>
+              </material>
+            </response_label>
+            <response_label ident="6152">
+              <material>
+                <mattext texttype="text/plain">WebAssembly</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">9484</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="gef9f6c35cb511582161cd8bcb81c78fa" title="Nested CSS">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>1700,5197,1553,7857</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Which of the following scenarios &lt;strong data-start="172" data-end="184"&gt;requires&lt;/strong&gt; the use of the &lt;code data-start="200" data-end="203"&gt;&amp;amp;&lt;/code&gt; symbol in native CSS nesting?&lt;/p&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="1700">
+              <material>
+                <mattext texttype="text/plain">Targeting a hover style on the parent element</mattext>
+              </material>
+            </response_label>
+            <response_label ident="5197">
+              <material>
+                <mattext texttype="text/plain">Writing a child selector like nav a {} inside header {}</mattext>
+              </material>
+            </response_label>
+            <response_label ident="1553">
+              <material>
+                <mattext texttype="text/plain">Styling a direct child element like &gt; span inside a .container block</mattext>
+              </material>
+            </response_label>
+            <response_label ident="7857">
+              <material>
+                <mattext texttype="text/plain">Nesting a &lt;p&gt; selector inside a section block</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">1700</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="g624261fc7a959389ba6aa1d4d6dec8c8" title="Nested CSS &amp;">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>fill_in_multiple_blanks_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>3.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>2870,9692,6672,3843,6082,9990,2152,2726</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Fill in the blanks (3).&lt;br&gt;In native CSS nesting, the &lt;code data-start="176" data-end="179"&gt;&amp;amp;&lt;/code&gt; symbol is used to refer to the &lt;strong&gt;[selector] &lt;/strong&gt;selector. It is required when you are writing nested rules that apply to &lt;strong data-start="297" data-end="309"&gt;[required]&lt;/strong&gt; or &lt;strong data-start="313" data-end="343"&gt;combinator-based selectors&lt;/strong&gt; (like &lt;code data-start="350" data-end="353"&gt;+&lt;/code&gt;, &lt;code data-start="355" data-end="358"&gt;&amp;gt;&lt;/code&gt;, &lt;code data-start="360" data-end="363"&gt;~&lt;/code&gt;).&lt;br&gt;For example, to style &lt;code data-start="388" data-end="402"&gt;button:hover&lt;/code&gt; inside a &lt;code data-start="412" data-end="419"&gt;.card&lt;/code&gt; component, you would write:&lt;/p&gt;
+&lt;pre&gt;.card {&lt;br&gt;&amp;nbsp; button {&lt;br&gt;  &amp;nbsp; [code] {&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; background-color: blue;&lt;br&gt;&amp;nbsp; &amp;nbsp; }&lt;br&gt;&amp;nbsp; }&lt;br&gt;}&lt;/pre&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response_selector">
+          <material>
+            <mattext>selector</mattext>
+          </material>
+          <render_choice>
+            <response_label ident="2870">
+              <material>
+                <mattext texttype="text/plain">parent</mattext>
+              </material>
+            </response_label>
+            <response_label ident="9692">
+              <material>
+                <mattext texttype="text/plain">parent</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+        <response_lid ident="response_required">
+          <material>
+            <mattext>required</mattext>
+          </material>
+          <render_choice>
+            <response_label ident="6672">
+              <material>
+                <mattext texttype="text/plain">pseudo-classes</mattext>
+              </material>
+            </response_label>
+            <response_label ident="3843">
+              <material>
+                <mattext texttype="text/plain">pseudo-classes</mattext>
+              </material>
+            </response_label>
+            <response_label ident="2152">
+              <material>
+                <mattext texttype="text/plain">pseudo-class</mattext>
+              </material>
+            </response_label>
+            <response_label ident="2726">
+              <material>
+                <mattext texttype="text/plain">pseudoclass</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+        <response_lid ident="response_code">
+          <material>
+            <mattext>code</mattext>
+          </material>
+          <render_choice>
+            <response_label ident="6082">
+              <material>
+                <mattext texttype="text/plain">&amp;:hover</mattext>
+              </material>
+            </response_label>
+            <response_label ident="9990">
+              <material>
+                <mattext texttype="text/plain">&amp;:hover</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition>
+          <conditionvar>
+            <varequal respident="response_selector">2870</varequal>
+          </conditionvar>
+          <setvar varname="SCORE" action="Add">33.33</setvar>
+        </respcondition>
+        <respcondition>
+          <conditionvar>
+            <varequal respident="response_required">6672</varequal>
+          </conditionvar>
+          <setvar varname="SCORE" action="Add">33.33</setvar>
+        </respcondition>
+        <respcondition>
+          <conditionvar>
+            <varequal respident="response_code">6082</varequal>
+          </conditionvar>
+          <setvar varname="SCORE" action="Add">33.33</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="ga80d91bd646a1db637a808171296f07f" title="Pattern">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>599,7630,3453,2644</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What is the purpose of the &lt;code&gt;pattern&lt;/code&gt; attribute in an HTML form element?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="599">
+              <material>
+                <mattext texttype="text/plain">To define a regular expression that the input field's value must match for the form to be valid.</mattext>
+              </material>
+            </response_label>
+            <response_label ident="7630">
+              <material>
+                <mattext texttype="text/plain">To specify the minimum number of characters required in an input field.</mattext>
+              </material>
+            </response_label>
+            <response_label ident="3453">
+              <material>
+                <mattext texttype="text/plain">To automatically fill the input field with a specific value.</mattext>
+              </material>
+            </response_label>
+            <response_label ident="2644">
+              <material>
+                <mattext texttype="text/plain">To set a placeholder text that disappears when the user starts typing.</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">599</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="g78846a1ce018887950d9b7b75136a1b4" title="Template">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>4370,1520,252,3478</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;span&gt;Fill in the blank.&lt;br&gt;&lt;br&gt;The&amp;nbsp;&lt;/span&gt;&lt;strong&gt;&lt;code&gt;__________&lt;/code&gt;&lt;/strong&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;HTML&lt;span&gt;&amp;nbsp;element serves as a mechanism for holding&amp;nbsp;&lt;/span&gt;HTML&lt;span&gt;&amp;nbsp;fragments, which can either be used later via JavaScript or generated immediately into shadow DOM.&lt;/span&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="4370">
+              <material>
+                <mattext texttype="text/plain">&lt;template&gt;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="1520">
+              <material>
+                <mattext texttype="text/plain">&lt;details&gt;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="252">
+              <material>
+                <mattext texttype="text/plain">&lt;frag&gt;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="3478">
+              <material>
+                <mattext texttype="text/plain">&lt;fragment&gt;</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">4370</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+  </objectbank>
+</questestinterop>

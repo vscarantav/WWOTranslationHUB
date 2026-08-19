@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p1/ccv1p1_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="gc6ea87469948d0e2bc4f4e790dbf34b5" title="W04 Learning Activities">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_scoretype</fieldlabel>
+        <fieldentry>Percentage</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      <item ident="g3ff26ad8f3326e536c953d6d26da7fa3" title="FirstClassObjects">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_response.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;What does the fact that functions in JavaScript are first-class objects mean?&lt;br&gt;&lt;em&gt;&lt;strong&gt;Select all statements below that are true.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Multiple">
+            <render_choice>
+              <response_label ident="1391">
+                <material>
+                  <mattext texttype="text/plain">You can store a function in a variable.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="4049">
+                <material>
+                  <mattext texttype="text/plain">You can pass a function as an argument to another function.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="1460">
+                <material>
+                  <mattext texttype="text/plain">A function can return another function as its result.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="6204">
+                <material>
+                  <mattext texttype="text/plain">You can store functions in arrays or objects.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="8774">
+                <material>
+                  <mattext texttype="text/plain">Functions have their own properties and methods.</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <and>
+                <varequal respident="response1">1391</varequal>
+                <varequal respident="response1">4049</varequal>
+                <varequal respident="response1">1460</varequal>
+                <varequal respident="response1">6204</varequal>
+                <varequal respident="response1">8774</varequal>
+              </and>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="gc994423f8700fa4d7d8811d1b71bc66e" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Consider the following JavaScript function:&lt;/p&gt;
+&lt;pre&gt;&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;function&lt;/span&gt; &lt;span class="hljs-title"&gt;mystery&lt;/span&gt;(&lt;span class="hljs-params"&gt;num&lt;/span&gt;) &lt;/span&gt;{&lt;br&gt;  &lt;span class="hljs-keyword"&gt;if&lt;/span&gt; (num &amp;lt;= &lt;span class="hljs-number"&gt;0&lt;/span&gt;) {&lt;br&gt;    &lt;span class="hljs-keyword"&gt;return&lt;/span&gt; &lt;span class="hljs-number"&gt;0&lt;/span&gt;; &lt;br&gt;  } &lt;span class="hljs-keyword"&gt;else&lt;/span&gt; {&lt;br&gt;    &lt;span class="hljs-keyword"&gt;return&lt;/span&gt; num + mystery(num - &lt;span class="hljs-number"&gt;1&lt;/span&gt;); &lt;br&gt;  } &lt;br&gt;}&lt;/pre&gt;
+&lt;p&gt;What is the output of the function call:&amp;nbsp; &amp;nbsp;&lt;code&gt;mystery(5)&lt;/code&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Add a debugger inside the if blocks to follow this if it doesn't make sense to you.&amp;nbsp;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="2606">
+                <material>
+                  <mattext texttype="text/plain">15</mattext>
+                </material>
+              </response_label>
+              <response_label ident="3231">
+                <material>
+                  <mattext texttype="text/plain">0</mattext>
+                </material>
+              </response_label>
+              <response_label ident="5195">
+                <material>
+                  <mattext texttype="text/plain">6</mattext>
+                </material>
+              </response_label>
+              <response_label ident="9871">
+                <material>
+                  <mattext texttype="text/plain">10</mattext>
+                </material>
+              </response_label>
+              <response_label ident="433">
+                <material>
+                  <mattext texttype="text/plain">3</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">2606</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="g9d1596e7f9bddf0c1c58bb5488d7408b" title="Call Stack">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;What is the output of this code?&lt;/p&gt;
+&lt;pre&gt;&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;function&lt;/span&gt; &lt;span class="hljs-title"&gt;processData&lt;/span&gt;(&lt;span class="hljs-params"&gt;data, successCallback, errorCallback&lt;/span&gt;) &lt;/span&gt;{&lt;br&gt;  &lt;span class="hljs-keyword"&gt;if&lt;/span&gt; (data !== &lt;span class="hljs-literal"&gt;null&lt;/span&gt;) {&lt;br&gt;    &lt;span class="hljs-comment"&gt;// Process the data (simulated)&lt;br&gt;&lt;/span&gt;    &lt;span class="hljs-keyword"&gt;let&lt;/span&gt; processedResult = data * &lt;span class="hljs-number"&gt;2&lt;/span&gt;;&lt;br&gt;    successCallback(processedResult);&lt;br&gt;  } &lt;span class="hljs-keyword"&gt;else&lt;/span&gt; { &lt;br&gt;&lt;span class="hljs-keyword"&gt;    let&lt;/span&gt; errorMessage = &lt;span class="hljs-string"&gt;"Invalid data!"&lt;/span&gt;;&lt;br&gt;    errorCallback(errorMessage);&lt;br&gt;  }&lt;br&gt;}&lt;br&gt;&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;&lt;br&gt;function&lt;/span&gt; &lt;span class="hljs-title"&gt;handleSuccess&lt;/span&gt;(&lt;span class="hljs-params"&gt;result&lt;/span&gt;) &lt;/span&gt;{&lt;br&gt;  &lt;span class="hljs-built_in"&gt;console&lt;/span&gt;.log(&lt;span class="hljs-string"&gt;"Success! Result:"&lt;/span&gt;, result);&lt;br&gt;}&lt;br&gt;&lt;br&gt;&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;function&lt;/span&gt; &lt;span class="hljs-title"&gt;handleError&lt;/span&gt;(&lt;span class="hljs-params"&gt;error&lt;/span&gt;) &lt;/span&gt;{&lt;br&gt;  &lt;span class="hljs-built_in"&gt;console&lt;/span&gt;.error(&lt;span class="hljs-string"&gt;"Error:"&lt;/span&gt;, error);&lt;br&gt;}&lt;br&gt;&lt;br&gt;processData(&lt;span class="hljs-number"&gt;5&lt;/span&gt;, handleSuccess, handleError);&lt;/pre&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="5433">
+                <material>
+                  <mattext texttype="text/plain">Success! Result: 10</mattext>
+                </material>
+              </response_label>
+              <response_label ident="4903">
+                <material>
+                  <mattext texttype="text/plain">Error: Invalid data!</mattext>
+                </material>
+              </response_label>
+              <response_label ident="7894">
+                <material>
+                  <mattext texttype="text/plain">Success! Result: null</mattext>
+                </material>
+              </response_label>
+              <response_label ident="4065">
+                <material>
+                  <mattext texttype="text/plain">Success! Result: 5</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">5433</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ge4c611429aaeb723ab89a453e0b7051a" title="Call Stack (2)">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;What is the output of the following code?&lt;/p&gt;
+&lt;pre&gt;&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;function&lt;/span&gt; &lt;span class="hljs-title"&gt;outerFunction&lt;/span&gt;(&lt;span class="hljs-params"&gt;x&lt;/span&gt;) &lt;/span&gt;{&lt;br&gt;  &lt;span class="hljs-keyword"&gt;let&lt;/span&gt; innerVar = x * &lt;span class="hljs-number"&gt;2&lt;/span&gt;;&lt;br&gt;  &lt;br&gt;&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;  function&lt;/span&gt; &lt;span class="hljs-title"&gt;innerFunction&lt;/span&gt;(&lt;span class="hljs-params"&gt;y&lt;/span&gt;) &lt;/span&gt;{&lt;br&gt;    &lt;span class="hljs-keyword"&gt;return&lt;/span&gt; innerVar + y;&lt;br&gt;  }&lt;br&gt;&lt;br&gt;  &lt;span class="hljs-keyword"&gt;return&lt;/span&gt; innerFunction;&lt;br&gt;}&lt;br&gt;&lt;br&gt;&lt;span class="hljs-keyword"&gt;let&lt;/span&gt; closure = outerFunction(&lt;span class="hljs-number"&gt;5&lt;/span&gt;);&lt;br&gt;&lt;span class="hljs-built_in"&gt;console&lt;/span&gt;.log(closure(&lt;span class="hljs-number"&gt;3&lt;/span&gt;));&lt;/pre&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="3474">
+                <material>
+                  <mattext texttype="text/plain">13</mattext>
+                </material>
+              </response_label>
+              <response_label ident="412">
+                <material>
+                  <mattext texttype="text/plain">5</mattext>
+                </material>
+              </response_label>
+              <response_label ident="3934">
+                <material>
+                  <mattext texttype="text/plain">3</mattext>
+                </material>
+              </response_label>
+              <response_label ident="8133">
+                <material>
+                  <mattext texttype="text/plain">8</mattext>
+                </material>
+              </response_label>
+              <response_label ident="5734">
+                <material>
+                  <mattext texttype="text/plain">ReferenceError: innerVar is not defined</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">3474</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="g812bd83d926497b302462c14b38fd7aa" title="Hoisting">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Given this code snippet,&amp;nbsp;&lt;/p&gt;
+&lt;pre&gt;testFunction();&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;br&gt;function testFunction() {&lt;br&gt;&amp;nbsp; console.log("Testing");&lt;br&gt;}&lt;/pre&gt;
+&lt;p&gt;Which of the following would be logged to the console?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="1479">
+                <material>
+                  <mattext texttype="text/plain">Testing</mattext>
+                </material>
+              </response_label>
+              <response_label ident="9723">
+                <material>
+                  <mattext texttype="text/plain">undefined</mattext>
+                </material>
+              </response_label>
+              <response_label ident="8427">
+                <material>
+                  <mattext texttype="text/plain">ReferenceError: Cannot access 'testFunction' before initialization</mattext>
+                </material>
+              </response_label>
+              <response_label ident="3517">
+                <material>
+                  <mattext texttype="text/plain">TypeError: testFunction is not a function</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">1479</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="gbcd56f081d4e146bff126611e21374bb" title="Nested CSS">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;In modern CSS nesting, which symbol is used inside a nested rule to refer directly to the parent selector?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="7380">
+                <material>
+                  <mattext texttype="text/plain">&amp;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="4283">
+                <material>
+                  <mattext texttype="text/plain">$</mattext>
+                </material>
+              </response_label>
+              <response_label ident="7308">
+                <material>
+                  <mattext texttype="text/plain">^</mattext>
+                </material>
+              </response_label>
+              <response_label ident="1888">
+                <material>
+                  <mattext texttype="text/plain">🪺</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">7380</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="g9b711011f8d901bb277f9251bf9d12ad" title="Nested CSS">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.fib.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Given the following nested CSS, what is the equivalent standard CSS selector that is generated for the &lt;strong&gt;hover &lt;/strong&gt;state?&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 10pt;"&gt;&lt;em&gt;Do not include any notation like { :&lt;br&gt;Just write the selector using standard CSS selector subject notation.&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;pre&gt;article {&lt;br&gt;&amp;nbsp; color: black;&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;amp; a {&lt;br&gt;&amp;nbsp; &amp;nbsp; color: blue;&lt;br&gt;&amp;nbsp; }&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;amp;:hover {&lt;br&gt;&amp;nbsp; &amp;nbsp; color: red;&lt;br&gt;&amp;nbsp; }&lt;br&gt;}&lt;/pre&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_str ident="response1" rcardinality="Single">
+            <render_fib>
+              <response_label ident="answer1" rshuffle="No"/>
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">article:hover</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="gb7e423ce44706c13f36a1d03a34e1e32" title="nested media queries">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Which of the following statements accurately describes how media queries (&lt;code&gt;@media&lt;/code&gt;) can be used with modern CSS nesting?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="6490">
+                <material>
+                  <mattext texttype="text/plain">Media queries can be nested directly inside a style rule to apply styles to that parent selector under specific conditions.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="4293">
+                <material>
+                  <mattext texttype="text/plain">Nesting media queries is only possible when using CSS preprocessors like Sass, not in native CSS.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="6444">
+                <material>
+                  <mattext texttype="text/plain">Media queries must use the &amp; symbol to be nested correctly (e.g., &amp; @media (...)).</mattext>
+                </material>
+              </response_label>
+              <response_label ident="1217">
+                <material>
+                  <mattext texttype="text/plain">Media queries cannot be nested inside a style rule and must always wrap the entire selector block.</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">6490</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="gf71b7ed34da9558b37489f73cf35d57f" title="CSS Transition">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;A developer wants a button to smoothly fade out when a &lt;code&gt;.hidden&lt;/code&gt; class is added to it. Why is a &lt;code&gt;transition&lt;/code&gt; a more direct and simpler solution for this specific scenario compared to an &lt;code&gt;animation&lt;/code&gt;?&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="5179">
+                <material>
+                  <mattext texttype="text/plain">The task involves a simple, one-way change from a starting state (visible) to an ending state (hidden), which is the exact purpose of a transition.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="2889">
+                <material>
+                  <mattext texttype="text/plain">Animations cannot change the opacity property.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="196">
+                <material>
+                  <mattext texttype="text/plain">Animations require a state change (like :hover or adding a class) to begin, while transitions do not.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="6991">
+                <material>
+                  <mattext texttype="text/plain">Using animation would require at least three keyframe steps (0%, 50%, 100%) to work correctly.</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">5179</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="g72fdf8d8537e7216e925325924f51dc1" title="CSS @keyframe">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;A UI designer wants to create a loading spinner that consists of a single &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element. The desired animation is for the div to rotate a full 360 degrees continuously. The animation should take exactly 1.5 seconds to complete one full rotation and should loop forever.&lt;/p&gt;
+&lt;p&gt;Which of the following CSS snippets will correctly create and apply this continuous spinning animation to the &lt;code&gt;.spinner&lt;/code&gt; class?&lt;/p&gt;
+&lt;p&gt;A)&lt;/p&gt;
+&lt;pre&gt;@keyframes spin {&lt;br&gt;&amp;nbsp; from { transform: rotate(0deg); }&lt;br&gt;&amp;nbsp; to { transform: rotate(180deg); }&lt;br&gt;}&lt;br&gt;&lt;br&gt;.spinner {&lt;br&gt;&amp;nbsp; animation: spin 1.5s infinite;&lt;br&gt;}&lt;/pre&gt;
+&lt;p&gt;B)&lt;/p&gt;
+&lt;pre&gt;.spinner {&lt;br&gt;&amp;nbsp; transition: transform 1.5s linear;&lt;br&gt;}&lt;br&gt;&lt;br&gt;.spinner:active {&lt;br&gt;&amp;nbsp; transform: rotate(360deg);&lt;br&gt;}&lt;/pre&gt;
+&lt;p&gt;C)&lt;/p&gt;
+&lt;pre&gt;@keyframes spin {&lt;br&gt;&amp;nbsp; to { transform: rotate(360deg); }&lt;br&gt;}&lt;br&gt;&lt;br&gt;.spinner {&lt;br&gt;&amp;nbsp; animation-name: spin;&lt;br&gt;&amp;nbsp; animation-duration: 1.5s;&lt;br&gt;}&lt;/pre&gt;
+&lt;p&gt;D)&lt;/p&gt;
+&lt;pre&gt;@keyframes spin {&lt;br&gt;&amp;nbsp; from { transform: rotate(0deg); }&lt;br&gt;&amp;nbsp; to { transform: rotate(360deg); }&lt;br&gt;}&lt;br&gt;&lt;br&gt;.spinner {&lt;br&gt;&amp;nbsp; animation: spin 1.5s linear infinite;&lt;br&gt;}&lt;/pre&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="541">
+                <material>
+                  <mattext texttype="text/plain">D</mattext>
+                </material>
+              </response_label>
+              <response_label ident="2993">
+                <material>
+                  <mattext texttype="text/plain">A</mattext>
+                </material>
+              </response_label>
+              <response_label ident="7086">
+                <material>
+                  <mattext texttype="text/plain">C</mattext>
+                </material>
+              </response_label>
+              <response_label ident="7225">
+                <material>
+                  <mattext texttype="text/plain">B</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">541</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

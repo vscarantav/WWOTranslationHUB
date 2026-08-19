@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assignmentGroups xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <assignmentGroup identifier="g21479583fa4d29e6b25a71caec6172d9">
+    <title>Assignments</title>
+    <position>1</position>
+    <group_weight>40.0</group_weight>
+  </assignmentGroup>
+  <assignmentGroup identifier="g6a8234d330eb3f8f24d3905120edb2b9">
+    <title>Student Development</title>
+    <position>2</position>
+    <group_weight>60.0</group_weight>
+  </assignmentGroup>
+  <assignmentGroup identifier="gedaf85533cb8957185ff597034b15dfc">
+    <title>Survey Assignments</title>
+    <position>3</position>
+    <group_weight>0.0</group_weight>
+  </assignmentGroup>
+  <assignmentGroup identifier="ge1523ba95b882eeee6fdb0874f638a80">
+    <title>Imported Assignments</title>
+    <position>4</position>
+    <group_weight>0.0</group_weight>
+  </assignmentGroup>
+</assignmentGroups>

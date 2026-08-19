@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <objectbank ident="g56797354c45c5af58e455a60f4aafd66">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>bank_title</fieldlabel>
+        <fieldentry>JavaScript Basics</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_type</fieldlabel>
+        <fieldentry>Course</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_context_uuid</fieldlabel>
+        <fieldentry>GiIC9LIjJSPRR8sCu6BXMvk9cRq43CQjx5LVKR6F</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_state</fieldlabel>
+        <fieldentry>active</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <item ident="ge63c7885371099683ed1829dc9be3371" title="DOM Selection">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>740,4464,1682,7159</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Given this basic HTML:&lt;/p&gt;
+&lt;pre&gt;&amp;lt;html&amp;gt;&lt;br&gt;&amp;lt;body&amp;gt;&lt;br&gt;&amp;nbsp; &amp;lt;div&amp;gt;Users:&amp;lt;/div&amp;gt;&lt;br&gt;&amp;nbsp; &amp;lt;ul&amp;gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;lt;li&amp;gt;John&amp;lt;/li&amp;gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;lt;li&amp;gt;Pete&amp;lt;/li&amp;gt;&lt;br&gt;&amp;nbsp; &amp;lt;/ul&amp;gt;&lt;br&gt;&amp;lt;/body&amp;gt;&lt;br&gt;&amp;lt;/html&amp;gt;&lt;/pre&gt;
+&lt;p&gt;Which of the following is NOT a way that could be used to select the &lt;code&gt;div&lt;/code&gt; DOM node?&lt;/p&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="740">
+              <material>
+                <mattext texttype="text/plain">document.getElementById('users');</mattext>
+              </material>
+            </response_label>
+            <response_label ident="4464">
+              <material>
+                <mattext texttype="text/plain">document.querySelector('div');</mattext>
+              </material>
+            </response_label>
+            <response_label ident="1682">
+              <material>
+                <mattext texttype="text/plain">document.querySelector('body &gt; div');</mattext>
+              </material>
+            </response_label>
+            <response_label ident="7159">
+              <material>
+                <mattext texttype="text/plain">document.body.firstElementChild</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">740</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="g109814b96041886787e08892cb087601" title="Fetch">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>2607,2207,4278,1179</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;span&gt;Fetch is the modern replacement for_________________&lt;/span&gt;&lt;span&gt;, which uses callbacks.&lt;br&gt;Fetch is promise-based and is integrated with features of the modern web such as service workers and CORS.&lt;/span&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="2607">
+              <material>
+                <mattext texttype="text/plain">XMLHttpRequest</mattext>
+              </material>
+            </response_label>
+            <response_label ident="2207">
+              <material>
+                <mattext texttype="text/plain">jQuery.ajax()</mattext>
+              </material>
+            </response_label>
+            <response_label ident="4278">
+              <material>
+                <mattext texttype="text/plain">RequestInt</mattext>
+              </material>
+            </response_label>
+            <response_label ident="1179">
+              <material>
+                <mattext texttype="text/plain">WebSockets</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">2607</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="gc994423f8700fa4d7d8811d1b71bc66e" title="Question">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>2606,3231,5195,9871,433</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Consider the following JavaScript function:&lt;/p&gt;
+&lt;pre&gt;&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;function&lt;/span&gt; &lt;span class="hljs-title"&gt;mystery&lt;/span&gt;(&lt;span class="hljs-params"&gt;num&lt;/span&gt;) &lt;/span&gt;{&lt;br&gt;  &lt;span class="hljs-keyword"&gt;if&lt;/span&gt; (num &amp;lt;= &lt;span class="hljs-number"&gt;0&lt;/span&gt;) {&lt;br&gt;    &lt;span class="hljs-keyword"&gt;return&lt;/span&gt; &lt;span class="hljs-number"&gt;0&lt;/span&gt;; &lt;br&gt;  } &lt;span class="hljs-keyword"&gt;else&lt;/span&gt; {&lt;br&gt;    &lt;span class="hljs-keyword"&gt;return&lt;/span&gt; num + mystery(num - &lt;span class="hljs-number"&gt;1&lt;/span&gt;); &lt;br&gt;  } &lt;br&gt;}&lt;/pre&gt;
+&lt;p&gt;What is the output of &lt;code&gt;mystery(5)&lt;/code&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Add a debugger inside the if blocks to follow this if it doesn't make sense to you.&amp;nbsp;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="2606">
+              <material>
+                <mattext texttype="text/plain">15</mattext>
+              </material>
+            </response_label>
+            <response_label ident="3231">
+              <material>
+                <mattext texttype="text/plain">0</mattext>
+              </material>
+            </response_label>
+            <response_label ident="5195">
+              <material>
+                <mattext texttype="text/plain">6</mattext>
+              </material>
+            </response_label>
+            <response_label ident="9871">
+              <material>
+                <mattext texttype="text/plain">10</mattext>
+              </material>
+            </response_label>
+            <response_label ident="433">
+              <material>
+                <mattext texttype="text/plain">3</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">2606</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="g3ff26ad8f3326e536c953d6d26da7fa3" title="Question 2">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_answers_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>1391,4049,1460,6204,8774</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;What does the fact that functions in JavaScript are first-class objects mean?&lt;br&gt;&lt;em&gt;&lt;strong&gt;Select all statements below that are true.&lt;/strong&gt;&lt;/em&gt;&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Multiple">
+          <render_choice>
+            <response_label ident="1391">
+              <material>
+                <mattext texttype="text/plain">You can store a function in a variable just like you would store a number.</mattext>
+              </material>
+            </response_label>
+            <response_label ident="4049">
+              <material>
+                <mattext texttype="text/plain">You can pass a function as an argument to another function.</mattext>
+              </material>
+            </response_label>
+            <response_label ident="1460">
+              <material>
+                <mattext texttype="text/plain">A function can return another function as its result.</mattext>
+              </material>
+            </response_label>
+            <response_label ident="6204">
+              <material>
+                <mattext texttype="text/plain">You can store functions in arrays or objects.</mattext>
+              </material>
+            </response_label>
+            <response_label ident="8774">
+              <material>
+                <mattext texttype="text/plain">Functions have their own properties and methods.</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <and>
+              <varequal respident="response1">1391</varequal>
+              <varequal respident="response1">4049</varequal>
+              <varequal respident="response1">1460</varequal>
+              <varequal respident="response1">6204</varequal>
+              <varequal respident="response1">8774</varequal>
+            </and>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+  </objectbank>
+</questestinterop>
