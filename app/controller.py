@@ -166,9 +166,9 @@ class TranslationController:
             self._log(f"Skipping ignored system file: {filepath}")
             return
             
-        if "setup-notes" in target_filepath.lower():
-            self._log(f"Skipping setup notes page: {filepath}")
-            return
+        is_setup_notes = "setup-notes" in target_filepath.lower()
+        if is_setup_notes:
+            self._log(f"Applying custom translation rules for setup notes page: {filepath}")
 
         bot = self.bots.get(ext)
         if not bot:
@@ -234,7 +234,22 @@ class TranslationController:
         elif ext == "txt":
             translated_content = bot.translate_txt_content(original_content, relevant_glossary, relevant_scriptures)
         else:
-            translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
+            if is_setup_notes and hasattr(bot, 'set_system_prompt'):
+                original_prompt = bot.system_prompt
+                custom_prompt = (
+                    f"You are an expert HTML translator. For this specific 'setup notes' page, you must translate ONLY the text inside the table cells (<td> and <th> tags). "
+                    f"Do NOT translate any headers, titles, or paragraphs outside the tables. "
+                    f"Furthermore, instead of replacing the English text in the table cells, you must APPEND the {self.target_language} translation after the English text, separated by ' / ' (e.g., 'Modules / Módulos', 'Due / Prazo de entrega: Day/Dia', 'Available From / Disponível a partir de: N/A'). "
+                    f"Keep 'N/A' as is, and translate variables like 'Day' to 'Dia' etc. "
+                    f"Do not modify tags or layout. Output strictly the HTML block."
+                )
+                bot.set_system_prompt(custom_prompt)
+                try:
+                    translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
+                finally:
+                    bot.set_system_prompt(original_prompt)
+            else:
+                translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
         
         translated_content = self.link_processor.rewrite_church_links(translated_content)
         
@@ -300,6 +315,7 @@ class TranslationController:
             "Go to Course Settings > Feature Options and DISABLE 'Improved Rubrics' (Rubricas melhoradas / Rúbricas mejoradas).",
             "Go to Gradebook Settings > Late Policies, check 'Automatically apply grade for missing submissions', and set it to 0%.",
             "Remind Jenn Hunter to check the Setup Page.",
+            "In Settings, add the Tutoring link to the Sidebar.",
             "Review the Translation Dashboard Report (in the Reports folder) for any warnings or untranslated items."
         ]
         

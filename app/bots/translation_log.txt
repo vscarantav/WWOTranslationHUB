@@ -736,3 +736,5 @@
 [2026-08-17 15:53:36] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\teaching-notes-and-outreach.html
 [2026-08-17 15:53:36] Translation complete for this file.
 [2026-08-17 15:53:36] [System] TranslatedPage: Teaching Notes and Outreach | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Courses to Translate\web-frontend-development-ii-english-master-export_PTBR\wiki_content\teaching-notes-and-outreach.html
+[2026-08-18 16:07:35] [HTMLBot] WARNING: No API key provided. Returning original content.
+[2026-08-18 16:07:53] [HTMLBot] Error during translation: No module named 'bots'

@@ -57,6 +57,18 @@ class CourseTranslationHubUI:
         self.root.title("Course Translation Hub")
         self.root.geometry("850x700")
         
+        # Check for Canvas API Token
+        if not os.getenv("CANVAS_API_TOKEN"):
+            token = simpledialog.askstring("Canvas API Token Missing", 
+                                           "Your .env file is missing the Canvas token.\nPlease enter your CANVAS_API_TOKEN:")
+            if token:
+                os.environ["CANVAS_API_TOKEN"] = token
+                with open(env_path, 'a', encoding='utf-8') as f:
+                    # Ensure it starts on a new line
+                    f.write(f"\nCANVAS_API_TOKEN={token}\n")
+            else:
+                messagebox.showwarning("Warning", "Canvas API Token not provided. Some features (like group migration) will not work.")
+        
         self.app_dir = os.path.dirname(os.path.abspath(__file__))
         self.hub_dir = os.path.dirname(self.app_dir)
         
@@ -199,12 +211,12 @@ class CourseTranslationHubUI:
 
                 while True:
                     course_url = simpledialog.askstring(
-                        "Target Course Required", 
-                        f"Enter the full Canvas Target Course URL for:\n{os.path.basename(p)}\n(e.g., https://byui.instructure.com/courses/12345)",
+                        "PT Master URL Required", 
+                        f"Enter the full Canvas PT Master URL for:\n{os.path.basename(p)}\n(e.g., https://byui.instructure.com/courses/12345)",
                         parent=self.root
                     )
                     if not course_url:
-                        messagebox.showerror("Cancelled", "Translation cancelled. Target course URL is required.")
+                        messagebox.showerror("Cancelled", "Translation cancelled. PT Master URL is required.")
                         self.enable_buttons()
                         return
                     
@@ -373,6 +385,7 @@ class CourseTranslationHubUI:
             "Go to Course Settings > Feature Options and DISABLE 'Improved Rubrics'.",
             "Go to Gradebook Settings > Late Policies, check 'Automatically apply grade for missing submissions', and set it to 0%.",
             "Remind Jenn Hunter to check the Setup Page.",
+            "In Settings, add the Tutoring link to the Sidebar.",
             "Review the Translation Dashboard Report (in the Reports folder) for any warnings or untranslated items."
         ]
 
