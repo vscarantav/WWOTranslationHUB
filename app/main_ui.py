@@ -109,16 +109,6 @@ class CourseTranslationHubUI:
         self.edtech_btn = ttk.Button(self.edtech_frame, text="Scrape & Translate Book", command=self.run_edtech)
         self.edtech_btn.pack(side="right", padx=10, pady=5)
         
-        # Post-Translation Checklist
-        self.checklist_frame = ttk.Frame(self.edtech_frame)
-        self.checklist_frame.pack(side="left", padx=20, pady=5)
-        ttk.Label(self.checklist_frame, text="Post-Translation Checklist:").pack(anchor="w")
-        
-        self.check_cover = tk.BooleanVar()
-        self.check_css = tk.BooleanVar()
-        ttk.Checkbutton(self.checklist_frame, text="Add Cover Image", variable=self.check_cover).pack(anchor="w")
-        ttk.Checkbutton(self.checklist_frame, text="Add CSS in book settings", variable=self.check_css).pack(anchor="w")
-
         # Audit Section
         self.audit_frame = ttk.LabelFrame(self.top_frame, text="Quality Assurance Audit", padding="10")
         self.audit_frame.pack(fill="x", pady=10)
@@ -221,6 +211,7 @@ class CourseTranslationHubUI:
                 bot.run_injection()
                 
                 print("\n--- EdTech Master Translator Complete ---")
+                self.root.after(0, self._show_edtech_checklist_dialog)
             except Exception as e:
                 print(f"Error in EdTech process: {e}")
             finally:
@@ -481,6 +472,49 @@ class CourseTranslationHubUI:
                 if not messagebox.askyesno("Incomplete Checklist", f"You have {len(unchecked)} unchecked item(s). Close anyway?", parent=dialog):
                     return
             print("🎉 All post-translation steps reviewed!")
+            dialog.destroy()
+
+        ttk.Button(dialog, text="Done", command=on_done).pack(pady=15)
+        dialog.protocol("WM_DELETE_CLOSE", on_done)
+
+    def _show_edtech_checklist_dialog(self):
+        """Phase 4: Post-translation checklist presented as a UI dialog for EdTech."""
+        dialog = tk.Toplevel(self.root)
+        dialog.title("EdTech Post-Translation Checklist")
+        dialog_width = 400
+        dialog_height = 250
+        screen_width = dialog.winfo_screenwidth()
+        screen_height = dialog.winfo_screenheight()
+        x = int((screen_width - dialog_width) / 2)
+        y = int((screen_height - dialog_height) / 2)
+        dialog.geometry(f"{dialog_width}x{dialog_height}+{x}+{y}")
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        ttk.Label(dialog, text="EdTech Translation Complete!", font=("Helvetica", 14, "bold")).pack(pady=(15, 5))
+        ttk.Label(dialog, text="Please complete these manual steps:").pack(pady=(0, 10), padx=15)
+
+        checklist_items = [
+            "Add Cover Image",
+            "Add CSS in book settings"
+        ]
+
+        check_vars = []
+        checks_frame = ttk.Frame(dialog)
+        checks_frame.pack(fill="both", expand=True, padx=15, pady=5)
+
+        for item in checklist_items:
+            var = tk.BooleanVar()
+            check_vars.append(var)
+            cb = tk.Checkbutton(checks_frame, text=item, variable=var, wraplength=350, justify="left")
+            cb.pack(anchor="w", pady=3)
+
+        def on_done():
+            unchecked = [checklist_items[i] for i, v in enumerate(check_vars) if not v.get()]
+            if unchecked:
+                if not messagebox.askyesno("Incomplete Checklist", f"You have {len(unchecked)} unchecked item(s). Close anyway?", parent=dialog):
+                    return
+            print("🎉 All EdTech post-translation steps reviewed!")
             dialog.destroy()
 
         ttk.Button(dialog, text="Done", command=on_done).pack(pady=15)

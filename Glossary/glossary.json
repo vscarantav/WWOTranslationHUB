@@ -3398,5 +3398,13 @@
     "Web Application": {
         "PTBR": "Aplicação Web",
         "SPA": "Aplicación Web"
+    },
+    "Web application": {
+        "PTBR": "Aplicação web",
+        "SPA": "Aplicación web"
+    },
+    "Software application": {
+        "PTBR": "Aplicação de software",
+        "SPA": "Aplicación de software"
     }
 }
