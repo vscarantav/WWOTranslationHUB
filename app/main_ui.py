@@ -86,7 +86,7 @@ class CourseTranslationHubUI:
         self.title_label.pack(pady=10)
 
         # Translation Section
-        self.trans_frame = ttk.LabelFrame(self.top_frame, text="Translation Process", padding="10")
+        self.trans_frame = ttk.LabelFrame(self.top_frame, text="Canvas IMSCC file Translation", padding="10")
         self.trans_frame.pack(fill="x", pady=10)
         
         self.lang_var = tk.StringVar(value="PTBR")
