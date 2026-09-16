@@ -18,6 +18,17 @@ class EdTechScraperBot:
         self.translated_dir = os.path.join(self.workspace_dir, f"raw_html_{self.target_language}")
         os.makedirs(self.raw_dir, exist_ok=True)
 
+    def _launch_anonymous_context(self, playwright):
+        """Launch a fresh, non-persistent browser context with no saved session data."""
+        browser = playwright.chromium.launch(headless=False)
+        context = browser.new_context(no_viewport=True)
+        context.clear_cookies()
+        self.print_callback(
+            "Launched a fresh anonymous browser session. "
+            "Cookies and login state will not be saved."
+        )
+        return browser, context
+
     def _ensure_login(self, page):
         """Ensures the user is logged in by navigating to the base URL and checking the login button."""
         self.print_callback(f"Navigating to base URL for login check: {self.base_url}")
@@ -50,18 +61,11 @@ class EdTechScraperBot:
                     page.evaluate(f'document.querySelector(`{google_btn_selector}`).click()')
                 
                 self.print_callback("Please complete the Google SSO login in the browser...")
-                self.print_callback("Waiting for redirect back to the homepage...")
-                
-                # Wait for the initial redirect to happen (either to an auth endpoint or to Google)
-                try:
-                    # Wait until the URL is definitely NOT the base URL anymore
-                    page.wait_for_function('!window.location.href.endsWith("books.byui.edu/") && !window.location.href.endsWith("books.byui.edu")', timeout=10000)
-                except Exception as e:
-                    self.print_callback("Did not detect immediate URL change, waiting anyway...")
-                
-                # Now that we are off the homepage (on the SSO page), wait until we return to books.byui.edu
-                # The user can take up to 3 minutes to type their password.
-                page.wait_for_function('window.location.href.endsWith("books.byui.edu/") || window.location.href.endsWith("books.byui.edu")', timeout=180000)
+                self.print_callback("Waiting for the EdTech account menu to confirm login...")
+
+                # A successful SSO flow does not always return to the exact homepage URL.
+                # Waiting for the logged-in account control avoids a false three-minute stall.
+                page.wait_for_selector(logged_in_selector, timeout=180000, state="visible")
                 
                 # Wait a moment for the post-login homepage to fully render
                 time.sleep(3)
@@ -75,23 +79,16 @@ class EdTechScraperBot:
         """Extracts all HTML from the book lessons."""
         extracted_files = []
         self.print_callback(f"Starting Playwright for EdTech extraction...")
-        
-        user_data_dir = os.path.join(os.path.dirname(__file__), "playwright_profile")
-        
+
         with sync_playwright() as p:
             self.print_callback("Launching browser. Please log in if prompted...")
-            browser = p.chromium.launch_persistent_context(
-                user_data_dir=user_data_dir,
-                headless=False, 
-                no_viewport=True
-            )
-            
-            page = browser.new_page()
+            browser, context = self._launch_anonymous_context(p)
+            page = context.new_page()
             
             # Ensure logged in before navigating to the specific book URL
             self._ensure_login(page)
             
-            self.print_callback(f"Navigating to Book TOC: {self.book_url}")
+            self.print_callback(f"Navigating to target book shell: {self.book_url}")
             page.goto(self.book_url, timeout=60000)
             
             try:
@@ -159,6 +156,7 @@ class EdTechScraperBot:
                 except Exception as e:
                     self.print_callback(f"Error extracting HTML on {url}: {e}")
                     
+            context.close()
             browser.close()
             
             with open(os.path.join(self.workspace_dir, "edtech_mapping.json"), 'w', encoding='utf-8') as f:
@@ -167,8 +165,8 @@ class EdTechScraperBot:
         return extracted_files
 
     def run_injection(self):
-        """Injects translated HTML back into the book lessons."""
-        self.print_callback(f"Starting Playwright for EdTech injection...")
+        """Inject translated HTML back into the target-language book shell."""
+        self.print_callback("Starting Playwright injection into the target book shell...")
         
         mapping_file = os.path.join(self.workspace_dir, "edtech_mapping.json")
         if not os.path.exists(mapping_file):
@@ -178,15 +176,9 @@ class EdTechScraperBot:
         with open(mapping_file, 'r', encoding='utf-8') as f:
             extracted_files = json.load(f)
             
-        user_data_dir = os.path.join(os.path.dirname(__file__), "playwright_profile")
-        
         with sync_playwright() as p:
-            browser = p.chromium.launch_persistent_context(
-                user_data_dir=user_data_dir,
-                headless=False,
-                no_viewport=True
-            )
-            page = browser.new_page()
+            browser, context = self._launch_anonymous_context(p)
+            page = context.new_page()
             
             # Ensure logged in before injection
             self._ensure_login(page)
@@ -211,7 +203,7 @@ class EdTechScraperBot:
                     translated_html = translated_html[:match.start()] + translated_html[match.end():]
                     translated_html = translated_html.strip()
                 
-                self.print_callback(f"Injecting into: {url}")
+                self.print_callback(f"Injecting translated content into target shell: {url}")
                 page.goto(url)
                 
                 # 1. Click "Edit"
@@ -274,5 +266,6 @@ class EdTechScraperBot:
                 except Exception as e:
                     self.print_callback(f"Error injecting HTML on {url}: {e}")
                     
+            context.close()
             browser.close()
             self.print_callback("Injection complete.")

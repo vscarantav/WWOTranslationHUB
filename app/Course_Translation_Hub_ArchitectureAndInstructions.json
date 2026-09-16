@@ -119,11 +119,11 @@
   "edtech_integration": {
     "entry_point": "main_ui.py (EdTech Master Tab)",
     "workflow": [
-      "The UI prompts the user for the EdTech Book URL and target language.",
-      "Extraction Phase: The EdTechScraperBot launches a Chromium browser via Playwright (using a persistent profile 'playwright_profile' for login sessions). It navigates the book index, clicks the ToggleEditor button for each chapter, and extracts the raw HTML from the code-box.",
+      "Before translation, the user manually copies the English EdTech book into a new target-language shell. The UI presents a blocking checklist asking whether that shell has been created and requiring its books.byui.edu URL. The Hub never asks for or writes to the original English book.",
+      "Extraction Phase: The EdTechScraperBot launches Chromium via Playwright in a fresh non-persistent browser context with no saved cookies or login state. It navigates the target-language shell, which initially contains the copied English content, clicks the ToggleEditor button for each chapter, and extracts the raw HTML from the code-box.",
       "Title Piggybacking: During extraction, the chapter title is scraped and prepended to the raw HTML wrapped in a hidden <div id=\"edtech-meta-title\"> to force the LLM to translate it along with the chapter body.",
       "Translation Phase: The extracted raw HTML files are saved to 'edtech_workspace/raw_html/'. The standard TranslationController is invoked to process the directory. It automatically translates the files into 'edtech_workspace/raw_html_PTBR/' (or corresponding language).",
-      "Injection Phase: The EdTechScraperBot iterates over the original URLs again. For each page, it extracts the translated title from the piggybacked div, strips it from the HTML, injects the translated HTML back into the code-box, repopulates the title field, and automates clicking 'Apply' and 'Save'."
+      "Injection Phase: The EdTechScraperBot iterates over the target shell URLs again. For each page, it extracts the translated title from the piggybacked div, strips it from the HTML, injects the translated HTML back into the target shell's code-box, repopulates the title field, and automates clicking 'Apply' and 'Save'."
     ]
   },
   "pending_implementations": {

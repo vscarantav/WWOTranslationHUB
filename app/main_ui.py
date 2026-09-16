@@ -11,10 +11,32 @@ import shutil
 import re
 import queue
 import json
+from urllib.parse import urlparse
 
 # Import the processors
 from controller import TranslationController
 from course_auditor import CourseAuditor
+
+
+def validate_edtech_shell_details(shell_created, shell_url, target_book_label="PT"):
+    """Validate the blocking EdTech pre-translation checklist."""
+    if shell_created not in {"yes", "no"}:
+        return None, "Please select Yes or No."
+    if shell_created == "no":
+        return None, f"Create the new {target_book_label} book shell before starting translation."
+
+    normalized_url = shell_url.strip().rstrip("/")
+    if not normalized_url:
+        return None, f"Please paste the link to the {target_book_label} shell."
+
+    parsed = urlparse(normalized_url)
+    hostname = (parsed.hostname or "").lower()
+    if parsed.scheme not in {"http", "https"} or hostname != "books.byui.edu":
+        return None, "Enter a full books.byui.edu URL, including https://."
+    if not parsed.path.strip("/"):
+        return None, f"Enter the link to the specific {target_book_label} book shell, not the site homepage."
+
+    return normalized_url, None
 
 class RedirectText:
     def __init__(self, text_ctrl, progress_bar, root):
@@ -106,7 +128,7 @@ class CourseTranslationHubUI:
         ttk.Radiobutton(self.edtech_frame, text="Portuguese (PTBR)", variable=self.edtech_lang_var, value="PTBR").pack(side="left", padx=10)
         ttk.Radiobutton(self.edtech_frame, text="Spanish (SPA)", variable=self.edtech_lang_var, value="SPA").pack(side="left", padx=10)
 
-        self.edtech_btn = ttk.Button(self.edtech_frame, text="Scrape & Translate Book", command=self.run_edtech)
+        self.edtech_btn = ttk.Button(self.edtech_frame, text="Translate Book Shell", command=self.run_edtech)
         self.edtech_btn.pack(side="right", padx=10, pady=5)
         
         # Audit Section
@@ -167,16 +189,117 @@ class CourseTranslationHubUI:
             
         return dest_path
 
+    def _show_edtech_pretranslation_checklist(self, target_book_label):
+        """Confirm the target shell exists and collect its URL before translation."""
+        dialog = tk.Toplevel(self.root)
+        dialog.title("EdTech Pre-Translation Checklist")
+        dialog.resizable(False, False)
+        dialog.transient(self.root)
+
+        dialog_width = 620
+        dialog_height = 330
+        screen_width = dialog.winfo_screenwidth()
+        screen_height = dialog.winfo_screenheight()
+        x = int((screen_width - dialog_width) / 2)
+        y = int((screen_height - dialog_height) / 2)
+        dialog.geometry(f"{dialog_width}x{dialog_height}+{x}+{y}")
+
+        result = {"url": None}
+        shell_created_var = tk.StringVar(value="")
+        shell_url_var = tk.StringVar(value="")
+
+        ttk.Label(
+            dialog,
+            text="EdTech Pre-Translation Checklist",
+            font=("Helvetica", 14, "bold")
+        ).pack(pady=(18, 12))
+
+        question_frame = ttk.LabelFrame(dialog, padding="10")
+        question_frame.pack(fill="x", padx=18, pady=5)
+        ttk.Label(
+            question_frame,
+            text=f"Have you created the new shell for the {target_book_label} book?"
+        ).pack(anchor="w")
+
+        answers_frame = ttk.Frame(question_frame)
+        answers_frame.pack(anchor="w", pady=(6, 0))
+        ttk.Radiobutton(
+            answers_frame,
+            text="Yes",
+            variable=shell_created_var,
+            value="yes"
+        ).pack(side="left", padx=(0, 20))
+        ttk.Radiobutton(
+            answers_frame,
+            text="No",
+            variable=shell_created_var,
+            value="no"
+        ).pack(side="left")
+
+        url_frame = ttk.Frame(dialog)
+        url_frame.pack(fill="x", padx=18, pady=(12, 5))
+        ttk.Label(
+            url_frame,
+            text=f"Please paste the link to the {target_book_label} shell here:"
+        ).pack(anchor="w")
+        shell_url_entry = ttk.Entry(url_frame, textvariable=shell_url_var, width=80)
+        shell_url_entry.pack(fill="x", pady=(5, 0))
+
+        ttk.Label(
+            dialog,
+            text=(
+                "The Hub will translate the English content already copied into this shell "
+                "and save the translated content back into the same shell."
+            ),
+            foreground="#9C2F00",
+            wraplength=570,
+            justify="left"
+        ).pack(anchor="w", padx=18, pady=(8, 5))
+
+        def start_translation():
+            shell_url, error = validate_edtech_shell_details(
+                shell_created_var.get(),
+                shell_url_var.get(),
+                target_book_label
+            )
+            if error:
+                messagebox.showerror("Checklist Incomplete", error, parent=dialog)
+                return
+            result["url"] = shell_url
+            dialog.destroy()
+
+        buttons_frame = ttk.Frame(dialog)
+        buttons_frame.pack(side="bottom", fill="x", padx=18, pady=15)
+        ttk.Button(buttons_frame, text="Cancel", command=dialog.destroy).pack(side="right", padx=(8, 0))
+        ttk.Button(
+            buttons_frame,
+            text="Start Translation",
+            command=start_translation
+        ).pack(side="right")
+
+        dialog.protocol("WM_DELETE_WINDOW", dialog.destroy)
+        dialog.bind("<Return>", lambda _event: start_translation())
+        dialog.wait_visibility()
+        dialog.grab_set()
+        shell_url_entry.focus_set()
+        self.root.wait_window(dialog)
+        return result["url"]
+
     def run_edtech(self):
-        url = simpledialog.askstring("EdTech URL", "Enter the Table of Contents URL for the EdTech book:")
-        if not url:
-            return
-            
         lang = self.edtech_lang_var.get()
+        target_book_label = {
+            "PTBR": "PT",
+            "SPA": "Spanish"
+        }.get(lang, lang)
+        target_shell_url = self._show_edtech_pretranslation_checklist(target_book_label)
+        if not target_shell_url:
+            return
+
         self.disable_buttons()
         print(f"\n--- Starting EdTech Master Translator ---")
         print(f"Target Language: {lang}")
-        print(f"Book URL: {url}")
+        print(f"Target {target_book_label} Book Shell: {target_shell_url}")
+        print("Translated content will be saved back into this target shell.")
         
         def process():
             try:
@@ -184,8 +307,8 @@ class CourseTranslationHubUI:
                 workspace = os.path.join(self.hub_dir, "edtech_workspace")
                 os.makedirs(workspace, exist_ok=True)
                 
-                # 1. Extract
-                bot = EdTechScraperBot(url, lang, workspace, print_callback=print)
+                # 1. Extract the copied English content from the target-language shell
+                bot = EdTechScraperBot(target_shell_url, lang, workspace, print_callback=print)
                 extracted = bot.run_extraction()
                 
                 if not extracted:
