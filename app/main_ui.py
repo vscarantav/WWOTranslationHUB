@@ -534,21 +534,11 @@ class CourseTranslationHubUI:
         os.makedirs(workspace, exist_ok=True)
         bot = EdTechScraperBot(target_shell_url, lang, workspace, print_callback=print)
         resumable_pages = bot.load_resumable_injection()
-        resume_injection = False
-        if resumable_pages:
-            resume_injection = messagebox.askyesno(
-                "Resume EdTech Injection?",
-                f"Found {len(resumable_pages)} completed translated pages for this exact "
-                "EdTech book.\n\nResume the controlled injection without extracting or "
-                "translating the book again?",
-                parent=self.root,
-            )
-
-        action_stepper = EdTechInjectionStepper(self.root)
+        resume_injection = bool(resumable_pages)
         if resume_injection:
-            action_stepper.page_var.set("Ready to resume saved translation injection")
-            action_stepper.status_var.set(
-                "The completed translation will be reused. NEXT will begin browser injection."
+            print(
+                f"[EdTech] Automatically resuming {len(resumable_pages)} verified "
+                "translated page(s) for this exact book."
             )
         
         def process():
@@ -562,14 +552,10 @@ class CourseTranslationHubUI:
                 else:
                     # 1. Extract the copied English content from the target-language shell
                     extracted = bot.run_extraction()
-
-                if action_stepper.cancelled:
-                    raise RuntimeError("EdTech injection was cancelled from the action window.")
                 
                 if not extracted:
                     error = "No files were extracted from the selected EdTech book."
                     print(f"{error} Aborting.")
-                    action_stepper.fail(error)
                     return
 
                 if not resume_injection:
@@ -600,17 +586,12 @@ class CourseTranslationHubUI:
                     print(f"EdTech Excel report created: {report_path}")
                 
                 # 3. Inject
-                bot.run_injection(
-                    extracted_files=extracted,
-                    step_callback=action_stepper.wait_for_next,
-                )
-                action_stepper.complete()
+                bot.run_injection(extracted_files=extracted)
                 
                 print("\n--- EdTech Master Translator Complete ---")
                 self.root.after(0, self._show_edtech_checklist_dialog)
             except Exception as e:
                 print(f"Error in EdTech process: {e}")
-                action_stepper.fail(e)
             finally:
                 self.root.after(0, self.enable_buttons)
 

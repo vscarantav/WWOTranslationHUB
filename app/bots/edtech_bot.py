@@ -11,6 +11,10 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
 class EdTechScraperBot:
+    TOC_CHAPTER_LINK_SELECTOR = (
+        'div#toc > div.toc-row[data-entity-type="chapter"] > a.btn.text-start'
+    )
+
     def __init__(self, book_url, target_language, workspace_dir, print_callback=print):
         self.book_url = book_url
         self.target_language = target_language
@@ -86,6 +90,12 @@ class EdTechScraperBot:
                 self._log_troubleshoot(
                     "Saved EdTech translation predates chapter-subtitle support; "
                     "a new extraction and translation are required."
+                )
+                return []
+            if item.get("toc_scope") != "all_chapters":
+                self._log_troubleshoot(
+                    "Saved EdTech translation contains only leaf lessons and may omit "
+                    "top-level chapter pages; a new extraction is required."
                 )
                 return []
 
@@ -520,10 +530,21 @@ class EdTechScraperBot:
         
         login_selector = 'button#user-link[data-target-template="modal-login"]'
         logged_in_selector = 'button#user-link[data-bs-toggle="dropdown"]'
-        
-        needs_login = False
-        if page.locator(login_selector).is_visible():
-            needs_login = True
+
+        try:
+            page.wait_for_selector(
+                f"{login_selector}, {logged_in_selector}",
+                timeout=30000,
+                state="visible",
+            )
+        except Exception as state_error:
+            raise RuntimeError(
+                "EdTech did not display either the login button or the signed-in "
+                f"account menu: {state_error}"
+            ) from state_error
+
+        needs_login = page.locator(login_selector).is_visible()
+        login_confirmed = page.locator(logged_in_selector).is_visible()
         
         if needs_login:
             self.print_callback("Login button detected. Initiating Google Login flow...")
@@ -552,8 +573,12 @@ class EdTechScraperBot:
                 self.print_callback("Login confirmed! Proceeding...")
             except Exception as e:
                 raise RuntimeError(f"EdTech login was not confirmed: {e}") from e
-        else:
+        elif login_confirmed:
             self.print_callback("Already logged in.")
+        else:
+            raise RuntimeError(
+                "EdTech login state could not be determined after the page finished loading."
+            )
 
     def run_extraction(self):
         """Extracts all HTML from the book lessons."""
@@ -580,9 +605,14 @@ class EdTechScraperBot:
 
             self.print_callback("Parsing Table of Contents...")
             
-            # Use specific hierarchy from HTML snippets: .toc-row with data-entity-type="chapter" 
-            # where data-children="" (meaning no sub-chapters/lessons inside it)
-            locators = page.locator('div.toc-row[data-entity-type="chapter"][data-children=""] > a.btn.text-start').all()
+            # Every chapter row is an editable page. Include both parent chapters
+            # (nonempty data-children) and leaf lessons (empty data-children).
+            page.wait_for_selector(
+                self.TOC_CHAPTER_LINK_SELECTOR,
+                timeout=20000,
+                state="visible",
+            )
+            locators = page.locator(self.TOC_CHAPTER_LINK_SELECTOR).all()
             
             lesson_urls = []
             for loc in locators:
@@ -592,7 +622,9 @@ class EdTechScraperBot:
                     if lesson_url and lesson_url not in lesson_urls:
                         lesson_urls.append(lesson_url)
             
-            self.print_callback(f"Found {len(lesson_urls)} lessons to extract.")
+            self.print_callback(
+                f"Found {len(lesson_urls)} chapter page(s) to extract."
+            )
             
             for index, url in enumerate(lesson_urls):
                 self.print_callback(f"Extracting [{index+1}/{len(lesson_urls)}]: {url}")
@@ -676,6 +708,7 @@ class EdTechScraperBot:
                         "filename": filename,
                         "source_title": title_text,
                         "source_subtitle": subtitle_text,
+                        "toc_scope": "all_chapters",
                         "raw_filepath": filepath,
                         "translated_filepath": os.path.join(self.translated_dir, filename)
                     })
@@ -691,7 +724,7 @@ class EdTechScraperBot:
         return extracted_files
 
     def run_injection(self, extracted_files=None, step_callback=None):
-        """Inject translated HTML one user-approved and verified action at a time."""
+        """Inject translated HTML automatically and verify each saved page."""
         self.print_callback("Starting Playwright injection into the target book shell...")
 
         if extracted_files is None:

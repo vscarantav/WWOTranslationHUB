@@ -117,6 +117,7 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
             "filename": "lesson_1.html",
             "source_title": "English title",
             "source_subtitle": "",
+            "toc_scope": "all_chapters",
             "raw_filepath": "stale/path.html",
             "translated_filepath": "stale/translated.html",
         }]
@@ -151,10 +152,43 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
                 encoding="utf-8",
             )
 
+            leaf_only_mapping = [dict(mapping[0])]
+            leaf_only_mapping[0].pop("toc_scope")
+            (workspace / "edtech_mapping.json").write_text(
+                json.dumps(leaf_only_mapping),
+                encoding="utf-8",
+            )
+            self.assertEqual(bot.load_resumable_injection(), [])
+
+            (workspace / "edtech_mapping.json").write_text(
+                json.dumps(mapping),
+                encoding="utf-8",
+            )
+
             bot.book_url = "https://books.byui.edu/different_book"
             self.assertEqual(bot.load_resumable_injection(), [])
         finally:
             shutil.rmtree(workspace, ignore_errors=True)
+
+    def test_toc_selector_includes_parent_and_leaf_chapter_pages(self):
+        toc = BeautifulSoup(
+            '''<div id="toc">
+                <div class="toc-row" data-entity-type="chapter" data-children="2,3">
+                    <a class="btn text-start" href="/book/parent">Parent chapter</a>
+                </div>
+                <div class="toc-row" data-entity-type="chapter" data-children="">
+                    <a class="btn text-start" href="/book/leaf">Leaf lesson</a>
+                </div>
+            </div>''',
+            "html.parser",
+        )
+
+        hrefs = [
+            link["href"]
+            for link in toc.select(EdTechScraperBot.TOC_CHAPTER_LINK_SELECTOR)
+        ]
+
+        self.assertEqual(hrefs, ["/book/parent", "/book/leaf"])
 
     def test_injection_action_waits_for_callback_approval(self):
         workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
@@ -320,7 +354,20 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
                 print_callback=Mock(),
             )
             page = MagicMock()
-            page.locator.return_value.is_visible.return_value = False
+            login_locator = MagicMock()
+            login_locator.is_visible.return_value = False
+            logged_in_locator = MagicMock()
+            logged_in_locator.is_visible.return_value = True
+            editable_locator = MagicMock()
+
+            def locator(selector):
+                if selector == 'button#user-link[data-target-template="modal-login"]':
+                    return login_locator
+                if selector == 'button#user-link[data-bs-toggle="dropdown"]':
+                    return logged_in_locator
+                return editable_locator
+
+            page.locator.side_effect = locator
 
             def evaluate(script, *args):
                 if not args and 'document.getElementById("code-box").innerText' in script:
@@ -379,8 +426,8 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
             self.assertGreaterEqual(page.goto.call_count, 3)
             page.locator.assert_any_call("#chapter-title")
             page.locator.assert_any_call("#chapter-subtitle")
-            page.locator.return_value.fill.assert_any_call("Título traduzido")
-            page.locator.return_value.fill.assert_any_call("Carta de Agradecimento")
+            editable_locator.fill.assert_any_call("Título traduzido")
+            editable_locator.fill.assert_any_call("Carta de Agradecimento")
             context.close.assert_called_once_with()
             browser.close.assert_called_once_with()
         finally:
