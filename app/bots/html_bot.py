@@ -2,7 +2,8 @@ import os
 import json
 import re
 import uuid
-from bs4 import BeautifulSoup
+import html as html_lib
+from bs4 import BeautifulSoup, Comment, NavigableString
 import google.generativeai as genai  # type: ignore
 
 class HTMLTranslationBot:
@@ -44,6 +45,209 @@ class HTMLTranslationBot:
 
     def set_system_prompt(self, prompt: str):
         self.system_prompt = prompt
+
+    @staticmethod
+    def _is_unchanged_english_text(source_text: str, translated_text: str) -> bool:
+        if source_text.strip().casefold() != translated_text.strip().casefold():
+            return False
+        stripped_source = source_text.strip()
+        if re.match(r"^(?:https?://|www\.)\S+$", stripped_source, flags=re.IGNORECASE):
+            return False
+        if re.match(r"^[^\s@]+@[^\s@]+\.[^\s@]+$", stripped_source):
+            return False
+        words = re.findall(r"[A-Za-z]+", source_text.casefold())
+        english_markers = {
+            "the", "and", "to", "of", "in", "is", "that", "for", "with",
+            "this", "you", "your", "from", "will", "are", "on", "as",
+        }
+        return len(words) >= 4 and any(word in english_markers for word in words)
+
+    def _translate_text_batch(self, batch: dict, constraints: str) -> dict:
+        """Translate isolated visible-text nodes while retaining stable IDs."""
+        if not batch:
+            return {}
+
+        from bots.api_utils import call_gemini_with_retry
+
+        payload = "".join(
+            f'<translate_item id="{item_id}">{html_lib.escape(text, quote=False)}</translate_item>\n'
+            for item_id, text in batch.items()
+        )
+        prompt = (
+            f"System Instructions:\n{self.system_prompt}{constraints}\n\n"
+            "Translate the complete text of every translate_item. Return every item with "
+            "the same id. Do not omit, merge, or reorder items.\n\n"
+            f"Content:\n{payload}"
+        )
+
+        last_error = None
+        for attempt in range(3):
+            try:
+                response = call_gemini_with_retry(self.model, prompt, log_func=self._log)
+                output = response.text.strip() if response.text else ""
+                soup_out = BeautifulSoup(output, "html.parser")
+                translated = {}
+                for item in soup_out.find_all("translate_item"):
+                    item_id = item.get("id")
+                    if item_id is not None:
+                        translated[item_id] = item.get_text()
+
+                missing_ids = set(batch) - set(translated)
+                if missing_ids:
+                    raise ValueError(f"Model omitted {len(missing_ids)} text node(s).")
+
+                unchanged_english_ids = [
+                    item_id
+                    for item_id, source_text in batch.items()
+                    if self._is_unchanged_english_text(
+                        source_text,
+                        translated.get(item_id, ""),
+                    )
+                ]
+                if unchanged_english_ids:
+                    unchanged_details = "; ".join(
+                        f"{item_id}={batch[item_id][:160]!r}"
+                        for item_id in unchanged_english_ids
+                    )
+                    raise ValueError(
+                        "Model left English text unchanged for item(s): "
+                        + unchanged_details
+                    )
+                return translated
+            except Exception as exc:
+                last_error = exc
+                self._log(f"[HTMLBot] Text-batch error on attempt {attempt + 1}: {exc}")
+
+        raise RuntimeError(f"Unable to translate HTML text batch after 3 attempts: {last_error}")
+
+    @staticmethod
+    def _translated_boundary_whitespace(
+        original_whitespace: str,
+        translated_text: str,
+        *,
+        leading: bool,
+    ) -> str:
+        """Preserve semantic word separation without relying on HTML newlines."""
+        if not original_whitespace:
+            return ""
+        if leading and re.match(r"^[,.;:!?%…\)\]\}]", translated_text):
+            return ""
+        return " "
+
+    def translate_html_content_in_chunks(
+        self,
+        html_content: str,
+        relevant_glossary: dict = None,
+        relevant_scriptures: dict = None,
+        page_title: str = "Unknown",
+        batch_limit: int = 6000,
+    ) -> str:
+        """Translate visible HTML text nodes in bounded batches for large pages."""
+        if not self.client_ready:
+            raise RuntimeError("HTML translation cannot run because no API key is configured.")
+
+        soup = BeautifulSoup(html_content, "html.parser")
+
+        if self.image_bot:
+            for img in soup.find_all("img"):
+                self.image_bot.process_image_tag(img, page_title)
+
+        strings_to_translate = {}
+        node_references = {}
+        ignored_parents = {"script", "style", "code", "pre", "noscript"}
+
+        for node in soup.find_all(string=True):
+            if isinstance(node, Comment):
+                if node.strip().casefold() in {"startfragment", "endfragment"}:
+                    node.extract()
+                continue
+            if not isinstance(node, NavigableString):
+                continue
+            if node.parent and node.parent.name in ignored_parents:
+                continue
+
+            raw_text = str(node)
+            stripped_text = raw_text.strip()
+            if not stripped_text or not re.search(r"[A-Za-z]", stripped_text):
+                continue
+
+            item_id = str(len(strings_to_translate))
+            leading_whitespace = raw_text[:len(raw_text) - len(raw_text.lstrip())]
+            trailing_whitespace = raw_text[len(raw_text.rstrip()):]
+            strings_to_translate[item_id] = stripped_text
+            node_references[item_id] = (node, leading_whitespace, trailing_whitespace)
+
+        if not strings_to_translate:
+            raise RuntimeError("No visible text nodes were found on the HTML page.")
+
+        constraints = ""
+        if relevant_glossary:
+            constraints += (
+                "\n\nGLOSSARY CONSTRAINTS: You MUST use the following translated terms "
+                "for these English words:\n"
+                f"{json.dumps(relevant_glossary, indent=2, ensure_ascii=False)}"
+            )
+        if relevant_scriptures:
+            constraints += (
+                "\n\nSCRIPTURE CONSTRAINTS: Use these exact official translations:\n"
+                f"{json.dumps(relevant_scriptures, indent=2, ensure_ascii=False)}"
+            )
+
+        batches = []
+        current_batch = {}
+        current_size = 0
+        for item_id, text in strings_to_translate.items():
+            item_size = len(item_id) + len(text) + 40
+            if current_batch and current_size + item_size > batch_limit:
+                batches.append(current_batch)
+                current_batch = {}
+                current_size = 0
+            current_batch[item_id] = text
+            current_size += item_size
+        if current_batch:
+            batches.append(current_batch)
+
+        self._log(
+            f"[HTMLBot] Translating {len(strings_to_translate)} visible text nodes "
+            f"in {len(batches)} batch(es) for {page_title}."
+        )
+
+        translated_strings = {}
+        for index, batch in enumerate(batches, start=1):
+            self._log(f"[HTMLBot] Translating text batch {index}/{len(batches)} for {page_title}.")
+            translated_strings.update(self._translate_text_batch(batch, constraints))
+
+        changed_count = 0
+        for item_id, original_text in strings_to_translate.items():
+            translated_text = translated_strings[item_id].strip()
+            if not translated_text:
+                raise RuntimeError(f"Translation returned an empty text node for item {item_id}.")
+            if translated_text.casefold() != original_text.casefold():
+                changed_count += 1
+
+            node, leading_whitespace, trailing_whitespace = node_references[item_id]
+            leading_whitespace = self._translated_boundary_whitespace(
+                leading_whitespace,
+                translated_text,
+                leading=True,
+            )
+            trailing_whitespace = self._translated_boundary_whitespace(
+                trailing_whitespace,
+                translated_text,
+                leading=False,
+            )
+            node.replace_with(NavigableString(
+                f"{leading_whitespace}{translated_text}{trailing_whitespace}"
+            ))
+
+        if changed_count == 0:
+            raise RuntimeError("The model returned the HTML page unchanged in English.")
+
+        self._log(
+            f"[HTMLBot] Changed {changed_count}/{len(strings_to_translate)} visible text nodes "
+            f"for {page_title}."
+        )
+        return str(soup)
 
     def translate_html_content(self, html_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None, page_title: str = "Unknown") -> str:
         if not self.client_ready:

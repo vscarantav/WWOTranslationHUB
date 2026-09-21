@@ -113,10 +113,94 @@ class TranslationController:
         msg = "Starting Phase 2: LLM Translation (Concurrent)"
         print(f"\n[Controller] {msg}")
         self._log(msg)
+        failures = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
-            futures = [executor.submit(self.process_file, path) for path in self.filepaths]
-            for _ in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Translating", unit="file"):
-                pass
+            futures = {
+                executor.submit(self.process_file, path): path
+                for path in self.filepaths
+            }
+            for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Translating", unit="file"):
+                filepath = futures[future]
+                try:
+                    future.result()
+                except Exception as exc:
+                    failures.append((filepath, exc))
+                    self._log(f"[System] Error: Translation failed for {filepath}: {exc}")
+
+        if failures:
+            self._log(
+                f"[System] Retrying {len(failures)} failed translation file(s) sequentially."
+            )
+            print(
+                f"\n[Controller] Retrying {len(failures)} failed translation "
+                "file(s) one at a time..."
+            )
+            retry_failures = []
+            for filepath, _first_error in failures:
+                try:
+                    self.process_file(filepath)
+                    self._log(f"[System] Retry succeeded for {filepath}")
+                except Exception as exc:
+                    retry_failures.append((filepath, exc))
+                    self._log(f"[System] Retry failed for {filepath}: {exc}")
+
+            if retry_failures:
+                failure_details = "; ".join(
+                    f"{os.path.basename(filepath)}: {exc}"
+                    for filepath, exc in retry_failures
+                )
+                is_imscc_run = bool(
+                    getattr(getattr(self, "workspace", None), "imscc_path", None)
+                )
+                outcome = (
+                    "The IMSCC package was not created"
+                    if is_imscc_run
+                    else "The translated output was not completed"
+                )
+                raise RuntimeError(
+                    f"Translation failed for {len(retry_failures)} file(s) after retry. "
+                    f"{outcome}. Failed file details: {failure_details}"
+                )
+
+    def _is_teaching_notes_page(self, filepath: str) -> bool:
+        filename = os.path.basename(filepath).lower()
+        return filename.endswith(".html") and "teaching-notes" in filename
+
+    def _enforce_teaching_notes_title(self, content: str) -> str:
+        title_translations = {
+            "PTBR": {
+                "Teaching Notes and Student Outreach": "Plano de Aula e de Contato Com Os Estudantes",
+                "Teaching Notes": "Notas de Ensino",
+            },
+            "SPA": {
+                "Teaching Notes and Student Outreach": "Notas de enseñanza y contacto con los estudiantes",
+                "Teaching Notes": "Notas de enseñanza",
+            },
+        }
+        translations = title_translations.get(self.target_language)
+        if not translations:
+            return content
+
+        content = content.replace(
+            "Teaching Notes and Student Outreach",
+            translations["Teaching Notes and Student Outreach"],
+        )
+
+        # The short name is common prose, so only replace it when it is a
+        # standalone element value or an exact title attribute.
+        short_title = translations["Teaching Notes"]
+        content = re.sub(
+            r"(?<=>)(\s*)Teaching Notes(\s*)(?=<)",
+            lambda match: f"{match.group(1)}{short_title}{match.group(2)}",
+            content,
+        )
+        content = re.sub(
+            r"(\btitle\s*=\s*['\"])Teaching Notes(['\"])",
+            lambda match: f"{match.group(1)}{short_title}{match.group(2)}",
+            content,
+            flags=re.IGNORECASE,
+        )
+        return content
 
     def _is_already_translated(self, filepath: str, ext: str) -> bool:
         try:
@@ -147,6 +231,9 @@ class TranslationController:
         try:
             if ext in ["html", "xml", "qti"]:
                 soup = BeautifulSoup(content, 'xml' if ext in ['xml', 'qti'] else 'html.parser')
+                edtech_title = soup.find(id='edtech-meta-title')
+                if edtech_title and edtech_title.get_text(strip=True):
+                    return edtech_title.get_text(strip=True)
                 title_tag = soup.find('title')
                 if title_tag and title_tag.text:
                     return title_tag.text.strip()
@@ -167,6 +254,7 @@ class TranslationController:
             return
             
         is_setup_notes = "setup-notes" in target_filepath.lower()
+        is_teaching_notes = self._is_teaching_notes_page(target_filepath)
         if is_setup_notes:
             self._log(f"Applying custom translation rules for setup notes page: {filepath}")
 
@@ -184,12 +272,17 @@ class TranslationController:
         with open(target_filepath, "r", encoding="utf-8") as f:
             original_content = f.read()
 
+        is_edtech_page = bool(
+            ext == "html"
+            and BeautifulSoup(original_content, "html.parser").find(id="edtech-meta-title")
+        )
+
         original_content = self.link_processor.clean_pre_translation_links(original_content, target_filepath, self._log)
             
         relevant_glossary = self.auditor.get_relevant_terms(original_content)
         relevant_scriptures = self.scripture_checker.get_scriptures_for_text(original_content)
             
-        if "teaching-notes-and-student-outreach" in target_filepath.lower():
+        if is_teaching_notes:
             # Apply teaching notes glossary depending on target language
             if self.target_language == "PTBR":
                 custom_glossary = {
@@ -199,7 +292,8 @@ class TranslationController:
                     "Grades": "Notas", "People": "Pessoas", "Assignments": "Tarefas", 
                     "Discussions": "Fóruns", "Files": "Arquivos", "Outcomes": "Objetivos", 
                     "Pages": "Páginas", "Quizzes": "Testes", "Rubrics": "Rubricas", 
-                    "Settings": "Configurações", "Teaching Notes and Student Outreach": "Plano de Aula e de Contato com Estudantes"
+                    "Settings": "Configurações", "Teaching Notes": "Notas de Ensino",
+                    "Teaching Notes and Student Outreach": "Plano de Aula e de Contato com Estudantes"
                 }
             elif self.target_language == "SPA":
                 custom_glossary = {
@@ -209,7 +303,8 @@ class TranslationController:
                     "Grades": "Calificaciones", "People": "Personas", "Assignments": "Tareas", 
                     "Discussions": "Foros", "Files": "Archivos", "Outcomes": "Resultados", 
                     "Pages": "Páginas", "Quizzes": "Exámenes", "Rubrics": "Rúbricas", 
-                    "Settings": "Configuraciones", "Teaching Notes and Student Outreach": "Notas de enseñanza y contacto con estudiantes"
+                    "Settings": "Configuraciones", "Teaching Notes": "Notas de enseñanza",
+                    "Teaching Notes and Student Outreach": "Notas de enseñanza y contacto con estudiantes"
                 }
             else:
                 custom_glossary = {}
@@ -248,14 +343,26 @@ class TranslationController:
                     translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
                 finally:
                     bot.set_system_prompt(original_prompt)
+            elif is_teaching_notes or is_edtech_page:
+                translated_content = bot.translate_html_content_in_chunks(
+                    original_content,
+                    relevant_glossary,
+                    relevant_scriptures,
+                    page_title,
+                )
             else:
                 translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
+
+        title_corrected_content = self._enforce_teaching_notes_title(translated_content)
+        if title_corrected_content != translated_content:
+            self._log(f"[Controller] Enforced translated Teaching Notes title in {os.path.basename(filepath)}")
+            translated_content = title_corrected_content
         
         translated_content = self.link_processor.rewrite_church_links(translated_content)
         
         # Post-processing: Programmatically empty the Release Notes section for Teaching Notes pages
         # This enforces the spec requirement rather than relying solely on the LLM prompt
-        if "teaching-notes-and-student-outreach" in target_filepath.lower() and ext == "html":
+        if is_teaching_notes and ext == "html":
             try:
                 soup = BeautifulSoup(translated_content, 'html.parser')
                 # Find <details> blocks that contain a <summary> with "Release Notes" (or translated variants)
@@ -299,9 +406,21 @@ class TranslationController:
         
         self._log(f"[System] TranslatedPage: {page_title} | {filepath}")
 
-    def update_excel_dashboard(self):
+    def update_excel_dashboard(
+        self,
+        report_name=None,
+        report_code=None,
+        review_pages=None,
+        excluded_sheets=None,
+    ):
         generator = DashboardGenerator(self.log_filepath, self.hub_dir, self.target_language)
-        generator.generate(self._log)
+        return generator.generate(
+            self._log,
+            report_name=report_name,
+            report_code=report_code,
+            review_pages=review_pages,
+            excluded_sheets=excluded_sheets,
+        )
 
     def present_checklist(self):
         print("\n" + "="*60)

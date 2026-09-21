@@ -11,7 +11,9 @@ import shutil
 import re
 import queue
 import json
-from urllib.parse import urlparse
+import webbrowser
+from pathlib import Path
+from urllib.parse import unquote, urlparse
 
 # Import the processors
 from controller import TranslationController
@@ -37,6 +39,45 @@ def validate_edtech_shell_details(shell_created, shell_url, target_book_label="P
         return None, f"Enter the link to the specific {target_book_label} book shell, not the site homepage."
 
     return normalized_url, None
+
+
+def get_edtech_report_name(shell_url):
+    """Build a readable, book-specific report name from an EdTech shell URL."""
+    path_parts = [part for part in urlparse(shell_url).path.split("/") if part]
+    if not path_parts:
+        return "EdTech Master"
+
+    book_slug = unquote(path_parts[-1])
+    book_name = re.sub(r"[-_]+", " ", book_slug).strip()
+    book_name = re.sub(r"\s+", " ", book_name)
+    if not book_name:
+        return "EdTech Master"
+    return f"{book_name.title()} EdTech Master"
+
+
+def generate_edtech_excel_report(controller, shell_url, language, extracted_pages):
+    """Generate a focused workbook containing every extracted EdTech chapter."""
+    review_pages = []
+    for item in extracted_pages:
+        filepath = item.get("raw_filepath", "")
+        title = ""
+        if filepath and os.path.exists(filepath):
+            try:
+                with open(filepath, "r", encoding="utf-8") as source_file:
+                    title = controller._extract_page_title(source_file.read(), "html")
+            except OSError:
+                title = ""
+        review_pages.append({
+            "title": title or item.get("filename", "Untitled page"),
+            "filepath": filepath or item.get("translated_filepath", ""),
+        })
+
+    return controller.update_excel_dashboard(
+        report_name=get_edtech_report_name(shell_url),
+        report_code=f"EDTECH-{language}",
+        review_pages=review_pages,
+        excluded_sheets=("Dashboard", "Bot Analysis", "Raw Logs"),
+    )
 
 class RedirectText:
     def __init__(self, text_ctrl, progress_bar, root):
@@ -73,6 +114,193 @@ class RedirectText:
         
     def flush(self):
         pass
+
+
+class EdTechInjectionStepper:
+    """Thread-safe Next-controlled window for EdTech injection actions."""
+
+    def __init__(self, root):
+        self.root = root
+        self.cancelled = False
+        self.current_event = None
+        self.current_payload = None
+
+        self.window = tk.Toplevel(root)
+        self.window.title("EdTech Injection Action Window")
+        self.window.geometry("900x700")
+        self.window.minsize(720, 520)
+        self.window.transient(root)
+        self.window.protocol("WM_DELETE_WINDOW", self._cancel)
+
+        container = ttk.Frame(self.window, padding=14)
+        container.pack(fill="both", expand=True)
+
+        ttk.Label(
+            container,
+            text="EdTech Injection - Manual Step Control",
+            font=("Helvetica", 15, "bold"),
+        ).pack(anchor="w")
+        ttk.Label(
+            container,
+            text=(
+                "This window previews every page navigation, click, text insertion, "
+                "save, and verification. The displayed action will not run until you "
+                "click NEXT. Detailed troubleshooting messages are also written to the "
+                "Hub terminal."
+            ),
+            wraplength=850,
+            justify="left",
+        ).pack(anchor="w", pady=(4, 12))
+
+        self.page_var = tk.StringVar(value="Preparing extraction and translation...")
+        self.action_var = tk.StringVar(value="No injection action is pending yet.")
+        self.url_var = tk.StringVar(value="")
+        self.selector_var = tk.StringVar(value="")
+        self.details_var = tk.StringVar(value="")
+        self.status_var = tk.StringVar(
+            value="NEXT will become available when injection is ready."
+        )
+
+        for label, variable in (
+            ("Page", self.page_var),
+            ("What it will do", self.action_var),
+            ("Target URL", self.url_var),
+            ("What it will click/change", self.selector_var),
+            ("Details", self.details_var),
+        ):
+            row = ttk.Frame(container)
+            row.pack(fill="x", pady=3)
+            ttk.Label(row, text=f"{label}:", width=24, font=("Helvetica", 10, "bold")).pack(
+                side="left", anchor="nw"
+            )
+            ttk.Label(row, textvariable=variable, wraplength=650, justify="left").pack(
+                side="left", fill="x", expand=True
+            )
+
+        ttk.Label(
+            container,
+            text="Exact text that will be copied",
+            font=("Helvetica", 10, "bold"),
+        ).pack(anchor="w", pady=(12, 3))
+
+        text_frame = ttk.Frame(container)
+        text_frame.pack(fill="both", expand=True)
+        self.copy_text = tk.Text(text_frame, wrap="none", height=18)
+        y_scroll = ttk.Scrollbar(text_frame, orient="vertical", command=self.copy_text.yview)
+        x_scroll = ttk.Scrollbar(text_frame, orient="horizontal", command=self.copy_text.xview)
+        self.copy_text.configure(yscrollcommand=y_scroll.set, xscrollcommand=x_scroll.set)
+        self.copy_text.grid(row=0, column=0, sticky="nsew")
+        y_scroll.grid(row=0, column=1, sticky="ns")
+        x_scroll.grid(row=1, column=0, sticky="ew")
+        text_frame.rowconfigure(0, weight=1)
+        text_frame.columnconfigure(0, weight=1)
+        self.copy_text.insert("1.0", "No text will be copied for the current action.")
+        self.copy_text.configure(state="disabled")
+
+        footer = ttk.Frame(container)
+        footer.pack(fill="x", pady=(12, 0))
+        ttk.Label(footer, textvariable=self.status_var, wraplength=650).pack(
+            side="left", fill="x", expand=True
+        )
+        self.next_button = ttk.Button(
+            footer,
+            text="NEXT",
+            command=self._next,
+            state="disabled",
+        )
+        self.next_button.pack(side="right", padx=(8, 0))
+        ttk.Button(footer, text="Cancel Injection", command=self._cancel).pack(side="right")
+
+    def wait_for_next(self, payload):
+        """Called by the worker thread; block until NEXT or cancellation."""
+        approval_event = threading.Event()
+        self.root.after(0, self._show_action, payload, approval_event)
+        approval_event.wait()
+        return not self.cancelled
+
+    def _show_action(self, payload, approval_event):
+        if self.cancelled or not self.window.winfo_exists():
+            approval_event.set()
+            return
+
+        self.current_payload = payload
+        self.current_event = approval_event
+        if payload.get("page_number") == 0:
+            self.page_var.set("Browser setup / login")
+        else:
+            page_title = payload.get("page_title", "")
+            self.page_var.set(
+                f"{payload.get('page_number', '?')} of {payload.get('page_total', '?')}"
+                + (f" - {page_title}" if page_title else "")
+            )
+        self.action_var.set(payload.get("action", ""))
+        self.url_var.set(payload.get("url", ""))
+        self.selector_var.set(payload.get("selector", "No browser element; informational action"))
+        self.details_var.set(payload.get("details", ""))
+
+        exact_text = payload.get("text_to_copy", "")
+        self.copy_text.configure(state="normal")
+        self.copy_text.delete("1.0", tk.END)
+        self.copy_text.insert(
+            "1.0",
+            exact_text or "No text will be copied for this action.",
+        )
+        self.copy_text.configure(state="disabled")
+        self.status_var.set("Review the action above, then click NEXT to execute it.")
+        self.next_button.configure(state="normal")
+        self.window.deiconify()
+        self.window.lift()
+        # Playwright brings Chromium to the foreground. Briefly make this
+        # window topmost so the pending NEXT action cannot be hidden behind it.
+        self.window.attributes("-topmost", True)
+        self.window.focus_force()
+        self.window.after(750, self._release_topmost)
+        self.next_button.focus_set()
+
+    def _release_topmost(self):
+        if not self.cancelled and self.window.winfo_exists():
+            self.window.attributes("-topmost", False)
+
+    def _next(self):
+        if not self.current_event:
+            return
+        action = (self.current_payload or {}).get("action", "action")
+        self.status_var.set(f"Executing: {action}")
+        self.next_button.configure(state="disabled")
+        approval_event = self.current_event
+        self.current_event = None
+        approval_event.set()
+
+    def _cancel(self):
+        self.cancelled = True
+        if self.current_event:
+            self.current_event.set()
+            self.current_event = None
+        if self.window.winfo_exists():
+            self.window.destroy()
+
+    def complete(self):
+        self.root.after(0, self._show_completion)
+
+    def _show_completion(self):
+        if self.cancelled or not self.window.winfo_exists():
+            return
+        self.action_var.set("Injection complete")
+        self.selector_var.set("")
+        self.details_var.set("Every page passed the post-save HTML and title verification.")
+        self.status_var.set("All EdTech pages were saved and verified successfully.")
+        self.next_button.configure(text="Close", state="normal", command=self.window.destroy)
+
+    def fail(self, error):
+        self.root.after(0, self._show_failure, str(error))
+
+    def _show_failure(self, error):
+        if self.cancelled or not self.window.winfo_exists():
+            return
+        self.action_var.set("Injection stopped")
+        self.details_var.set(error)
+        self.status_var.set("See the Hub terminal for detailed troubleshooting logs.")
+        self.next_button.configure(text="Close", state="normal", command=self.window.destroy)
 
 class CourseTranslationHubUI:
     def __init__(self, root):
@@ -300,43 +528,89 @@ class CourseTranslationHubUI:
         print(f"Target Language: {lang}")
         print(f"Target {target_book_label} Book Shell: {target_shell_url}")
         print("Translated content will be saved back into this target shell.")
+
+        from bots.edtech_bot import EdTechScraperBot
+        workspace = os.path.join(self.hub_dir, "edtech_workspace")
+        os.makedirs(workspace, exist_ok=True)
+        bot = EdTechScraperBot(target_shell_url, lang, workspace, print_callback=print)
+        resumable_pages = bot.load_resumable_injection()
+        resume_injection = False
+        if resumable_pages:
+            resume_injection = messagebox.askyesno(
+                "Resume EdTech Injection?",
+                f"Found {len(resumable_pages)} completed translated pages for this exact "
+                "EdTech book.\n\nResume the controlled injection without extracting or "
+                "translating the book again?",
+                parent=self.root,
+            )
+
+        action_stepper = EdTechInjectionStepper(self.root)
+        if resume_injection:
+            action_stepper.page_var.set("Ready to resume saved translation injection")
+            action_stepper.status_var.set(
+                "The completed translation will be reused. NEXT will begin browser injection."
+            )
         
         def process():
             try:
-                from bots.edtech_bot import EdTechScraperBot
-                workspace = os.path.join(self.hub_dir, "edtech_workspace")
-                os.makedirs(workspace, exist_ok=True)
-                
-                # 1. Extract the copied English content from the target-language shell
-                bot = EdTechScraperBot(target_shell_url, lang, workspace, print_callback=print)
-                extracted = bot.run_extraction()
+                if resume_injection:
+                    extracted = resumable_pages
+                    print(
+                        f"\n[EdTech] Resuming injection with {len(extracted)} completed "
+                        "translated pages. Extraction and translation were skipped."
+                    )
+                else:
+                    # 1. Extract the copied English content from the target-language shell
+                    extracted = bot.run_extraction()
+
+                if action_stepper.cancelled:
+                    raise RuntimeError("EdTech injection was cancelled from the action window.")
                 
                 if not extracted:
-                    print("No files extracted. Aborting.")
+                    error = "No files were extracted from the selected EdTech book."
+                    print(f"{error} Aborting.")
+                    action_stepper.fail(error)
                     return
-                
-                # 2. Translate using Controller
-                print("\nStarting Translation Controller...")
-                controller = TranslationController(target_language=lang, input_dir=bot.raw_dir)
-                
-                # Update the mapping file with the correct translated_filepath
-                for item in extracted:
-                    item['translated_filepath'] = os.path.join(controller.workspace.output_dir, item['filename'])
-                with open(os.path.join(workspace, "edtech_mapping.json"), 'w', encoding='utf-8') as f:
-                    json.dump(extracted, f, indent=4)
-                
-                # Collect files and translate
-                controller.filepaths = controller.workspace.collect_files(controller._log)
-                controller.translate_files()
-                print("Translation complete.")
+
+                if not resume_injection:
+                    # Never reuse translated HTML from an earlier EdTech book/run.
+                    bot.reset_translation_output()
+
+                    # 2. Translate using Controller
+                    print("\nStarting Translation Controller...")
+                    controller = TranslationController(target_language=lang, input_dir=bot.raw_dir)
+
+                    # Update the mapping file with the correct translated_filepath
+                    for item in extracted:
+                        item['translated_filepath'] = os.path.join(controller.workspace.output_dir, item['filename'])
+                    with open(os.path.join(workspace, "edtech_mapping.json"), 'w', encoding='utf-8') as f:
+                        json.dump(extracted, f, indent=4)
+
+                    # Collect files and translate
+                    controller.filepaths = controller.workspace.collect_files(controller._log)
+                    controller.translate_files()
+                    print("Translation complete.")
+
+                    report_path = generate_edtech_excel_report(
+                        controller,
+                        target_shell_url,
+                        lang,
+                        extracted,
+                    )
+                    print(f"EdTech Excel report created: {report_path}")
                 
                 # 3. Inject
-                bot.run_injection()
+                bot.run_injection(
+                    extracted_files=extracted,
+                    step_callback=action_stepper.wait_for_next,
+                )
+                action_stepper.complete()
                 
                 print("\n--- EdTech Master Translator Complete ---")
                 self.root.after(0, self._show_edtech_checklist_dialog)
             except Exception as e:
                 print(f"Error in EdTech process: {e}")
+                action_stepper.fail(e)
             finally:
                 self.root.after(0, self.enable_buttons)
 
@@ -346,13 +620,15 @@ class CourseTranslationHubUI:
         translate_dir = os.path.join(self.hub_dir, "Courses to Translate")
         os.makedirs(translate_dir, exist_ok=True)
         
-        imscc_paths = filedialog.askopenfilenames(
+        imscc_path = filedialog.askopenfilename(
             initialdir=translate_dir,
-            title="Select IMSCC Files to Translate",
+            title="Select an IMSCC File to Translate",
             filetypes=[("IMSCC Files", "*.imscc")]
         )
-        if not imscc_paths:
+        if not imscc_path:
             return
+
+        imscc_paths = [imscc_path]
 
         from core.workspace_manager import WorkspaceManager
         from scripts.migrate_groups import check_course_has_groups
@@ -363,16 +639,47 @@ class CourseTranslationHubUI:
         
         course_configs = {}
         for p in imscc_paths:
-            print(f"Checking {os.path.basename(p)} for groups...")
+            print(f"Preparing {os.path.basename(p)} for translation...")
             temp_workspace = WorkspaceManager(lang, self.hub_dir, imscc_path=p)
             temp_workspace.setup_workspace("temp")
             temp_workspace.extract_course_info(lambda x: None)
             
             source_course_id = getattr(temp_workspace, 'source_course_id', None)
-            has_groups = False
-            
-            if source_course_id:
-                has_groups = check_course_has_groups(source_course_id)
+
+            while True:
+                en_url = simpledialog.askstring(
+                    "EN Master URL Required",
+                    f"Enter the full Canvas EN Master URL for:\n{os.path.basename(p)}\n"
+                    "(e.g., https://byui.instructure.com/courses/12345)",
+                    parent=self.root
+                )
+                if not en_url:
+                    messagebox.showerror("Cancelled", "Translation cancelled. EN Master URL is required.")
+                    self.enable_buttons()
+                    return
+
+                match = re.search(r'^https?://[^/]+/courses/(\d+)(?:[/?#]|$)', en_url.strip())
+                if not match:
+                    messagebox.showerror(
+                        "Invalid URL",
+                        "You must provide a full Canvas course URL containing '/courses/<id>'.\n"
+                        "Example: https://byui.instructure.com/courses/12345"
+                    )
+                    continue
+
+                entered_source_id = match.group(1)
+                if source_course_id and entered_source_id != source_course_id:
+                    messagebox.showerror(
+                        "Validation Failed",
+                        f"The URL provided does not match the internal Source ID of this package "
+                        f"({source_course_id}). Please try again."
+                    )
+                    continue
+
+                source_course_id = entered_source_id
+                break
+
+            has_groups = check_course_has_groups(source_course_id)
                 
             config = {
                 'has_groups': has_groups,
@@ -382,23 +689,6 @@ class CourseTranslationHubUI:
             }
 
             if has_groups:
-                while True:
-                    en_url = simpledialog.askstring(
-                        "Source Course Verification", 
-                        f"Groups detected in {os.path.basename(p)}!\nPlease enter the EN Master Link (Source Course URL) to verify:",
-                        parent=self.root
-                    )
-                    if not en_url:
-                        messagebox.showerror("Cancelled", "Translation cancelled. Verification is required.")
-                        self.enable_buttons()
-                        return
-                    
-                    match = re.search(r'^https?://[^/]+/courses/(\d+)', en_url.strip())
-                    if match and match.group(1) == source_course_id:
-                        break
-                    else:
-                        messagebox.showerror("Validation Failed", f"The URL provided does not match the internal Source ID of this package ({source_course_id}). Please try again.")
-
                 while True:
                     course_url = simpledialog.askstring(
                         "PT Master URL Required", 
@@ -545,7 +835,7 @@ class CourseTranslationHubUI:
                 self.progress['value'] = 100
                 print("\n=== All Translations Completed Successfully! ===")
                 # Phase 4: Present checklist via UI
-                self.root.after(0, self._show_checklist_dialog)
+                self.root.after(0, lambda language=lang: self._show_checklist_dialog(language))
             except Exception as e:
                 print(f"\n=== Error during translation: {e} ===")
             finally:
@@ -553,12 +843,12 @@ class CourseTranslationHubUI:
 
         threading.Thread(target=thread_target, daemon=True).start()
 
-    def _show_checklist_dialog(self):
+    def _show_checklist_dialog(self, language=None):
         """Phase 4: Post-translation checklist presented as a UI dialog."""
         dialog = tk.Toplevel(self.root)
         dialog.title("Post-Import Checklist")
-        dialog_width = 600
-        dialog_height = 400
+        dialog_width = 650
+        dialog_height = 520
         screen_width = dialog.winfo_screenwidth()
         screen_height = dialog.winfo_screenheight()
         x = int((screen_width - dialog_width) / 2)
@@ -570,14 +860,37 @@ class CourseTranslationHubUI:
         ttk.Label(dialog, text="Translation Complete!", font=("Helvetica", 14, "bold")).pack(pady=(15, 5))
         ttk.Label(dialog, text="Please complete these manual steps in Canvas after importing the translated IMSCC:").pack(pady=(0, 10), padx=15)
 
+        canvas_language = {
+            "PTBR": "Português",
+            "SPA": "Spanish"
+        }.get(language or self.lang_var.get(), language or self.lang_var.get())
+
+        gradebook_options_item = (
+            "In Grades > Settings > View Options, enable 'Notes' and "
+            "'Unpublished Assignments'."
+        )
         checklist_items = [
             "Import the translated .imscc course package into Canvas.",
+            f"In Canvas Settings, change the course language to {canvas_language}.",
             "Go to Course Settings > Feature Options and DISABLE 'Improved Rubrics'.",
             "Go to Gradebook Settings > Late Policies, check 'Automatically apply grade for missing submissions', and set it to 0%.",
+            gradebook_options_item,
             "Remind Jenn Hunter to check the Setup Page.",
             "In Settings, add the Tutoring link to the Sidebar.",
             "Review the Translation Dashboard Report (in the Reports folder) for any warnings or untranslated items."
         ]
+
+        gradebook_reference_path = Path(self.hub_dir, "Gradebook Settigns.png")
+
+        def open_gradebook_reference(_event=None):
+            if not gradebook_reference_path.is_file():
+                messagebox.showerror(
+                    "Reference Image Missing",
+                    f"Could not find the reference image:\n{gradebook_reference_path}",
+                    parent=dialog
+                )
+                return
+            webbrowser.open(gradebook_reference_path.resolve().as_uri())
 
         check_vars = []
         checks_frame = ttk.Frame(dialog)
@@ -588,6 +901,15 @@ class CourseTranslationHubUI:
             check_vars.append(var)
             cb = tk.Checkbutton(checks_frame, text=item, variable=var, wraplength=550, justify="left")
             cb.pack(anchor="w", pady=3)
+            if item == gradebook_options_item:
+                reference_link = ttk.Label(
+                    checks_frame,
+                    text="Open reference: Gradebook Settigns.png",
+                    foreground="#0563C1",
+                    cursor="hand2"
+                )
+                reference_link.pack(anchor="w", padx=(28, 0), pady=(0, 3))
+                reference_link.bind("<Button-1>", open_gradebook_reference)
 
         def on_done():
             unchecked = [checklist_items[i] for i, v in enumerate(check_vars) if not v.get()]
@@ -619,7 +941,8 @@ class CourseTranslationHubUI:
 
         checklist_items = [
             "Add Cover Image",
-            "Add CSS in book settings"
+            "Add CSS in book settings",
+            "Review the EdTech Translation Report in the Reports folder."
         ]
 
         check_vars = []

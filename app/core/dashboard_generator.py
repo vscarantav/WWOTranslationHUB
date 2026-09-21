@@ -10,7 +10,76 @@ class DashboardGenerator:
         self.hub_dir = hub_dir
         self.default_target = default_target
 
-    def generate(self, _log_func):
+    @staticmethod
+    def _read_content_sample(filepath: str) -> str:
+        """Read enough translated content to identify its Canvas object type."""
+        try:
+            with open(filepath, 'r', encoding='utf-8', errors='ignore') as content_file:
+                return content_file.read(131072).lower()
+        except (OSError, TypeError):
+            return ""
+
+    @classmethod
+    def _infer_content_type(cls, filepath: str) -> str:
+        """Infer the user-facing Canvas content type from an IMSCC file."""
+        normalized_path = str(filepath or "").replace('\\', '/').lower()
+        basename = os.path.basename(normalized_path)
+        extension = os.path.splitext(basename)[1]
+        content_sample = cls._read_content_sample(filepath)
+
+        if '/wiki_content/' in normalized_path:
+            return 'Page'
+        if 'question_bank' in normalized_path or '<objectbank' in content_sample or '<assessment_question_bank' in content_sample:
+            return 'Question Bank'
+        if (
+            'quiz' in normalized_path
+            or '/non_cc_assessments/' in normalized_path
+            or basename == 'assessment_meta.xml'
+            or '<assessment ' in content_sample
+            or '<assessment>' in content_sample
+        ):
+            return 'Quiz'
+        if basename == 'assignment_settings.xml' or '<assignment ' in content_sample or '<assignment>' in content_sample:
+            return 'Assignment'
+        if 'discussion' in normalized_path or '<discussion_topic' in content_sample:
+            return 'Discussion'
+        if 'announcement' in normalized_path:
+            return 'Announcement'
+        if 'rubric' in normalized_path or '<rubric ' in content_sample or '<rubric>' in content_sample:
+            return 'Rubric'
+        if 'module_meta' in basename or '<module ' in content_sample:
+            return 'Module'
+        if '/course_settings/' in normalized_path:
+            return 'Course Settings'
+        if basename == 'imsmanifest.xml':
+            return 'Course Manifest'
+        if extension in ('.html', '.htm'):
+            return 'Page'
+        if extension == '.qti':
+            return 'Quiz'
+        if extension == '.txt':
+            return 'Text Content'
+        return 'Other'
+
+    @staticmethod
+    def _link_actions_page_name(page_title: str, filepath: str) -> str:
+        """Match the display-name convention used by the Link Actions sheet."""
+        title = str(page_title or '').strip()
+        filename = os.path.basename(str(filepath or ''))
+        if not title:
+            return filename
+        if not filename or title == filename or title.endswith(f'({filename})'):
+            return title
+        return f'{title} ({filename})'
+
+    def generate(
+        self,
+        _log_func,
+        report_name=None,
+        report_code=None,
+        review_pages=None,
+        excluded_sheets=None,
+    ):
         msg = "Generating Excel Analytics Dashboard..."
         print(f"\n[DashboardGenerator] {msg}")
         _log_func(msg)
@@ -166,15 +235,18 @@ class DashboardGenerator:
             
         df = pd.DataFrame(data)
         
-        course_name = "Course"
-        course_code = "UNKNOWN"
-        course_info_rows = df[df['Event Type'] == 'Course Info']
-        if not course_info_rows.empty:
-            msg = course_info_rows.iloc[-1]['Message']
-            parts = msg.split('|')
-            if len(parts) >= 2:
-                course_name = parts[0].strip()
-                course_code = parts[1].strip()
+        course_name = report_name or "Course"
+        course_code = report_code or "UNKNOWN"
+        if report_name is None or report_code is None:
+            course_info_rows = df[df['Event Type'] == 'Course Info']
+            if not course_info_rows.empty:
+                msg = course_info_rows.iloc[-1]['Message']
+                parts = msg.split('|')
+                if len(parts) >= 2:
+                    if report_name is None:
+                        course_name = parts[0].strip()
+                    if report_code is None:
+                        course_code = parts[1].strip()
                 
         safe_course_name = "".join([c for c in course_name if c.isalpha() or c.isdigit() or c==' ']).rstrip()
         if not safe_course_name:
@@ -197,6 +269,9 @@ class DashboardGenerator:
         success_fmt = workbook.add_format({'bg_color': '#C8E6C9', 'font_color': '#1B5E20'})
         warning_fmt = workbook.add_format({'bg_color': '#FFE082', 'font_color': '#E65100'})
         error_fmt = workbook.add_format({'bg_color': '#FFCDD2', 'font_color': '#B71C1C'})
+        translated_review_fmt = workbook.add_format({'border': 1, 'valign': 'vcenter', 'bg_color': '#D9D9D9'})
+        student_review_fmt = workbook.add_format({'border': 1, 'valign': 'vcenter', 'bg_color': '#FFF2CC'})
+        professional_review_fmt = workbook.add_format({'border': 1, 'valign': 'vcenter', 'bg_color': '#C6E0B4'})
 
         # SHEET 1: Dashboard
         dash = workbook.add_worksheet('Dashboard')
@@ -308,7 +383,16 @@ class DashboardGenerator:
         logs_sheet.conditional_format(1, 8, len(df), 8, {'type': 'cell', 'criteria': '==', 'value': '"Error"', 'format': error_fmt})
 
         # SHEET 4: Translated Pages
-        translated_pages_df = df[df['Event Type'] == 'Translated Page'].copy()
+        if review_pages is None:
+            translated_pages_df = df[df['Event Type'] == 'Translated Page'].copy()
+        else:
+            translated_pages_df = pd.DataFrame([
+                {
+                    'Message': page.get('title', ''),
+                    'File Path': page.get('filepath', ''),
+                }
+                for page in review_pages
+            ])
         
         if not translated_pages_df.empty:
             translated_pages_df = translated_pages_df.drop_duplicates(subset=['Message', 'File Path'])
@@ -335,7 +419,59 @@ class DashboardGenerator:
                     pages_sheet.write(r_idx, 1, '', cell_fmt)
                 r_idx += 1
 
-        # SHEET 5: Link Actions (Consolidated)
+        # SHEET 5: Translation Review
+        review_sheet = workbook.add_worksheet('Translation Review')
+        review_sheet.set_column('A:A', 70)
+        review_sheet.set_column('B:B', 22)
+        review_sheet.set_column('C:D', 45)
+        review_sheet.set_column('E:E', 26)
+        review_sheet.freeze_panes(1, 0)
+        review_sheet.write_row(
+            'A1',
+            ['Page Name', 'Type', 'Link EN', 'Link PT', 'Status'],
+            header_fmt,
+        )
+
+        review_rows = []
+        if not translated_pages_df.empty:
+            for _, row in translated_pages_df.iterrows():
+                filepath = str(row.get('File Path', '') or '')
+                review_rows.append((
+                    self._link_actions_page_name(row.get('Message', ''), filepath),
+                    self._infer_content_type(filepath)
+                ))
+
+        for r_idx, (page_name, content_type) in enumerate(review_rows, start=1):
+            review_sheet.write(r_idx, 0, page_name, cell_fmt)
+            review_sheet.write(r_idx, 1, content_type, cell_fmt)
+            review_sheet.write_blank(r_idx, 2, None, cell_fmt)
+            review_sheet.write_blank(r_idx, 3, None, cell_fmt)
+            review_sheet.write(r_idx, 4, 'Translated', translated_review_fmt)
+
+        if review_rows:
+            last_review_row = len(review_rows)
+            status_options = ['Translated', 'Student Reviewed', 'Professionally Reviewed']
+            review_sheet.data_validation(1, 4, last_review_row, 4, {
+                'validate': 'list',
+                'source': status_options,
+                'input_title': 'Review Status',
+                'input_message': 'Select the current review status.'
+            })
+            review_sheet.conditional_format(1, 4, last_review_row, 4, {
+                'type': 'cell', 'criteria': '==', 'value': '"Translated"',
+                'format': translated_review_fmt
+            })
+            review_sheet.conditional_format(1, 4, last_review_row, 4, {
+                'type': 'cell', 'criteria': '==', 'value': '"Student Reviewed"',
+                'format': student_review_fmt
+            })
+            review_sheet.conditional_format(1, 4, last_review_row, 4, {
+                'type': 'cell', 'criteria': '==', 'value': '"Professionally Reviewed"',
+                'format': professional_review_fmt
+            })
+            review_sheet.autofilter(0, 0, last_review_row, 4)
+
+        # SHEET 6: Link Actions (Consolidated)
         action_links_df = df[df['Event Type'].isin(['Google Link Stripped', 'Skipped Link', 'Commented Link', 'Obsolete Link'])].copy()
         
         if not action_links_df.empty:
@@ -386,7 +522,7 @@ class DashboardGenerator:
                     
                 r_idx += 1
 
-        # SHEET 6: Missing Alt Texts
+        # SHEET 7: Missing Alt Texts
         missing_alt_df = df[df['Event Type'] == 'Missing Alt Text'].copy()
         
         if not missing_alt_df.empty:
@@ -414,6 +550,18 @@ class DashboardGenerator:
                 r_idx += 1
 
         workbook.close()
+
+        sheets_to_remove = set(excluded_sheets or [])
+        if sheets_to_remove:
+            from openpyxl import load_workbook
+
+            focused_workbook = load_workbook(excel_path)
+            for sheet_name in sheets_to_remove:
+                if sheet_name in focused_workbook.sheetnames:
+                    focused_workbook.remove(focused_workbook[sheet_name])
+            focused_workbook.save(excel_path)
+
         msg_success = f"Excel successfully created: {excel_path}"
         print(f"[DashboardGenerator] {msg_success}")
         _log_func(msg_success)
+        return excel_path
