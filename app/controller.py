@@ -1,6 +1,8 @@
 import os
 import argparse
 import concurrent.futures
+import hashlib
+import shutil
 from tqdm import tqdm
 import json
 import re
@@ -22,10 +24,26 @@ from core.link_processor import LinkProcessor
 from core.dashboard_generator import DashboardGenerator
 
 class TranslationController:
+    ATTENTION_PAGE_FILENAME = "attention-messaging-instructors-and-graders.html"
+    ATTENTION_PAGE_EN_TITLE = "Attention: Messaging Instructors and Graders"
+    ATTENTION_PAGE_PTBR_TITLE = "Atenção: Mensagens para instrutores e avaliadores"
+    ATTENTION_IMAGE_SPECS = (
+        (
+            "atencao mensagens para instrutores e avaliadores 1.png",
+            "attention-messaging-instructors-graders-ptbr-1.png",
+        ),
+        (
+            "atencao mensagens para instrutores e avaliadores 2.png",
+            "attention-messaging-instructors-graders-ptbr-2.png",
+        ),
+    )
+
     def __init__(self, target_language="PTBR", input_dir=None, imscc_path=None, link_prompt_callback=None, target_course_id=None):
         self.target_language = target_language
         self.link_prompt_callback = link_prompt_callback
         self.target_course_id = target_course_id
+        self._attention_package_prepared = False
+        self._attention_page_present = False
         self.app_dir = os.path.dirname(os.path.abspath(__file__))
         self.hub_dir = os.path.dirname(self.app_dir)
         self._clear_logs()
@@ -100,7 +118,12 @@ class TranslationController:
         msg = f"Starting batch processing for directory: {self.workspace.output_dir}"
         print(f"\n[Controller] {msg}")
         self._log(msg)
-        
+
+        # This must happen before file collection and concurrent translation.
+        # imsmanifest.xml is one of the translated files, so modifying it from
+        # the attention-page worker would create a write race.
+        self._prepare_attention_messaging_package()
+
         self.filepaths = self.workspace.collect_files(self._log)
         self.link_processor.filepaths = self.filepaths
         self.link_processor.pre_process_links(self._log)
@@ -165,6 +188,188 @@ class TranslationController:
     def _is_teaching_notes_page(self, filepath: str) -> bool:
         filename = os.path.basename(filepath).lower()
         return filename.endswith(".html") and "teaching-notes" in filename
+
+    def _is_attention_messaging_page(self, filepath: str, content: str = "") -> bool:
+        if self.target_language != "PTBR":
+            return False
+
+        filename = os.path.basename(filepath).lower()
+        if filename == self.ATTENTION_PAGE_FILENAME:
+            return True
+
+        if not content:
+            return False
+
+        try:
+            title = BeautifulSoup(content, "html.parser").find("title")
+            title_text = title.get_text(strip=True) if title else ""
+            return title_text.casefold() in {
+                self.ATTENTION_PAGE_EN_TITLE.casefold(),
+                self.ATTENTION_PAGE_PTBR_TITLE.casefold(),
+            }
+        except Exception:
+            return False
+
+    def _find_attention_messaging_pages(self) -> list:
+        wiki_dir = os.path.join(self.workspace.output_dir, "wiki_content")
+        if not os.path.isdir(wiki_dir):
+            return []
+
+        matches = []
+        for filename in os.listdir(wiki_dir):
+            if not filename.lower().endswith(".html"):
+                continue
+            filepath = os.path.join(wiki_dir, filename)
+            try:
+                with open(filepath, "r", encoding="utf-8") as f:
+                    content = f.read()
+            except OSError:
+                continue
+            if self._is_attention_messaging_page(filepath, content):
+                matches.append(filepath)
+        return matches
+
+    def _register_attention_images_in_manifest(self, manifest_path: str):
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest = f.read()
+
+        existing_hrefs = {
+            match.group(2)
+            for match in re.finditer(
+                r"\bhref\s*=\s*(['\"])(.*?)\1",
+                manifest,
+                flags=re.IGNORECASE,
+            )
+        }
+        missing_entries = []
+        for _source_name, packaged_name in self.ATTENTION_IMAGE_SPECS:
+            href = f"web_resources/Uploaded Media/{packaged_name}"
+            if href in existing_hrefs:
+                continue
+            identifier = "g" + hashlib.sha1(href.encode("utf-8")).hexdigest()
+            missing_entries.append(
+                f'    <resource type="webcontent" identifier="{identifier}" href="{href}">\n'
+                f'      <file href="{href}"/>\n'
+                f'    </resource>'
+            )
+
+        if not missing_entries:
+            return
+
+        closing_tag = re.search(
+            r"^[ \t]*</(?:[A-Za-z_][\w.-]*:)?resources\s*>",
+            manifest,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
+        if not closing_tag:
+            raise RuntimeError(
+                "Could not package the Portuguese attention-page images because "
+                "imsmanifest.xml has no closing <resources> element."
+            )
+
+        insertion = "\n".join(missing_entries) + "\n"
+        manifest = (
+            manifest[:closing_tag.start()]
+            + insertion
+            + manifest[closing_tag.start():]
+        )
+        with open(manifest_path, "w", encoding="utf-8") as f:
+            f.write(manifest)
+
+    def _prepare_attention_messaging_package(self) -> bool:
+        if self.target_language != "PTBR":
+            return False
+        if getattr(self, "_attention_package_prepared", False):
+            return getattr(self, "_attention_page_present", False)
+
+        page_paths = self._find_attention_messaging_pages()
+        if not page_paths:
+            self._attention_package_prepared = True
+            self._attention_page_present = False
+            return False
+
+        common_images_dir = os.path.join(self.hub_dir, "Common Course Images")
+        missing_images = [
+            source_name
+            for source_name, _packaged_name in self.ATTENTION_IMAGE_SPECS
+            if not os.path.isfile(os.path.join(common_images_dir, source_name))
+        ]
+        if missing_images:
+            raise FileNotFoundError(
+                "Cannot build the Portuguese attention page. Missing common course "
+                f"image(s): {', '.join(missing_images)}"
+            )
+
+        manifest_path = os.path.join(self.workspace.output_dir, "imsmanifest.xml")
+        if not os.path.isfile(manifest_path):
+            raise FileNotFoundError(
+                "Cannot package the Portuguese attention-page images because "
+                f"imsmanifest.xml was not found at {manifest_path}"
+            )
+
+        media_dir = os.path.join(
+            self.workspace.output_dir,
+            "web_resources",
+            "Uploaded Media",
+        )
+        os.makedirs(media_dir, exist_ok=True)
+        for source_name, packaged_name in self.ATTENTION_IMAGE_SPECS:
+            shutil.copy2(
+                os.path.join(common_images_dir, source_name),
+                os.path.join(media_dir, packaged_name),
+            )
+
+        self._register_attention_images_in_manifest(manifest_path)
+        self._attention_package_prepared = True
+        self._attention_page_present = True
+        self._log(
+            "[Controller] Packaged Portuguese images for "
+            f"{self.ATTENTION_PAGE_FILENAME}"
+        )
+        return True
+
+    def _build_attention_messaging_page(self, original_content: str) -> str:
+        first_image = self.ATTENTION_IMAGE_SPECS[0][1]
+        second_image = self.ATTENTION_IMAGE_SPECS[1][1]
+        body_html = f'''<p>Estudantes que t&ecirc;m d&uacute;vidas sobre a pontua&ccedil;&atilde;o ou notas das tarefas devem contatar a equipe de avalia&ccedil;&atilde;o atrav&eacute;s da caixa "Adicionar um Coment&aacute;rio" ao trabalhar na &aacute;rea de envio de suas tarefas.&nbsp;</p>
+<p><img src="$IMS-CC-FILEBASE$/Uploaded%20Media/{first_image}" alt="Captura de tela da p&aacute;gina de tarefas do Canvas mostrando a op&ccedil;&atilde;o de adicionar um coment&aacute;rio. No topo, o t&iacute;tulo 'Adicionar um Coment&aacute;rio:' seguido por uma grande caixa de texto vazia. Abaixo, os links 'Coment&aacute;rio de M&iacute;dia' (com um &iacute;cone de &aacute;udio ao lado) e 'Anexar Arquivo'. Na parte inferior, h&aacute; um bot&atilde;o azul com a palavra 'Salvar'" width="334" height="243" /></p>
+<p><span data-teams="true">Os avaliadores <i><strong>n&atilde;o podem responder a perguntas</strong></i> enviadas aos "Assistentes de Ensino" por meio da Caixa de Entrada do curso ou da aba Comunica&ccedil;&otilde;es. Al&eacute;m disso, este curso <i><strong>n&atilde;o</strong></i> utiliza Assistentes de Ensino (AEs).</span></p>
+<p><span>Os estudantes <em><strong>devem usar o recurso Inbox para se comunicar com o instrutor</strong></em> sobre quest&otilde;es pessoais ou outras d&uacute;vidas sobre o curso ou conte&uacute;do do curso. Eles podem se comunicar com o instrutor escolhendo a op&ccedil;&atilde;o "Instrutores" na lista suspensa "Para" ao compor uma mensagem no Inbox.&nbsp;</span></p>
+<p><img src="$IMS-CC-FILEBASE$/Uploaded%20Media/{second_image}" alt="Captura de tela do cabe&ccedil;alho da janela de emails do Canvas com o t&iacute;tulo &quot;Compor mensagem&quot;. O campo &quot;Curso&quot; est&aacute; preenchido com o curso referido. O campo &quot;Para *&quot; exibe um menu suspenso com op&ccedil;&otilde;es de destinat&aacute;rios. Sobrepostas &agrave; imagem, h&aacute; anota&ccedil;&otilde;es em vermelho para orientar o usu&aacute;rio: uma seta com a palavra &quot;SIM&quot; aponta para a op&ccedil;&atilde;o &quot;Instrutores&quot; (que est&aacute; destacada em amarelo), indicando a escolha correta. Outra seta com a palavra &quot;N&Atilde;O&quot; aponta para a op&ccedil;&atilde;o &quot;Assistentes&quot;, indicando que ela n&atilde;o deve ser selecionada." width="429" height="239" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>'''
+
+        title_html = "Aten&ccedil;&atilde;o: Mensagens para instrutores e avaliadores"
+        title_pattern = re.compile(r"<title\b[^>]*>.*?</title\s*>", re.IGNORECASE | re.DOTALL)
+        if title_pattern.search(original_content):
+            updated = title_pattern.sub(f"<title>{title_html}</title>", original_content, count=1)
+        else:
+            head_close = re.search(r"</head\s*>", original_content, flags=re.IGNORECASE)
+            if not head_close:
+                raise RuntimeError(
+                    "Cannot build the Portuguese attention page because its HTML "
+                    "contains neither a <title> nor a closing <head> element."
+                )
+            updated = (
+                original_content[:head_close.start()]
+                + f"<title>{title_html}</title>\n"
+                + original_content[head_close.start():]
+            )
+
+        body_pattern = re.compile(
+            r"(<body\b[^>]*>).*?(</body\s*>)",
+            re.IGNORECASE | re.DOTALL,
+        )
+        if not body_pattern.search(updated):
+            raise RuntimeError(
+                "Cannot build the Portuguese attention page because its HTML has "
+                "no complete <body> element."
+            )
+        return body_pattern.sub(
+            lambda match: f"{match.group(1)}\n{body_html}\n{match.group(2)}",
+            updated,
+            count=1,
+        )
 
     def _enforce_teaching_notes_title(self, content: str) -> str:
         title_translations = {
@@ -252,6 +457,33 @@ class TranslationController:
         if ext in ["ds_store"]:
             self._log(f"Skipping ignored system file: {filepath}")
             return
+
+        if ext == "html" and self.target_language == "PTBR":
+            with open(target_filepath, "r", encoding="utf-8") as f:
+                possible_attention_content = f.read()
+            if self._is_attention_messaging_page(
+                target_filepath,
+                possible_attention_content,
+            ):
+                # process_directory() prepares this before concurrent work. The
+                # extra call keeps direct --file processing safe and idempotent.
+                self._prepare_attention_messaging_package()
+                translated_content = self._build_attention_messaging_page(
+                    possible_attention_content
+                )
+                BeautifulSoup(translated_content, "html.parser")
+                self._log(
+                    "Saving canonical Portuguese attention-page content to "
+                    f"{target_filepath}"
+                )
+                with open(target_filepath, "w", encoding="utf-8") as f:
+                    f.write(translated_content)
+                self._log("Translation complete for this file.")
+                self._log(
+                    f"[System] TranslatedPage: {self.ATTENTION_PAGE_PTBR_TITLE} | "
+                    f"{filepath}"
+                )
+                return
             
         is_setup_notes = "setup-notes" in target_filepath.lower()
         is_teaching_notes = self._is_teaching_notes_page(target_filepath)
