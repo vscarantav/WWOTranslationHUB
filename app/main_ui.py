@@ -59,7 +59,7 @@ def generate_edtech_excel_report(controller, shell_url, language, extracted_page
     """Generate a focused workbook containing every extracted EdTech chapter."""
     review_pages = []
     for item in extracted_pages:
-        filepath = item.get("raw_filepath", "")
+        filepath = item.get("translated_filepath", "") or item.get("raw_filepath", "")
         title = ""
         if filepath and os.path.exists(filepath):
             try:
@@ -69,7 +69,7 @@ def generate_edtech_excel_report(controller, shell_url, language, extracted_page
                 title = ""
         review_pages.append({
             "title": title or item.get("filename", "Untitled page"),
-            "filepath": filepath or item.get("translated_filepath", ""),
+            "filepath": filepath,
         })
 
     return controller.update_excel_dashboard(

@@ -18,6 +18,7 @@ from bots.xml_bot import XMLTranslationBot
 from bots.txt_bot import TextTranslationBot
 from bots.auditor_bot import GlossaryAuditBot
 from bots.scripturecheck_bot import ScriptureCheckBot
+from bots.api_utils import track_successful_gemini_calls
 
 from core.workspace_manager import WorkspaceManager
 from core.link_processor import LinkProcessor
@@ -44,6 +45,8 @@ class TranslationController:
         self.target_course_id = target_course_id
         self._attention_package_prepared = False
         self._attention_page_present = False
+        self._gemini_translation_pages = {}
+        self._gemini_translation_pages_lock = threading.Lock()
         self.app_dir = os.path.dirname(os.path.abspath(__file__))
         self.hub_dir = os.path.dirname(self.app_dir)
         self._clear_logs()
@@ -93,6 +96,129 @@ class TranslationController:
         with self.log_lock:
             with open(self.log_filepath, "a", encoding="utf-8") as f:
                 f.write(f"[{timestamp}] {message}\n")
+
+    def _record_gemini_translation_page(self, title: str, filepath: str):
+        """Record a saved IMSCC item whose translation used Gemini."""
+        normalized_path = os.path.abspath(filepath)
+        with self._gemini_translation_pages_lock:
+            self._gemini_translation_pages[normalized_path] = {
+                "title": title,
+                "filepath": normalized_path,
+            }
+
+    @staticmethod
+    def _is_translation_review_candidate(filepath: str) -> bool:
+        """Keep reviewable content, excluding metadata-only translations."""
+        path = os.path.abspath(filepath)
+        extension = os.path.splitext(path)[1].lower()
+        basename = os.path.basename(path).lower()
+        if basename == "canvas_export.txt":
+            return False
+        if extension in (".html", ".htm") and "setup-notes" in basename:
+            return False
+        if extension in (".html", ".htm", ".txt"):
+            return True
+        if extension not in (".xml", ".qti") or basename == "imsmanifest.xml":
+            return False
+
+        try:
+            with open(path, "r", encoding="utf-8", errors="ignore") as content_file:
+                soup = BeautifulSoup(content_file.read(), "xml")
+        except OSError:
+            return False
+
+        # Basic LTI files configure external Canvas navigation/tools. Their
+        # titles and boilerplate descriptions are not reviewable course pages.
+        if soup.find("cartridge_basiclti_link"):
+            return False
+
+        # Standalone QTI assessments duplicate quizzes represented by their
+        # assessment_meta/assessment_qti XML files. Object banks are distinct
+        # Canvas Question Banks and belong in the review report.
+        if extension == ".qti" and not soup.find("objectbank"):
+            return False
+
+        # XML title tags, item title attributes, and bank_title field entries
+        # are navigation/metadata labels rather than substantive page content.
+        for tag in soup.find_all(("mattext", "description", "long_description", "text")):
+            content = tag.decode_contents().strip()
+            if not content:
+                continue
+            if tag.name == "mattext" and tag.get_text(strip=True) in ("True", "False"):
+                continue
+            return True
+        if extension == ".qti" and soup.find("objectbank"):
+            for field_entry in soup.find_all("fieldentry"):
+                field_label = field_entry.find_previous_sibling("fieldlabel")
+                if (
+                    field_label
+                    and field_label.get_text(strip=True) == "bank_title"
+                    and field_entry.get_text(strip=True)
+                ):
+                    return True
+        return False
+
+    def get_gemini_translation_pages(self):
+        """Return a stable list of items actually sent through Gemini."""
+        with self._gemini_translation_pages_lock:
+            pages = [
+                dict(page)
+                for page in self._gemini_translation_pages.values()
+                if self._is_translation_review_candidate(page.get("filepath", ""))
+            ]
+        for page in pages:
+            filepath = str(page.get("filepath", ""))
+            extension = os.path.splitext(filepath)[1].lower().lstrip(".")
+            title_filepath = filepath
+            if os.path.basename(filepath).lower() == "assessment_qti.xml":
+                sibling_meta = os.path.join(
+                    os.path.dirname(filepath),
+                    "assessment_meta.xml",
+                )
+                if os.path.exists(sibling_meta):
+                    title_filepath = sibling_meta
+                    extension = "xml"
+            try:
+                with open(title_filepath, "r", encoding="utf-8", errors="ignore") as title_file:
+                    translated_title = self._extract_page_title(
+                        title_file.read(),
+                        extension,
+                    )
+                if translated_title:
+                    page["title"] = translated_title
+            except OSError:
+                pass
+        expanded_pages = []
+        for page in pages:
+            filepath = str(page.get("filepath", ""))
+            if os.path.basename(filepath).lower() != "rubrics.xml":
+                expanded_pages.append(page)
+                continue
+            try:
+                with open(filepath, "r", encoding="utf-8", errors="ignore") as rubric_file:
+                    rubric_soup = BeautifulSoup(rubric_file.read(), "xml")
+                rubric_titles = []
+                for rubric in rubric_soup.find_all("rubric"):
+                    title_tag = rubric.find("title", recursive=False)
+                    if title_tag and title_tag.get_text(strip=True):
+                        rubric_titles.append(title_tag.get_text(strip=True))
+                if rubric_titles:
+                    for rubric_title in rubric_titles:
+                        rubric_page = dict(page)
+                        rubric_page["title"] = rubric_title
+                        expanded_pages.append(rubric_page)
+                    continue
+            except OSError:
+                pass
+            expanded_pages.append(page)
+        pages = expanded_pages
+        return sorted(
+            pages,
+            key=lambda page: (
+                str(page.get("title", "")).casefold(),
+                str(page.get("filepath", "")).casefold(),
+            ),
+        )
 
     def _load_instructions(self) -> dict:
         filepath = os.path.join(self.app_dir, "Course_Translation_Hub_ArchitectureAndInstructions.json")
@@ -442,6 +568,20 @@ class TranslationController:
                 title_tag = soup.find('title')
                 if title_tag and title_tag.text:
                     return title_tag.text.strip()
+                assessment_tag = soup.find('assessment')
+                if assessment_tag and assessment_tag.get('title'):
+                    return assessment_tag.get('title').strip()
+                for field_entry in soup.find_all('fieldentry'):
+                    field_label = field_entry.find_previous_sibling('fieldlabel')
+                    if (
+                        field_label
+                        and field_label.get_text(strip=True) == 'bank_title'
+                        and field_entry.get_text(strip=True)
+                    ):
+                        return field_entry.get_text(strip=True)
+                object_bank = soup.find('objectbank')
+                if object_bank and object_bank.get('title'):
+                    return object_bank.get('title').strip()
         except Exception:
             pass
         return ""
@@ -479,10 +619,6 @@ class TranslationController:
                 with open(target_filepath, "w", encoding="utf-8") as f:
                     f.write(translated_content)
                 self._log("Translation complete for this file.")
-                self._log(
-                    f"[System] TranslatedPage: {self.ATTENTION_PAGE_PTBR_TITLE} | "
-                    f"{filepath}"
-                )
                 return
             
         is_setup_notes = "setup-notes" in target_filepath.lower()
@@ -550,6 +686,12 @@ class TranslationController:
         if not page_title:
             page_title = os.path.splitext(os.path.basename(filepath))[0]
 
+        gemini_call_succeeded = False
+
+        def mark_gemini_call_succeeded():
+            nonlocal gemini_call_succeeded
+            gemini_call_succeeded = True
+
         if ext in ["xml", "qti"]:
             if self.target_language == "PTBR":
                 original_content = re.sub(r'\bMissing\b', 'Não Entregue', original_content)
@@ -557,9 +699,11 @@ class TranslationController:
             elif self.target_language == "SPA":
                 original_content = re.sub(r'\bMissing\b', 'No Entregado', original_content)
                 original_content = re.sub(r'\bmissing\b', 'no entregado', original_content)
-            translated_content = bot.translate_xml_content(original_content, relevant_glossary, relevant_scriptures, page_title)
+            with track_successful_gemini_calls(mark_gemini_call_succeeded):
+                translated_content = bot.translate_xml_content(original_content, relevant_glossary, relevant_scriptures, page_title)
         elif ext == "txt":
-            translated_content = bot.translate_txt_content(original_content, relevant_glossary, relevant_scriptures)
+            with track_successful_gemini_calls(mark_gemini_call_succeeded):
+                translated_content = bot.translate_txt_content(original_content, relevant_glossary, relevant_scriptures)
         else:
             if is_setup_notes and hasattr(bot, 'set_system_prompt'):
                 original_prompt = bot.system_prompt
@@ -572,18 +716,21 @@ class TranslationController:
                 )
                 bot.set_system_prompt(custom_prompt)
                 try:
-                    translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
+                    with track_successful_gemini_calls(mark_gemini_call_succeeded):
+                        translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
                 finally:
                     bot.set_system_prompt(original_prompt)
             elif is_teaching_notes or is_edtech_page:
-                translated_content = bot.translate_html_content_in_chunks(
-                    original_content,
-                    relevant_glossary,
-                    relevant_scriptures,
-                    page_title,
-                )
+                with track_successful_gemini_calls(mark_gemini_call_succeeded):
+                    translated_content = bot.translate_html_content_in_chunks(
+                        original_content,
+                        relevant_glossary,
+                        relevant_scriptures,
+                        page_title,
+                    )
             else:
-                translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
+                with track_successful_gemini_calls(mark_gemini_call_succeeded):
+                    translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
 
         title_corrected_content = self._enforce_teaching_notes_title(translated_content)
         if title_corrected_content != translated_content:
@@ -635,8 +782,16 @@ class TranslationController:
             f.write(translated_content)
             
         self._log("Translation complete for this file.")
-        
-        self._log(f"[System] TranslatedPage: {page_title} | {filepath}")
+
+        if gemini_call_succeeded:
+            translated_page_title = self._extract_page_title(translated_content, ext)
+            if not translated_page_title:
+                translated_page_title = page_title
+            self._record_gemini_translation_page(translated_page_title, target_filepath)
+            self._log(
+                f"[System] TranslatedPage: {translated_page_title} | "
+                f"{target_filepath}"
+            )
 
     def update_excel_dashboard(
         self,
@@ -645,6 +800,17 @@ class TranslationController:
         review_pages=None,
         excluded_sheets=None,
     ):
+        if review_pages is None and getattr(self.workspace, "imscc_path", None):
+            review_pages = self.get_gemini_translation_pages()
+            if excluded_sheets is None:
+                excluded_sheets = (
+                    "Dashboard",
+                    "Bot Analysis",
+                    "Raw Logs",
+                    "Translated Pages",
+                    "Link Actions",
+                    "Missing Alt Texts",
+                )
         generator = DashboardGenerator(self.log_filepath, self.hub_dir, self.target_language)
         return generator.generate(
             self._log,

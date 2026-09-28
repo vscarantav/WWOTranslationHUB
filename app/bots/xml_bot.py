@@ -154,13 +154,13 @@ class XMLTranslationBot:
                 
                 counter += 1
                 
-        for item in soup.find_all('item'):
-            if item.has_attr('title'):
-                title_val = item['title'].strip()
+        for titled_node in soup.find_all(['item', 'assessment', 'objectbank']):
+            if titled_node.has_attr('title'):
+                title_val = titled_node['title'].strip()
                 if title_val:
                     unescaped = html.unescape(title_val)
                     strings_to_translate[str(counter)] = unescaped
-                    tag_references[str(counter)] = ('attribute', item, 'title')
+                    tag_references[str(counter)] = ('attribute', titled_node, 'title')
                     is_cdata_map[str(counter)] = False
                     counter += 1
                 

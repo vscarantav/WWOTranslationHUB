@@ -1,6 +1,24 @@
 import time
+from contextlib import contextmanager
+from contextvars import ContextVar
 from google.api_core.exceptions import ResourceExhausted, InternalServerError, ServiceUnavailable
 import google.api_core.exceptions
+
+
+_successful_gemini_call_callback = ContextVar(
+    "successful_gemini_call_callback",
+    default=None,
+)
+
+
+@contextmanager
+def track_successful_gemini_calls(callback):
+    """Notify ``callback`` when Gemini returns successfully in this context."""
+    token = _successful_gemini_call_callback.set(callback)
+    try:
+        yield
+    finally:
+        _successful_gemini_call_callback.reset(token)
 
 def call_gemini_with_retry(model, prompt, max_retries=8, initial_delay=10, log_func=print):
     """
@@ -18,7 +36,11 @@ def call_gemini_with_retry(model, prompt, max_retries=8, initial_delay=10, log_f
     delay = initial_delay
     for attempt in range(max_retries):
         try:
-            return model.generate_content(prompt, request_options={"timeout": 600})
+            response = model.generate_content(prompt, request_options={"timeout": 600})
+            callback = _successful_gemini_call_callback.get()
+            if callback is not None:
+                callback()
+            return response
         except google.api_core.exceptions.InvalidArgument as e:
             # 400 Bad Request / Invalid API Key usually shouldn't be retried blindly unless it's a transient glitch,
             # but we can log and fail fast if it's clearly an auth issue.

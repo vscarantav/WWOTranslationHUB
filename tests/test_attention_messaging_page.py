@@ -123,7 +123,7 @@ class AttentionMessagingPageTests(unittest.TestCase):
         html_bot.translate_html_content_in_chunks.assert_not_called()
         translated = self.page_path.read_text(encoding="utf-8")
         self.assertIn("Estudantes que t&ecirc;m d&uacute;vidas", translated)
-        self.assertTrue(any(
+        self.assertFalse(any(
             "TranslatedPage" in call.args[0]
             for call in self.controller._log.call_args_list
         ))

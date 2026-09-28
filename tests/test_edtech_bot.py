@@ -613,6 +613,16 @@ class EdTechExcelReportTests(unittest.TestCase):
                 '<div id="edtech-meta-title">Planning Your Project</div><p>Second</p>',
                 encoding="utf-8",
             )
+            first_translated_page = workspace / "lesson_1_pt.html"
+            second_translated_page = workspace / "lesson_2_pt.html"
+            first_translated_page.write_text(
+                '<div id="edtech-meta-title">Introdução</div><p>Primeiro</p>',
+                encoding="utf-8",
+            )
+            second_translated_page.write_text(
+                '<div id="edtech-meta-title">Planejando seu projeto</div><p>Segundo</p>',
+                encoding="utf-8",
+            )
             controller = Mock()
             controller._extract_page_title.side_effect = (
                 lambda content, _ext: re.search(
@@ -626,8 +636,16 @@ class EdTechExcelReportTests(unittest.TestCase):
                 "https://books.byui.edu/web_frontend_development_ii",
                 "SPA",
                 [
-                    {"filename": "lesson_1.html", "raw_filepath": str(first_page)},
-                    {"filename": "lesson_2.html", "raw_filepath": str(second_page)},
+                    {
+                        "filename": "lesson_1.html",
+                        "raw_filepath": str(first_page),
+                        "translated_filepath": str(first_translated_page),
+                    },
+                    {
+                        "filename": "lesson_2.html",
+                        "raw_filepath": str(second_page),
+                        "translated_filepath": str(second_translated_page),
+                    },
                 ],
             )
 
@@ -636,8 +654,8 @@ class EdTechExcelReportTests(unittest.TestCase):
                 report_name="Web Frontend Development Ii EdTech Master",
                 report_code="EDTECH-SPA",
                 review_pages=[
-                    {"title": "Introduction", "filepath": str(first_page)},
-                    {"title": "Planning Your Project", "filepath": str(second_page)},
+                    {"title": "Introdução", "filepath": str(first_translated_page)},
+                    {"title": "Planejando seu projeto", "filepath": str(second_translated_page)},
                 ],
                 excluded_sheets=("Dashboard", "Bot Analysis", "Raw Logs"),
             )
