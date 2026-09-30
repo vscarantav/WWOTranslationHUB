@@ -1,0 +1,4873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+<objectbank ident="g831df9a061d06fa19602fc623b078b30">
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>bank_title</fieldlabel>
+<fieldentry>S03 - Perguntas de Nível 1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_type</fieldlabel>
+<fieldentry>Course</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_context_uuid</fieldlabel>
+<fieldentry>Pm3b1l08woeaShX88bZnIytohG4NMS2LDA11YkWJ</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_state</fieldlabel>
+<fieldentry>active</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+<item ident="gea3098fec96aaefe82a62fef59a99fda" title="Pergunta 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>63768,74702,55232,85988</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa o termo &lt;strong&gt;retórica&lt;/strong&gt; no contexto da escrita e da comunicação?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="63768">
+<material>
+<mattext texttype="text/plain">A arte de usar a linguagem para persuadir um público-alvo</mattext>
+</material>
+</response_label>
+<response_label ident="74702">
+<material>
+<mattext texttype="text/plain">O estudo das regras de gramática e pontuação</mattext>
+</material>
+</response_label>
+<response_label ident="55232">
+<material>
+<mattext texttype="text/plain">O processo de organizar ideias em parágrafos</mattext>
+</material>
+</response_label>
+<response_label ident="85988">
+<material>
+<mattext texttype="text/plain">A prática de resumir informações de fontes</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74702</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74702_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">55232</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="55232_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85988</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85988_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">63768</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="74702_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A retórica não se trata de gramática, resumo ou organização de parágrafos. Ela se refere à arte de usar a linguagem para motivar e persuadir um público-alvo a pensar ou agir de determinada maneira.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="55232_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A retórica não se trata de gramática, resumo ou organização de parágrafos. Ela se refere à arte de usar a linguagem para motivar e persuadir um público-alvo a pensar ou agir de determinada maneira.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85988_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A retórica não se trata de gramática, resumo ou organização de parágrafos. Ela se refere à arte de usar a linguagem para motivar e persuadir um público-alvo a pensar ou agir de determinada maneira.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g49a038e8ce60d89b04fc977057e9a719" title="Pergunta 10">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>52687,18992,77190,33184</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é a falácia lógica ad hominem?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="52687">
+<material>
+<mattext texttype="text/plain">Atacar o caráter de uma pessoa em vez de abordar seu argumento</mattext>
+</material>
+</response_label>
+<response_label ident="18992">
+<material>
+<mattext texttype="text/plain">Afirmar que um evento causou outro sem provar uma conexão</mattext>
+</material>
+</response_label>
+<response_label ident="77190">
+<material>
+<mattext texttype="text/plain">Apresentar apenas duas opções extremas quando existem outras escolhas</mattext>
+</material>
+</response_label>
+<response_label ident="33184">
+<material>
+<mattext texttype="text/plain">Utilizar alegações exageradas que distorcem a verdade de um argumento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18992</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18992_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">77190</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="77190_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">33184</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="33184_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">52687</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="18992_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Afirmar uma falsa conexão de causa e efeito descreve uma falácia causal, apresentar apenas duas opções descreve um falso dilema, e exagerar alegações descreve uma hipérbole. Ad hominem é a falácia de atacar o caráter ou a identidade da pessoa que faz um argumento em vez de abordar o argumento em si.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="77190_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Afirmar uma falsa conexão de causa e efeito descreve uma falácia causal, apresentar apenas duas opções descreve um falso dilema, e exagerar alegações descreve uma hipérbole. Ad hominem é a falácia de atacar o caráter ou a identidade da pessoa que faz um argumento em vez de abordar o argumento em si.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="33184_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Afirmar uma falsa conexão de causa e efeito descreve uma falácia causal, apresentar apenas duas opções descreve um falso dilema, e exagerar alegações descreve uma hipérbole. Ad hominem é a falácia de atacar o caráter ou a identidade da pessoa que faz um argumento em vez de abordar o argumento em si.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g40d9364525eac9fb0bbaf690ff3350ef" title="Pergunta 11">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>27193,10610,31578,97334</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais são os três componentes que se deve considerar antes de escolher uma estratégia de comunicação?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="27193">
+<material>
+<mattext texttype="text/plain">Público-alvo, propósito e canal</mattext>
+</material>
+</response_label>
+<response_label ident="10610">
+<material>
+<mattext texttype="text/plain">Gramática, pontuação e ortografia</mattext>
+</material>
+</response_label>
+<response_label ident="31578">
+<material>
+<mattext texttype="text/plain">Extensão, formato e tamanho da fonte</mattext>
+</material>
+</response_label>
+<response_label ident="97334">
+<material>
+<mattext texttype="text/plain">Assunto, título e contagem de palavras</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">10610</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="10610_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">31578</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="31578_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">97334</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="97334_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">27193</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="10610_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Gramática, detalhes de formatação e elementos estruturais são ferramentas utilizadas após a definição da estratégia de comunicação. Antes de escrever, quem se comunica deve identificar o público-alvo (quem lerá a mensagem), o propósito (o que a mensagem deve realizar) e o canal (como a mensagem será entregue).</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="31578_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Gramática, detalhes de formatação e elementos estruturais são ferramentas utilizadas após a definição da estratégia de comunicação. Antes de escrever, quem se comunica deve identificar o público-alvo (quem lerá a mensagem), o propósito (o que a mensagem deve realizar) e o canal (como a mensagem será entregue).</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="97334_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Gramática, detalhes de formatação e elementos estruturais são ferramentas utilizadas após a definição da estratégia de comunicação. Antes de escrever, quem se comunica deve identificar o público-alvo (quem lerá a mensagem), o propósito (o que a mensagem deve realizar) e o canal (como a mensagem será entregue).</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gcf5aeddb47f0bef4559c253e311dad6b" title="Pergunta 12">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>87721,18523,37254,78416</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual apelo retórico se conecta com o público leitor ao visar seus sentimentos e emoções?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="87721">
+<material>
+<mattext texttype="text/plain">Pathos</mattext>
+</material>
+</response_label>
+<response_label ident="18523">
+<material>
+<mattext texttype="text/plain">Logos</mattext>
+</material>
+</response_label>
+<response_label ident="37254">
+<material>
+<mattext texttype="text/plain">Ethos</mattext>
+</material>
+</response_label>
+<response_label ident="78416">
+<material>
+<mattext texttype="text/plain">Kairos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18523</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18523_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">37254</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="37254_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78416</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78416_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">87721</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="18523_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O logos usa lógica e evidências, o ethos constrói credibilidade e o kairos foca na oportunidade (tempo). O pathos é o apelo retórico que se conecta com um público-alvo ao visar suas emoções, como medo, esperança, amor ou senso de justiça.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="37254_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O logos usa lógica e evidências, o ethos constrói credibilidade e o kairos foca na oportunidade (tempo). O pathos é o apelo retórico que se conecta com um público-alvo ao visar suas emoções, como medo, esperança, amor ou senso de justiça.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="78416_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O logos usa lógica e evidências, o ethos constrói credibilidade e o kairos foca na oportunidade (tempo). O pathos é o apelo retórico que se conecta com um público-alvo ao visar suas emoções, como medo, esperança, amor ou senso de justiça.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ga5bf36ae4ec3b947668be103410ae496" title="Pergunta 13">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>20857,1566,15514,50526</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é a falácia lógica bandwagon?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="20857">
+<material>
+<mattext texttype="text/plain">Argumentar que algo está correto porque muitas pessoas acreditam ou fazem isso</mattext>
+</material>
+</response_label>
+<response_label ident="1566">
+<material>
+<mattext texttype="text/plain">Atacar o caráter pessoal de quem apresenta um argumento</mattext>
+</material>
+</response_label>
+<response_label ident="15514">
+<material>
+<mattext texttype="text/plain">Presumir que um evento causou automaticamente outro evento</mattext>
+</material>
+</response_label>
+<response_label ident="50526">
+<material>
+<mattext texttype="text/plain">Apresentar uma alegação exagerada que distorce a verdade</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1566</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1566_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">15514</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="15514_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">50526</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="50526_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">20857</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="1566_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Atacar o caráter descreve a falácia ad hominem, presumir causa e efeito sem provas descreve uma falácia causal, e exagerar alegações descreve uma hipérbole. A falácia bandwagon argumenta que, como muitas pessoas acreditam ou fazem algo, você também deveria fazer — usando a popularidade como substituta para evidências reais.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="15514_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Atacar o caráter descreve a falácia ad hominem, presumir causa e efeito sem provas descreve uma falácia causal, e exagerar alegações descreve uma hipérbole. A falácia bandwagon argumenta que, como muitas pessoas acreditam ou fazem algo, você também deveria fazer — usando a popularidade como substituta para evidências reais.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="50526_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Atacar o caráter descreve a falácia ad hominem, presumir causa e efeito sem provas descreve uma falácia causal, e exagerar alegações descreve uma hipérbole. A falácia bandwagon argumenta que, como muitas pessoas acreditam ou fazem algo, você também deveria fazer — usando a popularidade como substituta para evidências reais.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ga50989b4d55587e90beac042b765ea28" title="Pergunta 14">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>12546,18813,40323,32175</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é a falácia lógica da rampa escorregadia?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="12546">
+<material>
+<mattext texttype="text/plain">Presumir que uma ação levará automaticamente a uma cadeia de consequências extremas</mattext>
+</material>
+</response_label>
+<response_label ident="18813">
+<material>
+<mattext texttype="text/plain">Oferecer apenas duas escolhas quando existem outras opções</mattext>
+</material>
+</response_label>
+<response_label ident="40323">
+<material>
+<mattext texttype="text/plain">Usar a popularidade para argumentar que algo deve estar correto</mattext>
+</material>
+</response_label>
+<response_label ident="32175">
+<material>
+<mattext texttype="text/plain">Atacar a identidade da pessoa que apresenta um argumento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18813</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18813_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40323</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40323_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32175</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32175_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">12546</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="18813_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Oferecer apenas duas escolhas descreve um falso dilema, usar a popularidade descreve a falácia bandwagon, e atacar uma pessoa descreve a falácia ad hominem. A falácia da rampa escorregadia presume que uma ação irá desencadear automaticamente uma série de resultados extremos, sem demonstrar como ou por que cada etapa ocorreria.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="40323_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Oferecer apenas duas escolhas descreve um falso dilema, usar a popularidade descreve a falácia bandwagon, e atacar uma pessoa descreve a falácia ad hominem. A falácia da rampa escorregadia presume que uma ação irá desencadear automaticamente uma série de resultados extremos, sem demonstrar como ou por que cada etapa ocorreria.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="32175_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Oferecer apenas duas escolhas descreve um falso dilema, usar a popularidade descreve a falácia bandwagon, e atacar uma pessoa descreve a falácia ad hominem. A falácia da rampa escorregadia presume que uma ação irá desencadear automaticamente uma série de resultados extremos, sem demonstrar como ou por que cada etapa ocorreria.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf5f5ee70e966a7bbdf2ed9d08210d11a" title="Pergunta 15">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>1023,34971,11079,25679</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é a falácia lógica do falso dilema?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="1023">
+<material>
+<mattext texttype="text/plain">Apresentar apenas duas opções extremas como se não existissem outras alternativas</mattext>
+</material>
+</response_label>
+<response_label ident="34971">
+<material>
+<mattext texttype="text/plain">Repetir uma alegação muitas vezes para fazer com que pareça verdadeira</mattext>
+</material>
+</response_label>
+<response_label ident="11079">
+<material>
+<mattext texttype="text/plain">Superestimar uma alegação de forma tão dramática que distorce a verdade</mattext>
+</material>
+</response_label>
+<response_label ident="25679">
+<material>
+<mattext texttype="text/plain">Culpar um evento por causar outro sem evidências suficientes</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">34971</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="34971_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">11079</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="11079_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25679</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25679_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">1023</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="34971_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Repetir alegações para sugerir veracidade, superestimar alegações e vincular falsamente causa e efeito são falácias lógicas distintas. A falácia do falso dilema apresenta apenas duas opções extremas como se não houvesse um meio-termo ou outras alternativas, forçando uma escolha desnecessária.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="11079_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Repetir alegações para sugerir veracidade, superestimar alegações e vincular falsamente causa e efeito são falácias lógicas distintas. A falácia do falso dilema apresenta apenas duas opções extremas como se não houvesse um meio-termo ou outras alternativas, forçando uma escolha desnecessária.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25679_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Repetir alegações para sugerir veracidade, exagerar alegações e associar falsamente causa e efeito são falácias lógicas distintas. A falácia do falso dilema apresenta apenas duas opções extremas como se não houvesse meio-termo ou outras alternativas, forçando uma escolha desnecessária.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge616b26f60c80fd8ff3aff14b8fc51f4" title="Pergunta 16">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>92278,93160,14233,45551</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é o objetivo do encerramento de um e-mail profissional?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="92278">
+<material>
+<mattext texttype="text/plain">Finalizar o e-mail com uma frase profissional antes da assinatura do remetente</mattext>
+</material>
+</response_label>
+<response_label ident="93160">
+<material>
+<mattext texttype="text/plain">Reafirmar a solicitação principal do e-mail em uma única oração</mattext>
+</material>
+</response_label>
+<response_label ident="14233">
+<material>
+<mattext texttype="text/plain">Fornecer o nome e as informações de contato do destinatário</mattext>
+</material>
+</response_label>
+<response_label ident="45551">
+<material>
+<mattext texttype="text/plain">Resumir todos os pontos principais abordados no corpo do e-mail</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93160</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93160_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14233</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14233_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45551</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45551_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">92278</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="93160_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Reafirmar solicitações, fornecer detalhes de contato do destinatário e resumir pontos principais não são funções de um encerramento. O encerramento de um e-mail profissional finaliza a mensagem com uma frase apropriada — como "Atenciosamente", "Cordialmente" ou "Agradeço" — antes da assinatura completa do remetente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="14233_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Reafirmar solicitações, fornecer detalhes de contato do destinatário e resumir pontos principais não são funções de um encerramento. O encerramento de um e-mail profissional finaliza a mensagem com uma frase apropriada — como "Atenciosamente", "Cordialmente" ou "Agradeço" — antes da assinatura completa do remetente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="45551_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Reafirmar solicitações, fornecer detalhes de contato do destinatário e resumir pontos principais não são funções de um encerramento. O encerramento de um e-mail profissional finaliza a mensagem com uma frase apropriada — como "Atenciosamente", "Cordialmente" ou "Agradeço" — antes da assinatura completa do remetente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g30a94d223a3deb7691212aa401043bd2" title="Pergunta 17">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>46533,43600,33248,50610</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Que informações devem constar na assinatura de um e-mail profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="46533">
+<material>
+<mattext texttype="text/plain">Nome completo, número de identificação do estudante e seção da disciplina/curso</mattext>
+</material>
+</response_label>
+<response_label ident="43600">
+<material>
+<mattext texttype="text/plain">Linha de assunto, saudação e frase de encerramento</mattext>
+</material>
+</response_label>
+<response_label ident="33248">
+<material>
+<mattext texttype="text/plain">Data, hora e localização da mensagem</mattext>
+</material>
+</response_label>
+<response_label ident="50610">
+<material>
+<mattext texttype="text/plain">Uma lista das realizações acadêmicas do remetente</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">43600</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="43600_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">33248</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="33248_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">50610</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="50610_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">46533</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="43600_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Linhas de assunto, saudações e encerramentos são partes distintas da estrutura do e-mail. Datas, localizações e realizações acadêmicas não são conteúdos padrão de uma assinatura. A assinatura de um e-mail profissional inclui o nome completo do remetente, o número de identificação do estudante e a seção da disciplina/curso para que o destinatário possa identificar quem enviou a mensagem.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="33248_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Linhas de assunto, saudações e encerramentos são partes distintas da estrutura do e-mail. Datas, localizações e realizações acadêmicas não são conteúdos padrão de uma assinatura. A assinatura de um e-mail profissional inclui o nome completo do remetente, o número de identificação do estudante e a seção da disciplina/curso para que o destinatário possa identificar quem enviou a mensagem.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="50610_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Linhas de assunto, saudações e encerramentos são partes distintas da estrutura do e-mail. Datas, localizações e realizações acadêmicas não são conteúdos padrão de uma assinatura. A assinatura de um e-mail profissional inclui o nome completo do remetente, o número de identificação do estudante e a seção da disciplina/curso para que o destinatário possa identificar quem enviou a mensagem.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd5ebdebf2ec7589c2b0ee30b4bc931ff" title="Pergunta 18">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>99601,97986,91068,41145</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é uma pergunta retórica?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="99601">
+<material>
+<mattext texttype="text/plain">Uma pergunta feita para efeito dramático que não espera uma resposta</mattext>
+</material>
+</response_label>
+<response_label ident="97986">
+<material>
+<mattext texttype="text/plain">Uma pergunta que pede que o leitor forneça fatos</mattext>
+</material>
+</response_label>
+<response_label ident="91068">
+<material>
+<mattext texttype="text/plain">Uma pergunta usada para testar o conhecimento do leitor sobre um assunto</mattext>
+</material>
+</response_label>
+<response_label ident="41145">
+<material>
+<mattext texttype="text/plain">Uma pergunta que introduz novas evidências para dar suporte a um argumento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">97986</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="97986_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">91068</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="91068_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">41145</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="41145_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">99601</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="97986_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Perguntas que solicitam fatos, testam o conhecimento ou introduzem evidências servem para fins informativos. Uma pergunta retórica é feita puramente para efeito dramático ou persuasivo — ela cria ênfase ou provoca reflexão, sem esperar que o leitor responda diretamente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="91068_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Perguntas que solicitam fatos, testam o conhecimento ou introduzem evidências servem para fins informativos. Uma pergunta retórica é feita puramente para efeito dramático ou persuasivo — ela cria ênfase ou provoca reflexão, sem esperar que o leitor responda diretamente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="41145_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Perguntas que solicitam fatos, testam o conhecimento ou introduzem evidências servem para fins informativos. Uma pergunta retórica é feita puramente para efeito dramático ou persuasivo — ela cria ênfase ou provoca reflexão, sem esperar que o leitor responda diretamente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g120dcb9e7dc323590114fde2af684035" title="Pergunta 19">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>76392,3966,27288,36749</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa &lt;strong&gt;público-alvo&lt;/strong&gt; no contexto da escrita?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="76392">
+<material>
+<mattext texttype="text/plain">As pessoas que lerão ou receberão uma mensagem escrita</mattext>
+</material>
+</response_label>
+<response_label ident="3966">
+<material>
+<mattext texttype="text/plain">O formato e a estrutura utilizados para organizar um documento</mattext>
+</material>
+</response_label>
+<response_label ident="27288">
+<material>
+<mattext texttype="text/plain">O argumento ou alegação principal apresentado em um trabalho de escrita</mattext>
+</material>
+</response_label>
+<response_label ident="36749">
+<material>
+<mattext texttype="text/plain">O canal utilizado para transmitir uma mensagem escrita</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">3966</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="3966_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">27288</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="27288_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36749</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36749_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">76392</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="3966_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Formato, argumentos principais e canais são elementos distintos do processo de escrita. Na escrita, o público-alvo refere-se às pessoas específicas que lerão ou receberão a mensagem — compreender o público-alvo ajuda quem escreve a fazer escolhas eficazes sobre tom, conteúdo e estratégia.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="27288_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Formato, argumentos principais e canais são elementos distintos do processo de escrita. Na escrita, o público-alvo refere-se às pessoas específicas que lerão ou receberão a mensagem — compreender o público-alvo ajuda quem escreve a fazer escolhas eficazes sobre tom, conteúdo e estratégia.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="36749_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Formato, argumentos principais e canais são elementos distintos do processo de escrita. Na escrita, o público-alvo refere-se às pessoas específicas que lerão ou receberão a mensagem — compreender o público-alvo ajuda quem escreve a fazer escolhas eficazes sobre tom, conteúdo e estratégia.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc91cf5ff2e85c247095ed86f0ea10411" title="Pergunta 2">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>83145,79461,14728,40274</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual apelo retórico utiliza fatos, dados e raciocínio lógico para persuadir um público-alvo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="83145">
+<material>
+<mattext texttype="text/plain">Logos</mattext>
+</material>
+</response_label>
+<response_label ident="79461">
+<material>
+<mattext texttype="text/plain">Pathos</mattext>
+</material>
+</response_label>
+<response_label ident="14728">
+<material>
+<mattext texttype="text/plain">Ethos</mattext>
+</material>
+</response_label>
+<response_label ident="40274">
+<material>
+<mattext texttype="text/plain">Kairos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">79461</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="79461_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14728</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14728_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40274</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40274_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">83145</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="79461_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O pathos apela à emoção, o ethos constrói credibilidade e o kairos foca no momento oportuno. O logos é o apelo retórico que se baseia em fatos, evidências e raciocínio lógico para persuadir um público-alvo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="14728_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O pathos apela à emoção, o ethos constrói credibilidade e o kairos foca no momento oportuno. O logos é o apelo retórico que se baseia em fatos, evidências e raciocínio lógico para persuadir um público-alvo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="40274_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O pathos apela à emoção, o ethos constrói credibilidade e o kairos foca no momento oportuno. O logos é o apelo retórico que se baseia em fatos, evidências e raciocínio lógico para persuadir um público-alvo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g81199e307a034b0b50b1cf3c9a86db48" title="Pergunta 20">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>74592,48054,42521,87141</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é a estrutura paralela como recurso literário?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="74592">
+<material>
+<mattext texttype="text/plain">Repetir o mesmo padrão gramatical de palavras para dar igual ênfase às ideias</mattext>
+</material>
+</response_label>
+<response_label ident="48054">
+<material>
+<mattext texttype="text/plain">Comparar duas coisas diferentes usando as palavras "como" ou "tal como"</mattext>
+</material>
+</response_label>
+<response_label ident="42521">
+<material>
+<mattext texttype="text/plain">Atribuir qualidades humanas a um objeto ou ideia não humana</mattext>
+</material>
+</response_label>
+<response_label ident="87141">
+<material>
+<mattext texttype="text/plain">Apresentar uma alegação como menos significativa do que realmente é</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">48054</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="48054_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">42521</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="42521_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87141</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87141_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">74592</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="48054_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Comparar coisas diferentes com &lt;em&gt;como&lt;/em&gt; ou &lt;em&gt;tal como&lt;/em&gt; descreve uma símile, atribuir qualidades humanas a objetos descreve a personificação, e minimizar uma alegação descreve a atenuação. A estrutura paralela repete o mesmo padrão gramatical em uma série de palavras ou frases para sinalizar que as ideias têm igual importância e para tornar a escrita mais memorável.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="42521_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Comparar coisas diferentes com &lt;em&gt;como&lt;/em&gt; ou &lt;em&gt;tal como&lt;/em&gt; descreve uma símile, atribuir qualidades humanas a objetos descreve a personificação, e minimizar uma alegação descreve a atenuação. A estrutura paralela repete o mesmo padrão gramatical em uma série de palavras ou frases para sinalizar que as ideias têm igual importância e para tornar a escrita mais memorável.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="87141_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Comparar coisas diferentes com &lt;em&gt;como&lt;/em&gt; ou &lt;em&gt;tal como &lt;/em&gt;descreve uma símile, atribuir qualidades humanas a objetos descreve a personificação, e minimizar uma alegação descreve a atenuação. A estrutura paralela repete o mesmo padrão gramatical em uma série de palavras ou frases para sinalizar que as ideias têm igual importância e para tornar a escrita mais memorável.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd422c3723948cfeddf445d47930447c2" title="Pergunta 21">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>94394,33833,79950,53308</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é uma símile?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="94394">
+<material>
+<mattext texttype="text/plain">Uma comparação de duas coisas diferentes usando as palavras "como" ou "tal como"</mattext>
+</material>
+</response_label>
+<response_label ident="33833">
+<material>
+<mattext texttype="text/plain">A repetição de uma palavra ou frase para criar ênfase na escrita</mattext>
+</material>
+</response_label>
+<response_label ident="79950">
+<material>
+<mattext texttype="text/plain">Uma afirmação que apresenta algo como menos importante do que realmente é</mattext>
+</material>
+</response_label>
+<response_label ident="53308">
+<material>
+<mattext texttype="text/plain">O uso de características humanas para descrever um objeto não humano</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">33833</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="33833_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">79950</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="79950_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53308</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53308_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">94394</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="33833_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A repetição, a atenuação e a personificação são recursos literários distintos. O símile é uma figura de linguagem que compara duas coisas diferentes utilizando as palavras de conexão &lt;em&gt;como&lt;/em&gt; ou &lt;em&gt;tal como&lt;/em&gt; para destacar uma qualidade compartilhada entre elas.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="79950_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A repetição, a atenuação e a personificação são recursos literários distintos. O símile é uma figura de linguagem que compara duas coisas diferentes utilizando as palavras de conexão &lt;em&gt;como&lt;/em&gt; ou &lt;em&gt;tal como&lt;/em&gt; para destacar uma qualidade compartilhada entre elas.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53308_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A repetição, a atenuação e a personificação são recursos literários distintos. O símile é uma figura de linguagem que compara duas coisas diferentes utilizando as palavras de conexão &lt;em&gt;como&lt;/em&gt; ou &lt;em&gt;tal como&lt;/em&gt; para destacar uma qualidade compartilhada entre elas.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g23369be0edc4791a2e776dd30a5353d4" title="Pergunta 22">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>76383,45651,59635,60734</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é a atenuação como recurso literário?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="76383">
+<material>
+<mattext texttype="text/plain">Apresentar algo como menos importante ou significativo do que realmente é</mattext>
+</material>
+</response_label>
+<response_label ident="45651">
+<material>
+<mattext texttype="text/plain">Exagerar uma afirmação de forma tão dramática que distorce a verdade</mattext>
+</material>
+</response_label>
+<response_label ident="59635">
+<material>
+<mattext texttype="text/plain">Repetir uma palavra ou frase para chamar a atenção para uma ideia</mattext>
+</material>
+</response_label>
+<response_label ident="60734">
+<material>
+<mattext texttype="text/plain">Comparar duas coisas diferentes para destacar uma qualidade compartilhada</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45651</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45651_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59635</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59635_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">60734</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="60734_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">76383</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="45651_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Exagerar uma afirmação descreve a hipérbole, a repetição de palavras descreve o recurso da repetição, e comparar coisas diferentes descreve o símile ou a metáfora. A atenuação apresenta deliberadamente algo como menos significativo do que realmente é, sendo frequentemente usada para obter um efeito irônico ou de distanciamento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="59635_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Exagerar uma afirmação descreve a hipérbole, a repetição de palavras descreve o recurso da repetição, e comparar coisas diferentes descreve o símile ou a metáfora. A atenuação apresenta deliberadamente algo como menos significativo do que realmente é, sendo frequentemente usada para obter um efeito irônico ou de distanciamento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="60734_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Exagerar uma afirmação descreve a hipérbole, a repetição de palavras descreve o recurso da repetição, e comparar coisas diferentes descreve o símile ou a metáfora. A atenuação apresenta deliberadamente algo como menos significativo do que realmente é, sendo frequentemente usada para obter um efeito irônico ou de distanciamento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc2672cfcd96cfef48d2c364079dbe42c" title="Pergunta 23">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>39816,29057,44237,89252</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é a falácia causal?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="39816">
+<material>
+<mattext texttype="text/plain">Afirmar que um evento causou outro sem provar uma conexão real</mattext>
+</material>
+</response_label>
+<response_label ident="29057">
+<material>
+<mattext texttype="text/plain">Argumentar que algo é verdadeiro porque muitas pessoas acreditam nisso</mattext>
+</material>
+</response_label>
+<response_label ident="44237">
+<material>
+<mattext texttype="text/plain">Atacar o caráter pessoal de quem apresenta um argumento</mattext>
+</material>
+</response_label>
+<response_label ident="89252">
+<material>
+<mattext texttype="text/plain">Assumir que uma ação levará a uma série de consequências extremas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">29057</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="29057_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">44237</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="44237_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89252</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89252_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">39816</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="29057_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Usar a popularidade para defender uma verdade descreve a falácia do apelo à popularidade (bandwagon), atacar o caráter pessoal descreve o ad hominem, e assumir reações extremas em cadeia descreve a falácia da rampa escorregadia. A falácia causal afirma que, por um evento ter ocorrido após outro, o primeiro deve ter causado o segundo — sem apresentar evidências de uma conexão real entre os dois.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="44237_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Usar a popularidade para defender uma verdade descreve a falácia do apelo à popularidade (bandwagon), atacar o caráter pessoal descreve o ad hominem, e assumir reações extremas em cadeia descreve a falácia da rampa escorregadia. A falácia causal afirma que, por um evento ter ocorrido após outro, o primeiro deve ter causado o segundo — sem apresentar evidências de uma conexão real entre os dois.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="89252_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Usar a popularidade para defender uma verdade descreve a falácia do apelo à popularidade (bandwagon), atacar o caráter pessoal descreve o ad hominem, e assumir reações extremas em cadeia descreve a falácia da rampa escorregadia. A falácia causal afirma que, por um evento ter ocorrido após outro, o primeiro deve ter causado o segundo — sem apresentar evidências de uma conexão real entre os dois.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf3e4ebbeda47a8ba70a55789fd8c8254" title="Pergunta 24">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>11325,33461,10222,85554</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é a hipérbole como recurso retórico?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="11325">
+<material>
+<mattext texttype="text/plain">Uma afirmação exagerada que amplia a verdade para criar um efeito dramático</mattext>
+</material>
+</response_label>
+<response_label ident="33461">
+<material>
+<mattext texttype="text/plain">Uma comparação entre duas coisas diferentes usando os conectivos "como" ou "tal como"</mattext>
+</material>
+</response_label>
+<response_label ident="10222">
+<material>
+<mattext texttype="text/plain">A repetição de um padrão gramatical para dar o mesmo peso às ideias</mattext>
+</material>
+</response_label>
+<response_label ident="85554">
+<material>
+<mattext texttype="text/plain">Uma pergunta feita para causar efeito dramático que não exige uma resposta</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">33461</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="33461_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">10222</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="10222_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85554</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85554_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">11325</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="33461_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Comparar coisas diferentes descreve um símile, repetir padrões gramaticais descreve a estrutura paralela, e perguntas dramáticas sem resposta descrevem perguntas retóricas. A hipérbole é um exagero tão dramático que distorce a verdade — é utilizada para dar ênfase ou efeito persuasivo, mas pode prejudicar a credibilidade quando usada como falácia lógica.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="10222_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Comparar coisas diferentes descreve um símile, repetir padrões gramaticais descreve a estrutura paralela, e perguntas dramáticas sem resposta descrevem perguntas retóricas. A hipérbole é um exagero tão dramático que distorce a verdade — é utilizada para dar ênfase ou efeito persuasivo, mas pode prejudicar a credibilidade quando usada como falácia lógica.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85554_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Comparar coisas diferentes descreve um símile, repetir padrões gramaticais descreve a estrutura paralela, e perguntas dramáticas sem resposta descrevem perguntas retóricas. A hipérbole é um exagero tão dramático que distorce a verdade — é utilizada para dar ênfase ou efeito persuasivo, mas pode prejudicar a credibilidade quando usada como falácia lógica.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gbd9b146ee50a8b45e5acc346471f7d6d" title="Pergunta 25">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>95794,836,56079,73379</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é a primeira etapa para criar uma mensagem persuasiva?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="95794">
+<material>
+<mattext texttype="text/plain">Definir sua situação retórica identificando seu público-alvo, objetivo e canal</mattext>
+</material>
+</response_label>
+<response_label ident="836">
+<material>
+<mattext texttype="text/plain">Escolher quais apelos retóricos — ethos, pathos ou logos — incluir</mattext>
+</material>
+</response_label>
+<response_label ident="56079">
+<material>
+<mattext texttype="text/plain">Esboçar a mensagem utilizando os apelos que considerar mais persuasivos</mattext>
+</material>
+</response_label>
+<response_label ident="73379">
+<material>
+<mattext texttype="text/plain">Avaliar seu rascunho usando uma lista de verificação de ethos, pathos, logos e kairos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">836</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="836_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56079</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56079_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">73379</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="73379_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">95794</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="836_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Escolher os apelos, redigir o rascunho e avaliar são etapas importantes, mas ocorrem após o primeiro passo. Antes de iniciar qualquer atividade de escrita, quem comunica deve definir a situação retórica — identificando o público-alvo específico, o objetivo da mensagem e o canal pelo qual ela será transmitida.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="56079_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Escolher os apelos, redigir o rascunho e avaliar são etapas importantes, mas ocorrem após o primeiro passo. Antes de iniciar qualquer atividade de escrita, quem comunica deve definir a situação retórica — identificando o público-alvo específico, o objetivo da mensagem e o canal pelo qual ela será transmitida.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="73379_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Escolher os apelos, redigir o rascunho e avaliar são etapas importantes, mas ocorrem após o primeiro passo. Antes de iniciar qualquer atividade de escrita, quem comunica deve definir a situação retórica — identificando o público-alvo específico, o objetivo da mensagem e o canal pelo qual ela será transmitida.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g72949aaab3148fbcf38af0fcf4c0d4a4" title="Pergunta 26">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>54278,20545,53839,93208</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa &lt;strong&gt;canal&lt;/strong&gt; no contexto da escrita?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="54278">
+<material>
+<mattext texttype="text/plain">O meio ou formato utilizado para enviar uma mensagem escrita ao público-alvo</mattext>
+</material>
+</response_label>
+<response_label ident="20545">
+<material>
+<mattext texttype="text/plain">O tom emocional que quem escreve utiliza para estabelecer conexão com quem lê</mattext>
+</material>
+</response_label>
+<response_label ident="53839">
+<material>
+<mattext texttype="text/plain">O argumento ou afirmação principal em um texto escrito</mattext>
+</material>
+</response_label>
+<response_label ident="93208">
+<material>
+<mattext texttype="text/plain">As credenciais que quem escreve utiliza para estabelecer credibilidade</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20545</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20545_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53839</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53839_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93208</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93208_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">54278</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="20545_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O tom emocional refere-se ao pathos, o argumento principal é o objetivo da mensagem e as credenciais relacionam-se com o ethos. Na escrita, o canal é o meio ou formato escolhido para transmitir a mensagem — como um e-mail, uma publicação em rede social, um relatório empresarial ou um discurso — e essa escolha afeta a forma como o público-alvo recebe a mensagem.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53839_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O tom emocional refere-se ao pathos, o argumento principal é o objetivo da mensagem e as credenciais relacionam-se com o ethos. Na escrita, o canal é o meio ou formato escolhido para transmitir a mensagem — como um e-mail, uma publicação em rede social, um relatório empresarial ou um discurso — e essa escolha afeta a forma como o público-alvo recebe a mensagem.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="93208_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O tom emocional refere-se ao pathos, o argumento principal é o objetivo da mensagem e as credenciais relacionam-se com o ethos. Na escrita, o canal é o meio ou formato escolhido para transmitir a mensagem — como um e-mail, uma publicação em rede social, um relatório empresarial ou um discurso — e essa escolha afeta a forma como o público-alvo recebe a mensagem.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g21eedde22c985f431738db5756695370" title="Pergunta 27">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>17646,81821,58503,1194</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual elemento de um e-mail profissional indica o assunto específico da mensagem antes de sua abertura?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="17646">
+<material>
+<mattext texttype="text/plain">A linha de assunto</mattext>
+</material>
+</response_label>
+<response_label ident="81821">
+<material>
+<mattext texttype="text/plain">A saudação</mattext>
+</material>
+</response_label>
+<response_label ident="58503">
+<material>
+<mattext texttype="text/plain">O encerramento</mattext>
+</material>
+</response_label>
+<response_label ident="1194">
+<material>
+<mattext texttype="text/plain">A assinatura</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81821</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81821_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58503</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58503_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1194</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1194_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">17646</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="81821_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A saudação dirige-se ao destinatário pelo nome, o encerramento finaliza a mensagem de forma profissional e a assinatura identifica quem envia. A linha de assunto aparece antes de o e-mail ser aberto e diz exatamente a quem lê sobre o que é a mensagem, ajudando a compreender seu assunto e prioridade rapidamente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="58503_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A saudação dirige-se ao destinatário pelo nome, o encerramento finaliza a mensagem de forma profissional e a assinatura identifica quem envia. A linha de assunto aparece antes de o e-mail ser aberto e diz exatamente a quem lê sobre o que é a mensagem, ajudando a compreender seu assunto e prioridade rapidamente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="1194_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A saudação dirige-se ao destinatário pelo nome, o encerramento finaliza a mensagem de forma profissional e a assinatura identifica quem envia. A linha de assunto aparece antes de o e-mail ser aberto e diz exatamente a quem lê sobre o que é a mensagem, ajudando a compreender seu assunto e prioridade rapidamente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gbb2887abca31ce4eefc446bcb6ce8f13" title="Pergunta 28">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>62857,81961,70645,56824</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é a repetição como um recurso literário?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="62857">
+<material>
+<mattext texttype="text/plain">A repetição de uma palavra ou grupo de palavras para dar ênfase a uma ideia</mattext>
+</material>
+</response_label>
+<response_label ident="81961">
+<material>
+<mattext texttype="text/plain">Atribuir características humanas a um objeto ou ideia não humana</mattext>
+</material>
+</response_label>
+<response_label ident="70645">
+<material>
+<mattext texttype="text/plain">Apresentar uma alegação utilizando um exagero extremo</mattext>
+</material>
+</response_label>
+<response_label ident="56824">
+<material>
+<mattext texttype="text/plain">Comparar duas coisas distintas para destacar uma qualidade em comum</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81961</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81961_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70645</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70645_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56824</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56824_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">62857</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="81961_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Atribuir características humanas a objetos descreve a personificação, exagerar em alegações descreve a hipérbole, e comparar coisas distintas descreve o símile ou a metáfora. A repetição é um recurso literário que repete deliberadamente uma palavra ou grupo de palavras para chamar a atenção para uma ideia e torná-la mais memorável para quem lê.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="70645_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Atribuir características humanas a objetos descreve a personificação, exagerar em alegações descreve a hipérbole, e comparar coisas distintas descreve o símile ou a metáfora. A repetição é um recurso literário que repete deliberadamente uma palavra ou grupo de palavras para chamar a atenção para uma ideia e torná-la mais memorável para quem lê.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="56824_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Atribuir características humanas a objetos descreve a personificação, exagerar em alegações descreve a hipérbole, e comparar coisas distintas descreve o símile ou a metáfora. A repetição é um recurso literário que repete deliberadamente uma palavra ou grupo de palavras para chamar a atenção para uma ideia e torná-la mais memorável para quem lê.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g59f23c9c7930a4ca2e13ee05fe6b010a" title="Pergunta 29">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>69817,83169,68331,39307</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa &lt;strong&gt;propósito &lt;/strong&gt;no contexto da escrita?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="69817">
+<material>
+<mattext texttype="text/plain">O objetivo ou a intenção específica que quem escreve deseja alcançar com uma mensagem</mattext>
+</material>
+</response_label>
+<response_label ident="83169">
+<material>
+<mattext texttype="text/plain">O público-alvo que lerá ou receberá a mensagem escrita</mattext>
+</material>
+</response_label>
+<response_label ident="68331">
+<material>
+<mattext texttype="text/plain">O formato ou meio utilizado para entregar a mensagem escrita</mattext>
+</material>
+</response_label>
+<response_label ident="39307">
+<material>
+<mattext texttype="text/plain">Os recursos literários utilizados para tornar a escrita mais persuasiva</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">83169</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="83169_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68331</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68331_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39307</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39307_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">69817</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="83169_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O público-alvo refere-se a quem lê a mensagem, o canal refere-se ao formato ou meio, e os recursos literários são ferramentas utilizadas para alcançar o propósito. Na escrita, o propósito é o objetivo ou a intenção específica por trás de uma mensagem — como persuadir as pessoas a agir, informá-las sobre um assunto ou motivá-las a mudar de comportamento.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="68331_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O público-alvo refere-se a quem lê a mensagem, o canal refere-se ao formato ou meio, e os recursos literários são ferramentas utilizadas para alcançar o propósito. Na escrita, o propósito é o objetivo ou a intenção específica por trás de uma mensagem — como persuadir as pessoas a agir, informá-las sobre um assunto ou motivá-las a mudar de comportamento.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="39307_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O público-alvo refere-se a quem lê a mensagem, o canal refere-se ao formato ou meio, e os recursos literários são ferramentas utilizadas para alcançar o propósito. Na escrita, o propósito é o objetivo ou a intenção específica por trás de uma mensagem — como persuadir as pessoas a agir, informá-las sobre um assunto ou motivá-las a mudar de comportamento.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g382a11a9f23e9f5bf58649dcd7186c42" title="Pergunta 3">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>80846,74180,87981,26589</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o propósito da linha de assunto em um e-mail profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="80846">
+<material>
+<mattext texttype="text/plain">Dizer a quem lê sobre o que é o e-mail antes de abri-lo</mattext>
+</material>
+</response_label>
+<response_label ident="74180">
+<material>
+<mattext texttype="text/plain">Saudar o destinatário de forma profissional</mattext>
+</material>
+</response_label>
+<response_label ident="87981">
+<material>
+<mattext texttype="text/plain">Fornecer o nome e as informações de contato de quem envia</mattext>
+</material>
+</response_label>
+<response_label ident="26589">
+<material>
+<mattext texttype="text/plain">Apresentar o encerramento da mensagem de e-mail</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74180</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74180_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87981</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87981_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">26589</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="26589_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">80846</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="74180_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Saudações, assinaturas e encerramentos têm, cada um, seu próprio propósito em um e-mail. A função específica da linha de assunto é dizer a quem lê sobre o que é o e-mail antes de abri-lo, ajudando na compreensão rápida do assunto e da urgência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="87981_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Saudações, assinaturas e encerramentos têm, cada um, seu próprio propósito em um e-mail. A função específica da linha de assunto é dizer a quem lê sobre o que é o e-mail antes de abri-lo, ajudando na compreensão rápida do assunto and da urgência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="26589_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Saudações, assinaturas e encerramentos têm, cada um, seu próprio propósito em um e-mail. A função específica da linha de assunto é dizer a quem lê sobre o que é o e-mail antes de abri-lo, ajudando na compreensão rápida do assunto e da urgência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc990035d34210c36564f26facb730e6f" title="Pergunta 30">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>65264,84917,12616,14316</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é uma metáfora?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="65264">
+<material>
+<mattext texttype="text/plain">Uma comparação direta de duas coisas distintas sem o uso das palavras "como" ou "tal como"</mattext>
+</material>
+</response_label>
+<response_label ident="84917">
+<material>
+<mattext texttype="text/plain">Uma comparação de duas coisas distintas utilizando as palavras "como" ou "tal como"</mattext>
+</material>
+</response_label>
+<response_label ident="12616">
+<material>
+<mattext texttype="text/plain">A repetição de um padrão gramatical em uma série de frases</mattext>
+</material>
+</response_label>
+<response_label ident="14316">
+<material>
+<mattext texttype="text/plain">Uma pergunta que cria um efeito dramático sem exigir uma resposta</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">84917</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="84917_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">12616</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="12616_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14316</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14316_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">65264</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="84917_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O uso de "como" ou "tal como" para comparar coisas descreve o símile, a repetição de padrões gramaticais descreve a estrutura paralela e perguntas dramáticas sem resposta descrevem perguntas retóricas. A metáfora afirma diretamente que uma coisa é outra—comparando duas coisas distintas sem usar conectivos como "como" ou "tal como"—para destacar uma qualidade em comum de forma mais direta e vívida.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="12616_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O uso de "como" ou "tal como" para comparar coisas descreve o símile, a repetição de padrões gramaticais descreve a estrutura paralela e perguntas dramáticas sem resposta descrevem perguntas retóricas. A metáfora afirma diretamente que uma coisa é outra—comparando duas coisas distintas sem usar conectivos como "como" ou "tal como"—para destacar uma qualidade em comum de forma mais direta e vívida.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="14316_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O uso de "como" ou "tal como" para comparar coisas descreve o símile, a repetição de padrões gramaticais descreve a estrutura paralela e perguntas dramáticas sem resposta descrevem perguntas retóricas. A metáfora afirma diretamente que uma coisa é outra — comparando duas coisas distintas sem usar conectivos como "como" ou "tal como"—para destacar uma qualidade em comum de forma mais direta e vívida.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g2ea7b3588d82c7ee90c21c44e416712a" title="Pergunta 31">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>10750,88994,80175,19055</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é a saudação em um e-mail profissional?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="10750">
+<material>
+<mattext texttype="text/plain">A linha de abertura que se dirige ao destinatário pelo nome e título</mattext>
+</material>
+</response_label>
+<response_label ident="88994">
+<material>
+<mattext texttype="text/plain">A linha que identifica o assunto do e-mail antes de ser aberto</mattext>
+</material>
+</response_label>
+<response_label ident="80175">
+<material>
+<mattext texttype="text/plain">A frase utilizada para encerrar o e-mail antes da assinatura de quem envia</mattext>
+</material>
+</response_label>
+<response_label ident="19055">
+<material>
+<mattext texttype="text/plain">A seção que apresenta o nome, a identificação e as informações da disciplina/curso de quem envia</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88994</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88994_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">80175</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="80175_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19055</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19055_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">10750</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="88994_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A linha de assunto identifica o assunto antes de o e-mail ser aberto, a frase de encerramento finaliza a mensagem e a assinatura fornece os detalhes de quem envia. A saudação é a linha de abertura de um e-mail profissional — ela se dirige ao destinatário diretamente pelo nome e título apropriado, como "Prezado Professor Martinez" ou "Olá, Dr. Smith".&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="80175_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A linha de assunto identifica o assunto antes de o e-mail ser aberto, a frase de encerramento finaliza a mensagem e a assinatura fornece os detalhes de quem envia. A saudação é a linha de abertura de um e-mail profissional — ela se dirige ao destinatário diretamente pelo nome e título apropriado, como "Prezado Professor Martinez" ou "Olá, Dr. Smith".&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="19055_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A linha de assunto identifica o assunto antes de o e-mail ser aberto, a frase de encerramento finaliza a mensagem e a assinatura fornece os detalhes de quem envia. A saudação é a linha de abertura de um e-mail profissional — ela se dirige ao destinatário diretamente pelo nome e título apropriado, como "Prezado Professor Martinez" ou "Olá, Dr. Smith".&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb6c42bdbf0c2ab060d3b27ee12a53b25" title="Pergunta 32">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>32743,22909,3097,69921</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual estilo de comunicação cultural valoriza a comunicação indireta e a aproximação gradual do ponto principal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="32743">
+<material>
+<mattext texttype="text/plain">Estilo de comunicação japonês</mattext>
+</material>
+</response_label>
+<response_label ident="22909">
+<material>
+<mattext texttype="text/plain">Abordagem retórica alemã</mattext>
+</material>
+</response_label>
+<response_label ident="3097">
+<material>
+<mattext texttype="text/plain">Comunicação empresarial brasileira</mattext>
+</material>
+</response_label>
+<response_label ident="69921">
+<material>
+<mattext texttype="text/plain">Comunicação acadêmica americana</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">22909</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="22909_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">3097</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="3097_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">69921</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="69921_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">32743</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="22909_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A abordagem retórica alemã valoriza a franqueza e o rigor, a comunicação empresarial brasileira enfatiza as relações pessoais antes dos negócios, e a comunicação acadêmica americana favorece a brevidade e a objetividade. O estilo de comunicação japonês valoriza a comunicação indireta, na qual as mensagens persuasivas frequentemente começam com uma contextualização e se aproximam gradualmente do ponto principal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="3097_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A abordagem retórica alemã valoriza a franqueza e o rigor, a comunicação empresarial brasileira enfatiza as relações pessoais antes dos negócios, e a comunicação acadêmica americana favorece a brevidade e a objetividade. O estilo de comunicação japonês valoriza a comunicação indireta, na qual as mensagens persuasivas frequentemente começam com uma contextualização e se aproximam gradualmente do ponto principal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="69921_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A abordagem retórica alemã valoriza a franqueza e o rigor, a comunicação empresarial brasileira enfatiza as relações pessoais antes dos negócios, e a comunicação acadêmica americana favorece a brevidade e a objetividade. O estilo de comunicação japonês valoriza a comunicação indireta, na qual as mensagens persuasivas frequentemente começam com uma contextualização e se aproximam gradualmente do ponto principal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6020f69d8ea0ba67f58ca2f10099996c" title="Pergunta 33">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>39613,45969,95469,36602</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa ethos como um apelo retórico?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="39613">
+<material>
+<mattext texttype="text/plain">Usar a credibilidade e o bom caráter para construir confiança com um público-alvo</mattext>
+</material>
+</response_label>
+<response_label ident="45969">
+<material>
+<mattext texttype="text/plain">Usar fatos e estatísticas para apoiar um argumento lógico</mattext>
+</material>
+</response_label>
+<response_label ident="95469">
+<material>
+<mattext texttype="text/plain">Usar uma linguagem emocional para se conectar com os sentimentos de quem lê</mattext>
+</material>
+</response_label>
+<response_label ident="36602">
+<material>
+<mattext texttype="text/plain">Usar o momento certo para transmitir uma mensagem a um público-alvo receptivo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45969</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45969_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">95469</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="95469_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36602</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36602_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">39613</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="45969_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Fatos e estatísticas descrevem o logos, a linguagem emocional descreve o pathos e o momento oportuno descreve o kairos. O ethos é o apelo retórico que constrói confiança ao demonstrar a credibilidade, a competência ou o bom caráter de quem escreve — mostrando ao público-alvo por que deve acreditar e respeitar quem se comunica.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="95469_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Fatos e estatísticas descrevem o logos, a linguagem emocional descreve o pathos e o momento oportuno descreve o kairos. O ethos é o apelo retórico que constrói confiança ao demonstrar a credibilidade, a competência ou o bom caráter de quem escreve — mostrando ao público-alvo por que deve acreditar e respeitar quem se comunica.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="36602_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Fatos e estatísticas descrevem o logos, a linguagem emocional descreve o pathos e o momento oportuno descreve o kairos. O ethos é o apelo retórico que constrói confiança ao demonstrar a credibilidade, a competência ou o bom caráter de quem escreve — mostrando ao público-alvo por que deve acreditar e respeitar quem se comunica.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g5e4e85f329bac39e0acad713acd56faf" title="Pergunta 34">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>21232,37172,74723,14803</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é a estrutura de três partes do corpo de um e-mail profissional?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="21232">
+<material>
+<mattext texttype="text/plain">Contexto, solicitação e agradecimento</mattext>
+</material>
+</response_label>
+<response_label ident="37172">
+<material>
+<mattext texttype="text/plain">Assunto, saudação e encerramento</mattext>
+</material>
+</response_label>
+<response_label ident="74723">
+<material>
+<mattext texttype="text/plain">Introdução, evidência e conclusão</mattext>
+</material>
+</response_label>
+<response_label ident="14803">
+<material>
+<mattext texttype="text/plain">Alegação, contra-alegação e refutação</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">37172</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="37172_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74723</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74723_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14803</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14803_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">21232</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="37172_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Assunto, saudação e encerramento são elementos estruturais separados do e-mail completo. Introdução, evidência e conclusão descrevem a estrutura de uma redação. Alegação, contra-alegação e refutação descrevem a estrutura da argumentação. O corpo de um e-mail profissional segue uma estrutura de três partes: contexto (quem você é e por que está escrevendo), solicitação (seu pedido específico) e agradecimento (um agradecimento a quem lê).&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="74723_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Assunto, saudação e encerramento são elementos estruturais separados do e-mail completo. Introdução, evidência e conclusão descrevem a estrutura de uma redação. Alegação, contra-alegação e refutação descrevem a estrutura da argumentação. O corpo de um e-mail profissional segue uma estrutura de três partes: contexto (quem você é e por que está escrevendo), solicitação (seu pedido específico) e agradecimento (um agradecimento a quem lê).&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="14803_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Assunto, saudação e encerramento são elementos estruturais separados do e-mail completo. Introdução, evidência e conclusão descrevem a estrutura de uma redação. Alegação, contra-alegação e refutação descrevem a estrutura da argumentação. O corpo de um e-mail profissional segue uma estrutura de três partes: contexto (quem você é e por que está escrevendo), solicitação (seu pedido específico) e agradecimento (um agradecimento a quem lê).&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g66280000e85000ec2bea942a501b71e8" title="Pergunta 35">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>42392,75863,440,27817</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual estilo de comunicação muitas comunidades quenianas e da África Ocidental usam como técnica persuasiva?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="42392">
+<material>
+<mattext texttype="text/plain">Contação de histórias e narrativa para ilustrar princípios</mattext>
+</material>
+</response_label>
+<response_label ident="75863">
+<material>
+<mattext texttype="text/plain">Apresentar credenciais detalhadas antes de fazer uma solicitação</mattext>
+</material>
+</response_label>
+<response_label ident="440">
+<material>
+<mattext texttype="text/plain">Usar declarações diretas e dados para apoiar argumentos</mattext>
+</material>
+</response_label>
+<response_label ident="27817">
+<material>
+<mattext texttype="text/plain">Começar com uma conversa pessoal antes de tratar de negócios</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">75863</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="75863_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">440</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="440_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">27817</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="27817_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">42392</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="75863_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Apresentar credenciais detalhadas primeiro descreve la abordagem retórica alemã, usar declarações diretas e dados descreve a comunicação acadêmica ocidental, e começar com uma conversa pessoal descreve a comunicação empresarial brasileira. Muitas comunidades quenianas e a tradição Griot da África Ocidental usam a contação de histórias e a narrativa como uma técnica persuasiva — apresentando argumentos por meio de histórias que ilustram princípios, em vez de declarações diretas ou dados isolados.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="440_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Apresentar credenciais detalhadas primeiro descreve la abordagem retórica alemã, usar declarações diretas e dados descreve a comunicação acadêmica ocidental, e começar com uma conversa pessoal descreve a comunicação empresarial brasileira. Muitas comunidades quenianas e a tradição Griot da África Ocidental usam a contação de histórias e a narrativa como uma técnica persuasiva — apresentando argumentos por meio de histórias que ilustram princípios, em vez de declarações diretas ou dados isolados.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="27817_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Apresentar credenciais detalhadas primeiro descreve la abordagem retórica alemã, usar declarações diretas e dados descreve a comunicação acadêmica ocidental, e começar com uma conversa pessoal descreve a comunicação empresarial brasileira. Muitas comunidades quenianas e a tradição Griot da África Ocidental usam a contação de histórias e a narrativa como uma técnica persuasiva — apresentando argumentos por meio de histórias que ilustram princípios, em vez de declarações diretas ou dados isolados.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gcce5479e237da4f522b24b315c272171" title="Pergunta 36">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>40074,73569,18748,30500</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é o objetivo de reconhecer a oposição na Escrita persuasiva?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="40074">
+<material>
+<mattext texttype="text/plain">Mostrar ao público-alvo que quem escreve considerou pontos de vista opostos</mattext>
+</material>
+</response_label>
+<response_label ident="73569">
+<material>
+<mattext texttype="text/plain">Confundir quem lê ao introduzir informações conflitantes</mattext>
+</material>
+</response_label>
+<response_label ident="18748">
+<material>
+<mattext texttype="text/plain">Evitar abordar as fraquezas no argumento de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="30500">
+<material>
+<mattext texttype="text/plain">Atacar a credibilidade de quem discorda de quem escreve</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">73569</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="73569_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18748</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18748_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">30500</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="30500_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">40074</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="73569_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Introduzir informações conflitantes para confundir, evitar fraquezas e atacar a credibilidade de oponentes não são estratégias persuasivas legítimas. Reconhecer a oposição mostra a quem lê que quem escreve considerou cuidadosamente outros pontos de vista — isso faz com que quem escreve pareça ter uma postura justa e criteriosa, além de fortalecer o argumento geral ao demonstrar por que a sua posição é preferível.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="18748_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Introduzir informações conflitantes para confundir, evitar fraquezas e atacar a credibilidade de oponentes não são estratégias persuasivas legítimas. Reconhecer a oposição mostra a quem lê que quem escreve considerou cuidadosamente outros pontos de vista — isso faz com que quem escreve pareça ter uma postura justa e criteriosa, além de fortalecer o argumento geral ao demonstrar por que a sua posição é preferível.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="30500_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Introduzir informações conflitantes para confundir, evitar fraquezas e atacar a credibilidade de oponentes não são estratégias persuasivas legítimas. Reconhecer a oposição mostra a quem lê que quem escreve considerou cuidadosamente outros pontos de vista — isso faz com que quem escreve pareça ter uma postura justa e criteriosa, além de fortalecer o argumento geral ao demonstrar por que a sua posição é preferível.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7f27f6026e9967bef52fc62a7ec13895" title="Pergunta 37">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>40397,30000,48188,47896</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual saudação profissional por e-mail é a mais adequada para um contexto acadêmico formal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="40397">
+<material>
+<mattext texttype="text/plain">Prezado(a) Professor(a) [Sobrenome]</mattext>
+</material>
+</response_label>
+<response_label ident="30000">
+<material>
+<mattext texttype="text/plain">Oi, [Nome]</mattext>
+</material>
+</response_label>
+<response_label ident="48188">
+<material>
+<mattext texttype="text/plain">A quem possa interessar</mattext>
+</material>
+</response_label>
+<response_label ident="47896">
+<material>
+<mattext texttype="text/plain">Olá</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">30000</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="30000_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">48188</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="48188_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47896</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47896_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">40397</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="30000_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">"Oi" e "Olá" são saudações informais, inadequadas para a comunicação profissional ou acadêmica. "A quem possa interessar" é usado quando o nome do destinatário é desconhecido, mas quando se conhece o destinatário, uma saudação personalizada é mais apropriada. "Prezado(a) Professor(a) [Sobrenome]" é a saudação mais formal e adequada para a comunicação acadêmica por e-mail.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="48188_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">"Oi" e "Olá" são saudações informais, inadequadas para a comunicação profissional ou acadêmica. "A quem possa interessar" é usado quando o nome do destinatário é desconhecido, mas quando se conhece o destinatário, uma saudação personalizada é mais apropriada. "Prezado(a) Professor(a) [Sobrenome]" é a saudação mais formal e adequada para a comunicação acadêmica por e-mail.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="47896_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">"Oi" e "Olá" são saudações informais, inadequadas para a comunicação profissional ou acadêmica. "A quem possa interessar" é usado quando o nome do destinatário é desconhecido, mas quando se conhece o destinatário, uma saudação personalizada é mais apropriada. "Prezado(a) Professor(a) [Sobrenome]" é a saudação mais formal e adequada para a comunicação acadêmica por e-mail.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g2b37c9a9f7201b45729997fc93769dc7" title="Pergunta 38">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>16551,36937,7726,56446</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que a personificação do Smokey Bear realiza na campanha de prevenção de incêndios florestais?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="16551">
+<material>
+<mattext texttype="text/plain">Estabelece credibilidade ao tornar o Smokey uma figura verossímil e confiável</mattext>
+</material>
+</response_label>
+<response_label ident="36937">
+<material>
+<mattext texttype="text/plain">Utiliza dados lógicos e estatísticas para argumentar que os incêndios florestais são perigosos</mattext>
+</material>
+</response_label>
+<response_label ident="7726">
+<material>
+<mattext texttype="text/plain">Apoia-se no kairos ao associar a campanha a um acontecimento recente do noticiário</mattext>
+</material>
+</response_label>
+<response_label ident="56446">
+<material>
+<mattext texttype="text/plain">Apresenta duas escolhas extremas para motivar o público-alvo a prevenir incêndios</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36937</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36937_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7726</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7726_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56446</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56446_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">16551</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="36937_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A campanha não se apoia principalmente em dados e estatísticas, em um acontecimento recente do noticiário ou em um falso dilema. A personificação do Smokey Bear estabelece credibilidade — transformar um animal selvagem em uma figura paterna familiar e confiável remove qualquer sensação de perigo e torna o Smokey uma voz verossímil para a mensagem de prevenção de incêndios.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="7726_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A campanha não se apoia principalmente em dados e estatísticas, em um acontecimento recente do noticiário ou em um falso dilema. A personificação do Smokey Bear estabelece credibilidade — transformar um animal selvagem em uma figura paterna familiar e confiável remove qualquer sensação de perigo e torna o Smokey uma voz verossímil para a mensagem de prevenção de incêndios.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="56446_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A campanha não se apoia principalmente em dados e estatísticas, em um acontecimento recente do noticiário ou em um falso dilema. A personificação do Smokey Bear estabelece credibilidade — transformar um animal selvagem em uma figura paterna familiar e confiável remove qualquer sensação de perigo e torna o Smokey uma voz verossímil para a mensagem de prevenção de incêndios.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ga62266edab44aff7c53430a5e52ac9fe" title="Pergunta 39">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>14149,44737,80125,21230</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é o papel dos dados numéricos na escrita persuasiva?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="14149">
+<material>
+<mattext texttype="text/plain">Fortalecer um argumento por meio do fornecimento de fatos e dados precisos</mattext>
+</material>
+</response_label>
+<response_label ident="44737">
+<material>
+<mattext texttype="text/plain">Apelar para as emoções do público leitor por meio de descrições vívidas</mattext>
+</material>
+</response_label>
+<response_label ident="80125">
+<material>
+<mattext texttype="text/plain">Estabelecer a credibilidade pessoal e a experiência de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="21230">
+<material>
+<mattext texttype="text/plain">Criar ênfase ao repetir ideias-chave ao longo do texto</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">44737</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="44737_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">80125</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="80125_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21230</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21230_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">14149</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="44737_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Apelar por meio de descrições emocionais vívidas descreve o pathos; estabelecer credibilidade pessoal descreve o ethos; e repetir ideias-chave para dar ênfase descreve a repetição. Os dados numéricos — como estatísticas e números — fortalecem um argumento persuasivo ao fornecer evidências concretas e precisas que apoiam as alegações de quem escreve por meio do logos.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="80125_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Apelar por meio de descrições emocionais vívidas descreve o pathos; estabelecer credibilidade pessoal descreve o ethos; e repetir ideias-chave para dar ênfase descreve a repetição. Os dados numéricos — como estatísticas e números — fortalecem um argumento persuasivo ao fornecer evidências concretas e precisas que apoiam as alegações de quem escreve por meio do logos.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21230_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Apelar por meio de descrições emocionais vívidas descreve o pathos; estabelecer credibilidade pessoal descreve o ethos; e repetir ideias-chave para dar ênfase descreve a repetição. Os dados numéricos — como estatísticas e números — fortalecem um argumento persuasivo ao fornecer evidências concretas e precisas que apoiam as alegações de quem escreve por meio do logos.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge35846aaf9ae17e413a5d022f457220d" title="Pergunta 4">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>68521,29498,73816,15396</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual apelo retórico se concentra em construir confiança ao estabelecer a credibilidade de quem escreve?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="68521">
+<material>
+<mattext texttype="text/plain">Ethos</mattext>
+</material>
+</response_label>
+<response_label ident="29498">
+<material>
+<mattext texttype="text/plain">Logos</mattext>
+</material>
+</response_label>
+<response_label ident="73816">
+<material>
+<mattext texttype="text/plain">Pathos</mattext>
+</material>
+</response_label>
+<response_label ident="15396">
+<material>
+<mattext texttype="text/plain">Kairos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">29498</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="29498_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">73816</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="73816_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">15396</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="15396_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">68521</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="29498_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O logos usa a lógica e as evidências, o pathos apela para a emoção e o kairos se relaciona com o momento oportuno. O ethos é o apelo retórico que constrói a confiança ao estabelecer a credibilidade, a experiência ou o bom caráter de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="73816_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O logos usa a lógica e as evidências, o pathos apela para a emoção e o kairos se relaciona com o momento oportuno. O ethos é o apelo retórico que constrói a confiança ao estabelecer a credibilidade, a experiência ou o bom caráter de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="15396_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O logos usa a lógica e as evidências, o pathos apela para a emoção e o kairos se relaciona com o momento oportuno. O ethos é o apelo retórico que constrói a confiança ao estabelecer a credibilidade, a experiência ou o bom caráter de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g84b7a93731dd436158ad63e6db8bb66b" title="Pergunta 40">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>23546,65161,34598,5511</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é o principal valor de comunicação enfatizado no estilo retórico alemão?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="23546">
+<material>
+<mattext texttype="text/plain">Comunicação direta, minuciosidade e competência demonstrada</mattext>
+</material>
+</response_label>
+<response_label ident="65161">
+<material>
+<mattext texttype="text/plain">Construção de relacionamentos antes de abordar o assunto principal</mattext>
+</material>
+</response_label>
+<response_label ident="34598">
+<material>
+<mattext texttype="text/plain">Narração de histórias e narrativa para persuadir por meio de princípios</mattext>
+</material>
+</response_label>
+<response_label ident="5511">
+<material>
+<mattext texttype="text/plain">Comunicação indireta que se desenvolve gradualmente em direção ao ponto principal</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65161</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65161_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">34598</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="34598_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">5511</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="5511_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">23546</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="65161_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A construção de relacionamentos antes dos negócios descreve a comunicação brasileira; a narração de histórias e a narrativa descrevem as tradições queniana e da África Ocidental; e a comunicação indireta que se desenvolve gradualmente descreve o estilo de comunicação japonês. O estilo retórico alemão valoriza muito a comunicação direta, a minuciosidade e a competência — as mensagens persuasivas geralmente começam com credenciais e informações detalhadas antes de apresentar as conclusões.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="34598_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A construção de relacionamentos antes dos negócios descreve a comunicação brasileira; a narração de histórias e a narrativa descrevem as tradições queniana e da África Ocidental; e a comunicação indireta que se desenvolve gradualmente descreve o estilo de comunicação japonês. O estilo retórico alemão valoriza muito a comunicação direta, a minuciosidade e a competência — as mensagens persuasivas geralmente começam com credenciais e informações detalhadas antes de apresentar as conclusões.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="5511_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A construção de relacionamentos antes dos negócios descreve a comunicação brasileira; a narração de histórias e a narrativa descrevem as tradições queniana e da África Ocidental; e a comunicação indireta que se desenvolve gradualmente descreve o estilo de comunicação japonês. O estilo retórico alemão valoriza muito a comunicação direta, a minuciosidade e a competência — as mensagens persuasivas geralmente começam com credenciais e informações detalhadas antes de apresentar as conclusões.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc4fdbbffb240e0f11fe5f6da203bde02" title="Pergunta 41">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>91220,65312,41616,46712</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é persuasão?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="91220">
+<material>
+<mattext texttype="text/plain">O ato de convencer alguém a fazer algo ou a acreditar que algo é verdade</mattext>
+</material>
+</response_label>
+<response_label ident="65312">
+<material>
+<mattext texttype="text/plain">O processo de organizar ideias em uma sequência lógica de parágrafos</mattext>
+</material>
+</response_label>
+<response_label ident="41616">
+<material>
+<mattext texttype="text/plain">A prática de identificar erros de gramática e pontuação</mattext>
+</material>
+</response_label>
+<response_label ident="46712">
+<material>
+<mattext texttype="text/plain">O método de resumir informações de várias fontes</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65312</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65312_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">41616</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="41616_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">46712</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="46712_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">91220</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="65312_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Organizar ideias, corrigir a gramática e resumir fontes são tarefas de escrita, mas não constituem persuasão. A persuasão é o ato de convencer alguém a fazer algo ou a acreditar que algo é verdade — é o objetivo central da retórica e a base das estratégias de comunicação estudadas neste capítulo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="41616_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Organizar ideias, corrigir a gramática e resumir fontes são tarefas de escrita, mas não constituem persuasão. A persuasão é o ato de convencer alguém a fazer algo ou a acreditar que algo é verdade — é o objetivo central da retórica e a base das estratégias de comunicação estudadas neste capítulo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="46712_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Organizar ideias, corrigir a gramática e resumir fontes são tarefas de Escrita, mas não constituem persuasão. A persuasão é o ato de convencer alguém a fazer algo ou a acreditar que algo é verdade — trata-se do objetivo central da retórica e da base das estratégias de comunicação estudadas neste capítulo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g358b88b0c19bb5b1607f2dfc0a26fe39" title="Pergunta 42">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>86326,72935,44872,58797</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual abordagem de comunicação a cultura empresarial brasileira enfatiza antes de tratar de negócios?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="86326">
+<material>
+<mattext texttype="text/plain">Estabelecer relacionamentos pessoais por meio da conversação</mattext>
+</material>
+</response_label>
+<response_label ident="72935">
+<material>
+<mattext texttype="text/plain">Apresentar credenciais detalhadas e qualificações especializadas</mattext>
+</material>
+</response_label>
+<response_label ident="44872">
+<material>
+<mattext texttype="text/plain">Utilizar uma linguagem indireta que se desenvolve gradualmente em direção ao ponto principal</mattext>
+</material>
+</response_label>
+<response_label ident="58797">
+<material>
+<mattext texttype="text/plain">Apresentar uma solicitação direta fundamentada em dados específicos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">72935</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="72935_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">44872</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="44872_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58797</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58797_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">86326</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="72935_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A apresentação de credenciais detalhadas descreve a abordagem alemã, a linguagem indireta que se desenvolve gradualmente descreve a comunicação japonesa, e as solicitações diretas com dados descrevem o estilo acadêmico ocidental. A comunicação empresarial brasileira enfatiza o estabelecimento de relacionamentos pessoais em primeiro lugar — as reuniões frequentemente começam com conversas pessoais, e os apelos persuasivos muitas vezes combinam conexão emocional com raciocínio lógico.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="44872_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A apresentação de credenciais detalhadas descreve a abordagem alemã, a linguagem indireta que se desenvolve gradualmente descreve a comunicação japonesa, e as solicitações diretas com dados descrevem o estilo acadêmico ocidental. A comunicação empresarial brasileira enfatiza o estabelecimento de relacionamentos pessoais em primeiro lugar — as reuniões frequentemente começam com conversas pessoais, e os apelos persuasivos muitas vezes combinam conexão emocional com raciocínio lógico.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="58797_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A apresentação de credenciais detalhadas descreve a abordagem alemã, a linguagem indireta que se desenvolve gradualmente descreve a comunicação japonesa, e as solicitações diretas com dados descrevem o estilo acadêmico ocidental. A comunicação empresarial brasileira enfatiza o estabelecimento de relacionamentos pessoais em primeiro lugar — as reuniões frequentemente começam com conversas pessoais, e os apelos persuasivos muitas vezes combinam conexão emocional com raciocínio lógico.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb78ee7730f243b3bfd0dfbf28c8de5a3" title="Pergunta 43">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>98756,47627,68296,59920</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é a tradição maori whaikorero?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="98756">
+<material>
+<mattext texttype="text/plain">Uma prática de oratória formal que honra os antepassados, reconhece a terra e conecta histórias pessoais aos valores da comunidade</mattext>
+</material>
+</response_label>
+<response_label ident="47627">
+<material>
+<mattext texttype="text/plain">Um formato de debate estruturado que enfatiza progressões lógicas e rigor intelectual</mattext>
+</material>
+</response_label>
+<response_label ident="68296">
+<material>
+<mattext texttype="text/plain">Uma tradição de contação de histórias que utiliza poesia de louvor e narrativas históricas para influenciar decisões</mattext>
+</material>
+</response_label>
+<response_label ident="59920">
+<material>
+<mattext texttype="text/plain">Uma prática de oratória em conselho onde cada pessoa contribui para a tomada de decisões coletiva</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47627</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47627_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68296</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68296_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59920</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59920_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">98756</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="47627_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O debate estruturado com progressões lógicas descreve as tradições de debate etíopes, a poesia de louvor e as narrativas históricas descrevem a tradição Griot da África Ocidental, e a oratória coletiva em conselho descreve as tradições indígenas norte-americanas. O whaikorero maori é uma prática de oratória formal da Nova Zelândia que segue protocolos específicos — incluindo honrar os antepassados, reconhecer a terra e conectar histórias pessoais aos valores da comunidade — para estabelecer autoridade e conexão emocional.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="68296_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O debate estruturado com progressões lógicas descreve as tradições de debate etíopes, a poesia de louvor e as narrativas históricas descrevem a tradição Griot da África Ocidental, e a oratória coletiva em conselho descreve as tradições indígenas norte-americanas. O whaikorero maori é uma prática de oratória formal da Nova Zelândia que segue protocolos específicos — incluindo honrar os antepassados, reconhecer a terra e conectar histórias pessoais aos valores da comunidade — para estabelecer autoridade e conexão emocional.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="59920_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O debate estruturado com progressões lógicas descreve as tradições de debate etíopes, a poesia de louvor e as narrativas históricas descrevem a tradição Griot da África Ocidental, e a oratória coletiva em conselho descreve as tradições indígenas norte-americanas. O whaikorero maori é uma prática de oratória formal da Nova Zelândia que segue protocolos específicos — incluindo honrar os antepassados, reconhecer a terra e conectar histórias pessoais aos valores da comunidade — para estabelecer autoridade e conexão emocional.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd75932ad2441ab3184f8d9b2c08d0f7a" title="Pergunta 44">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>65525,51951,32527,57081</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Que erro comum de e-mail envolve o uso de linguagem informal em uma mensagem profissional?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="65525">
+<material>
+<mattext texttype="text/plain">Utilizar saudações informais, como "Ei" ou "E aí", em vez de uma saudação profissional</mattext>
+</material>
+</response_label>
+<response_label ident="51951">
+<material>
+<mattext texttype="text/plain">Incluir seu nome completo e a Seção da disciplina/curso na assinatura do e-mail</mattext>
+</material>
+</response_label>
+<response_label ident="32527">
+<material>
+<mattext texttype="text/plain">Apresentar sua solicitação de forma clara e específica no corpo do e-mail</mattext>
+</material>
+</response_label>
+<response_label ident="57081">
+<material>
+<mattext texttype="text/plain">Utilizar "Atenciosamente" como fórmula de encerramento do e-mail</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">51951</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="51951_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32527</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32527_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">57081</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="57081_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">65525</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="51951_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Incluir seu nome e a Seção da disciplina/curso, apresentar sua solicitação de forma clara e utilizar "Atenciosamente" são práticas corretas de e-mail profissional. Utilizar saudações informais como "Ei" ou "E aí" é um problema de tom que prejudica a comunicação profissional — sinaliza falta de respeito pelo destinatário e compromete a credibilidade da mensagem.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="32527_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Incluir seu nome e a Seção da disciplina/curso, apresentar sua solicitação de forma clara e utilizar "Atenciosamente" são práticas corretas de e-mail profissional. Utilizar saudações informais como "Ei" ou "E aí" é um problema de tom que prejudica a comunicação profissional — sinaliza falta de respeito pelo destinatário e compromete a credibilidade da mensagem.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="57081_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Incluir seu nome e a Seção da disciplina/curso, apresentar sua solicitação de forma clara e utilizar "Atenciosamente" são práticas corretas de e-mail profissional. Utilizar saudações informais como "Ei" ou "E aí" é um problema de tom que prejudica a comunicação profissional — sinaliza falta de respeito pelo destinatário e compromete a credibilidade da mensagem.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g908d6e51e812096cea0761dd87bc86d2" title="Pergunta 45">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>38903,37703,76067,66741</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é o objetivo de compartilhar uma experiência pessoal na Escrita persuasiva?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="38903">
+<material>
+<mattext texttype="text/plain">Aumentar a credibilidade de quem escreve e apelar às emoções do leitor</mattext>
+</material>
+</response_label>
+<response_label ident="37703">
+<material>
+<mattext texttype="text/plain">Fornecer dados numéricos que apoiem o argumento principal de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="76067">
+<material>
+<mattext texttype="text/plain">Apresentar dois pontos de vista contrastantes para avaliação do leitor</mattext>
+</material>
+</response_label>
+<response_label ident="66741">
+<material>
+<mattext texttype="text/plain">Repetir ideias-chave ao longo do texto para dar maior ênfase</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">37703</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="37703_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">76067</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="76067_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">66741</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="66741_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">38903</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="37703_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Os dados numéricos apoiam os argumentos por meio do logos, a apresentação de pontos de vista contrastantes relaciona-se ao reconhecimento da oposição, e a repetição de ideias para dar ênfase descreve o recurso literário da repetição. Compartilhar uma experiência pessoal atende a dois propósitos persuasivos de uma só vez — aumenta a credibilidade de quem escreve (ethos) ao demonstrar conhecimento de primeira mão e também pode apelar para as emoções de quem lê (pathos) ao tornar o Assunto mais próximo e humano.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="76067_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Os dados numéricos apoiam os argumentos por meio do logos, a apresentação de pontos de vista contrastantes relaciona-se ao reconhecimento da oposição, e a repetição de ideias para dar ênfase descreve o recurso literário da repetição. Compartilhar uma experiência pessoal atende a dois propósitos persuasivos de uma só vez — aumenta a credibilidade de quem escreve (ethos) ao demonstrar conhecimento de primeira mão e também pode apelar para as emoções de quem lê (pathos) ao tornar o Assunto mais próximo e humano.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="66741_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Os dados numéricos apoiam os argumentos por meio do logos, a apresentação de pontos de vista contrastantes relaciona-se ao reconhecimento da oposição, e a repetição de ideias para dar ênfase descreve o recurso literário da repetição. Compartilhar uma experiência pessoal atende a dois propósitos persuasivos de uma só vez — aumenta a credibilidade de quem escreve (ethos) ao demonstrar conhecimento de primeira mão e também pode apelar para as emoções de quem lê (pathos) ao tornar o Assunto mais próximo e humano.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g777ddc7eb3fc7d01bcedb0329acd9772" title="Pergunta 46">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>4039,18198,8769,22962</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa estabelecer credibilidade na Escrita persuasiva?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="4039">
+<material>
+<mattext texttype="text/plain">Demonstrar competência ou bom caráter para que o Público-alvo confie e respeite quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="18198">
+<material>
+<mattext texttype="text/plain">Utilizar uma linguagem emocional para se conectar com os sentimentos e valores do Público-alvo</mattext>
+</material>
+</response_label>
+<response_label ident="8769">
+<material>
+<mattext texttype="text/plain">Fornecer estatísticas e fatos que apoiem a afirmação principal de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="22962">
+<material>
+<mattext texttype="text/plain">Escolher o momento certo para transmitir uma mensagem a um Público-alvo receptivo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18198</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18198_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8769</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8769_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">22962</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="22962_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4039</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="18198_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A linguagem emocional descreve o pathos, as estatísticas e os fatos descrevem o logos, e a escolha do momento certo descreve o kairos. Estabelecer credibilidade significa demonstrar conhecimento especializado, experiência ou integridade — é o fundamento do ethos e ajuda o público-alvo a confiar que quem escreve sabe do que está falando.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="8769_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A linguagem emocional descreve o pathos, as estatísticas e os fatos descrevem o logos, e a escolha do momento certo descreve o kairos. Estabelecer credibilidade significa demonstrar conhecimento especializado, experiência ou integridade — é o fundamento do ethos e ajuda o público-alvo a confiar que quem escreve sabe do que está falando.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="22962_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A linguagem emocional descreve o pathos, as estatísticas e os fatos descrevem o logos, e a escolha do momento certo descreve o kairos. Estabelecer credibilidade significa demonstrar conhecimento especializado, experiência ou integridade — é o fundamento do ethos e ajuda o público-alvo a confiar que quem escreve sabe do que está falando.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g8ddcadd89e46ff31be8d1776ba4b5745" title="Pergunta 47">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>78106,97296,4967,99673</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é a principal característica das mensagens persuasivas eficazes que combinam múltiplos apelos retóricos?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="78106">
+<material>
+<mattext texttype="text/plain">Cada apelo adiciona uma dimensão diferente à mensagem, tornando-a mais forte de modo geral</mattext>
+</material>
+</response_label>
+<response_label ident="97296">
+<material>
+<mattext texttype="text/plain">O uso de múltiplos apelos torna a mensagem mais longa e mais difícil de ler</mattext>
+</material>
+</response_label>
+<response_label ident="4967">
+<material>
+<mattext texttype="text/plain">Quem escreve deve usar todos os quatro apelos igualmente em cada mensagem persuasiva</mattext>
+</material>
+</response_label>
+<response_label ident="99673">
+<material>
+<mattext texttype="text/plain">A combinação de apelos só é apropriada em documentos escritos formais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">97296</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="97296_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">4967</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="4967_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99673</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99673_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">78106</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="97296_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O comprimento e a dificuldade não são o resultado da combinação de apelos, o uso igual de todos os quatro apelos em cada mensagem não é necessário, e a combinação de apelos funciona de forma eficaz tanto em mensagens breves quanto em documentos formais. Combinar múltiplos apelos retóricos fortalece uma mensagem persuasiva porque cada apelo — ethos, pathos, logos e kairos — contribui com uma dimensão diferente, criando um argumento mais completo e convincente para o público-alvo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="4967_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O comprimento e a dificuldade não são o resultado da combinação de apelos, o uso igual de todos os quatro apelos in cada mensagem não é necessário, e a combinação de apelos funciona de forma eficaz tanto em mensagens breves quanto em documentos formais. Combinar múltiplos apelos retóricos fortalece uma mensagem persuasiva porque cada apelo — ethos, pathos, logos e kairos — contribui com uma dimensão diferente, criando um argumento mais completo e convincente para o público-alvo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="99673_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O comprimento e a dificuldade não são o resultado da combinação de apelos, o uso igual de todos os quatro apelos in cada mensagem não é necessário, e a combinação de apelos funciona de forma eficaz tanto em mensagens breves quanto em documentos formais. Combinar múltiplos apelos retóricos fortalece uma mensagem persuasiva porque cada apelo — ethos, pathos, logos e kairos — contribui com uma dimensão diferente, criando um argumento mais completo e convincente para o público-alvo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7be0a0d8de77fd51b4bbf4e0f408a89a" title="Pergunta 48">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>45052,7388,20530,12647</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é o objetivo da seção de contexto no corpo de um e-mail profissional?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="45052">
+<material>
+<mattext texttype="text/plain">Explicar brevemente quem você é e por que está escrevendo</mattext>
+</material>
+</response_label>
+<response_label ident="7388">
+<material>
+<mattext texttype="text/plain">Agradecer pelo tempo e consideração dispensados</mattext>
+</material>
+</response_label>
+<response_label ident="20530">
+<material>
+<mattext texttype="text/plain">Apresentar sua solicitação específica de forma clara e direta</mattext>
+</material>
+</response_label>
+<response_label ident="12647">
+<material>
+<mattext texttype="text/plain">Fornecer seu nome completo, ID de estudante e seção da disciplina/curso</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7388</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7388_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20530</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20530_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">12647</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="12647_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">45052</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="7388_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Agradecer a quem lê descreve a seção de agradecimento, apresentar uma solicitação específica descreve a seção de solicitação, e fornecer seu nome e ID descreve a assinatura. A seção de contexto abre o corpo do e-mail explicando brevemente quem você é e por que está escrevendo — isso fornece a quem recebe o contexto necessário para compreender a sua mensagem antes de ler a sua solicitação.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="20530_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Agradecer a quem lê descreve a seção de agradecimento, apresentar uma solicitação específica descreve a seção de solicitação, e fornecer seu nome e ID descreve a assinatura. A seção de contexto abre o corpo do e-mail explicando brevemente quem você é e por que está escrevendo — isso fornece a quem recebe o contexto necessário para compreender a sua mensagem antes de ler a sua solicitação.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="12647_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Agradecer a quem lê descreve a seção de agradecimento, apresentar uma solicitação específica descreve a seção de solicitação, e fornecer seu nome e ID descreve a assinatura. A seção de contexto abre o corpo do e-mail explicando brevemente quem você é e por que está escrevendo — isso fornece a quem recebe o contexto necessário para compreender a sua mensagem antes de ler a sua solicitação.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge7b823b974adb6b0dd467e736c013da6" title="Pergunta 49">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>5597,68838,62928,27480</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é uma das maneiras pelas quais quem escreve apoia suas alegações com evidências convincentes na escrita persuasiva?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="5597">
+<material>
+<mattext texttype="text/plain">Citar estatísticas, fatos ou opiniões de especialistas apropriadas</mattext>
+</material>
+</response_label>
+<response_label ident="68838">
+<material>
+<mattext texttype="text/plain">Repetir a alegação principal várias vezes ao longo da mensagem</mattext>
+</material>
+</response_label>
+<response_label ident="62928">
+<material>
+<mattext texttype="text/plain">Usar linguagem informal para tornar o argumento mais fácil de se identificar</mattext>
+</material>
+</response_label>
+<response_label ident="27480">
+<material>
+<mattext texttype="text/plain">Evitar detalhes específicos para que o argumento se aplique a um público maior</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68838</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68838_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">62928</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="62928_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">27480</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="27480_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">5597</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="68838_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Repetir alegações não constitui evidência, a linguagem informal reduz a credibilidade em vez de fortalecer os argumentos, e evitar detalhes específicos enfraquece em vez de fortalecer um caso persuasivo. Quem escreve apoia as alegações com evidências convincentes citando estatísticas, fatos, opiniões de especialistas ou exemplos relevantes — estes fornecem a base lógica que torna um argumento crível e confiável.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="62928_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Repetir alegações não constitui evidência, a linguagem informal reduz a credibilidade em vez de fortalecer os argumentos, e evitar detalhes específicos enfraquece em vez de fortalecer um caso persuasivo. Quem escreve apoia as alegações com evidências convincentes citando estatísticas, fatos, opiniões de especialistas ou exemplos relevantes — estes fornecem a base lógica que torna um argumento crível e confiável.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="27480_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Repetir alegações não constitui evidência, a linguagem informal reduz a credibilidade em vez de fortalecer os argumentos, e evitar detalhes específicos enfraquece em vez de fortalecer um caso persuasivo. Quem escreve apoia as alegações com evidências convincentes citando estatísticas, fatos, opiniões de especialistas ou exemplos relevantes — estes fornecem a base lógica que torna um argumento crível e confiável.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gee0c981fc866a601e15821f15acefe4b" title="Pergunta 5">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>41621,21295,42039,58801</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é uma falácia lógica?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="41621">
+<material>
+<mattext texttype="text/plain">Um argumento falho que usa raciocínio inválido ou irrelevante</mattext>
+</material>
+</response_label>
+<response_label ident="21295">
+<material>
+<mattext texttype="text/plain">Um argumento forte apoiado por evidências confiáveis</mattext>
+</material>
+</response_label>
+<response_label ident="42039">
+<material>
+<mattext texttype="text/plain">Uma pergunta retórica usada para criar um efeito dramático</mattext>
+</material>
+</response_label>
+<response_label ident="58801">
+<material>
+<mattext texttype="text/plain">Uma conclusão lógica extraída de dados estatísticos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21295</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21295_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">42039</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="42039_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58801</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58801_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">41621</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="21295_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Argumentos fortes baseados em evidências, perguntas retóricas e conclusões baseadas em dados são todas ferramentas retóricas válidas. Uma falácia lógica é um argumento falho no qual se utiliza um raciocínio inválido ou irrelevante, o que pode fazer com que um argumento pareça convincente, mesmo que a lógica seja infundada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="42039_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Argumentos fortes baseados em evidências, perguntas retóricas e conclusões baseadas em dados são todas ferramentas retóricas válidas. Uma falácia lógica é um argumento falho no qual se utiliza um raciocínio inválido ou irrelevante, o que pode fazer com que um argumento pareça convincente, mesmo que a lógica seja infundada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="58801_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Argumentos fortes baseados em evidências, perguntas retóricas e conclusões baseadas em dados são todas ferramentas retóricas válidas. Uma falácia lógica é um argumento falho no qual se utiliza um raciocínio inválido ou irrelevante, o que pode fazer com que um argumento pareça convincente, mesmo que a lógica seja infundada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g60fef49c6a1387c9f3bd27dbc26e6692" title="Pergunta 50">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>23395,8522,55983,31411</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é a diferença entre um apelo emocional válido e um apelo emocional falacioso?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="23395">
+<material>
+<mattext texttype="text/plain">Um apelo emocional válido destaca preocupações genuínas apoiadas por evidências, enquanto um apelo emocional falacioso manipula sentimentos sem um argumento substantivo</mattext>
+</material>
+</response_label>
+<response_label ident="8522">
+<material>
+<mattext texttype="text/plain">Um apelo emocional válido usa linguagem forte, enquanto um apelo emocional falacioso usa linguagem moderada</mattext>
+</material>
+</response_label>
+<response_label ident="55983">
+<material>
+<mattext texttype="text/plain">Um apelo emocional válido aparece na escrita formal, enquanto um apelo emocional falacioso aparece na escrita informal</mattext>
+</material>
+</response_label>
+<response_label ident="31411">
+<material>
+<mattext texttype="text/plain">Um apelo emocional válido tem como alvo adultos, enquanto um apelo emocional falacioso tem como alvo públicos-alvo mais jovens</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8522</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8522_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">55983</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="55983_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">31411</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="31411_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">23395</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="8522_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A força da linguagem, a formalidade da escrita e a idade do público-alvo não determinam se um apelo emocional é válido ou falacioso. Um apelo emocional válido conecta sentimentos a preocupações legítimas apoiadas por evidências e raciocínio. Um apelo emocional falacioso manipula os sentimentos do público-alvo sem apresentar qualquer argumento substantivo — ele usa a emoção como substituta da lógica, em vez de um complemento para ela.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="55983_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A força da linguagem, a formalidade da escrita e a idade do público-alvo não determinam se um apelo emocional é válido ou falacioso. Um apelo emocional válido conecta sentimentos a preocupações legítimas apoiadas por evidências e raciocínio. Um apelo emocional falacioso manipula os sentimentos do público-alvo sem apresentar qualquer argumento substantivo — ele usa a emoção como substituta da lógica, em vez de um complemento para ela.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="31411_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A força da linguagem, a formalidade da escrita e a idade do público-alvo não determinam se um apelo emocional é válido ou falacioso. Um apelo emocional válido conecta sentimentos a preocupações legítimas apoiadas por evidências e raciocínio. Um apelo emocional falacioso manipula os sentimentos do público-alvo sem apresentar qualquer argumento substantivo — ele usa a emoção como substituta da lógica, em vez de um complemento para ela.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gecdb4fbfd9273acf4fc5b5f8ac5d8d42" title="Pergunta 6">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>80862,69638,25460,61654</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é kairos na comunicação retórica?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="80862">
+<material>
+<mattext texttype="text/plain">Reconhecer o momento certo para transmitir uma mensagem a um público-alvo receptivo</mattext>
+</material>
+</response_label>
+<response_label ident="69638">
+<material>
+<mattext texttype="text/plain">Usar linguagem emocional para se conectar com os sentimentos de quem lê</mattext>
+</material>
+</response_label>
+<response_label ident="25460">
+<material>
+<mattext texttype="text/plain">Citar fontes especializadas para apoiar uma afirmação</mattext>
+</material>
+</response_label>
+<response_label ident="61654">
+<material>
+<mattext texttype="text/plain">Repetir palavras-chave para criar ênfase em uma mensagem</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">69638</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="69638_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25460</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25460_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">61654</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="61654_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">80862</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="69638_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A linguagem emocional descreve o pathos, citar especialistas se relaciona com o logos ou ethos, e a repetição é um recurso literário. Kairos é o conceito retórico de reconhecer quando o momento é o ideal — transmitir uma mensagem quando o público-alvo está mais receptivo a ela.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25460_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A linguagem emocional descreve o pathos, citar especialistas se relaciona com o logos ou ethos, e a repetição é um recurso literário. Kairos é o conceito retórico de reconhecer quando o momento é o ideal — transmitir uma mensagem quando o público-alvo está mais receptivo a ela.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="61654_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A linguagem emocional descreve o pathos, citar especialistas se relaciona com o logos ou ethos, e a repetição é um recurso literário. Kairos é o conceito retórico de reconhecer quando o momento é o ideal — transmitir uma mensagem quando o público-alvo está mais receptivo a ela.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g032bd858149796a95e7c203560b948b0" title="Pergunta 7">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>81214,39802,51227,22465</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que a análise retórica examina?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="81214">
+<material>
+<mattext texttype="text/plain">As estratégias que quem escreve utiliza para persuadir um público-alvo</mattext>
+</material>
+</response_label>
+<response_label ident="39802">
+<material>
+<mattext texttype="text/plain">Os erros de ortografia e gramática em um texto escrito</mattext>
+</material>
+</response_label>
+<response_label ident="51227">
+<material>
+<mattext texttype="text/plain">A extensão e a contagem de palavras de uma mensagem escrita</mattext>
+</material>
+</response_label>
+<response_label ident="22465">
+<material>
+<mattext texttype="text/plain">O histórico pessoal do autor ou autora</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39802</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39802_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">51227</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="51227_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">22465</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="22465_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">81214</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="39802_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ortografia, gramática, extensão e a biografia de quem escreve não são o foco da análise retórica. A análise retórica detalha como a persuasão funciona ao examinar as estratégias específicas que quem escreve utiliza para influenciar o público-alvo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="51227_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ortografia, gramática, extensão e a biografia de quem escreve não são o foco da análise retórica. A análise retórica detalha como a persuasão funciona ao examinar as estratégias específicas que quem escreve utiliza para influenciar o público-alvo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="22465_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ortografia, gramática, extensão e a biografia de quem escreve não são o foco da análise retórica. A análise retórica detalha como a persuasão funciona ao examinar as estratégias específicas que quem escreve utiliza para influenciar o público-alvo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gfbc1b92f9b1448900b177333ebb15d63" title="Pergunta 8">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>3133,40639,5361,53789</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual recurso literário atribui características humanas a um objeto ou ideia não humana?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="3133">
+<material>
+<mattext texttype="text/plain">Personificação</mattext>
+</material>
+</response_label>
+<response_label ident="40639">
+<material>
+<mattext texttype="text/plain">Símile</mattext>
+</material>
+</response_label>
+<response_label ident="5361">
+<material>
+<mattext texttype="text/plain">Hipérbole</mattext>
+</material>
+</response_label>
+<response_label ident="53789">
+<material>
+<mattext texttype="text/plain">Estrutura paralela</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40639</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40639_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">5361</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="5361_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53789</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53789_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">3133</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="40639_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O símile compara duas coisas distintas usando termos como "como", a hipérbole exagera para causar efeito dramático e o paralelismo repete um padrão gramatical. A personificação é o recurso literário que atribui características humanas a um objeto ou ideia não humana para fazê-lo parecer vivo e gerar identificação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="5361_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O símile compara duas coisas duas coisas distintas usando termos como "como", a hipérbole exagera para causar efeito dramático e o paralelismo repete um padrão gramatical. A personificação é o recurso literário que atribui características humanas a um objeto ou ideia não humana para fazê-lo parecer vivo e gerar identificação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53789_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O símile compara duas coisas distintas usando termos como "como", a hipérbole exagera para causar efeito dramático e o paralelismo repete um padrão gramatical. A personificação é o recurso literário que atribui características humanas a um objeto ou ideia não humana para fazê-lo parecer vivo e gerar identificação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6607db1dac87e39e3372f9c31320805b" title="Pergunta 9">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>51075,66531,21998,28081</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o objetivo do corpo de um e-mail profissional?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="51075">
+<material>
+<mattext texttype="text/plain">Fornecer contexto, apresentar uma solicitação específica e expressar agradecimento</mattext>
+</material>
+</response_label>
+<response_label ident="66531">
+<material>
+<mattext texttype="text/plain">Listar as credenciais acadêmicas e o histórico de disciplinas/cursos de quem envia</mattext>
+</material>
+</response_label>
+<response_label ident="21998">
+<material>
+<mattext texttype="text/plain">Reescrever o assunto em orações completas</mattext>
+</material>
+</response_label>
+<response_label ident="28081">
+<material>
+<mattext texttype="text/plain">Explicar as regras de formatação de e-mails profissionais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">66531</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="66531_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21998</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21998_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">28081</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="28081_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">51075</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="66531_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Listar credenciais, reescrever a linha de assunto e explicar as regras de formatação não são o objetivo do corpo de um e-mail. O corpo de um e-mail profissional tem uma estrutura de três partes: fornece o contexto do motivo do seu contato, apresenta claramente a sua solicitação específica e expressa agradecimento a quem lê.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21998_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Listar credenciais, reescrever a linha de assunto e explicar as regras de formatação não são o objetivo do corpo de um e-mail. O corpo de um e-mail profissional tem uma estrutura de três partes: fornece o contexto do motivo do seu contato, apresenta claramente a sua solicitação específica e expressa agradecimento a quem lê.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="28081_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Listar credenciais, reescrever a linha de assunto e explicar as regras de formatação não são o objetivo do corpo de um e-mail. O corpo de um e-mail profissional tem uma estrutura de três partes: fornece o contexto do motivo do seu contato, apresenta claramente a sua solicitação específica e expressa agradecimento a quem lê.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+</objectbank>
+</questestinterop>

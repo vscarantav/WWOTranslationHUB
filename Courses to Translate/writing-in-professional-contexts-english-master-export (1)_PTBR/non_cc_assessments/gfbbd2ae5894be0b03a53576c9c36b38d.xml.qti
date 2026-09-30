@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+<assessment ident="gfbbd2ae5894be0b03a53576c9c36b38d" title="W01 Quiz: Syllabus ">
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>cc_maxattempts</fieldlabel>
+<fieldentry>unlimited</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+<section ident="root_section">
+<item ident="g8a646bb245fb6bc106952760f3a7fe25" title="Pergunta 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9691,1569</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>assessment_question_identifierref</fieldlabel>
+<fieldentry>g0435d5cfa1cf94ed2ae5396e5bafe80c</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;Você usará o WhatsApp nesta disciplina/curso.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9691">
+<material>
+<mattext texttype="text/plain">Sim</mattext>
+</material>
+</response_label>
+<response_label ident="1569">
+<material>
+<mattext texttype="text/plain">Não</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9691</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g6f55703d3fecbf6012eef2877462d3d0" title="Pergunta 2">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>27,2831</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>assessment_question_identifierref</fieldlabel>
+<fieldentry>g535c6f1024114ff8226be3cb1bd68a0f</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;Você usará o Microsoft Excel nesta disciplina/curso.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="27">
+<material>
+<mattext texttype="text/plain">Sim</mattext>
+</material>
+</response_label>
+<response_label ident="2831">
+<material>
+<mattext texttype="text/plain">Não</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">2831</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g651b3d5e901f71196ba359b265f72b60" title="Pergunta 3">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>181,2401,9462,3085,2471,2692</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>assessment_question_identifierref</fieldlabel>
+<fieldentry>g8c48f127c4767aa352558d4f4fb5d488</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Como parte do Código de Honra do Sistema Educacional da Igreja, espera-se que você realize seus próprios trabalhos em cada disciplina/curso.&lt;/p&gt;
+&lt;p&gt;Caso opte por participar de&lt;span&gt; &lt;/span&gt;&lt;strong&gt;quaisquer&lt;/strong&gt;&lt;span&gt; &lt;/span&gt;ações que violem a política de honestidade acadêmica, a universidade terá o direito de&lt;span&gt; &lt;/span&gt;&lt;strong&gt;alterar a sua nota na disciplina/curso para F agora ou em qualquer momento no futuro&lt;/strong&gt;. Isso significa que, mesmo que a desonestidade só seja descoberta após a conclusão do seu certificado ou diploma, a universidade ainda terá o direito de alterar a sua nota e&lt;span&gt; &lt;/span&gt;&lt;strong&gt;revogar o seu certificado ou diploma&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Quais das seguintes opções constituem violações do Código de Honra ou da política de honestidade acadêmica? Observe que esta lista não é exaustiva (ver Jacó 6:12).&lt;span&gt; &lt;/span&gt;&lt;strong&gt;Marque todas as opções aplicáveis.&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="181">
+<material>
+<mattext texttype="text/plain">Publicar ou compartilhar seus trabalhos escolares (projetos, atividades, etc.) em qualquer site da internet, por meio de comunicação eletrônica ou por qualquer outro meio.</mattext>
+</material>
+</response_label>
+<response_label ident="2401">
+<material>
+<mattext texttype="text/plain">Obter o trabalho de outra pessoa e enviá-lo, no todo ou em parte, como se fosse seu próprio trabalho.</mattext>
+</material>
+</response_label>
+<response_label ident="9462">
+<material>
+<mattext texttype="text/plain">Entregar a sua atividade a outro estudante ou aceitar a dele.</mattext>
+</material>
+</response_label>
+<response_label ident="3085">
+<material>
+<mattext texttype="text/plain">Usar um mecanismo de busca como o Google para encontrar uma fórmula do Excel que resolva o seu projeto.</mattext>
+</material>
+</response_label>
+<response_label ident="2471">
+<material>
+<mattext texttype="text/plain">Obter documentos da disciplina/curso no Course Hero ou em outros sites semelhantes.</mattext>
+</material>
+</response_label>
+<response_label ident="2692">
+<material>
+<mattext texttype="text/plain">Fazer perguntas sobre os projetos no anúncio semanal do(a) instrutor(a), o qual todos podem ver.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">181</varequal>
+<varequal respident="response1">2401</varequal>
+<varequal respident="response1">9462</varequal>
+<not>
+<varequal respident="response1">3085</varequal>
+</not>
+<varequal respident="response1">2471</varequal>
+<not>
+<varequal respident="response1">2692</varequal>
+</not>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g4d43f1215e363d15df6b389896546343" title="Pergunta 4">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9694,767,3119,2278</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>assessment_question_identifierref</fieldlabel>
+<fieldentry>g9148dd8ab52dd2f367cea2ac3143f7ee</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;De que maneiras você pode usar a IA nesta aula? (Marque todas as opções aplicáveis)&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="9694">
+<material>
+<mattext texttype="text/plain">Para fazer a minha lição de casa por mim.</mattext>
+</material>
+</response_label>
+<response_label ident="767">
+<material>
+<mattext texttype="text/plain">Pesquisar e fornecer recursos adicionais.</mattext>
+</material>
+</response_label>
+<response_label ident="3119">
+<material>
+<mattext texttype="text/plain">Fazer brainstorming de ideias.</mattext>
+</material>
+</response_label>
+<response_label ident="2278">
+<material>
+<mattext texttype="text/plain">Auxiliar na revisão e na edição.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<not>
+<varequal respident="response1">9694</varequal>
+</not>
+<varequal respident="response1">767</varequal>
+<varequal respident="response1">3119</varequal>
+<varequal respident="response1">2278</varequal>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g97683a56d3de8e4610c418ca4e5db450" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>1318,5984,5184,9212,3539</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>assessment_question_identifierref</fieldlabel>
+<fieldentry>gdf51dc61b575da4bf8c6e8a0dd0fd118</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Quais dos seguintes são objetivos do curso? (Selecione todas as opções aplicáveis)&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="1318">
+<material>
+<mattext texttype="text/plain">Citar com precisão as fontes e contribuições de outras pessoas</mattext>
+</material>
+</response_label>
+<response_label ident="5984">
+<material>
+<mattext texttype="text/plain">Praticar o processo de escrita completo, incluindo avaliação por pares e revisão</mattext>
+</material>
+</response_label>
+<response_label ident="5184">
+<material>
+<mattext texttype="text/plain">Escrever apenas para o público-alvo acadêmico</mattext>
+</material>
+</response_label>
+<response_label ident="9212">
+<material>
+<mattext texttype="text/plain">Aplicar convenções de linguagem e organização eficazes</mattext>
+</material>
+</response_label>
+<response_label ident="3539">
+<material>
+<mattext texttype="text/plain">Adaptar a escrita a diferentes situações retóricas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">1318</varequal>
+<varequal respident="response1">5984</varequal>
+<not>
+<varequal respident="response1">5184</varequal>
+</not>
+<varequal respident="response1">9212</varequal>
+<varequal respident="response1">3539</varequal>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g438f72e3020c7d4ed6df6767e741b635" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>1730,6993</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>assessment_question_identifierref</fieldlabel>
+<fieldentry>gbab16d17b7497ace466692f4ab1fa2aa</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span style="color: #000000;"&gt;O Turnitin é um programa que permite a você e a seus professores saber o quanto o seu trabalho reflete o trabalho de outras pessoas. Depois de enviar seu trabalho, uma bandeira colorida aparecerá ao lado do seu envio de tarefa na guia de notas. As diferentes cores de bandeira indicarão a porcentagem do seu envio de tarefa que o Turnitin identificou como copiada. &lt;strong&gt;OBSERVAÇÃO&lt;/strong&gt;: As atividades que utilizam modelos terão alguma parte copiada e o Turnitin sinalizará as perguntas da atividade — não se preocupe com isso. Certifique-se de que suas respostas às perguntas não foram copiadas.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color: #000000;"&gt;Se a cor da sua bandeira for vermelha, você deve refazer a sua atividade e reenviá-la até que a bandeira não esteja mais vermelha. Uma atividade entregue com bandeira vermelha não será avaliada e receberá nota 0.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;table border="1" style="border-collapse: collapse; width: 45.2639%; height: 271px; border-color: #000000; border-style: solid;"&gt;
+&lt;tbody&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;Ícones de pontuação do Turnitin&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 53px;"&gt;
+&lt;td style="width: 25.1206%; height: 53px;"&gt;&lt;img alt="Quiz da S01: Programa do Curso Bandeira Cinza.PNG" id="6042618" loading="lazy" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20GrayFlag.PNG"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 53px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Cinza&lt;/strong&gt; (o relatório de originalidade ainda não foi gerado)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 44px;"&gt;
+&lt;td style="width: 25.1206%; height: 44px;"&gt;&lt;img alt="Quiz S01: Programa do Curso Bandeira Azul.PNG" id="6042617" loading="lazy" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20BlueFlag.PNG"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 44px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Azul&lt;/strong&gt; (nenhuma correspondência de palavras)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Quiz S01: Programa do Curso Bandeira Verde.PNG" id="6042621" loading="lazy" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20GreenFlag.PNG"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Verde&lt;/strong&gt; (índice de similaridade de 1% a 24%)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Quiz S01: Programa do Curso Bandeira Amarela.PNG" id="6042603" loading="lazy" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20YellowFlag.PNG"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Amarelo&lt;/strong&gt; (índice de similaridade de 25% a 49%)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Quiz S01: Programa do Curso Bandeira Laranja.PNG" id="6042619" loading="lazy" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20OrangeFlag.PNG"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Laranja&lt;/strong&gt; (índice de similaridade de 50% a 74%)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Quiz S01: Sinal de Alerta do Programa do Curso.PNG" id="6042620" loading="lazy" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20RedFlag.PNG"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Vermelho&lt;/strong&gt; (índice de similaridade de 75% a 100%)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Quiz S01: Relógio do Programa do Curso.PNG" id="6042616" loading="lazy" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20Clock.PNG"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Relógio&lt;/strong&gt; (o relatório do Turnitin ainda está pendente)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;span style="color: #000000;"&gt;O Turnitin pode ser usado para fornecer feedback imediato para que você saiba o que precisa ser corrigido antes de realizar o Envio de Tarefa das suas atividades.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="1730">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="6993">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6993</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+</section>
+</assessment>
+</questestinterop>

@@ -1,0 +1,4291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+<objectbank ident="gfef6bfe59fd19f01ee1474421ff41489">
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>bank_title</fieldlabel>
+<fieldentry>S01 - Perguntas de Nível 1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_type</fieldlabel>
+<fieldentry>Course</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_context_uuid</fieldlabel>
+<fieldentry>Pm3b1l08woeaShX88bZnIytohG4NMS2LDA11YkWJ</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_state</fieldlabel>
+<fieldentry>active</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+<item ident="ge34036477ec66540583176d777875584" title="Pergunta 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>49201,55070,84434,73929</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é uma declaração de tese?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="49201">
+<material>
+<mattext texttype="text/plain">Uma única oração que apresenta o assunto e o argumento principal de uma redação</mattext>
+</material>
+</response_label>
+<response_label ident="55070">
+<material>
+<mattext texttype="text/plain">Um parágrafo que apresenta o contexto de um assunto</mattext>
+</material>
+</response_label>
+<response_label ident="84434">
+<material>
+<mattext texttype="text/plain">Uma oração que resume um parágrafo de uma redação</mattext>
+</material>
+</response_label>
+<response_label ident="73929">
+<material>
+<mattext texttype="text/plain">Uma lista de evidências que apoia o posicionamento de quem escreve</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">55070</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="55070_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">84434</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="84434_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">73929</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="73929_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">49201</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="55070_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma declaração de tese não é um parágrafo, um resumo de um parágrafo ou uma lista de evidências. É uma oração específica que informa ao leitor sobre qual assunto você está escrevendo e qual posicionamento ou perspectiva você adota em relação a esse assunto.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="84434_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma declaração de tese não é um parágrafo, um resumo de um parágrafo ou uma lista de evidências. É uma oração específica que informa ao leitor sobre qual assunto você está escrevendo e qual posicionamento ou perspectiva você adota em relação a esse assunto.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="73929_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma declaração de tese não é um parágrafo, um resumo de um parágrafo ou uma lista de evidências. É uma oração específica que informa ao leitor sobre qual assunto você está escrevendo e qual posicionamento ou perspectiva você adota em relação a esse assunto.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gae17a34c6a53f8d5b3060552593da49a" title="Pergunta 10">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>75242,53731,20129,90058</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;A que o ethos apela em um público-alvo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="75242">
+<material>
+<mattext texttype="text/plain">À credibilidade e confiabilidade de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="53731">
+<material>
+<mattext texttype="text/plain">Às emoções e experiências pessoais do público leitor</mattext>
+</material>
+</response_label>
+<response_label ident="20129">
+<material>
+<mattext texttype="text/plain">Ao uso de fatos, estatísticas e raciocínio</mattext>
+</material>
+</response_label>
+<response_label ident="90058">
+<material>
+<mattext texttype="text/plain">Ao momento oportuno do argumento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53731</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53731_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20129</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20129_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">90058</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="90058_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">75242</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="53731_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O ethos apela à credibilidade e à confiabilidade de quem escreve, não às emoções, aos fatos ou ao momento oportuno. O apelo às emoções é o pathos. O apelo por meio de fatos e do raciocínio é o logos. O momento oportuno é o kairos, que será apresentado em uma semana posterior.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="20129_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O ethos apela à credibilidade e à confiabilidade de quem escreve, não às emoções, aos fatos ou ao momento oportuno. O apelo às emoções é o pathos. O apelo por meio de fatos e do raciocínio é o logos. O momento oportuno é o kairos, que será apresentado em uma semana posterior.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="90058_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O ethos apela à credibilidade e à confiabilidade de quem escreve, não às emoções, aos fatos ou ao momento oportuno. O apelo às emoções é o pathos. O apelo por meio de fatos e do raciocínio é o logos. O momento oportuno é o kairos, que será apresentado em uma semana posterior.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf08d1934d9f84ae07ed8dbca88e9e7b8" title="Pergunta 11">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>55782,53982,21854,49990</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é a diferença entre um tom formal e um tom coloquial?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="55782">
+<material>
+<mattext texttype="text/plain">Um tom formal utiliza linguagem profissional sem contrações, enquanto um tom coloquial utiliza linguagem informal e pode incluir contrações.</mattext>
+</material>
+</response_label>
+<response_label ident="53982">
+<material>
+<mattext texttype="text/plain">Um tom formal utiliza orações mais curtas, enquanto um tom coloquial utiliza orações mais longas.</mattext>
+</material>
+</response_label>
+<response_label ident="21854">
+<material>
+<mattext texttype="text/plain">Um tom formal é utilizado apenas na comunicação oral, enquanto um tom coloquial é utilizado apenas na escrita.</mattext>
+</material>
+</response_label>
+<response_label ident="49990">
+<material>
+<mattext texttype="text/plain">Um tom formal evita quaisquer exemplos, enquanto um tom coloquial baseia-se inteiramente em exemplos.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53982</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53982_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21854</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21854_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49990</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49990_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">55782</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="53982_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O tom não é determinado pela extensão das orações, pelo meio de comunicação ou pelo uso de exemplos. Um tom formal utiliza uma linguagem profissional e objetiva, sem contrações, e é comum em redações e documentos de trabalho. Um tom coloquial é mais descontraído e pessoal, sendo comum em textos e mensagens para amigos, e pode conter contrações.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21854_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O tom não é determinado pela extensão das orações, pelo meio de comunicação ou pelo uso de exemplos. Um tom formal utiliza uma linguagem profissional e objetiva, sem contrações, e é comum em redações e documentos de trabalho. Um tom coloquial é mais descontraído e pessoal, sendo comum em textos e mensagens para amigos, e pode conter contrações.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="49990_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O tom não é determinado pela extensão das orações, pelo meio de comunicação ou pelo uso de exemplos. Um tom formal utiliza uma linguagem profissional e objetiva, sem contrações, e é comum em redações e documentos de trabalho. Um tom coloquial é mais descontraído e pessoal, sendo comum em textos e mensagens para amigos, e pode conter contrações.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g297c4657139b46579508529f5b4d50c3" title="Pergunta 12">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>68219,23742,10374,11696</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quantas ideias principais um único parágrafo deve conter?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="68219">
+<material>
+<mattext texttype="text/plain">Uma</mattext>
+</material>
+</response_label>
+<response_label ident="23742">
+<material>
+<mattext texttype="text/plain">Duas</mattext>
+</material>
+</response_label>
+<response_label ident="10374">
+<material>
+<mattext texttype="text/plain">Três</mattext>
+</material>
+</response_label>
+<response_label ident="11696">
+<material>
+<mattext texttype="text/plain">Tantas quantas forem necessárias para explicar completamente o assunto</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">23742</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="23742_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">10374</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="10374_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">11696</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="11696_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">68219</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="23742_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Cada parágrafo deve conter apenas uma ideia principal. Quando quem escreve passa para uma nova ideia, inicia-se um novo parágrafo. Incluir duas ou mais ideias principais em um único parágrafo torna mais difícil para os leitores acompanharem e compreenderem a escrita.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="10374_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Cada parágrafo deve conter apenas uma ideia principal. Quando quem escreve passa para uma nova ideia, inicia-se um novo parágrafo. Incluir duas ou mais ideias principais em um único parágrafo torna mais difícil para os leitores acompanharem e compreenderem a escrita.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="11696_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Cada parágrafo deve conter apenas uma ideia principal. Quando quem escreve passa para uma nova ideia, inicia-se um novo parágrafo. Incluir duas ou mais ideias principais em um único parágrafo torna mais difícil para os leitores acompanharem e compreenderem a escrita.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7ef439299f37bf391d30f2e15b53aae6" title="Pergunta 13">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>83923,99211,25157,77439</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais duas perguntas uma declaração de tese deve responder?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="83923">
+<material>
+<mattext texttype="text/plain">Sobre qual assunto você está escrevendo e qual posicionamento ou perspectiva você adota em relação a esse assunto?</mattext>
+</material>
+</response_label>
+<response_label ident="99211">
+<material>
+<mattext texttype="text/plain">Quem é o seu público-alvo e qual tom você usará?</mattext>
+</material>
+</response_label>
+<response_label ident="25157">
+<material>
+<mattext texttype="text/plain">Quais evidências você usará e qual será a extensão da sua redação?</mattext>
+</material>
+</response_label>
+<response_label ident="77439">
+<material>
+<mattext texttype="text/plain">Qual é o contexto do assunto e o que outros autores dizem sobre ele?</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99211</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99211_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25157</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25157_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">77439</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="77439_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">83923</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="99211_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma declaração de tese responde a duas perguntas específicas: sobre qual assunto você está escrevendo e qual posicionamento ou perspectiva você adota em relação a ele. O público-alvo, o tom, as evidências, a extensão da redação e a opinião de outros autores são considerações distintas que não devem constar em uma declaração de tese.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25157_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma declaração de tese responde a duas perguntas específicas: sobre qual assunto você está escrevendo e qual posicionamento ou perspectiva você adota em relação a ele. O público-alvo, o tom, as evidências, a extensão da redação e a opinião de outros autores são considerações distintas que não devem constar em uma declaração de tese.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="77439_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma declaração de tese responde a duas perguntas específicas: sobre qual assunto você está escrevendo e qual posicionamento ou perspectiva você adota em relação a ele. O público-alvo, o tom, as evidências, a extensão da redação e a opinião de outros autores são considerações distintas que não devem constar em uma declaração de tese.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g231a6a68977aa07107a6d767d34a2f17" title="Pergunta 14">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>21009,54865,85062,81972</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual das seguintes alternativas melhor descreve uma oração inicial?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="21009">
+<material>
+<mattext texttype="text/plain">Uma oração que apresenta a ideia principal de um único parágrafo</mattext>
+</material>
+</response_label>
+<response_label ident="54865">
+<material>
+<mattext texttype="text/plain">Uma oração que resume toda a redação em uma única linha</mattext>
+</material>
+</response_label>
+<response_label ident="85062">
+<material>
+<mattext texttype="text/plain">Uma oração que fornece informações contextuais antes do argumento principal</mattext>
+</material>
+</response_label>
+<response_label ident="81972">
+<material>
+<mattext texttype="text/plain">Uma oração que lista as evidências utilizadas para apoiar o parágrafo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">54865</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="54865_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85062</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85062_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81972</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81972_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">21009</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="54865_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma oração inicial orienta um parágrafo, não a redação inteira. Esse é o papel da declaração de tese. Uma oração inicial não consiste em informações contextuais ou em uma lista de evidências; ela introduz a única ideia principal que o restante do parágrafo irá desenvolver e apoiar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85062_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma oração inicial orienta um parágrafo, não a redação inteira. Esse é o papel da declaração de tese. Uma oração inicial não consiste em informações contextuais ou em uma lista de evidências; ela introduz a única ideia principal que o restante do parágrafo irá desenvolver e apoiar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="81972_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma oração inicial orienta um parágrafo, não a redação inteira. Esse é o papel da declaração de tese. Uma oração inicial não consiste em informações contextuais ou em uma lista de evidências; ela introduz a única ideia principal que o restante do parágrafo irá desenvolver e apoiar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7a3c41a1941c608bf052d29976430647" title="Pergunta 15">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>40304,65829,58780,87459</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual público-alvo teria maior probabilidade de exigir um tom profissional com linguagem empresarial?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="40304">
+<material>
+<mattext texttype="text/plain">Um empregador ao ler uma carta de apresentação ou relatório profissional</mattext>
+</material>
+</response_label>
+<response_label ident="65829">
+<material>
+<mattext texttype="text/plain">Um amigo próximo ao receber uma mensagem de texto pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="58780">
+<material>
+<mattext texttype="text/plain">Um familiar ao ler um e-mail informal</mattext>
+</material>
+</response_label>
+<response_label ident="87459">
+<material>
+<mattext texttype="text/plain">Uma criança pequena ao ouvir uma explicação</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65829</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65829_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58780</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58780_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87459</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87459_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">40304</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="65829_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O tom profissional com linguagem empresarial é adequado para empregadores em documentos formais, como cartas de apresentação e relatórios de trabalho. Amigos, familiares e crianças pequenas são públicos-alvo que demandam uma linguagem informal ou coloquial. Adequar o tom ao público-alvo é uma habilidade fundamental para uma escrita eficaz.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="58780_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O tom profissional com linguagem empresarial é adequado para empregadores em documentos formais, como cartas de apresentação e relatórios de trabalho. Amigos, familiares e crianças pequenas são públicos-alvo que demandam uma linguagem informal ou coloquial. Adequar o tom ao público-alvo é uma habilidade fundamental para uma escrita eficaz.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="87459_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Um tom profissional com linguagem empresarial é adequado para empregadores em documentos formais, como cartas de apresentação e relatórios profissionais. Amigos, familiares e crianças pequenas são públicos-alvo que exigem uma linguagem casual ou coloquial. Adequar o tom ao público-alvo é uma habilidade fundamental para uma escrita eficaz.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g51b725944475ee0a84a719b8463c79b9" title="Pergunta 16">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>90612,61017,75494,25288</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o objetivo de variar o comprimento das orações em sua escrita?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="90612">
+<material>
+<mattext texttype="text/plain">Manter o engajamento dos leitores e enfatizar os pontos mais importantes</mattext>
+</material>
+</response_label>
+<response_label ident="61017">
+<material>
+<mattext texttype="text/plain">Fazer com que o documento pareça mais longo e detalhado</mattext>
+</material>
+</response_label>
+<response_label ident="75494">
+<material>
+<mattext texttype="text/plain">Mostrar ao leitor que você conhece muitas estruturas de orações diferentes</mattext>
+</material>
+</response_label>
+<response_label ident="25288">
+<material>
+<mattext texttype="text/plain">Atender ao limite mínimo de palavras exigido pela atividade</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">61017</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="61017_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">75494</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="75494_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25288</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25288_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">90612</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="61017_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Variar o comprimento das orações não tem a ver com a aparência, demonstrar conhecimento de estruturas ou atingir limites de palavras. Orações mais curtas enfatizam pontos-chave, enquanto orações mais longas explicam relações e fornecem detalhes. Usar ambos mantém os leitores engajados e torna a escrita mais fácil de acompanhar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="75494_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Variar o comprimento das orações não tem a ver com a aparência, demonstrar conhecimento de estruturas ou atingir limites de palavras. Orações mais curtas enfatizam pontos-chave, enquanto orações mais longas explicam relações e fornecem detalhes. Usar ambos mantém os leitores engajados e torna a escrita mais fácil de acompanhar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25288_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Variar o comprimento das orações não tem a ver com a aparência, demonstrar conhecimento de estruturas ou atingir limites de palavras. Orações mais curtas enfatizam pontos-chave, enquanto orações mais longas explicam relações e fornecem detalhes. Usar ambos mantém os leitores engajados e torna a escrita mais fácil de acompanhar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gdda042a2e5082f884eb820f4caa6eccb" title="Pergunta 17">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>91698,51773,79597,66884</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é um acelerador de crescimento ao usar IA em um curso de escrita?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="91698">
+<material>
+<mattext texttype="text/plain">Uma maneira de usar IA para dar feedback sobre um trabalho que você já escreveu, enquanto você mesmo faz o trabalho de escrita e revisão</mattext>
+</material>
+</response_label>
+<response_label ident="51773">
+<material>
+<mattext texttype="text/plain">Uma maneira de usar IA para reescrever suas orações para que fiquem mais concisas e profissionais</mattext>
+</material>
+</response_label>
+<response_label ident="79597">
+<material>
+<mattext texttype="text/plain">Uma maneira de usar IA para gerar uma declaração de tese com base no seu assunto</mattext>
+</material>
+</response_label>
+<response_label ident="66884">
+<material>
+<mattext texttype="text/plain">Uma maneira de usar IA para concluir tarefas de escrita mais rapidamente para que você possa enviar as atividades no prazo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">51773</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="51773_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">79597</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="79597_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">66884</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="66884_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">91698</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="51773_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Um acelerador de crescimento mantém o trabalho com você. Ele solicita à IA que observe ou identifique um problema na escrita que você já realizou e depois deixa a correção para você. Fazer com que a IA reescreva orações, gere uma declaração de tese ou conclua tarefas em seu nome são exemplos de uma armadilha de dependência, e não de um acelerador de crescimento. A habilidade só se desenvolve quando você mesmo faz o trabalho.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="79597_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Um acelerador de crescimento mantém o trabalho com você. Ele solicita à IA que observe ou identifique um problema na escrita que você já realizou e depois deixa a correção para você. Fazer com que a IA reescreva orações, gere uma declaração de tese ou conclua tarefas em seu nome são exemplos de uma armadilha de dependência, e não de um acelerador de crescimento. A habilidade só se desenvolve quando você mesmo faz o trabalho.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="66884_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Um acelerador de crescimento mantém o trabalho com você. Ele solicita à IA que observe ou identifique um problema na escrita que você já realizou e depois deixa a correção para você. Fazer com que a IA reescreva orações, gere uma declaração de tese ou conclua tarefas em seu nome são exemplos de uma armadilha de dependência, e não de um acelerador de crescimento. A habilidade só se desenvolve quando você mesmo faz o trabalho.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g5727f89d0cd02be17869b9db57734914" title="Pergunta 18">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>30344,67482,75183,30075</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é uma armadilha de dependência ao usar IA em um curso de escrita?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="30344">
+<material>
+<mattext texttype="text/plain">Pedir à IA para produzir ou reescrever a escrita para você, o que elimina o desenvolvimento de habilidades de seu próprio trabalho</mattext>
+</material>
+</response_label>
+<response_label ident="67482">
+<material>
+<mattext texttype="text/plain">Pedir à IA para identificar problemas em um rascunho que você já escreveu, sem depender dela para reescrever o texto para você</mattext>
+</material>
+</response_label>
+<response_label ident="75183">
+<material>
+<mattext texttype="text/plain">Pedir à IA para explicar uma regra gramatical para que você possa aplicá-la de forma independente em sua própria escrita</mattext>
+</material>
+</response_label>
+<response_label ident="30075">
+<material>
+<mattext texttype="text/plain">Pedir à IA para verificar se o seu parágrafo tem uma ideia principal, sem reescrevê-lo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67482</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67482_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">75183</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="75183_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">30075</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="30075_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">30344</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="67482_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma armadilha de dependência ocorre quando você pede à IA para fazer o trabalho de escrita por você, como reescrever uma oração ou gerar uma declaração de tese. Isso gera um resultado, mas não desenvolve a habilidade. Pedir à IA para identificar problemas em seu próprio rascunho, explicar uma regra ou observar se o seu parágrafo mantém o foco sem reescrevê-lo são exemplos de uso da IA como um acelerador de crescimento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="75183_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma armadilha de dependência ocorre quando você pede à IA para fazer o trabalho de escrita por você, como reescrever uma oração ou gerar uma declaração de tese. Isso gera um resultado, mas não desenvolve a habilidade. Pedir à IA para identificar problemas em seu próprio rascunho, explicar uma regra ou observar se o seu parágrafo mantém o foco sem reescrevê-lo são exemplos de uso da IA como um acelerador de crescimento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="30075_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma armadilha de dependência ocorre quando você pede à IA para fazer o trabalho de escrita por você, como reescrever uma oração ou gerar uma declaração de tese. Isso gera um resultado, mas não desenvolve a habilidade. Pedir à IA para identificar problemas em seu próprio rascunho, explicar uma regra ou observar se o seu parágrafo mantém o foco sem reescrevê-lo são exemplos de uso da IA como um acelerador de crescimento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gdfbcb27e76b2304533674dd7fe08fa09" title="Pergunta 19">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>85654,31979,64963,69278</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é voz acadêmica na escrita?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="85654">
+<material>
+<mattext texttype="text/plain">A maneira específica como quem escreve organiza e expressa o pensamento, de forma a refletir sua própria experiência, raciocínio e perspectiva</mattext>
+</material>
+</response_label>
+<response_label ident="31979">
+<material>
+<mattext texttype="text/plain">O vocabulário formal que quem escreve utiliza para parecer instruído e profissional</mattext>
+</material>
+</response_label>
+<response_label ident="64963">
+<material>
+<mattext texttype="text/plain">O estilo de citação que quem escreve adota ao fazer referência a fontes externas</mattext>
+</material>
+</response_label>
+<response_label ident="69278">
+<material>
+<mattext texttype="text/plain">O comprimento das orações que quem escreve utiliza para corresponder às expectativas de um público-alvo acadêmico</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">31979</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="31979_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">64963</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="64963_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">69278</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="69278_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">85654</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="31979_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A voz não se resume ao nível de vocabulário, ao estilo de citação ou ao comprimento das orações. A voz é a prova de que você realizou o trabalho intelectual. Ela reflete seu raciocínio e sua perspectiva, desenvolvendo-se por meio da prática. Textos gerados por IA não trazem a sua voz porque o pensamento por trás deles não foi seu.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="64963_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A voz não se resume ao nível de vocabulário, ao estilo de citação ou ao comprimento das orações. A voz é a prova de que você realizou o trabalho intelectual. Ela reflete seu raciocínio e sua perspectiva, desenvolvendo-se por meio da prática. Textos gerados por IA não trazem a sua voz porque o pensamento por trás deles não foi seu.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="69278_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A voz não se resume ao nível de vocabulário, ao estilo de citação ou ao comprimento das orações. A voz é a prova de que você realizou o trabalho intelectual. Ela reflete seu raciocínio e sua perspectiva, desenvolvendo-se por meio da prática. Textos gerados por IA não trazem a sua voz porque o pensamento por trás deles não foi seu.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g591ed329913ca22e520a55540434de9f" title="Pergunta 2">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>73059,49104,15777,51859</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Onde uma oração inicial aparece com mais frequência em um parágrafo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="73059">
+<material>
+<mattext texttype="text/plain">No início do parágrafo</mattext>
+</material>
+</response_label>
+<response_label ident="49104">
+<material>
+<mattext texttype="text/plain">No meio do parágrafo</mattext>
+</material>
+</response_label>
+<response_label ident="15777">
+<material>
+<mattext texttype="text/plain">No final do parágrafo</mattext>
+</material>
+</response_label>
+<response_label ident="51859">
+<material>
+<mattext texttype="text/plain">Em um parágrafo introdutório separado</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49104</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49104_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">15777</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="15777_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">51859</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="51859_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">73059</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="49104_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma oração inicial aparece com mais frequência no início de um parágrafo. Essa posição informa imediatamente ao leitor o que o parágrafo abordará. Posicioná-la no meio ou no final atrasaria a compreensão do leitor sobre a ideia principal do parágrafo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="15777_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma oração inicial aparece com mais frequência no início de um parágrafo. Essa posição informa imediatamente ao leitor o que o parágrafo abordará. Posicioná-la no meio ou no final atrasaria a compreensão do leitor sobre a ideia principal do parágrafo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="51859_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma oração inicial aparece com mais frequência no início de um parágrafo. Essa posição informa imediatamente ao leitor o que o parágrafo abordará. Posicioná-la no meio ou no final atrasaria a compreensão do leitor sobre a ideia principal do parágrafo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gebb09be4f1ec9fa70e88740708e333a5" title="Pergunta 20">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>91440,45643,96939,9065</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é a diferença entre uma tarefa de processo e uma tarefa de produto na escrita?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="91440">
+<material>
+<mattext texttype="text/plain">Uma tarefa de processo desenvolve uma habilidade por meio das decisões que você toma enquanto escreve; uma tarefa de produto concentra-se em produzir um resultado limpo e utilizável.</mattext>
+</material>
+</response_label>
+<response_label ident="45643">
+<material>
+<mattext texttype="text/plain">Uma tarefa de processo é realizada individualmente; uma tarefa de produto é realizada em grupo.</mattext>
+</material>
+</response_label>
+<response_label ident="96939">
+<material>
+<mattext texttype="text/plain">Uma tarefa de processo exige mais palavras; uma tarefa de produto exige menos palavras.</mattext>
+</material>
+</response_label>
+<response_label ident="9065">
+<material>
+<mattext texttype="text/plain">Uma tarefa de processo recebe nota com base no esforço; uma tarefa de produto recebe nota com base na precisão.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">45643</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="45643_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">96939</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="96939_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9065</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9065_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">91440</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="45643_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A distinção entre tarefas de processo e de produto não se refere a trabalho individual versus trabalho em grupo, contagem de palavras ou método de atribuição de nota. Uma tarefa de processo é aquela em que o aprendizado ocorre na prática, como ao revisar uma declaração de tese ou concisar uma oração. Uma tarefa de produto concentra-se no resultado final, como a formatação de um documento. As atividades de escrita nesta disciplina/curso são tarefas de processo porque a habilidade reside nas decisões que você toma ao escrever, e não no documento que você envia.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="96939_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A distinção entre tarefas de processo e de produto não se refere a trabalho individual versus trabalho em grupo, contagem de palavras ou método de atribuição de nota. Uma tarefa de processo é aquela em que o aprendizado ocorre na prática, como ao revisar uma declaração de tese ou concisar uma oração. Uma tarefa de produto concentra-se no resultado final, como a formatação de um documento. As atividades de escrita nesta disciplina/curso são tarefas de processo porque a habilidade reside nas decisões que você toma ao escrever, e não no documento que você envia.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="9065_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A distinção entre tarefas de processo e de produto não se refere a trabalho individual versus trabalho em grupo, contagem de palavras ou método de atribuição de nota. Uma tarefa de processo é aquela em que o aprendizado ocorre na prática, como ao revisar uma declaração de tese ou concisar uma oração. Uma tarefa de produto concentra-se no resultado final, como a formatação de um documento. As atividades de escrita nesta disciplina/curso são tarefas de processo porque a habilidade reside nas decisões que você toma ao escrever, e não no documento que você envia.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd5016c39322bae54f46a0ee6147ebb4c" title="Pergunta 21">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>71993,54347,7845,62259</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual das seguintes opções é um exemplo de prolixidade em uma oração?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="71993">
+<material>
+<mattext texttype="text/plain">"Devido ao fato de que há um grande número de estudantes que estão em processo de aprendizagem"</mattext>
+</material>
+</response_label>
+<response_label ident="54347">
+<material>
+<mattext texttype="text/plain">"Porque muitos estudantes estão aprendendo"</mattext>
+</material>
+</response_label>
+<response_label ident="7845">
+<material>
+<mattext texttype="text/plain">"Estudantes estão aprendendo habilidades tecnológicas"</mattext>
+</material>
+</response_label>
+<response_label ident="62259">
+<material>
+<mattext texttype="text/plain">"O laboratório de informática estenderá seu horário de funcionamento"</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">54347</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="54347_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7845</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7845_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">62259</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="62259_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">71993</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="54347_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A prolixidade ocorre quando uma oração usa mais palavras do que o necessário para comunicar seu significado. A frase "devido ao fato de que há um grande número de estudantes que estão em processo de aprendizagem" pode ser encurtada para "porque muitos estudantes estão aprendendo" sem perder nenhum significado. As outras opções já são concisas e diretas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="7845_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A prolixidade ocorre quando uma oração usa mais palavras do que o necessário para comunicar seu significado. A frase "devido ao fato de que há um grande número de estudantes que estão em processo de aprendizagem" pode ser encurtada para "porque muitos estudantes estão aprendendo" sem perder nenhum significado. As outras opções já são concisas e diretas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="62259_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A prolixidade ocorre quando uma oração usa mais palavras do que o necessário para comunicar seu significado. A frase "devido ao fato de que há um grande número de estudantes que estão em processo de aprendizagem" pode ser encurtada para "porque muitos estudantes estão aprendendo" sem perder nenhum significado. As outras opções já são concisas e diretas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g218deee2fd321db2079afb069e696800" title="Pergunta 22">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>53187,89367,98111,38445</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que significa adaptar a escrita para um público-alvo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="53187">
+<material>
+<mattext texttype="text/plain">Ajustar seu tom, linguagem e conteúdo para corresponder às necessidades e expectativas de quem lê</mattext>
+</material>
+</response_label>
+<response_label ident="89367">
+<material>
+<mattext texttype="text/plain">Traduzir sua escrita para o idioma nativo de quem lê</mattext>
+</material>
+</response_label>
+<response_label ident="98111">
+<material>
+<mattext texttype="text/plain">Encurtar sua escrita para que seja mais fácil de todos os públicos-alvo compreenderem</mattext>
+</material>
+</response_label>
+<response_label ident="38445">
+<material>
+<mattext texttype="text/plain">Remover termos técnicos para que quem não tem conhecimento prévio possa acompanhar</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89367</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89367_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98111</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98111_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38445</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38445_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">53187</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="89367_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A adaptação ao público-alvo não se trata de tradução, encurtamento ou de sempre remover termos técnicos. Significa fazer escolhas intencionais sobre tom, linguagem e conteúdo com base em quem lerá sua escrita. Uma mensagem para uma pessoa amiga utiliza uma linguagem diferente de uma mensagem para quem emprega, mesmo quando ambas comunicam a mesma informação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="98111_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A adaptação ao público-alvo não se trata de tradução, encurtamento ou de sempre remover termos técnicos. Significa fazer escolhas intencionais sobre tom, linguagem e conteúdo com base em quem lerá sua escrita. Uma mensagem para uma pessoa amiga utiliza uma linguagem diferente de uma mensagem para quem emprega, mesmo quando ambas comunicam a mesma informação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="38445_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A adaptação ao público-alvo não se trata de tradução, encurtamento ou de sempre remover termos técnicos. Significa fazer escolhas intencionais sobre tom, linguagem e conteúdo com base em quem lerá sua escrita. Uma mensagem para uma pessoa amiga utiliza uma linguagem diferente de uma mensagem para quem emprega, mesmo quando ambas comunicam a mesma informação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g9e0e28454681efbf81657dbfa8bbde98" title="Pergunta 23">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>13292,10987,90554,70671</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual das seguintes opções é um exemplo de palavra ou frase desnecessária que deve ser removida para uma escrita concisa?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="13292">
+<material>
+<mattext texttype="text/plain">"Benefícios positivos"</mattext>
+</material>
+</response_label>
+<response_label ident="10987">
+<material>
+<mattext texttype="text/plain">"Argumento claro"</mattext>
+</material>
+</response_label>
+<response_label ident="90554">
+<material>
+<mattext texttype="text/plain">"Evidência de apoio"</mattext>
+</material>
+</response_label>
+<response_label ident="70671">
+<material>
+<mattext texttype="text/plain">"Ideia principal"</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">10987</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="10987_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">90554</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="90554_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70671</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70671_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">13292</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="10987_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A frase "benefícios positivos" é redundante porque a palavra "benefícios" já implica algo positivo. Adicionar "positivos" não agrega significado. As outras opções — "argumento claro", "evidência de apoio" e "ideia principal" — não são redundantes. Cada palavra nessas frases contribui para o significado.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="90554_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A frase "benefícios positivos" é redundante porque a palavra "benefícios" já implica algo positivo. Adicionar "positivos" não agrega significado. As outras opções — "argumento claro", "evidência de apoio" e "ideia principal" — não são redundantes. Cada palavra nessas frases contribui para o significado.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="70671_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A frase "benefícios positivos" é redundante porque a palavra "benefícios" já implica algo positivo. Adicionar "positivos" não agrega significado. As outras opções — "argumento claro", "evidência de apoio" e "ideia principal" — não são redundantes. Cada palavra nessas frases contribui para o significado.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g76d164ddf7e2b4aa3b37bd5cb5377f46" title="Pergunta 24">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>27750,19668,93960,97777</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é a função das orações de apoio em um parágrafo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="27750">
+<material>
+<mattext texttype="text/plain">Explicar, desenvolver ou fornecer evidências para a ideia principal apresentada na oração inicial</mattext>
+</material>
+</response_label>
+<response_label ident="19668">
+<material>
+<mattext texttype="text/plain">Apresentar uma nova ideia que será desenvolvida no próximo parágrafo em uma oração inicial separada</mattext>
+</material>
+</response_label>
+<response_label ident="93960">
+<material>
+<mattext texttype="text/plain">Reafirmar a declaração de tese usando palavras diferentes para ênfase e clareza</mattext>
+</material>
+</response_label>
+<response_label ident="97777">
+<material>
+<mattext texttype="text/plain">Resumir todas as ideias discutidas na redação até o momento em uma breve declaração de conclusão</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19668</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19668_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93960</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93960_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">97777</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="97777_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">27750</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="19668_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As orações de apoio seguem a oração inicial e devem desenvolver a ideia principal única do parágrafo. Elas não apresentam novas ideias, não reafirmam a declaração de tese, nem resumem a redação. A função delas é explicar, dar exemplos ou fornecer evidências que sustentem o ponto principal do parágrafo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="93960_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As orações de apoio seguem a oração inicial e devem desenvolver a ideia principal única do parágrafo. Elas não apresentam novas ideias, não reafirmam a declaração de tese, nem resumem a redação. A função delas é explicar, dar exemplos ou fornecer evidências que sustentem o ponto principal do parágrafo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="97777_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As orações de apoio seguem a oração inicial e devem desenvolver a ideia principal única do parágrafo. Elas não apresentam novas ideias, não reafirmam a declaração de tese, nem resumem a redação. A função delas é explicar, dar exemplos ou fornecer evidências que sustentem o ponto principal do parágrafo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g909ff0d8793c052468a23f52e27af8eb" title="Pergunta 25">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9288,84247,24812,58020</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com a leitura, o que você deve fazer se não tiver certeza se uma atividade de escrita específica permite o uso de IA?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9288">
+<material>
+<mattext texttype="text/plain">Escolher a abordagem que exige mais esforço próprio, pois essa escolha é sempre consistente com o espírito da disciplina/curso</mattext>
+</material>
+</response_label>
+<response_label ident="84247">
+<material>
+<mattext texttype="text/plain">Perguntar a colegas de classe o que pretendem fazer e seguir a mesma abordagem</mattext>
+</material>
+</response_label>
+<response_label ident="24812">
+<material>
+<mattext texttype="text/plain">Usar IA para a tarefa e indicar isso em seu Envio de Tarefa para que o(a) Instrutor(a) tenha conhecimento</mattext>
+</material>
+</response_label>
+<response_label ident="58020">
+<material>
+<mattext texttype="text/plain">Pular a atividade até receber uma resposta clara do(a) Instrutor(a)</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">84247</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="84247_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24812</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24812_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58020</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58020_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9288</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="84247_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Quando as orientações de IA não forem claras, a leitura instrui você a escolher a abordagem que exige mais esforço próprio. Essa escolha é sempre consistente com o espírito da disciplina/curso, mesmo que a política específica não seja declarada. Seguir a escolha de colegas de classe, usar IA e mencioná-la, ou pular a atividade não são as abordagens recomendadas pela disciplina/curso.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="24812_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Quando as orientações de IA não forem claras, a leitura orienta a escolher a abordagem que exige maior esforço próprio. Essa escolha é sempre coerente com o espírito da disciplina/curso, mesmo que a política específica não esteja declarada. Seguir a escolha de colegas de classe, usar IA e registrar isso, ou deixar de fazer a atividade não são as abordagens recomendadas pela disciplina/curso.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="58020_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Quando as orientações de IA não forem claras, a leitura orienta a escolher a abordagem que exige maior esfoço próprio. Essa escolha é sempre coerente com o espírito da disciplina/curso, mesmo que a política específica não esteja declarada. Seguir a escolha de colegas de classe, usar IA e registrar isso, ou deixar de fazer a atividade não são as abordagens recomendadas pela disciplina/curso.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf76295a743a60c4ce19e12e6797b38c2" title="Pergunta 26">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>88705,99232,24418,6336</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual das seguintes alternativas descreve melhor o objetivo de uma declaração de tese em uma redação?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="88705">
+<material>
+<mattext texttype="text/plain">Apresentar o assunto e o posicionamento de quem escreve sobre esse assunto em uma única oração focada</mattext>
+</material>
+</response_label>
+<response_label ident="99232">
+<material>
+<mattext texttype="text/plain">Listar todas as evidências que quem escreve usará para fundamentar o argumento na redação</mattext>
+</material>
+</response_label>
+<response_label ident="24418">
+<material>
+<mattext texttype="text/plain">Apresentar informações de contexto para que quem lê compreenda o assunto em discussão</mattext>
+</material>
+</response_label>
+<response_label ident="6336">
+<material>
+<mattext texttype="text/plain">Resumir o que outras pessoas escreveram sobre o assunto</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99232</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99232_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24418</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24418_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">6336</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="6336_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">88705</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="99232_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma declaração de tese não lista evidências, não fornece contexto nem resume as visões de outras pessoas que escrevem. Seu objetivo é informar a quem lê sobre qual assunto você está escrevendo e qual posicionamento ou ângulo específico está adotando. Ela funciona como um roteiro que mantém toda a redação focada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="24418_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma declaração de tese não lista evidências, não fornece contexto nem resume as visões de outras pessoas que escrevem. Seu objetivo é informar a quem lê sobre qual assunto você está escrevendo e qual posicionamento ou ângulo específico está adotando. Ela funciona como um roteiro que mantém toda a redação focada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="6336_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma declaração de tese não lista evidências, não fornece contexto nem resume as visões de outras pessoas que escrevem. Seu objetivo é informar a quem lê sobre qual assunto você está escrevendo e qual posicionamento ou ângulo específico está adotando. Ela funciona como um roteiro que mantém toda a redação focada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g9cc9a93e9beb305d10deea2d9e24baa3" title="Pergunta 27">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>6997,48213,49724,32526</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual das seguintes alternativas é o melhor exemplo de uma declaração de tese forte?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="6997">
+<material>
+<mattext texttype="text/plain">"A educação on-line permite que adultos que trabalham progridam em suas carreiras e, ao mesmo tempo, mantenham as responsabilidades familiares e profissionais."</mattext>
+</material>
+</response_label>
+<response_label ident="48213">
+<material>
+<mattext texttype="text/plain">"A educação on-line é boa para adultos que trabalham."</mattext>
+</material>
+</response_label>
+<response_label ident="49724">
+<material>
+<mattext texttype="text/plain">"Existem muitos fatores a serem considerados ao analisar a questão da educação on-line."</mattext>
+</material>
+</response_label>
+<response_label ident="32526">
+<material>
+<mattext texttype="text/plain">"A educação on-line existe há muitos anos e continua a crescer em popularidade."</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">48213</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="48213_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49724</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49724_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32526</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32526_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6997</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="48213_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Uma declaração de tese forte assume um posicionamento claro e específico sobre um assunto focado. "A educação on-line é boa para adultos que trabalham" é muito vaga. "Existem muitos fatores a serem considerados" não assume um posicionamento. "A educação on-line existe há muitos anos" apenas afirma um fato. A resposta correta indica um assunto específico — a educação on-line para adultos que trabalham — e apresenta um ângulo específico sobre a progressão na carreira e o equilíbrio de responsabilidades.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="49724_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Uma declaração de tese forte assume um posicionamento claro e específico sobre um assunto focado. "A educação on-line é boa para adultos que trabalham" é muito vaga. "Existem muitos fatores a serem considerados" não assume um posicionamento. "A educação on-line existe há muitos anos" apenas afirma um fato. A resposta correta indica um assunto específico — a educação on-line para adultos que trabalham — e apresenta um ângulo específico sobre a progressão na carreira e o equilíbrio de responsabilidades.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="32526_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Uma declaração de tese forte assume um posicionamento claro e específico sobre um assunto focado. "A educação on-line é boa para adultos que trabalham" é muito vaga. "Existem muitos fatores a serem considerados" não assume um posicionamento. "A educação on-line existe há muitos anos" apenas afirma um fato. A resposta correta indica um assunto específico — a educação on-line para adultos que trabalham — e apresenta um ângulo específico sobre a progressão na carreira e o equilíbrio de responsabilidades.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6c9b8bc28679115240ad688fd832b030" title="Pergunta 28">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>10686,78404,85288,50407</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa logos como um apelo retórico?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="10686">
+<material>
+<mattext texttype="text/plain">Um apelo à lógica de quem lê usando fatos, estatísticas e raciocínio</mattext>
+</material>
+</response_label>
+<response_label ident="78404">
+<material>
+<mattext texttype="text/plain">Um apelo às emoções de quem lê usando histórias pessoais</mattext>
+</material>
+</response_label>
+<response_label ident="85288">
+<material>
+<mattext texttype="text/plain">Um apelo baseado na experiência e no caráter de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="50407">
+<material>
+<mattext texttype="text/plain">Um apelo baseado em tradições culturais e valores compartilhados</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78404</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78404_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85288</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85288_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">50407</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="50407_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">10686</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="78404_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O logos refere-se especificamente a apelos lógicos que usam fatos, dados e raciocínio para persuadir quem lê. Apelar para as emoções por meio de histórias é pathos. Apelar por meio da experiência e do caráter de quem escreve é ethos. Tradições culturais e valores compartilhados não são um dos três apelos retóricos apresentados na S01.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85288_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O logos refere-se especificamente a apelos lógicos que usam fatos, dados e raciocínio para persuadir quem lê. Apelar para as emoções por meio de histórias é pathos. Apelar por meio da experiência e do caráter de quem escreve é ethos. Tradições culturais e valores compartilhados não são um dos três apelos retóricos apresentados na S01.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="50407_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O logos refere-se especificamente a apelos lógicos que usam fatos, dados e raciocínio para persuadir quem lê. Apelar para as emoções por meio de histórias é pathos. Apelar por meio da experiência e do caráter de quem escreve é ethos. Tradições culturais e valores compartilhados não são um dos três apelos retóricos apresentados na S01.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g4f1cc6e721484b425ceffb1d74b06031" title="Pergunta 29">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>70411,42600,10817,4680</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com a leitura, qual é o primeiro passo para desenvolver uma declaração de tese?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="70411">
+<material>
+<mattext texttype="text/plain">Identificar o assunto geral sobre o qual você vai escrever</mattext>
+</material>
+</response_label>
+<response_label ident="42600">
+<material>
+<mattext texttype="text/plain">Escrever um rascunho completo da redação</mattext>
+</material>
+</response_label>
+<response_label ident="10817">
+<material>
+<mattext texttype="text/plain">Reunir todas as evidências que planeja usar</mattext>
+</material>
+</response_label>
+<response_label ident="4680">
+<material>
+<mattext texttype="text/plain">Decidir qual apelo retórico usar</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">42600</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="42600_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">10817</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="10817_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">4680</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="4680_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">70411</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="42600_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A leitura descreve um processo de seis etapas para desenvolver uma declaração de tese. O primeiro passo é identificar o assunto geral. Escrever um rascunho, reunir evidências e escolher um apelo retórico não são etapas no desenvolvimento de uma declaração de tese, mas ocorrem mais tarde no processo de escrita. Começar com o assunto geral oferece uma base para delimitar e focar seu argumento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="10817_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A leitura descreve um processo de seis etapas para desenvolver uma declaração de tese. O primeiro passo é identificar o assunto geral. Escrever um rascunho, reunir evidências e escolher um apelo retórico não são etapas no desenvolvimento de uma declaração de tese, mas ocorrem mais tarde no processo de escrita. Começar com o assunto geral oferece uma base para delimitar e focar seu argumento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="4680_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A leitura descreve um processo de seis etapas para desenvolver uma declaração de tese. O primeiro passo é identificar o assunto geral. Escrever um rascunho, reunir evidências e escolher um apelo retórico não são etapas no desenvolvimento de uma declaração de tese, mas ocorrem mais tarde no processo de escrita. Começar com o assunto geral oferece uma base para delimitar e focar seu argumento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6007c2bccc34552995a0b701dede4e92" title="Pergunta 3">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>55892,79745,80249,53543</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que significa escrever de forma concisa?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="55892">
+<material>
+<mattext texttype="text/plain">Expressar suas ideias usando apenas as palavras necessárias para comunicar seu significado</mattext>
+</material>
+</response_label>
+<response_label ident="79745">
+<material>
+<mattext texttype="text/plain">Usar vocabulário formal e orações longas para parecer profissional</mattext>
+</material>
+</response_label>
+<response_label ident="80249">
+<material>
+<mattext texttype="text/plain">Escrever o máximo de detalhes possível para que quem lê compreenda totalmente</mattext>
+</material>
+</response_label>
+<response_label ident="53543">
+<material>
+<mattext texttype="text/plain">Evitar o uso de quaisquer termos técnicos em sua escrita</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">79745</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="79745_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">80249</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="80249_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53543</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53543_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">55892</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="79745_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Escrever de forma concisa significa remover palavras desnecessárias, mantendo o significado claro. Não significa usar orações longas, adicionar mais detalhes ou evitar termos técnicos. Uma escrita concisa é direta e eficiente, não longa ou excessivamente detalhada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="80249_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Escrever de forma concisa significa remover palavras desnecessárias, mantendo o significado claro. Não significa usar orações longas, adicionar mais detalhes ou evitar termos técnicos. Uma escrita concisa é direta e eficiente, não longa ou excessivamente detalhada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53543_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Escrever de forma concisa significa remover palavras desnecessárias, mantendo o significado claro. Não significa usar orações longas, adicionar mais detalhes ou evitar termos técnicos. Uma escrita concisa é direta e eficiente, não longa ou excessivamente detalhada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gec73ae0f462e40a10899f4409106783f" title="Pergunta 30">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>11955,36030,37398,92115</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o objetivo de uma oração de conclusão em um parágrafo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="11955">
+<material>
+<mattext texttype="text/plain">Para encerrar o parágrafo ao concluir a discussão da ideia principal do parágrafo</mattext>
+</material>
+</response_label>
+<response_label ident="36030">
+<material>
+<mattext texttype="text/plain">Para introduzir a ideia principal do próximo parágrafo</mattext>
+</material>
+</response_label>
+<response_label ident="37398">
+<material>
+<mattext texttype="text/plain">Para reafirmar a declaração de tese palavra por palavra</mattext>
+</material>
+</response_label>
+<response_label ident="92115">
+<material>
+<mattext texttype="text/plain">Para listar as fontes usadas para sustentar as evidências do parágrafo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36030</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36030_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">37398</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="37398_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">92115</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="92115_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">11955</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="36030_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma oração de conclusão encerra o parágrafo e conclui a discussão de sua ideia principal única. Ela não introduz a ideia do próximo parágrafo, não repete a declaração de tese palavra por palavra nem lista fontes. Na leitura, Maria Santos encerra seu parágrafo com "Essas ferramentas de organização ajudam os estudantes a equilibrar suas responsabilidades acadêmicas e pessoais", o que conclui o foco do parágrafo em ferramentas de organização para smartphones.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="37398_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma oração de conclusão encerra o parágrafo e conclui a discussão de sua ideia principal única. Ela não introduz a ideia do próximo parágrafo, não repete a declaração de tese palavra por palavra nem lista fontes. Na leitura, Maria Santos encerra seu parágrafo com "Essas ferramentas de organização ajudam os estudantes a equilibrar suas responsabilidades acadêmicas e pessoais", o que conclui o foco do parágrafo em ferramentas de organização para smartphones.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="92115_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma oração de conclusão encerra o parágrafo e conclui a discussão de sua ideia principal única. Ela não introduz a ideia do próximo parágrafo, não repete a declaração de tese palavra por palavra nem lista fontes. Na leitura, Maria Santos encerra seu parágrafo com "Essas ferramentas de organização ajudam os estudantes a equilibrar suas responsabilidades acadêmicas e pessoais", o que conclui o foco do parágrafo em ferramentas de organização para smartphones.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g0336c208f64d31a490924f9f52884199" title="Pergunta 31">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>21303,48933,26576,15459</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Como o tom deve ser ajustado ao escrever para um empregador?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="21303">
+<material>
+<mattext texttype="text/plain">Escrever para um empregador exige um tom profissional, confiante e cortês</mattext>
+</material>
+</response_label>
+<response_label ident="48933">
+<material>
+<mattext texttype="text/plain">Escrever para um empregador exige um tom informal e pessoal para construir um relacionamento</mattext>
+</material>
+</response_label>
+<response_label ident="26576">
+<material>
+<mattext texttype="text/plain">Escrever para um empregador exige histórias emocionais para criar uma conexão pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="15459">
+<material>
+<mattext texttype="text/plain">Escrever para um empregador exige o mesmo tom usado ao escrever para amigos próximos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">48933</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="48933_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">26576</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="26576_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">15459</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="15459_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">21303</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="48933_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A escrita profissional para um empregador exige um tom profissional, confiante e cortês. Um tom informal ou pessoal é adequado para amigos e familiares, não para empregadores. Histórias pessoais emocionais são mais apropriadas para uma escrita baseada em pathos direcionada ao público-alvo geral. A comunicação com o empregador deve ser focada em resultados, direta e livre de gírias ou linguagem informal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="26576_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A escrita profissional para um empregador exige um tom profissional, confiante e cortês. Um tom informal ou pessoal é adequado para amigos e familiares, não para empregadores. Histórias pessoais emocionais são mais apropriadas para uma escrita baseada em pathos direcionada ao público-alvo geral. A comunicação com o empregador deve ser focada em resultados, direta e livre de gírias ou linguagem informal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="15459_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A escrita profissional para um empregador exige um tom profissional, confiante e cortês. Um tom informal ou pessoal é adequado para amigos e familiares, não para empregadores. Histórias pessoais emocionais são mais apropriadas para uma escrita baseada em pathos direcionada ao público-alvo geral. A comunicação com o empregador deve ser focada em resultados, direta e livre de gírias ou linguagem informal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd61982af991f36e5a85e311ce5044af4" title="Pergunta 32">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>75503,47876,99410,51351</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é kairos como um conceito retórico?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="75503">
+<material>
+<mattext texttype="text/plain">A importância do momento oportuno em um argumento</mattext>
+</material>
+</response_label>
+<response_label ident="47876">
+<material>
+<mattext texttype="text/plain">Um apelo às emoções do leitor</mattext>
+</material>
+</response_label>
+<response_label ident="99410">
+<material>
+<mattext texttype="text/plain">Um apelo baseado na credibilidade de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="51351">
+<material>
+<mattext texttype="text/plain">O uso de fatos e estatísticas para sustentar uma afirmação</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47876</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47876_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99410</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99410_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">51351</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="51351_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">75503</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="47876_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Kairos refere-se ao momento oportuno de um argumento — escolher o momento certo para apresentar seus argumentos. Não se trata de um apelo emocional, de um apelo de credibilidade ou de um apelo lógico usando fatos. A leitura apresenta o kairos brevemente e observa que ele será abordado com mais detalhes na S03 da disciplina/curso.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="99410_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Kairos refere-se ao momento oportuno de um argumento — escolher o momento certo para apresentar seus argumentos. Não se trata de um apelo emocional, de um apelo de credibilidade ou de um apelo lógico usando fatos. A leitura apresenta o kairos brevemente e observa que ele será abordado com mais detalhes na S03 da disciplina/curso.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="51351_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Kairos refere-se ao momento oportuno de um argumento — escolher o momento certo para apresentar seus argumentos. Não se trata de um apelo emocional, de um apelo de credibilidade ou de um apelo lógico usando fatos. A leitura apresenta o kairos brevemente e observa que ele será abordado com mais detalhes na S03 da disciplina/curso.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd822323a013fcd1e03c17b764baaf8de" title="Pergunta 33">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>50253,39607,80363,80119</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;De acordo com a leitura, o que torna uma oração inicial fraca demais para orientar um parágrafo de maneira eficaz?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="50253">
+<material>
+<mattext texttype="text/plain">Ela é muito vaga e não dá ao parágrafo uma direção específica e focada.</mattext>
+</material>
+</response_label>
+<response_label ident="39607">
+<material>
+<mattext texttype="text/plain">Ela é muito longa e contém mais de uma oração.</mattext>
+</material>
+</response_label>
+<response_label ident="80363">
+<material>
+<mattext texttype="text/plain">Ela aparece no final do parágrafo em vez do início.</mattext>
+</material>
+</response_label>
+<response_label ident="80119">
+<material>
+<mattext texttype="text/plain">Ela repete as mesmas palavras usadas na declaração de tese.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39607</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39607_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">80363</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="80363_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">80119</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="80119_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">50253</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="39607_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma oração inicial fraca é aquela que é muito vaga para orientar o parágrafo. Por exemplo, "A educação on-line tem muitos aspectos" não informa a quem lê qual aspecto específico será discutido. Uma oração inicial é uma única oração por definição, portanto o comprimento não é o problema. A localização dentro de um parágrafo e a repetição de palavras podem afetar a clareza, mas não determinam o que torna uma oração inicial fraca.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="80363_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma oração inicial fraca é aquela que é muito vaga para orientar o parágrafo. Por exemplo, "A educação on-line tem muitos aspectos" não informa a quem lê qual aspecto específico será discutido. Uma oração inicial é uma única oração por definição, portanto o comprimento não é o problema. A localização dentro de um parágrafo e a repetição de palavras podem afetar a clareza, mas não determinam o que torna uma oração inicial fraca.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="80119_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma oração inicial fraca é aquela que é muito vaga para orientar o parágrafo. Por exemplo, "A educação on-line tem muitos aspectos" não informa a quem lê qual aspecto específico será discutido. Uma oração inicial é uma única oração por definição, portanto o comprimento não é o problema. A localização dentro de um parágrafo e a repetição de palavras podem afetar a clareza, mas não determinam o que torna uma oração inicial fraca.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gdaf1fec9a669282688231bd46a47b14b" title="Pergunta 34">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>563,74161,32132,7633</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;De acordo com a leitura, o que se deve fazer após redigir o primeiro rascunho de uma declaração de tese?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="563">
+<material>
+<mattext texttype="text/plain">Testar a tese perguntando se ela pode ser sustentada com evidências, se é específica o suficiente e se assume uma posição clara.</mattext>
+</material>
+</response_label>
+<response_label ident="74161">
+<material>
+<mattext texttype="text/plain">Pedir para a IA reescrever a tese para que pareça mais profissional e focada.</mattext>
+</material>
+</response_label>
+<response_label ident="32132">
+<material>
+<mattext texttype="text/plain">Enviar a tese ao(à) Instrutor(a) para obter feedback antes de escrever o restante da redação.</mattext>
+</material>
+</response_label>
+<response_label ident="7633">
+<material>
+<mattext texttype="text/plain">Substituir a tese por uma oração inicial que abranja a mesma ideia.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74161</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74161_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32132</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32132_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7633</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7633_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">563</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="74161_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Após redigir uma tese, a leitura orienta quem escreve a testá-la fazendo três perguntas: Ela pode ser sustentada com evidências? É específica o suficiente? Assume uma posição clara? Pedir para a IA reescrevê-la remove o desenvolvimento de habilidades do processo. Enviar apenas a tese ou substituí-la por uma oração inicial não são etapas descritas na leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="32132_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Após redigir uma tese, a leitura orienta quem escreve a testá-la fazendo três perguntas: Ela pode ser sustentada com evidências? É específica o suficiente? Assume uma posição clara? Pedir para a IA reescrevê-la remove o desenvolvimento de habilidades do processo. Enviar apenas a tese ou substituí-la por uma oração inicial não são etapas descritas na leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="7633_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Após redigir uma tese, a leitura orienta quem escreve a testá-la fazendo três perguntas: Ela pode ser sustentada com evidências? É específica o suficiente? Assume uma posição clara? Pedir para a IA reescrevê-la remove o desenvolvimento de habilidades do processo. Enviar apenas a tese ou substituí-la por uma oração inicial não são etapas descritas na leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g55816463b1fbbda1a3a70b6897cd111d" title="Pergunta 35">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>79982,72982,63715,39587</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa &lt;em&gt;ângulo&lt;/em&gt; na escrita acadêmica?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="79982">
+<material>
+<mattext texttype="text/plain">O ponto de vista ou foco específico que quem escreve adota sobre um assunto</mattext>
+</material>
+</response_label>
+<response_label ident="72982">
+<material>
+<mattext texttype="text/plain">O comprimento da declaração de tese</mattext>
+</material>
+</response_label>
+<response_label ident="63715">
+<material>
+<mattext texttype="text/plain">O número de pontos de apoio usados em uma redação</mattext>
+</material>
+</response_label>
+<response_label ident="39587">
+<material>
+<mattext texttype="text/plain">O tipo de evidência usada para sustentar um argumento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">72982</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="72982_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">63715</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="63715_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39587</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39587_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">79982</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="72982_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O ângulo é o ponto de vista ou foco específico que se traz para um Assunto. Não se trata de extensão, do número de pontos de apoio ou do tipo de evidência. Por exemplo, é possível escolher muitos ângulos diferentes sobre o Assunto da educação on-line, tais como os benefícios para adultos que trabalham, os desafios para estudantes sem acesso à internet ou o impacto no desempenho de estudantes. O ângulo escolhido molda toda a Redação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="63715_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O ângulo é o ponto de vista ou foco específico que se traz para um Assunto. Não se trata de extensão, do número de pontos de apoio ou do tipo de evidência. Por exemplo, é possível escolher muitos ângulos diferentes sobre o Assunto da educação on-line, tais como os benefícios para adultos que trabalham, os desafios para estudantes sem acesso à internet ou o impacto no desempenho de estudantes. O ângulo escolhido molda toda a Redação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="39587_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O ângulo é o ponto de vista ou foco específico que se traz para um Assunto. Não se trata de extensão, do número de pontos de apoio ou do tipo de evidência. Por exemplo, é possível escolher muitos ângulos diferentes sobre o Assunto da educação on-line, tais como os benefícios para adultos que trabalham, os desafios para estudantes sem acesso à internet ou o impacto no desempenho de estudantes. O ângulo escolhido molda toda a Redação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g5cddbb3a1859ea7219bdbea1d294d357" title="Pergunta 36">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>41639,46159,81418,12215</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual das seguintes alternativas melhor descreve o significado de &lt;em&gt;evidência&lt;/em&gt; na Escrita acadêmica?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="41639">
+<material>
+<mattext texttype="text/plain">Fatos, exemplos ou observações apresentados para apoiar uma conclusão ou afirmação</mattext>
+</material>
+</response_label>
+<response_label ident="46159">
+<material>
+<mattext texttype="text/plain">A opinião pessoal de quem escreve, declarada claramente na tese</mattext>
+</material>
+</response_label>
+<response_label ident="81418">
+<material>
+<mattext texttype="text/plain">Informações de contexto que introduzem o Assunto a quem lê</mattext>
+</material>
+</response_label>
+<response_label ident="12215">
+<material>
+<mattext texttype="text/plain">Um resumo geral do Assunto</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">46159</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="46159_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81418</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81418_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">12215</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="12215_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">41639</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="46159_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A evidência consiste em fatos, exemplos ou observações que apoiam uma afirmação. A opinião pessoal de quem escreve é um posicionamento, não uma evidência. As informações de contexto introduzem um Assunto, mas não apoiam uma afirmação específica. Um resumo geral do Assunto não é considerado evidência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="81418_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A evidência consiste em fatos, exemplos ou observações que apoiam uma afirmação. A opinião pessoal de quem escreve é um posicionamento, não uma evidência. As informações de contexto introduzem um Assunto, mas não apoiam uma afirmação específica. Um resumo geral do Assunto não é considerado evidência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="12215_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A evidência consiste em fatos, exemplos ou observações que apoiam uma afirmação. A opinião pessoal de quem escreve é um posicionamento, não uma evidência. As informações de contexto introduzem um Assunto, mas não apoiam uma afirmação específica. Um resumo geral do Assunto não é considerado evidência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1dcde2a615f2f62003d31ded005b28a7" title="Pergunta 37">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>8767,49936,30181,20065</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;De acordo com a leitura, que tipo de tarefa de Escrita exige a produção de um resultado limpo e utilizável, em que o método de produção é secundário?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="8767">
+<material>
+<mattext texttype="text/plain">Uma tarefa de produto</mattext>
+</material>
+</response_label>
+<response_label ident="49936">
+<material>
+<mattext texttype="text/plain">Uma tarefa de processo</mattext>
+</material>
+</response_label>
+<response_label ident="30181">
+<material>
+<mattext texttype="text/plain">Uma tarefa de tese</mattext>
+</material>
+</response_label>
+<response_label ident="20065">
+<material>
+<mattext texttype="text/plain">Uma tarefa de revisão</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49936</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49936_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">30181</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="30181_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20065</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20065_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">8767</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="49936_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Uma tarefa de produto concentra-se no resultado final, como redigir um e-mail profissional ou formatar um documento. A forma como foi produzido importa menos do que o resultado final. Já a tarefa de processo é o oposto: o aprendizado ocorre nas decisões tomadas durante o trabalho, e não no documento enviado. As Atividades de Escrita nesta Disciplina/curso são tarefas de processo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="30181_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Uma tarefa de produto concentra-se no resultado final, como redigir um e-mail profissional ou formatar um documento. A forma como foi produzido importa menos do que o resultado final. Já a tarefa de processo é o oposto: o aprendizado ocorre nas decisões tomadas durante o trabalho, e não no documento enviado. As Atividades de Escrita nesta Disciplina/curso são tarefas de processo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="20065_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Uma tarefa de produto concentra-se no resultado final, como redigir um e-mail profissional ou formatar um documento. A forma como foi produzido importa menos do que o resultado final. Já a tarefa de processo é o oposto: o aprendizado ocorre nas decisões tomadas durante o trabalho, e não no documento enviado. As Atividades de Escrita nesta Disciplina/curso são tarefas de processo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g076160c2eb7537269ba1501f0535f520" title="Pergunta 38">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>45204,28281,28649,58523</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa o termo &lt;em&gt;persuasão&lt;/em&gt; no contexto da Escrita?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="45204">
+<material>
+<mattext texttype="text/plain">O ato de convencer o público leitor a fazer ou acreditar em algo por meio da Escrita</mattext>
+</material>
+</response_label>
+<response_label ident="28281">
+<material>
+<mattext texttype="text/plain">O uso de linguagem formal para estabelecer credibilidade com um Público-alvo</mattext>
+</material>
+</response_label>
+<response_label ident="28649">
+<material>
+<mattext texttype="text/plain">O processo de organizar ideias em parágrafos e Seções</mattext>
+</material>
+</response_label>
+<response_label ident="58523">
+<material>
+<mattext texttype="text/plain">O método de citar fontes para apoiar um argumento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">28281</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="28281_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">28649</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="28649_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58523</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58523_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">45204</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="28281_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A persuasão é o ato de convencer alguém a fazer ou acreditar em algo. Não se trata de linguagem formal, organização ou citação. A Escrita persuasiva utiliza ferramentas como recursos retóricos — logos, pathos e ethos — para guiar o público leitor em direção ao posicionamento de quem escreve.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="28649_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A persuasão é o ato de convencer alguém a fazer ou acreditar em algo. Não se trata de linguagem formal, organization ou citação. A Escrita persuasiva utiliza ferramentas como recursos retóricos — logos, pathos e ethos — para guiar o público leitor em direção ao posicionamento de quem escreve.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="58523_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A persuasão é o ato de convencer alguém a fazer ou acreditar em algo. Não se trata de linguagem formal, organização ou citação. A Escrita persuasiva utiliza ferramentas como recursos retóricos — logos, pathos e ethos — para guiar o público leitor em direção ao posicionamento de quem escreve.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gcb7d1b2385a2553c83878e985404dafe" title="Pergunta 39">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>91298,81203,34859,34646</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com a leitura, de que maneira a Escrita científica se diferencia da Escrita de narrativa pessoal no uso de recursos retóricos?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="91298">
+<material>
+<mattext texttype="text/plain">A Escrita científica baseia-se fortemente no logos, enquanto as narrativas pessoais costumam usar o pathos</mattext>
+</material>
+</response_label>
+<response_label ident="81203">
+<material>
+<mattext texttype="text/plain">A Escrita científica baseia-se fortemente no pathos, enquanto as narrativas pessoais costumam usar o logos</mattext>
+</material>
+</response_label>
+<response_label ident="34859">
+<material>
+<mattext texttype="text/plain">A Escrita científica evita todos os recursos retóricos, enquanto as narrativas pessoais usam o ethos</mattext>
+</material>
+</response_label>
+<response_label ident="34646">
+<material>
+<mattext texttype="text/plain">A Escrita científica usa apenas o ethos, enquanto as narrativas pessoais evitam todos os recursos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81203</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81203_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">34859</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="34859_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">34646</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="34646_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">91298</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="81203_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A leitura afirma que a Escrita científica se baseia fortemente no logos porque depende de fatos, dados e raciocínio. As narrativas pessoais costumam usar o pathos porque se conectam com quem lê por meio de histórias e experiências emocionais. As outras opções invertem ou distorcem essas relações descritas na leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="34859_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A leitura afirma que a Escrita científica se baseia fortemente no logos porque depende de fatos, dados e raciocínio. As narrativas pessoais costumam usar o pathos porque se conectam com quem lê por meio de histórias e experiências emocionais. As outras opções invertem ou distorcem essas relações descritas na leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="34646_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A leitura afirma que a Escrita científica se baseia fortemente no logos porque depende de fatos, dados e raciocínio. As narrativas pessoais costumam usar o pathos porque se conectam com quem lê por meio de histórias e experiências emocionais. As outras opções invertem ou distorcem essas relações descritas na leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g209ed80698fd413faa2eff0201c5d470" title="Pergunta 4">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>65983,83916,63163,74614</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o objetivo principal de organizar a Escrita em parágrafos?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="65983">
+<material>
+<mattext texttype="text/plain">Apresentar ideias em Seções menores que sejam mais fáceis de compreender por quem lê</mattext>
+</material>
+</response_label>
+<response_label ident="83916">
+<material>
+<mattext texttype="text/plain">Fazer com que um documento pareça mais longo e mais desenvolvido para quem lê</mattext>
+</material>
+</response_label>
+<response_label ident="63163">
+<material>
+<mattext texttype="text/plain">Evitar a necessidade de escrever Orações de transição claras entre as ideias</mattext>
+</material>
+</response_label>
+<response_label ident="74614">
+<material>
+<mattext texttype="text/plain">Impressionar quem lê com o conhecimento e o estilo de quem escreve</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">83916</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="83916_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">63163</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="63163_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74614</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74614_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">65983</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="83916_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os parágrafos dividem as informações em Seções gerenciáveis, para que quem lê possa processar uma ideia de cada vez. Os parágrafos não existem para fazer um documento parecer mais longo, para evitar transições ou para impressionar quem lê. O objetivo deles é melhorar a clareza e a compreensão.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="63163_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os parágrafos dividem as informações em Seções gerenciáveis, para que quem lê possa processar uma ideia de cada vez. Os parágrafos não existem para fazer um documento parecer mais longo, para evitar transições ou para impressionar quem lê. O objetivo deles é melhorar a clareza e a compreensão.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="74614_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os parágrafos dividem as informações em Seções gerenciáveis, para que quem lê possa processar uma ideia de cada vez. Os parágrafos não existem para fazer um documento parecer mais longo, para evitar transições ou para impressionar quem lê. O objetivo deles é melhorar a clareza e a compreensão.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc65ef67dd639670e4f2f5b7f946d5921" title="Pergunta 40">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>71235,63064,36708,59469</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que significa o termo &lt;em&gt;posicionamento&lt;/em&gt; na escrita?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="71235">
+<material>
+<mattext texttype="text/plain">A atitude ou posição de quem escreve em relação a um assunto</mattext>
+</material>
+</response_label>
+<response_label ident="63064">
+<material>
+<mattext texttype="text/plain">O formato usado para organizar uma redação</mattext>
+</material>
+</response_label>
+<response_label ident="36708">
+<material>
+<mattext texttype="text/plain">O tempo que se dedica à pesquisa sobre um assunto</mattext>
+</material>
+</response_label>
+<response_label ident="59469">
+<material>
+<mattext texttype="text/plain">O número de fontes utilizadas para sustentar uma afirmação</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">63064</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="63064_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36708</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36708_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59469</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59469_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">71235</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="63064_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O posicionamento refere-se à atitude ou ao ponto de vista de quem escreve sobre um assunto. Está intimamente ligado à perspectiva e ao argumento da redação. O posicionamento não se refere à formatação, ao tempo de pesquisa ou ao número de fontes utilizadas. Ao assumir um posicionamento, você se compromete com um ponto de vista e, depois, o sustenta com evidências ao longo de toda a sua escrita.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="36708_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O posicionamento refere-se à atitude ou ao ponto de vista de quem escreve sobre um assunto. Está intimamente ligado à perspectiva e ao argumento da redação. O posicionamento não se refere à formatação, ao tempo de pesquisa ou ao número de fontes utilizadas. Ao assumir um posicionamento, você se compromete com um ponto de vista e, depois, o sustenta com evidências ao longo de toda a sua escrita.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="59469_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O posicionamento refere-se à atitude ou ao ponto de vista de quem escreve sobre um assunto. Está intimamente ligado à perspectiva e ao argumento da redação. O posicionamento não se refere à formatação, ao tempo de pesquisa ou ao número de fontes utilizadas. Ao assumir um posicionamento, você se compromete com um ponto de vista e, depois, o sustenta com evidências ao longo de toda a sua escrita.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd6473ab25400b362ad51a32a157eae5e" title="Pergunta 41">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>28640,4827,70372,96724</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;De acordo com a leitura, qual é uma característica que torna uma oração inicial forte em vez de fraca?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="28640">
+<material>
+<mattext texttype="text/plain">Ela é específica o suficiente para orientar o parágrafo e geral o suficiente para precisar de mais explicações.</mattext>
+</material>
+</response_label>
+<response_label ident="4827">
+<material>
+<mattext texttype="text/plain">Ela reafirma a declaração de tese usando palavras diferentes para reforçar a ideia principal.</mattext>
+</material>
+</response_label>
+<response_label ident="70372">
+<material>
+<mattext texttype="text/plain">Ela lista todas as evidências que aparecerão no parágrafo para apoiar a ideia principal.</mattext>
+</material>
+</response_label>
+<response_label ident="96724">
+<material>
+<mattext texttype="text/plain">Ela é colocada no final do parágrafo para resumir a ideia principal.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">4827</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="4827_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70372</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70372_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">96724</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="96724_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">28640</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="4827_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma oração inicial forte é específica o suficiente para dar direção ao parágrafo, mas geral o suficiente para ainda precisar de orações de apoio para desenvolvê-la plenamente. Ela não reafirma a tese, não lista evidências nem aparece no final do parágrafo. A leitura observa que as orações iniciais geralmente aparecem no início dos parágrafos e apresentam uma ideia clara que o parágrafo desenvolverá.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="70372_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma oração inicial forte é específica o suficiente para dar direção ao parágrafo, mas geral o suficiente para ainda precisar de orações de apoio para desenvolvê-la plenamente. Ela não reafirma a tese, não lista evidências nem aparece no final do parágrafo. A leitura observa que as orações iniciais geralmente aparecem no início dos parágrafos e apresentam uma ideia clara que o parágrafo desenvolverá.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="96724_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma oração inicial forte é específica o suficiente para dar direção ao parágrafo, mas geral o suficiente para ainda precisar de orações de apoio para desenvolvê-la plenamente. Ela não reafirma a tese, não lista evidências nem aparece no final do parágrafo. A leitura observa que as orações iniciais geralmente aparecem no início dos parágrafos e apresentam uma ideia clara que o parágrafo desenvolverá.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc341bf3b40ebb65aeb37229c4061ebd4" title="Pergunta 42">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>71494,39122,1419,9219</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com a leitura, por que é importante testar uma declaração de tese antes de escrever a redação completa?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="71494">
+<material>
+<mattext texttype="text/plain">Para confirmar se ela assume um posicionamento claro, é específica o suficiente e pode ser apoiada por evidências</mattext>
+</material>
+</response_label>
+<response_label ident="39122">
+<material>
+<mattext texttype="text/plain">Para garantir que ela tenha pelo menos duas orações de extensão e abranja todos os pontos de apoio</mattext>
+</material>
+</response_label>
+<response_label ident="1419">
+<material>
+<mattext texttype="text/plain">Para verificar se ela corresponde ao formato exigido pela rubrica da atividade</mattext>
+</material>
+</response_label>
+<response_label ident="9219">
+<material>
+<mattext texttype="text/plain">Para verificar se ela utiliza linguagem formal e evita contrações</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39122</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39122_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1419</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1419_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9219</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9219_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">71494</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="39122_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Testar uma tese verifica se ela assume um posicionamento claro, se é específica o suficiente e se pode ser apoiada por evidências. Essas três perguntas ajudam quem escreve a saber se a tese se sustentará ao longo de toda a redação. O comprimento da tese, o formato da rubrica e a formalidade da linguagem são preocupações distintas que não determinam se uma tese está pronta para guiar uma redação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="1419_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Testar uma tese verifica se ela assume um posicionamento claro, se é específica o suficiente e se pode ser apoiada por evidências. Essas três perguntas ajudam quem escreve a saber se a tese se sustentará ao longo de toda a redação. O comprimento da tese, o formato da rubrica e a formalidade da linguagem são preocupações distintas que não determinam se uma tese está pronta para guiar uma redação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="9219_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Testar uma tese verifica se ela assume um posicionamento claro, se é específica o suficiente e se pode ser apoiada por evidências. Essas três perguntas ajudam quem escreve a saber se a tese se sustentará ao longo de toda a redação. O comprimento da tese, o formato da rubrica e a formalidade da linguagem são preocupações distintas que não determinam se uma tese está pronta para guiar uma redação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb2a783a58ce5526740e692b5ea9d5c28" title="Pergunta 43">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>55756,30143,8868,40699</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é uma transição na escrita?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="55756">
+<material>
+<mattext texttype="text/plain">Uma palavra ou frase que conecta uma ideia a outra</mattext>
+</material>
+</response_label>
+<response_label ident="30143">
+<material>
+<mattext texttype="text/plain">Uma oração que introduz um novo parágrafo com um assunto diferente</mattext>
+</material>
+</response_label>
+<response_label ident="8868">
+<material>
+<mattext texttype="text/plain">Um sinal de pontuação usado para unir duas orações independentes</mattext>
+</material>
+</response_label>
+<response_label ident="40699">
+<material>
+<mattext texttype="text/plain">Uma oração de resumo colocada no final de cada parágrafo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">30143</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="30143_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8868</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8868_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40699</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40699_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">55756</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="30143_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma transição é uma palavra ou frase que conecta ideias e ajuda a escrita a fluir suavemente de um pensamento para o outro. Não se trata de uma oração completa, de um sinal de pontuação ou de um resumo. As transições guiam quem lê através de um texto, mostrando as relações entre as ideias, como contraste, sequência ou causa e efeito.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="8868_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma transição é uma palavra ou frase que conecta ideias e ajuda a escrita a fluir suavemente de um pensamento para o outro. Não se trata de uma oração completa, de um sinal de pontuação ou de um resumo. As transições guiam quem lê através de um texto, mostrando as relações entre as ideias, como contraste, sequência ou causa e efeito.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="40699_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma transição é uma palavra ou frase que conecta ideias e ajuda a escrita a fluir suavemente de um pensamento para o outro. Não se trata de uma oração completa, de um sinal de pontuação ou de um resumo. As transições guiam quem lê através de um texto, mostrando as relações entre as ideias, como contraste, sequência ou causa e efeito.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g69eced5fbe3e093a927e9816a1af13db" title="Pergunta 44">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>88732,10124,71477,54280</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;De acordo com a leitura, qual é um dos motivos pelos quais o inglês claro e simples costuma ser mais eficaz do que a linguagem complexa na comunicação empresarial internacional?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="88732">
+<material>
+<mattext texttype="text/plain">Pessoas de diferentes países e trajetórias profissionais conseguem compreender uma linguagem simples e direta com mais facilidade.</mattext>
+</material>
+</response_label>
+<response_label ident="10124">
+<material>
+<mattext texttype="text/plain">A linguagem simples sinaliza que quem escreve não é especialista e está demonstrando humildade.</mattext>
+</material>
+</response_label>
+<response_label ident="71477">
+<material>
+<mattext texttype="text/plain">A linguagem complexa é reservada para a escrita acadêmica e não é permitida em ambientes de negócios.</mattext>
+</material>
+</response_label>
+<response_label ident="54280">
+<material>
+<mattext texttype="text/plain">A linguagem simples exige menos tempo para ser traduzida e custa menos para empresas internacionais.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">10124</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="10124_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">71477</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="71477_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">54280</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="54280_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">88732</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="10124_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A leitura afirma que, no mundo dos negócios internacionais, o inglês simples e claro se comunica de forma mais eficaz porque pode ser compreendido por profissionais de muitos países e origens diferentes. Profissionais de engenharia de software no Brasil, de gerência de marketing no Quênia e de direção de finanças na Tailândia se beneficiam de uma comunicação direta. As outras opções apresentam motivos que não constam ou não são sustentados pela leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="71477_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A leitura afirma que, no mundo dos negócios internacionais, o inglês simples e claro se comunica de forma mais eficaz porque pode ser compreendido por profissionais de muitos países e origens diferentes. Profissionais de engenharia de software no Brasil, de gerência de marketing no Quênia e de direção de finanças na Tailândia se beneficiam de uma comunicação direta. As outras opções apresentam motivos que não constam ou não são sustentados pela leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="54280_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A leitura afirma que, no mundo dos negócios internacionais, o inglês simples e claro se comunica de forma mais eficaz porque pode ser compreendido por profissionais de muitos países e origens diferentes. Profissionais de engenharia de software no Brasil, de gerência de marketing no Quênia e de direção de finanças na Tailândia se beneficiam de uma comunicação direta. As outras opções apresentam motivos que não constam ou não são sustentados pela leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g4051d84f6c20972c69da86e211b02419" title="Pergunta 5">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>23190,48261,89117,11582</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual apelo retórico utiliza fatos, estatísticas e raciocínio lógico para persuadir quem lê?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="23190">
+<material>
+<mattext texttype="text/plain">Logos</mattext>
+</material>
+</response_label>
+<response_label ident="48261">
+<material>
+<mattext texttype="text/plain">Pathos</mattext>
+</material>
+</response_label>
+<response_label ident="89117">
+<material>
+<mattext texttype="text/plain">Ethos</mattext>
+</material>
+</response_label>
+<response_label ident="11582">
+<material>
+<mattext texttype="text/plain">Kairos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">48261</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="48261_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89117</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89117_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">11582</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="11582_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">23190</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="48261_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Logos é o apelo retórico que se baseia na lógica, em fatos e no raciocínio. Pathos apela para as emoções de quem lê. Ethos apela para a credibilidade e confiabilidade de quem escreve. Kairos relaciona-se com o momento oportuno de um argumento e será abordado em uma semana posterior.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="89117_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Logos é o apelo retórico que se baseia na lógica, em fatos e no raciocínio. Pathos apela para as emoções de quem lê. Ethos apela para a credibilidade e confiabilidade de quem escreve. Kairos relaciona-se com o momento oportuno de um argumento e será abordado em uma semana posterior.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="11582_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Logos é o apelo retórico que se baseia na lógica, em fatos e no raciocínio. Pathos apela para as emoções de quem lê. Ethos apela para a credibilidade e confiabilidade de quem escreve. Kairos relaciona-se com o momento oportuno de um argumento e será abordado em uma semana posterior.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g9a54ce97f76afc324b05641582a3a975" title="Pergunta 6">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>80899,64669,25371,84027</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é tom na escrita?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="80899">
+<material>
+<mattext texttype="text/plain">A atitude de quem escreve em relação ao assunto e ao público-alvo, expressa por meio da linguagem</mattext>
+</material>
+</response_label>
+<response_label ident="64669">
+<material>
+<mattext texttype="text/plain">O número de palavras que quem escreve utiliza em cada oração</mattext>
+</material>
+</response_label>
+<response_label ident="25371">
+<material>
+<mattext texttype="text/plain">O formato que quem escreve segue ao organizar os parágrafos</mattext>
+</material>
+</response_label>
+<response_label ident="84027">
+<material>
+<mattext texttype="text/plain">O tipo de evidência que quem escreve inclui para sustentar um argumento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">64669</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="64669_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25371</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25371_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">84027</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="84027_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">80899</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="64669_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O tom não tem a ver com a contagem de palavras, o formato do parágrafo ou o tipo de evidência utilizada. O tom refere-se à atitude ou ao sentimento que quem escreve transmite por meio da escolha de palavras e do estilo. For exemplo, um tom formal soa diferente de um tom casual ou conversacional, mesmo quando ambos comunicam a mesma informação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25371_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O tom não tem a ver com a contagem de palavras, o formato do parágrafo ou o tipo de evidência utilizada. O tom refere-se à atitude ou ao sentimento que quem escreve transmite por meio da escolha de palavras e do estilo. For exemplo, um tom formal soa diferente de um tom casual ou conversacional, mesmo quando ambos comunicam a mesma informação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="84027_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O tom não tem a ver com a contagem de palavras, o formato do parágrafo ou o tipo de evidência utilizada. O tom refere-se à atitude ou ao sentimento que quem escreve transmite por meio da escolha de palavras e do estilo. For exemplo, um tom formal soa diferente de um tom casual ou conversacional, mesmo quando ambos comunicam a mesma informação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gace5306215e1bfc4a5cec7e2259ae4fd" title="Pergunta 7">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>4706,85151,20125,83806</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual das seguintes orações é a mais concisa?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="4706">
+<material>
+<mattext texttype="text/plain">Estudantes que se preparam para as provas geralmente obtêm melhores resultados.</mattext>
+</material>
+</response_label>
+<response_label ident="85151">
+<material>
+<mattext texttype="text/plain">Geralmente parece ser o caso que estudantes que se preparam de forma cuidadosa e atenta para as provas com antecedência normalmente alcançam melhores resultados do que quem não o faz.</mattext>
+</material>
+</response_label>
+<response_label ident="20125">
+<material>
+<mattext texttype="text/plain">Quando estudantes dedicam tempo para se preparar para suas provas de maneira cuidadosa, tendem a alcançar melhores resultados nelas.</mattext>
+</material>
+</response_label>
+<response_label ident="83806">
+<material>
+<mattext texttype="text/plain">A preparação para provas por parte de estudantes resulta em melhores desempenhos em situações de provas.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85151</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85151_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20125</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20125_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">83806</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="83806_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4706</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="85151_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A resposta correta expressa a mesma ideia com muito menos palavras, sem perder o sentido. As outras três opções incluem frases desnecessárias, como "geralmente parece ser o caso", "de maneira cuidadosa" e "resultados de desempenho em situações de provas". Essas frases aumentam a extensão, mas não a clareza. A escrita concisa elimina esse tipo de frase.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="20125_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A resposta correta expressa a mesma ideia com muito menos palavras, sem perder o sentido. As outras três opções incluem frases desnecessárias, como "geralmente parece ser o caso", "de maneira cuidadosa" e "resultados de desempenho em situações de provas". Essas frases aumentam a extensão, mas não a clareza. A escrita concisa elimina esse tipo de frase.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="83806_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A resposta correta expressa a mesma ideia com muito menos palavras, sem perder o sentido. As outras três opções incluem frases desnecessárias, como "geralmente parece ser o caso", "de maneira cuidadosa" e "resultados de desempenho em situações de provas". Essas frases aumentam a extensão, mas não a clareza. A escrita concisa elimina esse tipo de frase.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g4f64af903d0fba5054c3aeca7d2d999b" title="Pergunta 8">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>33684,67706,17512,27305</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é pathos como um apelo retórico?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="33684">
+<material>
+<mattext texttype="text/plain">Um apelo às emoções de quem lê por meio de histórias e conexões pessoais</mattext>
+</material>
+</response_label>
+<response_label ident="67706">
+<material>
+<mattext texttype="text/plain">Um apelo ao senso de lógica de quem lê por meio de fatos e dados</mattext>
+</material>
+</response_label>
+<response_label ident="17512">
+<material>
+<mattext texttype="text/plain">Um apelo baseado na experiência e credibilidade de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="27305">
+<material>
+<mattext texttype="text/plain">Um apelo baseado no momento oportuno do argumento</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67706</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67706_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">17512</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="17512_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">27305</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="27305_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">33684</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="67706_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O pathos é especificamente o apelo à emoção. Apelar à lógica por meio de fatos e dados é o logos. Apelar à experiência e credibilidade de quem escreve é o ethos. Apelar ao momento oportuno é o kairos. O pathos conecta-se com quem lê ao usar histórias pessoais ou uma linguagem emocional que gera sentimento e empatia.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="17512_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O pathos é especificamente o apelo à emoção. Apelar à lógica por meio de fatos e dados é o logos. Apelar à experiência e credibilidade de quem escreve é o ethos. Apelar ao momento oportuno é o kairos. O pathos conecta-se com quem lê ao usar histórias pessoais ou uma linguagem emocional que gera sentimento e empatia.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="27305_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O pathos é especificamente o apelo à emoção. Apelar à lógica por meio de fatos e dados é o logos. Apelar à experiência e credibilidade de quem escreve é o ethos. Apelar ao momento oportuno é o kairos. O pathos conecta-se com quem lê ao usar histórias pessoais ou uma linguagem emocional que gera sentimento e empatia.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g27430e854991d4dd80df400f4345f7cd" title="Pergunta 9">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>45428,74138,21834,98960</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Quais são os três apelos retóricos apresentados na S01?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="45428">
+<material>
+<mattext texttype="text/plain">Logos, pathos e ethos</mattext>
+</material>
+</response_label>
+<response_label ident="74138">
+<material>
+<mattext texttype="text/plain">Tom, linguagem e público-alvo</mattext>
+</material>
+</response_label>
+<response_label ident="21834">
+<material>
+<mattext texttype="text/plain">Clareza, concisão e estrutura</mattext>
+</material>
+</response_label>
+<response_label ident="98960">
+<material>
+<mattext texttype="text/plain">Oração inicial, tese e evidências</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74138</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74138_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21834</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21834_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98960</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98960_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">45428</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="74138_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Os três apelos retóricos apresentados na S01 são logos, pathos e ethos. Tom, linguagem e público-alvo são ferramentas que quem escreve usa para se conectar com quem lê, mas não são apelos retóricos. Clareza, concisão e estrutura são princípios de escrita. Oração inicial, tese e evidências são componentes de parágrafo e de redação.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21834_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Os três apelos retóricos apresentados na S01 são logos, pathos e ethos. Tom, linguagem e público-alvo são ferramentas que quem escreve usa para se conectar com quem lê, mas não são apelos retóricos. Clareza, concisão e estrutura são princípios de escrita. Oração inicial, tese e evidências são componentes de parágrafo e de redação.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="98960_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Os três apelos retóricos apresentados na S01 são logos, pathos e ethos. Tom, linguagem e público-alvo são ferramentas que quem escreve usa para se conectar com quem lê, mas não são apelos retóricos. Clareza, concisão e estrutura são princípios de escrita. Oração inicial, tese e evidências são componentes de parágrafo e de redação.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+</objectbank>
+</questestinterop>

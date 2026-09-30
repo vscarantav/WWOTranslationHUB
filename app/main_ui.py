@@ -3,7 +3,7 @@ from tkinter import ttk, filedialog, messagebox, simpledialog
 import threading
 import sys
 import os
-from dotenv import load_dotenv
+from dotenv import dotenv_values, load_dotenv, set_key
 env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
 load_dotenv(env_path)
 import io
@@ -18,6 +18,77 @@ from urllib.parse import unquote, urlparse
 # Import the processors
 from controller import TranslationController
 from course_auditor import CourseAuditor
+
+
+REQUIRED_ENV_VARIABLES = (
+    "GEMINI_API_KEY",
+    "CANVAS_API_URL",
+    "CANVAS_API_TOKEN",
+)
+
+
+def _required_env_variable_names(env_file):
+    """Return core settings plus any additional variables declared in .env."""
+    names = list(REQUIRED_ENV_VARIABLES)
+    if os.path.isfile(env_file):
+        for name in dotenv_values(env_file):
+            if name and name not in names:
+                names.append(name)
+    return names
+
+
+def _is_secret_env_variable(name):
+    secret_markers = ("KEY", "TOKEN", "SECRET", "PASSWORD")
+    return any(marker in name.upper() for marker in secret_markers)
+
+
+def ensure_required_environment(parent, env_file=env_path):
+    """Prompt for every missing .env setting and block startup on cancellation."""
+    missing_names = [
+        name
+        for name in _required_env_variable_names(env_file)
+        if not os.environ.get(name, "").strip()
+    ]
+    if not missing_names:
+        return True
+
+    entered_values = {}
+    for name in missing_names:
+        prompt = f"Your .env file is missing {name}.\nPlease enter {name}:"
+        if name == "CANVAS_API_URL":
+            prompt += "\nExample: https://byui.instructure.com"
+
+        dialog_options = {"parent": parent}
+        if _is_secret_env_variable(name):
+            dialog_options["show"] = "*"
+
+        value = simpledialog.askstring(
+            f"{name} Required",
+            prompt,
+            **dialog_options,
+        )
+        if value is None or not value.strip():
+            messagebox.showerror(
+                "Required Configuration Missing",
+                f"{name} is required. Translation Hub cannot start without it.",
+                parent=parent,
+            )
+            return False
+        entered_values[name] = value.strip()
+
+    try:
+        for name, value in entered_values.items():
+            set_key(env_file, name, value)
+    except OSError as error:
+        messagebox.showerror(
+            "Configuration Save Failed",
+            f"Translation Hub could not save the required settings to .env:\n{error}",
+            parent=parent,
+        )
+        return False
+
+    os.environ.update(entered_values)
+    return True
 
 
 def validate_edtech_shell_details(shell_created, shell_url, target_book_label="PT"):
@@ -307,18 +378,10 @@ class CourseTranslationHubUI:
         self.root = root
         self.root.title("Course Translation Hub")
         self.root.geometry("850x700")
-        
-        # Check for Canvas API Token
-        if not os.getenv("CANVAS_API_TOKEN"):
-            token = simpledialog.askstring("Canvas API Token Missing", 
-                                           "Your .env file is missing the Canvas token.\nPlease enter your CANVAS_API_TOKEN:")
-            if token:
-                os.environ["CANVAS_API_TOKEN"] = token
-                with open(env_path, 'a', encoding='utf-8') as f:
-                    # Ensure it starts on a new line
-                    f.write(f"\nCANVAS_API_TOKEN={token}\n")
-            else:
-                messagebox.showwarning("Warning", "Canvas API Token not provided. Some features (like group migration) will not work.")
+
+        if not ensure_required_environment(self.root):
+            self.root.destroy()
+            raise SystemExit("Required .env configuration was not provided.")
         
         self.app_dir = os.path.dirname(os.path.abspath(__file__))
         self.hub_dir = os.path.dirname(self.app_dir)

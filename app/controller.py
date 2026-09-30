@@ -38,6 +38,28 @@ class TranslationController:
             "attention-messaging-instructors-graders-ptbr-2.png",
         ),
     )
+    INSTRUCTOR_EVALUATION_ACCORDION_TITLE = (
+        "Course Considerations for Instructor Evaluation"
+    )
+    RELEASE_NOTES_TRANSLATIONS = {
+        "PTBR": {
+            "title": "Notas de versão",
+            "content": (
+                "As Notas de Versão resumem as mudanças mais importantes feitas "
+                "no curso a cada projeto de melhoria. (As notas de versão mais "
+                "recentes devem ser inseridas no topo da lista.)"
+            ),
+        },
+        "SPA": {
+            "title": "Notas de la versión",
+            "content": (
+                "Las notas de la versión resumen los cambios más importantes "
+                "realizados en el curso con cada proyecto de mejora. (Las notas "
+                "de la versión más recientes deben insertarse al principio de la "
+                "lista.)"
+            ),
+        },
+    }
 
     def __init__(self, target_language="PTBR", input_dir=None, imscc_path=None, link_prompt_callback=None, target_course_id=None):
         self.target_language = target_language
@@ -533,6 +555,75 @@ class TranslationController:
         )
         return content
 
+    def _apply_teaching_notes_accordion_rules(
+        self,
+        original_content: str,
+        translated_content: str,
+    ) -> str:
+        """Install canonical Release Notes and preserve evaluation guidance."""
+        release_notes = self.RELEASE_NOTES_TRANSLATIONS.get(self.target_language)
+        if not release_notes:
+            return translated_content
+
+        original_soup = BeautifulSoup(original_content, "html.parser")
+        translated_soup = BeautifulSoup(translated_content, "html.parser")
+        original_details = original_soup.find_all("details")
+        translated_details = translated_soup.find_all("details")
+
+        for index, original_tag in enumerate(original_details):
+            if index >= len(translated_details):
+                break
+            original_summary = original_tag.find("summary", recursive=False)
+            if not original_summary:
+                continue
+
+            original_title = original_summary.get_text(" ", strip=True).casefold()
+            translated_tag = translated_details[index]
+
+            if original_title == "release notes":
+                translated_summary = translated_tag.find("summary", recursive=False)
+                if not translated_summary:
+                    continue
+
+                summary_strings = list(translated_summary.find_all(string=True))
+                if summary_strings:
+                    summary_strings[0].replace_with(release_notes["title"])
+                    for extra_string in summary_strings[1:]:
+                        extra_string.extract()
+                else:
+                    translated_summary.append(release_notes["title"])
+
+                for child in list(translated_tag.children):
+                    if child is not translated_summary:
+                        child.extract()
+
+                source_container = original_tag.find("div", recursive=False)
+                container = translated_soup.new_tag("div")
+                if source_container:
+                    container.attrs = dict(source_container.attrs)
+                paragraph = translated_soup.new_tag("p")
+                paragraph.string = release_notes["content"]
+                container.append(paragraph)
+                translated_tag.append(container)
+                self._log(
+                    "[Controller] Installed canonical translated Release Notes "
+                    f"content for {self.target_language}"
+                )
+
+            elif original_title == self.INSTRUCTOR_EVALUATION_ACCORDION_TITLE.casefold():
+                english_copy = BeautifulSoup(
+                    str(original_tag),
+                    "html.parser",
+                ).find("details")
+                if english_copy:
+                    translated_tag.replace_with(english_copy)
+                    self._log(
+                        "[Controller] Preserved Course Considerations for "
+                        "Instructor Evaluation in English"
+                    )
+
+        return str(translated_soup)
+
     def _is_already_translated(self, filepath: str, ext: str) -> bool:
         try:
             with open(filepath, "r", encoding="utf-8") as f:
@@ -727,6 +818,14 @@ class TranslationController:
                         relevant_glossary,
                         relevant_scriptures,
                         page_title,
+                        preserve_details_titles=(
+                            {
+                                "Release Notes",
+                                self.INSTRUCTOR_EVALUATION_ACCORDION_TITLE,
+                            }
+                            if is_teaching_notes
+                            else None
+                        ),
                     )
             else:
                 with track_successful_gemini_calls(mark_gemini_call_succeeded):
@@ -737,28 +836,20 @@ class TranslationController:
             self._log(f"[Controller] Enforced translated Teaching Notes title in {os.path.basename(filepath)}")
             translated_content = title_corrected_content
         
-        translated_content = self.link_processor.rewrite_church_links(translated_content)
-        
-        # Post-processing: Programmatically empty the Release Notes section for Teaching Notes pages
-        # This enforces the spec requirement rather than relying solely on the LLM prompt
+        # Enforce special accordion content independently of model behavior.
         if is_teaching_notes and ext == "html":
             try:
-                soup = BeautifulSoup(translated_content, 'html.parser')
-                # Find <details> blocks that contain a <summary> with "Release Notes" (or translated variants)
-                release_notes_keywords = ["release notes", "notas de versão", "notas de lanzamiento", "notas de la versión"]
-                for details_tag in soup.find_all('details'):
-                    summary_tag = details_tag.find('summary')
-                    if summary_tag:
-                        summary_text = summary_tag.get_text(strip=True).lower()
-                        if any(kw in summary_text for kw in release_notes_keywords):
-                            # Keep the <summary> but remove all other content inside <details>
-                            for child in list(details_tag.children):
-                                if child != summary_tag:
-                                    child.extract()
-                            self._log(f"[Controller] Emptied Release Notes section for {os.path.basename(filepath)}")
-                translated_content = str(soup)
+                translated_content = self._apply_teaching_notes_accordion_rules(
+                    original_content,
+                    translated_content,
+                )
             except Exception as e:
-                self._log(f"[Controller] Warning: Could not process Release Notes section: {e}")
+                self._log(
+                    "[Controller] Warning: Could not enforce Teaching Notes "
+                    f"accordion rules: {e}"
+                )
+
+        translated_content = self.link_processor.rewrite_church_links(translated_content)
         
         # Validation Check
         if not translated_content or len(translated_content) < len(original_content) * 0.2:

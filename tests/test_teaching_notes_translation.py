@@ -109,6 +109,35 @@ class TeachingNotesChunkTranslationTests(unittest.TestCase):
                 "<h1>Teaching Notes and Student Outreach</h1><p>Support students.</p>"
             )
 
+    def test_preserves_configured_details_accordion_in_english(self):
+        bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
+        bot._log = Mock()
+        bot._translate_text_batch = Mock(
+            side_effect=lambda batch, _constraints: {
+                item_id: f"PT: {text}"
+                for item_id, text in batch.items()
+            }
+        )
+        source = (
+            "<details><summary>Course Considerations for Instructor Evaluation"
+            "</summary><p>This guidance must remain completely in English.</p>"
+            "</details><p>Translate this paragraph.</p>"
+        )
+
+        translated = bot.translate_html_content_in_chunks(
+            source,
+            preserve_details_titles={
+                "Course Considerations for Instructor Evaluation"
+            },
+        )
+
+        self.assertIn(
+            "Course Considerations for Instructor Evaluation",
+            translated,
+        )
+        self.assertIn("This guidance must remain completely in English.", translated)
+        self.assertIn("PT: Translate this paragraph.", translated)
+
 
 class TeachingNotesTitleTests(unittest.TestCase):
     def test_recognizes_legacy_and_short_teaching_notes_filenames(self):
@@ -150,6 +179,62 @@ class TeachingNotesTitleTests(unittest.TestCase):
         self.assertIn('title="Notas de Ensino"', translated)
         self.assertIn("<title>Notas de Ensino</title>", translated)
         self.assertIn("Review the Teaching Notes before class.", translated)
+
+
+class TeachingNotesAccordionRuleTests(unittest.TestCase):
+    ORIGINAL = (
+        "<html><body>"
+        "<details><summary><span>Release Notes</span></summary>"
+        '<div class="accordion-body"><p>Release Notes summarize the most '
+        "important changes made to the course with each improvement project. "
+        "(The most recent release notes should be inserted at the top of the "
+        "list.)</p><h3>Spring 2026</h3><ul><li>Old note</li></ul></div>"
+        "</details>"
+        "<details><summary>Course Considerations for Instructor Evaluation"
+        "</summary><div><p>Keep this entire section in English.</p>"
+        "<table><tr><th>Norm?</th></tr></table></div></details>"
+        "</body></html>"
+    )
+
+    def _controller(self, language):
+        controller = object.__new__(TranslationController)
+        controller.target_language = language
+        controller._log = Mock()
+        return controller
+
+    def test_installs_portuguese_release_note_and_restores_english_evaluation(self):
+        translated = (
+            "<html><body>"
+            "<details><summary><span>Notas traduzidas</span></summary>"
+            "<div><h3>Primavera de 2026</h3><ul><li>Nota antiga</li></ul></div>"
+            "</details>"
+            "<details><summary>Considerações do curso</summary>"
+            "<div><p>Texto traduzido.</p></div></details>"
+            "</body></html>"
+        )
+
+        result = self._controller("PTBR")._apply_teaching_notes_accordion_rules(
+            self.ORIGINAL,
+            translated,
+        )
+
+        self.assertIn("Notas de versão", result)
+        self.assertIn("As Notas de Versão resumem", result)
+        self.assertNotIn("Nota antiga", result)
+        self.assertIn("Course Considerations for Instructor Evaluation", result)
+        self.assertIn("Keep this entire section in English.", result)
+        self.assertIn("Norm?", result)
+        self.assertNotIn("Considerações do curso", result)
+
+    def test_installs_spanish_release_note(self):
+        result = self._controller("SPA")._apply_teaching_notes_accordion_rules(
+            self.ORIGINAL,
+            self.ORIGINAL,
+        )
+
+        self.assertIn("Notas de la versión", result)
+        self.assertIn("Las notas de la versión resumen", result)
+        self.assertNotIn("Old note", result)
 
 
 class TranslationFailurePropagationTests(unittest.TestCase):

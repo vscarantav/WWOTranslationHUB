@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="gfbbd2ae5894be0b03a53576c9c36b38d" title="W01 Quiz: Syllabus ">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>unlimited</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      <item ident="g8a646bb245fb6bc106952760f3a7fe25" title="Question 1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>9691,1569</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g0435d5cfa1cf94ed2ae5396e5bafe80c</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;You will be using WhatsApp in this course.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="9691">
+                <material>
+                  <mattext texttype="text/plain">Yes</mattext>
+                </material>
+              </response_label>
+              <response_label ident="1569">
+                <material>
+                  <mattext texttype="text/plain">No</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">9691</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="g6f55703d3fecbf6012eef2877462d3d0" title="Question 2">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>27,2831</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g535c6f1024114ff8226be3cb1bd68a0f</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;You will be using Microsoft Excel in this course.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="27">
+                <material>
+                  <mattext texttype="text/plain">Yes</mattext>
+                </material>
+              </response_label>
+              <response_label ident="2831">
+                <material>
+                  <mattext texttype="text/plain">No</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">2831</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="g651b3d5e901f71196ba359b265f72b60" title="Question 3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_answers_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>181,2401,9462,3085,2471,2692</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g8c48f127c4767aa352558d4f4fb5d488</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;As part of the Church Educational System Honor Code, you are expected to complete your own work for each course.&lt;/p&gt;
+&lt;p&gt;If you choose to participate in&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;strong&gt;any&lt;/strong&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;actions which violate the Academic Honesty policy, the university has the right to&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;strong&gt;change your course grade to an F now or at any time in the future&lt;/strong&gt;. This means that even if your dishonesty is not discovered until after you complete your certificate or degree, the university still has the right to change your grade and&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;strong&gt;revoke your certificate or degree&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Which of the following are violations of the Honor Code or Academic Honesty Policy? Note that this list is not exhaustive (see Jacob 6:12).&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;strong&gt;Mark all that apply.&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Multiple">
+            <render_choice>
+              <response_label ident="181">
+                <material>
+                  <mattext texttype="text/plain">Posting or sharing your coursework (projects, assignments, and so on) to any online website, through electronic communication, or any other means.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="2401">
+                <material>
+                  <mattext texttype="text/plain">Obtaining another person's work and submitting all or part of it as if it was your own work.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="9462">
+                <material>
+                  <mattext texttype="text/plain">Giving your assignment to another student or accepting theirs.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="3085">
+                <material>
+                  <mattext texttype="text/plain">Using a search engine like Google to find an Excel formula that would solve your project.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="2471">
+                <material>
+                  <mattext texttype="text/plain">Obtaining course documents from Course Hero or other similar websites.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="2692">
+                <material>
+                  <mattext texttype="text/plain">Asking questions about the projects on the instructor's weekly announcement which everyone can see.</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <and>
+                <varequal respident="response1">181</varequal>
+                <varequal respident="response1">2401</varequal>
+                <varequal respident="response1">9462</varequal>
+                <not>
+                  <varequal respident="response1">3085</varequal>
+                </not>
+                <varequal respident="response1">2471</varequal>
+                <not>
+                  <varequal respident="response1">2692</varequal>
+                </not>
+              </and>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="g4d43f1215e363d15df6b389896546343" title="Question 4">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_answers_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>9694,767,3119,2278</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>g9148dd8ab52dd2f367cea2ac3143f7ee</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;In what ways can you use AI in this class? (Mark all that apply)&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Multiple">
+            <render_choice>
+              <response_label ident="9694">
+                <material>
+                  <mattext texttype="text/plain">To do my homework for me.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="767">
+                <material>
+                  <mattext texttype="text/plain">Researching and providing additional resources.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="3119">
+                <material>
+                  <mattext texttype="text/plain">Brainstorming ideas.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="2278">
+                <material>
+                  <mattext texttype="text/plain">Assist with proofreading and making editing.</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <and>
+                <not>
+                  <varequal respident="response1">9694</varequal>
+                </not>
+                <varequal respident="response1">767</varequal>
+                <varequal respident="response1">3119</varequal>
+                <varequal respident="response1">2278</varequal>
+              </and>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="g97683a56d3de8e4610c418ca4e5db450" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_answers_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>1318,5984,5184,9212,3539</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>gdf51dc61b575da4bf8c6e8a0dd0fd118</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Which of the following are course outcomes? (Select all that apply)&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Multiple">
+            <render_choice>
+              <response_label ident="1318">
+                <material>
+                  <mattext texttype="text/plain">Accurately citing sources and contributions of others</mattext>
+                </material>
+              </response_label>
+              <response_label ident="5984">
+                <material>
+                  <mattext texttype="text/plain">Practicing the full writing process, including peer review and revision</mattext>
+                </material>
+              </response_label>
+              <response_label ident="5184">
+                <material>
+                  <mattext texttype="text/plain">Writing only for academic audiences</mattext>
+                </material>
+              </response_label>
+              <response_label ident="9212">
+                <material>
+                  <mattext texttype="text/plain">Applying effective language conventions and organization</mattext>
+                </material>
+              </response_label>
+              <response_label ident="3539">
+                <material>
+                  <mattext texttype="text/plain">Adapting writing to different rhetorical situations</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <and>
+                <varequal respident="response1">1318</varequal>
+                <varequal respident="response1">5984</varequal>
+                <not>
+                  <varequal respident="response1">5184</varequal>
+                </not>
+                <varequal respident="response1">9212</varequal>
+                <varequal respident="response1">3539</varequal>
+              </and>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="g438f72e3020c7d4ed6df6767e741b635" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>true_false_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>1730,6993</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>gbab16d17b7497ace466692f4ab1fa2aa</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span style="color: #000000;"&gt;Turnitin is a program that lets you and your teachers know how much your work reflects other peoples work. After you have submitted your work there will be a color flag appear next to your submission in the grades tab. The different color flags will indicate the percentage of your submission that Turnitin has found to be copied. &lt;strong&gt;NOTE&lt;/strong&gt;: Assignments that use templates will have some copying and Turnitin will flag the assignment questions—do not worry about this. Make sure your answers to the questions have not been copied.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color: #000000;"&gt;If the color of your flag is red, you must rework your assignment and resubmit it until your flag is no longer red. An assignment that is turned in with the red flag will not be graded and will be given a 0.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;table style="border-collapse: collapse; width: 45.2639%; height: 271px; border-color: #000000; border-style: solid;" border="1"&gt;
+&lt;tbody&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;Turnitin Score Icons&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 53px;"&gt;
+&lt;td style="width: 25.1206%; height: 53px;"&gt;&lt;img id="6042618" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20GrayFlag.PNG" alt="W01 Quiz: Syllabus GrayFlag.PNG" loading="lazy"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 53px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Gray&lt;/strong&gt;&amp;nbsp;(originality report has not been generated)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 44px;"&gt;
+&lt;td style="width: 25.1206%; height: 44px;"&gt;&lt;img id="6042617" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20BlueFlag.PNG" alt="W01 Quiz: Syllabus BlueFlag.PNG" loading="lazy"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 44px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Blue&lt;/strong&gt;&amp;nbsp;(no matching words)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img id="6042621" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20GreenFlag.PNG" alt="W01 Quiz: Syllabus GreenFlag.PNG" loading="lazy"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Green&lt;/strong&gt;&amp;nbsp;(1-24% similarity index)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img id="6042603" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20YellowFlag.PNG" alt="W01 Quiz: Syllabus YellowFlag.PNG" loading="lazy"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Yellow&lt;/strong&gt;&amp;nbsp;(25-49% similarity index)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img id="6042619" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20OrangeFlag.PNG" alt="W01 Quiz: Syllabus OrangeFlag.PNG" loading="lazy"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Orange&lt;/strong&gt;&amp;nbsp;(50-74% similarity index)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img id="6042620" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20RedFlag.PNG" alt="W01 Quiz: Syllabus RedFlag.PNG" loading="lazy"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;&amp;nbsp;Red&lt;/strong&gt;&amp;nbsp;(75-100% similarity index)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img id="6042616" src="$IMS-CC-FILEBASE$/media/W01%20Quiz:%20Syllabus%20Clock.PNG" alt="W01 Quiz: Syllabus Clock.PNG" loading="lazy"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Clock&lt;/strong&gt;&amp;nbsp;(Turnitin report is still pending)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;span style="color: #000000;"&gt;Turnitin can be used to provide immediate feedback so you will know what needs to be fixed before submitting your assignments.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="1730">
+                <material>
+                  <mattext texttype="text/plain">True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="6993">
+                <material>
+                  <mattext texttype="text/plain">False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">6993</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

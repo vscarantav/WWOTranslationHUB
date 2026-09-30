@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modules xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <module identifier="gf9cf0eceda6d1afd2ce1c94d99829d5e">
+    <title>Course Resources (Do NOT Publish)</title>
+    <workflow_state>unpublished</workflow_state>
+    <position>1</position>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <items>
+      <item identifier="g6c8e2f24b5fcd759fce41c91f44f9ebf">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Instructor</title>
+        <position>1</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gdbcd3ad05bcf7a10241f8b92eb027af7">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Instruction Management System (IMS)</title>
+        <identifierref>gdbcd3ad05bcf7a10241f8b92eb027af7</identifierref>
+        <url>https://instructor.byupathway.edu/signin</url>
+        <position>2</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gf18e97858e9e36aaee31cc4f8aa7e170">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>IMS Resource Management</title>
+        <identifierref>gf18e97858e9e36aaee31cc4f8aa7e170</identifierref>
+        <url>https://sites.google.com/view/imstraining/home?authuser=1</url>
+        <position>3</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gccf528191a60f464d21c14dd8b476450">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>WriteGrader</title>
+        <identifierref>gccf528191a60f464d21c14dd8b476450</identifierref>
+        <url>https://writegrader.com/</url>
+        <position>4</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gf37be054de137d7fdda56e96374dd9af">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Standard Resources</title>
+        <position>5</position>
+        <new_tab>false</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g86acfeaad22af87d479c0f629576a6f4">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Teaching Notes and Student Outreach</title>
+        <identifierref>g9dd547aa6f98f3f900929a277307495e</identifierref>
+        <position>6</position>
+        <new_tab>false</new_tab>
+        <indent>2</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gdcd3c62b62d65214d6c6ba0df8a24a4b">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Addressing Academic Honesty</title>
+        <identifierref>gdcd3c62b62d65214d6c6ba0df8a24a4b</identifierref>
+        <url>https://docs.google.com/document/d/1XkL46ZCztpfbbSVwKkspNM1IWh_RLIzNjIFOMSTBKgE/pub</url>
+        <position>7</position>
+        <new_tab>true</new_tab>
+        <indent>2</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g8b7a9211fc17890c60969b04bf887ca3">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Supplemental Resources</title>
+        <position>8</position>
+        <new_tab>false</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gec4dc6b02ad17de7c7939561b594ae70">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Instructor Contact Sheet</title>
+        <identifierref>gec4dc6b02ad17de7c7939561b594ae70</identifierref>
+        <url>https://docs.google.com/document/d/17p5PX9YS19DipsCsXICSEcadwMddugLYCF0n_as3ut0/pub</url>
+        <position>9</position>
+        <new_tab>true</new_tab>
+        <indent>2</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gd0f6bf70e6cf8e79277ee612ef256b58">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>WhatsApp Usage Report (Select your section tab)</title>
+        <identifierref>gd0f6bf70e6cf8e79277ee612ef256b58</identifierref>
+        <url>https://docs.google.com/spreadsheets/d/1K0l_ajREd9f6emUT5szmhj7UG08hb-yP/edit?gid=323782621#gid=323782621</url>
+        <position>10</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g5f1bbd3bdd1e25d5cebd0dc34788c90d">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>WhatsApp Resource Center for Instructors</title>
+        <identifierref>g5f1bbd3bdd1e25d5cebd0dc34788c90d</identifierref>
+        <url>https://sites.google.com/byui.edu/wwonlinewhatsappresourcecenter/home</url>
+        <position>11</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g99f876daccb711340ba3c567551226b0">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>WhatsApp Help Form</title>
+        <identifierref>g99f876daccb711340ba3c567551226b0</identifierref>
+        <url>https://docs.google.com/forms/d/e/1FAIpQLSdyVuJRjdnYckoZyoYmhBVXJD36yFzfhdxQu875EQfZhM4dyQ/viewform</url>
+        <position>12</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g56b651a3b0b4357be8501ca8baabe386">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>TA/Grader</title>
+        <position>13</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gc92d60097e2eb8a28779804a5c87c0f8">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Grading Notes</title>
+        <identifierref>gc92d60097e2eb8a28779804a5c87c0f8</identifierref>
+        <url>https://docs.google.com/document/d/1DDG2z237MuvLyskz1eSxPWaEVnrDXqchdWdLwrCy4XU/edit?tab=t.0#heading=h.m5et1gan613g</url>
+        <position>14</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g606fb98b6b508d65a3256cbe8a5ed248">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Feedback Library</title>
+        <identifierref>g606fb98b6b508d65a3256cbe8a5ed248</identifierref>
+        <url>https://docs.google.com/spreadsheets/d/16iFFHnVV-zRLJT_TODe3YikJY6kPM-JdbANG6rmb4-U/edit?gid=1070164197#gid=1070164197</url>
+        <position>15</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g65cd8799a118bd9cf46979551205ce04">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Course Maintenance</title>
+        <position>16</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gf0672e6f15da51f6092ae7e9ab31f981">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>unpublished</workflow_state>
+        <title>Course Maintenance Form (Suggest a Fix or Improvement)</title>
+        <identifierref>gf0672e6f15da51f6092ae7e9ab31f981</identifierref>
+        <url>https://content.byui.edu/integ/gen/2db77d0e-9c2e-4395-becc-3b376b9be105/0/?.vi=file&amp;attachment.uuid=483cb0fb-2e44-4479-b186-5179759b2e26</url>
+        <position>17</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+  </module>
+  <module identifier="gafa37c6c6fcb78eff3fc97dcb235960e">
+    <title>Textbook Information</title>
+    <workflow_state>active</workflow_state>
+    <position>2</position>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <items>
+      <item identifier="gad4368b06e91ababa05aa7cb1b488397">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title> About Your Textbook: Writing in Professional Contexts</title>
+        <identifierref>gfb37c139da60abfdacbaec67844a19ab</identifierref>
+        <position>1</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+  </module>
+  <module identifier="gaf488c03b8bf301c1408b0a4719ae95c">
+    <title>Start Here: Academic Honesty, Ethics and Integrity (Must Complete First)</title>
+    <workflow_state>active</workflow_state>
+    <position>3</position>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <items>
+      <item identifier="g8f7d9ea3ce6b501df608cdae69fa041a">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W01 Quiz: Academic Honesty, Ethics and Integrity </title>
+        <identifierref>gf6cd4183a7568313a4170bef8efa6de7</identifierref>
+        <position>2</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+    <completionRequirements>
+      <completionRequirement type="min_score">
+        <min_score>18.0</min_score>
+        <identifierref>g8f7d9ea3ce6b501df608cdae69fa041a</identifierref>
+      </completionRequirement>
+    </completionRequirements>
+  </module>
+  <module identifier="g01fe2c2f2332f69e892b2ef29c30ffa0">
+    <title>Week 01: Introduction to Writing</title>
+    <workflow_state>active</workflow_state>
+    <position>4</position>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <prerequisites>
+      <prerequisite type="context_module">
+        <title>Start Here: Academic Honesty, Ethics and Integrity (Must Complete First)</title>
+        <identifierref>gaf488c03b8bf301c1408b0a4719ae95c</identifierref>
+      </prerequisite>
+    </prerequisites>
+    <items>
+      <item identifier="g394108bf013d21524c7f478732b01ccf">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>How to be Successful in Online Courses</title>
+        <identifierref>g394108bf013d21524c7f478732b01ccf</identifierref>
+        <url>https://docs.google.com/document/d/e/2PACX-1vTPWx5FJRdLrVGAtW-yELTBl93zAEhByUIUleGHy1bF7sNapsDopwVjoMfpiNSq5KtLxsTMH5pYUW6W/pub</url>
+        <position>1</position>
+        <new_tab>true</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g2a37ebad12afa48c188a81327162762d">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by Midweek</title>
+        <position>2</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g9c01d85498965f625287dc3d0897cb4f">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W01 Quiz: Syllabus </title>
+        <identifierref>gfbbd2ae5894be0b03a53576c9c36b38d</identifierref>
+        <position>4</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g5b2992b8f66afd66ea7d7a45bfbf3fc9">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W01 Quiz: WhatsApp </title>
+        <identifierref>gbba48b586ee53ecfd9976f86681367af</identifierref>
+        <position>5</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="ge5a3df6e296d89036ae96a28d70f12d7">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W01 Study &amp; Quiz</title>
+        <identifierref>geeae6b0f975d976e4ee129624e28a13e</identifierref>
+        <position>6</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gc65508a457bf9269d6a2de0929ba1bc0">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W01 Draft: Your Life Story</title>
+        <identifierref>gb91d16dd32416f32c7ed6bce9ad4ff5f</identifierref>
+        <position>7</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gca75756fc69330cd7698ec7e197f4b5f">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by End of the Week</title>
+        <position>8</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="ge1b14970549db2678e787ec893fd68ea">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W01 Final Submission: Your Life Story</title>
+        <identifierref>gea837f670860b0478c202d4a4af9ccb2</identifierref>
+        <position>9</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g6839e2f0408eaf5cef3738499bdb9ada">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W01 Writing Project: One Story, Two Audiences</title>
+        <identifierref>g35cfffaa8265b4c1356746a7cad763f2</identifierref>
+        <position>10</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+    <completionRequirements>
+      <completionRequirement type="must_submit">
+        <identifierref>g9c01d85498965f625287dc3d0897cb4f</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g5b2992b8f66afd66ea7d7a45bfbf3fc9</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>gc65508a457bf9269d6a2de0929ba1bc0</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>ge5a3df6e296d89036ae96a28d70f12d7</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g6839e2f0408eaf5cef3738499bdb9ada</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>ge1b14970549db2678e787ec893fd68ea</identifierref>
+      </completionRequirement>
+    </completionRequirements>
+  </module>
+  <module identifier="g3baf066dba143de3d24190d1ed65436a">
+    <title>Week 02: Reading Strategies</title>
+    <workflow_state>active</workflow_state>
+    <position>5</position>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <prerequisites>
+      <prerequisite type="context_module">
+        <title>Start Here: Academic Honesty, Ethics and Integrity (Must Complete First)</title>
+        <identifierref>gaf488c03b8bf301c1408b0a4719ae95c</identifierref>
+      </prerequisite>
+    </prerequisites>
+    <items>
+      <item identifier="g493fa0ae3b6e40f4722560d60bf0794a">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by Midweek</title>
+        <position>1</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g6ac72e66768a63d8bb78c731e1ce12b3">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title> W02 Study &amp; Quiz</title>
+        <identifierref>gd192af21d9e0bc30e595680ebe5c2aac</identifierref>
+        <position>2</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g6171f0686ae6b7e8553e11848097c24a">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by End of the Week</title>
+        <position>4</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g406327d258804527f30fb60dbb82c497">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W02: AI Prompt Comparison Activity</title>
+        <identifierref>g51835a5812e7e32f659d5c3933ad899a</identifierref>
+        <position>6</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g2b349c92f33a86bee2f3ebb87ff166c6">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W02 Writing Project: Letter of Appreciation</title>
+        <identifierref>g96d8598b4de597c3842fa03f9a7644cc</identifierref>
+        <position>7</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+    <completionRequirements>
+      <completionRequirement type="must_submit">
+        <identifierref>g2b349c92f33a86bee2f3ebb87ff166c6</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g406327d258804527f30fb60dbb82c497</identifierref>
+      </completionRequirement>
+    </completionRequirements>
+  </module>
+  <module identifier="g6a4d03c7f3a617e77129073dedca87f5">
+    <title>Week 03: Rhetorical Analysis</title>
+    <workflow_state>active</workflow_state>
+    <position>6</position>
+    <unlock_at>2026-09-05T00:00:00</unlock_at>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <prerequisites>
+      <prerequisite type="context_module">
+        <title>Start Here: Academic Honesty, Ethics and Integrity (Must Complete First)</title>
+        <identifierref>gaf488c03b8bf301c1408b0a4719ae95c</identifierref>
+      </prerequisite>
+    </prerequisites>
+    <items>
+      <item identifier="g3efa03640849579657bae40dc9ceb900">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by Midweek</title>
+        <position>1</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gbe6ad45bf23eb9ea0048ab2d93c9f9a7">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W03 Study &amp; Quiz</title>
+        <identifierref>gd31f7ec5c8dc24812d18a32670ebbe54</identifierref>
+        <position>2</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gda7607437164fa520a8f9324ab355cee">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W03 Draft: Professional Email </title>
+        <identifierref>g48e50342eee1fc6f5f081b56f724729c</identifierref>
+        <position>3</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g1d80265dbdcbf33666127a34b57773fd">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by End of the Week</title>
+        <position>4</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="ga2f6b0cffa51a8f6b944e3a058d40daa">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W03 Final Submission: Professional Email</title>
+        <identifierref>g5f4b42937b8d2e7225a3ae6ed4676220</identifierref>
+        <position>5</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g4410332255c0c04f8469e69317bf9817">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W03 Writing Project: Strategic Communication Through Rhetorical Appeals </title>
+        <identifierref>gabb1c0ba27155ceafd81fd3f1a42e322</identifierref>
+        <position>6</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+    <completionRequirements>
+      <completionRequirement type="must_submit">
+        <identifierref>gda7607437164fa520a8f9324ab355cee</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g4410332255c0c04f8469e69317bf9817</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>gbe6ad45bf23eb9ea0048ab2d93c9f9a7</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>ga2f6b0cffa51a8f6b944e3a058d40daa</identifierref>
+      </completionRequirement>
+    </completionRequirements>
+  </module>
+  <module identifier="g09f5e234589e6664cedd2a1808fc9e41">
+    <title>Week 04: Research Writing Process</title>
+    <workflow_state>active</workflow_state>
+    <position>7</position>
+    <unlock_at>2026-09-12T00:00:00</unlock_at>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <prerequisites>
+      <prerequisite type="context_module">
+        <title>Start Here: Academic Honesty, Ethics and Integrity (Must Complete First)</title>
+        <identifierref>gaf488c03b8bf301c1408b0a4719ae95c</identifierref>
+      </prerequisite>
+    </prerequisites>
+    <items>
+      <item identifier="g1f9625fd4f5584378aa7f6dca1bd7ab4">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by Midweek</title>
+        <position>1</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gcbafe5128b5919df6621110ca411a1eb">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W04 Study &amp; Quiz</title>
+        <identifierref>g1fcde8d5d564873b381b2f7f901e838e</identifierref>
+        <position>2</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g587f15b3b25692ef68eeef57c62bef65">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W04 Interview Summary: Integrating Sources</title>
+        <identifierref>gfb7d492b864bb2061a19122a59f2c56b</identifierref>
+        <position>3</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g7671e02ca0f51efc97d81321a8637750">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by End of the Week</title>
+        <position>4</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g9a89716a92ae2e31f9be228bf71852f8">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title> W04 Final Submission: Interview Summary</title>
+        <identifierref>g43687d481ac1b1e9318230a9ca539ecd</identifierref>
+        <position>5</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g93c29f1d465ad9133df2c470f39227f7">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W04 Writing Project: Family History Project </title>
+        <identifierref>gfa7f01723638b553c84050b00700c349</identifierref>
+        <position>6</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+    <completionRequirements>
+      <completionRequirement type="must_submit">
+        <identifierref>g587f15b3b25692ef68eeef57c62bef65</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g93c29f1d465ad9133df2c470f39227f7</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>gcbafe5128b5919df6621110ca411a1eb</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g9a89716a92ae2e31f9be228bf71852f8</identifierref>
+      </completionRequirement>
+    </completionRequirements>
+  </module>
+  <module identifier="g566e4e2ff759dbb5608b39eab48fb88e">
+    <title>Week 05: Personal Writing</title>
+    <workflow_state>active</workflow_state>
+    <position>8</position>
+    <unlock_at>2026-09-19T00:00:00</unlock_at>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <prerequisites>
+      <prerequisite type="context_module">
+        <title>Start Here: Academic Honesty, Ethics and Integrity (Must Complete First)</title>
+        <identifierref>gaf488c03b8bf301c1408b0a4719ae95c</identifierref>
+      </prerequisite>
+    </prerequisites>
+    <items>
+      <item identifier="gdc923a99959f6c951a6239269842985a">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by Midweek</title>
+        <position>1</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g66821b6b4a2cb43b5df2564befb328ab">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W05 Study &amp; Quiz</title>
+        <identifierref>gbe1375a4fcde9365493f13d01d1ca193</identifierref>
+        <position>2</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g421784b7ae5e587de9416a6cdb94eb3e">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>   W05 Draft: Writing Interview</title>
+        <identifierref>g8d54f2d04af2cb1ea339b1fd8d050f6c</identifierref>
+        <position>3</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g8be528c07ed4082197b7471caa7795d1">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by End of the Week</title>
+        <position>4</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g82b81d9aa309ff9d86169640c7d65164">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title> W05 Final Submission: Writing Interview</title>
+        <identifierref>gb1443972ac0470ff2b3d6d041d2b9e5b</identifierref>
+        <position>5</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="ge61c86b20059c66668a2e9a1578aa5dd">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W05 Writing Project: Personal Narrative </title>
+        <identifierref>g6ce9653a820be4ffd6929e6b8ee08ef8</identifierref>
+        <position>6</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+    <completionRequirements>
+      <completionRequirement type="must_submit">
+        <identifierref>g421784b7ae5e587de9416a6cdb94eb3e</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>ge61c86b20059c66668a2e9a1578aa5dd</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g66821b6b4a2cb43b5df2564befb328ab</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g82b81d9aa309ff9d86169640c7d65164</identifierref>
+      </completionRequirement>
+    </completionRequirements>
+  </module>
+  <module identifier="gfde0a15fa00b9f6c4712ba5c65a20fea">
+    <title>Week 06: Revision Process</title>
+    <workflow_state>active</workflow_state>
+    <position>9</position>
+    <unlock_at>2026-09-26T00:00:00</unlock_at>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <prerequisites>
+      <prerequisite type="context_module">
+        <title>Start Here: Academic Honesty, Ethics and Integrity (Must Complete First)</title>
+        <identifierref>gaf488c03b8bf301c1408b0a4719ae95c</identifierref>
+      </prerequisite>
+    </prerequisites>
+    <items>
+      <item identifier="g9ac525ff310166d04115cd45f58c4d9e">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by Midweek</title>
+        <position>1</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g8b9c182254778c2f0e0b3e90d9025fac">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W06 Study &amp; Quiz</title>
+        <identifierref>g13d805cb0f01dd78ca32a30c675624dc</identifierref>
+        <position>2</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g6ba0e993e3f16b479aececbad4fd13ec">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by End of the Week</title>
+        <position>3</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g27c3f3d6a9599bd572cad8c4b54ccc99">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title> W06 Family History Revision</title>
+        <identifierref>ga44af1c2a76a71adfb336f859720670d</identifierref>
+        <position>4</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g9db67da071a71adf65df27933c33444f">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W06 Personal Narrative Revision </title>
+        <identifierref>gb77c6081f703d80caea2c784e5bca37a</identifierref>
+        <position>5</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+    <completionRequirements>
+      <completionRequirement type="must_submit">
+        <identifierref>g9db67da071a71adf65df27933c33444f</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g27c3f3d6a9599bd572cad8c4b54ccc99</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g8b9c182254778c2f0e0b3e90d9025fac</identifierref>
+      </completionRequirement>
+    </completionRequirements>
+  </module>
+  <module identifier="gc010666065f9b9a701c57c33173d5f56">
+    <title>Week 07: Reflective Writing</title>
+    <workflow_state>active</workflow_state>
+    <position>10</position>
+    <unlock_at>2026-10-03T00:00:00</unlock_at>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <prerequisites>
+      <prerequisite type="context_module">
+        <title>Start Here: Academic Honesty, Ethics and Integrity (Must Complete First)</title>
+        <identifierref>gaf488c03b8bf301c1408b0a4719ae95c</identifierref>
+      </prerequisite>
+    </prerequisites>
+    <items>
+      <item identifier="g3a8f8e97bb9114ef4d1e473c39e526d8">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Due by Midweek</title>
+        <position>1</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g40ccc47f72289c51ee879c86b015760d">
+        <content_type>Quizzes::Quiz</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W07 Study &amp; Quiz</title>
+        <identifierref>g96f778d329f954b9549fca03427bb5c6</identifierref>
+        <position>2</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="ge7baebc2ae7f42527495da47d27bc56b">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W07 Invitation Reflection </title>
+        <identifierref>gc47628369e8f6502eeacf6521ceb339a</identifierref>
+        <position>3</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g8975b41f5f16ecebc4f9c1374d93ec45">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title> W07 Writing Project: Personal Writing Reflection</title>
+        <identifierref>g70efcad0d87fc8f5eac41140860ce541</identifierref>
+        <position>4</position>
+        <new_tab/>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g843b9e1a197b114e64a28b98a326fe4b">
+        <content_type>Assignment</content_type>
+        <workflow_state>active</workflow_state>
+        <title>W07 End-of-Course Evaluation</title>
+        <identifierref>gc1da5082f16ce8cc79df6bc76797264e</identifierref>
+        <position>5</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+    <completionRequirements>
+      <completionRequirement type="must_submit">
+        <identifierref>ge7baebc2ae7f42527495da47d27bc56b</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g40ccc47f72289c51ee879c86b015760d</identifierref>
+      </completionRequirement>
+      <completionRequirement type="must_submit">
+        <identifierref>g8975b41f5f16ecebc4f9c1374d93ec45</identifierref>
+      </completionRequirement>
+    </completionRequirements>
+  </module>
+  <module identifier="gf1fa46a7546f2c18928f965c400ab0d0">
+    <title>Student Resources</title>
+    <workflow_state>active</workflow_state>
+    <position>11</position>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <items>
+      <item identifier="gb0133fd07f2554a7c008b756c960a69d">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Rubric Basics</title>
+        <identifierref>gb0133fd07f2554a7c008b756c960a69d</identifierref>
+        <url>https://docs.google.com/document/d/e/2PACX-1vRhaaEFgxsEsER149MRbUOa7diQxTDp2D8Di8LHPvZJ3nD9SphW0wK4qHH8ttDKi2Xntj6rhkHp5Dwj/pub</url>
+        <position>1</position>
+        <new_tab>true</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g55a68e254d2cc042641bc12215ae6aa2">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Supplemental Resources</title>
+        <position>2</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g0427b2692dde280e1a8648dac02b6eeb">
+        <content_type>ContextModuleSubHeader</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Standard Resources</title>
+        <position>3</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gcdb1e27c059444f614c315d3b97a119e">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Academic and Administrative Grievances and Appeals</title>
+        <identifierref>gcdb1e27c059444f614c315d3b97a119e</identifierref>
+        <url>https://catalog.byupathway.edu/academicpolicies/studentwellness/academic-administrative-grievances-appeals</url>
+        <position>4</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gbba6f3104e96ab12219b3830b313e20d">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Adding or Dropping a Course—Go to your student portal</title>
+        <identifierref>gbba6f3104e96ab12219b3830b313e20d</identifierref>
+        <url>https://portal.byupathway.edu/cmcportal/</url>
+        <position>5</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g9f5cc700cbadbeeaea747b8c2ae04bdb">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>AI Use and Academic Honesty</title>
+        <identifierref>g9f5cc700cbadbeeaea747b8c2ae04bdb</identifierref>
+        <url>https://catalog.byupathway.edu/academicpolicies/studentwellness/academic-honesty</url>
+        <position>6</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g5797611c75a8731ef06df473f5a40fec">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Copyright</title>
+        <identifierref>g5797611c75a8731ef06df473f5a40fec</identifierref>
+        <url>https://catalog.byupathway.edu/academicpolicies/studentlife/copyright-infringement</url>
+        <position>7</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g2339658f308ceb7d2140f39f198141bc">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Course Copyright Information</title>
+        <identifierref>g2339658f308ceb7d2140f39f198141bc</identifierref>
+        <url>https://docs.google.com/spreadsheets/d/e/2PACX-1vTVpoJIG72hQUUlgw1L9A6HRO_1ftxaAYUNZxt9UALZkEdDdeUb2_THsngf_bQEJbf8GxxboU3NQc3i/pubhtml</url>
+        <position>8</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="ga330147324b677c1afc558a6f20c62a7">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Disabilities</title>
+        <identifierref>ga330147324b677c1afc558a6f20c62a7</identifierref>
+        <url>https://www.byupathway.edu/student-wellness/accessibility</url>
+        <position>9</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g1c9c5354186f7aa41fd30a3a93ad740a">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Feedback on My Work</title>
+        <identifierref>g1c9c5354186f7aa41fd30a3a93ad740a</identifierref>
+        <url>https://docs.google.com/document/d/e/2PACX-1vRXt5ChHMC0dfo4izvoInYvdl2bmGECLIksXS9d2CI4HVbj5dcPzg4A9_XRSTuksVLew6sEVK_naSPG/pub</url>
+        <position>10</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gc524df70956ec9fe0a5d36536cee64cc">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Honor Code</title>
+        <identifierref>gc524df70956ec9fe0a5d36536cee64cc</identifierref>
+        <url>https://catalog.byupathway.edu/academicpolicies/studentwellness/honor-code</url>
+        <position>11</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g1f9bb6d4d43414089ba7d85b76835a70">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Next Class—Go to your student portal</title>
+        <identifierref>g1f9bb6d4d43414089ba7d85b76835a70</identifierref>
+        <url>https://portal.byupathway.edu/cmcportal/</url>
+        <position>12</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gff4fb5d3aecdcdaf7868125ff41c879d">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Nondiscrimination</title>
+        <identifierref>gff4fb5d3aecdcdaf7868125ff41c879d</identifierref>
+        <url>https://catalog.byupathway.edu/academicpolicies/studentwellness/nondiscrimination</url>
+        <position>13</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g4b1e83324f658463b19d770bb7008828">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Paying for a Course—Go to your student portal</title>
+        <identifierref>g4b1e83324f658463b19d770bb7008828</identifierref>
+        <url>https://portal.byupathway.edu/cmcportal/</url>
+        <position>14</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g7c063755146f4e3dd0438f6fd3aacf7e">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Technology Help—Go to Support in your Student Portal</title>
+        <identifierref>g7c063755146f4e3dd0438f6fd3aacf7e</identifierref>
+        <url>https://portal.byupathway.edu/cmcportal/</url>
+        <position>15</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g3d9362fa250f9da98b817f3cee4e7669">
+        <content_type>ExternalUrl</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Other Questions—Contact your instructor or go to Support in your Student Portal</title>
+        <identifierref>g3d9362fa250f9da98b817f3cee4e7669</identifierref>
+        <url>https://portal.byupathway.edu/cmcportal/</url>
+        <position>16</position>
+        <new_tab>true</new_tab>
+        <indent>1</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+  </module>
+</modules>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assignment identifier="gb91d16dd32416f32c7ed6bce9ad4ff5f" xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <title>W01 Draft: Your Life Story</title>
+  <time_zone_edited>Mountain Time (US &amp; Canada)</time_zone_edited>
+  <due_at>2026-09-02T23:59:59</due_at>
+  <lock_at>2026-09-16T23:59:59</lock_at>
+  <unlock_at/>
+  <module_locked>false</module_locked>
+  <all_day_date>2026-09-02</all_day_date>
+  <assignment_group_identifierref>g185fefcdc239ca79b656e5d3e6d65e34</assignment_group_identifierref>
+  <workflow_state>published</workflow_state>
+  <rubric_identifierref>g5ba708158a7a2e05ea3d92f46f1d63bb</rubric_identifierref>
+  <rubric_use_for_grading>false</rubric_use_for_grading>
+  <rubric_hide_points>true</rubric_hide_points>
+  <rubric_hide_outcome_results>false</rubric_hide_outcome_results>
+  <rubric_hide_score_total>false</rubric_hide_score_total>
+  <assignment_overrides>
+  </assignment_overrides>
+  <allowed_extensions>doc,docx,pdf</allowed_extensions>
+  <has_group_category>false</has_group_category>
+  <points_possible>2.0</points_possible>
+  <grading_type>points</grading_type>
+  <all_day>true</all_day>
+  <submission_types>online_upload</submission_types>
+  <position>5</position>
+  <turnitin_enabled>false</turnitin_enabled>
+  <vericite_enabled>false</vericite_enabled>
+  <peer_review_count>0</peer_review_count>
+  <peer_reviews>false</peer_reviews>
+  <automatic_peer_reviews>false</automatic_peer_reviews>
+  <anonymous_peer_reviews>false</anonymous_peer_reviews>
+  <grade_group_students_individually>false</grade_group_students_individually>
+  <freeze_on_copy>false</freeze_on_copy>
+  <omit_from_final_grade>false</omit_from_final_grade>
+  <hide_in_gradebook>false</hide_in_gradebook>
+  <intra_group_peer_reviews>false</intra_group_peer_reviews>
+  <only_visible_to_overrides>false</only_visible_to_overrides>
+  <post_to_sis>false</post_to_sis>
+  <moderated_grading>false</moderated_grading>
+  <grader_count>0</grader_count>
+  <grader_comments_visible_to_graders>true</grader_comments_visible_to_graders>
+  <anonymous_grading>false</anonymous_grading>
+  <graders_anonymous_to_graders>false</graders_anonymous_to_graders>
+  <grader_names_visible_to_final_grader>true</grader_names_visible_to_final_grader>
+  <anonymous_instructor_annotations>false</anonymous_instructor_annotations>
+  <lockdown_browser_settings>{"require_lockdown_browser":false}</lockdown_browser_settings>
+  <similarity_detection_tool resource_type_code="tiiasmtset" vendor_code="turnitin.com" product_code="turnitin-lti" visibility="immediate"/>
+  <tool_setting>
+    <tool_proxy product_code="turnitin-lti" vendor_code="turnitin.com" tool_proxy_guid="2608ee1e-a452-410b-8532-ea8e66f101d8"/>
+    <custom>
+      <property name="resource_link_id_history">e16b1426-c73d-4c2d-bb7f-c9b5af4dcc87</property>
+    </custom>
+  </tool_setting>
+  <post_policy>
+    <post_manually>false</post_manually>
+  </post_policy>
+</assignment>

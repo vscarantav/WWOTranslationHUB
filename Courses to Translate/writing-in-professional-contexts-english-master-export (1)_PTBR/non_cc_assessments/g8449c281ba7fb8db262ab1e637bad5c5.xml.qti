@@ -1,0 +1,4776 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+<objectbank ident="g8449c281ba7fb8db262ab1e637bad5c5">
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>bank_title</fieldlabel>
+<fieldentry>S00 Integridade acadêmica Parte 2</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_type</fieldlabel>
+<fieldentry>Course</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_context_uuid</fieldlabel>
+<fieldentry>Pm3b1l08woeaShX88bZnIytohG4NMS2LDA11YkWJ</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_state</fieldlabel>
+<fieldentry>active</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+<item ident="g97ea8c1dfc905d0a5f2b0604a161dd1a" title="Pergunta 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>83547,58614,90095,72315</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante copia três orações de um site em seu projeto de história pessoal. Altera duas palavras em cada oração, mas não adiciona aspas nem citação. Que tipo de violação de integridade foi cometida?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="83547">
+<material>
+<mattext texttype="text/plain">Plágio em mosaico, porque a estrutura original da oração foi mantida, substituindo apenas palavras individuais</mattext>
+</material>
+</response_label>
+<response_label ident="58614">
+<material>
+<mattext texttype="text/plain">Plágio direto, porque as orações foram copiadas sem nenhuma alteração</mattext>
+</material>
+</response_label>
+<response_label ident="90095">
+<material>
+<mattext texttype="text/plain">Fabricação, porque o conteúdo original da fonte foi alterado</mattext>
+</material>
+</response_label>
+<response_label ident="72315">
+<material>
+<mattext texttype="text/plain">Citação insuficiente, porque as ideias da fonte foram utilizadas sem lhe dar o devido crédito</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58614</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58614_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">90095</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="90095_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">72315</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="72315_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">83547</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="58614_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A violação não é plágio direto porque a pessoa estudante fez alterações, mas essas alterações não foram suficientes para constituir uma paráfrase real.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="90095_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Fabricação significa criar informações falsas, não alterar uma fonte.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="72315_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A citação insuficiente ocorre quando uma ideia parafraseada ou resumida carece de citação — o problema desta pessoa estudante é a imitação estrutural do original, não apenas uma citação não entregue.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g3d1885f90503a618e39c29017332918c" title="Pergunta 10">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>10778,14767,82433,85889</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante escreve uma narrativa pessoal para a S05. Após enviá-la, publica a atividade concluída em um grupo de WhatsApp com outros estudantes de WRIT 101, com a intenção de ser apenas um modelo útil. Qual regra de integridade isso viola?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="10778">
+<material>
+<mattext texttype="text/plain">Compartilhamento de conteúdo, pois a distribuição de atividades concluídas para outros estudantes é uma violação, independentemente da intenção</mattext>
+</material>
+</response_label>
+<response_label ident="14767">
+<material>
+<mattext texttype="text/plain">Integridade da voz, porque compartilhar a narrativa expõe seu estilo pessoal de escrita a outras pessoas</mattext>
+</material>
+</response_label>
+<response_label ident="82433">
+<material>
+<mattext texttype="text/plain">Fabricação, pois outros estudantes podem usar a narrativa para inventar detalhes em suas próprias atividades</mattext>
+</material>
+</response_label>
+<response_label ident="85889">
+<material>
+<mattext texttype="text/plain">Autoplágio, porque o trabalho foi enviado e depois compartilhado para uso posterior</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14767</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14767_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">82433</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="82433_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85889</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85889_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">10778</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="14767_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A integridade da voz aplica-se à autenticidade da escrita enviada para avaliação, não ao compartilhamento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="82433_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A fabricação refere-se à criação de informações falsas, não ao risco de que outros façam o mesmo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85889_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O autoplágio envolve reenviar o próprio trabalho anterior, não o distribuir a outras pessoas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g648f45cb43b7a2c2e1a810f2a3147547" title="Pergunta 11">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>31835,14582,52631,70023</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante está escrevendo o resumo de sua Entrevista de Pesquisa de História da Família da S04. Como não consegue falar com a avó por telefone, escreve as respostas que acredita que ela teria dado com base em conversas anteriores. O resumo é enviado como se fosse uma entrevista real. Qual violação foi cometida?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="31835">
+<material>
+<mattext texttype="text/plain">Fabricação, porque o conteúdo da entrevista que não ocorreu de fato foi inventado</mattext>
+</material>
+</response_label>
+<response_label ident="14582">
+<material>
+<mattext texttype="text/plain">Plágio em mosaico, porque as palavras anteriores da avó foram usadas sem a devida atribuição</mattext>
+</material>
+</response_label>
+<response_label ident="52631">
+<material>
+<mattext texttype="text/plain">Autoplágio, por se basear em conversas anteriores que já haviam sido documentadas</mattext>
+</material>
+</response_label>
+<response_label ident="70023">
+<material>
+<mattext texttype="text/plain">Trapaça, por concluir a atividade sem seguir o processo de entrevista exigido</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14582</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14582_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">52631</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="52631_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70023</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70023_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">31835</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="14582_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O plágio em mosaico envolve a imitação da estrutura de uma fonte escrita, não a reconstrução de conversas faladas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="52631_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O autoplágio envolve o envio de trabalho acadêmico enviado anteriormente, não o uso da memória.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="70023_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A trapaça envolve assistência ou métodos não autorizados, não a invenção de conteúdo falso.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ga7f43c344e53169696cfccf668c811ad" title="Pergunta 12">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>69815,31401,5999,25228</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante aplica o Teste de Explicabilidade após usar IA para ajudar em sua atividade. Percebe que não consegue explicar as escolhas retóricas em seu rascunho nem reproduzi-las por conta própria. O que esse resultado indica?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="69815">
+<material>
+<mattext texttype="text/plain">A IA realizou a tarefa pela pessoa estudante, o que significa que a atividade não desenvolveu as habilidades para as quais foi projetada.</mattext>
+</material>
+</response_label>
+<response_label ident="31401">
+<material>
+<mattext texttype="text/plain">É necessária mais prática com o assunto da atividade antes de enviar o trabalho.</mattext>
+</material>
+</response_label>
+<response_label ident="5999">
+<material>
+<mattext texttype="text/plain">Deve-se pedir ao(à) instrutor(a) que esclareça os requisitos da atividade antes de reenviar.</mattext>
+</material>
+</response_label>
+<response_label ident="25228">
+<material>
+<mattext texttype="text/plain">A IA foi usada adequadamente, mas o rascunho precisa ser revisado com mais atenção antes do envio.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">31401</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="31401_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">5999</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="5999_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25228</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25228_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">69815</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="31401_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A necessidade de mais prática ou de esclarecimento do(a) instrutor(a) são questões distintas que não são indicadas pelo resultado do teste.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="5999_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A necessidade de mais prática ou de esclarecimento do(a) instrutor(a) são questões distintas que não são indicadas pelo resultado do teste.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25228_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O resultado do teste não indica o uso apropriado da IA — ele sinaliza o oposto.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g2f60425084098caefd056224aa03acb0" title="Pergunta 13">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>99189,85389,93101,93691</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Uma pessoa estudante escreve a seguinte declaração de divulgação de IA no início de sua atividade: "O Claude foi usado para identificar erros gramaticais. Todas as ideias, conteúdos e escolhas retóricas são de minha autoria." A IA foi usada apenas para verificar erros gramaticais e todas as correções foram feitas por conta própria. Qual princípio essa declaração cumpre?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="99189">
+<material>
+<mattext texttype="text/plain">Transparência, pois a ferramenta de IA foi nomeada e sua função específica foi descrita com precisão</mattext>
+</material>
+</response_label>
+<response_label ident="85389">
+<material>
+<mattext texttype="text/plain">Competência, por demonstrar a habilidade de usar a IA como ferramenta de aprendizagem</mattext>
+</material>
+</response_label>
+<response_label ident="93101">
+<material>
+<mattext texttype="text/plain">Autonomia, pois todas as decisões finais sobre quais correções aceitar foram tomadas por conta própria</mattext>
+</material>
+</response_label>
+<response_label ident="93691">
+<material>
+<mattext texttype="text/plain">Privacidade, pois nenhuma informação pessoal foi incluída no comando de IA</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85389</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85389_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93101</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93101_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93691</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93691_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">99189</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="85389_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A competência relaciona-se com o desenvolvimento de habilidades por meio do esforço, não com a divulgação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="93101_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A autonomia relaciona-se com a preservação do papel de tomada de decisão da pessoa estudante, que é um princípio separado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="93691_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A privacidade relaciona-se com a proteção de informações pessoais confidenciais inseridas em ferramentas de IA, o que não tem relação com a declaração de divulgação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc7c8606f58da9514c6ee6d2ae271c029" title="Pergunta 14">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>46131,46368,73401,66944</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Uma pessoa estudante deseja escrever sobre uma prática comercial comum em seu país de origem. Essa prática é bem conhecida por experiência pessoal, mas não é possível encontrar uma fonte publicada que a documente. Qual é o próximo passo mais adequado de acordo com o módulo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="46131">
+<material>
+<mattext texttype="text/plain">Perguntar ao(à) instrutor(a) se o conhecimento pessoal exige uma citação antes do envio</mattext>
+</material>
+</response_label>
+<response_label ident="46368">
+<material>
+<mattext texttype="text/plain">Omitir totalmente a informação porque ela não pode ser respaldada por uma fonte publicada</mattext>
+</material>
+</response_label>
+<response_label ident="73401">
+<material>
+<mattext texttype="text/plain">Enviar a informação sem uma citação e explicar o contexto cultural em uma nota de rodapé</mattext>
+</material>
+</response_label>
+<response_label ident="66944">
+<material>
+<mattext texttype="text/plain">Buscar qualquer fonte publicada sobre um assunto relacionado e citá-la em vez de usar o conhecimento pessoal</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">46368</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="46368_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">73401</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="73401_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">66944</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="66944_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">46131</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="46368_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Omitir a informação descarta um conteúdo potencialmente valioso e autêntico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="73401_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Enviar sem citação e adicionar uma nota de rodapé não resolve a questão da citação e não é a orientação oferecida pelo módulo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="66944_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Substituir por uma fonte publicada não relacionada distorce a base real da afirmação e não honra o conhecimento genuíno da pessoa estudante.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge4833d65654d2595fe4aa1de62d3a9ce" title="Pergunta 15">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>87824,72099,17732,38271</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante recebe de volta sua atividade avaliada da S03 com o feedback do(a) instrutor(a). Antes de iniciar a S04, lê atentamente todo o feedback e o utiliza para planejar seu próximo rascunho. O feedback não é compartilhado com colegas de classe. Qual princípio de integridade esse comportamento reflete?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="87824">
+<material>
+<mattext texttype="text/plain">Este comportamento não levanta nenhuma preocupação de integridade — revisar o feedback pessoal do(a) instrutor(a) é uma prática acadêmica adequada</mattext>
+</material>
+</response_label>
+<response_label ident="72099">
+<material>
+<mattext texttype="text/plain">Competência, pois a pessoa estudante está usando o feedback para desenvolver suas habilidades de escrita de forma independente</mattext>
+</material>
+</response_label>
+<response_label ident="17732">
+<material>
+<mattext texttype="text/plain">Transparência, pois a pessoa estudante está reconhecendo abertamente os pontos fracos de seu trabalho anterior</mattext>
+</material>
+</response_label>
+<response_label ident="38271">
+<material>
+<mattext texttype="text/plain">Autonomia, pois a pessoa estudante está tomando suas próprias decisões sobre como aplicar o feedback</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">72099</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="72099_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">17732</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="17732_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38271</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38271_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">87824</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="72099_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Embora o comportamento apoie o desenvolvimento da competência, a pergunta indaga qual princípio o comportamento reflete em termos de integridade — e a resposta correta é que não há nenhum problema de integridade presente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="17732_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A transparência e a autonomia são princípios de integridade vinculados ao uso de IA e à tomada de decisões, não à revisão de feedbacks pessoais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="38271_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A transparência e a autonomia são princípios de integridade vinculados ao uso de IA e à tomada de decisões, não à revisão de feedbacks pessoais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ga7e6166c89c4c2fb2f247a69221c6357" title="Pergunta 16">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>88180,93837,81529,5037</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Uma pessoa estudante faz a seguinte pergunta à IA: "Que detalhes devo incluir em minha narrativa pessoal para torná-la mais envolvente?" Em seguida, desenvolve sua narrativa com base nas sugestões da IA. Qual princípio isso viola?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="88180">
+<material>
+<mattext texttype="text/plain">Autonomia, pois a IA foi autorizada a tomar decisões retóricas que cabiam à própria pessoa</mattext>
+</material>
+</response_label>
+<response_label ident="93837">
+<material>
+<mattext texttype="text/plain">Transparência, pois não foi divulgado que a IA sugeriu os detalhes da narrativa</mattext>
+</material>
+</response_label>
+<response_label ident="81529">
+<material>
+<mattext texttype="text/plain">Privacidade, pois detalhes de histórias pessoais podem ter sido compartilhados com uma ferramenta de IA</mattext>
+</material>
+</response_label>
+<response_label ident="5037">
+<material>
+<mattext texttype="text/plain">Competência, porque ela deveria ter pesquisado técnicas narrativas antes de escrever</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">93837</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="93837_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81529</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81529_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">5037</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="5037_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">88180</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="93837_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A transparência é uma preocupação secundária, mas a violação principal é abrir mão da tomada de decisão.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="81529_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A privacidade é relevante quando informações de identificação sensíveis são inseridas na IA, não quando conceitos de histórias são discutidos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="5037_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A competência se relaciona ao desenvolvimento de habilidades por meio do esforço, não a hábitos de pesquisa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge2b2aec6dbe51d7d725fc595b54c591c" title="Pergunta 17">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>93136,13074,56207,25528</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante copia um parágrafo de uma redação publicada em sua atividade e o coloca entre aspas com uma citação completa. Essa pessoa usa mais três parágrafos citados da mesma fonte na mesma atividade. O(A) instrutor(a) sinaliza o envio de tarefa devido a um problema de integridade. Qual é a preocupação mais provável?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="93136">
+<material>
+<mattext texttype="text/plain">Uso excessivo de citações diretas, o que sugere que o(a) estudante está evitando o trabalho mais difícil de compreender e reformular o material</mattext>
+</material>
+</response_label>
+<response_label ident="13074">
+<material>
+<mattext texttype="text/plain">Plágio mosaico, porque o(a) estudante alterou algumas palavras dentro dos parágrafos citados</mattext>
+</material>
+</response_label>
+<response_label ident="56207">
+<material>
+<mattext texttype="text/plain">Fabricação, porque o(a) estudante pode ter modificado o conteúdo da fonte dentro das aspas</mattext>
+</material>
+</response_label>
+<response_label ident="25528">
+<material>
+<mattext texttype="text/plain">Citação insuficiente, porque múltiplas citações de uma mesma fonte exigem entradas separadas na lista de referências</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">13074</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="13074_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56207</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56207_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25528</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25528_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">93136</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="13074_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O plágio mosaico envolve a alteração de palavras mantendo a estrutura — este(a) estudante usou citações exatas.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="56207_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A fabricação envolve a criação de informações falsas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25528_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Múltiplas citações de uma única fonte não exigem entradas de referência separadas — uma única entrada na lista de referências cobre todas as citações dessa fonte.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g908f4dee95b8b8a8085ed2183e434a7c" title="Pergunta 18">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>10037,49311,9615,9597</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Estudante redige uma narrativa pessoal de forma totalmente independente. Antes de enviar, pede à sua irmã mais velha, uma escritora experiente, que reescreva dois parágrafos que ela considera fracos. A atividade é enviada incluindo os parágrafos reescritos pela irmã. Qual violação foi cometida?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="10037">
+<material>
+<mattext texttype="text/plain">Trapaça, porque permitiu que outra pessoa fizesse uma revisão substancial de seu trabalho</mattext>
+</material>
+</response_label>
+<response_label ident="49311">
+<material>
+<mattext texttype="text/plain">Autoplágio, porque os parágrafos reescritos não são mais inteiramente de sua própria escrita original</mattext>
+</material>
+</response_label>
+<response_label ident="9615">
+<material>
+<mattext texttype="text/plain">Fabricação, porque os parágrafos reescritos podem não refletir com precisão sua experiência pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="9597">
+<material>
+<mattext texttype="text/plain">Apenas violação da integridade da voz, porque os parágrafos reescritos não refletem mais sua voz autêntica</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49311</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49311_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9615</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9615_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9597</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9597_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">10037</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="49311_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O autoplágio envolve o reenvio de um trabalho enviado anteriormente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="9615_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A fabricação envolve a criação de conteúdo falso.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="9597_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A integridade da voz é afetada, mas a violação primária e mais grave é a trapaça, e não apenas uma questão de voz.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g4c31de324a6f2ba6dda4d7cf5f84d6ee" title="Pergunta 19">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>91441,89318,57955,49816</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante gera uma lista de cinco referências em estilo APA usando IA para sua atividade. As referências são incluídas na lista de referências sem que se verifique se as fontes realmente existem. O(A) instrutor(a) descobre que duas das referências não correspondem a nenhuma publicação real. Qual violação ocorreu?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="91441">
+<material>
+<mattext texttype="text/plain">Fabricação, porque enviou citações falsas que não haviam sido verificadas</mattext>
+</material>
+</response_label>
+<response_label ident="89318">
+<material>
+<mattext texttype="text/plain">Plágio mosaico, porque usou texto gerado por IA em sua lista de referências</mattext>
+</material>
+</response_label>
+<response_label ident="57955">
+<material>
+<mattext texttype="text/plain">Trapaça, porque usou auxílio não autorizado de IA para concluir uma parte obrigatória de sua atividade</mattext>
+</material>
+</response_label>
+<response_label ident="49816">
+<material>
+<mattext texttype="text/plain">Citação insuficiente, porque as referências fabricadas não creditam corretamente as fontes originais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89318</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89318_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">57955</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="57955_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49816</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49816_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">91441</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="89318_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O plágio mosaico envolve imitar a estrutura de orações, não gerar listas de referências.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="57955_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Embora as políticas de uso de IA sejam relevantes, a violação específica descrita no módulo para citações falsas é a fabricação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="49816_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Citação insuficiente significa usar uma ideia real sem creditá-la — e não enviar uma fonte inexistente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g0a5d472c3435b34623b04500a6632b46" title="Pergunta 2">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>75771,33150,25564,38289</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante conclui o rascunho de sua narrativa pessoal do S05. Em seguida, insere o rascunho em uma ferramenta de IA e pergunta: "Quais orações não estão claras?". A própria pessoa revisa as orações confusas sem aceitar nenhuma sugestão de reescrita da IA. Qual princípio essa abordagem segue?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="75771">
+<material>
+<mattext texttype="text/plain">Segue o princípio do comando de feedback, pois o(a) estudante solicitou à IA a identificação de problemas e realizou todas as revisões de forma autônoma</mattext>
+</material>
+</response_label>
+<response_label ident="33150">
+<material>
+<mattext texttype="text/plain">Viola o princípio da transparência, pois o(a) estudante utilizou a IA sem declarar isso em um comunicado no início da atividade</mattext>
+</material>
+</response_label>
+<response_label ident="25564">
+<material>
+<mattext texttype="text/plain">Viola o princípio da competência, pois o(a) estudante deveria ter identificado as orações pouco claras sem o auxílio da IA</mattext>
+</material>
+</response_label>
+<response_label ident="38289">
+<material>
+<mattext texttype="text/plain">Segue o princípio da tarefa de produto, pois o(a) estudante usou a IA para gerar um resultado limpo e utilizável</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">33150</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="33150_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25564</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25564_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38289</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38289_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">75771</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="33150_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O princípio da transparência exige a declaração, que o(a) estudante deve incluir no termo de envio de tarefa, mas a abordagem em si não constitui uma violação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25564_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O princípio da competência não é violado ao solicitar à IA que identifique pontos fracos após a conclusão de um rascunho.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="38289_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Esta é uma tarefa de processo, não de produto, pois o objetivo é o desenvolvimento de habilidades por meio da escrita.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6ce0692ab20ffb1fcef892843ad9a3ce" title="Pergunta 20">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>77873,9909,85413,38228</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante escreveu uma narrativa pessoal há dois anos para uma aula de escrita criativa em outra instituição e acredita que esse seja o seu melhor trabalho. Essa pessoa o envia para a atividade de S05 do WRIT 101 sem informar ao(à) instrutor(a). Qual violação foi cometida?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="77873">
+<material>
+<mattext texttype="text/plain">Autoplágio, porque enviou um trabalho previamente concluído sem a autorização do(a) instrutor(a)</mattext>
+</material>
+</response_label>
+<response_label ident="9909">
+<material>
+<mattext texttype="text/plain">Plágio direto, porque a narrativa foi escrita sob diferentes condições de disciplina/curso</mattext>
+</material>
+</response_label>
+<response_label ident="85413">
+<material>
+<mattext texttype="text/plain">Fabricação, porque a narrativa não foi escrita em resposta à atividade atual</mattext>
+</material>
+</response_label>
+<response_label ident="38228">
+<material>
+<mattext texttype="text/plain">Trapaça, porque utilizou um trabalho concluído fora da estrutura da disciplina/curso WRIT 101</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9909</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9909_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85413</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85413_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38228</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38228_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">77873</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="9909_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O plágio direto envolve apresentar o trabalho de outra pessoa como seu — o trabalho deste(a) estudante é genuinamente de sua própria autoria.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85413_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Fabricar significa criar informações falsas, não reutilizar uma escrita anterior autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="38228_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A trapaça envolve assistência ou métodos não autorizados durante a realização de uma atividade, e não o reenvio de um trabalho anterior.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1bfb25c04758079a2206e01abe348342" title="Pergunta 21">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>86235,55249,99906,35599</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante lê o argumento de um acadêmico sobre o papel de contar histórias em sua cultura. Essa pessoa escreve uma paráfrase do argumento em suas próprias palavras e estrutura de oração, adicionando em seguida uma citação no texto. Contudo, não inclui a fonte em sua lista de referências. Seus deveres de citação foram cumpridos?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="86235">
+<material>
+<mattext texttype="text/plain">Não, pois tanto uma citação no texto quanto uma entrada na lista de referências são necessárias para creditar totalmente uma fonte</mattext>
+</material>
+</response_label>
+<response_label ident="55249">
+<material>
+<mattext texttype="text/plain">Sim, pois reformular a ideia em suas próprias palavras com uma citação no texto é suficiente</mattext>
+</material>
+</response_label>
+<response_label ident="99906">
+<material>
+<mattext texttype="text/plain">Não, pois ideias parafraseadas exigem uma citação direta junto à paráfrase</mattext>
+</material>
+</response_label>
+<response_label ident="35599">
+<material>
+<mattext texttype="text/plain">Sim, pois a lista de referências só é obrigatória para citações diretas, não para paráfrases</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">55249</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="55249_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99906</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99906_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35599</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35599_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">86235</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="55249_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Apenas a citação no texto não cumpre o requisito completo de citação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="99906_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Ideias parafraseadas não exigem uma citação direta complementar — a paráfrase acompanhada de citação é um método completo e aceito.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="35599_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A lista de referências é exigida para todas as fontes utilizadas, incluindo aquelas que forem resumidas ou parafraseadas, e não apenas para as citadas diretamente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g2005f95570d3c75f25f8a666d9d362e0" title="Pergunta 22">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>29311,57638,46147,25519</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante está escrevendo sua reflexão espiritual para a atividade de Reflexão do Convite da Semana 7. Essa pessoa solicita à IA que escreva um parágrafo descrevendo o que aprendeu espiritualmente durante a disciplina/curso. O parágrafo é levemente editado e enviado. Além da violação de integridade, qual dano específico dessa ação é apontado pelo módulo?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="29311">
+<material>
+<mattext texttype="text/plain">Isso priva o(a) estudante do encontro genuíno com Deus que a atividade foi projetada para proporcionar.</mattext>
+</material>
+</response_label>
+<response_label ident="57638">
+<material>
+<mattext texttype="text/plain">Gera uma reflexão que carece do vocabulário acadêmico esperado pelo(a) instrutor(a).</mattext>
+</material>
+</response_label>
+<response_label ident="46147">
+<material>
+<mattext texttype="text/plain">Impede o(a) estudante de atingir a contagem de palavras exigida com suas próprias ideias.</mattext>
+</material>
+</response_label>
+<response_label ident="25519">
+<material>
+<mattext texttype="text/plain">Cria uma incompatibilidade entre a reflexão atual e as atividades anteriores lidas pelo(a) instrutor(a).</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">57638</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="57638_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">46147</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="46147_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25519</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25519_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">29311</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="57638_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O dano identificado pelo módulo é de ordem espiritual, e não acadêmica em termos de vocabulário, contagem de palavras ou consistência com trabalhos anteriores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="46147_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O dano que o módulo identifica é espiritual, não acadêmico em termos de vocabulário, contagem de palavras ou consistência com trabalhos anteriores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25519_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O dano que o módulo identifica é espiritual, não acadêmico em termos de vocabulário, contagem de palavras ou consistência com trabalhos anteriores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge66951258f37de9b833ca79b7a3f6f18" title="Pergunta 23">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>90243,22833,12924,72422</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante faz a seguinte pergunta à IA: "Reescreva esta oração para que fique mais clara." A IA retorna uma versão mais limpa. Estudante copia a resposta diretamente em seu rascunho e, antes de enviar, adiciona a seguinte declaração de divulgação: "O Claude foi usado para reescrever uma oração para fins de clareza. Todas as ideias e conteúdos são de minha autoria." A declaração de divulgação resolveu a preocupação com a integridade?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="90243">
+<material>
+<mattext texttype="text/plain">Não, porque pedir para a IA reescrever o conteúdo é uma solicitação de edição que transfere o trabalho para a IA, o que a declaração de divulgação não corrige</mattext>
+</material>
+</response_label>
+<response_label ident="22833">
+<material>
+<mattext texttype="text/plain">Sim, porque a declaração de divulgação identifica de forma transparente exatamente como a IA foi usada</mattext>
+</material>
+</response_label>
+<response_label ident="12924">
+<material>
+<mattext texttype="text/plain">Sim, porque uma oração reescrita é uma alteração irrelevante demais para constituir uma violação</mattext>
+</material>
+</response_label>
+<response_label ident="72422">
+<material>
+<mattext texttype="text/plain">Não, porque a declaração de divulgação deveria ter sido enviada ao(à) Instrutor(a) antes do uso da IA</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">22833</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="22833_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">12924</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="12924_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">72422</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="72422_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">90243</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="22833_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Divulgar o uso não muda o fato de que a IA tomou uma decisão de escrita que cabia ao estudante.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="12924_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Não há um limite a partir do qual uma reescrita se torne irrelevante demais para importar — o princípio se aplica independentemente do tamanho.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="72422_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As declarações de divulgação são enviadas juntamente com a Atividade, não antes de a IA ser utilizada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g825a60a0465146c60aa7f13b7272ef6e" title="Pergunta 24">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>80801,65347,69522,67877</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante está se preparando para a Entrevista de Pesquisa de História da Família da S04. O plano é inserir o nome completo, a data de nascimento e o histórico de imigração da avó em uma ferramenta de IA para ajudar a elaborar as perguntas da entrevista. O que deveria ser feito em vez disso?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="80801">
+<material>
+<mattext texttype="text/plain">Usar iniciais ou "membro da família" no comando da IA em vez de inserir dados pessoais de identificação</mattext>
+</material>
+</response_label>
+<response_label ident="65347">
+<material>
+<mattext texttype="text/plain">Pedir permissão ao(à) Instrutor(a) antes de inserir qualquer informação familiar na IA</mattext>
+</material>
+</response_label>
+<response_label ident="69522">
+<material>
+<mattext texttype="text/plain">Usar uma ferramenta de IA diferente que tenha proteções de privacidade mais robustas para Dados pessoais</mattext>
+</material>
+</response_label>
+<response_label ident="67877">
+<material>
+<mattext texttype="text/plain">Concluir as perguntas da entrevista sem usar IA para proteger as informações da avó</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65347</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65347_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">69522</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="69522_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67877</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67877_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">80801</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="65347_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O módulo não exige permissão do(a) Instrutor(a) especificamente para comandos de IA que envolvam membros da família — a orientação é substituir os detalhes de identificação.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="69522_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Buscar uma ferramenta de IA mais privada não é a solução recomendada pelo módulo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67877_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Evitar totalmente a IA é uma opção, mas o módulo fornece um método aprovado específico que permite o uso da IA ao mesmo tempo que protege a privacidade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g96ebb0510f77db6ae893ebd1aeb504e8" title="Pergunta 25">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>92306,96596,19272,49301</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante lê a seguinte oração em um artigo publicado: "A escrita narrativa transforma a experiência vivida em significado compartilhado por meio de um ofício deliberado." No rascunho, escreve: "Por meio de um ofício cuidadoso, a escrita narrativa transforma a experiência vivida em um significado que pode ser compartilhado." E adiciona uma citação. Qual problema de integridade está presente?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="92306">
+<material>
+<mattext texttype="text/plain">Plágio em mosaico, porque se manteve a estrutura central e as ideias da oração original, apenas reorganizando as palavras</mattext>
+</material>
+</response_label>
+<response_label ident="96596">
+<material>
+<mattext texttype="text/plain">Nenhum problema, pois a ordem das palavras foi alterada e uma citação foi adicionada</mattext>
+</material>
+</response_label>
+<response_label ident="19272">
+<material>
+<mattext texttype="text/plain">Citação insuficiente, pois deveria ter sido usada uma citação direta em vez de paráfrase</mattext>
+</material>
+</response_label>
+<response_label ident="49301">
+<material>
+<mattext texttype="text/plain">Plágio direto, pois o significado da oração é idêntico ao original</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">96596</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="96596_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19272</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19272_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49301</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49301_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">92306</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="96596_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Não há regra que exija uma citação direta em vez de uma paráfrase — a paráfrase é um método aceito quando feita corretamente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="19272_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Não há regra que exija uma citação direta em vez de uma paráfrase — a paráfrase é um método aceito quando feita corretamente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="49301_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O plágio direto envolve copiar as palavras exatas sem aspas, o que não foi o que ocorreu aqui.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb58feefabbd55fe2afb22ac162fa7945" title="Pergunta 26">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>35620,68261,43852,15144</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Após concluir o rascunho para a S03, estudante pergunta à IA: "Quais parágrafos no meu rascunho poderiam ser mais claros? Aponte-os sem reescrevê-los." A IA identifica dois parágrafos e explica por que não estão claros. Estudante reescreve ambos os parágrafos por conta própria. Que tipo de uso de IA foi demonstrado?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="35620">
+<material>
+<mattext texttype="text/plain">Um comando de feedback aprovado, pois foi solicitado que a IA identificasse problemas e todas as revisões foram feitas por conta própria</mattext>
+</material>
+</response_label>
+<response_label ident="68261">
+<material>
+<mattext texttype="text/plain">Uma solicitação de edição inadequada, pois foi solicitado que a IA avaliasse a qualidade de sua escrita</mattext>
+</material>
+</response_label>
+<response_label ident="43852">
+<material>
+<mattext texttype="text/plain">Uma violação de transparência, pois não foi incluída uma declaração de divulgação antes de usar a IA</mattext>
+</material>
+</response_label>
+<response_label ident="15144">
+<material>
+<mattext texttype="text/plain">Uma violação de competência, pois os parágrafos pouco claros deveriam ter sido identificados sem a assistência da IA</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68261</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68261_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">43852</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="43852_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">15144</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="15144_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">35620</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="68261_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Pedir para a IA avaliar a escrita não é inerentemente inadequado — a distinção está entre identificar problemas e corrigi-los.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="43852_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A preocupação com a declaração de divulgação é independente de o uso da IA ter sido adequado ou não; estudante deve incluir uma declaração no Envio de Tarefa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="15144_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Usar a IA para identificar pontos fracos após concluir um rascunho não viola o princípio da competência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1be2227b313a62f9f49895a8f24ee7ee" title="Pergunta 27">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>19749,72430,56567,55848</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante recebe a seguinte resposta após pedir para a IA verificar sua paráfrase: "Aqui está uma versão mais clara de sua paráfrase: [oração reescrita]". O que deveria ser feito?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="19749">
+<material>
+<mattext texttype="text/plain">Desconsiderar a oração reescrita e usar apenas a explicação da IA sobre o que não estava claro para fazer a revisão por conta própria</mattext>
+</material>
+</response_label>
+<response_label ident="72430">
+<material>
+<mattext texttype="text/plain">Aceitar a oração reescrita porque a IA estava respondendo a um comando de feedback, não a uma solicitação de edição</mattext>
+</material>
+</response_label>
+<response_label ident="56567">
+<material>
+<mattext texttype="text/plain">Aceitar a oração reescrita porque é mais clara do que a versão original</mattext>
+</material>
+</response_label>
+<response_label ident="55848">
+<material>
+<mattext texttype="text/plain">Pedir para a IA reescrever a oração mais uma vez antes de decidir se vai aceitá-la</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">72430</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="72430_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">56567</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="56567_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">55848</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="55848_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">19749</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="72430_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O retorno de uma reescrita não transforma a interação em uma solicitação de edição aprovada — o comando do estudante foi adequado, mas a reescrita não solicitada ainda assim deve ser rejeitada.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="56567_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Aceitar uma versão mais clara ainda transfere a decisão de escrita para a IA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="55848_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Pedir para a IA reescrever novamente agrava o problema em vez de resolvê-lo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc474b6d63b444c601bb0b351ea985aa6" title="Pergunta 28">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>41433,70312,24926,21531</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Estudante pede para a IA explicar o que significa "mostrar versus contar" na escrita narrativa. A IA fornece uma explicação clara com exemplos. Estudante lê a explicação e, em seguida, aplica a técnica em seu próprio rascunho sem copiar nenhum dos exemplos da IA. Em qual categoria esse uso de IA se enquadra?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="41433">
+<material>
+<mattext texttype="text/plain">Uso adequado, pois foi solicitado que a IA explicasse um conceito e este foi aplicado de forma independente</mattext>
+</material>
+</response_label>
+<response_label ident="70312">
+<material>
+<mattext texttype="text/plain">Uso inadequado, pois as técnicas narrativas devem ser aprendidas apenas por meio da orientação do(a) Instrutor(a)</mattext>
+</material>
+</response_label>
+<response_label ident="24926">
+<material>
+<mattext texttype="text/plain">Uso inadequado, pois a IA foi utilizada antes de se tentar a técnica por conta própria primeiro</mattext>
+</material>
+</response_label>
+<response_label ident="21531">
+<material>
+<mattext texttype="text/plain">Uso adequado apenas se os exemplos da IA forem incluídos no rascunho para demonstrar compreensão</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70312</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70312_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24926</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24926_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21531</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21531_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">41433</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="70312_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As técnicas narrativas não se restringem apenas à orientação do(a) Instrutor(a).</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="24926_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Não há exigência no módulo de que estudantes tentem uma técnica de forma independente antes de pedir uma explicação à IA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21531_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Incluir os exemplos da IA no rascunho criaria uma preocupação de integridade diferente, em vez de saná-la.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gcc6fe466761188ad52183f2a85f316ed" title="Pergunta 29">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>45548,47374,80029,81677</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Após finalizar um rascunho, estudante aplica o Teste de Explicabilidade. Confirma que pode explicar cada oração e que poderia reproduzir o trabalho de forma independente. A Atividade é enviada com a seguinte declaração de divulgação: "O Claude foi usado para identificar erros gramaticais. Todas as ideias, conteúdos e escolhas retóricas são de minha autoria." Quais dois princípios foram cumpridos?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="45548">
+<material>
+<mattext texttype="text/plain">Competência e transparência, pois se pode demonstrar domínio independente e o uso da IA foi divulgado de forma precisa</mattext>
+</material>
+</response_label>
+<response_label ident="47374">
+<material>
+<mattext texttype="text/plain">Arbítrio e privacidade, pois as próprias decisões foram tomadas e nenhuma informação confidencial foi compartilhada com a IA</mattext>
+</material>
+</response_label>
+<response_label ident="80029">
+<material>
+<mattext texttype="text/plain">Transparência e prevenção de fabricação, pois o uso da IA foi divulgado e todas as fontes foram verificadas</mattext>
+</material>
+</response_label>
+<response_label ident="81677">
+<material>
+<mattext texttype="text/plain">Competência e arbítrio, pois o trabalho foi concluído de forma independente, retendo todo o processo de tomada de decisão</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47374</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47374_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">80029</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="80029_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81677</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81677_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">45548</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="47374_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Arbítrio e privacidade não são os princípios mais diretamente demonstrados por essas duas ações específicas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="80029_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A prevenção de fabricação refere-se à verificação de fontes e citações, não ao Teste de Explicabilidade ou às declarações de divulgação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="81677_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A competência e o arbítrio se sobrepõem neste cenário, mas a transparência — e não o arbítrio — é o princípio cumprido pela declaração de divulgação.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb71a90af20a9cb4cbf7aec64348c25f3" title="Pergunta 3">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>53386,98357,88887,77403</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante parafraseia com as próprias palavras o argumento de um especialista sobre narrativa. Ela inclui a paráfrase em sua redação, mas não adiciona uma citação no texto por acreditar que reformular a ideia com suas próprias palavras significa que não precisa mais creditar a fonte. O que ela compreendeu incorretamente?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="53386">
+<material>
+<mattext texttype="text/plain">A ideia pertence a quem a originou, independentemente de como seja expressa, por isso a citação ainda é exigida</mattext>
+</material>
+</response_label>
+<response_label ident="98357">
+<material>
+<mattext texttype="text/plain">Parafrasear sem citação só é necessário se o trecho for mais longo do que um parágrafo</mattext>
+</material>
+</response_label>
+<response_label ident="88887">
+<material>
+<mattext texttype="text/plain">Uma citação só é exigida ao usar as palavras exatas da fonte entre aspas</mattext>
+</material>
+</response_label>
+<response_label ident="77403">
+<material>
+<mattext texttype="text/plain">Reformular uma ideia com as próprias palavras transfere a propriedade da ideia para la pessoa estudante</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98357</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98357_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88887</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88887_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">77403</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="77403_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">53386</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="98357_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Não há um limite de extensão que determine se uma citação é necessária.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="88887_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As citações não se limitam a citações diretas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="77403_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Reformular uma ideia com as próprias palavras não transfere a propriedade intelectual — apenas altera a forma de expressão.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g927f5b61e4d40c715769c4d2f8d46acf" title="Pergunta 30">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>12947,61812,19758,70948</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante com dificuldades de fluência em inglês pede à IA: "Reescreva meu parágrafo para que pareça mais natural em inglês". A IA retorna um parágrafo totalmente reescrito. A pessoa estudante o envia. Qual orientação do módulo ela deixou de seguir?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="12947">
+<material>
+<mattext texttype="text/plain">O comando aprovado para estudantes multilíngues pede à IA para ajudar a expressar uma ideia específica com mais clareza, mantendo o significado original e a voz pessoal da pessoa estudante — e não para reescrever parágrafos inteiros.</mattext>
+</material>
+</response_label>
+<response_label ident="61812">
+<material>
+<mattext texttype="text/plain">Estudantes multilíngues não têm permissão para usar IA para assistência linguística sob nenhuma circunstância.</mattext>
+</material>
+</response_label>
+<response_label ident="19758">
+<material>
+<mattext texttype="text/plain">A pessoa estudante deveria ter pedido ao seu(sua) Instrutor(a) para reescrever o parágrafo em vez de usar IA.</mattext>
+</material>
+</response_label>
+<response_label ident="70948">
+<material>
+<mattext texttype="text/plain">A pessoa estudante precisava aplicar o Teste de Explicabilidade antes de pedir ajuda linguística à IA.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">61812</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="61812_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19758</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19758_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70948</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70948_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">12947</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="61812_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Estudantes multilíngues têm permissão para usar IA para obter ajuda com o idioma dentro dos limites aprovados.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="19758_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O(A) Instrutor(a) não é a alternativa prescrita para assistência linguística.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="70948_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O Teste de Explicabilidade se aplica após o uso da IA, e não antes de decidir qual comando usar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gfe1c3b8f5775477ff2729abee1d6c4fe" title="Pergunta 31">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>58231,7201,19297,24587</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante paga vinte dólares a um colega de classe para escrever sua narrativa pessoal do S03. Ela envia a narrativa como seu próprio trabalho. Qual violação ela cometeu?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="58231">
+<material>
+<mattext texttype="text/plain">Fraude por contrato (contract cheating), porque pagou outra pessoa para concluir sua atividade</mattext>
+</material>
+</response_label>
+<response_label ident="7201">
+<material>
+<mattext texttype="text/plain">Compartilhamento de conteúdo, pois a escrita de outra pessoa estudante foi usada em seu Envio de Tarefa</mattext>
+</material>
+</response_label>
+<response_label ident="19297">
+<material>
+<mattext texttype="text/plain">Fabricação, pois a narrativa não reflete suas experiências pessoais reais</mattext>
+</material>
+</response_label>
+<response_label ident="24587">
+<material>
+<mattext texttype="text/plain">Violação de integridade de voz, pois a narrativa enviada não reflete sua voz autêntica</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">7201</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="7201_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19297</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19297_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24587</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24587_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">58231</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="7201_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O compartilhamento de conteúdo envolve distribuir ou obter atividades concluídas, e não encomendar trabalhos novos mediante pagamento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="19297_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Fabricação significa criar informações falsas, como eventos inventados ou citações falsas — fazer com que alguém escreva sobre as experiências pessoais reais da pessoa estudante é uma violação diferente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="24587_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A integridade da voz é afetada, mas isso descreve uma característica do Envio de Tarefa, e não o ato de pagar pelo trabalho. A violação principal e mais precisa é a fraude por contrato (contract cheating).</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g63d9e793d95b74b177d3865396b724ac" title="Pergunta 32">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>38804,25817,89655,4053</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante encontra uma estatística em uma resposta gerada por IA e a inclui em seu projeto de história pessoal sem verificar se a estatística provém de uma fonte real. Seu(sua) Instrutor(a) descobre que a estatística não existe em nenhuma pesquisa publicada. Qual princípio do módulo se aplica mais diretamente?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="38804">
+<material>
+<mattext texttype="text/plain">É responsabilidade da pessoa estudante verificar cada fato em um Envio de Tarefa, e enviar fatos não verificados gerados por IA é fabricação.</mattext>
+</material>
+</response_label>
+<response_label ident="25817">
+<material>
+<mattext texttype="text/plain">A pessoa estudante violou o princípio da transparência ao não divulgar que a IA forneceu a estatística.</mattext>
+</material>
+</response_label>
+<response_label ident="89655">
+<material>
+<mattext texttype="text/plain">A pessoa estudante cometeu plágio em mosaico ao incorporar conteúdo gerado por IA em sua própria escrita.</mattext>
+</material>
+</response_label>
+<response_label ident="4053">
+<material>
+<mattext texttype="text/plain">A pessoa estudante violou o princípio do arbítrio ao permitir que a IA selecionasse evidências de apoio para seu argumento.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25817</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25817_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89655</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89655_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">4053</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="4053_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">38804</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="25817_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A transparência é uma preocupação à parte e exigiria uma declaração de divulgação, mas o ato de enviar uma estatística falsa é fabricação, independentemente da divulgação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="89655_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O plágio em mosaico envolve imitar a estrutura de orações de uma fonte real.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="4053_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O arbítrio refere-se à autoridade de tomada de decisão, não à verificação de fatos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g78a98447daf8b844d0e5a10084a0b0e8" title="Pergunta 33">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>82566,78771,67425,53325</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante envia sua narrativa concluída da S05 para um colega que fará WRIT 101 no próximo período letivo, dizendo que o trabalho pode ser usado como referência. O colega a utiliza para modelar a estrutura e a extensão de sua própria narrativa, mas não copia nenhuma oração. Qual afirmação descreve melhor a situação de integridade?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="82566">
+<material>
+<mattext texttype="text/plain">Ambas as pessoas estudantes cometeram uma violação de compartilhamento de conteúdo — a pessoa estudante que compartilhou e a pessoa estudante que obteve o trabalho são igualmente responsáveis.</mattext>
+</material>
+</response_label>
+<response_label ident="78771">
+<material>
+<mattext texttype="text/plain">Apenas a pessoa estudante que compartilhou o trabalho cometeu uma violação, pois seu colega não copiou nenhum texto.</mattext>
+</material>
+</response_label>
+<response_label ident="67425">
+<material>
+<mattext texttype="text/plain">Nenhuma violação ocorreu, pois o colega usou a narrativa apenas como um modelo estrutural, sem copiar.</mattext>
+</material>
+</response_label>
+<response_label ident="53325">
+<material>
+<mattext texttype="text/plain">Apenas o colega cometeu uma violação, pois usou o trabalho enviado de outra pessoa estudante para orientar o seu próprio.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78771</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78771_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67425</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67425_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53325</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53325_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">82566</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="78771_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A violação não se limita a quem compartilhou.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67425_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Usar o trabalho como modelo estrutural sem copiar o texto não isenta quem o recebeu de responsabilidade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53325_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A violação não se limita a quem compartilhou.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7ec714d3734942a4b2d811ac9c4ced25" title="Pergunta 34">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>44427,35927,94171,71667</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante escreve o seguinte em sua atividade: "Pesquisas mostram que narrativas pessoais melhoram a resiliência emocional." Ela não inclui uma citação por acreditar que isso é conhecimento comum. Seu(sua) Instrutor(a) sinaliza isso como um problema de integridade. Por que o(a) Instrutor(a) está correto(a)?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="44427">
+<material>
+<mattext texttype="text/plain">Uma alegação específica baseada em pesquisa exige uma citação porque se refere a uma descoberta que pertence a quem a originou, e não a um conhecimento comum.</mattext>
+</material>
+</response_label>
+<response_label ident="35927">
+<material>
+<mattext texttype="text/plain">O(A) Instrutor(a) está incorreto(a) porque descobertas de pesquisas amplamente aceitas não exigem citações em disciplinas/cursos de escrita pessoal.</mattext>
+</material>
+</response_label>
+<response_label ident="94171">
+<material>
+<mattext texttype="text/plain">A afirmação exige uma citação apenas se a pessoa estudante puder identificar o estudo específico de onde ela veio.</mattext>
+</material>
+</response_label>
+<response_label ident="71667">
+<material>
+<mattext texttype="text/plain">A afirmação é aceitável sem citação porque é usada para apoiar o próprio argumento da pessoa estudante, e não como uma alegação isolada.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35927</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35927_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">94171</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="94171_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">71667</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="71667_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">44427</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="35927_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O(A) Instrutor(a) está incorreto(a) porque descobertas de pesquisas amplamente aceitas não exigem citações em disciplinas/cursos de escrita pessoal.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="94171_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A exigência de citação não depende de a pessoa estudante conseguir identificar o estudo exato — se a fonte for desconhecida, a alegação não deve ser apresentada como baseada em pesquisas.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="71667_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O objetivo da alegação dentro do argumento não elimina a exigência de citação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g59ac55bf7b38f28a8d58037fe9977ae8" title="Pergunta 35">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>36961,44755,5915,24844</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante pede à IA para revisar seu rascunho e a IA retorna o seguinte: "Aqui estão três orações que poderiam ser mais claras: [lista as orações]. Aqui estão as versões revisadas de cada uma: [reescreve as três]". A pessoa estudante usa as versões revisadas em seu Envio de Tarefa final. Qual parte dessa interação ultrapassou o limite do apropriado para o inapropriado?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="36961">
+<material>
+<mattext texttype="text/plain">Aceitar e enviar as orações reescritas pela IA, pois a própria pessoa estudante deve fazer todas as revisões, mesmo quando a IA fornece reescritas não solicitadas</mattext>
+</material>
+</response_label>
+<response_label ident="44755">
+<material>
+<mattext texttype="text/plain">Pedir à IA para identificar orações pouco claras, pois solicitações de avaliação não são permitidas de acordo com as orientações de comandos de feedback</mattext>
+</material>
+</response_label>
+<response_label ident="5915">
+<material>
+<mattext texttype="text/plain">Usar mais de uma sugestão da IA em uma única sessão, pois várias revisões de uma única interação com a IA excedem o uso permitido</mattext>
+</material>
+</response_label>
+<response_label ident="24844">
+<material>
+<mattext texttype="text/plain">Enviar o rascunho sem antes aplicar o Teste de Explicabilidade às orações revisadas pela IA</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">44755</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="44755_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">5915</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="5915_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">24844</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="24844_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">36961</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="44755_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Pedir à IA para identificar orações pouco claras é um comando de feedback aprovado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="5915_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Não há regra que limite o número de sugestões da IA em uma única sessão.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="24844_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O Teste de Explicabilidade é relevante, mas a violação mais direta é aceitar reescritas por IA em vez de usar os problemas identificados para fazer a revisão de forma independente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gd4340efda15adf172014966b5ec22d05" title="Pergunta 36">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>34894,43278,29617,78104</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante lê o módulo da disciplina/curso e decide que, por estar sob grande pressão de tempo, pedirá à IA para elaborar o rascunho de sua atividade da S03 e, depois, editá-lo intensamente para torná-lo seu. Seu argumento é que a versão final refletirá suas próprias ideias. Qual princípio o módulo aplica a esse raciocínio?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="34894">
+<material>
+<mattext texttype="text/plain">A pressão de tempo não altera a política da disciplina/curso — pedir para a IA elaborar o rascunho de uma atividade é inadequado, independentemente da circunstância.</mattext>
+</material>
+</response_label>
+<response_label ident="43278">
+<material>
+<mattext texttype="text/plain">A edição intensa de um rascunho de IA é um método aprovado, desde que a pessoa estudante aplique o Teste de Explicabilidade depois.</mattext>
+</material>
+</response_label>
+<response_label ident="29617">
+<material>
+<mattext texttype="text/plain">A pressão de tempo é uma exceção reconhecida que permite a elaboração de rascunhos por IA quando a pessoa estudante revisa substancialmente o resultado.</mattext>
+</material>
+</response_label>
+<response_label ident="78104">
+<material>
+<mattext texttype="text/plain">A pessoa estudante deve declarar a elaboração do rascunho por IA em sua declaração, o que torna essa abordagem permitida.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">43278</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="43278_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">29617</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="29617_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78104</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78104_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">34894</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="43278_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A edição intensa de um rascunho de IA não restaura o que foi perdido.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="29617_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A pressão de tempo é uma exceção reconhecida que permite a elaboração de rascunhos por IA quando a pessoa estudante revisa substancialmente o resultado</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="78104_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O Teste de Explicabilidade e as declarações de transparência não tornam permitida a elaboração de rascunhos por IA — são ferramentas para o uso adequado da IA, e não soluções para o uso inadequado.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g85c7c61552745649c70becf0bb6dbcc5" title="Pergunta 37">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>56504,14120,42988,6684</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante conclui sua narrativa pessoal e pede a seu colega de quarto para lê-la e indicar quais partes estão confusas. O colega de quarto aponta dois trechos obscuros. A pessoa estudante reescreve esses trechos por conta própria e envia a atividade. Qual afirmação descreve melhor essa situação?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="56504">
+<material>
+<mattext texttype="text/plain">Esta é uma colaboração adequada — receber feedback de outra pessoa é permitido, desde que a pessoa estudante faça todas as revisões por conta própria</mattext>
+</material>
+</response_label>
+<response_label ident="14120">
+<material>
+<mattext texttype="text/plain">Esta é uma violação por trapaça, porque o colega de quarto identificou problemas que a pessoa estudante deveria ter encontrado de forma independente</mattext>
+</material>
+</response_label>
+<response_label ident="42988">
+<material>
+<mattext texttype="text/plain">Esta é uma violação de compartilhamento de conteúdo, porque a pessoa estudante compartilhou seu rascunho com outra pessoa antes do Envio de Tarefa</mattext>
+</material>
+</response_label>
+<response_label ident="6684">
+<material>
+<mattext texttype="text/plain">Esta é uma preocupação com a integridade da voz, pois a perspectiva do colega de quarto pode ter influenciado as escolhas de escrita da pessoa estudante</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14120</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14120_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">42988</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="42988_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">6684</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="6684_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">56504</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="14120_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Ter um leitor que identifique problemas não constitui trapaça; espera-se que a pessoa estudante desenvolva sua escrita por meio de feedback.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="42988_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Compartilhar um rascunho para obter feedback não é uma violação de compartilhamento de conteúdo — o compartilhamento de conteúdo se aplica à distribuição de atividades concluídas para que outras pessoas copiem ou usem como modelo.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="6684_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A perspectiva de um leitor que identifica pontos confusos não compromete a integridade da voz.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="geb5398d4c6f6118c315e35c385d2e2a5" title="Pergunta 38">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>96485,68045,13033,75135</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Uma pessoa estudante usa IA para gerar cinco orações de prática para integrar citações na escrita acadêmica. Ela estuda os exemplos e, em seguida, escreve suas próprias orações de integração usando suas próprias fontes. Ela não inclui as orações de prática da IA no seu Envio de Tarefa. Em qual categoria esse uso de IA se enquadra?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="96485">
+<material>
+<mattext texttype="text/plain">Uso adequado, pois pedir à IA para gerar exemplos de prática para aprender uma técnica é explicitamente aprovado no módulo</mattext>
+</material>
+</response_label>
+<response_label ident="68045">
+<material>
+<mattext texttype="text/plain">Uso inadequado, pois quaisquer orações geradas por IA criam um risco de plágio não intencional</mattext>
+</material>
+</response_label>
+<response_label ident="13033">
+<material>
+<mattext texttype="text/plain">Uso inadequado, pois a pessoa estudante deveria ter pedido exemplos de prática ao seu Instrutor(a)</mattext>
+</material>
+</response_label>
+<response_label ident="75135">
+<material>
+<mattext texttype="text/plain">Uso adequado somente se ela declarar, em sua declaração, que a IA foi usada para fins de prática</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68045</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68045_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">13033</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="13033_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">75135</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="75135_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">96485</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="68045_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Orações de prática geradas por IA usadas para aprendizado e não enviadas não criam um risco de plágio.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="13033_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O(A) Instrutor(a) é sempre um recurso, mas os exemplos de prática por IA são especificamente aprovados.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="75135_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Como as orações geradas por IA não foram enviadas nem usadas na atividade, não é necessária uma declaração de transparência para seu uso.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g8950399c1d243b408bf69df3a270bfee" title="Pergunta 39">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9337,35545,19284,91349</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante está escrevendo seu projeto de história pessoal e deseja incluir uma história que sua tia lhe contou sobre a experiência de imigração de sua família. A tia compartilhou a história em particular e pediu que ela não fosse divulgada publicamente. A pessoa estudante insere a história completa, incluindo o nome da tia e detalhes específicos, na IA para ajudar a organizá-la. O que a pessoa estudante deixou de considerar?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9337">
+<material>
+<mattext texttype="text/plain">As ferramentas de IA não são privadas, e inserir informações pessoais de identificação e histórias confidenciais pertencentes a outras pessoas viola sua obrigação ética de proteger aqueles que nela confiam.</mattext>
+</material>
+</response_label>
+<response_label ident="35545">
+<material>
+<mattext texttype="text/plain">A pessoa estudante precisava da permissão por escrito de sua tia antes de usar a história em uma atividade acadêmica.</mattext>
+</material>
+</response_label>
+<response_label ident="19284">
+<material>
+<mattext texttype="text/plain">Histórias pessoais compartilhadas de forma privada não podem ser usadas como material de origem em uma atividade de WRIT 101.</mattext>
+</material>
+</response_label>
+<response_label ident="91349">
+<material>
+<mattext texttype="text/plain">A pessoa estudante deveria ter perguntado ao seu(sua) Instrutor(a) antes de incluir a história de qualquer membro da família em seu projeto.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35545</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35545_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">19284</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="19284_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">91349</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="91349_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9337</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="35545_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A permissão por escrito de familiares não é um requisito identificado no módulo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="19284_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Histórias de família pessoais são conteúdos adequados para atividades de WRIT 101 — a questão é como a IA é usada com esse conteúdo, e não se a história pode ser incluída.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="91349_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Consultar o(a) Instrutor(a) é sempre incentivado, mas não é a orientação específica que o módulo oferece para essa situação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g98f6e52f34b89bd733cb51a0dd3dffca" title="Pergunta 4">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>89937,38044,63998,15571</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante pede à IA para "melhorar minha redação" antes de enviar sua narrativa da S05. A IA retorna uma versão reescrita que é mais fluida e limpa, mas que não se parece em nada com seu próprio estilo de escrita. A pessoa estudante envia a versão da IA. Quais dois princípios de integridade foram violados?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="89937">
+<material>
+<mattext texttype="text/plain">Integridade da voz e competência, porque a pessoa estudante enviou um trabalho que não reflete mais sua própria voz ou seu próprio esforço</mattext>
+</material>
+</response_label>
+<response_label ident="38044">
+<material>
+<mattext texttype="text/plain">Transparência e fabricação, porque a pessoa estudante não declarou o uso de IA e a narrativa contém detalhes inventados</mattext>
+</material>
+</response_label>
+<response_label ident="63998">
+<material>
+<mattext texttype="text/plain">Privacidade e agência, porque a pessoa estudante inseriu informações pessoais na IA e aceitou as decisões dela</mattext>
+</material>
+</response_label>
+<response_label ident="15571">
+<material>
+<mattext texttype="text/plain">Transparência e citação, porque a pessoa estudante não creditou a IA como fonte em sua lista de referências</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38044</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38044_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">63998</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="63998_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">15571</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="15571_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">89937</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="38044_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Transparência e fabricação não são as principais violações aqui porque os eventos descritos ainda são reais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="63998_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A privacidade é uma preocupação quando informações confidenciais são inseridas na IA, mas a principal preocupação do módulo neste cenário é a voz e a competência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="15571_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A IA não é citada como fonte em uma lista de referências — ela exige uma declaração de transparência.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gbec7e75f63dfc1c138ab8973119ed7fe" title="Pergunta 40">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>8650,59203,66586,9907</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante lê um parágrafo de um artigo publicado sobre contação de histórias culturais. Ela escreve sua própria versão substituindo cada terceira palavra por um sinônimo, mantendo todas as orações originais na mesma ordem. Ela adiciona uma citação. Qual problema de integridade está presente?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="8650">
+<material>
+<mattext texttype="text/plain">Plágio em mosaico, porque substituir palavras individuais mantendo a estrutura original das orações não é uma paráfrase real, mesmo quando uma citação é incluída</mattext>
+</material>
+</response_label>
+<response_label ident="59203">
+<material>
+<mattext texttype="text/plain">Nenhum problema, pois a pessoa estudante alterou palavras suficientes para constituir uma paráfrase original</mattext>
+</material>
+</response_label>
+<response_label ident="66586">
+<material>
+<mattext texttype="text/plain">Citação insuficiente, porque a pessoa estudante deveria ter usado uma citação direta</mattext>
+</material>
+</response_label>
+<response_label ident="9907">
+<material>
+<mattext texttype="text/plain">Plágio direto, porque a pessoa estudante usou a mesma ordem de orações da fonte original</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59203</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59203_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">66586</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="66586_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9907</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9907_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">8650</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="59203_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Substituir cada terceira palavra não atende a esse padrão, mesmo com uma citação. Não se exige uma citação direta no lugar de uma paráfrase — o problema é que a paráfrase não foi feita corretamente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="66586_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Substituir cada terceira palavra não atende a esse padrão, mesmo com uma citação. Não se exige uma citação direta no lugar de uma paráfrase — o problema é que a paráfrase não foi feita corretamente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="9907_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O plágio direto envolve copiar palavras exatas sem aspas, o que não foi o que ocorreu aqui.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gec339592f9d7169e406757846289e2c2" title="Pergunta 41">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>28686,34062,11819,47087</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma pessoa estudante envia sua narrativa pessoal concluída da S05 para o Course Hero após o encerramento da disciplina/curso, por acreditar que compartilhar conhecimento é um bem comunitário. Qual regra isso viola?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="28686">
+<material>
+<mattext texttype="text/plain">Compartilhamento de conteúdo, pois o envio de atividades concluídas para sites de compartilhamento de disciplinas/cursos é uma violação mesmo após o encerramento da disciplina/curso</mattext>
+</material>
+</response_label>
+<response_label ident="34062">
+<material>
+<mattext texttype="text/plain">Nenhuma regra, porque a disciplina/curso terminou e a atividade não está mais sujeita às políticas de integridade acadêmica</mattext>
+</material>
+</response_label>
+<response_label ident="11819">
+<material>
+<mattext texttype="text/plain">Integridade de voz, porque tornar pública a sua narrativa expõe sua escrita pessoal ao uso não autorizado</mattext>
+</material>
+</response_label>
+<response_label ident="47087">
+<material>
+<mattext texttype="text/plain">Autoplágio, pois o estudante pode reutilizar o trabalho enviado em uma futura disciplina/curso</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">34062</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="34062_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">11819</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="11819_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47087</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47087_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">28686</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="34062_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As obrigações de integridade acadêmica para trabalhos concluídos não expiram quando uma disciplina/curso termina.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="11819_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A integridade de voz aplica-se à autenticidade da escrita enviada, não ao compartilhamento público após o envio de tarefa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="47087_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O autoplágio é uma preocupação futura em potencial, mas não é a violação que o módulo identifica para essa ação específica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g4d369997ee975f0858dcd4de4fcf5636" title="Pergunta 42">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>91001,26498,16473,80049</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Um estudante esteve em contato com a IA durante todo o seu processo de rascunho. O(A) instrutor(a) solicita que o histórico escolar das conversas com a IA seja compartilhado. O estudante apaga o histórico escolar antes de responder ao(à) instrutor(a). Qual princípio essa ação afeta mais diretamente?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="91001">
+<material>
+<mattext texttype="text/plain">Transparência, porque o módulo exige que os estudantes estejam preparados para compartilhar de forma honesta os históricos escolares de conversas com a IA</mattext>
+</material>
+</response_label>
+<response_label ident="26498">
+<material>
+<mattext texttype="text/plain">Arbítrio, porque apagar os históricos escolares remove evidências do processo de tomada de decisão do estudante</mattext>
+</material>
+</response_label>
+<response_label ident="16473">
+<material>
+<mattext texttype="text/plain">Competência, porque os históricos escolares teriam mostrado se o estudante desenvolveu habilidades de forma independente</mattext>
+</material>
+</response_label>
+<response_label ident="80049">
+<material>
+<mattext texttype="text/plain">Privacidade, pois os históricos escolares podem conter dados pessoais que o estudante tem o direito de proteger</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">26498</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="26498_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">16473</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="16473_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">80049</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="80049_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">91001</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="26498_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O arbítrio refere-se ao papel de tomada de decisão do estudante durante a atividade, não ao gerenciamento do histórico escolar após o ocorrido.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="16473_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A competência relaciona-se ao desenvolvimento de habilidades, não à preservação de evidências.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="80049_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A privacidade aplica-se à proteção de informações confidenciais de terceiros inseridas na IA, não à proteção do próprio histórico de uso da IA do estudante contra a revisão de um(a) instrutor(a).</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g3340b7bdb6a55afcb2dadc0ae58ea9d9" title="Pergunta 43">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>69745,78788,87294,59850</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Um estudante escreve uma narrativa pessoal sobre crescer em sua cidade natal. Sua narrativa inclui detalhes sensoriais marcantes, padrões de orações rítmicos e expressões de sua primeira língua. O(A) instrutor(a) elogia o rascunho por sua voz marcante. O estudante então pede para a IA 'melhorar o texto' antes do envio de tarefa final. A versão final é mais fluida, mas parece não ter a identidade de ninguém em particular. O que aconteceu?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="69745">
+<material>
+<mattext texttype="text/plain">A IA substituiu sua voz marcante por uma prosa genérica, o que representa uma preocupação com a integridade da voz, mesmo que os eventos descritos ainda sejam reais.</mattext>
+</material>
+</response_label>
+<response_label ident="78788">
+<material>
+<mattext texttype="text/plain">A IA aprimorou tecnicamente sua narrativa, o que é um uso apropriado da IA para uma tarefa de produto.</mattext>
+</material>
+</response_label>
+<response_label ident="87294">
+<material>
+<mattext texttype="text/plain">A IA cometeu plágio direto ao substituir suas orações originais por texto gerado.</mattext>
+</material>
+</response_label>
+<response_label ident="59850">
+<material>
+<mattext texttype="text/plain">A IA violou sua privacidade ao processar detalhes pessoais de sua narrativa sem consentimento.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78788</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78788_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87294</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87294_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59850</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59850_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">69745</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="78788_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Uma narrativa pessoal é uma tarefa de processo, não uma tarefa de produto, de modo que esse tipo de aprimoramento por IA não é apropriado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="87294_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O plágio direto envolve apresentar o trabalho existente de outra pessoa como se fosse seu — a geração de um novo texto por IA é uma preocupação diferente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="59850_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A privacidade aplica-se à proteção de informações de identificação de terceiros, não ao processamento de conteúdo narrativo pela IA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc46036e30812e87e9e9747ea677bf161" title="Pergunta 44">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9771,35398,60189,67035</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Um estudante descobre que uma ferramenta de IA gerou uma resposta contendo uma afirmação específica sobre memória e contação de histórias. O estudante deseja usar essa afirmação em sua atividade. Após pesquisar a fonte original citada pela IA, ler e confirmar que a afirmação está correta, o estudante cita a fonte original em sua lista de referências. Qual afirmação descreve melhor essa abordagem?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9771">
+<material>
+<mattext texttype="text/plain">Sua abordagem está correta — o estudante verificou que a fonte existe, fez a leitura e citou a publicação original em vez da IA.</mattext>
+</material>
+</response_label>
+<response_label ident="35398">
+<material>
+<mattext texttype="text/plain">Sua abordagem está incorreta porque o estudante deveria ter encontrado a fonte de forma independente, sem a ajuda da IA.</mattext>
+</material>
+</response_label>
+<response_label ident="60189">
+<material>
+<mattext texttype="text/plain">Sua abordagem está incorreta porque alegações geradas por IA não devem ser citadas sob nenhuma circunstância.</mattext>
+</material>
+</response_label>
+<response_label ident="67035">
+<material>
+<mattext texttype="text/plain">Sua abordagem está correta apenas se o estudante também declarar em seu texto que a IA identificou a fonte.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35398</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35398_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">60189</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="60189_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67035</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67035_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9771</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="35398_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O módulo não exige que as fontes sejam encontradas sem qualquer envolvimento da IA — ele exige a verificação e o envolvimento direto com a fonte.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="60189_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As alegações geradas por IA podem ser usadas quando a fonte subjacente for verificada e citada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67035_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Divulgar que a IA identificou a fonte é uma boa prática, mas não é o requisito específico que o módulo identifica para este cenário.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g673feef10c2d5e23bbbab88376344436" title="Pergunta 45">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>57593,43995,16469,31455</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Um estudante recebe de volta sua atividade com nota da S03 com o feedback do(a) instrutor(a). Antes de iniciar a S04, o estudante lê atentamente todo o feedback e o utiliza para planejar seu próximo rascunho. O estudante não compartilha o feedback com nenhum colega de classe. Qual princípio de integridade esse comportamento reflete?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="57593">
+<material>
+<mattext texttype="text/plain">Esse comportamento não levanta preocupações de integridade — revisar o feedback pessoal do(a) instrutor(a) é uma prática acadêmica apropriada.</mattext>
+</material>
+</response_label>
+<response_label ident="43995">
+<material>
+<mattext texttype="text/plain">Competência, pois o estudante está usando o feedback para desenvolver suas habilidades de escrita de forma independente.</mattext>
+</material>
+</response_label>
+<response_label ident="16469">
+<material>
+<mattext texttype="text/plain">Transparência, porque o estudante está reconhecendo abertamente os pontos fracos de seu trabalho anterior.</mattext>
+</material>
+</response_label>
+<response_label ident="31455">
+<material>
+<mattext texttype="text/plain">Arbítrio, porque o estudante está tomando suas próprias decisões sobre como aplicar o feedback.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">43995</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="43995_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">16469</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="16469_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">31455</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="31455_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">57593</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="43995_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Embora o comportamento apoie o desenvolvimento de competências, a pergunta questiona qual princípio o comportamento reflete em termos de integridade — e a resposta correta é que não há nenhum problema de integridade presente.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="16469_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Transparência e arbítrio são princípios de integridade vinculados ao uso da IA e à tomada de decisões, não à revisão de feedbacks pessoais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="31455_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Transparência e arbítrio são princípios de integridade vinculados ao uso da IA e à tomada de decisões, não à revisão de feedbacks pessoais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge8951162b47cceb66cc6cd79e4b30f0b" title="Pergunta 46">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>35689,66319,10615,99734</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Um estudante está trabalhando em sua Entrevista de Pesquisa de História da Família da S04 e pergunta à IA: 'Que perguntas devo fazer à minha avó sobre sua infância?' O estudante utiliza as perguntas sugeridas pela IA palavra por palavra em sua entrevista. Qual princípio isso viola de forma mais direta?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="35689">
+<material>
+<mattext texttype="text/plain">Arbítrio, porque o estudante permitiu que a IA tomasse decisões sobre sua atividade que cabiam ao próprio estudante</mattext>
+</material>
+</response_label>
+<response_label ident="66319">
+<material>
+<mattext texttype="text/plain">Transparência, porque o estudante não revelou que a IA gerou as perguntas da entrevista</mattext>
+</material>
+</response_label>
+<response_label ident="10615">
+<material>
+<mattext texttype="text/plain">Competência, pois gerar perguntas de entrevista é uma habilidade que a atividade foi projetada para desenvolver</mattext>
+</material>
+</response_label>
+<response_label ident="99734">
+<material>
+<mattext texttype="text/plain">Privacidade, porque o estudante compartilhou detalhes sobre sua avó com uma ferramenta de IA</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">66319</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="66319_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">10615</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="10615_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99734</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99734_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">35689</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="66319_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A transparência é uma preocupação secundária que exigiria uma declaração de divulgação, mas a violação primária é a renúncia à tomada de decisões.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="10615_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A competência também é afetada, mas o módulo identifica a geração de conteúdo e a tomada de decisões como uma questão de arbítrio.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="99734_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A privacidade é relevante quando dados pessoais de identificação são inseridos na IA, não quando um assunto é discutido em termos gerais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g907c0cd931a0859c7147287b253b39a5" title="Pergunta 47">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>26804,99294,3262,36344</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Um estudante lê que o Presidente Oaks ensinou que a dependência de outras pessoas para decisões ou recursos que a própria pessoa poderia prover de forma independente enfraquece o indivíduo espiritualmente. O estudante aplica esse princípio ao seu trabalho da disciplina/curso. Qual dos seguintes comportamentos reflete de forma mais direta esse ensinamento?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="26804">
+<material>
+<mattext texttype="text/plain">Escrever o próprio rascunho antes de consultar qualquer recurso externo, incluindo a IA</mattext>
+</material>
+</response_label>
+<response_label ident="99294">
+<material>
+<mattext texttype="text/plain">Pedir esclarecimentos ao(à) instrutor(a) sobre os requisitos da atividade antes de começar</mattext>
+</material>
+</response_label>
+<response_label ident="3262">
+<material>
+<mattext texttype="text/plain">Usar a IA para verificar erros gramaticais após concluir o rascunho de forma independente**</mattext>
+</material>
+</response_label>
+<response_label ident="36344">
+<material>
+<mattext texttype="text/plain">Ler exemplos publicados de narrativas pessoais para compreender o gênero antes de escrever</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">99294</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="99294_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">3262</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="3262_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36344</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36344_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">26804</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="99294_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Pedir esclarecimentos a um(a) instrutor(a) sobre os requisitos é um comportamento acadêmico apropriado e não cria uma dependência prejudicial.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="3262_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Usar a IA para verificar a gramática após concluir um rascunho de forma independente é uma prática aprovada que não substitui o próprio esforço do estudante.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="36344_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ler exemplos publicados para a compreensão do gênero é pesquisa, não dependência.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf950f939c116c7a35b47b4f8a99fa822" title="Pergunta 48">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>15237,8442,98,12707</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Um estudante descobre que um colega de classe publicou capturas de tela de suas atividades concluídas de WRIT 101 em um grupo do Facebook. O estudante não deu permissão para isso. Qual afirmação descreve melhor essa situação de integridade?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="15237">
+<material>
+<mattext texttype="text/plain">O colega de classe cometeu uma violação de compartilhamento de conteúdo ao publicar o trabalho concluído do estudante onde outras pessoas pudessem acessá-lo</mattext>
+</material>
+</response_label>
+<response_label ident="8442">
+<material>
+<mattext texttype="text/plain">Nenhuma violação ocorreu porque o trabalho do estudante foi publicado sem o conhecimento ou consentimento do estudante</mattext>
+</material>
+</response_label>
+<response_label ident="98">
+<material>
+<mattext texttype="text/plain">Tanto o estudante quanto o colega de classe cometeram uma violação porque o trabalho do estudante foi disponibilizado para terceiros</mattext>
+</material>
+</response_label>
+<response_label ident="12707">
+<material>
+<mattext texttype="text/plain">A violação se aplica apenas a estudantes que acessam o grupo do Facebook e usam o trabalho publicado</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8442</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8442_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">12707</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="12707_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">15237</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="8442_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Nenhuma violação é atribuída ao estudante cujo trabalho foi compartilhado sem permissão — o estudante é a vítima da violação, não um participante dela.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="98_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Nenhuma violação é atribuída ao estudante cujo trabalho foi compartilhado sem permissão — o estudante é a vítima da violação, não um participante dela. A violação ocorre no momento da publicação e não se limita aos estudantes que subsequentemente acessam e usam o trabalho.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="12707_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A violação ocorre no momento da publicação e não se limita aos estudantes que subsequentemente acessam e usam o trabalho.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc648f7270902585e90951f9bce96f263" title="Pergunta 49">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>20260,40847,39919,18849</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Um estudante lê a orientação do módulo e decide fazer a seguinte pergunta à IA antes de iniciar seu rascunho de S05: "Esta é uma tarefa de processo ou uma tarefa de produto?" A IA confirma que é uma tarefa de processo. O estudante então pede à IA para escrever o primeiro parágrafo como ponto de partida. Qual erro de raciocínio o estudante cometeu?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="20260">
+<material>
+<mattext texttype="text/plain">Saber que uma tarefa é de processo significa que a elaboração de rascunhos por IA é inadequada — confirmar o tipo de tarefa com a IA não altera a política aplicável a ela.</mattext>
+</material>
+</response_label>
+<response_label ident="40847">
+<material>
+<mattext texttype="text/plain">O estudante fez a pergunta errada à IA — ele deveria ter perguntado se o auxílio da IA é permitido, não qual é o tipo de tarefa.</mattext>
+</material>
+</response_label>
+<response_label ident="39919">
+<material>
+<mattext texttype="text/plain">O estudante deveria ter pedido ao seu Instrutor(a) para classificar o tipo de tarefa, em vez de perguntar à IA.</mattext>
+</material>
+</response_label>
+<response_label ident="18849">
+<material>
+<mattext texttype="text/plain">Pedir à IA para escrever apenas o primeiro parágrafo é um uso de menor importância que não viola as orientações para tarefas de processo.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40847</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40847_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39919</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39919_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">18849</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="18849_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">20260</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="40847_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A pergunta sobre se o auxílio é permitido é respondida pelo próprio tipo de tarefa — trata-se da mesma questão.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="39919_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A classificação da tarefa por parte do Instrutor(a) não é necessária.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="18849_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Não existe um limite de tamanho de rascunho abaixo do qual a elaboração por IA se torne aceitável para uma tarefa de processo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g75c48c4dec7a31c66cd8cf00faf1fe95" title="Pergunta 5">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>25270,1311,50753,16971</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Um estudante em sua primeira semana de WRIT 101 lê que deve enviar uma declaração de divulgação com cada atividade. Ele não usou IA em sua primeira atividade. O que sua declaração deve dizer?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="25270">
+<material>
+<mattext texttype="text/plain">"Não utilizei auxílio de IA nesta atividade."</mattext>
+</material>
+</response_label>
+<response_label ident="1311">
+<material>
+<mattext texttype="text/plain">Ele não precisa incluir uma declaração porque não usou IA.</mattext>
+</material>
+</response_label>
+<response_label ident="50753">
+<material>
+<mattext texttype="text/plain">"Esta atividade foi concluída sem o uso de ferramentas ou Recursos externos."</mattext>
+</material>
+</response_label>
+<response_label ident="16971">
+<material>
+<mattext texttype="text/plain">"Todas as ideias e conteúdos desta atividade são originais e de minha autoria."</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1311</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1311_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">50753</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="50753_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">16971</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="16971_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">25270</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="1311_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Omitir a declaração porque a IA não foi usada não cumpre o requisito — a declaração é obrigatória independentemente do uso de IA.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="50753_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As outras duas opções não contêm a redação aprovada e não cumprem o requisito de transparência definido no módulo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="16971_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">As outras duas opções não contêm a redação aprovada e não cumprem o requisito de transparência definido no módulo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge89e1ec74928820ca24756d21cd453db" title="Pergunta 6">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>31731,1994,88463,90751</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma estudante deseja incluir os conselhos de negócios de sua mãe em seu projeto de história pessoal. Sua mãe treinou muitos aprendizes e construiu um negócio de sucesso ao longo de muitos anos. A estudante acredita que esse conhecimento é amplamente conhecido em sua comunidade e não precisa de citação. O que ela deve fazer?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="31731">
+<material>
+<mattext texttype="text/plain">Perguntar ao seu Instrutor(a) se o conhecimento pessoal exige uma citação antes de enviar a atividade.</mattext>
+</material>
+</response_label>
+<response_label ident="1994">
+<material>
+<mattext texttype="text/plain">Enviar a atividade sem uma citação, pois o conhecimento comunitário não exige uma em nenhum contexto.</mattext>
+</material>
+</response_label>
+<response_label ident="88463">
+<material>
+<mattext texttype="text/plain">Substituir totalmente o conselho de sua mãe por uma fonte acadêmica publicada sobre o mesmo Assunto.</mattext>
+</material>
+</response_label>
+<response_label ident="90751">
+<material>
+<mattext texttype="text/plain">Incluir a informação e citar sua mãe informalmente, sem seguir um estilo de citação específico.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1994</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1994_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88463</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88463_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">90751</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="90751_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">31731</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="1994_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Enviar sem uma citação pressupõe uma exceção que os padrões acadêmicos ocidentais não concedem.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="88463_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Substituir totalmente o conhecimento pessoal descarta um conteúdo valioso e autêntico.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="90751_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Incluir uma citação de comunicação pessoal pode ser apropriado em alguns casos se citada corretamente, mas a orientação do módulo é perguntar primeiro ao Instrutor(a), e não agir de forma independente.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g421b5072e5c0af90c8b23b4ca6aad49e" title="Pergunta 7">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>73884,8023,17780,31379</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Um estudante conclui uma narrativa pessoal para WRIT 101. Sua amiga, que foi aprovada na disciplina/curso no período letivo passado, oferece compartilhar sua narrativa concluída como modelo. O estudante a lê para compreender o formato e a estrutura, mas não copia nada de sua escrita. Ele cometeu uma violação de integridade?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="73884">
+<material>
+<mattext texttype="text/plain">Sim, porque obter atividades concluídas de outras pessoas é uma violação de compartilhamento de conteúdo, independentemente da intenção</mattext>
+</material>
+</response_label>
+<response_label ident="8023">
+<material>
+<mattext texttype="text/plain">Não, porque ele não copiou nada da escrita dela em sua própria atividade</mattext>
+</material>
+</response_label>
+<response_label ident="17780">
+<material>
+<mattext texttype="text/plain">Não, porque usar uma atividade concluída como modelo é uma prática de estudo aprovada</mattext>
+</material>
+</response_label>
+<response_label ident="31379">
+<material>
+<mattext texttype="text/plain">Sim, porque ele deveria ter pedido um exemplo ao seu Instrutor(a) em vez disso</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8023</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8023_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">17780</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="17780_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">31379</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="31379_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">73884</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="8023_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A intenção não altera a violação. O módulo adverte especificamente contra a obtenção de atividades concluídas de estudantes de períodos letivos anteriores, mesmo com pequenas alterações.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="17780_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Usar o trabalho enviado de outro estudante como modelo não é uma prática aprovada, independentemente de haver cópia de texto.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="31379_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A ação correta é pedir orientação ou exemplos ao Instrutor(a).</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gaefe677a674adc2e6512b81c7b92819c" title="Pergunta 8">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>96900,59838,67219,74010</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Um estudante não tem certeza se o formato de sua citação no texto está correto. He pergunta à IA: "Você pode explicar o formato de citação no texto da APA para uma paráfrase?" Ele lê a explicação e depois formata sua própria citação. Em qual categoria esse uso de IA se enquadra?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="96900">
+<material>
+<mattext texttype="text/plain">Uso apropriado, pois ele pediu à IA para explicar um conceito e depois o aplicou por conta própria</mattext>
+</material>
+</response_label>
+<response_label ident="59838">
+<material>
+<mattext texttype="text/plain">Uso inadequado, pois as dúvidas de citação da APA devem ser direcionadas apenas ao Instrutor(a)</mattext>
+</material>
+</response_label>
+<response_label ident="67219">
+<material>
+<mattext texttype="text/plain">Uso inadequado, pois fazer qualquer pergunta à IA sobre a atividade conta como auxílio não autorizado</mattext>
+</material>
+</response_label>
+<response_label ident="74010">
+<material>
+<mattext texttype="text/plain">Uso apropriado, pois citações formatadas por IA são permitidas quando o estudante as revisa</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59838</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59838_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67219</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67219_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74010</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74010_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">96900</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="59838_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As dúvidas sobre APA não precisam ser direcionadas exclusivamente ao Instrutor(a).</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67219_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Fazer uma pergunta sobre conceito à IA não constitui auxílio não autorizado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="74010_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O estudante não pediu à IA para formatar a citação para ele, portanto isso não se enquadra na regra sobre o envio de citações geradas por IA sem verificação.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g2fee9b1c61a552b0302134b06e767bc3" title="Pergunta 9">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>76110,57402,20688,47066</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Uma estudante escreve sua própria paráfrase de uma fonte. Ela então pergunta à IA: "Minha versão reflete com precisão o significado original ou mudei algo importante?" Ela lê a resposta da IA e ajusta a paráfrase por conta própria. O que essa abordagem demonstra?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="76110">
+<material>
+<mattext texttype="text/plain">A estudante usou a IA para verificar seu raciocínio em vez de substituí-lo, o que é um método aprovado</mattext>
+</material>
+</response_label>
+<response_label ident="57402">
+<material>
+<mattext texttype="text/plain">A estudante violou o princípio de agência ao permitir que a IA avaliasse seu trabalho</mattext>
+</material>
+</response_label>
+<response_label ident="20688">
+<material>
+<mattext texttype="text/plain">A estudante cometeu plágio em mosaico ao comparar sua paráfrase com a fonte original</mattext>
+</material>
+</response_label>
+<response_label ident="47066">
+<material>
+<mattext texttype="text/plain">A estudante deveria ter pedido ao seu Instrutor(a) para verificar a paráfrase em vez de usar a IA</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">57402</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="57402_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20688</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20688_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47066</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47066_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">76110</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="57402_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O princípio de agência não é violado porque a estudante tomou todas as decisões e apenas pediu à IA que verificasse a precisão.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="20688_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Comparar uma paráfrase com uma fonte original não é plágio em mosaico — o plágio em mosaico envolve a imitação da estrutura original.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="47066_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Perguntar ao Instrutor(a) é sempre uma opção, mas esse uso de IA é especificamente aprovado no módulo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+</objectbank>
+</questestinterop>

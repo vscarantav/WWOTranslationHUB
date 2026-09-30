@@ -1,0 +1,3224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+<objectbank ident="g6dc577fc9aa0c1233058ab8021a0fafc">
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>bank_title</fieldlabel>
+<fieldentry>S05 - Perguntas de Nível 1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_type</fieldlabel>
+<fieldentry>Course</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_context_uuid</fieldlabel>
+<fieldentry>Pm3b1l08woeaShX88bZnIytohG4NMS2LDA11YkWJ</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_state</fieldlabel>
+<fieldentry>active</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+<item ident="g953767e1c5b8c09a07c5ba09ba23bc85" title="Pergunta 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>58578,9215,77955,1489</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Que tipo de escrita relata um acontecimento ou uma experiência específica da própria vida?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="58578">
+<material>
+<mattext texttype="text/plain">Narrativa pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="9215">
+<material>
+<mattext texttype="text/plain">Biografia</mattext>
+</material>
+</response_label>
+<response_label ident="77955">
+<material>
+<mattext texttype="text/plain">Redação analítica</mattext>
+</material>
+</response_label>
+<response_label ident="1489">
+<material>
+<mattext texttype="text/plain">Relatório de pesquisa</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9215</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9215_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">77955</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="77955_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1489</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1489_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">58578</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="9215_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma biografia é escrita sobre a vida de outra pessoa, não sobre a própria experiência de quem a escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="77955_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma redação analítica examina um assunto usando evidências e raciocínio.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="1489_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Um relatório de pesquisa apresenta descobertas de fontes externas.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g467813b6af2d52a2c2b5b6014a74c8ed" title="Pergunta 10">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>54781,59124,88727,55820</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Onde costuma aparecer a reflexão final de uma narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="54781">
+<material>
+<mattext texttype="text/plain">Nos parágrafos finais da narrativa</mattext>
+</material>
+</response_label>
+<response_label ident="59124">
+<material>
+<mattext texttype="text/plain">Na cena de abertura, antes do início da ação</mattext>
+</material>
+</response_label>
+<response_label ident="88727">
+<material>
+<mattext texttype="text/plain">Ao longo da seção intermediária, junto com os diálogos</mattext>
+</material>
+</response_label>
+<response_label ident="55820">
+<material>
+<mattext texttype="text/plain">Imediatamente após a introdução do primeiro detalhe sensorial</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59124</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59124_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88727</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88727_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">55820</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="55820_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">54781</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="59124_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A cena de abertura estabelece a situação, em vez de oferecer uma reflexão final.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="88727_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A reflexão integrada ao longo da seção intermediária pode preparar as pessoas leitoras para a conclusão, mas a principal reflexão de encerramento surge nos parágrafos finais, nos quais quem escreve relaciona a experiência específica a um significado mais amplo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="55820_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O diálogo e os detalhes sensoriais são desenvolvidos na seção intermediária.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7d7cd73dbad2749a3d2d5dfbe59786ea" title="Pergunta 11">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>51153,68492,65851,13091</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual parte da estrutura da narrativa pessoal costuma ser a mais longa?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="51153">
+<material>
+<mattext texttype="text/plain">A seção intermediária, onde a experiência é desenvolvida</mattext>
+</material>
+</response_label>
+<response_label ident="68492">
+<material>
+<mattext texttype="text/plain">O início, onde a situação é estabelecida</mattext>
+</material>
+</response_label>
+<response_label ident="65851">
+<material>
+<mattext texttype="text/plain">O final, onde quem escreve reflete sobre o significado</mattext>
+</material>
+</response_label>
+<response_label ident="13091">
+<material>
+<mattext texttype="text/plain">A exposição, onde são fornecidas informações de contexto</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">68492</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="68492_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65851</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65851_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">13091</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="13091_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">51153</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="68492_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O início estabelece a situação de forma breve e não é a seção mais longa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="65851_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O final traz uma reflexão, mas costuma ser conciso.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="13091_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A exposição faz parte do início, não sendo uma seção separada de maior extensão.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1b0c296605afb0604f36f9508615c5d1" title="Pergunta 12">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>27163,65414,60101,53504</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o propósito do diálogo em uma narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="27163">
+<material>
+<mattext texttype="text/plain">Revelar traços de personalidade, fazer a história avançar e conectar-se com o público leitor</mattext>
+</material>
+</response_label>
+<response_label ident="65414">
+<material>
+<mattext texttype="text/plain">Fornecer informações de contexto sobre eventos anteriores ao início da história</mattext>
+</material>
+</response_label>
+<response_label ident="60101">
+<material>
+<mattext texttype="text/plain">Substituir os detalhes sensoriais ao descrever uma cena</mattext>
+</material>
+</response_label>
+<response_label ident="53504">
+<material>
+<mattext texttype="text/plain">Resumir o que aconteceu entre dois grandes eventos da narrativa</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65414</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65414_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">60101</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="60101_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53504</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53504_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">27163</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="65414_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As informações de contexto pertencem ao início, não ao diálogo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="60101_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os detalhes sensoriais e o diálogo servem a propósitos diferentes, e nenhum substitui o outro.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53504_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Resumir eventos entre as cenas é uma técnica de transição, não o objetivo do diálogo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gfda7f6dee2eeadbbd11f611e4cbeb1e9" title="Pergunta 13">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>13492,65555,69560,72918</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que significa o termo "telling" na escrita de narrativas pessoais?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="13492">
+<material>
+<mattext texttype="text/plain">Declarar emoções ou fatos diretamente, em vez de mostrá-los por meio de detalhes</mattext>
+</material>
+</response_label>
+<response_label ident="65555">
+<material>
+<mattext texttype="text/plain">Usar ações específicas e detalhes sensoriais para permitir que o público leitor vivencie a história</mattext>
+</material>
+</response_label>
+<response_label ident="69560">
+<material>
+<mattext texttype="text/plain">Incluir diálogos para que o público leitor possa ouvir os personagens falarem</mattext>
+</material>
+</response_label>
+<response_label ident="72918">
+<material>
+<mattext texttype="text/plain">Descrever o cenário de uma cena com detalhes visuais precisos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">65555</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="65555_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">69560</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="69560_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">72918</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="72918_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">13492</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="65555_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Usar ações específicas e detalhes sensoriais é a técnica chamada "showing".</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="69560_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Incluir diálogos é uma ferramenta do "showing".</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="72918_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Descrever o cenário com precisão é uma forma de "showing".</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gec406f111de4c2911f9c08977263349b" title="Pergunta 14">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>84276,29180,98928,88078</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é a voz narrativa em uma narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="84276">
+<material>
+<mattext texttype="text/plain">A personalidade, a perspectiva e o tom na escrita de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="29180">
+<material>
+<mattext texttype="text/plain">A sequência de eventos que compõem o enredo da história</mattext>
+</material>
+</response_label>
+<response_label ident="98928">
+<material>
+<mattext texttype="text/plain">A mensagem central ou lição que a narrativa transmite</mattext>
+</material>
+</response_label>
+<response_label ident="88078">
+<material>
+<mattext texttype="text/plain">O cenário físico onde ocorrem os eventos da história</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">29180</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="29180_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98928</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98928_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88078</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88078_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">84276</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="29180_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O enredo refere-se à sequência de eventos em uma história, não a como ela é contada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="98928_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O tema é a mensagem central ou lição, que é independente do estilo de expressão de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="88078_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O cenário descreve onde e quando a história se passa, não a presença de quem escreve na página.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gadb8050cd359ed08c7282f56c034cdaa" title="Pergunta 15">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>1105,72500,22517,74058</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o definição de cultura conforme utilizada na escrita de narrativas pessoais?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="1105">
+<material>
+<mattext texttype="text/plain">Os valores, costumes, artes e características compartilhados de um grupo social</mattext>
+</material>
+</response_label>
+<response_label ident="72500">
+<material>
+<mattext texttype="text/plain">O país ou região específica onde a pessoa autora nasceu</mattext>
+</material>
+</response_label>
+<response_label ident="22517">
+<material>
+<mattext texttype="text/plain">O idioma que a pessoa autora utiliza para se comunicar com o público leitor</mattext>
+</material>
+</response_label>
+<response_label ident="74058">
+<material>
+<mattext texttype="text/plain">Os acontecimentos históricos que moldaram as experiências pessoais de quem escreve</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">72500</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="72500_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">22517</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="22517_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">74058</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="74058_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">1105</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="72500_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O país ou a região de nascimento é um aspecto do contexto de vida, mas não define a cultura por completo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="22517_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O idioma é um componente da cultura, mas não abrange todo o seu significado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="74058_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os acontecimentos históricos podem influenciar a cultura, mas não são a sua definição.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g099c1fdeedc28c8812478015ff5530b6" title="Pergunta 16">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>7122,54227,87245,85120</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é um narrador onisciente?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="7122">
+<material>
+<mattext texttype="text/plain">Um narrador que possui um ponto de vista onisciente (que tudo sabe)</mattext>
+</material>
+</response_label>
+<response_label ident="54227">
+<material>
+<mattext texttype="text/plain">Um narrador que é personagem na história e a conta usando "eu"</mattext>
+</material>
+</response_label>
+<response_label ident="87245">
+<material>
+<mattext texttype="text/plain">Um narrador que se alinha a uma personagem e sabe apenas o que essa personagem sabe</mattext>
+</material>
+</response_label>
+<response_label ident="85120">
+<material>
+<mattext texttype="text/plain">Um narrador que se dirige diretamente ao público leitor usando a palavra "você"</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">54227</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="54227_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">87245</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="87245_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85120</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85120_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">7122</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="54227_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Um narrador que é personagem na história utilizando &lt;strong&gt;eu&lt;/strong&gt; é um narrador em primeira pessoa.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="87245_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Um narrador alinhado a uma personagem e que sabe apenas o que ela sabe é um narrador em terceira pessoa limitado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85120_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Um narrador que se dirige ao público leitor como &lt;strong&gt;você&lt;/strong&gt; utiliza o ponto de vista em segunda pessoa.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g07cc32998f705f404621de48c8407b29" title="Pergunta 17">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>73561,90049,71880,92621</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é a escrita pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="73561">
+<material>
+<mattext texttype="text/plain">Escrita que compartilha com o público leitor as vivências de quem escreve, conta uma história e, muitas vezes, inclui memórias e episódios marcantes</mattext>
+</material>
+</response_label>
+<response_label ident="90049">
+<material>
+<mattext texttype="text/plain">Escrita que apresenta um argumento fundamentado em pesquisas e apoiado por fontes externas</mattext>
+</material>
+</response_label>
+<response_label ident="71880">
+<material>
+<mattext texttype="text/plain">Escrita que analisa um texto ou uma ideia sob uma perspectiva crítica</mattext>
+</material>
+</response_label>
+<response_label ident="92621">
+<material>
+<mattext texttype="text/plain">Escrita que descreve um processo ou procedimento usando instruções passo a passo</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">90049</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="90049_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">71880</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="71880_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">92621</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="92621_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">73561</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="90049_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A escrita que apresenta um argumento fundamentado em pesquisas é a escrita acadêmica ou persuasiva.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="71880_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A escrita que analisa criticamente um texto ou uma ideia é a escrita analítica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="92621_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A escrita que descreve um processo passo a passo é a escrita processual ou instrucional.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf97acf71704578da74dd53c67c225614" title="Pergunta 18">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>8116,36801,88362,76449</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o propósito dos detalhes sensoriais em uma narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="8116">
+<material>
+<mattext texttype="text/plain">Transformar a narrativa em uma experiência vívida que o público leitor possa ver, ouvir, sentir, cheirar e saborear</mattext>
+</material>
+</response_label>
+<response_label ident="36801">
+<material>
+<mattext texttype="text/plain">Fornecer informações de contexto sobre o cenário antes do início da história</mattext>
+</material>
+</response_label>
+<response_label ident="88362">
+<material>
+<mattext texttype="text/plain">Resumir os acontecimentos da narrativa de maneira concreta</mattext>
+</material>
+</response_label>
+<response_label ident="76449">
+<material>
+<mattext texttype="text/plain">Substituir o diálogo quando nenhuma conversa ocorreu durante a experiência</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">36801</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="36801_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">88362</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="88362_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">76449</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="76449_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">8116</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="36801_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As informações de contexto pertencem ao início, não à descrição sensorial.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="88362_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os detalhes sensoriais criam uma experiência vívida em vez de resumir os acontecimentos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="76449_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O diálogo e os detalhes sensoriais servem a propósitos diferentes, e nenhum substitui o outro.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gc8ebd484d5d67a3b526be4836c54d241" title="Pergunta 19">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>34175,41553,26530,21446</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual das seguintes opções é um exemplo de uma afirmação do tipo &lt;strong&gt;telling&lt;/strong&gt;?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="34175">
+<material>
+<mattext texttype="text/plain">"Minha avó era uma mulher paciente."</mattext>
+</material>
+</response_label>
+<response_label ident="41553">
+<material>
+<mattext texttype="text/plain">"Minha avó deixou o tricô de lado e cruzou as mãos no colo sem dizer uma palavra."</mattext>
+</material>
+</response_label>
+<response_label ident="26530">
+<material>
+<mattext texttype="text/plain">"A voz de minha avó continuou suave, mesmo quando a discussão ao seu redor ficou mais alta."</mattext>
+</material>
+</response_label>
+<response_label ident="21446">
+<material>
+<mattext texttype="text/plain">"Minha avó serviu chá para todos à mesa antes de servir o dela."</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">41553</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="41553_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">26530</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="26530_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21446</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21446_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">34175</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="41553_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Deixar o tricô de lado e cruzar as mãos em silêncio... tudo isso mostra a personalidade através de ações e detalhes específicos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="26530_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Manter a voz suave durante uma discussão... tudo isso mostra a personalidade através de ações e detalhes específicos.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21446_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Servir o chá primeiro para as outras pessoas mostra a personalidade através de ações e detalhes específicos.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g6a6ef53fdfd82cea7df43928d4459189" title="Pergunta 2">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>65551,47136,21844,59546</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual ponto de vista quem escreve utiliza em uma narrativa pessoal?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="65551">
+<material>
+<mattext texttype="text/plain">Primeira pessoa</mattext>
+</material>
+</response_label>
+<response_label ident="47136">
+<material>
+<mattext texttype="text/plain">Segunda pessoa</mattext>
+</material>
+</response_label>
+<response_label ident="21844">
+<material>
+<mattext texttype="text/plain">Terceira pessoa limitada</mattext>
+</material>
+</response_label>
+<response_label ident="59546">
+<material>
+<mattext texttype="text/plain">Terceira pessoa onisciente</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">47136</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="47136_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21844</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21844_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59546</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59546_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">65551</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="47136_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A segunda pessoa se dirige ao público leitor como &lt;strong&gt;você&lt;/strong&gt;.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21844_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Tanto a terceira pessoa limitada quanto a terceira pessoa onisciente situam a voz narrativa fora da história.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="59546_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Tanto a terceira pessoa limitada quanto a terceira pessoa onisciente situam a voz narrativa fora da história.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g327df27f8e634b622bbff27707b37ce4" title="Pergunta 20">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>15016,89619,28158,67031</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que quem escreve deve fazer quando não consegue se lembrar das palavras exatas ditas em uma conversa sobre a qual está escrevendo?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="15016">
+<material>
+<mattext texttype="text/plain">Reconstruir o tom, as frases principais e o conteúdo emocional da conversa</mattext>
+</material>
+</response_label>
+<response_label ident="89619">
+<material>
+<mattext texttype="text/plain">Deixar a conversa totalmente fora da narrativa</mattext>
+</material>
+</response_label>
+<response_label ident="28158">
+<material>
+<mattext texttype="text/plain">Escrever apenas as partes da conversa de que se lembra palavra por palavra</mattext>
+</material>
+</response_label>
+<response_label ident="67031">
+<material>
+<mattext texttype="text/plain">Substituir a conversa por um resumo do que foi discutido</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89619</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89619_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">28158</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="28158_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">67031</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="67031_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">15016</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="89619_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Deixar de fora uma conversa que é importante para a história enfraquece a narrativa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="28158_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Escrever apenas palavras literais limita o que quem escreve pode incluir de sua memória.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="67031_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Substituir a conversa por um resumo elimina o imediatismo que o diálogo proporciona.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gbc0db6d2fbb94b9b9f85ea8a8c4fe340" title="Pergunta 21">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>19644,51919,43759,32282</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o primeiro passo que quem escreve deve dar antes de usar o feedback de IA em um rascunho de narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="19644">
+<material>
+<mattext texttype="text/plain">Escrever um rascunho completo que inclua começo, meio, fim, detalhes sensoriais e reflexão pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="51919">
+<material>
+<mattext texttype="text/plain">Gerar um esboço usando IA para organizar a estrutura da narrativa</mattext>
+</material>
+</response_label>
+<response_label ident="43759">
+<material>
+<mattext texttype="text/plain">Pedir à IA que sugira detalhes sensoriais antes de começar a escrever</mattext>
+</material>
+</response_label>
+<response_label ident="32282">
+<material>
+<mattext texttype="text/plain">Compartilhar um rascunho inicial com a IA para que ela possa identificar quais memórias devem ser incluídas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">51919</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="51919_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">43759</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="43759_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32282</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32282_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">19644</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="51919_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Usar a IA para gerar um esboço antes de escrever substitui o próprio processo de planejamento de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="43759_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Pedir detalhes sensoriais à IA antes de escrever substitui a memória e a própria experiência de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="32282_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Compartilhar um rascunho inicial para que a IA identifique memórias substitui o próprio julgamento de quem escreve pelo da IA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge2ce72e1f69850b97a87d4683d5f3f4f" title="Pergunta 22">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>22794,82767,71755,70078</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que uma abertura de narrativa forte faz?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="22794">
+<material>
+<mattext texttype="text/plain">Coloca quem lê imediatamente na cena usando detalhes sensoriais</mattext>
+</material>
+</response_label>
+<response_label ident="82767">
+<material>
+<mattext texttype="text/plain">Oferece um histórico detalhado sobre a vida de quem escreve antes de a história começar</mattext>
+</material>
+</response_label>
+<response_label ident="71755">
+<material>
+<mattext texttype="text/plain">Explica o tema da narrativa para que quem lê compreenda seu significado</mattext>
+</material>
+</response_label>
+<response_label ident="70078">
+<material>
+<mattext texttype="text/plain">Resume os acontecimentos que ocorrerão ao longo da narrativa</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">82767</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="82767_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">71755</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="71755_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">70078</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="70078_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">22794</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="82767_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Um histórico detalhado antes do início da história retarda o engajamento e pode incluir informações irrelevantes.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="71755_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Explicar o tema na abertura elimina a descoberta que quem lê deveria vivenciar.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="70078_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Resumir os próximos acontecimentos elimina o suspense e o ritmo da narrativa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g3091215402867bd23941c9cddb14e216" title="Pergunta 23">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>10566,39305,35630,61563</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é o significado do termo "tarefa de processo" conforme usado na leitura da S05?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="10566">
+<material>
+<mattext texttype="text/plain">Uma Atividade em que o aprendizado provém do próprio ato de pensar, lembrar e interpretar de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="39305">
+<material>
+<mattext texttype="text/plain">Uma Atividade que exige que quem escreve siga um conjunto fixo de etapas em uma ordem específica</mattext>
+</material>
+</response_label>
+<response_label ident="35630">
+<material>
+<mattext texttype="text/plain">Uma Atividade que usa ferramentas de IA para gerar e refinar conteúdo escrito</mattext>
+</material>
+</response_label>
+<response_label ident="61563">
+<material>
+<mattext texttype="text/plain">Uma Atividade que se concentra em editar e revisar uma obra de Escrita existente</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">39305</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="39305_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35630</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35630_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">61563</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="61563_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">10566</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="39305_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Seguir um conjunto fixo de etapas descreve uma tarefa procedural.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="35630_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Usar a IA para gerar conteúdo é o oposto do que a leitura descreve como uma tarefa de processo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="61563_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Editar e revisar uma obra existente é uma etapa da Escrita, não a definição de uma tarefa de processo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g928d2d5666f03ef625d8240fb1fd5e1d" title="Pergunta 24">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>1630,38228,49579,31568</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Qual é o risco de pedir à IA para "melhorar minha escrita" após concluir o rascunho de uma narrativa pessoal?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="1630">
+<material>
+<mattext texttype="text/plain">A IA pode substituir a voz marcante de quem escreve por uma prosa genérica e padronizada</mattext>
+</material>
+</response_label>
+<response_label ident="38228">
+<material>
+<mattext texttype="text/plain">A IA sempre tornará a Escrita informal demais para o Envio de Tarefa acadêmica</mattext>
+</material>
+</response_label>
+<response_label ident="49579">
+<material>
+<mattext texttype="text/plain">A IA não consegue ler rascunhos de narrativas pessoais e produzirá conteúdo não relacionado</mattext>
+</material>
+</response_label>
+<response_label ident="31568">
+<material>
+<mattext texttype="text/plain">A IA sempre encurtará a narrativa, independentemente do comando</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38228</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38228_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">49579</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="49579_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">31568</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="31568_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">1630</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="38228_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;A IA não produz Escrita informal de forma consistente — esse não é o risco identificado.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="49579_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A IA pode ler rascunhos de narrativas pessoais e responder a eles.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="31568_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">A IA não reduz automaticamente a Escrita para menos do que o comprimento exigido.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g3128e84f1eaf6214f4c919b2e979f2dc" title="Pergunta 25">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>48462,78236,79969,50142</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é uma forma apropriada de usar a IA durante o processo de Escrita da narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="48462">
+<material>
+<mattext texttype="text/plain">Pedir à IA que explique o que significa "mostrar em vez de contar" com exemplos</mattext>
+</material>
+</response_label>
+<response_label ident="78236">
+<material>
+<mattext texttype="text/plain">Pedir à IA para gerar o primeiro rascunho da narrativa</mattext>
+</material>
+</response_label>
+<response_label ident="79969">
+<material>
+<mattext texttype="text/plain">Pedir à IA para selecionar sobre qual memória pessoal escrever</mattext>
+</material>
+</response_label>
+<response_label ident="50142">
+<material>
+<mattext texttype="text/plain">Pedir à IA para adicionar detalhes sensoriais a uma cena que quem escreve ainda não escreveu</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">78236</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="78236_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">79969</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="79969_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">50142</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="50142_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">48462</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="78236_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Pedir à IA que gere o primeiro rascunho substitui completamente o próprio processo de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="79969_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Pedir à IA que selecione uma memória substitui a reflexão pessoal de quem escreve pelo julgamento da IA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="50142_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Pedir à IA para adicionar detalhes sensoriais a uma cena não escrita substitui a memória de quem escreve por um conteúdo que não pertence à experiência pessoal real de ninguém.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ga75bec780144b1c1b2e63ab0f8569717" title="Pergunta 26">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>8447,1687,25311,22712</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;De acordo com a leitura da S05, o que torna autênticos os detalhes sensoriais em uma narrativa pessoal?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="8447">
+<material>
+<mattext texttype="text/plain">Eles se baseiam na memória específica que quem escreve tem da experiência.</mattext>
+</material>
+</response_label>
+<response_label ident="1687">
+<material>
+<mattext texttype="text/plain">Eles utilizam um vocabulário altamente técnico ou acadêmico para aprimorar a descrição.</mattext>
+</material>
+</response_label>
+<response_label ident="25311">
+<material>
+<mattext texttype="text/plain">Eles descrevem todos os cinco sentidos igualmente em cada parágrafo.</mattext>
+</material>
+</response_label>
+<response_label ident="22712">
+<material>
+<mattext texttype="text/plain">Eles são genéricos o suficiente para que qualquer pessoa que leia possa tê-los vivenciado.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1687</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1687_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">25311</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="25311_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">22712</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="22712_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">8447</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="1687_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Um vocabulário preciso de fontes externas não torna os detalhes autênticos para uma experiência pessoal.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="25311_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Abranger todos os cinco sentidos igualmente em cada parágrafo não é obrigatório nem recomendado.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="22712_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Detalhes tão nítidos que qualquer pessoa poderia tê-los escrito caracterizam uma Escrita genérica, e não autêntica.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g15459b56ffa550282f4496c004fdfe5d" title="Pergunta 27">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9374,4812,82913,85807</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;No estudo de caso de abertura da S05, qual era o principal problema com o primeiro rascunho de Ada?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9374">
+<material>
+<mattext texttype="text/plain">Ele tentou abranger coisas demais em vez de focar em um momento específico.</mattext>
+</material>
+</response_label>
+<response_label ident="4812">
+<material>
+<mattext texttype="text/plain">Ele usou detalhes sensoriais em excesso que não tinham relação com a história.</mattext>
+</material>
+</response_label>
+<response_label ident="82913">
+<material>
+<mattext texttype="text/plain">Ele dependeu excessivamente de diálogos em vez de descrever os acontecimentos.</mattext>
+</material>
+</response_label>
+<response_label ident="85807">
+<material>
+<mattext texttype="text/plain">Ele começou muito perto da Ação sem fornecer informações de contexto suficientes.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">4812</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="4812_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">82913</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="82913_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85807</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85807_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9374</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="4812_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;O primeiro rascunho de Ada não incluía detalhes sensoriais excessivos — na verdade, faltavam detalhes.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="82913_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">O rascunho não dependia de diálogos.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85807_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Começar muito perto da Ação é um ponto forte na Escrita de narrativas pessoais, não um problema.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g8dd01f675e1738ef90030ed2fcd60fe2" title="Pergunta 28">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>78342,38414,32022,17136</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é um comando de &lt;strong&gt;acelerador de crescimento&lt;/strong&gt; ao usar a IA durante a Escrita de uma narrativa pessoal?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="78342">
+<material>
+<mattext texttype="text/plain">Um comando que pede à IA para identificar problemas no próprio rascunho de quem escreve, sem reescrever nada</mattext>
+</material>
+</response_label>
+<response_label ident="38414">
+<material>
+<mattext texttype="text/plain">Um comando que pede à IA para gerar o parágrafo de abertura da narrativa</mattext>
+</material>
+</response_label>
+<response_label ident="32022">
+<material>
+<mattext texttype="text/plain">Um comando que pede à IA para adicionar detalhes sensoriais às cenas que quem escreve descreveu</mattext>
+</material>
+</response_label>
+<response_label ident="17136">
+<material>
+<mattext texttype="text/plain">Um comando que pede à IA para selecionar a memória mais interessante de uma lista fornecida por quem escreve</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38414</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38414_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">32022</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="32022_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">17136</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="17136_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">78342</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="38414_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Pedir à IA para gerar um parágrafo de abertura é uma armadilha de dependência, não um acelerador de crescimento.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="32022_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Pedir à IA para adicionar detalhes sensoriais substitui a memória de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="17136_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Pedir à IA para selecionar uma memória substitui a reflexão pessoal de quem escreve pelo julgamento da IA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gfd7ccc407447cbd73d1d3c6683a58076" title="Pergunta 29">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>87411,40218,85512,58111</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que é um comando de &lt;strong&gt;armadilha de dependência&lt;/strong&gt; ao usar a IA durante a Escrita de uma narrativa pessoal?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="87411">
+<material>
+<mattext texttype="text/plain">Um comando que pede à IA para gerar diálogos e detalhes sensoriais para uma narrativa pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="40218">
+<material>
+<mattext texttype="text/plain">Um comando que pede à IA para verificar a gramática e a pontuação em um rascunho concluído</mattext>
+</material>
+</response_label>
+<response_label ident="85512">
+<material>
+<mattext texttype="text/plain">Um comando que pede à IA para explicar um conceito de Escrita, como "mostrar em vez de contar"</mattext>
+</material>
+</response_label>
+<response_label ident="58111">
+<material>
+<mattext texttype="text/plain">Um comando que pede à IA para identificar onde o rascunho muda para um tom genérico</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">40218</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="40218_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">85512</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="85512_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58111</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58111_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">87411</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="40218_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Pedir à IA para verificar a gramática em um rascunho concluído é um uso apropriado da IA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="85512_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Pedir à IA que explique conceitos de Escrita ajuda quem escreve a compreender a tarefa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="58111_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Pedir à IA que identifique mudanças de tom em um rascunho mantém quem escreve no controle das revisões.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gcc48285dc6932342256aa10c3ed680e5" title="Pergunta 3">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>74460,83795,62543,11431</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é a história superficial de uma narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="74460">
+<material>
+<mattext texttype="text/plain">Uma descrição dos acontecimentos que ocorreram</mattext>
+</material>
+</response_label>
+<response_label ident="83795">
+<material>
+<mattext texttype="text/plain">A lição que quem escreve aprendeu com a experiência</mattext>
+</material>
+</response_label>
+<response_label ident="62543">
+<material>
+<mattext texttype="text/plain">A reflexão de quem escreve sobre por que a experiência é importante</mattext>
+</material>
+</response_label>
+<response_label ident="11431">
+<material>
+<mattext texttype="text/plain">A resposta emocional que quem lê tem em relação à história</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">83795</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="83795_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">62543</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="62543_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">11431</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="11431_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">74460</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="83795_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A lição aprendida e a reflexão sobre o significado fazem parte da história mais profunda.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="62543_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A lição aprendida e a reflexão sobre o significado fazem parte da história mais profunda.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="11431_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A resposta emocional de quem lê é um resultado, não uma camada da história.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gaf45474f9d29be13abf8003a5d9c0d1f" title="Pergunta 30">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>50878,61474,14316,52909</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que a leitura identifica como o elemento da narrativa pessoal em que o uso de IA é mais tentador, mas que tem maior probabilidade de enfraquecer a escrita?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="50878">
+<material>
+<mattext texttype="text/plain">Detalhes sensoriais</mattext>
+</material>
+</response_label>
+<response_label ident="61474">
+<material>
+<mattext texttype="text/plain">Estrutura narrativa</mattext>
+</material>
+</response_label>
+<response_label ident="14316">
+<material>
+<mattext texttype="text/plain">Pontuação de diálogos</mattext>
+</material>
+</response_label>
+<response_label ident="52909">
+<material>
+<mattext texttype="text/plain">Reflexão final</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">61474</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="61474_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14316</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14316_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">52909</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="52909_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">50878</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="61474_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A estrutura narrativa é uma área na qual a IA pode servir como um bom recurso para testar ideias após a existência de um rascunho completo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="14316_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A pontuação de diálogos é uma habilidade mecânica, não a área identificada.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="52909_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A reflexão final é uma percepção própria de quem escreve e não é identificada como a área mais tentadora para o uso de IA.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb60bd0db0d13a6483c4b590a3ec3bc57" title="Pergunta 31">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>15430,98563,80636,69639</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com a leitura, o que a pessoa que escreve deve fazer se sua narrativa não parecer mais ter sua própria voz após receber feedback da IA?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="15430">
+<material>
+<mattext texttype="text/plain">Revisar a narrativa para recuperar sua própria voz antes de enviá-la</mattext>
+</material>
+</response_label>
+<response_label ident="98563">
+<material>
+<mattext texttype="text/plain">Aceitar as alterações porque a IA produz uma escrita acadêmica mais clara</mattext>
+</material>
+</response_label>
+<response_label ident="80636">
+<material>
+<mattext texttype="text/plain">Pedir à IA para restaurar a versão original a partir do rascunho anterior</mattext>
+</material>
+</response_label>
+<response_label ident="69639">
+<material>
+<mattext texttype="text/plain">Enviar a versão revisada pela IA e indicar as alterações em uma carta de apresentação</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">98563</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="98563_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">80636</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="80636_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">69639</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="69639_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">15430</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="98563_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Aceitar as alterações da IA porque elas produzem uma escrita mais clara ignora a perda da voz autêntica sobre a qual a leitura alerta.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="80636_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Pedir à IA para restaurar uma versão anterior não resolve o problema subjacente da voz.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="69639_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Enviar uma versão revisada pela IA com uma nota de apresentação não cumpre o propósito da atividade.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf1212787d069fe45b927787b1185f84e" title="Pergunta 32">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>46861,10773,27996,53192</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;De acordo com a leitura, qual é uma forma pela qual quem escreve pode manter a honestidade sobre um diálogo reconstruído?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="46861">
+<material>
+<mattext texttype="text/plain">Incluir uma frase como: "Não consigo me lembrar de suas palavras exatas, mas a mensagem foi clara"</mattext>
+</material>
+</response_label>
+<response_label ident="10773">
+<material>
+<mattext texttype="text/plain">Remover todo o diálogo da narrativa e substituí-lo por descrição</mattext>
+</material>
+</response_label>
+<response_label ident="27996">
+<material>
+<mattext texttype="text/plain">Escrever a conversa exatamente como quem escreve acredita que ela ocorreu, sem qualquer menção a isso</mattext>
+</material>
+</response_label>
+<response_label ident="53192">
+<material>
+<mattext texttype="text/plain">Colocar o diálogo reconstruído em itálico para sinalizar que ele pode não ser exato</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">10773</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="10773_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">27996</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="27996_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53192</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53192_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">46861</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="10773_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Remover todo o diálogo enfraquece a narrativa ao eliminar o senso de imediatismo e a revelação dos personagens.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="27996_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Escrever um diálogo reconstruído sem essa menção distorce o nível de certeza de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53192_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O uso de itálico para diálogos reconstruídos não é uma convenção identificada na leitura.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1dd588f23412f0c0fec6967c283fb3a7" title="Pergunta 33">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>79390,57595,21284,15760</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que a leitura identifica como o momento correto no processo de escrita para a IA atuar como um recurso de validação estrutural?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="79390">
+<material>
+<mattext texttype="text/plain">Após quem escreve ter concluído um rascunho completo com começo, meio, fim, detalhes sensoriais e reflexão pessoal</mattext>
+</material>
+</response_label>
+<response_label ident="57595">
+<material>
+<mattext texttype="text/plain">No início do processo para ajudar quem escreve a identificar qual memória utilizar</mattext>
+</material>
+</response_label>
+<response_label ident="21284">
+<material>
+<mattext texttype="text/plain">Após quem escreve ter redigido uma oração inicial, mas antes de desenvolver a narrativa completa</mattext>
+</material>
+</response_label>
+<response_label ident="15760">
+<material>
+<mattext texttype="text/plain">Durante a seção intermediária para ajudar quem escreve a desenvolver cenas e diálogos</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">57595</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="57595_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">21284</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="21284_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">15760</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="15760_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">79390</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="57595_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Usar a IA no início para identificar uma memória substitui a reflexão pessoal de quem escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="21284_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Usar a IA após uma oração inicial, mas antes de um rascunho completo, introduz a ferramenta muito cedo no processo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="15760_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Usar a IA durante a seção intermediária para desenvolver cenas substitui a narrativa da própria pessoa que escreve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb849d3f45534c93dc82a289753c7acef" title="Pergunta 4">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>93414,58913,35265,81772</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual estrutura narrativa ordena corretamente as três partes principais de uma narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="93414">
+<material>
+<mattext texttype="text/plain">Começo, meio e fim</mattext>
+</material>
+</response_label>
+<response_label ident="58913">
+<material>
+<mattext texttype="text/plain">Ação crescente, clímax, exposição</mattext>
+</material>
+</response_label>
+<response_label ident="35265">
+<material>
+<mattext texttype="text/plain">Introdução, desenvolvimento, tese</mattext>
+</material>
+</response_label>
+<response_label ident="81772">
+<material>
+<mattext texttype="text/plain">Conflito, resolução, reflexão</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">58913</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="58913_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">35265</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="35265_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81772</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81772_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">93414</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="58913_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Ação crescente, clímax e exposição são elementos dentro de um arco narrativo, não as três partes estruturais principais.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="35265_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Introdução, desenvolvimento e tese descrevem a estrutura de uma redação, não de uma narrativa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="81772_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Conflito, resolução e reflexão são elementos narrativos, mas não descrevem a estrutura completa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1c3c2fb37fdaf4011a3b8d24c76d65d2" title="Pergunta 5">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>23554,28309,59860,14868</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O que o termo &lt;strong&gt;showing&lt;/strong&gt; (mostrar) significa na escrita de uma narrativa pessoal?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="23554">
+<material>
+<mattext texttype="text/plain">Usar detalhes específicos, ações e diálogos para permitir que quem lê vivencie a história</mattext>
+</material>
+</response_label>
+<response_label ident="28309">
+<material>
+<mattext texttype="text/plain">Declarar emoções e fatos diretamente para que quem lê os compreenda claramente</mattext>
+</material>
+</response_label>
+<response_label ident="59860">
+<material>
+<mattext texttype="text/plain">Resumir os acontecimentos de maneira eficiente para manter o ritmo da narrativa</mattext>
+</material>
+</response_label>
+<response_label ident="14868">
+<material>
+<mattext texttype="text/plain">Explicar o significado de uma experiência na conclusão</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">28309</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="28309_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">59860</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="59860_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">14868</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="14868_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">23554</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="28309_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Declarar emoções diretamente, resumir acontecimentos e explicar o significado são formas de &lt;strong&gt;contar&lt;/strong&gt; (&lt;em&gt;telling&lt;/em&gt;), não de mostrar.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="59860_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Declarar emoções diretamente, resumir acontecimentos e explicar o significado são formas de &lt;strong&gt;contar&lt;/strong&gt; (&lt;em&gt;telling&lt;/em&gt;), não de mostrar.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="14868_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">&lt;p&gt;Declarar emoções diretamente, resumir acontecimentos e explicar o significado são formas de &lt;strong&gt;contar&lt;/strong&gt; (&lt;em&gt;telling&lt;/em&gt;), não de mostrar.&lt;/p&gt;</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gb45695e0f3e6d2413a17f9846083bb50" title="Pergunta 6">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>89263,23764,53853,33713</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual dos cinco sentidos a frase "a casca áspera cravou-se nas palmas das minhas mãos" desperta?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="89263">
+<material>
+<mattext texttype="text/plain">Tato</mattext>
+</material>
+</response_label>
+<response_label ident="23764">
+<material>
+<mattext texttype="text/plain">Visão</mattext>
+</material>
+</response_label>
+<response_label ident="53853">
+<material>
+<mattext texttype="text/plain">Olfato</mattext>
+</material>
+</response_label>
+<response_label ident="33713">
+<material>
+<mattext texttype="text/plain">Audição</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">23764</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="23764_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">53853</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="53853_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">33713</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="33713_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">89263</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="23764_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A visão descreve a aparência de algo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="53853_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">O olfato refere-se a aromas e odores.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="33713_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A audição refere-se ao que se ouve.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g1a3f5f7721414f844bf3f0ef417c819c" title="Pergunta 7">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>59425,62717,20639,22744</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;O que é uma memória?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="59425">
+<material>
+<mattext texttype="text/plain">Um relato em primeira pessoa sobre um período ou evento marcante na vida de quem escreve</mattext>
+</material>
+</response_label>
+<response_label ident="62717">
+<material>
+<mattext texttype="text/plain">Uma biografia em terceira pessoa de uma figura histórica</mattext>
+</material>
+</response_label>
+<response_label ident="20639">
+<material>
+<mattext texttype="text/plain">Uma redação de não ficção que defende um posicionamento usando evidências</mattext>
+</material>
+</response_label>
+<response_label ident="22744">
+<material>
+<mattext texttype="text/plain">Um conto escrito sobre um personagem fictício</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">62717</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="62717_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">20639</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="20639_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">22744</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="22744_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">59425</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="62717_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma biografia é escrita em terceira pessoa sobre outra pessoa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="20639_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Uma redação argumentativa de não ficção apresenta uma afirmação fundamentada em evidências.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="22744_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Um conto apresenta personagens fictícios.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gfbeb942413281267c4ac8b3946e77be6" title="Pergunta 8">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>20079,94884,57111,64584</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é o propósito da reflexão em uma narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="20079">
+<material>
+<mattext texttype="text/plain">Conectar a experiência específica a um significado mais amplo e mostrar como a perspectiva de quem escreve mudou</mattext>
+</material>
+</response_label>
+<response_label ident="94884">
+<material>
+<mattext texttype="text/plain">Apresentar o cenário e os personagens no início da história</mattext>
+</material>
+</response_label>
+<response_label ident="57111">
+<material>
+<mattext texttype="text/plain">Fornecer informações de contexto antes do início dos acontecimentos principais</mattext>
+</material>
+</response_label>
+<response_label ident="64584">
+<material>
+<mattext texttype="text/plain">Descrever detalhes sensoriais para que quem lê possa visualizar a cena</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">94884</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="94884_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">57111</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="57111_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">64584</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="64584_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">20079</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="94884_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Apresentar o cenário e os personagens é o propósito do começo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="57111_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As informações de contexto também pertencem ao começo.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="64584_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os detalhes sensoriais são uma técnica utilizada ao longo de toda a narrativa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gcded7cf58182cb0f9b6ad181120ecba2" title="Pergunta 9">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>66587,89477,81123,38779</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é a definição da história mais profunda de uma narrativa pessoal?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="66587">
+<material>
+<mattext texttype="text/plain">O significado por trás dos acontecimentos e o motivo pelo qual a experiência é importante</mattext>
+</material>
+</response_label>
+<response_label ident="89477">
+<material>
+<mattext texttype="text/plain">A sequência de acontecimentos que ocorreram durante a experiência</mattext>
+</material>
+</response_label>
+<response_label ident="81123">
+<material>
+<mattext texttype="text/plain">Os detalhes sensoriais que a pessoa que escreve usa para descrever a cena</mattext>
+</material>
+</response_label>
+<response_label ident="38779">
+<material>
+<mattext texttype="text/plain">As informações de contexto fornecidas no início da narrativa</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">89477</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="89477_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">81123</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="81123_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">38779</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="38779_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">66587</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="89477_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A sequência de acontecimentos é a história superficial.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="81123_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Os detalhes sensoriais são uma técnica de escrita utilizada ao longo de toda a narrativa.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="38779_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">As informações de contexto pertencem à exposição.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+</objectbank>
+</questestinterop>

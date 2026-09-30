@@ -1,0 +1,2968 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+<objectbank ident="g31ac5c61899ca558220758ce5966b1e9">
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>bank_title</fieldlabel>
+<fieldentry>Perguntas não categorizadas</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_type</fieldlabel>
+<fieldentry>Course</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_context_uuid</fieldlabel>
+<fieldentry>Pm3b1l08woeaShX88bZnIytohG4NMS2LDA11YkWJ</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>bank_state</fieldlabel>
+<fieldentry>active</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+<item ident="g8f439a8b19bda976c4bf2395b0ed557f" title="IA">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>3635,7634</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Não envie uma atividade que outra pessoa ou programa (inteligência artificial/IA) tenha criado — mesmo que essa atividade seja melhor do que a sua.&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="3635">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="7634">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">3635</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gec62560ed699c172c1fd049bea2e97fe" title="honestidade acadêmica">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>7149,8707,4036</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div class="byui nutr150"&gt;Cody e Angie estão na disciplina GS 105, mas em seções diferentes. Cody precisava fazer o Questionário 1, um teste com limite de tempo, com consulta a notas e livros, mas sem consulta a outras pessoas. Como ele estava ocupado com seu trabalho e namorando Angie, não terminou de ler os capítulos designados. Ele havia planejado organizar seu material antes do teste, mas precisou ajudar um amigo doente. Em pânico, ele ligou para Angie, que já havia feito o questionário, e perguntou quais perguntas estavam no questionário. Isso foi um ato de honestidade acadêmica?&lt;/div&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="7149">
+<material>
+<mattext texttype="text/plain">Sim, é um ato de honestidade acadêmica. Cody tentou estudar, mas estava ocupado demais para terminar os guias de estudo.</mattext>
+</material>
+</response_label>
+<response_label ident="8707">
+<material>
+<mattext texttype="text/plain">Sim. É um ato de honestidade acadêmica. É importante que os estudantes ajudem uns aos outros em momentos difíceis.</mattext>
+</material>
+</response_label>
+<response_label ident="4036">
+<material>
+<mattext texttype="text/plain">Não. Não é um ato de honestidade acadêmica. Perguntar a alguém que já fez a prova o que caiu nela é desonestidade acadêmica.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4036</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g2ae9b589e48043387035061ea6002d31" title="Anúncio">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>4560,8324</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Os anúncios conterão informações importantes do(a) instrutor(a).&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="4560">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="8324">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4560</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gf036b2bf6ab17fa3a8575b90ca7c2eee" title="Notificação do Canvas">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>296,479</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class="inline_disabled" href="https://community.instructure.com/pt/kb/articles/662886-how-do-i-add-contact-methods-to-receive-canvas-notifications" target="_blank"&gt;Adicione seus métodos de contato no Canvas&lt;/a&gt; para que possa receber notificações em seu canal de envio preferido (mensagem de texto ou e-mail).&lt;/li&gt;
+&lt;li&gt;&lt;a class="inline_disabled" href="https://community.instructure.com/pt/kb/articles/662894-how-do-i-manage-my-canvas-notification-settings" target="_blank"&gt;Defina suas preferências de notificação no Canvas&lt;/a&gt; para receber atualizações sempre que houver um novo anúncio, comentário ou nota em sua atividade, atualizações de discussões, etc.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Explicação da Imagem&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O sino verde significa que você será notificado(a) imediatamente.&lt;/li&gt;
+&lt;li&gt;A página verde significa que você será notificado(a) ao final do dia.&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;O calendário verde significa que você será notificado(a) ao final da semana.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;O sino branco significa que você não quer receber essa notificação.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Captura de tela de Notificações do Curso mostrando um ícone de calendário verde para Datas de entrega e Políticas de avaliação e mostrando um ícone de sino verde para anúncios." height="325" id="60347678" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20Notifications.JPG?canvas_download=1" width="350"/&gt;&lt;/p&gt;
+&lt;p&gt;V/F: Posso definir notificações individualmente para cada disciplina.&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="296">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="479">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">296</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gd34f640aa56075831298da956d40fa7f" title="Notificação do Canvas">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>296,479</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class="inline_disabled" href="https://community.instructure.com/pt/kb/articles/662886-how-do-i-add-contact-methods-to-receive-canvas-notifications" target="_blank"&gt;Adicione seus métodos de contato no Canvas&lt;/a&gt; para que possa receber notificações em seu canal de envio preferido (mensagem de texto ou e-mail).&lt;/li&gt;
+&lt;li&gt;&lt;a class="inline_disabled" href="https://community.instructure.com/pt/kb/articles/662894-how-do-i-manage-my-canvas-notification-settings?utm_source=community-search&amp;amp;utm_medium=organic-search&amp;amp;utm_term=Set+your+notification+preferences+in+Canvas" target="_blank"&gt;Defina suas preferências de notificação no Canvas&lt;/a&gt; para receber atualizações sempre que houver um novo anúncio, comentário ou nota em sua atividade, atualizações de discussões, etc.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Explicação da Imagem&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O sino verde significa que você será notificado(a) imediatamente.&lt;/li&gt;
+&lt;li&gt;A página verde significa que você será notificado(a) ao final do dia.&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;O calendário verde significa que você será notificado(a) ao final da semana.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;O sino branco significa que você não quer receber essa notificação.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Captura de tela das Notificações do curso mostrando um ícone de calendário verde para Prazos e Políticas de avaliação e mostrando um ícone de sino verde para avisos." height="325" id="60347678" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20Notifications.JPG?canvas_download=1" width="350"/&gt;&lt;/p&gt;
+&lt;p&gt;V/F: Posso definir notificações individualmente para cada disciplina.&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="296">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="479">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">296</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g3ba8f30c7407d02bede1cfd650fedcf4" title="notificação do Canvas">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>459,2421</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class="inline_disabled" href="https://community.instructure.com/pt/kb/articles/662886-how-do-i-add-contact-methods-to-receive-canvas-notifications" target="_blank"&gt;Adicione seus métodos de contato no Canvas&lt;/a&gt; para que possa receber notificações em seu canal de envio preferido (mensagem de texto ou e-mail).&lt;/li&gt;
+&lt;li&gt;&lt;a class="inline_disabled" href="https://community.instructure.com/pt/kb/articles/662894-how-do-i-manage-my-canvas-notification-settings?utm_source=community-search&amp;amp;utm_medium=organic-search&amp;amp;utm_term=Set+your+notification+preferences+in+Canvas" target="_blank"&gt;Defina suas preferências de notificação no Canvas&lt;/a&gt; para receber atualizações sempre que houver um novo anúncio, comentário ou nota em sua atividade, atualizações de discussões, etc.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Explicação da Imagem&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O sino verde significa que você será notificado(a) imediatamente.&lt;/li&gt;
+&lt;li&gt;A página verde significa que você será notificado(a) ao final do dia.&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;O calendário verde significa que você será notificado(a) ao final da semana.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;O sino branco significa que você não quer receber essa notificação.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Questionário S01: Notificações do Programa do Curso.JPG" id="6042615" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20Notifications.JPG?canvas_download=1" width="350"/&gt;&lt;/p&gt;
+&lt;p&gt;V/F: Posso definir notificações individualmente para cada disciplina.&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="459">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="2421">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">459</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gbf087d329971a933d98827de66430c43" title="Feedback">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>5874,441,1103,3154</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é a ordem correta de etapas para visualizar o feedback do(a) instrutor(a)?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="5874">
+<material>
+<mattext texttype="text/plain">Atividade, notas, visualizar rubrica</mattext>
+</material>
+</response_label>
+<response_label ident="441">
+<material>
+<mattext texttype="text/plain">Notas, atividade, visualizar feedback (ou visualizar rubrica)</mattext>
+</material>
+</response_label>
+<response_label ident="1103">
+<material>
+<mattext texttype="text/plain">Visualizar feedback, notas, atividades</mattext>
+</material>
+</response_label>
+<response_label ident="3154">
+<material>
+<mattext texttype="text/plain">Visualizar rubrica, atividade, notas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">441</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g5f3bd5bfaaeef5b11151a45235c16d01" title="Feedback">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>5874,441,1103,3154</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual é a ordem correta de etapas para visualizar o feedback do(a) instrutor(a)?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="5874">
+<material>
+<mattext texttype="text/plain">Atividade, notas, visualizar rubrica</mattext>
+</material>
+</response_label>
+<response_label ident="441">
+<material>
+<mattext texttype="text/plain">Notas, atividade/discussão/questionário, visualizar feedback (ou visualizar rubrica)</mattext>
+</material>
+</response_label>
+<response_label ident="1103">
+<material>
+<mattext texttype="text/plain">Visualizar feedback, notas, atividade/discussão/questionário</mattext>
+</material>
+</response_label>
+<response_label ident="3154">
+<material>
+<mattext texttype="text/plain">Visualizar rubrica, atividade, notas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">441</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="ge8dab72307e91b44adcb764b231eec03" title="Perguntas de avaliação">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9996,8544,2897,8615</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Onde você deve ir primeiro quando tiver dúvidas sobre sua nota?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9996">
+<material>
+<mattext texttype="text/plain">Seu(sua) professor(a)</mattext>
+</material>
+</response_label>
+<response_label ident="8544">
+<material>
+<mattext texttype="text/plain">O Formulário de Dúvidas sobre Notas</mattext>
+</material>
+</response_label>
+<response_label ident="2897">
+<material>
+<mattext texttype="text/plain">A rubrica da atividade em questão</mattext>
+</material>
+</response_label>
+<response_label ident="8615">
+<material>
+<mattext texttype="text/plain">O(A) reitor(a) da universidade</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">2897</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g21f3b6b6fc4b93a56182a6dae1e52f85" title="Plágio">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>6938,6926</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;a class="inline_disabled" href="https://www.byui.edu/student-honor-office/academic-honesty" target="_blank"&gt;Plágio&lt;/a&gt;&lt;span&gt; &lt;/span&gt;é usar as ideias, palavras ou dados de outra pessoa (de forma intencional&lt;span&gt; &lt;/span&gt;ou não) sem citar, reproduzir ou fazer referência ao autor ou à fonte.&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="6938">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="6926">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6938</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="ged84230b00a8266b3e6068ff5c4f6b25" title="Plano para o Sucesso 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>4540,4294</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Os &lt;a class="inline_disabled" href="https://www.byui.edu/academic-success-and-tutoring/study-skills" target="_blank"&gt;Centros de Suporte Acadêmico&lt;/a&gt; têm uma variedade de miniaulas e vídeos para ajudar você a ter sucesso na faculdade.&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="4540">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="4294">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4540</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g67ad6fb9d2d1f68c1a78c37d2e333001" title="Plano para o Sucesso 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>3171,5884,9016,3616</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais são as três coisas a saber no site &lt;a class="inline_disabled" href="https://www.byui.edu/keep-learning" target="_blank"&gt;Keep Learning &lt;/a&gt;?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="3171">
+<material>
+<mattext texttype="text/plain">Saúde</mattext>
+</material>
+</response_label>
+<response_label ident="5884">
+<material>
+<mattext texttype="text/plain">Disciplinas</mattext>
+</material>
+</response_label>
+<response_label ident="9016">
+<material>
+<mattext texttype="text/plain">Ferramentas</mattext>
+</material>
+</response_label>
+<response_label ident="3616">
+<material>
+<mattext texttype="text/plain">Redes Sociais</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">3171</varequal>
+<varequal respident="response1">5884</varequal>
+<varequal respident="response1">9016</varequal>
+<not>
+<varequal respident="response1">3616</varequal>
+</not>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g76443e654160a2a63eb2ad89a59f9a9a" title="Plano para o Sucesso 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>0.5</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>2259,9442,6216,8191</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual das seguintes opções é uma sugestão listada no PDF &lt;span&gt;Leia as 5 Dicas para Estudantes On-line de Sucesso? &lt;/span&gt;(Selecione todas as alternativas aplicáveis.)&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="2259">
+<material>
+<mattext texttype="text/plain">Participe Ativamente</mattext>
+</material>
+</response_label>
+<response_label ident="9442">
+<material>
+<mattext texttype="text/plain">Saia com amigos pelo menos uma vez ao dia.</mattext>
+</material>
+</response_label>
+<response_label ident="6216">
+<material>
+<mattext texttype="text/plain">Estabeleça um horário de estudo regular</mattext>
+</material>
+</response_label>
+<response_label ident="8191">
+<material>
+<mattext texttype="text/plain">Elimine as distrações</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">2259</varequal>
+<not>
+<varequal respident="response1">9442</varequal>
+</not>
+<varequal respident="response1">6216</varequal>
+<varequal respident="response1">8191</varequal>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gb14f749d0853a174c0911d43f29661f5" title="Plano para o Sucesso 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>0.5</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>4540,4294</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Os &lt;a class="inline_disabled" href="https://www.byui.edu/academic-success-and-tutoring/study-skills" target="_blank"&gt;Centros de Suporte Acadêmico&lt;/a&gt; têm uma variedade de miniaulas e vídeos para ajudar você a ter sucesso na faculdade.&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="4540">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="4294">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4540</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="ga22cfdcd666365970055ab3545606618" title="Proctorio">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>0.5</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>5348,3762</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Provas supervisionadas garantem a integridade do curso.&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="5348">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="3762">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">5348</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g5589fe6dd2c2767f7018c267835413e1" title="Prática do Proctorio P01: Instruções de revisão">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>6680,3396</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Você revisou o guia de ajuda fornecido nas instruções deste questionário?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="6680">
+<material>
+<mattext texttype="text/plain">Sim</mattext>
+</material>
+</response_label>
+<response_label ident="3396">
+<material>
+<mattext texttype="text/plain">Não</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">6680</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="6680_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">3396</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="3396_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6680</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="6680_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Agradeço! Você está melhor preparado(a) para usar o Proctorio nesta disciplina.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="3396_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/html">Por favor, reserve um tempo para revisar &lt;a class="instructure_file_link inline_disabled external" href="https://content.byui.edu/integ/gen/98a71664-d457-48f8-b54b-8ebd2c755346/0/?.vi=file&amp;amp;attachment.uuid=d4c29ff7-bf3e-4cf6-8f21-929bbaeb6c9c" target="_blank"&gt;&lt;span&gt;aquele recurso&lt;/span&gt;&lt;/a&gt; para entender melhor como usar o Proctorio nesta disciplina.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g4df87bd93c4302a185258e0faec21748" title="Foto de perfil">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>6218,2742</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div class="byui ge105"&gt;
+&lt;div style="border: 6px solid #808080; padding: 5px;"&gt;
+&lt;div style="float: right; color: #ffffff; font-size: 26px; margin-left: 5px; padding: 5px; background-color: #808080;"&gt;Foto de Perfil&lt;/div&gt;
+&lt;p&gt;Adicione uma foto de perfil à sua conta do Canvas usando este &lt;a href="https://community.instructure.com/pt/kb/articles/662885-how-do-i-add-a-profile-picture-in-my-user-account"&gt;tutorial de perfil.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Uma foto de perfil adicionada com sucesso aparecerá na sua barra de ferramentas do Canvas de forma semelhante à imagem abaixo.&lt;/p&gt;
+&lt;p&gt;V/F: Você enviou uma foto sua para o Canvas?&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Captura de tela do canto superior esquerdo da tela do Canvas com o logotipo da BYUI no topo e a imagem da conta logo abaixo." height="185" id="56880130" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20SyllabusProfilePicture.png?canvas_download=1" width="100"/&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="6218">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="2742">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6218</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g4720709aa1662df8eec6fbd411774c04" title="Foto de perfil">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>6218,2742</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div class="byui ge105"&gt;
+&lt;div style="border: 6px solid #808080; padding: 5px;"&gt;
+&lt;div style="float: right; color: #ffffff; font-size: 26px; margin-left: 5px; padding: 5px; background-color: #808080;"&gt;Foto de Perfil&lt;/div&gt;
+&lt;p&gt;Adicione uma foto de perfil à sua conta do Canvas usando este &lt;a href="https://community.instructure.com/pt/kb/articles/662885-how-do-i-add-a-profile-picture-in-my-user-account"&gt;tutorial de perfil.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Uma foto de perfil adicionada com sucesso aparecerá na sua barra de ferramentas do Canvas de forma semelhante à imagem abaixo.&lt;/p&gt;
+&lt;p&gt;V/F: A foto de perfil do Canvas que enviei é um retrato do meu próprio rosto.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Captura de tela do canto superior esquerdo da tela do Canvas com o logotipo da BYUI no topo e a imagem da conta logo abaixo." height="185" id="56880130" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20SyllabusProfilePicture.png?canvas_download=1" width="100"/&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="6218">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="2742">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6218</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g9a44b9fc91bb4ec6f3dbe338920bb304" title="Foto de perfil">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9170,903</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div class="byui gs105"&gt;
+&lt;div style="border: 6px solid #376070; padding: 5px;"&gt;
+&lt;div style="float: right; color: #fae5c3; font-size: 26px; margin-left: 5px; padding: 5px; background-color: #376070;"&gt;Foto de Perfil&lt;/div&gt;
+&lt;h2&gt;2. Identificação&lt;/h2&gt;
+&lt;p&gt;&lt;span&gt;Você pode adicionar uma foto de perfil à sua conta do Canvas usando este&lt;/span&gt;&lt;a href="https://community.instructure.com/pt/kb/articles/662885-how-do-i-add-a-profile-picture-in-my-user-account"&gt; &lt;span&gt;tutorial de perfil.&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Uma foto de perfil adicionada com sucesso aparecerá na sua barra de ferramentas do Canvas de forma semelhante à imagem abaixo.&lt;/p&gt;
+&lt;p&gt;V/F: A foto de perfil do Canvas que enviei é um retrato do meu próprio rosto.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Captura de tela do canto superior esquerdo da tela do Canvas com o logotipo da BYUI no topo e a imagem da conta logo abaixo." height="185" id="56880130" loading="lazy" src="https://byupw.instructure.com/assessment_questions/52948210/files/87683804/download?verifier=JFXgo6p9ZL5aNzEhLDWRo7yPbYs6If1zpOnZpa2y" width="100"/&gt; &lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9170">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="903">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9170</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="ga904400ce706985499f30740695aada2" title="Foto de perfil">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>6218,2742</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div class="byui ge105"&gt;
+&lt;div style="border: 6px solid #376070; padding: 5px;"&gt;
+&lt;div style="float: right; color: #fae5c3; font-size: 26px; margin-left: 5px; padding: 5px; background-color: #376070;"&gt;Foto de Perfil&lt;/div&gt;
+&lt;p&gt;Adicione uma foto de perfil à sua conta do Canvas usando este &lt;a href="https://community.instructure.com/pt/kb/articles/662885-how-do-i-add-a-profile-picture-in-my-user-account"&gt;tutorial de perfil.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Uma foto de perfil adicionada com sucesso aparecerá na sua barra de ferramentas do Canvas de forma semelhante à imagem abaixo.&lt;/p&gt;
+&lt;p&gt;V/F: A foto de perfil do Canvas que enviei é um retrato do meu próprio rosto.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Captura de tela do canto superior esquerdo da tela do Canvas com o logotipo da BYUI no topo e a imagem da conta logo abaixo." height="185" id="56880130" loading="lazy" src="https://byupw.instructure.com/assessment_questions/79262982/files/125188586/download?verifier=eftBqZ5iYFnC7DJmvGPse7CAl5REiRL6Y5Zkaeia" width="100"/&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="6218">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="2742">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6218</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g607c79ebd1c4e5566a4bc763727b7ee7" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>8280,4786,4975</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;span&gt;Onde você recebe feedback sobre suas atividades?&lt;/span&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="8280">
+<material>
+<mattext texttype="text/plain">Na rubrica</mattext>
+</material>
+</response_label>
+<response_label ident="4786">
+<material>
+<mattext texttype="text/plain">Em um e-mail do avaliador certificado</mattext>
+</material>
+</response_label>
+<response_label ident="4975">
+<material>
+<mattext texttype="text/plain">Anúncios do(a) instrutor(a)</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8280</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8280_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">8280</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="8280_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Nesta disciplina, as atividades são avaliadas por avaliadores certificados. Eles usam rubricas para realizar a avaliação. Essas rubricas foram desenvolvidas para fornecer feedback sobre o seu desempenho no projeto.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="g7a88c319536d74e15df64b54ad62ed03" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>3485,3389,1608</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div style="border: 6px solid #808080; padding: 5px;"&gt;
+&lt;h2&gt;Honestidade acadêmica&lt;/h2&gt;
+&lt;p&gt;Espera-se que estudantes que cursam disciplinas na BYU-Idaho sigam a política de &lt;a class="inline_disabled" href="https://www.byui.edu/student-honor-office/ces-honor-code" target="_blank"&gt;honestidade acadêmica da BYU-Idaho.&lt;/a&gt; Isso inclui evitar plágio, fabricação ou falsificação, trapaça, má conduta acadêmica e compartilhamento ou envio não autorizado. A BYU-Idaho leva a honestidade acadêmica a sério, e as violações da Política de Honestidade Acadêmica podem resultar em consequências que vão desde a suspensão até a expulsão da universidade. &lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Cody e Angie estão na mesma disciplina, mas em seções diferentes. Cody precisava fazer o Questionário 1, um teste com tempo limite, de consulta a notas e livros, mas sem consulta a outras pessoas. Como ele esteve ocupado com o trabalho e namorando a Angie, não terminou de ler os capítulos designados. Ele havia planejado organizar seu material antes do teste, mas precisou ajudar um amigo que estava doente. Em pânico, ele ligou para Angie, que já havia feito o questionário, e perguntou quais perguntas caíram no teste. Isso foi academicamente honesto? &lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="3485">
+<material>
+<mattext texttype="text/plain">Sim, isso é academicamente honesto. Cody tentou estudar, mas estava ocupado demais para terminar os guias de estudo.</mattext>
+</material>
+</response_label>
+<response_label ident="3389">
+<material>
+<mattext texttype="text/plain">Sim. É academicamente honesto. É importante que estudantes ajudem uns aos outros em momentos difíceis.</mattext>
+</material>
+</response_label>
+<response_label ident="1608">
+<material>
+<mattext texttype="text/plain">Não. Não é academicamente honesto. Perguntar a alguém que já fez o teste sobre o que caiu nele é uma atitude academicamente desonesta.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">1608</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g7e56b8558b4e5d9feaa33b7149586f3a" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>4916,5947</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div&gt;Esta é a primeira disciplina do &lt;strong&gt;Certificado de Programação de Computadores e Web&lt;/strong&gt;.&lt;/div&gt;
+&lt;div&gt;Os certificados do BYU-Pathway listam um nível de tecnologia (consulte os &lt;a class="inline_disabled" href="https://www.byupathway.edu/pt/requisitos-de-tecnologia" target="_blank"&gt;Requisitos de Tecnologia do BYU-Pathway&lt;/a&gt; para obter todos os detalhes):&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dispositivo Móvel&lt;/strong&gt;&lt;span&gt;: Smartphone (Android 9+ ou iOS 14+)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Computação Leve&lt;/strong&gt;&lt;span style="font-family: inherit; font-size: 1rem;"&gt;: Laptop que consiga executar o Microsoft Office (Word, Excel)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Computação Pesada&lt;/strong&gt;: Laptop que consiga executar softwares mais exigentes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;Todas as disciplinas do &lt;strong&gt;Certificado de Programação de Computadores e Web&lt;/strong&gt; exigem &lt;strong&gt;Computação Pesada&lt;/strong&gt; (um laptop que consiga executar softwares mais exigentes).&lt;/div&gt;
+&lt;h2&gt;&lt;strong&gt;Verificação rápida&lt;/strong&gt;&lt;/h2&gt;
+&lt;div&gt;Você tem acesso a um laptop que atenda aos requisitos de &lt;strong&gt;Computação Pesada&lt;/strong&gt;?&lt;/div&gt;
+&lt;div&gt;(Se tiver mais dúvidas, entre em contato com seu(sua) instrutor(a).)&lt;/div&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="4916">
+<material>
+<mattext texttype="text/plain">Sim, tenho acesso a um laptop que consegue executar softwares mais exigentes.</mattext>
+</material>
+</response_label>
+<response_label ident="5947">
+<material>
+<mattext texttype="text/plain">Não, não tenho acesso a um laptop que consiga executar softwares mais exigentes.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">5947</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="5947_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4916</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="5947_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Se você respondeu que não tem acesso a um laptop que possa executar softwares mais exigentes, entre em contato com seu(sua) instrutor(a) para obter ajuda.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gf1f7f8959bcb3fd23a220b5d561033f3" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>1489,9823</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Enviei um "Olá" no meu grupo do WhatsApp.&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="1489">
+<material>
+<mattext texttype="text/plain">Sim</mattext>
+</material>
+</response_label>
+<response_label ident="9823">
+<material>
+<mattext texttype="text/plain">Não</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">1489</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="1489_fb"/>
+</respcondition>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9823</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9823_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">1489</varequal>
+<not>
+<varequal respident="response1">9823</varequal>
+</not>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="1489_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">A próxima discussão no WhatsApp será na Semana 02.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+<itemfeedback ident="9823_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Por favor, pare aqui e siga as instruções antes de tentar concluir este questionário.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gdf51dc61b575da4bf8c6e8a0dd0fd118" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>1318,5984,5184,9212,3539</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Quais dos itens a seguir são objetivos do curso? (Selecione todas as opções aplicáveis)&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="1318">
+<material>
+<mattext texttype="text/plain">Citar com precisão as fontes e as contribuições de outras pessoas</mattext>
+</material>
+</response_label>
+<response_label ident="5984">
+<material>
+<mattext texttype="text/plain">Praticar o processo completo de escrita, incluindo a revisão por pares e a revisão</mattext>
+</material>
+</response_label>
+<response_label ident="5184">
+<material>
+<mattext texttype="text/plain">Escrever apenas para públicos-alvo acadêmicos</mattext>
+</material>
+</response_label>
+<response_label ident="9212">
+<material>
+<mattext texttype="text/plain">Aplicar convenções de linguagem e organização eficazes</mattext>
+</material>
+</response_label>
+<response_label ident="3539">
+<material>
+<mattext texttype="text/plain">Adaptar a escrita a diferentes situações retóricas</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">1318</varequal>
+<varequal respident="response1">5984</varequal>
+<not>
+<varequal respident="response1">5184</varequal>
+</not>
+<varequal respident="response1">9212</varequal>
+<varequal respident="response1">3539</varequal>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gbab16d17b7497ace466692f4ab1fa2aa" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>1730,6993</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span style="color: #000000;"&gt;O Turnitin é um programa que permite que você e seus professores saibam o quanto o seu trabalho reflete o trabalho de outras pessoas. Após enviar o seu trabalho, uma bandeira colorida aparecerá ao lado do seu envio de tarefa na guia de notas. As diferentes cores das bandeiras indicarão a porcentagem do seu envio de tarefa que o Turnitin identificou como cópia. &lt;strong&gt;NOTA&lt;/strong&gt;: As atividades que usam modelos apresentarão algum nível de cópia, e o Turnitin sinalizará as perguntas da atividade — não se preocupe com isso. Apenas certifique-se de que as suas respostas às perguntas não foram copiadas.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color: #000000;"&gt;Se a cor da sua bandeira for vermelha, você deve refazer a sua atividade e enviá-la novamente até que a bandeira não seja mais vermelha. Uma atividade enviada com a bandeira vermelha não será avaliada e receberá nota 0.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;table border="1" style="border-collapse: collapse; width: 45.2639%; height: 271px; border-color: #000000; border-style: solid;"&gt;
+&lt;tbody&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;Ícones de pontuação do Turnitin&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 53px;"&gt;
+&lt;td style="width: 25.1206%; height: 53px;"&gt;&lt;img alt="Questionário S01: Programa do Curso BandeiraCinza.PNG" id="6042618" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20GrayFlag.PNG?canvas_download=1"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 53px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Cinza&lt;/strong&gt; (o relatório de originalidade não foi gerado)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 44px;"&gt;
+&lt;td style="width: 25.1206%; height: 44px;"&gt;&lt;img alt="Questionário S01: Programa do Curso BandeiraAzul.PNG" id="6042617" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20BlueFlag.PNG?canvas_download=1"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 44px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Azul&lt;/strong&gt; (nenhuma palavra correspondente)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Questionário S01: Programa do Curso BandeiraVerde.PNG" id="6042621" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20GreenFlag.PNG?canvas_download=1"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Verde&lt;/strong&gt; (índice de similaridade de 1% a 24%)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Questionário S01: Programa do Curso BandeiraAmarela.PNG" id="6042603" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20YellowFlag.PNG?canvas_download=1"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Amarelo&lt;/strong&gt; (índice de similaridade de 25% a 49%)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Questionário S01: Programa do Curso BandeiraLaranja.PNG" id="6042619" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20OrangeFlag.PNG?canvas_download=1"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Laranja&lt;/strong&gt; (índice de similaridade de 50% a 74%)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Questionário S01: Programa do Curso BandeiraVermelha.PNG" id="6042620" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20RedFlag.PNG?canvas_download=1"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt; Vermelho&lt;/strong&gt; (índice de similaridade de 75% a 100%)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 25.1206%; height: 29px;"&gt;&lt;img alt="Questionário S01: Relógio do Programa do Curso.PNG" id="6042616" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20Clock.PNG?canvas_download=1"/&gt;&lt;/td&gt;
+&lt;td style="width: 74.8819%; height: 29px;"&gt;&lt;span style="color: #000000;"&gt;&lt;strong&gt;Relógio&lt;/strong&gt; (o relatório do Turnitin ainda está pendente)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;span style="color: #000000;"&gt;O Turnitin pode ser usado para fornecer feedback imediato, para que você saiba o que precisa ser corrigido antes de enviar as suas atividades.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="1730">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="6993">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6993</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g85f44bf53eadfb6f3e289903f1d418fa" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>3485,3389,1608</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div style="border: 6px solid #808080; padding: 5px;"&gt;
+&lt;h2&gt;Honestidade acadêmica&lt;/h2&gt;
+&lt;p&gt;Estudantes que fazem disciplinas por meio da BYU-Idaho devem seguir a política de honestidade acadêmica da BYU-Idaho. Isso inclui evitar plágio, fabricação ou falsificação, trapaça, má conduta acadêmica e envio ou compartilhamento não autorizado. A BYU-Idaho leva a honestidade acadêmica a sério, e as violações da Política de Honestidade Acadêmica podem resultar em consequências que incluem desde a suspensão até a expulsão da universidade. &lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Cody e Angie estão na mesma disciplina, mas em seções diferentes. Cody precisava fazer o Questionário 1, uma prova com tempo limite, de consulta a notas e livros, mas que não permitia a colaboração com outras pessoas. Como ele esteve ocupado com seu trabalho e namorando Angie, não terminou de ler os capítulos designados. Ele havia planejado organizar seu material antes da prova, mas precisou ajudar um amigo que estava doente. Em pânico, ele ligou para Angie, que já havia feito o questionário, e perguntou quais eram as perguntas do teste. Isso foi academicamente honesto? &lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="3485">
+<material>
+<mattext texttype="text/plain">Sim, é academicamente honesto. Cody tentou estudar, mas estava ocupado demais para terminar os guias de estudo.</mattext>
+</material>
+</response_label>
+<response_label ident="3389">
+<material>
+<mattext texttype="text/plain">Sim. É academicamente honesto. É importante que estudantes ajudem uns aos outros em momentos difíceis.</mattext>
+</material>
+</response_label>
+<response_label ident="1608">
+<material>
+<mattext texttype="text/plain">Não. Não é academicamente honesto. Perguntar a alguém que já fez a prova o que caiu nela é academicamente desonesto.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">3485</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gc7250c554bed546fc81e1b603549e474" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>2067,4916,5947</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Esta é a primeira disciplina/curso do Certificado de Fundamentos Comerciais. Abaixo estão listadas as disciplinas/cursos deste certificado. A legenda a seguir ajudará você a entender os requisitos mínimos de tecnologia para essas disciplinas/cursos. Para mais informações sobre os requisitos de tecnologia, acesse: &lt;a class="inline_disabled" href="https://www.byupathway.edu/pt/requisitos-de-tecnologia" target="_blank"&gt;Requisitos de Tecnologia do BYU-Pathway&lt;/a&gt;.&lt;/p&gt;
+&lt;table border="1" style="border-collapse: collapse; width: 100%; border-color: #FFFFFF;"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="width: 33.2938%; text-align: center;"&gt;
+&lt;p&gt;&lt;img alt="Smartphone" height="247" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/smartphone-icon-purple.svg?canvas_download=1" width="247"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dispositivo móvel&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;É necessário um smartphone com sistema operacional Android 9+ ou iOS 14+.&lt;/p&gt;
+&lt;/td&gt;
+&lt;td style="width: 33.2938%; text-align: center;"&gt;
+&lt;p&gt;&lt;img alt="Computação leve" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/light-computer-icon-blue.svg?canvas_download=1"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Computação leve&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;É necessário um notebook com capacidade de executar aplicativos do Microsoft Office, como o Word e o Excel.&lt;/p&gt;
+&lt;/td&gt;
+&lt;td style="width: 33.2938%; text-align: center;"&gt;
+&lt;p&gt;&lt;img alt="Computação pesada" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/heavy-computer-icon-purple.svg?canvas_download=1"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Computação pesada&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;É necessário um notebook com capacidade de executar aplicativos mais exigentes.&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;Disciplinas/cursos para o &lt;strong&gt;Certificado de Fundamentos Comerciais&lt;/strong&gt; e seus requisitos de tecnologia&lt;/p&gt;
+&lt;table border="1" style="border-collapse: collapse; width: 100%;"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="width: 49.9408%; text-align: center;"&gt;&lt;strong&gt;Disciplina/curso&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="width: 49.9408%; text-align: center;"&gt;&lt;strong&gt;Requisito de tecnologia&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="width: 49.9408%;"&gt;BUS 105 - Spreadsheet Essentials&lt;/td&gt;
+&lt;td style="width: 49.9408%;"&gt;&lt;img alt="Computação leve" height="87" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/light-computer-icon-blue.svg?canvas_download=1" style="display: block; margin-left: auto; margin-right: auto;" width="87"/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="width: 49.9408%;"&gt;COMM 150 - Interpersonal Theory and Practice&lt;/td&gt;
+&lt;td style="width: 49.9408%;"&gt;&lt;img alt="Computação leve" height="87" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/light-computer-icon-blue.svg?canvas_download=1" style="display: block; margin-left: auto; margin-right: auto;" width="87"/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="width: 49.9408%;"&gt;MKT 120 - Marketing Foundations&lt;/td&gt;
+&lt;td style="width: 49.9408%;"&gt;&lt;img alt="Computação leve" height="87" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/light-computer-icon-blue.svg?canvas_download=1" style="display: block; margin-left: auto; margin-right: auto;" width="87"/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="width: 49.9408%;"&gt;BUS 180 - Introduction to Financial Managment&lt;/td&gt;
+&lt;td style="width: 49.9408%;"&gt;&lt;img alt="Computação leve" height="87" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/light-computer-icon-blue.svg?canvas_download=1" style="display: block; margin-left: auto; margin-right: auto;" width="87"/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;Qual é o requisito de tecnologia para as disciplinas/cursos deste certificado? Escolha a resposta correta abaixo.&lt;br/&gt;(Caso tenha outras dúvidas, entre em contato com seu(sua) instrutor(a).)&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="2067">
+<material>
+<mattext texttype="text/plain">Todas as disciplinas/cursos exigem um smartphone com sistema operacional Android 9+ ou iOS 14+.</mattext>
+</material>
+</response_label>
+<response_label ident="4916">
+<material>
+<mattext texttype="text/plain">Todas as disciplinas/cursos exigem um notebook com capacidade de executar aplicativos do Microsoft Office, como o Word e o Excel.</mattext>
+</material>
+</response_label>
+<response_label ident="5947">
+<material>
+<mattext texttype="text/plain">Todas as disciplinas/cursos exigem um notebook com capacidade de executar aplicativos mais exigentes.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4916</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="ge1182f363faba57c58565150e89e691f" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>8280,2766,4786,4975</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;span&gt;Onde você recebe feedback sobre suas atividades?&lt;/span&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="8280">
+<material>
+<mattext texttype="text/plain">Na rubrica</mattext>
+</material>
+</response_label>
+<response_label ident="2766">
+<material>
+<mattext texttype="text/plain">Em um comentário do(a) avaliador(a) certificado(a)</mattext>
+</material>
+</response_label>
+<response_label ident="4786">
+<material>
+<mattext texttype="text/plain">Em um e-mail do(a) avaliador(a) certificado(a)</mattext>
+</material>
+</response_label>
+<response_label ident="4975">
+<material>
+<mattext texttype="text/plain">Anúncios do(a) instrutor(a)</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">8280</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="8280_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">8280</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="8280_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Nesta disciplina/curso, as atividades são avaliadas por avaliadores(as) certificados(as). Eles(as) usam rubricas para realizar a avaliação. Essas rubricas foram desenvolvidas para fornecer feedback sobre o seu desempenho no projeto.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="ge0a1831c28de21681287d6fbf03a1efe" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>3684,4768</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;span&gt;Quem avalia os trabalhos que você envia?&lt;/span&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="3684">
+<material>
+<mattext texttype="text/plain">Seu(sua) instrutor(a)</mattext>
+</material>
+</response_label>
+<response_label ident="4768">
+<material>
+<mattext texttype="text/plain">Avaliadores(as) certificados(as)</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4768</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="ge1b30bebe4246221ec1510db28b16a9f" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9027,1811,600,8662</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;span&gt;Onde você encontra o formulário de Dúvidas sobre Avaliação?&lt;/span&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9027">
+<material>
+<mattext texttype="text/plain">No feedback da atividade</mattext>
+</material>
+</response_label>
+<response_label ident="1811">
+<material>
+<mattext texttype="text/plain">No Programa do Curso</mattext>
+</material>
+</response_label>
+<response_label ident="600">
+<material>
+<mattext texttype="text/plain">Na Orientação para Aprendizagem On-line</mattext>
+</material>
+</response_label>
+<response_label ident="8662">
+<material>
+<mattext texttype="text/plain">Na página de vocabulário</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">1811</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gebaf7c50f46a6ee09290183c2bd8af7d" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>3485,3389,1608</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div style="border: 6px solid #376070; padding: 5px;"&gt;
+&lt;h2&gt;Honestidade acadêmica&lt;/h2&gt;
+&lt;p&gt;Espera-se que estudantes que fazem disciplinas/cursos por meio da BYU-Idaho sigam a política de honestidade acadêmica da BYU-Idaho. Isso inclui evitar plágio, fabricação ou falsificação, trapaça, má conduta acadêmica e compartilhamento ou envio não autorizado. A BYU-Idaho leva a honestidade acadêmica a sério, e as violações da Política de Honestidade Acadêmica podem resultar em consequências que podem incluir a suspensão ou expulsão da universidade. &lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Cody e Angie estão na mesma disciplina, TESOL 101, mas em seções diferentes. Cody precisava fazer o Questionário 1, uma prova com limite de tempo que permitia consulta a anotações e livros, mas não a outras pessoas. Como ele andava ocupado com seu trabalho e saindo com Angie, não conseguiu terminar de ler os capítulos indicados. Ele planejava organizar seu material antes da prova, mas precisou ajudar um amigo que estava doente. Em pânico, ele ligou para Angie, que já havia feito o questionário, e perguntou quais eram as perguntas do teste. Essa atitude foi de honestidade acadêmica? &lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="3485">
+<material>
+<mattext texttype="text/plain">Sim, é uma atitude de honestidade acadêmica. Cody tentou estudar, mas estava ocupado demais para terminar os guias de estudo.</mattext>
+</material>
+</response_label>
+<response_label ident="3389">
+<material>
+<mattext texttype="text/plain">Sim. É uma atitude de honestidade acadêmica. É importante que estudantes ajudem uns aos outros em momentos difíceis.</mattext>
+</material>
+</response_label>
+<response_label ident="1608">
+<material>
+<mattext texttype="text/plain">Não. Não é uma atitude de honestidade acadêmica. Perguntar a alguém que já fez a prova o que caiu nela é desonestidade acadêmica.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">3485</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g345de6869819da1667f555bd55083d6d" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>6938,6926</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;a class="inline_disabled" href="https://www.byui.edu/student-honor-office/academic-honesty" target="_blank"&gt;Plágio&lt;/a&gt;&lt;span&gt; &lt;/span&gt;é o uso de ideias, palavras ou dados de outra pessoa (intencional&lt;span&gt; &lt;/span&gt;ou não) sem citar, fazer referência ou dar crédito ao autor ou à fonte.&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="6938">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="6926">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6938</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g48f2bc85bf4fc2caf523b9e9234a391b" title="Pergunta">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>10.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9795,2586</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;span&gt;Confirmo que segui o código de honra e mantive a integridade acadêmica nesta avaliação.&lt;/span&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9795">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="2586">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9795</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g0435d5cfa1cf94ed2ae5396e5bafe80c" title="Pergunta 1">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9691,1569</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;Você usará o WhatsApp nesta disciplina/curso.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="9691">
+<material>
+<mattext texttype="text/plain">Sim</mattext>
+</material>
+</response_label>
+<response_label ident="1569">
+<material>
+<mattext texttype="text/plain">Não</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9691</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g535c6f1024114ff8226be3cb1bd68a0f" title="Pergunta 2">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>27,2831</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;Você usará o Microsoft Excel nesta disciplina/curso.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="27">
+<material>
+<mattext texttype="text/plain">Sim</mattext>
+</material>
+</response_label>
+<response_label ident="2831">
+<material>
+<mattext texttype="text/plain">Não</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">2831</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g8c48f127c4767aa352558d4f4fb5d488" title="Pergunta 3">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>181,2401</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;Como parte do Código de Honra do Sistema Educacional da Igreja, espera-se que você realize seu próprio trabalho em cada disciplina/curso.&lt;/p&gt;
+&lt;p&gt;Caso você decida participar de&lt;span&gt; &lt;/span&gt;&lt;strong&gt;quaisquer&lt;/strong&gt;&lt;span&gt; &lt;/span&gt;ações que violem a política de honestidade acadêmica, a universidade terá o direito de&lt;span&gt; &lt;/span&gt;&lt;strong&gt;alterar sua nota na disciplina/curso para F agora ou em qualquer momento no futuro&lt;/strong&gt;. Isso significa que, mesmo que a desonestidade seja descoberta apenas após a conclusão de seu certificado ou diploma, a universidade ainda terá o direito de alterar sua nota e&lt;span&gt; &lt;/span&gt;&lt;strong&gt;revogar seu certificado ou diploma&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Quais das seguintes alternativas constituem violações do Código de Honra ou da Política de Honestidade Acadêmica? Observe que esta lista não é exaustiva (ver Jacó 6:12).&lt;span&gt; &lt;/span&gt;&lt;strong&gt;Marque todas as opções aplicáveis.&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="181">
+<material>
+<mattext texttype="text/plain"/>
+</material>
+</response_label>
+<response_label ident="2401">
+<material>
+<mattext texttype="text/plain"/>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">181</varequal>
+<not>
+<varequal respident="response1">2401</varequal>
+</not>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g9148dd8ab52dd2f367cea2ac3143f7ee" title="Pergunta 4">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>9694,767,3119,2278</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;De que formas você pode usar a IA nesta disciplina? (Marque todas as opções aplicáveis)&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="9694">
+<material>
+<mattext texttype="text/plain">Para fazer minha lição de casa por mim.</mattext>
+</material>
+</response_label>
+<response_label ident="767">
+<material>
+<mattext texttype="text/plain">Pesquisar e fornecer recursos adicionais.</mattext>
+</material>
+</response_label>
+<response_label ident="3119">
+<material>
+<mattext texttype="text/plain">Fazer brainstorming de ideias.</mattext>
+</material>
+</response_label>
+<response_label ident="2278">
+<material>
+<mattext texttype="text/plain">Auxiliar na revisão e na edição de textos.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<not>
+<varequal respident="response1">9694</varequal>
+</not>
+<varequal respident="response1">767</varequal>
+<varequal respident="response1">3119</varequal>
+<varequal respident="response1">2278</varequal>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="ga5ffc6613a78f9b25d01d8f07edd2840" title="Programa do Curso - Trabalho em atraso">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>6188,4476,9899,9986</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais são as duas opções abaixo que o Programa do Curso apresenta sobre tarefas em atraso?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="6188">
+<material>
+<mattext texttype="text/plain">Como sinal de profissionalismo e respeito, o trabalho deve ser enviado no prazo.</mattext>
+</material>
+</response_label>
+<response_label ident="4476">
+<material>
+<mattext texttype="text/plain">Tarefas em atraso nunca são aceitas.</mattext>
+</material>
+</response_label>
+<response_label ident="9899">
+<material>
+<mattext texttype="text/plain">As tarefas em atraso receberão nota 0, embora o trabalho ainda possa ser enviado para obter pontos.</mattext>
+</material>
+</response_label>
+<response_label ident="9986">
+<material>
+<mattext texttype="text/plain">Tarefas em atraso não recebem nota.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">6188</varequal>
+<not>
+<varequal respident="response1">4476</varequal>
+</not>
+<varequal respident="response1">9899</varequal>
+<not>
+<varequal respident="response1">9986</varequal>
+</not>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g8e5d33bf2d855454534bdd2fb5b388e7" title="Programa do Curso - Trabalho em atraso">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>0.5</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>6188,4476,9899,9986</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Quais são as duas opções abaixo que o Programa do Curso apresenta sobre tarefas em atraso?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="6188">
+<material>
+<mattext texttype="text/plain">Como sinal de profissionalismo e respeito, você deve concluir as atividades planejadas para este curso/disciplina.</mattext>
+</material>
+</response_label>
+<response_label ident="4476">
+<material>
+<mattext texttype="text/plain">Há alguns diários de crédito extra listados nos módulos que você pode preencher para aumentar sua pontuação ou aprender mais sobre os diversos assuntos.</mattext>
+</material>
+</response_label>
+<response_label ident="9899">
+<material>
+<mattext texttype="text/plain">Tarefas em atraso são inaceitáveis.</mattext>
+</material>
+</response_label>
+<response_label ident="9986">
+<material>
+<mattext texttype="text/plain">Reuniões ao vivo são obrigatórias todas as semanas.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">6188</varequal>
+<not>
+<varequal respident="response1">4476</varequal>
+</not>
+<varequal respident="response1">9899</varequal>
+<not>
+<varequal respident="response1">9986</varequal>
+</not>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g688129579092a150da4856f4d30c384b" title="Programa do Curso - Livro didático">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>numerical_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>5925</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div class="question_text user_content enhanced" id="question_16879134_question_text"&gt;
+&lt;p&gt;Quantos livros didáticos são obrigatórios para este curso/disciplina?&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</mattext>
+</material>
+<response_str ident="response1" rcardinality="Single">
+<render_fib fibtype="Decimal">
+<response_label ident="answer1"/>
+</render_fib>
+</response_str>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<or>
+<varequal respident="response1">0.0</varequal>
+<and>
+<vargte respident="response1">0.0</vargte>
+<varlte respident="response1">0.0</varlte>
+</and>
+</or>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g8feab40e6e95dd360996d273b7d9ffbc" title="Programa do Curso - Livro didático">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>numerical_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>0.5</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>642</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;div class="question_text user_content enhanced" id="question_16879134_question_text"&gt;
+&lt;p&gt;Quantos livros didáticos são obrigatórios para este curso/disciplina?&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</mattext>
+</material>
+<response_str ident="response1" rcardinality="Single">
+<render_fib fibtype="Decimal">
+<response_label ident="answer1"/>
+</render_fib>
+</response_str>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<or>
+<varequal respident="response1">1.0</varequal>
+<and>
+<vargte respident="response1">1.0</vargte>
+<varlte respident="response1">1.0</varlte>
+</and>
+</or>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="ge5c0afb7a96ffc5cd11c80a9a91b00ec" title="Programa do Curso - regras para o sucesso">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>0.5</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>3649,9017,4286,8322</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;Qual das seguintes alternativas &lt;strong&gt;não&lt;/strong&gt; é uma das regras de sucesso do curso/disciplina?&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="3649">
+<material>
+<mattext texttype="text/plain">Faça o trabalho!</mattext>
+</material>
+</response_label>
+<response_label ident="9017">
+<material>
+<mattext texttype="text/plain">Participe ativamente!</mattext>
+</material>
+</response_label>
+<response_label ident="4286">
+<material>
+<mattext texttype="text/plain">Esteja presente!</mattext>
+</material>
+</response_label>
+<response_label ident="8322">
+<material>
+<mattext texttype="text/plain">Pule a leitura!</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">8322</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gcf2fdd4c52bd0e29c85230bd315ffe78" title="Programa do Curso — Objetivo">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>1696,226,9434,9382</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;&lt;span&gt;(Consulte o Programa do Curso) &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Qual das seguintes alternativas &lt;strong&gt;não&lt;/strong&gt; é um dos objetivos deste curso/disciplina?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="1696">
+<material>
+<mattext texttype="text/plain">Assuma o controle de sua vida.</mattext>
+</material>
+</response_label>
+<response_label ident="226">
+<material>
+<mattext texttype="text/plain">Aumente a automotivação.</mattext>
+</material>
+</response_label>
+<response_label ident="9434">
+<material>
+<mattext texttype="text/plain">Maximize seu aprendizado.</mattext>
+</material>
+</response_label>
+<response_label ident="9382">
+<material>
+<mattext texttype="text/plain">Encontre um cônjuge eterno.</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="Yes">
+<conditionvar>
+<varequal respident="response1">9382</varequal>
+</conditionvar>
+<displayfeedback feedbacktype="Response" linkrefid="9382_fb"/>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">9382</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="9382_fb">
+<flow_mat>
+<material>
+<mattext texttype="text/plain">Embora este não seja um objetivo do curso, as estratégias deste curso/disciplina certamente podem ajudar você a se tornar uma companhia melhor para um futuro cônjuge.</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+<item ident="gdefc3f108e35cb76ab42ff26148115c4" title="TurnItIn">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>2059,6990</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O Turnitin é um programa que permite a você e a seus professores saberem o quanto o seu trabalho reflete o trabalho de outras pessoas. Depois de enviar seu trabalho, uma bandeira colorida aparecerá ao lado do seu envio de tarefa na guia de notas. As diferentes cores das bandeiras indicarão a porcentagem do seu envio que o Turnitin identificou como cópia. &lt;strong&gt;NOTA&lt;/strong&gt;: Atividades que usam modelos terão alguma semelhança e o Turnitin sinalizará as perguntas da atividade — não se preocupe com isso. Apenas certifique-se de que suas respostas às perguntas não foram copiadas.&lt;/p&gt;
+&lt;p&gt;Se a cor da sua bandeira for vermelha, você deverá refazer sua atividade e enviá-la novamente até que a bandeira não seja mais vermelha. Uma atividade enviada com a bandeira vermelha não será avaliada e receberá nota 0.&lt;/p&gt;
+&lt;p&gt;As pontuações do Turnitin são divididas da seguinte forma:&lt;/p&gt;
+&lt;table border="1" style="border-collapse: collapse; width: 33.3965%;"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="width: 100%; text-align: center;"&gt;Ícones de Pontuação do Turnitin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table border="1" style="border-collapse: collapse; width: 33.4497%; height: 209px;"&gt;
+&lt;tbody&gt;
+&lt;tr style="height: 43px;"&gt;
+&lt;td style="width: 15.2614%; height: 31px; text-align: center;"&gt;&lt;img alt="1.2 cinza.PNG" height="36" id="125232114" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20GrayFlag.PNG?canvas_download=1" width="44"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 31px;"&gt;&lt;strong&gt; Cinza&lt;/strong&gt; (o relatório de originalidade ainda não foi gerado)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 44px;"&gt;
+&lt;td style="width: 15.2614%; height: 44px; text-align: center;"&gt;&lt;img alt="2azul.PNG" height="37" id="125231954" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20BlueFlag.PNG?canvas_download=1" width="47"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 44px;"&gt;&lt;strong&gt; Azul&lt;/strong&gt; (nenhuma correspondência de palavras)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 15.2614%; height: 29px; text-align: center;"&gt;&lt;img alt="3verde.PNG" height="30" id="125231948" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20GreenFlag.PNG?canvas_download=1" width="44"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 29px;"&gt;&lt;strong&gt; Verde&lt;/strong&gt; (índice de similaridade de 1 a 24%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 26px;"&gt;
+&lt;td style="width: 15.2614%; height: 18px; text-align: center;"&gt;&lt;img alt="4amarelo.PNG" height="37" id="125231946" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20YellowFlag.PNG?canvas_download=1" width="43"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 18px;"&gt;&lt;strong&gt; Amarelo&lt;/strong&gt; (índice de similaridade de 25 a 49%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 15.2614%; height: 29px; text-align: center;"&gt;&lt;img alt="5laranjas.PNG" height="31" id="125231944" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20OrangeFlag.PNG?canvas_download=1" width="42"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 29px;"&gt;&lt;strong&gt; Laranja&lt;/strong&gt; (índice de similaridade de 50 a 74%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 15.2614%; height: 29px; text-align: center;"&gt;&lt;img alt="6.1vermelho.PNG" height="30" id="125232112" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20RedFlag.PNG?canvas_download=1" width="42"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 29px;"&gt;&lt;strong&gt; Vermelho&lt;/strong&gt; (índice de similaridade de 75 a 100%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 15.2614%; height: 29px; text-align: center;"&gt;&lt;img alt="8horas.PNG" id="125231938" loading="lazy" src="$IMS-CC-FILEBASE$/assessment_questions/W01%20Quiz:%20Syllabus%20Clock.PNG?canvas_download=1"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 29px;"&gt;&lt;strong&gt; Relógio&lt;/strong&gt; (o relatório do Turnitin ainda está pendente)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;span&gt;O Turnitin pode ser usado para fornecer feedback imediato para que você saiba o que precisa ser corrigido antes de fazer o envio de suas atividades. &lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="2059">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="6990">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">6990</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gc4b7b7ee2d353475c7f9bbd58966671e" title="TurnItIn">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>true_false_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>1.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>2059,6990</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;O Turnitin é um programa que permite que você e seus professores saibam quanto do seu trabalho reflete o trabalho de outras pessoas. Depois de enviar seu trabalho, um sinalizador colorido aparecerá ao lado do seu envio de tarefa na guia de notas. Os diferentes sinalizadores coloridos indicarão a porcentagem do seu envio de tarefa que o Turnitin identificou como cópia. &lt;strong&gt;NOTA&lt;/strong&gt;: Atividades que usam modelos terão alguma cópia e o Turnitin sinalizará as perguntas da atividade — não se preocupe com isso. Certifique-se de que suas respostas às perguntas não tenham sido copiadas.&lt;/p&gt;
+&lt;p&gt;Se a cor do seu sinalizador for vermelha, você deve refazer sua atividade e enviá-la novamente até que o sinalizador não seja mais vermelho. Uma atividade entregue com o sinalizador vermelho não receberá nota e receberá a nota 0.&lt;/p&gt;
+&lt;p&gt;A pontuação do Turnitin é detalhada da seguinte forma:&lt;/p&gt;
+&lt;table border="1" style="border-collapse: collapse; width: 33.3965%;"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="width: 100%; text-align: center;"&gt;Ícones de Pontuação do Turnitin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table border="1" style="border-collapse: collapse; width: 33.4497%; height: 209px;"&gt;
+&lt;tbody&gt;
+&lt;tr style="height: 43px;"&gt;
+&lt;td style="width: 15.2614%; height: 31px; text-align: center;"&gt;&lt;img alt="1.2 cinza.PNG" height="33" id="125232114" loading="lazy" src="https://byui.instructure.com/assessment_questions/79262992/files/126074878/download?verifier=p1LKbTRZaB3sVGgvrqK3EgCTNLTBONLVuQVSMRoa" width="40"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 31px;"&gt;&lt;strong&gt; Cinza&lt;/strong&gt; (o relatório de originalidade ainda não foi gerado)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 44px;"&gt;
+&lt;td style="width: 15.2614%; height: 44px; text-align: center;"&gt;&lt;img alt="2azul.PNG" height="35" id="125231954" loading="lazy" src="https://byui.instructure.com/assessment_questions/79262992/files/126074880/download?verifier=xojWfoFR4DYqSYn0vq7sZcDxU55rkFZMlbHte41d" width="44"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 44px;"&gt;&lt;strong&gt; Azul&lt;/strong&gt; (sem correspondência de palavras)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 15.2614%; height: 29px; text-align: center;"&gt;&lt;img alt="3verde.PNG" height="30" id="125231948" loading="lazy" src="https://byui.instructure.com/assessment_questions/79262992/files/126074882/download?verifier=nYUurMbQ6lNgwj3wgb8TCWy9ft19J4w3RCoH4hCV" width="44"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 29px;"&gt;&lt;strong&gt; Verde&lt;/strong&gt; (índice de semelhança de 1 a 24%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 26px;"&gt;
+&lt;td style="width: 15.2614%; height: 18px; text-align: center;"&gt;&lt;img alt="4amarelo.PNG" height="37" id="125231946" loading="lazy" src="https://byui.instructure.com/assessment_questions/79262992/files/126074884/download?verifier=h7l0oDWFpToQ5lEqM1vvdjAWA47E7YNorCfCpT7G" width="43"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 18px;"&gt;&lt;strong&gt; Amarelo&lt;/strong&gt; (índice de semelhança de 25 a 49%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 15.2614%; height: 29px; text-align: center;"&gt;&lt;img alt="5laranjas.PNG" height="32" id="125231944" loading="lazy" src="https://byui.instructure.com/assessment_questions/79262992/files/126074886/download?verifier=sQXg75m3IzGR6XODVXukklE0RWHE0YKC6hK5xNnA" width="43"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 29px;"&gt;&lt;strong&gt; Laranja&lt;/strong&gt; (índice de semelhança de 50 a 74%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 15.2614%; height: 29px; text-align: center;"&gt;&lt;img alt="6.1vermelho.PNG" height="32" id="125232112" loading="lazy" src="https://byui.instructure.com/assessment_questions/79262992/files/126074888/download?verifier=VfISs38TMgekFFOkj4qB6fkoeAJmkXi7UPoZjqmG" width="45"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 29px;"&gt;&lt;strong&gt; Vermelho&lt;/strong&gt; (índice de semelhança de 75 a 100%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="height: 29px;"&gt;
+&lt;td style="width: 15.2614%; height: 29px; text-align: center;"&gt;&lt;img alt="8horas.PNG" id="125231938" loading="lazy" src="https://byui.instructure.com/assessment_questions/79262992/files/126074890/download?verifier=xaGxRV6UsfndGs8XURPE1UPqW3jtRG0Hm22QVZhj"/&gt;&lt;/td&gt;
+&lt;td style="width: 84.6662%; height: 29px;"&gt;&lt;strong&gt; Relógio&lt;/strong&gt; (o relatório do Turnitin ainda está pendente)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;span&gt;O Turnitin pode ser usado para fornecer feedback imediato para que você saiba o que precisa ser corrigido antes de enviar suas atividades.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="2059">
+<material>
+<mattext texttype="text/plain">True</mattext>
+</material>
+</response_label>
+<response_label ident="6990">
+<material>
+<mattext texttype="text/plain">False</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">2059</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="gd27df289989fdf5f2e1081ea9e61c959" title="Zoom">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_choice_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>0.5</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>4131,6115,6074</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;(Consulte o vídeo &lt;strong&gt;Como Baixar e Entrar no Zoom&lt;/strong&gt;.)&lt;/p&gt;
+&lt;p&gt;Qual é a opção correta para entrar no Zoom?&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Single">
+<render_choice>
+<response_label ident="4131">
+<material>
+<mattext texttype="text/plain">Entrar usando SSO</mattext>
+</material>
+</response_label>
+<response_label ident="6115">
+<material>
+<mattext texttype="text/plain">Entrar com o Google</mattext>
+</material>
+</response_label>
+<response_label ident="6074">
+<material>
+<mattext texttype="text/plain">Entrar com o Facebook</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal respident="response1">4131</varequal>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+<item ident="g9d642b16e3d36546ae4a06a85099da7d" title="Etiqueta no Zoom">
+<itemmetadata>
+<qtimetadata>
+<qtimetadatafield>
+<fieldlabel>question_type</fieldlabel>
+<fieldentry>multiple_answers_question</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>points_possible</fieldlabel>
+<fieldentry>0.5</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield>
+<fieldlabel>original_answer_ids</fieldlabel>
+<fieldentry>8741,5867,7018,329,5746,4317,2650</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<material>
+<mattext texttype="text/html">&lt;div&gt;&lt;p&gt;(Consulte o vídeo sobre &lt;strong&gt;Etiqueta no Zoom&lt;/strong&gt;.)&lt;/p&gt;
+&lt;p&gt;Quais das seguintes opções estão de acordo com as boas práticas de sala de aula no Zoom? (Selecione todas as opções aplicáveis.)&lt;/p&gt;&lt;/div&gt;</mattext>
+</material>
+<response_lid ident="response1" rcardinality="Multiple">
+<render_choice>
+<response_label ident="8741">
+<material>
+<mattext texttype="text/plain">Agir com profissionalismo e respeito</mattext>
+</material>
+</response_label>
+<response_label ident="5867">
+<material>
+<mattext texttype="text/plain">Assistir à aula ainda na cama e de pijama</mattext>
+</material>
+</response_label>
+<response_label ident="7018">
+<material>
+<mattext texttype="text/plain">Ligar a câmera</mattext>
+</material>
+</response_label>
+<response_label ident="329">
+<material>
+<mattext texttype="text/plain">Manter o microfone ligado o tempo todo</mattext>
+</material>
+</response_label>
+<response_label ident="5746">
+<material>
+<mattext texttype="text/plain">Organizar seu espaço de modo que seja profissional e focado na aprendizagem</mattext>
+</material>
+</response_label>
+<response_label ident="4317">
+<material>
+<mattext texttype="text/plain">Participar ativamente</mattext>
+</material>
+</response_label>
+<response_label ident="2650">
+<material>
+<mattext texttype="text/plain">Posicionar a câmera na altura dos olhos com uma luz forte atrás de você</mattext>
+</material>
+</response_label>
+</render_choice>
+</response_lid>
+</presentation>
+<resprocessing>
+<outcomes>
+<decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+</outcomes>
+<respcondition continue="No">
+<conditionvar>
+<and>
+<varequal respident="response1">8741</varequal>
+<not>
+<varequal respident="response1">5867</varequal>
+</not>
+<varequal respident="response1">7018</varequal>
+<not>
+<varequal respident="response1">329</varequal>
+</not>
+<varequal respident="response1">5746</varequal>
+<varequal respident="response1">4317</varequal>
+<not>
+<varequal respident="response1">2650</varequal>
+</not>
+</and>
+</conditionvar>
+<setvar action="Set" varname="SCORE">100</setvar>
+</respcondition>
+</resprocessing>
+</item>
+</objectbank>
+</questestinterop>

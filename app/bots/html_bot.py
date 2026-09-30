@@ -141,6 +141,7 @@ class HTMLTranslationBot:
         relevant_scriptures: dict = None,
         page_title: str = "Unknown",
         batch_limit: int = 6000,
+        preserve_details_titles: set[str] | None = None,
     ) -> str:
         """Translate visible HTML text nodes in bounded batches for large pages."""
         if not self.client_ready:
@@ -155,6 +156,20 @@ class HTMLTranslationBot:
         strings_to_translate = {}
         node_references = {}
         ignored_parents = {"script", "style", "code", "pre", "noscript"}
+        preserved_details = set()
+        normalized_preserved_titles = {
+            title.strip().casefold()
+            for title in (preserve_details_titles or set())
+        }
+        if normalized_preserved_titles:
+            for details_tag in soup.find_all("details"):
+                summary_tag = details_tag.find("summary", recursive=False)
+                if (
+                    summary_tag
+                    and summary_tag.get_text(" ", strip=True).casefold()
+                    in normalized_preserved_titles
+                ):
+                    preserved_details.add(id(details_tag))
 
         for node in soup.find_all(string=True):
             if isinstance(node, Comment):
@@ -164,6 +179,9 @@ class HTMLTranslationBot:
             if not isinstance(node, NavigableString):
                 continue
             if node.parent and node.parent.name in ignored_parents:
+                continue
+            parent_details = node.find_parent("details")
+            if parent_details is not None and id(parent_details) in preserved_details:
                 continue
 
             raw_text = str(node)

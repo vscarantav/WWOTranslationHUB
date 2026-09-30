@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quiz identifier="gbba48b586ee53ecfd9976f86681367af" xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+<title>S01 Questionário: WhatsApp</title>
+<description>&lt;h2&gt;Visão Geral&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objetivo&lt;/strong&gt;: Organizar-se com o grupo com o qual você trabalhará ao longo da disciplina/curso.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tarefa&lt;/strong&gt;:&lt;span&gt; &lt;/span&gt;&lt;span&gt;Configurar o WhatsApp, entrar no seu grupo do WhatsApp e apresentar-se ao seu grupo no WhatsApp.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Contexto&lt;/h2&gt;
+&lt;p&gt;&lt;span&gt;Você fará parte de dois grupos de WhatsApp.&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span&gt;Um dos grupos é destinado à comunicação do(a) instrutor(a) com a turma por meio de anúncios.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;O outro grupo é para você trabalhar com seus colegas de classe nas atividades. Lembre-se de que esses grupos e as informações neles contidas (incluindo dados de contato do WhatsApp) devem ser usados exclusivamente para fins relacionados às aulas.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Instruções – NÃO inicie este questionário antes de enviar uma mensagem no WhatsApp&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li style="list-style-type: none;"&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;span&gt;Faça o &lt;strong&gt;download&lt;/strong&gt; do WhatsApp (caso ainda não o tenha baixado) na &lt;/span&gt;&lt;span&gt; &lt;/span&gt;&lt;a class="external" href="https://apps.apple.com/us/app/whatsapp-messenger/id310633997" target="_blank"&gt;Apple App Store&lt;/a&gt;&lt;span&gt; ou no &lt;/span&gt;&lt;a class="external" href="https://www.whatsapp.com/android/" target="_blank"&gt;Download para Android&lt;/a&gt;&lt;span&gt; ou no &lt;/span&gt;&lt;a class="external" href="https://www.whatsapp.com/download/" target="_blank"&gt;Download para Computador PC/MAC&lt;/a&gt;&lt;span&gt;.  &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;O link do seu WhatsApp está no e-mail enviado na segunda-feira, o &lt;strong&gt;primeiro dia de aula,&lt;/strong&gt; pelo(a) instrutor(a).&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;No&lt;strong&gt; WhatsApp: p&lt;/strong&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;ublique&lt;/strong&gt; "olá" no seu grupo após entrar nele&lt;strong&gt;. &lt;/strong&gt;(Você só verá as mensagens após enviar a sua. Não aparecerá nada antes de você publicar.)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;Você não poderá enviar mensagens no WhatsApp até receber o link do(a) instrutor(a).&lt;strong&gt; NÃO envie um tíquete de Ajuda solicitando o link. &lt;/strong&gt;Somente o(a) instrutor(a) tem o seu link.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;&lt;strong&gt;NÃO&lt;/strong&gt; inicie este questionário antes de enviar uma mensagem no seu grupo de WhatsApp.&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+<lock_at>2026-09-16T23:59:59</lock_at>
+<due_at>2026-09-02T23:59:59</due_at>
+<shuffle_answers>true</shuffle_answers>
+<scoring_policy>keep_highest</scoring_policy>
+<hide_results>always</hide_results>
+<quiz_type>assignment</quiz_type>
+<points_possible>3.0</points_possible>
+<require_lockdown_browser>false</require_lockdown_browser>
+<require_lockdown_browser_for_results>false</require_lockdown_browser_for_results>
+<require_lockdown_browser_monitor>false</require_lockdown_browser_monitor>
+<lockdown_browser_monitor_data/>
+<show_correct_answers>false</show_correct_answers>
+<anonymous_submissions>false</anonymous_submissions>
+<could_be_locked>true</could_be_locked>
+<disable_timer_autosubmission>false</disable_timer_autosubmission>
+<allowed_attempts>1</allowed_attempts>
+<one_question_at_a_time>false</one_question_at_a_time>
+<cant_go_back>false</cant_go_back>
+<available>true</available>
+<one_time_results>false</one_time_results>
+<show_correct_answers_last_attempt>false</show_correct_answers_last_attempt>
+<only_visible_to_overrides>false</only_visible_to_overrides>
+<module_locked>false</module_locked>
+<assignment identifier="g1506797ffc231270e71fbfafad590c35">
+<title>S01 Questionário: WhatsApp</title>
+<due_at>2026-09-02T23:59:59</due_at>
+<lock_at>2026-09-16T23:59:59</lock_at>
+<unlock_at/>
+<module_locked>false</module_locked>
+<all_day_date>2026-09-02</all_day_date>
+<assignment_group_identifierref>g185fefcdc239ca79b656e5d3e6d65e34</assignment_group_identifierref>
+<workflow_state>published</workflow_state>
+<assignment_overrides>
+</assignment_overrides>
+<quiz_identifierref>gbba48b586ee53ecfd9976f86681367af</quiz_identifierref>
+<allowed_extensions/>
+<has_group_category>false</has_group_category>
+<points_possible>3.0</points_possible>
+<grading_type>points</grading_type>
+<all_day>true</all_day>
+<submission_types>online_quiz</submission_types>
+<position>3</position>
+<turnitin_enabled>false</turnitin_enabled>
+<vericite_enabled>false</vericite_enabled>
+<peer_review_count>0</peer_review_count>
+<peer_reviews>false</peer_reviews>
+<automatic_peer_reviews>false</automatic_peer_reviews>
+<anonymous_peer_reviews>false</anonymous_peer_reviews>
+<grade_group_students_individually>false</grade_group_students_individually>
+<freeze_on_copy>false</freeze_on_copy>
+<omit_from_final_grade>false</omit_from_final_grade>
+<hide_in_gradebook>false</hide_in_gradebook>
+<intra_group_peer_reviews>false</intra_group_peer_reviews>
+<only_visible_to_overrides>false</only_visible_to_overrides>
+<post_to_sis>false</post_to_sis>
+<moderated_grading>false</moderated_grading>
+<grader_count>0</grader_count>
+<grader_comments_visible_to_graders>true</grader_comments_visible_to_graders>
+<anonymous_grading>false</anonymous_grading>
+<graders_anonymous_to_graders>false</graders_anonymous_to_graders>
+<grader_names_visible_to_final_grader>true</grader_names_visible_to_final_grader>
+<anonymous_instructor_annotations>false</anonymous_instructor_annotations>
+<post_policy>
+<post_manually>false</post_manually>
+</post_policy>
+</assignment>
+<assignment_group_identifierref>g185fefcdc239ca79b656e5d3e6d65e34</assignment_group_identifierref>
+<assignment_overrides>
+</assignment_overrides>
+</quiz>

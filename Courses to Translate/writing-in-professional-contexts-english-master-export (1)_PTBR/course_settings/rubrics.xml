@@ -1,0 +1,3227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rubrics xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+<rubric identifier="g9ff1b90d955cead7988376ac86587bbb">
+<read_only>false</read_only>
+<title>S01 Projeto de Escrita: Uma História, Dois Públicos-alvo</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>20.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_7315</criterion_id>
+<points>5.0</points>
+<description>Versão 1 da História (Público-alvo A)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_7315</criterion_id>
+<long_description>Dirige-se de forma clara a um público-alvo adequado do Grupo A. Apresenta uma narrativa pessoal coerente com uma ideia central clara. O tom, a linguagem e os detalhes são consistentemente adaptados para se adequarem ao público-alvo específico.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_7315</criterion_id>
+<long_description>Dirige-se a um público-alvo do Grupo A e apresenta uma narrativa clara. É evidente alguma adaptação no tom, na linguagem ou nos detalhes.</long_description>
+<id>165721_5182</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>_7315</criterion_id>
+<long_description>O público-alvo não está claro ou está inadequado. A narrativa está presente, mas é fraca ou adaptada de forma inconsistente.</long_description>
+<id>165721_187</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_7315</criterion_id>
+<long_description>Não entregue, não direcionado ao Grupo A ou não constitui uma narrativa.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>165721_2836</criterion_id>
+<points>5.0</points>
+<description>Versão 2 da História (Público-alvo B)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>165721_2836</criterion_id>
+<long_description>Dirige-se de forma clara a um público-alvo adequado do Grupo B e diferencia-se da Versão 1. Apresenta uma narrativa pessoal coerente com uma ideia central clara. O tom, a linguagem e os detalhes são consistentemente adaptados para se adequarem ao público-alvo específico.</long_description>
+<id>165721_6081</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>165721_2836</criterion_id>
+<long_description>Dirige-se a um público-alvo do Grupo B e apresenta uma narrativa clara. É evidente alguma adaptação, embora as diferenças em relação à Versão 1 possam ser limitadas.</long_description>
+<id>165721_9098</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>165721_2836</criterion_id>
+<long_description>O público-alvo não está claro, está inadequado ou não é claramente diferente da Versão 1. A narrativa é fraca ou minimamente adaptada.</long_description>
+<id>165721_4785</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>165721_2836</criterion_id>
+<long_description>Não entregue, não direcionado ao Grupo B ou não se diferencia da Versão 1.</long_description>
+<id>165721_2776</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>165721_4063</criterion_id>
+<points>5.0</points>
+<description>Reflexão</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>165721_4063</criterion_id>
+<long_description>Explica de forma clara como o tom, a linguagem, os apelos e a seleção de detalhes foram adaptados para cada público-alvo, utilizando exemplos específicos de ambas as versões. Demonstra uma compreensão clara das escolhas retóricas.</long_description>
+<id>165721_9754</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>165721_4063</criterion_id>
+<long_description>Explica a maioria das escolhas de adaptação (tom, linguagem, apelos ou detalhes) com alguma referência às histórias.</long_description>
+<id>165721_1480</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>165721_4063</criterion_id>
+<long_description>Menciona as escolhas de adaptação, mas as explicações são gerais, incompletas ou pouco claras.</long_description>
+<id>165721_6950</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>165721_4063</criterion_id>
+<long_description>Não explica as escolhas de adaptação ou a reflexão não foi entregue.</long_description>
+<id>165721_743</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>165721_2260</criterion_id>
+<points>3.0</points>
+<description>Qualidade Geral da Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>165721_2260</criterion_id>
+<long_description>A escrita é clara, organizada e flui de maneira suave. As orações são completas e variadas. Erros de gramática, ortografia ou pontuação são mínimos e não interferem no sentido.</long_description>
+<id>165721_146</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>165721_2260</criterion_id>
+<long_description>A escrita é geralmente clara, com alguns erros, mas o sentido continua compreensível.</long_description>
+<id>165721_1014</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>165721_2260</criterion_id>
+<long_description>Erros frequentes ou formulações pouco claras às vezes interferem na compreensão.</long_description>
+<id>165721_3971</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>165721_2260</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>165721_4926</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>165721_5222</criterion_id>
+<points>2.0</points>
+<description>Adequação de Extensão: Cerca de 250 palavras para cada história, 500 no total</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>165721_5222</criterion_id>
+<long_description>Ambas as histórias estão totalmente desenvolvidas (200–300 palavras cada) e a reflexão atende à extensão exigida (150–200 palavras). A escrita inclui detalhes suficientes sem repetições desnecessárias.</long_description>
+<id>165721_9202</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>165721_5222</criterion_id>
+<long_description>Pequenos problemas com a extensão ou o desenvolvimento, mas todas as seções estão presentes.</long_description>
+<id>165721_3464</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>165721_5222</criterion_id>
+<long_description>Uma ou mais seções estão muito curtas ou muito longas, o que limita a clareza ou o desenvolvimento.</long_description>
+<id>165721_8195</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>165721_5222</criterion_id>
+<long_description>Uma ou mais seções obrigatórias não foram entregues.</long_description>
+<id>165721_4445</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="ge76dbd019952d763981dec04bf0fdfa2">
+<read_only>false</read_only>
+<title>S02 Projeto de Escrita: Carta de Agradecimento</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>20.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_1765</criterion_id>
+<points>6.0</points>
+<description>Formato da Carta e Destinatário</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>6.0</points>
+<criterion_id>_1765</criterion_id>
+<long_description>A carta é direcionada a um indivíduo ou grupo específico e inclui todos os elementos obrigatórios: data, saudação apropriada, 2–3 parágrafos-padrão, encerramento e assinatura.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.8</points>
+<criterion_id>_1765</criterion_id>
+<long_description>A carta é direcionada a um destinatário específico e inclui a maioria dos elementos de formato obrigatórios, com pequenas omissões.</long_description>
+<id>_5609</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.6</points>
+<criterion_id>_1765</criterion_id>
+<long_description>A carta está presente, mas não apresenta diversos elementos de formato ou o destinatário não está claro.</long_description>
+<id>_4225</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_1765</criterion_id>
+<long_description>A carta não é direcionada a um destinatário específico ou não segue o formato de carta.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_5800</criterion_id>
+<points>3.0</points>
+<description>Expressão de Gratidão</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_5800</criterion_id>
+<long_description>Expressa gratidão sincera de forma clara e consistente ao longo de toda a carta, de maneira direta e pessoal.</long_description>
+<id>_9804</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_5800</criterion_id>
+<long_description>Expressa gratidão, embora de forma geral ou irregular ao longo da carta.</long_description>
+<id>165729_6631</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_5800</criterion_id>
+<long_description>A gratidão é mínima, vaga ou declarada de forma muito breve.</long_description>
+<id>165729_971</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_5800</criterion_id>
+<long_description>Não expressa gratidão de forma clara.</long_description>
+<id>_2615</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6503</criterion_id>
+<points>3.0</points>
+<description>Conteúdo: Exemplo Específico</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_6503</criterion_id>
+<long_description>Foca em um momento ou evento específico e inclui detalhes concretos (o que aconteceu, quando, onde ou como isso afetou quem escreve).</long_description>
+<id>_7984</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_6503</criterion_id>
+<long_description>Inclui um exemplo relevante, embora os detalhes possam ser um pouco gerais ou incompletos.</long_description>
+<id>_4193</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_6503</criterion_id>
+<long_description>O exemplo é vago, generalizado ou não está claramente focado em um único momento.</long_description>
+<id>165729_1369</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_6503</criterion_id>
+<long_description>Não inclui um exemplo específico.</long_description>
+<id>_9243</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6792</criterion_id>
+<points>5.0</points>
+<description>Mecânica de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_6792</criterion_id>
+<long_description>A escrita é clara e de fácil leitura, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem no sentido.</long_description>
+<id>_1526</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_6792</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido continua claro.</long_description>
+<id>_4095</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>_6792</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_8974</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_6792</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_4598</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_9275</criterion_id>
+<points>3.0</points>
+<description>Extensão e Adequação: Cerca de 250 palavras</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_9275</criterion_id>
+<long_description>Atende à extensão (cerca de 250 palavras) e inclui detalhes suficientes sem repetições desnecessárias.</long_description>
+<id>_5561</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.25</points>
+<criterion_id>_9275</criterion_id>
+<long_description>Pequenos problemas com a extensão ou o desenvolvimento, mas a mensagem continua clara.</long_description>
+<id>_1874</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.5</points>
+<criterion_id>_9275</criterion_id>
+<long_description>Muito curto ou muito longo, limitando a clareza ou a eficácia.</long_description>
+<id>_895</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_9275</criterion_id>
+<long_description>O envio de tarefa não foi entregue ou está muito fora da extensão esperada.</long_description>
+<id>_7000</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="gf881cf041b0bda73ce2814a44046eba3">
+<read_only>true</read_only>
+<title>S01 Rascunho: Sua História de Vida</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>12.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_2608</criterion_id>
+<points>5.0</points>
+<description>História com Lição de Vida</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Identifica de forma clara uma pessoa ou experiência específica e apresenta uma lição de vida precisa em uma tese clara. Utiliza detalhes específicos e concretos da sua experiência pessoal e explica de que forma eles apoiam a lição, incluindo pelo menos um momento ou evento descrito com clareza. Organizado em 3–4 parágrafos lógicos que apoiam a tese.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Identifica uma pessoa ou experiência e apresenta uma lição. Utiliza exemplos relevantes com alguma explicação sobre como se conectam à lição. A organização é predominantemente clara, com 3–4 parágrafos.</long_description>
+<id>_9582</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Identifica uma pessoa ou experiência, mas a lição é vaga ou pouco clara. Os exemplos são gerais ou têm uma conexão fraca com a lição. A organização é inconsistente ou pouco clara.</long_description>
+<id>_260</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Não identifica claramente uma pessoa/experiência ou lição. Apresenta poucos ou nenhuns detalhes relevantes. Carece de uma organização clara.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_31</criterion_id>
+<points>3.0</points>
+<description>Reflexão sobre Metas</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Explica de forma clara como a lição afeta o comportamento atual e inclui duas metas futuras específicas e realistas que se conectam diretamente com a lição.</long_description>
+<id>_351</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Explica o impacto atual e inclui duas metas futuras, embora as conexões com a lição possam ser gerais.</long_description>
+<id>_169</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Menciona o impacto atual ou metas futuras, mas as conexões não estão claras ou apenas uma meta foi incluída.</long_description>
+<id>165722_1788</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Não explica o impacto atual ou não inclui metas futuras.</long_description>
+<id>_4056</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_2158</criterion_id>
+<points>2.0</points>
+<description>Mecânica de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_2158</criterion_id>
+<long_description>A escrita é clara e de fácil leitura, com erros mínimos de gramática, ortografia e estrutura de orações que não interferem no sentido.</long_description>
+<id>_3951</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_2158</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido continua claro.</long_description>
+<id>_1931</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_2158</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_689</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2158</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_7177</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_4035</criterion_id>
+<points>2.0</points>
+<description>Extensão: 1–2 páginas (cerca de 450–500 palavras)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Atende a todos os requisitos da atividade: 3–4 parágrafos, inclui uma tese clara, exemplos específicos e duas metas futuras; segue totalmente as instruções da atividade.</long_description>
+<id>_9749</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Atende à maioria dos requisitos da atividade, com pequenas omissões.</long_description>
+<id>_4654</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Atende parcialmente aos requisitos da atividade (por exemplo, estrutura de parágrafos não entregue, exemplos limitados ou objetivos incompletos).</long_description>
+<id>_4905</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Não atende aos requisitos básicos da atividade.</long_description>
+<id>_308</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="g533bb0a2483f4620caf6c1826222d58b">
+<read_only>false</read_only>
+<title>S03: Comunicação Estratégica por Meio de Recursos Retóricos</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>20.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_9530</criterion_id>
+<points>3.5</points>
+<description>Parte 1: Cenário e Público-alvo</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.5</points>
+<criterion_id>_9530</criterion_id>
+<long_description>Descreve claramente um cenário real e um destinatário específico com detalhes relevantes (função, relacionamento, preferências de comunicação e características). Demonstra clara percepção de como o público-alvo pode reagir.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.5</points>
+<criterion_id>_9530</criterion_id>
+<long_description>Descreve o cenário e o destinatário com alguns detalhes relevantes. A percepção do público-alvo está presente, mas de forma geral.</long_description>
+<id>_4333</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.5</points>
+<criterion_id>_9530</criterion_id>
+<long_description>Apresenta uma descrição limitada ou vaga do cenário ou do destinatário. A percepção do público-alvo não está clara.</long_description>
+<id>_5321</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_9530</criterion_id>
+<long_description>O público-alvo descobre que você está assumindo a autoria do trabalho ou das ideias de outra pessoa (plágio parcial ou total) ou o trabalho não foi entregue sem justificativa.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6175</criterion_id>
+<points>3.5</points>
+<description>Parte 2: Recursos Retóricos Selecionados</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.5</points>
+<criterion_id>_6175</criterion_id>
+<long_description>Identifica claramente dois recursos retóricos diferentes e explica por que cada um é adequado para o público-alvo específico.</long_description>
+<id>_844</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.5</points>
+<criterion_id>_6175</criterion_id>
+<long_description>Identifica dois recursos diferentes com alguma explicação sobre a escolha.</long_description>
+<id>_2756</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.5</points>
+<criterion_id>_6175</criterion_id>
+<long_description>Os recursos não estão claros, não são diferentes ou as explicações são vagas.</long_description>
+<id>_7973</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_6175</criterion_id>
+<long_description>Não entregue ou sem a identificação correta.</long_description>
+<id>_38</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_519</criterion_id>
+<points>4.0</points>
+<description>Parte 3: As Duas Mensagens</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>4.0</points>
+<criterion_id>_519</criterion_id>
+<long_description>Ambas as mensagens são escritas para a mesma pessoa e cenário, estão claramente identificadas e utilizam recursos retóricos diferentes. As diferenças de tom, linguagem e detalhes são claramente perceptíveis e adequadas ao público-alvo.</long_description>
+<id>_6521</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>_519</criterion_id>
+<long_description>Ambas as mensagens estão presentes e identificadas, com algumas diferenças de recursos retóricos, embora as distinções possam ser limitadas.</long_description>
+<id>_9657</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_519</criterion_id>
+<long_description>As mensagens estão presentes, mas apresentam pouca diferença significativa ou estão pouco claras/incompletas.</long_description>
+<id>_9010</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_519</criterion_id>
+<long_description>Uma ou ambas as mensagens não foram entregues ou não estão identificadas corretamente.</long_description>
+<id>_6912</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_5219</criterion_id>
+<points>4.0</points>
+<description>Parte 4: Análise de Cada Mensagem</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>4.0</points>
+<criterion_id>_5219</criterion_id>
+<long_description>Apresenta uma análise separada para cada mensagem, explicando claramente como o recurso é utilizado, identificando uma oração ou frase específica e explicando por que ela funcionaria ou não para o público-alvo.</long_description>
+<id>_2532</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>_5219</criterion_id>
+<long_description>Analisa ambas as mensagens com alguma explicação sobre os recursos retóricos e referência ao texto.</long_description>
+<id>_2366</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_5219</criterion_id>
+<long_description>A análise é genérica, pouco clara ou não se conecta claramente às mensagens.</long_description>
+<id>_5684</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_5219</criterion_id>
+<long_description>Não entregue ou sem a identificação correta.</long_description>
+<id>_955</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_8671</criterion_id>
+<points>3.0</points>
+<description>Parte 5: Reflexão</description>
+<ratings>
+<rating>
+<description>Pontuação máxima</description>
+<points>3.0</points>
+<criterion_id>_8671</criterion_id>
+<long_description>Compara claramente ambas as mensagens e explica qual delas seria enviada e o porquê, com referência específica ao público-alvo, ao relacionamento ou ao contexto cultural.</long_description>
+<id>_2050</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_8671</criterion_id>
+<long_description>Compara ambas as mensagens com alguma explicação sobre a preferência.</long_description>
+<id>_4258</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_8671</criterion_id>
+<long_description>A reflexão é genérica, pouco clara ou possui uma conexão fraca com o público-alvo.</long_description>
+<id>_4085</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_8671</criterion_id>
+<long_description>Não entregue ou sem a identificação correta.</long_description>
+<id>_778</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>165730_5774</criterion_id>
+<points>2.0</points>
+<description>Mecanismos de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>165730_5774</criterion_id>
+<long_description>A escrita é clara e de fácil leitura, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem na compreensão do sentido.</long_description>
+<id>165730_148</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>165730_5774</criterion_id>
+<long_description>Alguns erros estão presentes, mas a compreensão do sentido permanece clara.</long_description>
+<id>165730_4461</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>165730_5774</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>165730_3419</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>165730_5774</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>165730_6303</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="g5ba708158a7a2e05ea3d92f46f1d63bb">
+<read_only>false</read_only>
+<title>Rascunho S01: A História da Sua Vida (1)</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>12.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_2608</criterion_id>
+<points>5.0</points>
+<description>História de Lição de Vida</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Identifica claramente uma pessoa ou experiência específica e apresenta uma lição de vida precisa em uma tese clara. Utiliza detalhes específicos e concretos da sua experiência pessoal e explica como eles apoiam a lição, incluindo pelo menos um momento ou evento descrito com clareza. Organizado em 3 a 4 parágrafos lógicos que apoiam a tese.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Identifica uma pessoa ou experiência e apresenta uma lição. Utiliza exemplos relevantes com alguma explicação sobre como se conectam à lição. A organização é majoritariamente clara, com 3 a 4 parágrafos.</long_description>
+<id>_9582</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Identifica uma pessoa ou experiência, mas a lição é vaga ou pouco clara. Os exemplos são genéricos ou fracamente conectados à lição. A organização é inconsistente ou pouco clara.</long_description>
+<id>_260</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Não identifica claramente uma pessoa e uma experiência ou lição. Apresenta poucos ou nenhum detalhe relevante. Carece de uma organização clara.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_31</criterion_id>
+<points>3.0</points>
+<description>Reflexão sobre Metas</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Explica claramente como a lição afeta o comportamento atual e inclui duas metas futuras específicas e realistas que se conectam diretamente à lição.</long_description>
+<id>_351</id>
+</rating>
+<rating>
+<description>Proficient</description>
+<points>2.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Explica o impacto atual e inclui duas metas futuras, embora as conexões com a lição possam ser genéricas.</long_description>
+<id>_169</id>
+</rating>
+<rating>
+<description>Developing</description>
+<points>1.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Menciona o impacto atual ou metas futuras, mas as conexões não estão claras ou apenas uma meta é incluída.</long_description>
+<id>165722_1788</id>
+</rating>
+<rating>
+<description>No Marks</description>
+<points>0.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Não explica o impacto atual ou não inclui metas futuras.</long_description>
+<id>_4056</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_2158</criterion_id>
+<points>2.0</points>
+<description>Mecanismos de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_2158</criterion_id>
+<long_description>A escrita é clara e de fácil leitura, com erros mínimos de gramática, ortografia e estrutura de oração que não interferem na compreensão do sentido.</long_description>
+<id>_3951</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_2158</criterion_id>
+<long_description>Alguns erros estão presentes, mas a compreensão do sentido permanece clara.</long_description>
+<id>_1931</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_2158</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_689</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2158</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_7177</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_4035</criterion_id>
+<points>2.0</points>
+<description>Extensão: de 1 a 2 páginas (cerca de 450 a 500 palavras)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Atende a todos os requisitos da atividade: 3 a 4 parágrafos, inclui uma tese clara, exemplos específicos e duas metas futuras; segue totalmente as instruções da atividade.</long_description>
+<id>_9749</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Atende à maioria dos requisitos da atividade com pequenas omissões.</long_description>
+<id>_4654</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Atende parcialmente aos requisitos da atividade (em outras palavras, estrutura de parágrafos não entregue, exemplos limitados ou objetivos incompletos).</long_description>
+<id>_4905</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Não atende aos requisitos básicos da atividade.</long_description>
+<id>_308</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="gf48c9cbcf006d57a0e95b398c7b742e6">
+<read_only>false</read_only>
+<title>S06 Revisão da História da Família</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>10.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_2093</criterion_id>
+<points>1.5</points>
+<description>Histórico Familiar (Introdução e Tese)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.5</points>
+<criterion_id>_2093</criterion_id>
+<long_description>A introdução apresenta claramente o assunto e inclui uma tese forte e focada. Mostra uma melhora clara em clareza, organização ou foco em relação ao rascunho original.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_2093</criterion_id>
+<long_description>A introdução e a tese estão presentes, com alguma melhora.</long_description>
+<id>_2251</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_2093</criterion_id>
+<long_description>A introdução ou a tese está pouco clara, fraca ou mostra melhora limitada.</long_description>
+<id>_5755</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2093</criterion_id>
+<long_description>Não entregue ou introdução e/ou tese pouco claras.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6807</criterion_id>
+<points>2.0</points>
+<description>Minha Herança Ancestral (Desenvolvimento)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_6807</criterion_id>
+<long_description>Os parágrafos-padrão são claramente organizados, cada um focado em uma ideia principal, e incluem evidências relevantes. Mostra melhora clara na organização, no suporte e no desenvolvimento do parágrafo.</long_description>
+<id>_9282</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.5</points>
+<criterion_id>_6807</criterion_id>
+<long_description>Os parágrafos-padrão estão presentes, com alguma organização e suporte, e melhora parcial.</long_description>
+<id>_5998</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_6807</criterion_id>
+<long_description>Os parágrafos-padrão são fracos, pouco claros ou mostram pouca melhora em desenvolvimento ou organização.</long_description>
+<id>_2406</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_6807</criterion_id>
+<long_description>Não entregue ou parágrafos-padrão pouco claros.</long_description>
+<id>_413</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_5692</criterion_id>
+<points>1.5</points>
+<description>Meu Legado e Conselho (Conclusão e Eficácia)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.5</points>
+<criterion_id>_5692</criterion_id>
+<long_description>A conclusão reforça claramente o argumento principal e reflete uma melhora em clareza, percepção ou conexão com a tese. A redação, em geral, mostra maior coerência e propósito.</long_description>
+<id>_1671</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_5692</criterion_id>
+<long_description>A conclusão está presente, com alguma conexão com o argumento e alguma melhora.</long_description>
+<id>_4524</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_5692</criterion_id>
+<long_description>A conclusão é fraca, pouco clara ou mostra pouca melhora.</long_description>
+<id>_7890</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_5692</criterion_id>
+<long_description>Não entregue ou conclusão pouco clara.</long_description>
+<id>_7386</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_1215</criterion_id>
+<points>2.0</points>
+<description>Mecanismos de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_1215</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e pontuação. Demonstra evolução na variedade de orações, na escolha de palavras e na clareza. Os erros não interferem na compreensão do texto.</long_description>
+<id>_2596</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.5</points>
+<criterion_id>_1215</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido permanece claro, com alguma evolução no estilo ou na clareza.</long_description>
+<id>_9068</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_1215</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão e mostram uma evolução limitada.</long_description>
+<id>_9044</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_1215</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_2688</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_8267</criterion_id>
+<points>1.0</points>
+<description>APA</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.0</points>
+<criterion_id>_8267</criterion_id>
+<long_description>Inclui a formatação APA correta (página de rosto, citações, formatação) com uma evolução clara em relação ao rascunho original.</long_description>
+<id>_4179</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.75</points>
+<criterion_id>_8267</criterion_id>
+<long_description>Inclui a formatação APA com erros menores.</long_description>
+<id>_6979</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_8267</criterion_id>
+<long_description>A formatação APA está presente, mas incorreta ou incompleta.</long_description>
+<id>_4846</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_8267</criterion_id>
+<long_description>Nenhuma formatação APA foi apresentada.</long_description>
+<id>_3585</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_5448</criterion_id>
+<points>2.0</points>
+<description>Reflexão sobre a Revisão</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_5448</criterion_id>
+<long_description>Descreve claramente as alterações específicas da revisão, explica como o feedback e as estratégias de revisão foram aplicados e apresenta reflexões concretas sobre o próprio desenvolvimento na escrita. Utiliza linguagem específica e analítica.</long_description>
+<id>_1489</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.5</points>
+<criterion_id>_5448</criterion_id>
+<long_description>A reflexão é geral, vaga ou carece de uma explicação clara sobre as decisões de revisão.</long_description>
+<id>_6054</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_5448</criterion_id>
+<long_description>Descreve as alterações da revisão com alguma explicação das estratégias ou do aprendizado.</long_description>
+<id>165797_5756</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_5448</criterion_id>
+<long_description>A reflexão não foi entregue ou está incompleta.</long_description>
+<id>_3202</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="gc20230089c2b00b994d0b780ce8e959d">
+<read_only>false</read_only>
+<title>S06 Projeto de Escrita: Revisão da Narrativa Pessoal</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>10.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_8369</criterion_id>
+<points>2.0</points>
+<description>Foco e Extensão da Narrativa</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_8369</criterion_id>
+<long_description>A narrativa desenvolve um equilíbrio adequado de elementos narrativos, incluindo cenário, enredo, caracterização e detalhes, para transmitir um propósito ou mensagem específica (tese).</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.5</points>
+<criterion_id>_8369</criterion_id>
+<long_description>A narrativa apresenta desequilíbrio no uso de elementos narrativos e/ou falta de foco, seja por incluir detalhes que não apoiam a tese principal, seja por não incluir detalhes relevantes em trechos onde a história exigiria mais descrição.</long_description>
+<id>_6350</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_8369</criterion_id>
+<long_description>A narrativa apresenta poucos ou nenhum detalhe. Relata-se o ocorrido de forma explicativa, sem descrição, diálogo, caracterização ou detalhes — mesmo que o foco principal esteja claro.</long_description>
+<id>_7018</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_8369</criterion_id>
+<long_description>O público-alvo constata que você está assumindo a autoria do trabalho ou de ideias de outra pessoa (plágio parcial ou total) ou o trabalho não foi entregue sem justificativa.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_5745</criterion_id>
+<points>1.5</points>
+<description>Início / Meio / Fim</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.5</points>
+<criterion_id>_5745</criterion_id>
+<long_description>A narrativa desenvolve um equilíbrio adequado de elementos narrativos, incluindo cenário, enredo, caracterização e detalhes, para transmitir um propósito ou mensagem específica (tese).</long_description>
+<id>_1961</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_5745</criterion_id>
+<long_description>A narrativa apresenta desequilíbrio no uso de elementos narrativos e/ou falta de foco, seja por incluir detalhes que não apoiam a tese principal, seja por não incluir detalhes relevantes em trechos onde a história exigiria mais descrição.</long_description>
+<id>_6111</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_5745</criterion_id>
+<long_description>A narrativa apresenta poucos ou nenhum detalhe. Relata-se o ocorrido de forma explicativa, sem descrição, diálogo, caracterização ou detalhes — mesmo que o foco principal esteja claro.</long_description>
+<id>_1231</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_5745</criterion_id>
+<long_description>O público-alvo constata que você está assumindo a autoria do trabalho ou de ideias de outra pessoa (plágio parcial ou total) ou o trabalho não foi entregue sem justificativa.</long_description>
+<id>_4661</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_7930</criterion_id>
+<points>1.0</points>
+<description>Contexto Autêntico</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.0</points>
+<criterion_id>_7930</criterion_id>
+<long_description>A narrativa desenvolve um equilíbrio adequado de elementos narrativos, incluindo cenário, enredo, caracterização e detalhes, para transmitir um propósito ou mensagem específica (tese).</long_description>
+<id>_9702</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.75</points>
+<criterion_id>_7930</criterion_id>
+<long_description>A narrativa apresenta desequilíbrio no uso de elementos narrativos e/ou falta de foco, seja por incluir detalhes que não apoiam a tese principal, seja por não incluir detalhes relevantes em trechos onde a história exigiria mais descrição.</long_description>
+<id>_1901</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_7930</criterion_id>
+<long_description>A narrativa apresenta poucos ou nenhum detalhe. Relata-se o ocorrido de forma explicativa, sem descrição, diálogo, caracterização ou detalhes — mesmo que o foco principal esteja claro.</long_description>
+<id>_7418</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_7930</criterion_id>
+<long_description>O público-alvo constata que você está assumindo a autoria do trabalho ou de ideias de outra pessoa (plágio parcial ou total) ou o trabalho não foi entregue sem justificativa.</long_description>
+<id>_3988</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6293</criterion_id>
+<points>2.0</points>
+<description>Mecânica de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_6293</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem na compreensão do texto.</long_description>
+<id>_3942</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.5</points>
+<criterion_id>_6293</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido permanece claro.</long_description>
+<id>_1057</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_6293</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_4947</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_6293</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_941</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6450</criterion_id>
+<points>1.0</points>
+<description>APA</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.0</points>
+<criterion_id>_6450</criterion_id>
+<long_description>Inclui corretamente os elementos obrigatórios de formatação APA (página de rosto, formatação ou atribuição, se aplicável).</long_description>
+<id>_2274</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.75</points>
+<criterion_id>_6450</criterion_id>
+<long_description>Inclui elementos APA com erros menores.</long_description>
+<id>_3846</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_6450</criterion_id>
+<long_description>Os elementos APA estão presentes, mas incorretos ou incompletos.</long_description>
+<id>_4550</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_6450</criterion_id>
+<long_description>Nenhuma formatação APA foi apresentada.</long_description>
+<id>_9726</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6332</criterion_id>
+<points>2.5</points>
+<description>Reflexão sobre a Revisão</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.5</points>
+<criterion_id>_6332</criterion_id>
+<long_description>Descreve claramente as alterações específicas da revisão, explica como o feedback e as estratégias do curso foram aplicados e apresenta reflexões concretas sobre o processo de escrita. Utiliza linguagem específica e analítica.</long_description>
+<id>_6170</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_6332</criterion_id>
+<long_description>Descreve as alterações da revisão e inclui alguma explicação das estratégias ou do aprendizado.</long_description>
+<id>165798_5188</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_6332</criterion_id>
+<long_description>A reflexão é geral, vaga ou carece de uma explicação clara sobre as decisões de revisão.</long_description>
+<id>_1596</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_6332</criterion_id>
+<long_description>A reflexão não foi entregue ou está incompleta.</long_description>
+<id>_9507</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="gf6542190df6b56f243d71d08738ce774">
+<read_only>false</read_only>
+<title>S07 Reflexão sobre os Convites</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>12.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_2411</criterion_id>
+<points>12.0</points>
+<description>Conclusão da Reflexão</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>12.0</points>
+<criterion_id>_2411</criterion_id>
+<long_description>Concluiu uma reflexão sobre como os convites mudaram sua experiência na disciplina, sua vida e sua relação com Jesus Cristo e as metas compartilhadas.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2411</criterion_id>
+<long_description>Não concluiu a reflexão.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="g132cbca1131c8984c9470a905c9052ba">
+<read_only>false</read_only>
+<title>S07_Projeto de Escrita: Reflexão</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>20.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_4637</criterion_id>
+<points>5.0</points>
+<description>Explorar</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_4637</criterion_id>
+<long_description>Descreve claramente uma atividade específica e explica o que a tornou desafiadora, utilizando exemplos pessoais detalhados da disciplina.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_4637</criterion_id>
+<long_description>Descreve uma atividade e identifica alguns desafios com detalhes limitados.</long_description>
+<id>_8301</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>_4637</criterion_id>
+<long_description>Apresenta uma descrição geral ou pouco clara da atividade ou dos desafios.</long_description>
+<id>_3642</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_4637</criterion_id>
+<long_description>Não entregue ou não descreve uma atividade específica.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_2497</criterion_id>
+<points>5.0</points>
+<description>Refletir</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_2497</criterion_id>
+<long_description>Explica claramente uma percepção significativa sobre a escrita ou sobre si no processo de escrita, utilizando exemplos específicos da disciplina. Explica por que essa percepção foi surpreendente ou importante.</long_description>
+<id>_5214</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_2497</criterion_id>
+<long_description>Identifica uma percepção com alguma explicação e conexão com a experiência.</long_description>
+<id>165800_4355</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>_2497</criterion_id>
+<long_description>Apresenta uma percepção geral ou pouco clara, com pouca conexão com uma experiência específica.</long_description>
+<id>_1668</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2497</criterion_id>
+<long_description>Não entregue ou não identifica uma percepção.</long_description>
+<id>_9490</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_8871</criterion_id>
+<points>5.0</points>
+<description>Planejar</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_8871</criterion_id>
+<long_description>Apresenta um plano de ação claro com pelo menos três etapas específicas, recursos relevantes e um cronograma realista. O plano é concreto e está diretamente conectado à habilidade de escrita identificada.</long_description>
+<id>_1797</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_8871</criterion_id>
+<long_description>Apresenta um plano com algumas etapas específicas, embora os detalhes ou conexões possam ser limitados.</long_description>
+<id>165800_3430</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>_8871</criterion_id>
+<long_description>Apresenta um plano vago ou incompleto, com poucas ações específicas ou um cronograma pouco claro.</long_description>
+<id>_3902</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_8871</criterion_id>
+<long_description>Não entregue ou não inclui um plano.</long_description>
+<id>_9120</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_7575</criterion_id>
+<points>5.0</points>
+<description>Mecânica de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_7575</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem na compreensão do texto.</long_description>
+<id>_9216</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_7575</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido permanece claro.</long_description>
+<id>165800_4849</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>_7575</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_1077</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_7575</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_2233</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="g65a8f0ed5fd9fa04a80b594b3a97cab9">
+<read_only>false</read_only>
+<title>S03 Rascunho: E-mail Profissional</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>2.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_692</criterion_id>
+<points>0.5</points>
+<description>Parte 1: Análise da Situação</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>0.5</points>
+<criterion_id>_692</criterion_id>
+<long_description>Descreve claramente o destinatário, o objetivo, a escolha do canal e o cronograma com detalhes específicos, demonstrando conscientização sobre o público-alvo e raciocínio profissional.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.3</points>
+<criterion_id>_692</criterion_id>
+<long_description>Descreve a maioria dos elementos (destinatário, objetivo, canal, cronograma) com alguma explicação.</long_description>
+<id>_1885</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.15</points>
+<criterion_id>_692</criterion_id>
+<long_description>Apresenta uma descrição limitada ou geral da situação; o raciocínio está pouco claro ou incompleto.</long_description>
+<id>_6866</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_692</criterion_id>
+<long_description>Não Entregue ou não identificado como Parte 1.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_4232</criterion_id>
+<points>0.3</points>
+<description>Parte 2: E-mail Profissional</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>0.3</points>
+<criterion_id>_4232</criterion_id>
+<long_description>O e-mail segue o formato profissional completo (assunto, saudação, corpo claro, encerramento). A mensagem é específica, adequadamente formal e oferece um direcionamento claro. O tom, os detalhes e a estrutura se adaptam ao público-alvo e à situação.</long_description>
+<id>_7650</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.15</points>
+<criterion_id>_4232</criterion_id>
+<long_description>O e-mail segue o formato básico e comunica a situação de forma clara, embora o tom, os detalhes ou a estrutura possam ser irregulares.</long_description>
+<id>165783_1697</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.15</points>
+<criterion_id>_4232</criterion_id>
+<long_description>O e-mail está incompleto, pouco claro ou carece de tom, detalhes ou estrutura adequados.</long_description>
+<id>_4638</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_4232</criterion_id>
+<long_description>Não Entregue ou não identificado como Parte 2.</long_description>
+<id>_3984</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6424</criterion_id>
+<points>0.5</points>
+<description>Parte 3: Análise Retórica</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>0.5</points>
+<criterion_id>_6424</criterion_id>
+<long_description>Explica claramente as escolhas retóricas utilizando o vocabulário da disciplina/curso (ethos, logos, pathos, kairos) com exemplos específicos do e-mail. Demonstra compreensão clara do público-alvo, do objetivo e da adaptação.</long_description>
+<id>_5747</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.3</points>
+<criterion_id>_6424</criterion_id>
+<long_description>Explica a maioria das escolhas retóricas com algum uso do vocabulário da disciplina/curso e exemplos.</long_description>
+<id>_2249</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.15</points>
+<criterion_id>_6424</criterion_id>
+<long_description>Menciona conceitos retóricos, mas as explicações são gerais, pouco claras ou não estão associadas ao e-mail.</long_description>
+<id>_6237</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_6424</criterion_id>
+<long_description>Não Entregue ou não identificado como Parte 3.</long_description>
+<id>_8931</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_2473</criterion_id>
+<points>0.2</points>
+<description>Mecânica de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>0.2</points>
+<criterion_id>_2473</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem no sentido.</long_description>
+<id>_8016</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.2</points>
+<criterion_id>_2473</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido permanece claro.</long_description>
+<id>165783_1904</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.0</points>
+<criterion_id>_2473</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>165783_9359</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_2473</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_8595</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_8891</criterion_id>
+<points>0.5</points>
+<description>Verificação de Retórica</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>0.5</points>
+<criterion_id>_8891</criterion_id>
+<long_description>A estratégia retórica identificada na Parte 3 (ou seja, ethos, logos, pathos, kairos) reflete-se claramente no e-mail, com uma correspondência consistente e observável.</long_description>
+<id>_2026</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.3</points>
+<criterion_id>_8891</criterion_id>
+<long_description>A estratégia retórica identificada está presente no e-mail, embora não de forma consistente ou claramente desenvolvida.</long_description>
+<id>_2091</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.0</points>
+<criterion_id>_8891</criterion_id>
+<long_description>A estratégia identificada está timidamente presente ou pouco clara no e-mail.</long_description>
+<id>_5924</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_8891</criterion_id>
+<long_description>Sem associação clara entre a análise retórica e o e-mail.</long_description>
+<id>_60</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="gf8df3daf60ff2f04064aa534379bfaab">
+<read_only>false</read_only>
+<title>S03 Envio de Tarefa Final: E-mail Profissional</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>12.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_8745</criterion_id>
+<points>2.5</points>
+<description>Parte 1: Análise da Situação</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.5</points>
+<criterion_id>_8745</criterion_id>
+<long_description>Descreve claramente o destinatário, o objetivo, a escolha do canal e o cronograma com detalhes específicos, demonstrando conscientização sobre o público-alvo e raciocínio profissional.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_8745</criterion_id>
+<long_description>Descreve a maioria dos elementos (destinatário, objetivo, canal, cronograma) com alguma explicação.</long_description>
+<id>_7886</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_8745</criterion_id>
+<long_description>Apresenta uma descrição limitada ou geral da situação; o raciocínio está pouco claro ou incompleto.</long_description>
+<id>_7906</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_8745</criterion_id>
+<long_description>Não Entregue ou não identificado como Parte 1.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_9719</criterion_id>
+<points>3.5</points>
+<description>Parte 2: E-mail Profissional</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.5</points>
+<criterion_id>_9719</criterion_id>
+<long_description>O e-mail segue o formato profissional completo (assunto, saudação, corpo claro, encerramento). A mensagem é específica, adequadamente formal e oferece um direcionamento claro. O tom, os detalhes e a estrutura se adaptam ao público-alvo e à situação.</long_description>
+<id>_2567</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_9719</criterion_id>
+<long_description>O e-mail segue o formato básico e comunica a situação de forma clara, embora o tom, os detalhes ou a estrutura possam ser irregulares.</long_description>
+<id>165785_2720</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_9719</criterion_id>
+<long_description>O e-mail está incompleto, pouco claro ou carece de tom, detalhes ou estrutura adequados.</long_description>
+<id>_48</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_9719</criterion_id>
+<long_description>Não Entregue ou não identificado como Parte 2.</long_description>
+<id>_9274</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_8915</criterion_id>
+<points>3.5</points>
+<description>Parte 3: Análise Retórica</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.5</points>
+<criterion_id>_8915</criterion_id>
+<long_description>Explica claramente as escolhas retóricas utilizando o vocabulário da disciplina/curso (ethos, logos, pathos, kairos) com exemplos específicos do e-mail. Demonstra compreensão clara do público-alvo, do objetivo e da adaptação.</long_description>
+<id>_1985</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_8915</criterion_id>
+<long_description>Explica a maioria das escolhas retóricas com algum uso do vocabulário da disciplina/curso e exemplos.</long_description>
+<id>_4849</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_8915</criterion_id>
+<long_description>Menciona conceitos retóricos, mas as explicações são gerais, pouco claras ou não estão associadas ao e-mail.</long_description>
+<id>_6274</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_8915</criterion_id>
+<long_description>Não Entregue ou não identificado como Parte 3.</long_description>
+<id>_5285</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_9152</criterion_id>
+<points>1.5</points>
+<description>Mecânica de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.5</points>
+<criterion_id>_9152</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem no sentido.</long_description>
+<id>_1016</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_9152</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido permanece claro.</long_description>
+<id>165785_1695</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_9152</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>165785_890</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_9152</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_273</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_4915</criterion_id>
+<points>1.0</points>
+<description>Verificação de Retórica</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.0</points>
+<criterion_id>_4915</criterion_id>
+<long_description>A estratégia retórica identificada na Parte 3 (ou seja, ethos, logos, pathos, kairos) reflete-se claramente no e-mail, com uma correspondência consistente e observável.</long_description>
+<id>_6985</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.75</points>
+<criterion_id>_4915</criterion_id>
+<long_description>A estratégia retórica identificada está presente no e-mail, embora não de forma consistente ou claramente desenvolvida.</long_description>
+<id>_717</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_4915</criterion_id>
+<long_description>A estratégia identificada está timidamente presente ou pouco clara no e-mail.</long_description>
+<id>_284</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_4915</criterion_id>
+<long_description>Sem associação clara entre a análise retórica e o e-mail.</long_description>
+<id>_6556</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="gb8e7192f7242fe3a55b0adee1eeeb63a">
+<read_only>false</read_only>
+<title>S05 Rascunho: Entrevista sobre Escrita</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>7.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_1808</criterion_id>
+<points>0.5</points>
+<description>Conteúdo</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>0.5</points>
+<criterion_id>_1808</criterion_id>
+<long_description>Descreve claramente a profissão-alvo, a trajetória pessoal de escrita, as suposições iniciais e apresenta a pessoa entrevistada utilizando detalhes específicos. Estabelece um ponto de partida claro para a narrativa.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.3</points>
+<criterion_id>_1808</criterion_id>
+<long_description>Descreve a maioria dos elementos exigidos com alguns detalhes específicos.</long_description>
+<id>_5249</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.15</points>
+<criterion_id>_1808</criterion_id>
+<long_description>Apresenta uma descrição geral ou limitada, com poucos detalhes ou elementos não entregues.</long_description>
+<id>_282</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_1808</criterion_id>
+<long_description>A seção não foi entregue ou está sem identificação.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_3124</criterion_id>
+<points>0.5</points>
+<description>Narrativa da Entrevista</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>0.5</points>
+<criterion_id>_3124</criterion_id>
+<long_description>Apresenta a entrevista como uma narrativa clara, com exemplos específicos e pelo menos duas citações diretas. As palavras da pessoa entrevistada são integradas para demonstrar ideias-chave, em vez de resumidas.</long_description>
+<id>_5121</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.15</points>
+<criterion_id>_3124</criterion_id>
+<long_description>Apresenta conteúdo de entrevista limitado ou pouco claro, com poucas ou nenhuma citação.</long_description>
+<id>_6882</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.15</points>
+<criterion_id>_3124</criterion_id>
+<long_description>Inclui o conteúdo da entrevista com pelo menos uma citação e alguns detalhes específicos.</long_description>
+<id>_5372</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_3124</criterion_id>
+<long_description>A seção não foi entregue ou está sem identificação.</long_description>
+<id>_8362</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_531</criterion_id>
+<points>0.5</points>
+<description>Análise e Plano de Crescimento</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>0.5</points>
+<criterion_id>_531</criterion_id>
+<long_description>Compara claramente as suposições iniciais com as descobertas da entrevista usando exemplos específicos desta. Identifica uma percepção clara e explica por que ela foi surpreendente. Inclui habilidades específicas de escrita e etapas concretas e práticas para melhoria.</long_description>
+<id>_5534</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.3</points>
+<criterion_id>_531</criterion_id>
+<long_description>Inclui comparação e um plano de crescimento com alguma referência à entrevista e algumas ações específicas.</long_description>
+<id>_1121</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.15</points>
+<criterion_id>_531</criterion_id>
+<long_description>Apresenta uma comparação geral ou pouco clara e/ou um plano de crescimento vago com poucos detalhes.</long_description>
+<id>_1497</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_531</criterion_id>
+<long_description>A seção não foi entregue ou está sem identificação.</long_description>
+<id>_3486</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_1439</criterion_id>
+<points>0.5</points>
+<description>Mecânica de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>0.5</points>
+<criterion_id>_1439</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem no sentido.</long_description>
+<id>_6394</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.3</points>
+<criterion_id>_1439</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido permanece claro.</long_description>
+<id>_9331</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.15</points>
+<criterion_id>_1439</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_269</id>
+</rating>
+<rating>
+<description>Sem Nota</description>
+<points>0.0</points>
+<criterion_id>_1439</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_3810</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>165789_5450</criterion_id>
+<points>5.0</points>
+<description>Citação APA</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>165789_5450</criterion_id>
+<long_description>O rascunho inclui uma citação em formato APA formatada corretamente para a fonte da entrevista.</long_description>
+<id>165789_846</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>165789_5450</criterion_id>
+<long_description>Inclui uma citação com pequenos erros de formatação.</long_description>
+<id>165789_5132</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>165789_5450</criterion_id>
+<long_description>A citação está incorreta ou incompleta.</long_description>
+<id>165789_3197</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>165789_5450</criterion_id>
+<long_description>Nenhuma citação foi fornecida</long_description>
+<id>165789_6764</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="ge1f7ad2b7283cc4a77c039ed7442188b">
+<read_only>false</read_only>
+<title>S05 Envio de Tarefa Final: Entrevista de Escrita</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>12.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_9111</criterion_id>
+<points>2.0</points>
+<description>Contexto</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_9111</criterion_id>
+<long_description>Descreve claramente a profissão-alvo, o histórico pessoal de escrita, as suposições iniciais e apresenta a pessoa entrevistada com detalhes específicos. Estabelece um ponto de partida claro para a narrativa.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_9111</criterion_id>
+<long_description>Descreve a maioria dos elementos obrigatórios com alguns detalhes específicos.</long_description>
+<id>_4523</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_9111</criterion_id>
+<long_description>Apresenta uma descrição geral ou limitada, com poucos detalhes ou elementos não entregues.</long_description>
+<id>_269</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_9111</criterion_id>
+<long_description>A seção não foi entregue ou não está identificada.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_7348</criterion_id>
+<points>4.0</points>
+<description>Narrativa da Entrevista</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>4.0</points>
+<criterion_id>_7348</criterion_id>
+<long_description>Apresenta a entrevista como uma narrativa clara, utilizando exemplos específicos e pelo menos duas citações diretas. As falas da pessoa entrevistada são integradas para demonstrar as ideias principais, em vez de serem resumidas.</long_description>
+<id>_8522</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>_7348</criterion_id>
+<long_description>Inclui o conteúdo da entrevista com pelo menos uma citação e alguns detalhes específicos.</long_description>
+<id>_5155</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_7348</criterion_id>
+<long_description>Apresenta um conteúdo de entrevista limitado ou pouco claro, com poucas ou nenhuma citação.</long_description>
+<id>_1619</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_7348</criterion_id>
+<long_description>A seção não foi entregue ou não está identificada.</long_description>
+<id>_2305</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_7255</criterion_id>
+<points>3.0</points>
+<description>Análise e Plano de Crescimento</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_7255</criterion_id>
+<long_description>Compara de forma clara as suposições iniciais com as descobertas da entrevista usando exemplos específicos da entrevista. Identifica uma percepção clara e explica por que ela foi surpreendente. Inclui habilidades de escrita específicas e etapas concretas e práticas para aprimoramento.</long_description>
+<id>_6071</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_7255</criterion_id>
+<long_description>Inclui uma comparação e um plano de crescimento com alguma referência à entrevista e algumas ações específicas.</long_description>
+<id>_5961</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_7255</criterion_id>
+<long_description>Apresenta uma comparação geral ou pouco clara e/ou um plano de crescimento vago com poucos detalhes.</long_description>
+<id>_1103</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_7255</criterion_id>
+<long_description>A seção não foi entregue ou não está identificada.</long_description>
+<id>_5745</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_7173</criterion_id>
+<points>2.0</points>
+<description>Mecânica de Escrita e Citação APA</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_7173</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem na compreensão do texto.</long_description>
+<id>_1832</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.5</points>
+<criterion_id>_7173</criterion_id>
+<long_description>Há alguns erros, mas o sentido continua claro.</long_description>
+<id>_6149</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_7173</criterion_id>
+<long_description>Erros frequentes por vezes interferem na compreensão.</long_description>
+<id>_7694</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_7173</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_365</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>165790_7887</criterion_id>
+<points>1.0</points>
+<description>Citação APA</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.0</points>
+<criterion_id>165790_7887</criterion_id>
+<long_description>A redação inclui uma citação em formato APA formatada corretamente para a fonte da entrevista.</long_description>
+<id>165790_2651</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.75</points>
+<criterion_id>165790_7887</criterion_id>
+<long_description>Inclui uma citação com pequenos erros de formatação.</long_description>
+<id>165790_150</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>165790_7887</criterion_id>
+<long_description>A citação está presente, mas incorreta ou incompleta.</long_description>
+<id>165790_1569</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>165790_7887</criterion_id>
+<long_description>Nenhuma citação foi fornecida.</long_description>
+<id>165790_7507</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="g19b0ef3c271d0d87f7045982217669c4">
+<read_only>false</read_only>
+<title>S05 Projeto de Escrita: Narrativa Pessoal</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>20.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_1023</criterion_id>
+<points>5.0</points>
+<description>Foco Narrativo e Extensão</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_1023</criterion_id>
+<long_description>Foca claramente em uma experiência específica com um momento central bem definido. A narrativa está totalmente desenvolvida e atende aos requisitos de extensão (1.000 a 1.500 palavras).</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_1023</criterion_id>
+<long_description>Foca em uma experiência específica e geralmente atende aos requisitos de extensão, embora o desenvolvimento possa ser irregular.</long_description>
+<id>_7182</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>_1023</criterion_id>
+<long_description>O foco é pouco claro ou amplo demais, ou a narrativa está pouco desenvolvida e/ou fora das expectativas de extensão.</long_description>
+<id>_9211</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_1023</criterion_id>
+<long_description>Sem foco narrativo claro ou o envio de tarefa não foi realizado.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_7542</criterion_id>
+<points>7.0</points>
+<description>Começo / Meio / Fim</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>7.0</points>
+<criterion_id>_7542</criterion_id>
+<long_description>Inclui começo, meio e fim claros. O começo inicia-se próximo à Ação, o meio desenvolve a experiência usando cenas ou detalhes específicos, e o fim traz uma reflexão conectada à experiência.</long_description>
+<id>_3151</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>5.0</points>
+<criterion_id>_7542</criterion_id>
+<long_description>Inclui começo, meio e fim com uma estrutura geralmente clara, embora o desenvolvimento possa ser irregular.</long_description>
+<id>_9438</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>3.0</points>
+<criterion_id>_7542</criterion_id>
+<long_description>A estrutura é pouco clara ou incompleta; as seções podem depender de resumos ou carecer de uma progressão clara.</long_description>
+<id>_7462</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_7542</criterion_id>
+<long_description>Não entregue ou estrutura narrativa pouco clara.</long_description>
+<id>_8376</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_1035</criterion_id>
+<points>2.0</points>
+<description>Contexto Autêntico</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_1035</criterion_id>
+<long_description>Utiliza uma voz consistente em primeira pessoa e inclui detalhes pessoais ou culturais específicos que ajudam a explicar a experiência.</long_description>
+<id>_9578</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.5</points>
+<criterion_id>_1035</criterion_id>
+<long_description>A voz é geralmente consistente, com alguns detalhes pessoais.</long_description>
+<id>_6718</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_1035</criterion_id>
+<long_description>A voz é inconsistente, genérica ou carece de contexto específico.</long_description>
+<id>165792_591</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_1035</criterion_id>
+<long_description>A voz é pouco clara ou excessivamente genérica.</long_description>
+<id>_9902</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_8510</criterion_id>
+<points>4.0</points>
+<description>Mecânica de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>4.0</points>
+<criterion_id>_8510</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem na compreensão do texto.</long_description>
+<id>_7328</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>_8510</criterion_id>
+<long_description>Há alguns erros, mas o sentido continua claro.</long_description>
+<id>_1036</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_8510</criterion_id>
+<long_description>Erros frequentes por vezes interferem na compreensão.</long_description>
+<id>_8528</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_8510</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_542</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_2639</criterion_id>
+<points>2.0</points>
+<description>APA</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_2639</criterion_id>
+<long_description>Inclui corretamente qualquer elemento de formatação ou atribuição exigido (se aplicável).</long_description>
+<id>_952</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.5</points>
+<criterion_id>_2639</criterion_id>
+<long_description>Inclui formatação ou atribuição com pequenos erros.</long_description>
+<id>_7480</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_2639</criterion_id>
+<long_description>A formatação ou atribuição está presente, mas incorreta ou incompleta.</long_description>
+<id>_317</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2639</criterion_id>
+<long_description>Nenhuma formatação ou atribuição foi fornecida.</long_description>
+<id>_4370</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="ga5f40c3d1a57740dd01c40101d57bc1c">
+<read_only>false</read_only>
+<title>S01 Envio de Tarefa Final: Sua História de Vida</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>12.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_2608</criterion_id>
+<points>5.0</points>
+<description>História de Lição de Vida</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Identifica claramente uma pessoa ou experiência específica e apresenta uma lição de vida precisa em uma tese clara. Utiliza detalhes específicos e concretos da experiência pessoal e explica de que forma eles sustentam a lição, incluindo pelo menos um momento ou evento descrito de forma clara. Organizado em 3 a 4 parágrafos lógicos que sustentam a tese.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Identifica uma pessoa ou experiência e apresenta uma lição. Utiliza exemplos relevantes com alguma explicação sobre a ligação com a lição. A organização está majoritariamente clara, contendo 3 a 4 parágrafos.</long_description>
+<id>_9582</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Identifica uma pessoa ou experiência, mas a lição é vaga ou pouco clara. Os exemplos são gerais ou têm uma ligação fraca com a lição. A organização é inconsistente ou pouco clara.</long_description>
+<id>_260</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2608</criterion_id>
+<long_description>Não identifica claramente uma pessoa e uma experiência ou lição. Apresenta poucos ou nenhuns detalhes relevantes. Carece de uma organização clara.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_31</criterion_id>
+<points>3.0</points>
+<description>Reflexão sobre Metas</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Explica claramente como a lição afeta o comportamento atual e inclui duas metas futuras específicas e realistas que se conectam diretamente à lição.</long_description>
+<id>_351</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Explais o impacto atual e inclui duas metas futuras, embora as conexões com a lição possam ser gerais.</long_description>
+<id>_169</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Menciona o impacto atual ou metas futuras, mas as conexões são pouco claras ou apenas uma meta é incluída.</long_description>
+<id>165722_1788</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_31</criterion_id>
+<long_description>Não explica o impacto atual ou não inclui metas futuras.</long_description>
+<id>_4056</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_2158</criterion_id>
+<points>2.0</points>
+<description>Mecânica de Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_2158</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e estrutura da oração que não interferem na compreensão do texto.</long_description>
+<id>_3951</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_2158</criterion_id>
+<long_description>Há alguns erros, mas o sentido continua claro.</long_description>
+<id>_1931</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_2158</criterion_id>
+<long_description>Erros frequentes por vezes interferem na compreensão.</long_description>
+<id>_689</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_2158</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_7177</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_4035</criterion_id>
+<points>2.0</points>
+<description>Extensão: 1 a 2 páginas (cerca de 450 a 500 palavras)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Atende a todos os requisitos da atividade: de 3 a 4 parágrafos, inclui uma tese clara, exemplos específicos e duas metas futuras; segue totalmente as instruções da atividade.</long_description>
+<id>_9749</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.0</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Atende à maioria dos requisitos da atividade com pequenas omissões.</long_description>
+<id>_4654</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Atende parcialmente aos requisitos da atividade (em outras palavras, estrutura de parágrafo não entregue, exemplos limitados ou objetivos incompletos).</long_description>
+<id>_4905</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_4035</criterion_id>
+<long_description>Não atende aos requisitos básicos da atividade.</long_description>
+<id>_308</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="g33f9a62d6f114d941bd14ad0b9b1c5cb">
+<read_only>false</read_only>
+<title>S04 Resumo da Entrevista: Integração de Fontes</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>12.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_6899</criterion_id>
+<points>2.0</points>
+<description>Planos de Entrevista (Evidência do Conteúdo da Entrevista)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_6899</criterion_id>
+<long_description>Identifica claramente o tema e o objetivo da entrevista. Inclui várias perguntas e um resumo coerente das respostas com pelo menos uma citação direta.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.5</points>
+<criterion_id>_6899</criterion_id>
+<long_description>Identifica o tema da entrevista e inclui perguntas e respostas com alguns detalhes.</long_description>
+<id>_1499</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_6899</criterion_id>
+<long_description>O conteúdo da entrevista está confuso, limitado ou carece de detalhes suficientes (poucas perguntas ou respostas mínimas).</long_description>
+<id>_2946</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_6899</criterion_id>
+<long_description>Nenhuma evidência clara de entrevista.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_8662</criterion_id>
+<points>6.0</points>
+<description>Integração de Informações</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>6.0</points>
+<criterion_id>_8662</criterion_id>
+<long_description>Utiliza de forma eficaz as três técnicas: introdução de atribuição, integração no meio da oração e paráfrase com citação de apoio. A integração é fluida e apoia a narrativa.</long_description>
+<id>_8973</id>
+</rating>
+<rating>
+<description>Proficient</description>
+<points>4.0</points>
+<criterion_id>_8662</criterion_id>
+<long_description>Utiliza pelo menos duas técnicas de integração com conexões geralmente claras com a narrativa.</long_description>
+<id>_4822</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_8662</criterion_id>
+<long_description>Utiliza apenas uma técnica ou integra as informações de forma limitada ou confusa.</long_description>
+<id>_1264</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_8662</criterion_id>
+<long_description>Não demonstra técnicas de integração de fontes.</long_description>
+<id>_2174</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_9781</criterion_id>
+<points>1.0</points>
+<description>Citação em formato APA</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.0</points>
+<criterion_id>_9781</criterion_id>
+<long_description>Inclui uma citação formatada corretamente no padrão APA para a fonte da entrevista.</long_description>
+<id>_6372</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.75</points>
+<criterion_id>_9781</criterion_id>
+<long_description>Inclui uma citação com pequenos erros de formatação.</long_description>
+<id>_8180</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>0.5</points>
+<criterion_id>_9781</criterion_id>
+<long_description>A citação está presente, mas incorreta ou incompleta.</long_description>
+<id>_3517</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_9781</criterion_id>
+<long_description>Nenhuma citação foi fornecida.</long_description>
+<id>_9099</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6499</criterion_id>
+<points>3.0</points>
+<description>Mecânica da Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_6499</criterion_id>
+<long_description>A escrita é clara e de fácil leitura, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem no sentido.</long_description>
+<id>_9319</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_6499</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido permanece claro.</long_description>
+<id>_9372</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_6499</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_5756</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_6499</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_7076</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="g6b5212202d3ee90f063db673de1f58fb">
+<read_only>false</read_only>
+<title>S04 Projeto de Escrita: Projeto de História da Família</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>20.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_2783</criterion_id>
+<points>6.0</points>
+<description>Histórico Familiar</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>6.0</points>
+<criterion_id>_2783</criterion_id>
+<long_description>Descreve claramente a família imediata em forma de parágrafo, utilizando detalhes e exemplos específicos. Inclui contexto cultural ou pessoal que ajuda a explicar as características ou experiências da família.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_2783</criterion_id>
+<long_description>Descreve a família imediata em forma de parágrafo, com alguns detalhes específicos ou contexto.</long_description>
+<id>_8118</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_2783</criterion_id>
+<long_description>Apresenta uma descrição geral ou limitada da família, com poucos detalhes, ou limita-se a listar informações.</long_description>
+<id>_2017</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_2783</criterion_id>
+<long_description>A Seção não foi entregue ou não está identificada.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6986</criterion_id>
+<points>6.0</points>
+<description>Herança Ancestral</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>6.0</points>
+<criterion_id>_6986</criterion_id>
+<long_description>Inclui pelo menos duas histórias de antepassados específicas com detalhes claros e explica como essas experiências influenciam a vida atual. As conexões entre o passado e o presente são explícitas e claras.</long_description>
+<id>_6250</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_6986</criterion_id>
+<long_description>Inclui pelo menos uma história de antepassados e alguma conexão com a vida atual, embora os detalhes ou conexões possam ser limitados.</long_description>
+<id>_2438</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_6986</criterion_id>
+<long_description>Inclui histórias mínimas ou confusas, com uma conexão fraca ou não entregue com a vida atual.</long_description>
+<id>_5291</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_6986</criterion_id>
+<long_description>A Seção não foi entregue.</long_description>
+<id>_1645</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_9078</criterion_id>
+<points>4.0</points>
+<description>Legado e Conselhos</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>4.0</points>
+<criterion_id>_9078</criterion_id>
+<long_description>Apresenta três conselhos específicos para as futuras gerações, com explicações claras de por que cada um é importante e como cada um se conecta com a experiência familiar.</long_description>
+<id>_9558</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>_9078</criterion_id>
+<long_description>Apresenta três conselhos, com alguma explicação de por que são importantes.</long_description>
+<id>_7372</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_9078</criterion_id>
+<long_description>Apresenta menos de três conselhos ou as explicações são limitadas ou confusas.</long_description>
+<id>_3024</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_9078</criterion_id>
+<long_description>A Seção não foi entregue.</long_description>
+<id>_295</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_846</criterion_id>
+<points>4.0</points>
+<description>Mecânica da Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>4.0</points>
+<criterion_id>_846</criterion_id>
+<long_description>A escrita é clara e de fácil leitura, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem no sentido.</long_description>
+<id>_1606</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.0</points>
+<criterion_id>_846</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido permanece claro.</long_description>
+<id>_8610</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_846</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_8692</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_846</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_3092</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="gf09d05753d54373d5ab8e47e785bceb6">
+<read_only>false</read_only>
+<title>S04 Envio Final de Tarefa: Resumo da Entrevista</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>12.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_2777</criterion_id>
+<points>2.0</points>
+<description>Planos de Entrevista (Evidência do Conteúdo da Entrevista)</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>2.0</points>
+<criterion_id>_2777</criterion_id>
+<long_description>Identifica claramente o tema e o objetivo da entrevista. Inclui várias perguntas e um resumo coerente das respostas com pelo menos uma citação direta.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>1.5</points>
+<criterion_id>_2777</criterion_id>
+<long_description>Identifica o tema da entrevista e inclui perguntas e respostas com alguns detalhes.</long_description>
+<id>_8906</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_2777</criterion_id>
+<long_description>O conteúdo da entrevista está confuso, limitado ou carece de detalhes suficientes (poucas perguntas ou respostas mínimas).</long_description>
+<id>_6202</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_2777</criterion_id>
+<long_description>Nenhuma evidência clara de entrevista.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_8005</criterion_id>
+<points>6.0</points>
+<description>Integração de Informações</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>6.0</points>
+<criterion_id>_8005</criterion_id>
+<long_description>Utiliza de forma eficaz as três técnicas: introdução de atribuição, integração no meio da oração e paráfrase com citação de apoio. A integração é fluida e apoia a narrativa.</long_description>
+<id>_821</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>4.0</points>
+<criterion_id>_8005</criterion_id>
+<long_description>Utiliza pelo menos duas técnicas de integração com conexões geralmente claras com a narrativa.</long_description>
+<id>_2291</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>2.0</points>
+<criterion_id>_8005</criterion_id>
+<long_description>Utiliza apenas uma técnica ou integra as informações de forma limitada ou confusa.</long_description>
+<id>_5484</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_8005</criterion_id>
+<long_description>Não demonstra técnicas de integração de fontes.</long_description>
+<id>_4966</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6761</criterion_id>
+<points>1.0</points>
+<description>Citação em formato APA</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.0</points>
+<criterion_id>_6761</criterion_id>
+<long_description>Inclui uma citação formatada corretamente no padrão APA para a fonte da entrevista.</long_description>
+<id>_8071</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.75</points>
+<criterion_id>_6761</criterion_id>
+<long_description>Inclui uma citação com pequenos erros de formatação.</long_description>
+<id>_3475</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>0.0</points>
+<criterion_id>_6761</criterion_id>
+<long_description>A citação está presente, mas incorreta ou incompleta.</long_description>
+<id>_9280</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_6761</criterion_id>
+<long_description>Nenhuma citação foi fornecida.</long_description>
+<id>_8250</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_4599</criterion_id>
+<points>3.0</points>
+<description>Mecânica da Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_4599</criterion_id>
+<long_description>A escrita é clara e de fácil leitura, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem no sentido.</long_description>
+<id>_2176</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_4599</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido permanece claro.</long_description>
+<id>_831</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_4599</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_7528</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_4599</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_7147</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+<rubric identifier="gc724c6ad4ef24fe8094b84f0cd9332c2">
+<read_only>false</read_only>
+<title>S02: Atividade de Comparação de Prompts de IA</title>
+<reusable>false</reusable>
+<public>false</public>
+<points_possible>12.0</points_possible>
+<hide_score_total>false</hide_score_total>
+<free_form_criterion_comments>false</free_form_criterion_comments>
+<rating_order>descending</rating_order>
+<criteria>
+<criterion>
+<criterion_id>_5207</criterion_id>
+<points>1.0</points>
+<description>Prompt 1 Fornecido</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>1.0</points>
+<criterion_id>_5207</criterion_id>
+<long_description>O prompt um está claramente identificado e presente. O prompt é breve e carece de detalhes, condizente com um prompt fraco.</long_description>
+<id>blank</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>0.5</points>
+<criterion_id>_5207</criterion_id>
+<long_description>O prompt um está identificado e presente, mas pode conter mais detalhes do que o esperado para um prompt fraco.</long_description>
+<id>_6670</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>0.25</points>
+<criterion_id>_5207</criterion_id>
+<long_description>O prompt um está presente, mas está confuso, incorretamente identificado ou não reflete um prompt fraco.</long_description>
+<id>_2219</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_5207</criterion_id>
+<long_description>O prompt um não foi entregue.</long_description>
+<id>blank_2</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_6494</criterion_id>
+<points>3.0</points>
+<description>Prompt 2 Fornecido</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_6494</criterion_id>
+<long_description>O prompt dois está claramente identificado e presente. Ele inclui pelo menos dois elementos (função, detalhes, contexto ou formato) e mostra uma melhoria clara em relação ao prompt um.</long_description>
+<id>_9698</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_6494</criterion_id>
+<long_description>O prompt dois está identificado e presente e inclui pelo menos um elemento adicional, mas a melhoria é limitada.</long_description>
+<id>_5068</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_6494</criterion_id>
+<long_description>O prompt dois está presente, mas mostra pouca ou nenhuma diferença significativa em relação ao prompt um.</long_description>
+<id>_1112</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_6494</criterion_id>
+<long_description>O prompt dois não foi entregue.</long_description>
+<id>_9388</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_623</criterion_id>
+<points>5.0</points>
+<description>Reflexão Fornecida</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>5.0</points>
+<criterion_id>_623</criterion_id>
+<long_description>A reflexão (150 a 200 palavras) está presente e responde claramente a todas as três perguntas obrigatórias com observações específicas.</long_description>
+<id>_7378</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>3.33</points>
+<criterion_id>_623</criterion_id>
+<long_description>A reflexão está presente e responde à maioria das perguntas, mas pode ser genérica ou estar ligeiramente fora do limite de extensão exigido.</long_description>
+<id>_4905</id>
+</rating>
+<rating>
+<description>Em Desenvolvimento</description>
+<points>1.67</points>
+<criterion_id>_623</criterion_id>
+<long_description>A reflexão está presente, mas incompleta, muito curta ou longa, ou aborda apenas uma pergunta.</long_description>
+<id>_4557</id>
+</rating>
+<rating>
+<description>Sem Pontuação</description>
+<points>0.0</points>
+<criterion_id>_623</criterion_id>
+<long_description>A reflexão não foi entregue.</long_description>
+<id>_8750</id>
+</rating>
+</ratings>
+</criterion>
+<criterion>
+<criterion_id>_3599</criterion_id>
+<points>3.0</points>
+<description>Mecânica da Escrita</description>
+<ratings>
+<rating>
+<description>Domínio</description>
+<points>3.0</points>
+<criterion_id>_3599</criterion_id>
+<long_description>A escrita é clara e legível, com erros mínimos de gramática, ortografia e pontuação. Os erros não interferem no sentido do texto.</long_description>
+<id>_6542</id>
+</rating>
+<rating>
+<description>Proficiente</description>
+<points>2.0</points>
+<criterion_id>_3599</criterion_id>
+<long_description>Alguns erros estão presentes, mas o sentido do texto permanece claro.</long_description>
+<id>_4119</id>
+</rating>
+<rating>
+<description>Em desenvolvimento</description>
+<points>1.0</points>
+<criterion_id>_3599</criterion_id>
+<long_description>Erros frequentes às vezes interferem na compreensão.</long_description>
+<id>_8353</id>
+</rating>
+<rating>
+<description>Sem pontuação</description>
+<points>0.0</points>
+<criterion_id>_3599</criterion_id>
+<long_description>Os erros interferem significativamente na compreensão.</long_description>
+<id>_4454</id>
+</rating>
+</ratings>
+</criterion>
+</criteria>
+</rubric>
+</rubrics>
