@@ -9,6 +9,10 @@ class GitHubContentValidator:
 
     PLACEHOLDER_PATTERN = re.compile(r"@@GITHUB_PROTECTED_\d+@@")
     ENGLISH_WEEK_LABEL_PATTERN = re.compile(r"\bW\d{1,2}\b|\bWeek\s+\d{1,2}\b", re.IGNORECASE)
+    DEPRECATED_LEARNING_ACTIVITY_PATTERN = re.compile(
+        r"\batividades?\s+de\s+aprendizado\b",
+        re.IGNORECASE,
+    )
 
     @staticmethod
     def _markdown_code(content: str) -> list[str]:
@@ -45,6 +49,11 @@ class GitHubContentValidator:
             errors.append("Translated content is dangerously shorter than the source.")
         if self.PLACEHOLDER_PATTERN.search(translated_content):
             errors.append("A protected-content placeholder leaked into the output.")
+        if self.DEPRECATED_LEARNING_ACTIVITY_PATTERN.search(translated_content):
+            errors.append(
+                "Glossary violation: use 'atividade(s) de aprendizagem', never "
+                "'atividade(s) de aprendizado'."
+            )
 
         if extension in {".md", ".markdown", ".mdx"}:
             if self._markdown_code(original_content) != self._markdown_code(translated_content):

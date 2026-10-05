@@ -34,6 +34,28 @@ class GitHubContentValidatorWeekLabelTests(unittest.TestCase):
 
         self.assertFalse(any("English week label" in error for error in errors))
 
+    def test_rejects_deprecated_learning_activity_translation(self):
+        validator = GitHubContentValidator()
+
+        errors = validator.validate(
+            "Complete all learning activities.",
+            "Conclua todas as atividades de aprendizado.",
+            ".html",
+        )
+
+        self.assertTrue(any("Glossary violation" in error for error in errors))
+
+    def test_accepts_approved_learning_activity_translation(self):
+        validator = GitHubContentValidator()
+
+        errors = validator.validate(
+            "Complete all learning activities.",
+            "Conclua todas as atividades de aprendizagem.",
+            ".html",
+        )
+
+        self.assertFalse(any("Glossary violation" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()

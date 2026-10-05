@@ -95,6 +95,7 @@
 | keyword | palavra-chave | Reserved language term |
 | library | biblioteca | Reusable collection of code |
 | learning activity | atividade de aprendizagem | experience designed to help learners acquire specific knowledge, skills, or attitudes |
+| learning activities | atividades de aprendizagem | experiences designed to help learners acquire specific knowledge, skills, or attitudes |
 | leveraging | aproveitando | Strategic use of an existing resource, tool, or capability |
 | lifecycle | ciclo de vida | Stages in the existence of a component, software item, or resource |
 | linting | análise estática | Automated checking for style issues and simple code problems |
