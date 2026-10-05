@@ -215,7 +215,7 @@
     "report": {
       "sheets": ["Reviewing", "Variables", "Images and Files"],
       "duplicate_highlight": "Variable EN only",
-      "images_defaults": "Package defaults to GitHub; Has Text and Plan are blank with dropdowns; In U.Images remains blank until an authoritative Unique Images catalog is supplied. TL Link points to the published GitHub Pages site, and Resource Link opens the specific published image/file or its original external URL."
+      "images_defaults": "Package defaults to GitHub; Has Text and Plan are blank with dropdowns; In U.Images remains blank until an authoritative Unique Images catalog is supplied. TL Link points to the published GitHub Pages site, and Resource Link opens the specific published image/file or its original external URL. All BYUI-logo.svg references are excluded from the report as irrelevant shared branding."
     },
     "implementation_files": [
       "github_translation_controller.py",

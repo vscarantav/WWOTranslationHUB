@@ -239,6 +239,11 @@ class GitHubTranslationController:
             resource_url += f"#{parsed.fragment}"
         return resource_url
 
+    @staticmethod
+    def _exclude_asset_from_report(asset):
+        filename = posixpath.basename(unquote(urlparse(asset.asset_path).path))
+        return filename.casefold() == "byui-logo.svg"
+
     def _asset_rows(
         self, source_assets, translated_assets, destination_owner, destination_name, source_root
     ):
@@ -249,6 +254,8 @@ class GitHubTranslationController:
         rows = []
         issues = {}
         for asset in source_assets:
+            if self._exclude_asset_from_report(asset):
+                continue
             translated = translated_lookup.get((asset.source_file, asset.asset_path))
             notes = "External asset; verify the localized destination." if asset.external else ""
             if not asset.external and not self._local_asset_exists(asset, source_root):

@@ -603,7 +603,8 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 7. Add the `Package` dropdown with `GitHub` preselected and the approved five options.
 8. Add blank-by-default `Has Text` and `Plan` dropdowns with the approved option lists.
 9. Add source and destination hyperlinks where available.
-10. Ensure empty-result sheets still contain headers and explanatory status rather than being omitted.
+10. Exclude all case-insensitive `BYUI-logo.svg` references from the report because the shared branding asset does not require review.
+11. Ensure empty-result sheets still contain headers and explanatory status rather than being omitted.
 
 **Exit criteria:** Automated workbook inspection confirms the exact sheet names, column order, validations, formulas, and conditional-formatting rules.
 

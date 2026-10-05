@@ -185,3 +185,20 @@ class GitHubTranslationControllerTests(unittest.TestCase):
             GitHubTranslationController._published_resource_url(site, external),
             external.asset_path,
         )
+
+    def test_byui_logo_is_excluded_from_images_report_case_insensitively(self):
+        logo = AssetReference(
+            source_file="week01/index.html",
+            page_title="Week 1",
+            asset_path="../images/BYUI-logo.svg?cache=1",
+            asset_type="Image",
+        )
+        course_image = AssetReference(
+            source_file="week01/index.html",
+            page_title="Week 1",
+            asset_path="../images/diagram.svg",
+            asset_type="Image",
+        )
+
+        self.assertTrue(GitHubTranslationController._exclude_asset_from_report(logo))
+        self.assertFalse(GitHubTranslationController._exclude_asset_from_report(course_image))
