@@ -33,3 +33,6 @@ __pycache__/
 # Excel temp files
 ~$*.xlsx
 Courses to Audit/
+
+# Per-run GitHub clones and translated working trees
+github_workspace/

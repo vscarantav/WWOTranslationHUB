@@ -91,6 +91,31 @@ def ensure_required_environment(parent, env_file=env_path):
     return True
 
 
+def ensure_environment_value(parent, name, prompt, env_file=env_path):
+    """Collect and persist an optional, feature-specific environment value."""
+    current = os.environ.get(name, "").strip()
+    if current:
+        return current
+    dialog_options = {"parent": parent}
+    if _is_secret_env_variable(name):
+        dialog_options["show"] = "*"
+    value = simpledialog.askstring(f"{name} Required", prompt, **dialog_options)
+    if value is None or not value.strip():
+        return ""
+    value = value.strip()
+    try:
+        set_key(env_file, name, value)
+    except OSError as error:
+        messagebox.showerror(
+            "Configuration Save Failed",
+            f"Translation Hub could not save {name} to .env:\n{error}",
+            parent=parent,
+        )
+        return ""
+    os.environ[name] = value
+    return value
+
+
 def validate_edtech_shell_details(shell_created, shell_url, target_book_label="PT"):
     """Validate the blocking EdTech pre-translation checklist."""
     if shell_created not in {"yes", "no"}:
@@ -421,6 +446,31 @@ class CourseTranslationHubUI:
 
         self.edtech_btn = ttk.Button(self.edtech_frame, text="Translate Book Shell", command=self.run_edtech)
         self.edtech_btn.pack(side="right", padx=10, pady=5)
+
+        # GitHub Translation Section
+        self.github_frame = ttk.LabelFrame(self.top_frame, text="GitHub Translation", padding="10")
+        self.github_frame.pack(fill="x", pady=10)
+
+        self.github_lang_var = tk.StringVar(value="PTBR")
+        ttk.Radiobutton(
+            self.github_frame,
+            text="Portuguese (PTBR)",
+            variable=self.github_lang_var,
+            value="PTBR",
+        ).pack(side="left", padx=10)
+        ttk.Radiobutton(
+            self.github_frame,
+            text="Spanish (SPA) — glossary pending",
+            variable=self.github_lang_var,
+            value="SPA",
+            state="disabled",
+        ).pack(side="left", padx=10)
+        self.github_btn = ttk.Button(
+            self.github_frame,
+            text="Select Repository & Translate",
+            command=self.run_github_translation,
+        )
+        self.github_btn.pack(side="right", padx=10)
         
         # Audit Section
         self.audit_frame = ttk.LabelFrame(self.top_frame, text="Quality Assurance Audit", padding="10")
@@ -460,12 +510,14 @@ class CourseTranslationHubUI:
         self.trans_btn.config(state="disabled")
         self.audit_btn.config(state="disabled")
         self.edtech_btn.config(state="disabled")
+        self.github_btn.config(state="disabled")
         self.progress['value'] = 0
 
     def enable_buttons(self):
         self.trans_btn.config(state="normal")
         self.audit_btn.config(state="normal")
         self.edtech_btn.config(state="normal")
+        self.github_btn.config(state="normal")
 
     def _copy_to_workspace(self, src_path, target_folder):
         """Copies the selected file into the internal workspace folder and returns the new path."""
@@ -655,6 +707,125 @@ class CourseTranslationHubUI:
                 self.root.after(0, self._show_edtech_checklist_dialog)
             except Exception as e:
                 print(f"Error in EdTech process: {e}")
+            finally:
+                self.root.after(0, self.enable_buttons)
+
+        threading.Thread(target=process, daemon=True).start()
+
+    def run_github_translation(self):
+        from core.github_repository_manager import GitHubRepositoryManager
+        from github_translation_controller import (
+            GitHubTranslationController,
+            GitHubTranslationRunError,
+        )
+
+        repository_url = simpledialog.askstring(
+            "GitHub Source Repository",
+            "Paste the HTTPS URL of the CSE source repository.\n"
+            "The source will be cloned and inspected read-only:",
+            parent=self.root,
+        )
+        if repository_url is None or not repository_url.strip():
+            return
+        repository_url = repository_url.strip()
+        try:
+            source_owner, source_repository = GitHubRepositoryManager.parse_repository_url(repository_url)
+        except ValueError as error:
+            messagebox.showerror("Invalid Repository URL", str(error), parent=self.root)
+            return
+
+        branch = simpledialog.askstring(
+            "Source Branch (Optional)",
+            "Enter a source branch, or leave blank to use the repository default:",
+            parent=self.root,
+        )
+        if branch is None:
+            return
+        branch = branch.strip() or None
+
+        token = ensure_environment_value(
+            self.root,
+            "GITHUB_TOKEN",
+            "Enter a GitHub token that can read the source repository, create a public "
+            "repository in your personal account, push to it, and configure GitHub Pages:",
+        )
+        if not token:
+            messagebox.showinfo(
+                "GitHub Translation Cancelled",
+                "A GitHub token is required for this feature.",
+                parent=self.root,
+            )
+            return
+
+        confirmed = messagebox.askyesno(
+            "Confirm Safe GitHub Translation",
+            f"Source: {source_owner}/{source_repository}\n"
+            "Language: Portuguese (PTBR)\n\n"
+            "Translation Hub will never write to the source repository. It will create a "
+            "new public, numbered repository in your authenticated personal GitHub account, "
+            "push to its main branch, and enable GitHub Pages. Continue?",
+            parent=self.root,
+        )
+        if not confirmed:
+            return
+
+        self.disable_buttons()
+        print("\n======================================")
+        print("Starting GitHub Translation")
+        print(f"Read-only source: {repository_url}")
+        print("Target language: PTBR")
+        print("======================================\n")
+
+        def process():
+            try:
+                controller = GitHubTranslationController(
+                    self.hub_dir,
+                    token,
+                    target_language="PTBR",
+                    log_func=print,
+                )
+                result = controller.run(repository_url, branch)
+                self.root.after(0, lambda: self.progress.configure(value=100))
+                print("\n=== GitHub Translation Completed Successfully! ===")
+                print(f"Repository: {result.repository_url}")
+                print(f"GitHub Pages: {result.pages_url}")
+                print(f"Report: {result.report_path}")
+
+                def show_success():
+                    messagebox.showinfo(
+                        "GitHub Translation Complete",
+                        f"New repository:\n{result.repository_url}\n\n"
+                        f"GitHub Pages:\n{result.pages_url}\n\n"
+                        f"Excel report:\n{result.report_path}",
+                        parent=self.root,
+                    )
+
+                self.root.after(0, show_success)
+            except GitHubTranslationRunError as error:
+                print(f"\n=== GitHub translation stopped: {error} ===")
+                if error.report_path:
+                    print(f"Failure report: {error.report_path}")
+                if error.workspace_path:
+                    print(f"Workspace retained for review: {error.workspace_path}")
+                self.root.after(
+                    0,
+                    lambda error=error: messagebox.showerror(
+                        "GitHub Translation Stopped",
+                        f"{error}\n\nNo destination repository was created.\n\n"
+                        f"Report: {error.report_path}\nWorkspace: {error.workspace_path}",
+                        parent=self.root,
+                    ),
+                )
+            except Exception as error:
+                print(f"\n=== Error during GitHub translation: {error} ===")
+                self.root.after(
+                    0,
+                    lambda error=error: messagebox.showerror(
+                        "GitHub Translation Error",
+                        f"{error}\n\nNo source repository was modified.",
+                        parent=self.root,
+                    ),
+                )
             finally:
                 self.root.after(0, self.enable_buttons)
 

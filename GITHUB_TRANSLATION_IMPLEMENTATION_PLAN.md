@@ -2,15 +2,18 @@
 
 ## Status
 
-- Document state: Draft — answers reviewed; awaiting conflict resolutions
+- Document state: Approved and implemented — ready for a controlled source-repository pilot
 - Target application: Course Translation Hub
 - Requested flow: GitHub-hosted Software Development textbook translation
-- Target languages: Portuguese (PTBR) and Spanish (SPA)
-- Implementation has not started.
+- Phase-one target language: Portuguese (PTBR)
+- Future target language: Spanish (SPA), disabled until an approved Spanish SD glossary is available
+- Source ownership rule: CSE repositories are read-only and must never be written to, edited, or reconfigured
+- Phase-one destination: a new public repository in the authenticated user's personal GitHub account
+- Implementation is complete; the first live source-repository run remains a controlled pilot.
 
 ## How to Review This Document
 
-Please enter your responses after each **Answer:** label in the Open Questions section. Short answers and links to example repositories or files are welcome. Once the questions are answered, this document can be revised into the final implementation contract before coding begins.
+The answers below are retained as the implementation record. Phase-one decisions in the Status and Conflict Resolution sections are authoritative where an earlier answer was superseded.
 
 ## Confirmed Requirements
 
@@ -33,6 +36,10 @@ The new flow must:
     - `Reviewing`
     - `Variables`
     - `Images and Files`
+11. Treat every CSE GitHub repository as a read-only source. The Hub must never push, merge, open a pull request, change settings, enable Pages, or perform any other write operation against a CSE repository.
+12. Create translated phase-one repositories only in the authenticated user's personal GitHub account.
+13. Enable Portuguese in phase one and keep Spanish visibly disabled until the Spanish global SD glossary is approved.
+14. Publish each generated personal repository through GitHub Pages from its `main` branch and repository root.
 
 ## Open Questions
 
@@ -80,6 +87,8 @@ https://byui-cse.github.io/cse341-ww-course-v2/index.html
 Is this flow Portuguese-only, or should it offer the existing PTBR and SPA choices? 
 
 **Answer:** BOTH PT and SPANISH. it should use the same process as in IMSCC files (translate - review content - Review glossary)
+
+**Phase-one decision:** Implement Portuguese first. Keep Spanish disabled until the Spanish SD glossary is ready.
 
 
 ### 6. Software Development Glossary
@@ -289,6 +298,10 @@ Please supply an actual GitHub repository URL accessible with the intended token
 
 **Resolution:**
 
+The user now has access to the private CSE repositories and will supply or select the actual repository URL at runtime. Access is strictly read-only: the Hub may authenticate, clone, fetch, and inspect the source repository, but it must never write to it or change its settings.
+
+Repository-specific content scope will be finalized during the first authenticated pilot after the scanner inventories the actual framework and file types. Until then, the architecture must remain file-type aware and run only applicable translation bots.
+
 
 ### D. Spanish Naming, Glossary, and Report Labels
 
@@ -301,7 +314,7 @@ Answer 5 confirms PTBR and Spanish, but the following requirements are currently
 Recommended resolution: define a Spanish repository suffix, add approved Spanish translations to the global SD glossary, and make the report column dynamic (`Variable PT` or `Variable ES`) based on the selected run language.
 
 **Resolution:**
-spanish will be spa
+Spanish will use the `spa` suffix. Phase one is Portuguese-only. Spanish controls remain disabled until `global-sd-glossary` includes approved Spanish translations. When enabled later, report labels will be language-aware (for example, `Variable PT` or `Variable SPA`).
 
 
 ### E. Destination Repository, Branch, and Published Site
@@ -317,11 +330,16 @@ Please confirm:
 5. Whether `test1` is the temporary suffix for both languages, and what the production Spanish suffix will be.
 
 **Resolution:**
-1. Whether the Hub must configure and publish GitHub Pages, or only create/push the repository. -> Hub must configure and publish GitHub Pages.
-2. Whether a newly created repository should also receive only the `DEV-VSR` branch. -> NO
-3. Which branch `DEV-VSR` should be based on when the destination already exists. -> Use the existing branch.
-4. What to do if `DEV-VSR` already exists. -> Use naming convention of numbering them
-5. Whether `test1` is the temporary suffix for both languages, and what the production Spanish suffix will be. -> `test1` is the temporary suffix for both languages
+Phase-one publication rules:
+
+1. Never create, push, merge, or configure Pages in the CSE source repository.
+2. Always create a new public repository in the authenticated user's personal GitHub account.
+3. For a Portuguese test run, transform a name such as `cse340-ww-course-v2` into `cse340-ww-course-test1-pt`.
+4. If that personal destination name already exists, create `cse340-ww-course-test1-pt-2`, then `-3`, and so on. Do not update or overwrite the existing repository.
+5. Push translated content to the new repository's `main` branch.
+6. Configure GitHub Pages to publish from the `main` branch and repository root.
+7. Do not use `DEV-VSR` during this new-repository phase-one flow. Existing-repository branch behavior is deferred until a future workflow explicitly requires updating an existing translated repository.
+8. The future production Portuguese convention replaces `v2` with `pt`. The future Spanish suffix is `spa`, but Spanish remains disabled in phase one.
 
 ### F. Duplicate Highlighting
 
@@ -346,6 +364,17 @@ Please confirm whether:
 3. `In U.Images` is a numeric count/indicator populated by the Hub, and how it should be calculated for GitHub content. -> YES
 
 **Resolution:**
+
+`U.Images` most likely means a separate centralized **Unique Images** inventory. This interpretation comes from the adjacent headers `In U.Images` and `Images (Copy from UniqueImages)`. Under that model:
+
+- `1` probably means the asset has one matching entry in the Unique Images inventory.
+- `0` would mean it was checked and no match was found.
+- A value greater than `1` could indicate duplicate matches that require review.
+- It is not necessarily the number of times the image appears within the GitHub repository.
+
+The exact behavior cannot be confirmed from the screenshot alone because no Unique Images catalog or source workbook has been supplied. Using the repository usage count in this column would risk giving the column the wrong meaning.
+
+Recommended phase-one behavior: preserve the `In U.Images` column for compatibility but leave it blank unless an authoritative Unique Images inventory is supplied. The Hub may calculate repository usage counts internally, but it should not place them in `In U.Images` without confirmation.
 
 
 ### H. Failed Files in the Three-Tab Report
@@ -390,10 +419,11 @@ GitHub Translation UI
 GitHubTranslationController
         |
         +--> GitHubRepositoryManager
-        |      +--> validate URL/authentication
-        |      +--> clone source
-        |      +--> create destination repository
-        |      +--> commit and push translated output
+        |      +--> validate URL/authentication and source ownership
+        |      +--> clone CSE source through a read-only path
+        |      +--> remove all source push capability from the workspace
+        |      +--> create a new destination in the user's account
+        |      +--> commit, push, and enable Pages only on the destination
         |
         +--> RepositoryScanner
         |      +--> detect framework
@@ -433,7 +463,6 @@ Names are provisional and may change during implementation.
 | `app/core/github_report_generator.py` | Generate the required three-tab Excel workbook |
 | `app/bots/markdown_bot.py` | Translate Markdown/MDX while preserving syntax and code |
 | `app/bots/variable_extraction.py` | Define, normalize, validate, and aggregate structured variable records |
-| `Glossary/software_development.json` | Dedicated SD glossary, subject to stakeholder decision |
 | `tests/test_github_repository_manager.py` | Repository and authentication behavior tests |
 | `tests/test_github_repository_scanner.py` | File discovery and framework detection tests |
 | `tests/test_markdown_bot.py` | Markdown/MDX preservation and translation tests |
@@ -445,7 +474,7 @@ Names are provisional and may change during implementation.
 | File | Change |
 | --- | --- |
 | `app/main_ui.py` | Add the GitHub Translation section and workflow dialogs |
-| `app/Course_Translation_Hub_ArchitectureAndInstructions.json` | Replace the old pending proposal with implemented architecture and operating rules |
+| `app/App_Architecture.json` | Add the implemented architecture and authoritative operating rules; mark the older embedded proposal as superseded |
 | `.gitignore` | Exclude temporary GitHub workspaces and credential-bearing artifacts |
 | `requirements.txt` | Add a Markdown parser or GitHub SDK only if the final design requires one |
 
@@ -469,14 +498,17 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 
 1. Validate repository URLs and reject unsupported schemes or ambiguous paths.
 2. Validate Git availability and authentication before starting an expensive translation.
-3. Create a per-run workspace under a dedicated `github_workspace` directory.
-4. Clone the selected branch without embedding secrets in command output.
-5. Capture source owner, repository, branch, and commit SHA for traceability.
-6. Derive the destination name using the approved convention.
-7. Detect destination conflicts before translation begins.
-8. Implement authenticated remote-repository creation.
-9. Implement explicit commit and push operations with sanitized error messages.
-10. Keep publication as the final phase so partial output is not pushed accidentally.
+3. Verify the source and destination owners are different and reject any destination in the CSE organization.
+4. Create a per-run workspace under a dedicated `github_workspace` directory.
+5. Clone the selected CSE branch without embedding secrets in command output.
+6. Treat the clone as input only: do translation in a separate tree with no source `.git` directory or writable source remote.
+7. Remove or disable the source remote's push URL as a defense-in-depth safeguard.
+8. Capture source owner, repository, branch, and commit SHA for traceability.
+9. Derive a personal destination name using `-test1-pt`, adding `-2`, `-3`, and so on when needed.
+10. Implement authenticated creation of a new public repository under the authenticated user's personal account.
+11. Initialize destination history separately, commit to `main`, and push only to the newly created personal repository.
+12. Configure GitHub Pages only on the new personal repository, using `main` and the repository root.
+13. Keep publication as the final phase so partial output is not pushed accidentally.
 
 **Exit criteria:** A mocked integration test can clone a fixture, plan a destination, create a mocked remote, and construct the expected push operation without exposing credentials.
 
@@ -497,11 +529,12 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 
 ### Phase 4 — Software Development Glossary
 
-1. Define the standalone SD glossary schema.
-2. Support target-language entries and terms that must remain in English.
-3. Merge SD terms with applicable entries from the existing global glossary.
-4. Detect conflicting glossary entries and fail or report them according to an agreed rule.
-5. Send only relevant glossary terms with each page request to control prompt size.
+1. Load only the approved `global-sd-glossary` for the GitHub flow.
+2. Support Portuguese entries and terms that must remain in English.
+3. Do not merge course-specific SD glossaries intended for future IMSCC translation.
+4. Detect duplicate or conflicting global SD entries and fail or report them according to an agreed rule.
+5. Send only relevant global SD terms with each page request to control prompt size.
+6. Keep Spanish disabled until the same global glossary contains approved Spanish entries.
 
 **Exit criteria:** Tests prove that preserve-in-English terms and required translations reach the Markdown bot correctly.
 
@@ -581,18 +614,19 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 4. Run Markdown/MDX structure checks.
 5. Confirm the report was generated successfully.
 6. Block publication on critical errors according to the approved failure policy.
-7. Create the remote repository only when appropriate.
-8. Commit translated content with a deterministic message containing the source repository and commit reference.
-9. Push to the approved branch.
-10. Optionally create a pull request if selected.
-11. Return the remote URL, branch/PR URL, report path, and summary counts to the UI.
+7. Reconfirm that the destination owner is the authenticated user and is not the CSE source organization.
+8. Create a new numbered personal repository only when appropriate.
+9. Commit translated content to a separately initialized `main` branch with a deterministic message containing the source repository and commit reference.
+10. Push only to the new personal destination.
+11. Configure GitHub Pages from `main` and the repository root, then capture the published URL.
+12. Return the repository URL, Pages URL, report path, and summary counts to the UI.
 
 **Exit criteria:** A successful run produces a traceable destination repository and workbook; a failed run never silently publishes incomplete content.
 
 ### Phase 10 — UI Integration
 
 1. Add a dedicated `GITHUB TRANSLATION` `LabelFrame` to the main window.
-2. Add the approved language controls.
+2. Enable Portuguese and display Spanish as disabled with a “Spanish glossary required” explanation.
 3. Add a **Select / Start GitHub Translation** button.
 4. Prompt for repository URL and any required branch or destination settings.
 5. Validate required fields before disabling the UI.
@@ -627,7 +661,7 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 | Invalid Markdown/MDX response | Restore the untouched source for that page and mark the run failed |
 | Missing variable records | Retry structured extraction and record an explicit validation failure |
 | Missing local asset | Add a report error and apply the approved publication policy |
-| Destination already exists | Apply the stakeholder-selected conflict policy |
+| Personal destination name already exists | Select the next available numbered repository name; do not write to the existing repository |
 | Report generation failure | Do not publish |
 | Remote creation succeeds but push fails | Preserve local output and report remote state clearly; never delete or overwrite automatically |
 
@@ -640,6 +674,10 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 5. Sanitize subprocess output before sending it to the UI console.
 6. Validate local workspace paths before cleanup or replacement.
 7. Do not overwrite an existing local or remote repository without an explicit approved policy.
+8. Never issue a Git push, GitHub content mutation, pull request, settings mutation, Pages mutation, or repository mutation against the CSE source owner.
+9. Keep source and destination Git repositories separate; translated output must not retain the source clone's `.git` directory.
+10. Validate the destination owner immediately before every GitHub write operation.
+11. Disable or remove the source remote push URL immediately after cloning so an accidental generic `git push` cannot target CSE.
 
 ## Automated Test Plan
 
@@ -650,8 +688,10 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 - Derive the correct source and destination metadata.
 - Avoid credentials in constructed commands and logs.
 - Handle public and private clone behavior.
-- Apply the selected existing-destination policy.
-- Mock remote creation, commit, push, and optional pull-request operations.
+- Reject any write destination owned by the CSE source organization.
+- Prove that the source clone has no usable push path after setup.
+- Select `-2`, `-3`, and subsequent personal repository names without mutating existing repositories.
+- Mock personal remote creation, `main` commit/push, and GitHub Pages configuration.
 
 ### Discovery
 
@@ -705,6 +745,7 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 - Prevent duplicate concurrent runs.
 - Display sanitized progress and actionable errors.
 - Return the report and repository links after success.
+- Keep Spanish unavailable until an approved Spanish global SD glossary is detected.
 
 ## Manual Acceptance Scenarios
 
@@ -717,7 +758,8 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 7. Confirm duplicate mappings receive the approved highlighting.
 8. Confirm local and remote assets appear in `Images and Files` with accurate statuses.
 9. Confirm the destination naming, owner, visibility, branch, and commit history.
-10. Simulate an authentication failure, Gemini failure, malformed Markdown response, missing asset, and push failure.
+10. Confirm no source-repository write APIs or push commands are invoked during a complete run.
+11. Simulate an authentication failure, Gemini failure, malformed Markdown response, missing asset, and push failure.
 
 ## Definition of Done
 
@@ -725,12 +767,14 @@ The GitHub Translation flow is complete when:
 
 - The dedicated UI section can start and monitor the flow.
 - The Hub safely clones an approved GitHub textbook repository.
+- The CSE source repository remains unchanged and has no usable push path from the translation workspace.
 - Supported prose is translated using the global SD glossary.
 - Code and framework syntax follow the approved preservation policy.
 - Gemini returns the required variable information, backed by completeness validation.
 - The translated repository passes structural and completeness checks.
 - The Excel workbook contains exactly the approved three tabs and formatting.
-- The destination repository is created and pushed according to the approved policy.
+- A new numbered public repository is created in the authenticated user's personal account, pushed on `main`, and published through GitHub Pages.
+- Spanish remains disabled until the approved Spanish global SD glossary is present.
 - Credentials never appear in logs, reports, Git configuration, or generated content.
 - Automated tests pass and the representative manual acceptance run is approved.
 - The architecture and operator documentation describe the implemented behavior.
