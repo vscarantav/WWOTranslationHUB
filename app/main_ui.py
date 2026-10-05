@@ -798,16 +798,14 @@ class CourseTranslationHubUI:
                 print(f"GitHub Pages: {result.pages_url}")
                 print(f"Report: {result.report_path}")
 
-                def show_success():
-                    messagebox.showinfo(
-                        "GitHub Translation Complete",
-                        f"New repository:\n{result.repository_url}\n\n"
-                        f"GitHub Pages:\n{result.pages_url}\n\n"
-                        f"Excel report:\n{result.report_path}",
-                        parent=self.root,
-                    )
-
-                self.root.after(0, show_success)
+                self.root.after(
+                    0,
+                    lambda result=result: self._show_github_translation_success(
+                        result.repository_url,
+                        result.pages_url,
+                        result.report_path,
+                    ),
+                )
             except GitHubTranslationRunError as error:
                 print(f"\n=== GitHub translation stopped: {error} ===")
                 if error.report_path:
@@ -837,6 +835,73 @@ class CourseTranslationHubUI:
                 self.root.after(0, self.enable_buttons)
 
         threading.Thread(target=process, daemon=True).start()
+
+    def _show_github_translation_success(self, repository_url, pages_url, report_path):
+        """Show GitHub results with a one-click repository-link copy action."""
+        dialog = tk.Toplevel(self.root)
+        dialog.title("GitHub Translation Complete")
+        dialog.resizable(False, False)
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        dialog_width = 680
+        dialog_height = 310
+        screen_width = dialog.winfo_screenwidth()
+        screen_height = dialog.winfo_screenheight()
+        x = int((screen_width - dialog_width) / 2)
+        y = int((screen_height - dialog_height) / 2)
+        dialog.geometry(f"{dialog_width}x{dialog_height}+{x}+{y}")
+
+        content = ttk.Frame(dialog, padding=18)
+        content.pack(fill="both", expand=True)
+
+        ttk.Label(
+            content,
+            text="GitHub Translation Complete",
+            font=("Helvetica", 14, "bold"),
+        ).pack(anchor="w", pady=(0, 14))
+
+        ttk.Label(content, text="New repository:").pack(anchor="w")
+        repository_frame = ttk.Frame(content)
+        repository_frame.pack(fill="x", pady=(3, 12))
+        repository_entry = ttk.Entry(repository_frame)
+        repository_entry.insert(0, repository_url)
+        repository_entry.configure(state="readonly")
+        repository_entry.pack(side="left", fill="x", expand=True)
+
+        copy_status = tk.StringVar(value="")
+
+        def copy_repository_link():
+            self.root.clipboard_clear()
+            self.root.clipboard_append(repository_url)
+            self.root.update()
+            copy_status.set("Repository link copied to clipboard.")
+
+        ttk.Button(
+            repository_frame,
+            text="Copy Repository Link",
+            command=copy_repository_link,
+        ).pack(side="left", padx=(8, 0))
+
+        ttk.Label(content, text="GitHub Pages:").pack(anchor="w")
+        ttk.Label(content, text=pages_url, wraplength=640).pack(
+            anchor="w", pady=(3, 12)
+        )
+
+        ttk.Label(content, text="Excel report:").pack(anchor="w")
+        ttk.Label(content, text=report_path, wraplength=640).pack(
+            anchor="w", pady=(3, 8)
+        )
+
+        footer = ttk.Frame(content)
+        footer.pack(fill="x", side="bottom")
+        ttk.Label(footer, textvariable=copy_status).pack(side="left")
+        ttk.Button(footer, text="OK", command=dialog.destroy, width=10).pack(
+            side="right"
+        )
+
+        dialog.protocol("WM_DELETE_WINDOW", dialog.destroy)
+        repository_entry.focus_set()
 
     def run_translation(self):
         translate_dir = os.path.join(self.hub_dir, "Courses to Translate")
