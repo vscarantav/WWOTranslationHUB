@@ -786,6 +786,10 @@ class CourseTranslationHubUI:
                     token,
                     target_language="PTBR",
                     log_func=print,
+                    progress_func=lambda value: self.root.after(
+                        0,
+                        lambda value=value: self.progress.configure(value=value),
+                    ),
                 )
                 result = controller.run(repository_url, branch)
                 self.root.after(0, lambda: self.progress.configure(value=100))

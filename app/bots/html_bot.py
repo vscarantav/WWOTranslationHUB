@@ -7,6 +7,13 @@ from bs4 import BeautifulSoup, Comment, NavigableString
 import google.generativeai as genai  # type: ignore
 
 class HTMLTranslationBot:
+    # Product interface labels should remain exactly as students see them in the
+    # application. Translating these labels can make the instructions harder to
+    # follow when the product itself is using an English interface.
+    PRESERVED_PRODUCT_UI_LABELS = {
+        "select as repository destination",
+    }
+
     def __init__(self, api_key=None, target_language="PTBR", log_lock=None, workspace_dir=None):
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if self.api_key:
@@ -70,9 +77,17 @@ class HTMLTranslationBot:
         latin_markers = {
             "lorem", "ipsum", "consectetur", "adipiscing", "eiusmod",
             "cupidatat", "perspiciatis", "accusamus", "dignissimos",
-            "voluptatum", "ullamco",
+            "voluptatum", "ullamco", "excepteur", "occaecat", "proident",
+            "deserunt", "mollit", "laborum", "veniam", "nostrum",
+            "exercitationem", "corporis", "suscipit", "laboriosam",
+            "commodi", "consequatur", "harum", "rerum", "expedita",
+            "voluptas", "aspernatur", "fugit", "dolorem", "quaerat",
         }
         return len(words & latin_markers) >= 2
+
+    @classmethod
+    def _is_preserved_product_ui_label(cls, text: str) -> bool:
+        return text.strip().casefold() in cls.PRESERVED_PRODUCT_UI_LABELS
 
     def _translate_text_batch(self, batch: dict, constraints: str) -> dict:
         """Translate isolated visible-text nodes while retaining stable IDs."""
@@ -201,6 +216,8 @@ class HTMLTranslationBot:
             if not stripped_text or not re.search(r"[A-Za-z]", stripped_text):
                 continue
             if self._is_lorem_ipsum_text(stripped_text):
+                continue
+            if self._is_preserved_product_ui_label(stripped_text):
                 continue
             if node.find_parent(list(ignored_parents)) is not None:
                 continue

@@ -54,12 +54,15 @@ class GitHubTranslationController:
         bot_factory=None,
         max_workers=3,
         log_func=print,
+        progress_func=None,
     ):
         self.hub_dir = Path(hub_dir).resolve()
         self.target_language = target_language.upper()
         if self.target_language != "PTBR":
             raise ValueError("GitHub translation currently supports Portuguese (PTBR) only.")
         self.log = log_func
+        self.progress_func = progress_func
+        self._progress_value = 0
         self._log_lock = threading.Lock()
         self._log_filepath = self.hub_dir / "app" / "bots" / "translation_log.txt"
         self._log_filepath.parent.mkdir(parents=True, exist_ok=True)
@@ -79,6 +82,17 @@ class GitHubTranslationController:
             with self._log_filepath.open("a", encoding="utf-8") as log_file:
                 log_file.write(f"{message}\n")
             self.log(message)
+
+    def _progress(self, value, message=""):
+        """Publish monotonic progress for the shared UI progress bar."""
+        value = max(self._progress_value, min(100, int(round(value))))
+        if value == self._progress_value and not message:
+            return
+        self._progress_value = value
+        if self.progress_func:
+            self.progress_func(value)
+        label = f" - {message}" if message else ""
+        self._log(f"[GitHub] Progress: {value}%{label}")
 
     @staticmethod
     def _safe_workspace_name(owner, repository):
@@ -228,6 +242,8 @@ class GitHubTranslationController:
         return rows, issues
 
     def run(self, repository_url, branch=None):
+        self._progress_value = 0
+        self._progress(0, "Checking repository access")
         source_owner, source_repository = self.repository_manager.parse_repository_url(repository_url)
         authenticated = self.repository_manager.authenticated_user()
         destination_owner = str(authenticated["login"])
@@ -243,6 +259,7 @@ class GitHubTranslationController:
         report_path = ""
 
         pages = self.repository_manager.get_pages_configuration(source_owner, source_repository)
+        self._progress(5, "Repository access confirmed")
         source_branch = branch or pages.get("branch")
         pages_path = str(pages.get("path") or "/").strip()
         source_prefix = pages_path.strip("/")
@@ -254,6 +271,7 @@ class GitHubTranslationController:
         source_metadata = self.repository_manager.clone_source(
             repository_url, clone_root, source_branch
         )
+        self._progress(10, "Source repository cloned read-only")
         source_root = (clone_root / source_prefix).resolve() if source_prefix else clone_root.resolve()
         try:
             source_root.relative_to(clone_root.resolve())
@@ -278,10 +296,13 @@ class GitHubTranslationController:
         glossary_path = SoftwareDevelopmentGlossary.default_path(self.hub_dir)
         glossary = SoftwareDevelopmentGlossary.load(glossary_path, "PTBR")
         bots = self._bots()
+        self._progress(15, "Translation workspace prepared")
 
         translated_items = [item for item in manifest if item.action == "translate"]
         successes = {}
         failures = {}
+        completed_translations = 0
+        translation_total = max(1, len(translated_items))
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             futures = {
                 executor.submit(
@@ -296,8 +317,16 @@ class GitHubTranslationController:
                 except Exception as error:
                     failures[item.relative_path] = str(error)
                     self._log(f"[GitHub] Concurrent translation failed for {item.relative_path}: {error}")
+                finally:
+                    completed_translations += 1
+                    self._progress(
+                        15 + (completed_translations / translation_total) * 55,
+                        f"Translated or checked {completed_translations}/{len(translated_items)} files",
+                    )
 
         # A sequential retry reduces pressure on Gemini and is the final gate.
+        retry_total = len(failures)
+        retry_completed = 0
         for relative_path in list(failures):
             item = next(item for item in translated_items if item.relative_path == relative_path)
             try:
@@ -308,9 +337,19 @@ class GitHubTranslationController:
             except Exception as error:
                 failures[relative_path] = str(error)
                 self._log(f"[GitHub] Final translation failure for {relative_path}: {error}")
+            finally:
+                retry_completed += 1
+                self._progress(
+                    70 + (retry_completed / max(1, retry_total)) * 5,
+                    f"Retried {retry_completed}/{retry_total} failed files",
+                )
 
         variable_rows = []
         variable_mapping = {}
+        analyzable_items = [
+            item for item in translated_items if item.relative_path not in failures
+        ]
+        analyzed_items = 0
         for item in translated_items:
             if item.relative_path in failures:
                 continue
@@ -329,7 +368,14 @@ class GitHubTranslationController:
             except Exception as error:
                 failures[item.relative_path] = f"Variable analysis failed: {error}"
                 self._log(f"[GitHub] Variable analysis failed for {item.relative_path}: {error}")
+            finally:
+                analyzed_items += 1
+                self._progress(
+                    75 + (analyzed_items / max(1, len(analyzable_items))) * 10,
+                    f"Analyzed variables in {analyzed_items}/{len(analyzable_items)} files",
+                )
 
+        self._progress(87, "Validating translated repository")
         tree_errors = self.validator.validate_tree(source_root, translated_root, manifest)
         for error in tree_errors:
             failures.setdefault("Repository validation", error)
@@ -376,6 +422,7 @@ class GitHubTranslationController:
             destination_name, review_rows, variable_rows, asset_rows
         )
         self._log(f"[GitHub] Report generated: {report_path}")
+        self._progress(95, "Report generated")
 
         if failures:
             raise GitHubTranslationRunError(
@@ -387,6 +434,7 @@ class GitHubTranslationController:
         published = self.repository_manager.publish_translation(
             translated_root, destination_owner, destination_name, source_metadata
         )
+        self._progress(100, "Repository published and GitHub Pages configured")
         return GitHubTranslationResult(
             repository_url=published["repository_url"],
             pages_url=published["pages_url"],

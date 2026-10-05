@@ -106,7 +106,7 @@ class GitHubTranslationControllerTests(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(self.root, ignore_errors=True)
 
-    def _controller(self, manager, report, fail=False):
+    def _controller(self, manager, report, fail=False, progress_func=None):
         return GitHubTranslationController(
             self.root,
             "unused-token",
@@ -119,12 +119,14 @@ class GitHubTranslationControllerTests(unittest.TestCase):
             },
             max_workers=1,
             log_func=lambda _message: None,
+            progress_func=progress_func,
         )
 
     def test_success_publishes_only_to_new_personal_repository(self):
         manager = _RepositoryManager()
         report = _Report(self.root)
-        result = self._controller(manager, report).run(
+        progress = []
+        result = self._controller(manager, report, progress_func=progress.append).run(
             "https://github.com/byui-cse/cse340-ww-course-v2"
         )
         self.assertEqual(result.repository_name, "cse340-ww-course-test1-pt")
@@ -143,6 +145,9 @@ class GitHubTranslationControllerTests(unittest.TestCase):
         review_row = report.calls[0][1][0]
         self.assertIn("/docs/README.md", review_row["link_en"])
         self.assertTrue(review_row["link_pt"].endswith("/README.md"))
+        self.assertEqual(progress[0], 0)
+        self.assertEqual(progress[-1], 100)
+        self.assertEqual(progress, sorted(progress))
 
     def test_final_failure_generates_report_but_never_publishes(self):
         manager = _RepositoryManager()

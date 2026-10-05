@@ -128,6 +128,48 @@ class TeachingNotesChunkTranslationTests(unittest.TestCase):
         self.assertNotIn(lorem, seen_text)
         self.assertIn("PT: Translate this lesson.", translated)
 
+    def test_preserves_extended_latin_placeholder_variants(self):
+        bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
+        bot._log = Mock()
+        seen_text = []
+
+        def translate(batch, _constraints):
+            seen_text.extend(batch.values())
+            return {item_id: f"PT: {text}" for item_id, text in batch.items()}
+
+        bot._translate_text_batch = Mock(side_effect=translate)
+        latin_variants = (
+            "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis "
+            "suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?"
+        )
+        translated = bot.translate_html_content_in_chunks(
+            f"<p>{latin_variants}</p><p>Translate this lesson.</p>"
+        )
+
+        self.assertIn(latin_variants, translated)
+        self.assertNotIn(latin_variants, seen_text)
+        self.assertIn("PT: Translate this lesson.", translated)
+
+    def test_preserves_exact_product_interface_label(self):
+        bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
+        bot._log = Mock()
+        seen_text = []
+
+        def translate(batch, _constraints):
+            seen_text.extend(batch.values())
+            return {item_id: f"PT: {text}" for item_id, text in batch.items()}
+
+        bot._translate_text_batch = Mock(side_effect=translate)
+        label = "Select as Repository Destination"
+        translated = bot.translate_html_content_in_chunks(
+            f"<p>Click <strong>{label}</strong> to continue.</p>"
+        )
+
+        self.assertIn(label, translated)
+        self.assertNotIn(label, seen_text)
+        self.assertIn("PT: Click", translated)
+        self.assertIn("PT: to continue.", translated)
+
     def test_protects_text_nested_anywhere_inside_code(self):
         bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
         bot._log = Mock()

@@ -631,7 +631,7 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 4. Prompt for repository URL and any required branch or destination settings.
 5. Validate required fields before disabling the UI.
 6. Run translation on a background thread.
-7. Stream sanitized progress to the existing console.
+7. Stream sanitized phase/file percentages to the existing console and shared determinate progress bar.
 8. Include the new button in the shared enable/disable lifecycle.
 9. Present a completion dialog containing repository and report links.
 10. Present clear recovery guidance on clone, authentication, translation, validation, or push failures.
