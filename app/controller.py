@@ -918,15 +918,21 @@ class TranslationController:
         print("Please complete the following manual steps in Canvas after importing the translated IMSCC.")
         print("Press Enter to check off each item.\n")
         
+        canvas_language = {
+            "PTBR": "Português",
+            "SPA": "Spanish"
+        }.get(self.target_language, self.target_language)
+
         checklist = [
             "Import the translated .imscc course package into Canvas.",
+            f"In Canvas Settings, change the course language to {canvas_language}.",
             "Go to Course Settings > Feature Options and DISABLE 'Improved Rubrics' (Rubricas melhoradas / Rúbricas mejoradas).",
             "Go to Gradebook Settings > Late Policies, check 'Automatically apply grade for missing submissions', and set it to 0%.",
+            "In Grades > Settings > View Options, enable 'Notes' and 'Unpublished Assignments'.",
             "Remind Jenn Hunter to check the Setup Page.",
             "In Settings, add the Tutoring link to the Sidebar.",
             "Review the Translation Dashboard Report (in the Reports folder) for any warnings or untranslated items."
         ]
-        
         for i, item in enumerate(checklist, 1):
             input(f"[ ] {i}. {item}\n    (Press Enter when done)")
             print(f"    ✅ Checked!\n")

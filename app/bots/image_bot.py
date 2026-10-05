@@ -6,11 +6,18 @@ import google.generativeai as genai
 from bots.api_utils import call_gemini_with_retry
 
 class ImageProcessorBot:
-    def __init__(self, target_language: str, workspace_dir: str, log_lock=None, log_filepath=None):
+    def __init__(self, target_language: str, workspace_dir: str, log_lock=None, log_filepath=None, api_key=None):
         self.target_language = target_language
         self.workspace_dir = workspace_dir
         self.log_lock = log_lock
         self.log_filepath = log_filepath or os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
+        
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
+        if self.api_key:
+            genai.configure(api_key=self.api_key)
+            self.client_ready = True
+        else:
+            self.client_ready = False
         
         # Use gemini-3.5-flash for both text translation and multimodal generation as it is fast and cost-effective
         self.model = genai.GenerativeModel("gemini-3.5-flash")
@@ -62,6 +69,10 @@ class ImageProcessorBot:
         src = img_tag.get('src', '').strip()
         
         if not src:
+            return
+            
+        if not self.client_ready:
+            self._log("[ImageBot] WARNING: No API key provided. Skipping image alt text generation/translation.")
             return
             
         if alt:
