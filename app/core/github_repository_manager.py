@@ -5,6 +5,7 @@ import shutil
 import stat
 import subprocess
 import tempfile
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -145,6 +146,43 @@ class GitHubRepositoryManager:
             "path": source_path,
             "build_type": payload.get("build_type"),
         }
+
+    def wait_for_pages_publication(
+        self,
+        owner: str,
+        repository: str,
+        *,
+        timeout_seconds=300,
+        poll_interval=5,
+    ) -> dict:
+        """Wait until GitHub confirms that the Pages site has been built."""
+        deadline = time.monotonic() + timeout_seconds
+        last_status = None
+        pages_path = f"/repos/{quote(owner, safe='')}/{quote(repository, safe='')}/pages"
+
+        while True:
+            pages = self._api_request("GET", pages_path)
+            status = str(pages.get("status") or "pending").strip().casefold()
+            if status != last_status:
+                self.log(f"[GitHub] Pages deployment status: {status}.")
+                last_status = status
+
+            if status == "built":
+                if pages.get("public") is False:
+                    raise GitHubRepositoryError(
+                        "GitHub Pages finished building but the published site is not public."
+                    )
+                return pages
+            if status in {"error", "errored", "failed", "failure"}:
+                raise GitHubRepositoryError(
+                    f"GitHub Pages deployment failed with status '{status}'."
+                )
+            if time.monotonic() >= deadline:
+                raise GitHubRepositoryError(
+                    f"GitHub Pages was enabled for {owner}/{repository}, but publication "
+                    f"was not confirmed within {timeout_seconds} seconds."
+                )
+            time.sleep(poll_interval)
 
     def repository_exists(self, owner: str, repository: str) -> bool:
         try:
@@ -318,9 +356,16 @@ class GitHubRepositoryManager:
         self._api_request("POST", f"/repos/{quote(owner)}/{quote(repository)}/pages", {
             "source": {"branch": "main", "path": "/"},
         })
+        self.log("[GitHub] GitHub Pages enabled; waiting for the published site...")
+        pages = self.wait_for_pages_publication(owner, repository)
+        pages_url = str(pages.get("html_url") or "").strip()
+        if not pages_url:
+            raise GitHubRepositoryError(
+                "GitHub confirmed the Pages build but did not return a published site URL."
+            )
         return {
             "repository_url": created.get("html_url") or f"https://github.com/{owner}/{repository}",
-            "pages_url": f"https://{owner}.github.io/{repository}/",
+            "pages_url": pages_url,
             "repository": repository,
             "owner": owner,
             "branch": "main",

@@ -86,6 +86,55 @@ class GitHubRepositoryManagerTests(unittest.TestCase):
             {"branch": "live", "path": "/docs", "build_type": "legacy"},
         )
 
+    def test_waits_for_confirmed_public_pages_build(self):
+        statuses = iter([
+            {"status": "building", "html_url": "https://example.invalid/"},
+            {
+                "status": "built",
+                "html_url": "https://personal-user.github.io/course-pt/",
+                "public": True,
+            },
+        ])
+        calls = []
+
+        def api_request(method, path, payload):
+            calls.append((method, path, payload))
+            return next(statuses)
+
+        manager = GitHubRepositoryManager(
+            "token",
+            api_request=api_request,
+            log_func=lambda _message: None,
+        )
+        pages = manager.wait_for_pages_publication(
+            "personal-user",
+            "course-pt",
+            timeout_seconds=10,
+            poll_interval=0,
+        )
+
+        self.assertEqual(pages["status"], "built")
+        self.assertEqual(
+            pages["html_url"],
+            "https://personal-user.github.io/course-pt/",
+        )
+        self.assertEqual(len(calls), 2)
+
+    def test_pages_build_failure_stops_publication_confirmation(self):
+        manager = GitHubRepositoryManager(
+            "token",
+            api_request=lambda _method, _path, _payload: {"status": "errored"},
+            log_func=lambda _message: None,
+        )
+
+        with self.assertRaisesRegex(GitHubRepositoryError, "deployment failed"):
+            manager.wait_for_pages_publication(
+                "personal-user",
+                "course-pt",
+                timeout_seconds=10,
+                poll_interval=0,
+            )
+
     def test_translation_tree_has_no_source_git_or_workflows(self):
         source = self.temp_dir / "source"
         (source / ".git").mkdir(parents=True)

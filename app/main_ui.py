@@ -871,22 +871,30 @@ class CourseTranslationHubUI:
 
         copy_status = tk.StringVar(value="")
 
-        def copy_repository_link():
+        def copy_link(url, label):
             self.root.clipboard_clear()
-            self.root.clipboard_append(repository_url)
+            self.root.clipboard_append(url)
             self.root.update()
-            copy_status.set("Repository link copied to clipboard.")
+            copy_status.set(f"{label} copied to clipboard.")
 
         ttk.Button(
             repository_frame,
             text="Copy Repository Link",
-            command=copy_repository_link,
+            command=lambda: copy_link(repository_url, "Repository link"),
         ).pack(side="left", padx=(8, 0))
 
-        ttk.Label(content, text="GitHub Pages:").pack(anchor="w")
-        ttk.Label(content, text=pages_url, wraplength=640).pack(
-            anchor="w", pady=(3, 12)
-        )
+        ttk.Label(content, text="Published site:").pack(anchor="w")
+        pages_frame = ttk.Frame(content)
+        pages_frame.pack(fill="x", pady=(3, 12))
+        pages_entry = ttk.Entry(pages_frame)
+        pages_entry.insert(0, pages_url)
+        pages_entry.configure(state="readonly")
+        pages_entry.pack(side="left", fill="x", expand=True)
+        ttk.Button(
+            pages_frame,
+            text="Copy Published Site Link",
+            command=lambda: copy_link(pages_url, "Published site link"),
+        ).pack(side="left", padx=(8, 0))
 
         ttk.Label(content, text="Excel report:").pack(anchor="w")
         ttk.Label(content, text=report_path, wraplength=640).pack(

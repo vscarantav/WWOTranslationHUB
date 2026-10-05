@@ -618,7 +618,7 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 8. Create a new numbered personal repository only when appropriate.
 9. Commit translated content to a separately initialized `main` branch with a deterministic message containing the source repository and commit reference.
 10. Push only to the new personal destination.
-11. Configure GitHub Pages from `main` and the repository root, then capture the published URL.
+11. Configure GitHub Pages from `main` and the repository root, wait for GitHub to confirm a public `built` deployment, then capture GitHub's published URL.
 12. Return the repository URL, Pages URL, report path, and summary counts to the UI.
 
 **Exit criteria:** A successful run produces a traceable destination repository and workbook; a failed run never silently publishes incomplete content.
