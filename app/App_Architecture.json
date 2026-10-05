@@ -196,6 +196,7 @@
     "status": "Implemented for controlled PTBR pilots; this section supersedes the legacy pending GitHub proposal below.",
     "entry_point": "main_ui.py - GitHub Translation section",
     "orchestrator": "github_translation_controller.py",
+    "source_url_input": "Accept either https://github.com/owner/repository or a standard https://owner.github.io/repository/... project URL. GitHub Pages URLs are normalized to the corresponding canonical github.com HTTPS clone URL before Git is invoked.",
     "source_safety": [
       "CSE repositories are read-only inputs. The Hub may authenticate, clone, and inspect them but must never push, merge, open a pull request, edit settings, or configure Pages on them.",
       "The source clone uses an upstream remote whose push URL is replaced with disabled-source-push://read-only.",

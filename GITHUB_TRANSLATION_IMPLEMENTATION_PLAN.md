@@ -292,9 +292,9 @@ Use whatever is more reliable
 
 ### C. Source URL and Translation Scope
 
-Answers 3 and 4 provide published GitHub Pages URLs, not Git clone URLs. The same-name public repositories could not be found without authentication. The answers also do not yet identify which source directories or file types should be translated.
+Answers 3 and 4 provide published GitHub Pages URLs. The Hub accepts these standard `owner.github.io/repository/...` links, derives the corresponding `github.com/owner/repository` clone URL, and authenticates the read-only clone with the configured token. Direct repository URLs remain supported.
 
-Please supply an actual GitHub repository URL accessible with the intended token and confirm whether the Hub should translate the full web project—including HTML, Markdown, XML, TXT, and human-readable text in configuration/source files—or only selected content directories.
+The runtime link may be either a direct GitHub repository URL or its standard GitHub Pages project URL. Phase one scans the full repository for supported HTML, Markdown, MDX, XML, and TXT content while copying other non-ignored files unchanged.
 
 **Resolution:**
 
@@ -496,7 +496,7 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 
 ### Phase 2 — Repository Workspace and GitHub Integration
 
-1. Validate repository URLs and reject unsupported schemes or ambiguous paths.
+1. Validate direct repository URLs and standard GitHub Pages project URLs; normalize either form to a canonical HTTPS Git clone URL and reject unsupported schemes or ambiguous paths.
 2. Validate Git availability and authentication before starting an expensive translation.
 3. Verify the source and destination owners are different and reject any destination in the CSE organization.
 4. Create a per-run workspace under a dedicated `github_workspace` directory.

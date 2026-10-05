@@ -721,8 +721,11 @@ class CourseTranslationHubUI:
 
         repository_url = simpledialog.askstring(
             "GitHub Source Repository",
-            "Paste the HTTPS URL of the CSE source repository.\n"
-            "The source will be cloned and inspected read-only:",
+            "Paste either the CSE GitHub repository URL or its published GitHub Pages URL.\n"
+            "Examples:\n"
+            "https://github.com/byui-cse/cse340-ww-course-v2\n"
+            "https://byui-cse.github.io/cse340-ww-course-v2/index.html\n\n"
+            "The corresponding source repository will be cloned and inspected read-only:",
             parent=self.root,
         )
         if repository_url is None or not repository_url.strip():

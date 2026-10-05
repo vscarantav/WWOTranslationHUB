@@ -31,6 +31,33 @@ class GitHubRepositoryManagerTests(unittest.TestCase):
             "cse340-ww-course-test1-pt",
         )
 
+    def test_github_pages_url_resolves_to_canonical_clone_url(self):
+        pages_url = "https://byui-cse.github.io/cse340-ww-course-v2/index.html"
+        self.assertEqual(
+            GitHubRepositoryManager.parse_repository_url(pages_url),
+            ("byui-cse", "cse340-ww-course-v2"),
+        )
+        self.assertEqual(
+            GitHubRepositoryManager.canonical_repository_url(pages_url),
+            "https://github.com/byui-cse/cse340-ww-course-v2.git",
+        )
+
+        commands = []
+
+        def git_runner(command, cwd, authenticate):
+            commands.append((command, cwd, authenticate))
+            if command[1:3] == ["branch", "--show-current"]:
+                return "main"
+            if command[1:3] == ["rev-parse", "HEAD"]:
+                return "a" * 40
+            return ""
+
+        manager = GitHubRepositoryManager("token", git_runner=git_runner)
+        manager.clone_source(pages_url, self.temp_dir / "source")
+        clone_command = commands[0][0]
+        self.assertIn("https://github.com/byui-cse/cse340-ww-course-v2.git", clone_command)
+        self.assertNotIn(pages_url, clone_command)
+
     def test_numbered_name_never_reuses_an_existing_repository(self):
         manager = GitHubRepositoryManager("token")
         manager.repository_exists = lambda _owner, repo: repo in {
@@ -58,4 +85,3 @@ class GitHubRepositoryManagerTests(unittest.TestCase):
         self.assertFalse((destination / ".git").exists())
         self.assertFalse((destination / ".github" / "workflows").exists())
         self.assertTrue((destination / "docs" / "index.md").is_file())
-

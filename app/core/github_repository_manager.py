@@ -33,16 +33,36 @@ class GitHubRepositoryManager:
     def parse_repository_url(repository_url: str) -> tuple[str, str]:
         raw_url = (repository_url or "").strip().rstrip("/")
         parsed = urlparse(raw_url)
-        if parsed.scheme != "https" or (parsed.hostname or "").lower() != "github.com":
-            raise ValueError("Enter an HTTPS GitHub repository URL such as https://github.com/owner/repository.")
+        hostname = (parsed.hostname or "").lower()
+        if parsed.scheme != "https":
+            raise ValueError(
+                "Enter an HTTPS GitHub repository or GitHub Pages URL."
+            )
         parts = [part for part in parsed.path.split("/") if part]
-        if len(parts) != 2:
-            raise ValueError("The GitHub URL must identify exactly one owner and repository.")
-        owner = parts[0]
-        repository = re.sub(r"\.git$", "", parts[1], flags=re.IGNORECASE)
+        if hostname == "github.com":
+            if len(parts) != 2:
+                raise ValueError("The GitHub URL must identify exactly one owner and repository.")
+            owner = parts[0]
+            repository = re.sub(r"\.git$", "", parts[1], flags=re.IGNORECASE)
+        elif hostname.endswith(".github.io") and hostname != "github.io":
+            owner = hostname[:-len(".github.io")]
+            if not parts:
+                raise ValueError(
+                    "The GitHub Pages URL must include the project repository name."
+                )
+            repository = parts[0]
+        else:
+            raise ValueError(
+                "Enter an HTTPS GitHub repository URL or a standard owner.github.io project URL."
+            )
         if not re.fullmatch(r"[A-Za-z0-9_.-]+", owner) or not re.fullmatch(r"[A-Za-z0-9_.-]+", repository):
             raise ValueError("The GitHub owner or repository name contains unsupported characters.")
         return owner, repository
+
+    @classmethod
+    def canonical_repository_url(cls, repository_url: str) -> str:
+        owner, repository = cls.parse_repository_url(repository_url)
+        return f"https://github.com/{owner}/{repository}.git"
 
     @staticmethod
     def destination_base_name(source_repository: str, language="PTBR", testing=True) -> str:
@@ -182,6 +202,7 @@ class GitHubRepositoryManager:
 
     def clone_source(self, repository_url: str, destination, branch=None) -> dict:
         owner, repository = self.parse_repository_url(repository_url)
+        clone_url = self.canonical_repository_url(repository_url)
         destination_path = Path(destination).resolve()
         if destination_path.exists() and any(destination_path.iterdir()):
             raise GitHubRepositoryError(f"Clone destination is not empty: {destination_path}")
@@ -190,7 +211,7 @@ class GitHubRepositoryManager:
         arguments = ["clone", "--origin", "upstream"]
         if branch:
             arguments.extend(["--branch", branch])
-        arguments.extend([repository_url.rstrip("/"), str(destination_path)])
+        arguments.extend([clone_url, str(destination_path)])
         self.log(f"[GitHub] Cloning read-only source {owner}/{repository}...")
         self._run_git(arguments, authenticate=True)
 
