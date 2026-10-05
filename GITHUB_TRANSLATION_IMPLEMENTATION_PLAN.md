@@ -215,7 +215,8 @@ The worksheet must contain:
    | `Package` | Dropdown; default value is `GitHub` |
    | `Has Text` | Dropdown; blank by default |
    | `Plan` | Dropdown; blank by default |
-   | `TL Link` | Translated-language asset link |
+   | `TL Link` | Published translated GitHub Pages site |
+   | `Resource Link` | Clickable direct link to the published image/file, or its original external URL |
    | `Notes` | Reviewer notes |
    | `Num` | Sequential row number |
 

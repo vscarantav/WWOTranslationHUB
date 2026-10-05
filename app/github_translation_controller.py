@@ -1,4 +1,5 @@
 import os
+import posixpath
 import re
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -211,9 +212,37 @@ class GitHubTranslationController:
             return False
         return candidate.is_file()
 
+    @staticmethod
+    def _published_site_url(owner, repository):
+        return f"https://{owner}.github.io/{quote(repository, safe='')}/"
+
+    @staticmethod
+    def _published_resource_url(published_site_url, asset):
+        if asset.external:
+            return asset.asset_path
+
+        parsed = urlparse(asset.asset_path)
+        decoded_path = unquote(parsed.path)
+        if decoded_path.startswith("/"):
+            relative_path = decoded_path.lstrip("/")
+        else:
+            relative_path = posixpath.normpath(
+                posixpath.join(posixpath.dirname(asset.source_file), decoded_path)
+            )
+        if not relative_path or relative_path == "." or relative_path.startswith("../"):
+            return ""
+
+        resource_url = published_site_url.rstrip("/") + "/" + quote(relative_path, safe="/")
+        if parsed.query:
+            resource_url += f"?{parsed.query}"
+        if parsed.fragment:
+            resource_url += f"#{parsed.fragment}"
+        return resource_url
+
     def _asset_rows(
         self, source_assets, translated_assets, destination_owner, destination_name, source_root
     ):
+        published_site_url = self._published_site_url(destination_owner, destination_name)
         translated_lookup = {
             (asset.source_file, asset.asset_path): asset for asset in translated_assets
         }
@@ -232,9 +261,8 @@ class GitHubTranslationController:
                 notes = (notes + " Translated reference was not found.").strip()
             rows.append({
                 "asset_path": asset.asset_path,
-                "tl_link": self._blob_url(
-                    destination_owner, destination_name, "main", asset.source_file
-                ),
+                "tl_link": published_site_url,
+                "resource_link": self._published_resource_url(published_site_url, asset),
                 "notes": notes,
                 "alt_text_en": asset.alt_text,
                 "alt_text_pt": translated.alt_text if translated else "",

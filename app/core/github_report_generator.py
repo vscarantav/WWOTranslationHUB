@@ -125,7 +125,7 @@ class GitHubTranslationReportGenerator:
         sheet = workbook.add_worksheet("Images and Files")
         headers = [
             "In U.Images", "Images (Copy from UniqueImages)", "Package", "Has Text",
-            "Plan", "TL Link", "Notes", "Num", "Alt Text EN", "Alt Text PT",
+            "Plan", "TL Link", "Resource Link", "Notes", "Num", "Alt Text EN", "Alt Text PT",
         ]
         sheet.merge_range(0, 0, 0, len(headers) - 1, "Images", image_title)
         sheet.set_row(0, 34)
@@ -140,7 +140,7 @@ class GitHubTranslationReportGenerator:
         sheet.set_row(1, 34)
         sheet.write_row(2, 0, headers, header)
         sheet.freeze_panes(3, 0)
-        widths = [12, 58, 14, 14, 22, 48, 45, 8, 55, 55]
+        widths = [12, 58, 14, 14, 22, 48, 58, 45, 8, 55, 55]
         for column, width in enumerate(widths):
             sheet.set_column(column, column, width)
 
@@ -159,10 +159,15 @@ class GitHubTranslationReportGenerator:
                 sheet.write_url(row_index, 5, tl_link, link, string=tl_link)
             else:
                 sheet.write_blank(row_index, 5, None, cell)
-            sheet.write(row_index, 6, row.get("notes", ""), cell)
-            sheet.write_number(row_index, 7, index, cell)
-            sheet.write(row_index, 8, row.get("alt_text_en", ""), cell)
-            sheet.write(row_index, 9, row.get("alt_text_pt", ""), cell)
+            resource_link = row.get("resource_link", "")
+            if resource_link:
+                sheet.write_url(row_index, 6, resource_link, link, string=resource_link)
+            else:
+                sheet.write_blank(row_index, 6, None, cell)
+            sheet.write(row_index, 7, row.get("notes", ""), cell)
+            sheet.write_number(row_index, 8, index, cell)
+            sheet.write(row_index, 9, row.get("alt_text_en", ""), cell)
+            sheet.write(row_index, 10, row.get("alt_text_pt", ""), cell)
 
         last_row = max(3, len(rows) + 2)
         sheet.data_validation(3, 2, last_row, 2, {

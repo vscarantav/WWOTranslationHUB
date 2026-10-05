@@ -9,6 +9,7 @@ APP_DIR = Path(__file__).resolve().parents[1] / "app"
 sys.path.insert(0, str(APP_DIR))
 
 from core.github_repository_manager import GitHubRepositoryManager
+from core.github_repository_scanner import AssetReference
 from github_translation_controller import GitHubTranslationController, GitHubTranslationRunError
 
 
@@ -159,3 +160,28 @@ class GitHubTranslationControllerTests(unittest.TestCase):
         self.assertFalse(manager.published)
         self.assertEqual(raised.exception.report_path, report.path)
         self.assertEqual(report.calls[0][1][0]["status"], "Failed")
+
+    def test_published_resource_urls_resolve_local_and_external_assets(self):
+        site = "https://personal-user.github.io/course-test1-pt/"
+        local = AssetReference(
+            source_file="week01/index.html",
+            page_title="Week 1",
+            asset_path="../images/diagram one.png?size=large#preview",
+            asset_type="Image",
+        )
+        external = AssetReference(
+            source_file="week01/index.html",
+            page_title="Week 1",
+            asset_path="https://cdn.example.com/image.png",
+            asset_type="Image",
+            external=True,
+        )
+
+        self.assertEqual(
+            GitHubTranslationController._published_resource_url(site, local),
+            "https://personal-user.github.io/course-test1-pt/images/diagram%20one.png?size=large#preview",
+        )
+        self.assertEqual(
+            GitHubTranslationController._published_resource_url(site, external),
+            external.asset_path,
+        )
