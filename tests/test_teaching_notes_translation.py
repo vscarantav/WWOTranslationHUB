@@ -170,6 +170,38 @@ class TeachingNotesChunkTranslationTests(unittest.TestCase):
         self.assertIn("PT: Click", translated)
         self.assertIn("PT: to continue.", translated)
 
+    def test_normalizes_portuguese_week_labels_without_changing_links_or_code(self):
+        bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
+        bot._log = Mock()
+
+        def translate(batch, _constraints):
+            translations = {}
+            for item_id, text in batch.items():
+                translations[item_id] = (
+                    "Visão geral da Week 02 e atividade W03."
+                    if text == "Week 02 overview and W03 activity."
+                    else text
+                )
+            return translations
+
+        bot._translate_text_batch = Mock(side_effect=translate)
+        source = (
+            '<nav><a href="../week01/index.html" data-label="W1">W1</a>'
+            '<a href="../week02/index.html">W02</a></nav>'
+            '<p>Week 02 overview and W03 activity.</p>'
+            '<script>const currentWeek = "W04";</script>'
+        )
+
+        translated = bot.translate_html_content_in_chunks(source)
+        soup = BeautifulSoup(translated, "html.parser")
+
+        self.assertEqual([link.get_text() for link in soup.nav.find_all("a")], ["S1", "S02"])
+        self.assertEqual(soup.nav.a["href"], "../week01/index.html")
+        self.assertEqual(soup.nav.a["data-label"], "W1")
+        self.assertIn("Semana 02", soup.p.get_text())
+        self.assertIn("S03", soup.p.get_text())
+        self.assertIn('"W04"', soup.script.get_text())
+
     def test_protects_text_nested_anywhere_inside_code(self):
         bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
         bot._log = Mock()

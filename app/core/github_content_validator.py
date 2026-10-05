@@ -8,6 +8,7 @@ class GitHubContentValidator:
     """Validate translated files without mutating either repository tree."""
 
     PLACEHOLDER_PATTERN = re.compile(r"@@GITHUB_PROTECTED_\d+@@")
+    ENGLISH_WEEK_LABEL_PATTERN = re.compile(r"\bW\d{1,2}\b|\bWeek\s+\d{1,2}\b", re.IGNORECASE)
 
     @staticmethod
     def _markdown_code(content: str) -> list[str]:
@@ -27,6 +28,13 @@ class GitHubContentValidator:
         soup = BeautifulSoup(content, "html.parser")
         return [str(tag) for tag in soup.find_all(["pre", "code", "script", "style"])]
 
+    @classmethod
+    def _visible_english_week_labels(cls, content: str) -> list[str]:
+        soup = BeautifulSoup(content, "html.parser")
+        for tag in soup.find_all(["pre", "code", "script", "style", "noscript"]):
+            tag.decompose()
+        return cls.ENGLISH_WEEK_LABEL_PATTERN.findall(soup.get_text(" ", strip=True))
+
     def validate(self, original_content: str, translated_content: str, extension: str) -> list[str]:
         errors = []
         extension = extension.lower()
@@ -44,6 +52,12 @@ class GitHubContentValidator:
         elif extension in {".html", ".htm"}:
             if self._html_code(original_content) != self._html_code(translated_content):
                 errors.append("HTML code/script/style content changed during translation.")
+            remaining_week_labels = self._visible_english_week_labels(translated_content)
+            if remaining_week_labels:
+                labels = ", ".join(sorted(set(remaining_week_labels), key=str.casefold))
+                errors.append(
+                    f"English week label(s) remain in visible HTML text: {labels}."
+                )
             try:
                 BeautifulSoup(translated_content, "html.parser")
             except Exception as error:

@@ -161,6 +161,32 @@ class HTMLTranslationBot:
             return ""
         return " "
 
+    def _normalize_ptbr_week_labels(self, soup: BeautifulSoup) -> int:
+        """Normalize visible week labels without touching URLs, attributes, or code."""
+        if self.target_language.upper() != "PTBR":
+            return 0
+
+        changed_nodes = 0
+        ignored_parents = {"script", "style", "code", "pre", "noscript"}
+        for node in soup.find_all(string=True):
+            if isinstance(node, Comment) or not isinstance(node, NavigableString):
+                continue
+            if node.find_parent(list(ignored_parents)) is not None:
+                continue
+
+            original = str(node)
+            normalized = re.sub(r"\b[Ww](?=\d{1,2}\b)", "S", original)
+            normalized = re.sub(
+                r"\bweek(?=\s+\d{1,2}\b)",
+                "Semana",
+                normalized,
+                flags=re.IGNORECASE,
+            )
+            if normalized != original:
+                node.replace_with(NavigableString(normalized))
+                changed_nodes += 1
+        return changed_nodes
+
     def translate_html_content_in_chunks(
         self,
         html_content: str,
@@ -291,13 +317,20 @@ class HTMLTranslationBot:
                 f"{leading_whitespace}{translated_text}{trailing_whitespace}"
             ))
 
-        if changed_count == 0:
+        normalized_week_nodes = self._normalize_ptbr_week_labels(soup)
+
+        if changed_count == 0 and normalized_week_nodes == 0:
             raise RuntimeError("The model returned the HTML page unchanged in English.")
 
         self._log(
             f"[HTMLBot] Changed {changed_count}/{len(strings_to_translate)} visible text nodes "
             f"for {page_title}."
         )
+        if normalized_week_nodes:
+            self._log(
+                f"[HTMLBot] Normalized Portuguese week labels in "
+                f"{normalized_week_nodes} text node(s) for {page_title}."
+            )
         return str(soup)
 
     def translate_html_content(self, html_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None, page_title: str = "Unknown") -> str:
@@ -351,6 +384,15 @@ class HTMLTranslationBot:
             # Strict whitespace normalization: replace non-breaking spaces and &nbsp; with regular spaces
             output = output.replace('\u00A0', ' ')
             output = output.replace('&nbsp;', ' ')
+
+            translated_soup = BeautifulSoup(output, "html.parser")
+            normalized_week_nodes = self._normalize_ptbr_week_labels(translated_soup)
+            if normalized_week_nodes:
+                self._log(
+                    f"[HTMLBot] Normalized Portuguese week labels in "
+                    f"{normalized_week_nodes} text node(s) for {page_title}."
+                )
+                output = str(translated_soup)
 
             return output
         except Exception as e:
