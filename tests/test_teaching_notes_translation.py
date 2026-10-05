@@ -109,6 +109,43 @@ class TeachingNotesChunkTranslationTests(unittest.TestCase):
                 "<h1>Teaching Notes and Student Outreach</h1><p>Support students.</p>"
             )
 
+    def test_preserves_lorem_ipsum_without_treating_it_as_english(self):
+        bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
+        bot._log = Mock()
+        seen_text = []
+
+        def translate(batch, _constraints):
+            seen_text.extend(batch.values())
+            return {item_id: f"PT: {text}" for item_id, text in batch.items()}
+
+        bot._translate_text_batch = Mock(side_effect=translate)
+        lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        translated = bot.translate_html_content_in_chunks(
+            f"<div><p>{lorem}</p><p>Translate this lesson.</p></div>"
+        )
+
+        self.assertIn(lorem, translated)
+        self.assertNotIn(lorem, seen_text)
+        self.assertIn("PT: Translate this lesson.", translated)
+
+    def test_protects_text_nested_anywhere_inside_code(self):
+        bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
+        bot._log = Mock()
+        seen_text = []
+
+        def translate(batch, _constraints):
+            seen_text.extend(batch.values())
+            return {item_id: f"PT: {text}" for item_id, text in batch.items()}
+
+        bot._translate_text_batch = Mock(side_effect=translate)
+        code = "&lt;% messages[type].forEach(msg =&gt; { %&gt;"
+        source = f"<code><div>{code}</div></code><p>Translate this lesson.</p>"
+        translated = bot.translate_html_content_in_chunks(source)
+
+        self.assertFalse(any("messages[type]" in text for text in seen_text))
+        self.assertIn("messages[type].forEach", translated)
+        self.assertIn("PT: Translate this lesson.", translated)
+
     def test_preserves_configured_details_accordion_in_english(self):
         bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
         bot._log = Mock()

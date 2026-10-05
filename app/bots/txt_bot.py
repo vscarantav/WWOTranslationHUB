@@ -33,6 +33,30 @@ class TextTranslationBot:
     def set_system_prompt(self, prompt: str):
         self.system_prompt = prompt
 
+    @staticmethod
+    def _chunks(text_content: str, limit: int = 12000) -> list[str]:
+        if len(text_content) <= limit:
+            return [text_content]
+        chunks = []
+        current = ""
+        for line in text_content.splitlines(keepends=True):
+            if current and len(current) + len(line) > limit:
+                chunks.append(current)
+                current = ""
+            if len(line) > limit:
+                if current:
+                    chunks.append(current)
+                    current = ""
+                chunks.extend(
+                    line[index:index + limit]
+                    for index in range(0, len(line), limit)
+                )
+            else:
+                current += line
+        if current:
+            chunks.append(current)
+        return chunks or [text_content]
+
     def translate_txt_content(self, text_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None) -> str:
         if not self.client_ready:
             msg = "[TextBot] WARNING: No Gemini API key provided. Returning original content."
@@ -50,10 +74,24 @@ class TextTranslationBot:
             if relevant_scriptures:
                 constraints += f"\n\nSCRIPTURE CONSTRAINTS: When translating scriptures, use these exact official translations instead of translating them yourself:\n{json.dumps(relevant_scriptures, indent=2, ensure_ascii=False)}"
                 
-            full_prompt = f"System Instructions:\n{self.system_prompt}{constraints}\n\nContent to translate:\n{text_content}"
             from bots.api_utils import call_gemini_with_retry
-            response = call_gemini_with_retry(self.model, full_prompt, log_func=self._log)
-            result = response.text.strip()
+            chunks = self._chunks(text_content)
+            translated_chunks = []
+            for index, chunk in enumerate(chunks, start=1):
+                full_prompt = (
+                    f"System Instructions:\n{self.system_prompt}{constraints}\n\n"
+                    f"This is chunk {index} of {len(chunks)}. Translate the complete chunk and "
+                    "return only its translated content. Do not summarize or omit anything.\n\n"
+                    f"Content to translate:\n{chunk}"
+                )
+                response = call_gemini_with_retry(self.model, full_prompt, log_func=self._log)
+                output = (response.text or "").strip()
+                if not output:
+                    raise ValueError(f"Gemini returned an empty text chunk ({index}/{len(chunks)}).")
+                leading = chunk[:len(chunk) - len(chunk.lstrip())]
+                trailing = chunk[len(chunk.rstrip()):]
+                translated_chunks.append(f"{leading}{output}{trailing}")
+            result = "".join(translated_chunks)
             # Strict whitespace normalization
             result = result.replace('\u00A0', ' ')
             result = result.replace('&nbsp;', ' ')

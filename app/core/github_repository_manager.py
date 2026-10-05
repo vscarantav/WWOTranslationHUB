@@ -125,6 +125,27 @@ class GitHubRepositoryManager:
             raise GitHubRepositoryError("The GitHub token did not return an authenticated user.")
         return user
 
+    def get_pages_configuration(self, owner: str, repository: str) -> dict:
+        """Return the configured legacy Pages source, or repository-root defaults."""
+        try:
+            payload = self._api_request(
+                "GET",
+                f"/repos/{quote(owner, safe='')}/{quote(repository, safe='')}/pages",
+            )
+        except GitHubRepositoryError as error:
+            if getattr(error, "status_code", None) == 404:
+                return {"branch": None, "path": "/", "build_type": None}
+            raise
+        source = payload.get("source") or {}
+        source_path = str(source.get("path") or "/").strip()
+        if not source_path.startswith("/"):
+            source_path = f"/{source_path}"
+        return {
+            "branch": str(source.get("branch") or "").strip() or None,
+            "path": source_path,
+            "build_type": payload.get("build_type"),
+        }
+
     def repository_exists(self, owner: str, repository: str) -> bool:
         try:
             self._api_request(

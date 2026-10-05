@@ -238,15 +238,41 @@ class GitHubTranslationController:
         base_name = self.repository_manager.destination_base_name(source_repository, "PTBR", testing=True)
         destination_name = self.repository_manager.choose_destination_name(destination_owner, base_name)
         workspace = self._create_workspace(source_owner, source_repository)
-        source_root = workspace / "source"
+        clone_root = workspace / "source"
         translated_root = workspace / "translated"
         report_path = ""
+
+        pages = self.repository_manager.get_pages_configuration(source_owner, source_repository)
+        source_branch = branch or pages.get("branch")
+        pages_path = str(pages.get("path") or "/").strip()
+        source_prefix = pages_path.strip("/")
 
         self._log(
             f"[GitHub] Source {source_owner}/{source_repository} is read-only. "
             f"Planned destination: {destination_owner}/{destination_name}."
         )
-        source_metadata = self.repository_manager.clone_source(repository_url, source_root, branch)
+        source_metadata = self.repository_manager.clone_source(
+            repository_url, clone_root, source_branch
+        )
+        source_root = (clone_root / source_prefix).resolve() if source_prefix else clone_root.resolve()
+        try:
+            source_root.relative_to(clone_root.resolve())
+        except ValueError as error:
+            raise GitHubTranslationRunError(
+                f"GitHub Pages source path is outside the repository: {pages_path}",
+                workspace_path=str(workspace),
+            ) from error
+        if not source_root.is_dir():
+            raise GitHubTranslationRunError(
+                f"GitHub Pages source directory does not exist in the clone: {pages_path}",
+                workspace_path=str(workspace),
+            )
+        self._log(
+            f"[GitHub] Translating Pages source "
+            f"{source_metadata.get('branch', source_branch or 'default')}:{pages_path} "
+            "into the destination repository root."
+        )
+        source_metadata["pages_source_path"] = pages_path
         manifest = self.scanner.scan(source_root)
         self.repository_manager.prepare_translation_tree(source_root, translated_root)
         glossary_path = SoftwareDevelopmentGlossary.default_path(self.hub_dir)
@@ -327,10 +353,13 @@ class GitHubTranslationController:
         review_rows = []
         for item in translated_items:
             page_title = successes.get(item.relative_path, (Path(item.relative_path).stem,))[0]
+            source_relative_path = (
+                f"{source_prefix}/{item.relative_path}" if source_prefix else item.relative_path
+            )
             review_rows.append({
                 "page_name": page_title,
                 "type": item.content_type,
-                "link_en": self._blob_url(source_owner, source_repository, source_reference, item.relative_path),
+                "link_en": self._blob_url(source_owner, source_repository, source_reference, source_relative_path),
                 "link_pt": self._blob_url(destination_owner, destination_name, "main", item.relative_path),
                 "status": "Failed" if item.relative_path in failures else "Translated",
                 "notes": failures.get(item.relative_path, ""),

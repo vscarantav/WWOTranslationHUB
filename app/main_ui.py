@@ -739,7 +739,7 @@ class CourseTranslationHubUI:
 
         branch = simpledialog.askstring(
             "Source Branch (Optional)",
-            "Enter a source branch, or leave blank to use the repository default:",
+            "Enter a source branch, or leave blank to use the branch configured for GitHub Pages:",
             parent=self.root,
         )
         if branch is None:

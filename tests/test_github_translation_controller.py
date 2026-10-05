@@ -19,6 +19,7 @@ class _RepositoryManager:
 
     def __init__(self):
         self.published = []
+        self.clone_branches = []
 
     def authenticated_user(self):
         return {"login": "personal-user"}
@@ -26,15 +27,25 @@ class _RepositoryManager:
     def choose_destination_name(self, owner, base):
         return base
 
+    def get_pages_configuration(self, owner, repository):
+        return {"branch": "live", "path": "/docs", "build_type": "legacy"}
+
     def clone_source(self, _url, destination, branch=None):
+        self.clone_branches.append(branch)
         destination.mkdir(parents=True)
-        (destination / "README.md").write_text(
+        (destination / "docs").mkdir()
+        (destination / "docs" / "README.md").write_text(
             "# Student name\n\nUse this lesson.\n\n```python\nstudent_name = input()\n```\n",
+            encoding="utf-8",
+        )
+        (destination / "unused").mkdir()
+        (destination / "unused" / "archive.md").write_text(
+            "# This archived source must not be translated.\n",
             encoding="utf-8",
         )
         return {
             "owner": "byui-cse", "repository": "cse340-ww-course-v2",
-            "branch": branch or "main", "commit_sha": "a" * 40,
+            "branch": branch or "live", "commit_sha": "a" * 40,
         }
 
     def publish_translation(self, translated, owner, repository, metadata):
@@ -117,15 +128,21 @@ class GitHubTranslationControllerTests(unittest.TestCase):
             "https://github.com/byui-cse/cse340-ww-course-v2"
         )
         self.assertEqual(result.repository_name, "cse340-ww-course-test1-pt")
+        self.assertEqual(manager.clone_branches, ["live"])
         self.assertEqual(len(manager.published), 1)
         translated, owner, repository, _metadata = manager.published[0]
         self.assertEqual(owner, "personal-user")
         self.assertEqual(repository, "cse340-ww-course-test1-pt")
         self.assertFalse((translated / ".git").exists())
+        self.assertFalse((translated / "docs").exists())
+        self.assertFalse((translated / "unused").exists())
         output = (translated / "README.md").read_text(encoding="utf-8")
         self.assertIn("Nome do aluno", output)
         self.assertIn("student_name = input()", output)
         self.assertEqual(report.calls[0][2][0]["variable_en"], "student_name")
+        review_row = report.calls[0][1][0]
+        self.assertIn("/docs/README.md", review_row["link_en"])
+        self.assertTrue(review_row["link_pt"].endswith("/README.md"))
 
     def test_final_failure_generates_report_but_never_publishes(self):
         manager = _RepositoryManager()
@@ -137,4 +154,3 @@ class GitHubTranslationControllerTests(unittest.TestCase):
         self.assertFalse(manager.published)
         self.assertEqual(raised.exception.report_path, report.path)
         self.assertEqual(report.calls[0][1][0]["status"], "Failed")
-

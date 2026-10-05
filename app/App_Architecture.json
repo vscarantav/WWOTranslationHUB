@@ -210,7 +210,7 @@
       "Initialize independent history on main, push only to the newly created personal repository, and publish GitHub Pages from main at the repository root.",
       "Publication is blocked when translation, variable analysis, structural validation, or report generation has a critical failure."
     ],
-    "translation_scope": "HTML, Markdown, MDX, XML, and TXT prose are translated. Code blocks, inline code, script/style content, URLs, placeholders, frontmatter, and executable identifiers remain unchanged.",
+    "translation_scope": "The Hub reads the source repository's GitHub Pages configuration, clones its configured branch, translates HTML, Markdown, MDX, XML, and TXT prose only within the configured Pages directory, and flattens that directory into the destination repository root. Source/build/archive directories outside the published Pages tree are excluded. Code blocks (including nested descendants), inline code, script/style content, URLs, placeholders, frontmatter, executable identifiers, and Lorem Ipsum placeholder text remain unchanged. Oversized plain-text files are processed in bounded chunks.",
     "variables": "Gemini returns structured variable records with page title, context summary, English identifier, Portuguese recommendation, and source file. Executable code remains unchanged.",
     "report": {
       "sheets": ["Reviewing", "Variables", "Images and Files"],

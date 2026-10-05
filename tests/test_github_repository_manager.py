@@ -70,6 +70,22 @@ class GitHubRepositoryManagerTests(unittest.TestCase):
         with self.assertRaises(GitHubRepositoryError):
             manager.choose_destination_name("byui-cse", "unsafe")
 
+    def test_reads_legacy_pages_source_configuration(self):
+        def api_request(method, path, payload):
+            self.assertEqual(method, "GET")
+            self.assertEqual(path, "/repos/byui-cse/cse340-ww-course-v2/pages")
+            self.assertIsNone(payload)
+            return {
+                "build_type": "legacy",
+                "source": {"branch": "live", "path": "/docs"},
+            }
+
+        manager = GitHubRepositoryManager("token", api_request=api_request)
+        self.assertEqual(
+            manager.get_pages_configuration("byui-cse", "cse340-ww-course-v2"),
+            {"branch": "live", "path": "/docs", "build_type": "legacy"},
+        )
+
     def test_translation_tree_has_no_source_git_or_workflows(self):
         source = self.temp_dir / "source"
         (source / ".git").mkdir(parents=True)

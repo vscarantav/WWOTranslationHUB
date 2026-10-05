@@ -51,6 +51,8 @@ class HTMLTranslationBot:
         if source_text.strip().casefold() != translated_text.strip().casefold():
             return False
         stripped_source = source_text.strip()
+        if HTMLTranslationBot._is_lorem_ipsum_text(stripped_source):
+            return False
         if re.match(r"^(?:https?://|www\.)\S+$", stripped_source, flags=re.IGNORECASE):
             return False
         if re.match(r"^[^\s@]+@[^\s@]+\.[^\s@]+$", stripped_source):
@@ -61,6 +63,16 @@ class HTMLTranslationBot:
             "this", "you", "your", "from", "will", "are", "on", "as",
         }
         return len(words) >= 4 and any(word in english_markers for word in words)
+
+    @staticmethod
+    def _is_lorem_ipsum_text(text: str) -> bool:
+        words = set(re.findall(r"[a-z]+", text.casefold()))
+        latin_markers = {
+            "lorem", "ipsum", "consectetur", "adipiscing", "eiusmod",
+            "cupidatat", "perspiciatis", "accusamus", "dignissimos",
+            "voluptatum", "ullamco",
+        }
+        return len(words & latin_markers) >= 2
 
     def _translate_text_batch(self, batch: dict, constraints: str) -> dict:
         """Translate isolated visible-text nodes while retaining stable IDs."""
@@ -187,6 +199,10 @@ class HTMLTranslationBot:
             raw_text = str(node)
             stripped_text = raw_text.strip()
             if not stripped_text or not re.search(r"[A-Za-z]", stripped_text):
+                continue
+            if self._is_lorem_ipsum_text(stripped_text):
+                continue
+            if node.find_parent(list(ignored_parents)) is not None:
                 continue
 
             item_id = str(len(strings_to_translate))

@@ -294,7 +294,7 @@ Use whatever is more reliable
 
 Answers 3 and 4 provide published GitHub Pages URLs. The Hub accepts these standard `owner.github.io/repository/...` links, derives the corresponding `github.com/owner/repository` clone URL, and authenticates the read-only clone with the configured token. Direct repository URLs remain supported.
 
-The runtime link may be either a direct GitHub repository URL or its standard GitHub Pages project URL. Phase one scans the full repository for supported HTML, Markdown, MDX, XML, and TXT content while copying other non-ignored files unchanged.
+The runtime link may be either a direct GitHub repository URL or its standard GitHub Pages project URL. Phase one reads the repository's Pages configuration, clones the configured source branch, scans only the configured Pages source directory for supported HTML, Markdown, MDX, XML, and TXT content, and copies that directory's other non-ignored files unchanged. The Pages directory is flattened into the destination repository root so the approved `main:/` publication setting works.
 
 **Resolution:**
 
@@ -514,7 +514,7 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 
 ### Phase 3 — Repository Discovery and Manifest
 
-1. Walk the repository while excluding `.git`, dependencies, build outputs, generated files, caches, and other approved ignore patterns.
+1. Read the source repository's GitHub Pages configuration and walk only its configured publication directory while excluding `.git`, dependencies, build outputs, generated files, caches, and other approved ignore patterns.
 2. Detect the documentation framework from known configuration files.
 3. Classify each file as:
    - Translatable
