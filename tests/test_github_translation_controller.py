@@ -78,6 +78,18 @@ class _Variables:
         }]
 
 
+class _APISettings:
+    def analyze(self, content, extension, page_title, source_file):
+        return [{
+            "page_title": page_title,
+            "source_file": source_file,
+            "provider": "Render",
+            "setting": "Build Command",
+            "value": "npm install && npm run build",
+            "context_summary": "Configuração da implantação.",
+        }]
+
+
 class _Scriptures:
     def get_scriptures_for_text(self, content):
         return {}
@@ -116,6 +128,7 @@ class GitHubTranslationControllerTests(unittest.TestCase):
             bot_factory=lambda: {
                 "markdown": _Markdown(fail),
                 "variables": _Variables(),
+                "api_settings": _APISettings(),
                 "scriptures": _Scriptures(),
             },
             max_workers=1,
@@ -143,6 +156,13 @@ class GitHubTranslationControllerTests(unittest.TestCase):
         self.assertIn("Nome do aluno", output)
         self.assertIn("student_name = input()", output)
         self.assertEqual(report.calls[0][2][0]["variable_en"], "student_name")
+        api_setting = report.calls[0][3][0]
+        self.assertEqual(
+            api_setting["asset_path"],
+            "API Setting — Render: Build Command = npm install && npm run build",
+        )
+        self.assertTrue(api_setting["resource_link"].endswith("/README.md"))
+        self.assertEqual(api_setting["package"], "External")
         review_row = report.calls[0][1][0]
         self.assertIn("/docs/README.md", review_row["link_en"])
         self.assertTrue(review_row["link_pt"].endswith("/README.md"))

@@ -9,6 +9,7 @@ from urllib.parse import quote, unquote, urlparse
 
 from bs4 import BeautifulSoup
 
+from bots.api_settings_analysis import APISettingsAnalysisBot
 from bots.html_bot import HTMLTranslationBot
 from bots.image_bot import ImageProcessorBot
 from bots.markdown_bot import MarkdownTranslationBot
@@ -125,6 +126,7 @@ class GitHubTranslationController:
                 "PTBR", str(workspace), self._log_lock, api_key=api_key
             ),
             "variables": VariableAnalysisBot(api_key, "PTBR", self._log),
+            "api_settings": APISettingsAnalysisBot(api_key, "PTBR", self._log),
             "scriptures": ScriptureCheckBot("PTBR", str(self.hub_dir), self._log_lock),
         }
 
@@ -292,6 +294,34 @@ class GitHubTranslationController:
             })
         return rows, issues
 
+    def _api_setting_rows(self, settings, destination_owner, destination_name):
+        published_site_url = self._published_site_url(destination_owner, destination_name)
+        rows = []
+        for item in settings:
+            provider = item.get("provider", "External service")
+            setting = item.get("setting", "Configuration")
+            value = item.get("value", "")
+            label = f"API Setting — {provider}: {setting}"
+            if value:
+                label += f" = {value}"
+            source_file = str(item.get("source_file", "")).lstrip("/")
+            resource_link = published_site_url.rstrip("/")
+            if source_file:
+                resource_link += "/" + quote(source_file, safe="/")
+            context = item.get("context_summary", "")
+            page_title = item.get("page_title", "")
+            notes = f"API/service configuration on {page_title}: {context}".strip()
+            rows.append({
+                "asset_path": label,
+                "package": "External",
+                "tl_link": published_site_url,
+                "resource_link": resource_link,
+                "notes": notes,
+                "alt_text_en": "",
+                "alt_text_pt": "",
+            })
+        return rows
+
     def run(self, repository_url, branch=None):
         self._progress_value = 0
         self._progress(0, "Checking repository access")
@@ -396,6 +426,7 @@ class GitHubTranslationController:
                 )
 
         variable_rows = []
+        api_setting_rows = []
         variable_mapping = {}
         analyzable_items = [
             item for item in translated_items if item.relative_path not in failures
@@ -419,6 +450,22 @@ class GitHubTranslationController:
             except Exception as error:
                 failures[item.relative_path] = f"Variable analysis failed: {error}"
                 self._log(f"[GitHub] Variable analysis failed for {item.relative_path}: {error}")
+            try:
+                api_setting_rows.extend(bots["api_settings"].analyze(
+                    original,
+                    item.extension,
+                    page_title,
+                    item.relative_path,
+                ))
+            except Exception as error:
+                detail = f"API settings analysis failed: {error}"
+                failures[item.relative_path] = (
+                    f"{failures[item.relative_path]} {detail}"
+                    if item.relative_path in failures else detail
+                )
+                self._log(
+                    f"[GitHub] API settings analysis failed for {item.relative_path}: {error}"
+                )
             finally:
                 analyzed_items += 1
                 self._progress(
@@ -440,6 +487,11 @@ class GitHubTranslationController:
             destination_name,
             source_root,
         )
+        asset_rows.extend(self._api_setting_rows(
+            api_setting_rows,
+            destination_owner,
+            destination_name,
+        ))
         for source_file, issues in asset_issues.items():
             detail = "; ".join(issues)
             failures[source_file] = (

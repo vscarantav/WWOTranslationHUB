@@ -134,10 +134,12 @@ class GitHubTranslationReportGenerator:
             "This includes screenshots of application menus, spreadsheet or document content, "
             "whiteboard writing, slide labels, etc. Decide whether the image needs to be "
             "recreated with translated text. Some external images may need to point to an "
-            "alternate URL for the translated version of the course."
+            "alternate URL for the translated version of the course. External videos and "
+            "API/service configuration settings are also listed here; use Resource Link to "
+            "open the video, file, image, or published instruction page that must be reviewed."
         )
         sheet.merge_range(1, 0, 1, len(headers) - 1, instructions, instruction)
-        sheet.set_row(1, 34)
+        sheet.set_row(1, 52)
         sheet.write_row(2, 0, headers, header)
         sheet.freeze_panes(3, 0)
         widths = [12, 58, 14, 14, 22, 48, 58, 45, 8, 55, 55]

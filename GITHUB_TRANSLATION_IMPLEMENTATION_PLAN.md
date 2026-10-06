@@ -585,7 +585,8 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 5. Generate missing alt text if approved.
 6. Preserve external URLs unless an explicit localization mapping applies.
 7. Record asset status and review notes for the report.
-8. Validate that translated relative links still resolve within the destination tree.
+8. Ask a dedicated Gemini analysis agent to identify actionable API, deployment, and external-service settings (including Render configuration), then add each setting to `Images and Files` with a link to the published instruction page. Never include actual secret values in the agent response or report.
+9. Validate that translated relative links still resolve within the destination tree.
 
 **Exit criteria:** Referenced local assets are present and internal translated links resolve or appear as actionable report errors.
 
@@ -725,6 +726,7 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 
 - Inventory local and remote references.
 - Identify missing assets.
+- List actionable API and external-service configuration settings found by the AI analysis agent, with the provider, setting/value, review context, and a link to the published instruction page.
 - Preserve binary files unchanged.
 - Translate or generate alt text according to the final decision.
 - Validate relative links after output generation.
