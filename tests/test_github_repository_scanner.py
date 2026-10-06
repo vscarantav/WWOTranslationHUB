@@ -42,3 +42,27 @@ class GitHubRepositoryScannerTests(unittest.TestCase):
         ])
         self.assertEqual(assets[0].alt_text, "Diagram")
 
+    def test_inventories_external_video_providers_from_embeds_and_links(self):
+        lesson = self.root / "lesson.html"
+        lesson.write_text(
+            '<h1>Videos</h1>'
+            '<iframe title="YouTube lesson" src="https://www.youtube.com/embed/abc"></iframe>'
+            '<iframe src="https://www.loom.com/embed/def"></iframe>'
+            '<iframe src="https://cdnapisec.kaltura.com/p/1/embedIframeJs?entry_id=ghi"></iframe>'
+            '<a href="https://media.brightspotcdn.com/video/jkl">BrightSpot video</a>'
+            '<a href="https://example.com/ordinary-page">Not a video</a>',
+            encoding="utf-8",
+        )
+
+        scanner = GitHubRepositoryScanner()
+        assets = scanner.extract_assets(lesson, self.root)
+
+        self.assertEqual(len(assets), 4)
+        self.assertTrue(all(asset.asset_type == "Video" for asset in assets))
+        self.assertTrue(all(asset.external for asset in assets))
+        self.assertEqual(
+            [scanner.video_provider(asset.asset_path) for asset in assets],
+            ["BrightSpot", "YouTube", "Loom", "Kaltura"],
+        )
+        youtube = next(asset for asset in assets if "youtube" in asset.asset_path)
+        self.assertEqual(youtube.alt_text, "YouTube lesson")

@@ -578,7 +578,7 @@ The existing IMSCC controller should not be expanded with GitHub clone/push beha
 
 ### Phase 7 — Images, Files, and Links
 
-1. Inventory local and remote image/file references.
+1. Inventory local and remote image/file references, including external YouTube, Loom, Kaltura, and BrightSpot video links and embeds.
 2. Verify that relative local assets exist.
 3. Copy repository assets without unnecessary recompression or mutation.
 4. Translate existing alt text if approved.

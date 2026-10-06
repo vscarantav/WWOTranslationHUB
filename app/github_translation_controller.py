@@ -244,6 +244,14 @@ class GitHubTranslationController:
         filename = posixpath.basename(unquote(urlparse(asset.asset_path).path))
         return filename.casefold() == "byui-logo.svg"
 
+    def _asset_package(self, asset):
+        provider = self.scanner.video_provider(asset.asset_path)
+        if provider == "BrightSpot":
+            return "BrightSpot"
+        if asset.external:
+            return "External"
+        return "GitHub"
+
     def _asset_rows(
         self, source_assets, translated_assets, destination_owner, destination_name, source_root
     ):
@@ -257,7 +265,14 @@ class GitHubTranslationController:
             if self._exclude_asset_from_report(asset):
                 continue
             translated = translated_lookup.get((asset.source_file, asset.asset_path))
-            notes = "External asset; verify the localized destination." if asset.external else ""
+            provider = self.scanner.video_provider(asset.asset_path)
+            if asset.external:
+                resource_label = f"external {asset.asset_type.lower()}"
+                if provider:
+                    resource_label += f" ({provider})"
+                notes = f"{resource_label.capitalize()}; verify the localized destination."
+            else:
+                notes = ""
             if not asset.external and not self._local_asset_exists(asset, source_root):
                 missing_note = f"Referenced local {asset.asset_type.lower()} does not exist."
                 notes = (notes + " " + missing_note).strip()
@@ -268,6 +283,7 @@ class GitHubTranslationController:
                 notes = (notes + " Translated reference was not found.").strip()
             rows.append({
                 "asset_path": asset.asset_path,
+                "package": self._asset_package(asset),
                 "tl_link": published_site_url,
                 "resource_link": self._published_resource_url(published_site_url, asset),
                 "notes": notes,

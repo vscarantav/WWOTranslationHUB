@@ -48,6 +48,12 @@ class AssetReference:
 class GitHubRepositoryScanner:
     """Inventory translatable content and referenced assets in a repository."""
 
+    VIDEO_PROVIDER_DOMAINS = {
+        "YouTube": ("youtube.com", "youtube-nocookie.com", "youtu.be"),
+        "Loom": ("loom.com",),
+        "Kaltura": ("kaltura.com",),
+    }
+
     def __init__(self, ignored_directories=None):
         self.ignored_directories = set(ignored_directories or IGNORED_DIRECTORIES)
 
@@ -117,9 +123,21 @@ class GitHubRepositoryScanner:
                 return title.get_text(" ", strip=True)
         return fallback
 
-    @staticmethod
-    def _asset_kind(asset_path: str) -> str | None:
+    @classmethod
+    def video_provider(cls, asset_path: str) -> str:
+        hostname = (urlparse(asset_path).hostname or "").casefold()
+        if "brightspot" in hostname:
+            return "BrightSpot"
+        for provider, domains in cls.VIDEO_PROVIDER_DOMAINS.items():
+            if any(hostname == domain or hostname.endswith(f".{domain}") for domain in domains):
+                return provider
+        return ""
+
+    @classmethod
+    def _asset_kind(cls, asset_path: str) -> str | None:
         parsed = urlparse(asset_path)
+        if cls.video_provider(asset_path):
+            return "Video"
         extension = Path(unquote(parsed.path)).suffix.lower()
         if extension in IMAGE_EXTENSIONS:
             return "Image"
@@ -133,6 +151,8 @@ class GitHubRepositoryScanner:
     @classmethod
     def _reference(cls, source_file, page_title, asset_path, alt_text=""):
         asset_path = (asset_path or "").strip()
+        if asset_path.startswith("//"):
+            asset_path = f"https:{asset_path}"
         kind = cls._asset_kind(asset_path)
         if not asset_path or not kind:
             return None
@@ -143,7 +163,7 @@ class GitHubRepositoryScanner:
             asset_path=asset_path,
             asset_type=kind,
             alt_text=(alt_text or "").strip(),
-            external=parsed.scheme in {"http", "https"},
+            external=parsed.scheme in {"http", "https"} or bool(parsed.netloc),
         )
 
     def extract_assets(self, filepath, repository_root) -> list[AssetReference]:
@@ -177,7 +197,16 @@ class GitHubRepositoryScanner:
                     link.get("href", ""),
                     "",
                 )
-                if reference and reference.asset_type == "File":
+                if reference and reference.asset_type in {"File", "Video"}:
+                    references.append(reference)
+            for media in soup.find_all(["iframe", "video", "source", "embed"], src=True):
+                reference = self._reference(
+                    relative_path,
+                    page_title,
+                    media.get("src", ""),
+                    media.get("title", ""),
+                )
+                if reference and reference.asset_type == "Video":
                     references.append(reference)
 
         if extension in {".md", ".markdown", ".mdx"}:
@@ -192,7 +221,7 @@ class GitHubRepositoryScanner:
                     references.append(reference)
             for match in re.finditer(r"(?<!!)\[[^\]]+\]\(([^)\s]+)(?:\s+['\"][^)]*['\"])?\)", content):
                 reference = self._reference(relative_path, page_title, match.group(1), "")
-                if reference and reference.asset_type == "File":
+                if reference and reference.asset_type in {"File", "Video"}:
                     references.append(reference)
 
         seen = set()

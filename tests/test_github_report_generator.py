@@ -31,6 +31,7 @@ class GitHubReportGeneratorTests(unittest.TestCase):
             ],
             [{
                 "asset_path": "images/a.png",
+                "package": "External",
                 "tl_link": "https://personal-user.github.io/course-test1-pt/",
                 "resource_link": "https://personal-user.github.io/course-test1-pt/images/a.png",
                 "alt_text_en": "A",
@@ -45,7 +46,7 @@ class GitHubReportGeneratorTests(unittest.TestCase):
             "Plan", "TL Link", "Resource Link", "Notes", "Num", "Alt Text EN", "Alt Text PT",
         ])
         self.assertIsNone(images["A4"].value)
-        self.assertEqual(images["C4"].value, "GitHub")
+        self.assertEqual(images["C4"].value, "External")
         self.assertIsNone(images["D4"].value)
         self.assertIsNone(images["E4"].value)
         self.assertEqual(

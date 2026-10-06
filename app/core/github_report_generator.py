@@ -151,7 +151,7 @@ class GitHubTranslationReportGenerator:
             sheet.write_blank(row_index, 0, None, cell)
             asset = row.get("asset_path", "")
             sheet.write(row_index, 1, asset, cell)
-            sheet.write(row_index, 2, "GitHub", cell)
+            sheet.write(row_index, 2, row.get("package", "GitHub"), cell)
             sheet.write_blank(row_index, 3, None, cell)
             sheet.write_blank(row_index, 4, None, cell)
             tl_link = row.get("tl_link", "")
