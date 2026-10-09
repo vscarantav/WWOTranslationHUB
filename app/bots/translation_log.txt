@@ -1,396 +1,557 @@
-
---- New Session (Target: PTBR) ---
-[2026-09-21 14:22:43] [System] CourseInfo: Unknown Course|UNKNOWN
-[2026-09-21 14:22:43] [System] FileTypeCount: html|28
-[2026-09-21 14:22:43] Starting Phase 2: LLM Translation (Concurrent)
-[2026-09-21 14:22:43] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_1.html to HTMLTranslationBot
-[2026-09-21 14:22:43] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_10.html to HTMLTranslationBot
-[2026-09-21 14:22:43] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_11.html to HTMLTranslationBot
-[2026-09-21 14:22:43] [AuditorBot] Found 38 relevant glossary terms in text.
-[2026-09-21 14:22:43] [AuditorBot] Found 41 relevant glossary terms in text.
-[2026-09-21 14:22:43] [AuditorBot] Found 10 relevant glossary terms in text.
-[2026-09-21 14:22:43] [ScriptureCheckBot] Found references via regex: [{'volume': 'bookofmormon', 'book': 'alma', 'chapter': '37', 'verses': ['6'], 'original_match': 'Alma 37:6'}]
-[2026-09-21 14:22:43] [ScriptureCheckBot] Found references via regex: [{'volume': 'doctrineandcovenants', 'book': 'dc', 'chapter': '9', 'verses': ['8'], 'original_match': 'Doctrine And Covenants 9:8'}, {'volume': 'bookofmormon', 'book': '2-ne', 'chapter': '25', 'verses': ['23'], 'original_match': '2 Nephi 25:23'}, {'volume': 'bookofmormon', 'book': '2-ne', 'chapter': '25', 'verses': ['23'], 'original_match': '2 Nephi 25:23'}]
-[2026-09-21 14:22:43] [ImageBot] Error generating alt text for /images/content_images/2244/HandofLordbreak_png: Image not found locally or remotely: /images/content_images/2244/HandofLordbreak_png
-[2026-09-21 14:22:43] [ImageBot] Error generating alt text for /images/content_images/2244/HandofLordbreak_png: Image not found locally or remotely: /images/content_images/2244/HandofLordbreak_png
-[2026-09-21 14:22:43] [HTMLBot] Translating 20 visible text nodes in 1 batch(es) for Chapter 3 Reading Journal.
-[2026-09-21 14:22:43] [ScriptureCheckBot] Looked up 1 verses.
-[2026-09-21 14:22:43] [HTMLBot] Translating text batch 1/1 for Chapter 3 Reading Journal.
-[2026-09-21 14:22:43] [ScriptureCheckBot] Looked up 2 verses.
-[2026-09-21 14:22:46] [ImageBot] MissingAltText: Academic Honesty, Ethics and Integrity,https://edtechbooks.org/images/content_images/2746/Concept_Review_150.png,A graphic of a checklist with green checkmarks next to a clicking mouse cursor, with the text "Start Concept Review" below.
-[2026-09-21 14:22:46] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:22:51] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:22:52] [HTMLBot] Translating 197 visible text nodes in 6 batch(es) for Academic Honesty, Ethics and Integrity.
-[2026-09-21 14:22:52] [HTMLBot] Translating text batch 1/6 for Academic Honesty, Ethics and Integrity.
-[2026-09-21 14:22:55] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:22:55] [HTMLBot] Translating 564 visible text nodes in 14 batch(es) for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:22:55] [HTMLBot] Translating text batch 1/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:23:05] [HTMLBot] Changed 20/20 visible text nodes for Chapter 3 Reading Journal.
-[2026-09-21 14:23:05] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_11.html
-[2026-09-21 14:23:05] Translation complete for this file.
-[2026-09-21 14:23:05] [System] TranslatedPage: Chapter 3 Reading Journal | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_11.html
-[2026-09-21 14:23:05] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_12.html to HTMLTranslationBot
-[2026-09-21 14:23:05] [AuditorBot] Found 26 relevant glossary terms in text.
-[2026-09-21 14:23:05] [HTMLBot] Translating 108 visible text nodes in 3 batch(es) for Chapter 3 Draft: Professional Email.
-[2026-09-21 14:23:05] [HTMLBot] Translating text batch 1/3 for Chapter 3 Draft: Professional Email.
-[2026-09-21 14:23:22] [HTMLBot] Translating text batch 2/6 for Academic Honesty, Ethics and Integrity.
-[2026-09-21 14:23:25] [HTMLBot] Translating text batch 2/3 for Chapter 3 Draft: Professional Email.
-[2026-09-21 14:23:39] [HTMLBot] Translating text batch 2/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:23:44] [HTMLBot] Translating text batch 3/6 for Academic Honesty, Ethics and Integrity.
-[2026-09-21 14:23:56] [HTMLBot] Translating text batch 3/3 for Chapter 3 Draft: Professional Email.
-[2026-09-21 14:24:04] [HTMLBot] Translating text batch 3/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:24:13] [HTMLBot] Translating text batch 4/6 for Academic Honesty, Ethics and Integrity.
-[2026-09-21 14:24:24] [HTMLBot] Text-batch error on attempt 1: Model left English text unchanged for item(s): 88='Our kite glowed red, yellow, and blue in the morning sunlight.'; 92='He grew up in harlem, new york.'; 94='He grew up in Harlem, New York.'
-[2026-09-21 14:24:38] [HTMLBot] Translating text batch 5/6 for Academic Honesty, Ethics and Integrity.
-[2026-09-21 14:24:43] [HTMLBot] Translating text batch 4/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:25:02] [HTMLBot] Text-batch error on attempt 2: Model left English text unchanged for item(s): 88='Our kite glowed red, yellow, and blue in the morning sunlight.'; 92='He grew up in harlem, new york.'; 94='He grew up in Harlem, New York.'
-[2026-09-21 14:25:08] [HTMLBot] Translating text batch 5/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:25:18] [HTMLBot] Translating text batch 6/6 for Academic Honesty, Ethics and Integrity.
-[2026-09-21 14:25:25] [HTMLBot] Changed 196/197 visible text nodes for Academic Honesty, Ethics and Integrity.
-[2026-09-21 14:25:25] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_1.html
-[2026-09-21 14:25:25] Translation complete for this file.
-[2026-09-21 14:25:25] [System] TranslatedPage: Academic Honesty, Ethics and Integrity | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_1.html
-[2026-09-21 14:25:25] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_13.html to HTMLTranslationBot
-[2026-09-21 14:25:25] [AuditorBot] Found 20 relevant glossary terms in text.
-[2026-09-21 14:25:25] [HTMLBot] Translating 94 visible text nodes in 3 batch(es) for Chapter 3 Writing Project.
-[2026-09-21 14:25:25] [HTMLBot] Translating text batch 1/3 for Chapter 3 Writing Project.
-[2026-09-21 14:25:39] [HTMLBot] Translating text batch 6/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:25:44] [HTMLBot] Changed 108/108 visible text nodes for Chapter 3 Draft: Professional Email.
-[2026-09-21 14:25:44] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_12.html
-[2026-09-21 14:25:44] Translation complete for this file.
-[2026-09-21 14:25:44] [System] TranslatedPage: Chapter 3 Draft: Professional Email | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_12.html
-[2026-09-21 14:25:44] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_14.html to HTMLTranslationBot
-[2026-09-21 14:25:44] [AuditorBot] Found 54 relevant glossary terms in text.
-[2026-09-21 14:25:44] [ScriptureCheckBot] Found references via regex: [{'volume': 'bookofmormon', 'book': 'alma', 'chapter': '34', 'verses': ['27'], 'original_match': 'Alma 34:27'}, {'volume': 'bookofmormon', 'book': '3-ne', 'chapter': '27', 'verses': ['23'], 'original_match': '3 Nephi 27:23'}]
-[2026-09-21 14:25:44] [ScriptureCheckBot] Looked up 2 verses.
-[2026-09-21 14:25:51] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:25:53] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:25:56] [HTMLBot] Translating text batch 2/3 for Chapter 3 Writing Project.
-[2026-09-21 14:25:56] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:25:59] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:25:59] [HTMLBot] Translating 680 visible text nodes in 20 batch(es) for Chapter 4: Research and Documentation.
-[2026-09-21 14:25:59] [HTMLBot] Translating text batch 1/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:26:12] [HTMLBot] Translating text batch 7/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:26:17] [HTMLBot] Translating text batch 3/3 for Chapter 3 Writing Project.
-[2026-09-21 14:26:33] [HTMLBot] Translating text batch 2/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:26:37] [HTMLBot] Changed 90/94 visible text nodes for Chapter 3 Writing Project.
-[2026-09-21 14:26:37] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_13.html
-[2026-09-21 14:26:37] Translation complete for this file.
-[2026-09-21 14:26:37] [System] TranslatedPage: Chapter 3 Writing Project | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_13.html
-[2026-09-21 14:26:37] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_15.html to HTMLTranslationBot
-[2026-09-21 14:26:37] [AuditorBot] Found 10 relevant glossary terms in text.
-[2026-09-21 14:26:40] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:26:40] [HTMLBot] Translating text batch 8/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:26:43] [HTMLBot] Translating 20 visible text nodes in 1 batch(es) for Chapter 4 Reading Journal.
-[2026-09-21 14:26:43] [HTMLBot] Translating text batch 1/1 for Chapter 4 Reading Journal.
-[2026-09-21 14:27:04] [HTMLBot] Changed 20/20 visible text nodes for Chapter 4 Reading Journal.
-[2026-09-21 14:27:04] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_15.html
-[2026-09-21 14:27:04] Translation complete for this file.
-[2026-09-21 14:27:04] [System] TranslatedPage: Chapter 4 Reading Journal | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_15.html
-[2026-09-21 14:27:04] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_16.html to HTMLTranslationBot
-[2026-09-21 14:27:04] [AuditorBot] Found 22 relevant glossary terms in text.
-[2026-09-21 14:27:06] [HTMLBot] Translating text batch 9/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:27:06] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:27:09] [HTMLBot] Translating 76 visible text nodes in 2 batch(es) for Chapter 4 Draft: Interview Summary.
-[2026-09-21 14:27:09] [HTMLBot] Translating text batch 1/2 for Chapter 4 Draft: Interview Summary.
-[2026-09-21 14:27:11] [HTMLBot] Translating text batch 3/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:27:31] [HTMLBot] Translating text batch 10/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:27:32] [HTMLBot] Translating text batch 2/2 for Chapter 4 Draft: Interview Summary.
-[2026-09-21 14:27:44] [HTMLBot] Translating text batch 4/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:27:57] [HTMLBot] Changed 76/76 visible text nodes for Chapter 4 Draft: Interview Summary.
-[2026-09-21 14:27:57] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_16.html
-[2026-09-21 14:27:57] Translation complete for this file.
-[2026-09-21 14:27:57] [System] TranslatedPage: Chapter 4 Draft: Interview Summary | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_16.html
-[2026-09-21 14:27:57] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_17.html to HTMLTranslationBot
-[2026-09-21 14:27:57] [AuditorBot] Found 21 relevant glossary terms in text.
-[2026-09-21 14:27:57] [HTMLBot] Translating 74 visible text nodes in 2 batch(es) for Chapter 4 Writing Project.
-[2026-09-21 14:27:57] [HTMLBot] Translating text batch 1/2 for Chapter 4 Writing Project.
-[2026-09-21 14:28:02] [HTMLBot] Translating text batch 11/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:28:13] [HTMLBot] Translating text batch 5/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:28:18] [HTMLBot] Translating text batch 2/2 for Chapter 4 Writing Project.
-[2026-09-21 14:28:22] [HTMLBot] Translating text batch 12/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:28:44] [HTMLBot] Text-batch error on attempt 1: Model left English text unchanged for item(s): 460='Message is effective as drafted. No major revisions needed.'; 462='When creating a persuasive message, which step should you complete first?'; 463='Choose your rhetorical appeals'; 465='Define your rhetorical situation'; 466='Evaluate your own rhetoric'; 467='Rhetorical Strategies in Advertising'; 468='Let’s look at an example of rhetorical analysis using the Smokey Bear advertisement.'; 469='Smokey Bear has been the symbol of wildfire prevention since 1944 in the United States. The image reflects the use of rhetorical strategies. Smokey Bear is a sy'; 470='The continuing identification of the bear and his appeal over decades is an example of the powerful use of rhetorical devices. These devices speak without seemi'; 471='The images are emotionally accessible to children as well as adults. They appeal to widely shared emotions. The unspoken implication is that preventing forest f'; 472='Yet the most frequently used slogan, “Only you can prevent forest fires,” is an example of hyperbole. Certainly “you” are not the sole person responsible for st'; 473='When you perform a rhetorical analysis, you see the strategies of'; 475=', emotional appeals, credibility, and even hyperbole. What other strategies do you see as you study this campaign?'; 477='Modern professionals must adapt rhetorical strategies across multiple platforms and contexts. Here are key applications:'; 482='Bullet points for key information, data attachments, clear action items'; 484='Appropriate tone (urgent vs. routine), acknowledgment of recipient’s time'; 486='Send timing that respects recipient’s schedule and workload'; 487='Social Media for Business:'; 489='Establish credibility through industry expertise and professional achievements'; 491='Use logical arguments with supporting links and data'; 493='Appeal to emotions through visual storytelling and behind-the-scenes content'; 495='Formal tone on LinkedIn, conversational on Twitter, visual on Instagram'; 498='Establish credibility and connect with audience interests'; 500='Use logical progression with supporting evidence and emotional examples'; 502='Call to action that leverages timing and urgency'; 504='Direct style for Western audiences, context-building for Asian audiences'
-[2026-09-21 14:28:46] [HTMLBot] Translating text batch 6/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:28:54] [HTMLBot] Changed 74/74 visible text nodes for Chapter 4 Writing Project.
-[2026-09-21 14:28:54] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_17.html
-[2026-09-21 14:28:54] Translation complete for this file.
-[2026-09-21 14:28:54] [System] TranslatedPage: Chapter 4 Writing Project | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_17.html
-[2026-09-21 14:28:55] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_18.html to HTMLTranslationBot
-[2026-09-21 14:28:55] [AuditorBot] Found 30 relevant glossary terms in text.
-[2026-09-21 14:28:55] [ScriptureCheckBot] Found references via regex: [{'volume': 'bookofmormon', 'book': '2-ne', 'chapter': '32', 'verses': ['8'], 'original_match': '2 Nephi 32:8'}, {'volume': 'pearlofgreatprice', 'book': 'abr', 'chapter': '1', 'verses': ['31'], 'original_match': 'Abraham 1:31'}]
-[2026-09-21 14:28:55] [ScriptureCheckBot] Looked up 2 verses.
-[2026-09-21 14:29:00] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:29:02] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:29:05] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:29:05] [HTMLBot] Translating 315 visible text nodes in 10 batch(es) for Chapter 5: Personal Writing.
-[2026-09-21 14:29:05] [HTMLBot] Translating text batch 1/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:29:11] [HTMLBot] Translating text batch 13/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:29:24] [HTMLBot] Translating text batch 7/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:29:43] [HTMLBot] Translating text batch 14/14 for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:29:46] [HTMLBot] Translating text batch 2/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:30:01] [HTMLBot] Translating text batch 8/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:30:07] [HTMLBot] Changed 539/564 visible text nodes for Chapter 3: Rhetoric and Persuasion.
-[2026-09-21 14:30:07] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_10.html
-[2026-09-21 14:30:07] Translation complete for this file.
-[2026-09-21 14:30:07] [System] TranslatedPage: Chapter 3: Rhetoric and Persuasion | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_10.html
-[2026-09-21 14:30:07] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_19.html to HTMLTranslationBot
-[2026-09-21 14:30:07] [AuditorBot] Found 10 relevant glossary terms in text.
-[2026-09-21 14:30:11] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:30:12] [HTMLBot] Translating text batch 3/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:30:13] [HTMLBot] Translating 20 visible text nodes in 1 batch(es) for Chapter 5 Reading Journal.
-[2026-09-21 14:30:13] [HTMLBot] Translating text batch 1/1 for Chapter 5 Reading Journal.
-[2026-09-21 14:30:30] [HTMLBot] Changed 20/20 visible text nodes for Chapter 5 Reading Journal.
-[2026-09-21 14:30:30] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_19.html
-[2026-09-21 14:30:30] Translation complete for this file.
-[2026-09-21 14:30:30] [System] TranslatedPage: Chapter 5 Reading Journal | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_19.html
-[2026-09-21 14:30:30] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_2.html to HTMLTranslationBot
-[2026-09-21 14:30:30] [AuditorBot] Found 51 relevant glossary terms in text.
-[2026-09-21 14:30:30] [ScriptureCheckBot] Found references via regex: [{'volume': 'bookofmormon', 'book': '2-ne', 'chapter': '33', 'verses': ['4'], 'original_match': '2 Nephi 33:4'}, {'volume': 'bookofmormon', 'book': '2-ne', 'chapter': '33', 'verses': ['6'], 'original_match': '2 Nephi 33:6'}, {'volume': 'bookofmormon', 'book': 'ether', 'chapter': '12', 'verses': ['25'], 'original_match': 'Ether 12:25'}, {'volume': 'bookofmormon', 'book': 'ether', 'chapter': '12', 'verses': ['27'], 'original_match': 'Ether 12:27'}, {'volume': 'bookofmormon', 'book': 'alma', 'chapter': '37', 'verses': ['6'], 'original_match': 'Alma 37:6'}]
-[2026-09-21 14:30:30] [ScriptureCheckBot] Looked up 5 verses.
-[2026-09-21 14:30:32] [HTMLBot] Translating text batch 4/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:30:33] [HTMLBot] Translating text batch 9/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:30:34] [ImageBot] MissingAltText: Chapter 1: Introduction to Writing,https://edtechbooks.org/images/content_images/2746/Concept_Review_150.png,An icon showing a checklist with checkmarks and a clicking mouse pointer, with the text Start Concept Review below.
-[2026-09-21 14:30:45] [ImageBot] MissingAltText: Chapter 1: Introduction to Writing,https://edtechbooks.org/images/content_images/2746/Concept_Coach_Icon_150.png,Concept Coach graphic featuring an open textbook, a chatbot speech bubble, and a clicking cursor icon.
-[2026-09-21 14:30:52] [ImageBot] MissingAltText: Chapter 1: Introduction to Writing,https://edtechbooks.org/images/content_images/2746/Concept_Review_150.png,A button featuring a checklist icon and a clicking cursor, with the text "Start Concept Review" underneath.
-[2026-09-21 14:30:55] [HTMLBot] Translating text batch 5/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:30:59] [ImageBot] MissingAltText: Chapter 1: Introduction to Writing,https://edtechbooks.org/images/content_images/2746/Concept_Coach_Icon_150.png,An illustration of an open book with the text "Concept Coach", a speech bubble featuring a smiling robot icon, and a clickable cursor icon.
-[2026-09-21 14:31:05] [HTMLBot] Translating text batch 10/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:31:08] [ImageBot] MissingAltText: Chapter 1: Introduction to Writing,https://edtechbooks.org/images/content_images/2746/Concept_Review_150.png,A button featuring a checklist icon, a clicking cursor, and the text "Start Concept Review".
-[2026-09-21 14:31:16] [ImageBot] MissingAltText: Chapter 1: Introduction to Writing,https://edtechbooks.org/images/content_images/2746/Concept_Coach_Icon_150.png,Illustration for "Concept Coach" featuring an open book, a smiling chatbot icon in a speech bubble, and a clicking cursor icon.
-[2026-09-21 14:31:20] [ImageBot] Error generating alt text for /images/content_images/2263/Week01-3_png: Image not found locally or remotely: /images/content_images/2263/Week01-3_png
-[2026-09-21 14:31:26] [HTMLBot] Translating text batch 6/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:31:26] [ImageBot] MissingAltText: Chapter 1: Introduction to Writing,https://edtechbooks.org/images/content_images/2746/Concept_Coach_Icon_150.png,An illustration for Concept Coach featuring an open textbook, a friendly chatbot in a speech bubble, and a clickable cursor icon.
-[2026-09-21 14:31:28] [HTMLBot] Translating text batch 11/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:31:30] [HTMLBot] Translating 421 visible text nodes in 11 batch(es) for Chapter 1: Introduction to Writing.
-[2026-09-21 14:31:30] [HTMLBot] Translating text batch 1/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:31:56] [HTMLBot] Translating text batch 12/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:31:57] [HTMLBot] Translating text batch 7/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:32:20] [HTMLBot] Translating text batch 8/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:32:22] [HTMLBot] Translating text batch 13/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:32:39] [HTMLBot] Translating text batch 2/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:32:41] [HTMLBot] Translating text batch 9/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:32:41] [HTMLBot] Translating text batch 14/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:33:08] [HTMLBot] Translating text batch 15/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:33:22] [HTMLBot] Translating text batch 10/10 for Chapter 5: Personal Writing.
-[2026-09-21 14:33:26] [HTMLBot] Translating text batch 3/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:33:33] [HTMLBot] Changed 312/315 visible text nodes for Chapter 5: Personal Writing.
-[2026-09-21 14:33:33] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_18.html
-[2026-09-21 14:33:33] Translation complete for this file.
-[2026-09-21 14:33:33] [System] TranslatedPage: Chapter 5: Personal Writing | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_18.html
-[2026-09-21 14:33:33] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_20.html to HTMLTranslationBot
-[2026-09-21 14:33:33] [AuditorBot] Found 22 relevant glossary terms in text.
-[2026-09-21 14:33:33] [ScriptureCheckBot] Found references via regex: [{'volume': 'bookofmormon', 'book': '2-ne', 'chapter': '28', 'verses': ['30'], 'original_match': '2 Nephi 28:30'}]
-[2026-09-21 14:33:33] [ScriptureCheckBot] Looked up 1 verses.
-[2026-09-21 14:33:37] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:33:40] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:33:40] [HTMLBot] Translating 75 visible text nodes in 3 batch(es) for Chapter 5 Draft: Writing Interview.
-[2026-09-21 14:33:40] [HTMLBot] Translating text batch 1/3 for Chapter 5 Draft: Writing Interview.
-[2026-09-21 14:33:40] [HTMLBot] Translating text batch 16/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:33:49] [HTMLBot] Translating text batch 4/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:34:06] [HTMLBot] Translating text batch 17/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:34:20] [HTMLBot] Translating text batch 2/3 for Chapter 5 Draft: Writing Interview.
-[2026-09-21 14:34:21] [HTMLBot] Translating text batch 5/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:34:27] [HTMLBot] Translating text batch 18/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:34:52] [HTMLBot] Translating text batch 19/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:34:57] [HTMLBot] Translating text batch 6/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:34:59] [HTMLBot] Translating text batch 3/3 for Chapter 5 Draft: Writing Interview.
-[2026-09-21 14:35:10] [HTMLBot] Changed 75/75 visible text nodes for Chapter 5 Draft: Writing Interview.
-[2026-09-21 14:35:10] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_20.html
-[2026-09-21 14:35:10] Translation complete for this file.
-[2026-09-21 14:35:11] [System] TranslatedPage: Chapter 5 Draft: Writing Interview | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_20.html
-[2026-09-21 14:35:11] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_21.html to HTMLTranslationBot
-[2026-09-21 14:35:11] [AuditorBot] Found 21 relevant glossary terms in text.
-[2026-09-21 14:35:11] [HTMLBot] Translating 85 visible text nodes in 2 batch(es) for Chapter 5 Writing Project.
-[2026-09-21 14:35:11] [HTMLBot] Translating text batch 1/2 for Chapter 5 Writing Project.
-[2026-09-21 14:35:24] [HTMLBot] Translating text batch 20/20 for Chapter 4: Research and Documentation.
-[2026-09-21 14:35:24] [HTMLBot] Translating text batch 7/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:35:32] [HTMLBot] Changed 675/680 visible text nodes for Chapter 4: Research and Documentation.
-[2026-09-21 14:35:32] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_14.html
-[2026-09-21 14:35:32] Translation complete for this file.
-[2026-09-21 14:35:32] [System] TranslatedPage: Chapter 4: Research and Documentation | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_14.html
-[2026-09-21 14:35:32] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_22.html to HTMLTranslationBot
-[2026-09-21 14:35:32] [AuditorBot] Found 43 relevant glossary terms in text.
-[2026-09-21 14:35:32] [ScriptureCheckBot] Found references via regex: [{'volume': 'bookofmormon', 'book': 'w-of-m', 'chapter': '1', 'verses': ['5'], 'original_match': 'Words Of Mormon 1:5'}, {'volume': 'bookofmormon', 'book': '2-ne', 'chapter': '28', 'verses': ['30'], 'original_match': '2 Nephi 28:30'}]
-[2026-09-21 14:35:32] [ScriptureCheckBot] Looked up 2 verses.
-[2026-09-21 14:35:34] [HTMLBot] Translating text batch 2/2 for Chapter 5 Writing Project.
-[2026-09-21 14:35:40] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:35:43] [HTMLBot] Translating 444 visible text nodes in 13 batch(es) for Chapter 6: Revision Process.
-[2026-09-21 14:35:43] [HTMLBot] Translating text batch 1/13 for Chapter 6: Revision Process.
-[2026-09-21 14:35:45] [HTMLBot] Translating text batch 8/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:35:59] [HTMLBot] Changed 85/85 visible text nodes for Chapter 5 Writing Project.
-[2026-09-21 14:35:59] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_21.html
-[2026-09-21 14:35:59] Translation complete for this file.
-[2026-09-21 14:35:59] [System] TranslatedPage: Chapter 5 Writing Project | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_21.html
-[2026-09-21 14:35:59] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_23.html to HTMLTranslationBot
-[2026-09-21 14:35:59] [AuditorBot] Found 11 relevant glossary terms in text.
-[2026-09-21 14:36:01] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:36:04] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:36:04] [HTMLBot] Translating 22 visible text nodes in 1 batch(es) for Chapter 6 Reading Journal.
-[2026-09-21 14:36:04] [HTMLBot] Translating text batch 1/1 for Chapter 6 Reading Journal.
-[2026-09-21 14:36:10] [HTMLBot] Translating text batch 9/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:36:18] [HTMLBot] Translating text batch 2/13 for Chapter 6: Revision Process.
-[2026-09-21 14:36:24] [HTMLBot] Changed 22/22 visible text nodes for Chapter 6 Reading Journal.
-[2026-09-21 14:36:24] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_23.html
-[2026-09-21 14:36:24] Translation complete for this file.
-[2026-09-21 14:36:24] [System] TranslatedPage: Chapter 6 Reading Journal | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_23.html
-[2026-09-21 14:36:24] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_24.html to HTMLTranslationBot
-[2026-09-21 14:36:24] [AuditorBot] Found 24 relevant glossary terms in text.
-[2026-09-21 14:36:26] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:36:29] [HTMLBot] Translating 71 visible text nodes in 2 batch(es) for Chapter 6 Writing Project: Family History Revision.
-[2026-09-21 14:36:29] [HTMLBot] Translating text batch 1/2 for Chapter 6 Writing Project: Family History Revision.
-[2026-09-21 14:36:45] [HTMLBot] Translating text batch 10/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:36:54] [HTMLBot] Translating text batch 3/13 for Chapter 6: Revision Process.
-[2026-09-21 14:37:11] [HTMLBot] Translating text batch 2/2 for Chapter 6 Writing Project: Family History Revision.
-[2026-09-21 14:37:27] [HTMLBot] Translating text batch 11/11 for Chapter 1: Introduction to Writing.
-[2026-09-21 14:37:29] [HTMLBot] Translating text batch 4/13 for Chapter 6: Revision Process.
-[2026-09-21 14:37:32] [HTMLBot] Changed 412/421 visible text nodes for Chapter 1: Introduction to Writing.
-[2026-09-21 14:37:32] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_2.html
-[2026-09-21 14:37:32] Translation complete for this file.
-[2026-09-21 14:37:32] [System] TranslatedPage: Chapter 1: Introduction to Writing | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_2.html
-[2026-09-21 14:37:32] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_25.html to HTMLTranslationBot
-[2026-09-21 14:37:32] [AuditorBot] Found 23 relevant glossary terms in text.
-[2026-09-21 14:37:32] [HTMLBot] Translating 76 visible text nodes in 2 batch(es) for Chapter 6 Writing Project: Personal Narrative Revision.
-[2026-09-21 14:37:32] [HTMLBot] Translating text batch 1/2 for Chapter 6 Writing Project: Personal Narrative Revision.
-[2026-09-21 14:37:38] [HTMLBot] Changed 71/71 visible text nodes for Chapter 6 Writing Project: Family History Revision.
-[2026-09-21 14:37:38] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_24.html
-[2026-09-21 14:37:38] Translation complete for this file.
-[2026-09-21 14:37:38] [System] TranslatedPage: Chapter 6 Writing Project: Family History Revision | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_24.html
-[2026-09-21 14:37:38] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_26.html to HTMLTranslationBot
-[2026-09-21 14:37:38] [AuditorBot] Found 43 relevant glossary terms in text.
-[2026-09-21 14:37:38] [ScriptureCheckBot] Found references via regex: [{'volume': 'bookofmormon', 'book': 'enos', 'chapter': '1', 'verses': ['3', '4'], 'original_match': 'Enos 1:3-4'}, {'volume': 'doctrineandcovenants', 'book': 'dc', 'chapter': '45', 'verses': ['57'], 'original_match': 'Doctrine And Covenants 45:57'}]
-[2026-09-21 14:37:38] [ScriptureCheckBot] Looked up 3 verses.
-[2026-09-21 14:37:38] [HTMLBot] Translating 302 visible text nodes in 9 batch(es) for Chapter 7: Reflective Writing.
-[2026-09-21 14:37:38] [HTMLBot] Translating text batch 1/9 for Chapter 7: Reflective Writing.
-[2026-09-21 14:37:57] [HTMLBot] Translating text batch 5/13 for Chapter 6: Revision Process.
-[2026-09-21 14:38:07] [HTMLBot] Translating text batch 2/2 for Chapter 6 Writing Project: Personal Narrative Revision.
-[2026-09-21 14:38:19] [HTMLBot] Translating text batch 2/9 for Chapter 7: Reflective Writing.
-[2026-09-21 14:38:22] [HTMLBot] Translating text batch 6/13 for Chapter 6: Revision Process.
-[2026-09-21 14:38:28] [HTMLBot] Changed 76/76 visible text nodes for Chapter 6 Writing Project: Personal Narrative Revision.
-[2026-09-21 14:38:28] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_25.html
-[2026-09-21 14:38:28] Translation complete for this file.
-[2026-09-21 14:38:28] [System] TranslatedPage: Chapter 6 Writing Project: Personal Narrative Revision | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_25.html
-[2026-09-21 14:38:28] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_27.html to HTMLTranslationBot
-[2026-09-21 14:38:28] [AuditorBot] Found 24 relevant glossary terms in text.
-[2026-09-21 14:38:30] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:38:32] [HTMLBot] Translating 69 visible text nodes in 2 batch(es) for Chapter 7 Invitation Reflection.
-[2026-09-21 14:38:32] [HTMLBot] Translating text batch 1/2 for Chapter 7 Invitation Reflection.
-[2026-09-21 14:38:56] [HTMLBot] Translating text batch 7/13 for Chapter 6: Revision Process.
-[2026-09-21 14:38:57] [HTMLBot] Translating text batch 3/9 for Chapter 7: Reflective Writing.
-[2026-09-21 14:39:08] [HTMLBot] Translating text batch 2/2 for Chapter 7 Invitation Reflection.
-[2026-09-21 14:39:25] [HTMLBot] Translating text batch 8/13 for Chapter 6: Revision Process.
-[2026-09-21 14:39:30] [HTMLBot] Changed 69/69 visible text nodes for Chapter 7 Invitation Reflection.
-[2026-09-21 14:39:30] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_27.html
-[2026-09-21 14:39:30] Translation complete for this file.
-[2026-09-21 14:39:30] [System] TranslatedPage: Chapter 7 Invitation Reflection | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_27.html
-[2026-09-21 14:39:30] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_28.html to HTMLTranslationBot
-[2026-09-21 14:39:30] [AuditorBot] Found 32 relevant glossary terms in text.
-[2026-09-21 14:39:31] [HTMLBot] Translating text batch 4/9 for Chapter 7: Reflective Writing.
-[2026-09-21 14:39:34] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:39:36] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:39:36] [HTMLBot] Translating 91 visible text nodes in 3 batch(es) for Chapter 7 Writing Project.
-[2026-09-21 14:39:36] [HTMLBot] Translating text batch 1/3 for Chapter 7 Writing Project.
-[2026-09-21 14:39:54] [HTMLBot] Translating text batch 9/13 for Chapter 6: Revision Process.
-[2026-09-21 14:39:57] [HTMLBot] Translating text batch 5/9 for Chapter 7: Reflective Writing.
-[2026-09-21 14:40:15] [HTMLBot] Translating text batch 2/3 for Chapter 7 Writing Project.
-[2026-09-21 14:40:24] [HTMLBot] Translating text batch 10/13 for Chapter 6: Revision Process.
-[2026-09-21 14:40:28] [HTMLBot] Translating text batch 6/9 for Chapter 7: Reflective Writing.
-[2026-09-21 14:40:49] [HTMLBot] Text-batch error on attempt 1: Model left English text unchanged for item(s): 50='The crowd starts cheering as Melina approached the finish line.'; 52='The crowd started cheering as Melina approached the finish line.'; 54='The crowd starts cheering as Melina approaches the finish line.'
-[2026-09-21 14:40:50] [HTMLBot] Translating text batch 11/13 for Chapter 6: Revision Process.
-[2026-09-21 14:40:57] [HTMLBot] Translating text batch 7/9 for Chapter 7: Reflective Writing.
-[2026-09-21 14:41:14] [HTMLBot] Translating text batch 12/13 for Chapter 6: Revision Process.
-[2026-09-21 14:41:19] [HTMLBot] Translating text batch 3/3 for Chapter 7 Writing Project.
-[2026-09-21 14:41:31] [HTMLBot] Translating text batch 8/9 for Chapter 7: Reflective Writing.
-[2026-09-21 14:41:38] [HTMLBot] Translating text batch 13/13 for Chapter 6: Revision Process.
-[2026-09-21 14:41:39] [HTMLBot] Changed 91/91 visible text nodes for Chapter 7 Writing Project.
-[2026-09-21 14:41:39] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_28.html
-[2026-09-21 14:41:39] Translation complete for this file.
-[2026-09-21 14:41:39] [System] TranslatedPage: Chapter 7 Writing Project | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_28.html
-[2026-09-21 14:41:39] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_3.html to HTMLTranslationBot
-[2026-09-21 14:41:39] [AuditorBot] Found 9 relevant glossary terms in text.
-[2026-09-21 14:41:44] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:41:44] [HTMLBot] Translating 22 visible text nodes in 1 batch(es) for Chapter 1 Reading Journal.
-[2026-09-21 14:41:44] [HTMLBot] Translating text batch 1/1 for Chapter 1 Reading Journal.
-[2026-09-21 14:41:52] [HTMLBot] Translating text batch 9/9 for Chapter 7: Reflective Writing.
-[2026-09-21 14:42:07] [HTMLBot] Changed 22/22 visible text nodes for Chapter 1 Reading Journal.
-[2026-09-21 14:42:07] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_3.html
-[2026-09-21 14:42:07] Translation complete for this file.
-[2026-09-21 14:42:07] [System] TranslatedPage: Chapter 1 Reading Journal | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_3.html
-[2026-09-21 14:42:07] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_4.html to HTMLTranslationBot
-[2026-09-21 14:42:07] [AuditorBot] Found 24 relevant glossary terms in text.
-[2026-09-21 14:42:07] [HTMLBot] Translating 79 visible text nodes in 2 batch(es) for Chapter 1 Draft: Your Life Story.
-[2026-09-21 14:42:07] [HTMLBot] Translating text batch 1/2 for Chapter 1 Draft: Your Life Story.
-[2026-09-21 14:42:20] [HTMLBot] Changed 443/444 visible text nodes for Chapter 6: Revision Process.
-[2026-09-21 14:42:20] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_22.html
-[2026-09-21 14:42:20] Translation complete for this file.
-[2026-09-21 14:42:20] [System] TranslatedPage: Chapter 6: Revision Process | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_22.html
-[2026-09-21 14:42:20] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_5.html to HTMLTranslationBot
-[2026-09-21 14:42:20] [AuditorBot] Found 21 relevant glossary terms in text.
-[2026-09-21 14:42:22] [ImageBot] MissingAltText: Chapter 1 Writing Project,https://edtechbooks.org/images/content_images/2746/Assignment_icon.png,Blue circular icon depicting a document with a graduation cap and bulleted list, with a smaller information "i" badge overlapping the bottom right.
-[2026-09-21 14:42:27] [HTMLBot] Translating 90 visible text nodes in 2 batch(es) for Chapter 1 Writing Project.
-[2026-09-21 14:42:27] [HTMLBot] Translating text batch 1/2 for Chapter 1 Writing Project.
-[2026-09-21 14:42:30] [HTMLBot] Translating text batch 2/2 for Chapter 1 Draft: Your Life Story.
-[2026-09-21 14:42:35] [HTMLBot] Changed 301/302 visible text nodes for Chapter 7: Reflective Writing.
-[2026-09-21 14:42:35] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_26.html
-[2026-09-21 14:42:35] Translation complete for this file.
-[2026-09-21 14:42:35] [System] TranslatedPage: Chapter 7: Reflective Writing | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_26.html
-[2026-09-21 14:42:35] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_6.html to HTMLTranslationBot
-[2026-09-21 14:42:35] [AuditorBot] Found 31 relevant glossary terms in text.
-[2026-09-21 14:42:35] [ScriptureCheckBot] Found references via regex: [{'volume': 'bookofmormon', 'book': 'mosiah', 'chapter': '12', 'verses': ['27'], 'original_match': 'Mosiah 12:27'}, {'volume': 'doctrineandcovenants', 'book': 'dc', 'chapter': '97', 'verses': ['1'], 'original_match': 'Doctrine And Covenants 97:1'}, {'volume': 'doctrineandcovenants', 'book': 'dc', 'chapter': '90', 'verses': ['15'], 'original_match': 'Doctrine And Covenants 90:15'}, {'volume': 'doctrineandcovenants', 'book': 'dc', 'chapter': '130', 'verses': ['19'], 'original_match': 'Doctrine And Covenants 130:19'}]
-[2026-09-21 14:42:35] [ScriptureCheckBot] Looked up 4 verses.
-[2026-09-21 14:42:42] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:42:45] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:42:48] [HTMLBot] Translating 343 visible text nodes in 9 batch(es) for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:42:48] [HTMLBot] Translating text batch 1/9 for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:43:05] [HTMLBot] Changed 79/79 visible text nodes for Chapter 1 Draft: Your Life Story.
-[2026-09-21 14:43:05] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_4.html
-[2026-09-21 14:43:05] Translation complete for this file.
-[2026-09-21 14:43:05] [System] TranslatedPage: Chapter 1 Draft: Your Life Story | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_4.html
-[2026-09-21 14:43:05] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_7.html to HTMLTranslationBot
-[2026-09-21 14:43:05] [AuditorBot] Found 11 relevant glossary terms in text.
-[2026-09-21 14:43:07] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:43:09] [HTMLBot] Translating text batch 2/2 for Chapter 1 Writing Project.
-[2026-09-21 14:43:09] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:43:09] [HTMLBot] Translating 20 visible text nodes in 1 batch(es) for Chapter 2 Reading Journal.
-[2026-09-21 14:43:09] [HTMLBot] Translating text batch 1/1 for Chapter 2 Reading Journal.
-[2026-09-21 14:43:31] [HTMLBot] Translating text batch 2/9 for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:43:34] [HTMLBot] Changed 20/20 visible text nodes for Chapter 2 Reading Journal.
-[2026-09-21 14:43:34] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_7.html
-[2026-09-21 14:43:34] Translation complete for this file.
-[2026-09-21 14:43:34] [System] TranslatedPage: Chapter 2 Reading Journal | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_7.html
-[2026-09-21 14:43:34] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_8.html to HTMLTranslationBot
-[2026-09-21 14:43:34] [AuditorBot] Found 19 relevant glossary terms in text.
-[2026-09-21 14:43:36] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:43:39] [ImageBot] Error translating alt text: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 1.
-[2026-09-21 14:43:39] [HTMLBot] Translating 58 visible text nodes in 2 batch(es) for Chapter 2 Activity: AI Prompt Comparison.
-[2026-09-21 14:43:39] [HTMLBot] Translating text batch 1/2 for Chapter 2 Activity: AI Prompt Comparison.
-[2026-09-21 14:43:50] [HTMLBot] Changed 90/90 visible text nodes for Chapter 1 Writing Project.
-[2026-09-21 14:43:50] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_5.html
-[2026-09-21 14:43:50] Translation complete for this file.
-[2026-09-21 14:43:50] [System] TranslatedPage: Chapter 1 Writing Project | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_5.html
-[2026-09-21 14:43:50] Delegating C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_9.html to HTMLTranslationBot
-[2026-09-21 14:43:50] [AuditorBot] Found 19 relevant glossary terms in text.
-[2026-09-21 14:43:50] [HTMLBot] Translating 67 visible text nodes in 2 batch(es) for Chapter 2 Writing Project.
-[2026-09-21 14:43:50] [HTMLBot] Translating text batch 1/2 for Chapter 2 Writing Project.
-[2026-09-21 14:44:01] [HTMLBot] Translating text batch 3/9 for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:44:02] [HTMLBot] Translating text batch 2/2 for Chapter 2 Activity: AI Prompt Comparison.
-[2026-09-21 14:44:16] [HTMLBot] Changed 58/58 visible text nodes for Chapter 2 Activity: AI Prompt Comparison.
-[2026-09-21 14:44:16] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_8.html
-[2026-09-21 14:44:16] Translation complete for this file.
-[2026-09-21 14:44:16] [System] TranslatedPage: Chapter 2 Activity: AI Prompt Comparison | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_8.html
-[2026-09-21 14:44:20] [HTMLBot] Translating text batch 2/2 for Chapter 2 Writing Project.
-[2026-09-21 14:44:29] [HTMLBot] Translating text batch 4/9 for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:44:39] [HTMLBot] Changed 67/67 visible text nodes for Chapter 2 Writing Project.
-[2026-09-21 14:44:39] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_9.html
-[2026-09-21 14:44:39] Translation complete for this file.
-[2026-09-21 14:44:39] [System] TranslatedPage: Chapter 2 Writing Project | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_9.html
-[2026-09-21 14:44:59] [HTMLBot] Translating text batch 5/9 for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:45:27] [HTMLBot] Translating text batch 6/9 for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:46:02] [HTMLBot] Translating text batch 7/9 for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:46:22] [HTMLBot] Translating text batch 8/9 for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:47:06] [HTMLBot] Translating text batch 9/9 for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:47:34] [HTMLBot] Changed 332/343 visible text nodes for Chapter 2: Reading Strategies for Academic Success.
-[2026-09-21 14:47:34] Saving translated content to C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_6.html
-[2026-09-21 14:47:34] Translation complete for this file.
-[2026-09-21 14:47:34] [System] TranslatedPage: Chapter 2: Reading Strategies for Academic Success | C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\edtech_workspace\raw_html_PTBR\lesson_6.html
-[2026-09-21 14:47:34] Generating Excel Analytics Dashboard...
-[2026-09-21 14:47:35] Excel successfully created: C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Reports\Writ101 Pt EdTech Master Translation Report.xlsx
+--- New GitHub Translation Session (Target: PTBR) ---
+[GitHub] Progress: 0% - Checking repository access
+[GitHub] Progress: 5% - Repository access confirmed
+[GitHub] Source byui-cse/cse340-ww-course-v2 is read-only. Planned destination: vscarantav/cse340-ww-course-test1-pt.
+[GitHub] Cloning read-only source byui-cse/cse340-ww-course-v2...
+[GitHub] Progress: 10% - Source repository cloned read-only
+[GitHub] Translating Pages source live:/docs into the destination repository root.
+[GitHub] Progress: 15% - Translation workspace prepared
+[2026-10-05 16:02:29] [HTMLBot] Translating 30 visible text nodes in 1 batch(es) for CSE 340 | Home.
+[2026-10-05 16:02:29] [HTMLBot] Translating text batch 1/1 for CSE 340 | Home.
+[GitHub] Translated images/README.md.
+[GitHub] Progress: 16% - Translated or checked 1/80 files
+[GitHub] Translated images/week04/convert_mmd_to_svg.md.
+[2026-10-05 16:02:33] [HTMLBot] Translating 33 visible text nodes in 1 batch(es) for CSE 340 | Page Title.
+[2026-10-05 16:02:33] [HTMLBot] Translating text batch 1/1 for CSE 340 | Page Title.
+[GitHub] Progress: 16% - Translated or checked 2/80 files
+[GitHub] Translated resources/README.md.
+[GitHub] Progress: 17% - Translated or checked 3/80 files
+[GitHub] Translated scripts/README.md.
+[GitHub] Progress: 18% - Translated or checked 4/80 files
+[2026-10-05 16:02:39] [HTMLBot] Changed 28/30 visible text nodes for CSE 340 | Home.
+[GitHub] Translated styles/README.md.
+[2026-10-05 16:02:40] [HTMLBot] Translating 32 visible text nodes in 1 batch(es) for CSE 340 | AI Policy.
+[2026-10-05 16:02:40] [HTMLBot] Translating text batch 1/1 for CSE 340 | AI Policy.
+[GitHub] Progress: 18% - Translated or checked 5/80 files
+[GitHub] Translated index.html.
+[2026-10-05 16:02:41] [HTMLBot] Translating 111 visible text nodes in 2 batch(es) for CSE 340 | Assignment.
+[2026-10-05 16:02:41] [HTMLBot] Translating text batch 1/2 for CSE 340 | Assignment.
+[GitHub] Progress: 19% - Translated or checked 6/80 files
+[2026-10-05 16:02:42] [HTMLBot] Changed 19/33 visible text nodes for CSE 340 | Page Title.
+[GitHub] Translated resources/template.html.
+[2026-10-05 16:02:44] [HTMLBot] Translating 44 visible text nodes in 1 batch(es) for CSE 340 | Coaching Session.
+[2026-10-05 16:02:44] [HTMLBot] Translating text batch 1/1 for CSE 340 | Coaching Session.
+[GitHub] Progress: 20% - Translated or checked 7/80 files
+[2026-10-05 16:02:51] [HTMLBot] Changed 23/32 visible text nodes for CSE 340 | AI Policy.
+[GitHub] Translated week01/ai-policy.html.
+[2026-10-05 16:02:52] [HTMLBot] Translating 44 visible text nodes in 1 batch(es) for CSE 340 | Code Review.
+[2026-10-05 16:02:52] [HTMLBot] Translating text batch 1/1 for CSE 340 | Code Review.
+[GitHub] Progress: 20% - Translated or checked 8/80 files
+[2026-10-05 16:02:58] [HTMLBot] Translating text batch 2/2 for CSE 340 | Assignment.
+[2026-10-05 16:02:58] [HTMLBot] Changed 35/44 visible text nodes for CSE 340 | Coaching Session.
+[GitHub] Translated week01/coaching.html.
+[2026-10-05 16:03:00] [HTMLBot] Translating 40 visible text nodes in 1 batch(es) for CSE 340.
+[2026-10-05 16:03:00] [HTMLBot] Translating text batch 1/1 for CSE 340.
+[GitHub] Progress: 21% - Translated or checked 9/80 files
+[2026-10-05 16:03:08] [HTMLBot] Changed 35/44 visible text nodes for CSE 340 | Code Review.
+[GitHub] Translated week01/code-review.html.
+[2026-10-05 16:03:10] [HTMLBot] Translating 25 visible text nodes in 1 batch(es) for CSE 340 | Reflection.
+[2026-10-05 16:03:10] [HTMLBot] Translating text batch 1/1 for CSE 340 | Reflection.
+[GitHub] Progress: 22% - Translated or checked 10/80 files
+[2026-10-05 16:03:13] [HTMLBot] Changed 25/40 visible text nodes for CSE 340.
+[GitHub] Translated week01/index.html.
+[2026-10-05 16:03:15] [HTMLBot] Translating 104 visible text nodes in 2 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:03:15] [HTMLBot] Translating text batch 1/2 for CSE 340 | Learning Activities.
+[GitHub] Progress: 23% - Translated or checked 11/80 files
+[2026-10-05 16:03:15] [HTMLBot] Changed 96/111 visible text nodes for CSE 340 | Assignment.
+[GitHub] Translated week01/assignment.html.
+[2026-10-05 16:03:17] [HTMLBot] Translating 151 visible text nodes in 3 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:03:17] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activities.
+[GitHub] Progress: 23% - Translated or checked 12/80 files
+[2026-10-05 16:03:20] [HTMLBot] Changed 23/25 visible text nodes for CSE 340 | Reflection.
+[GitHub] Translated week01/ponder.html.
+[GitHub] Progress: 24% - Translated or checked 13/80 files
+[2026-10-05 16:03:22] [HTMLBot] Translating 186 visible text nodes in 4 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:03:22] [HTMLBot] Translating text batch 1/4 for CSE 340 | Learning Activities.
+[2026-10-05 16:03:36] [HTMLBot] Translating text batch 2/2 for CSE 340 | Learning Activities.
+[2026-10-05 16:03:40] [HTMLBot] Translating text batch 2/4 for CSE 340 | Learning Activities.
+[2026-10-05 16:03:43] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:03:45] [HTMLBot] Changed 71/104 visible text nodes for CSE 340 | Learning Activities.
+[GitHub] Translated week01/prepare-deploy.html.
+[2026-10-05 16:03:47] [HTMLBot] Translating 131 visible text nodes in 3 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:03:47] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activities.
+[GitHub] Progress: 25% - Translated or checked 14/80 files
+[2026-10-05 16:03:55] [HTMLBot] Translating text batch 3/4 for CSE 340 | Learning Activities.
+[2026-10-05 16:03:59] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:04:12] [HTMLBot] Translating text batch 4/4 for CSE 340 | Learning Activities.
+[2026-10-05 16:04:20] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:04:21] [HTMLBot] Changed 139/151 visible text nodes for CSE 340 | Learning Activities.
+[2026-10-05 16:04:21] [HTMLBot] Changed 172/186 visible text nodes for CSE 340 | Learning Activities.
+[GitHub] Translated week01/prepare-file-paths.html.
+[2026-10-05 16:04:23] [HTMLBot] Translating 173 visible text nodes in 3 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:04:23] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activities.
+[GitHub] Progress: 25% - Translated or checked 15/80 files
+[GitHub] Translated week01/prepare-ejs.html.
+[2026-10-05 16:04:24] [HTMLBot] Translating 216 visible text nodes in 4 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:04:24] [HTMLBot] Translating text batch 1/4 for CSE 340 | Learning Activities.
+[GitHub] Progress: 26% - Translated or checked 16/80 files
+[2026-10-05 16:04:39] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:04:43] [HTMLBot] Translating text batch 2/4 for CSE 340 | Learning Activities.
+[2026-10-05 16:04:46] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:05:02] [HTMLBot] Translating text batch 3/4 for CSE 340 | Learning Activities.
+[2026-10-05 16:05:02] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:05:04] [HTMLBot] Changed 117/131 visible text nodes for CSE 340 | Learning Activities.
+[GitHub] Translated week01/prepare-javascript.html.
+[GitHub] Progress: 27% - Translated or checked 17/80 files
+[2026-10-05 16:05:06] [HTMLBot] Translating 108 visible text nodes in 2 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:05:06] [HTMLBot] Translating text batch 1/2 for CSE 340 | Learning Activities.
+[2026-10-05 16:05:15] [HTMLBot] Changed 159/173 visible text nodes for CSE 340 | Learning Activities.
+[GitHub] Translated week01/prepare-node.html.
+[2026-10-05 16:05:17] [HTMLBot] Translating 59 visible text nodes in 2 batch(es) for CSE 340 | Setup: Team Sign-up.
+[2026-10-05 16:05:17] [HTMLBot] Translating text batch 1/2 for CSE 340 | Setup: Team Sign-up.
+[GitHub] Progress: 27% - Translated or checked 18/80 files
+[2026-10-05 16:05:22] [HTMLBot] Translating text batch 4/4 for CSE 340 | Learning Activities.
+[2026-10-05 16:05:25] [HTMLBot] Translating text batch 2/2 for CSE 340 | Learning Activities.
+[2026-10-05 16:05:36] [HTMLBot] Changed 209/216 visible text nodes for CSE 340 | Learning Activities.
+[2026-10-05 16:05:38] [HTMLBot] Text-batch error on attempt 1: Model left English text unchanged for item(s): 65='Update an existing resource on the server.'; 67='Remove a resource from the server.'; 68='HTTP status codes are three-digit codes returned by the server to indicate the result of the request. Common status codes include the following:'; 70='The request was successful.'; 74='The server could not understand the request due to invalid syntax.'; 76='Authentication is required to access the resource.'; 78='The requested resource could not be found.'; 80='The server encountered an unexpected condition that prevented it from fulfilling the request.'; 81='The Job of the Server'; 82="The server's primary job is to handle incoming requests from clients, process those requests, and send back appropriate responses. In the most simple case, this"; 83='In your previous courses, almost everything you did with servers was focused on retrieving files. This course will be very different. In this course you will le'; 84='Running Programs to Generate Content'; 85='This course will focus on running programs on the server that will generate content to return to the client.'; 86='You will use JavaScript as the programming language and Node.js is the engine that will run your JavaScript programs on the server.'; 87='It is critical to understand that your JavaScript programs will run on the server, and then they will be finished. The client will never see your JavaScript fil'; 89='For this activity, you will use the developer tools of your browser to learn more about the requests and responses that your browser is sending and receiving as'; 90='Complete the following steps:'; 91='Open your web browser (such as Chrome, Firefox, or Edge).'; 92='Navigate to any website of your choice.'; 93='Open the developer tools in your browser. This is usually done by right-clicking on the page and selecting "Inspect" or by pressing F12.'; 94='Go to the "Network" tab in the developer tools.'; 95='Refresh the webpage to see all the network requests being made.'; 96='Click on one of the requests in the list to view its details.'; 97='Examine the request headers and response headers to see what information is being sent and received.'; 98='Look for the HTTP method used (GET, POST, etc.) and the status code returned by the server (200, 404, etc.).'; 99='Take note of any interesting headers or information you find.'; 100='Repeat the process for a few different requests to get a better understanding of how the request-response cycle works.'; 102='After you have completed all the learning activities for this lesson, return to Canvas to submit a quiz.'
+[2026-10-05 16:05:40] [HTMLBot] Translating text batch 2/2 for CSE 340 | Setup: Team Sign-up.
+[2026-10-05 16:05:43] [HTMLBot] Changed 50/59 visible text nodes for CSE 340 | Setup: Team Sign-up.
+[GitHub] Translated week01/prepare-routing.html.
+[2026-10-05 16:05:43] [HTMLBot] Translating 90 visible text nodes in 2 batch(es) for CSE 340 | Setup: Tools.
+[2026-10-05 16:05:43] [HTMLBot] Translating text batch 1/2 for CSE 340 | Setup: Tools.
+[GitHub] Progress: 28% - Translated or checked 19/80 files
+[GitHub] Translated week01/team.html.
+[GitHub] Progress: 29% - Translated or checked 20/80 files
+[2026-10-05 16:05:45] [HTMLBot] Translating 83 visible text nodes in 2 batch(es) for CSE 340 | Assignment.
+[2026-10-05 16:05:45] [HTMLBot] Translating text batch 1/2 for CSE 340 | Assignment.
+[2026-10-05 16:05:54] [HTMLBot] Text-batch error on attempt 2: Model left English text unchanged for item(s): 65='Update an existing resource on the server.'; 67='Remove a resource from the server.'; 68='HTTP status codes are three-digit codes returned by the server to indicate the result of the request. Common status codes include the following:'; 70='The request was successful.'; 74='The server could not understand the request due to invalid syntax.'; 76='Authentication is required to access the resource.'; 78='The requested resource could not be found.'; 80='The server encountered an unexpected condition that prevented it from fulfilling the request.'; 81='The Job of the Server'; 82="The server's primary job is to handle incoming requests from clients, process those requests, and send back appropriate responses. In the most simple case, this"; 83='In your previous courses, almost everything you did with servers was focused on retrieving files. This course will be very different. In this course you will le'; 84='Running Programs to Generate Content'; 85='This course will focus on running programs on the server that will generate content to return to the client.'; 86='You will use JavaScript as the programming language and Node.js is the engine that will run your JavaScript programs on the server.'; 87='It is critical to understand that your JavaScript programs will run on the server, and then they will be finished. The client will never see your JavaScript fil'; 89='For this activity, you will use the developer tools of your browser to learn more about the requests and responses that your browser is sending and receiving as'; 90='Complete the following steps:'; 91='Open your web browser (such as Chrome, Firefox, or Edge).'; 92='Navigate to any website of your choice.'; 93='Open the developer tools in your browser. This is usually done by right-clicking on the page and selecting "Inspect" or by pressing F12.'; 94='Go to the "Network" tab in the developer tools.'; 95='Refresh the webpage to see all the network requests being made.'; 96='Click on one of the requests in the list to view its details.'; 97='Examine the request headers and response headers to see what information is being sent and received.'; 98='Look for the HTTP method used (GET, POST, etc.) and the status code returned by the server (200, 404, etc.).'; 99='Take note of any interesting headers or information you find.'; 100='Repeat the process for a few different requests to get a better understanding of how the request-response cycle works.'; 102='After you have completed all the learning activities for this lesson, return to Canvas to submit a quiz.'
+[2026-10-05 16:06:00] [HTMLBot] Translating text batch 2/2 for CSE 340 | Assignment.
+[2026-10-05 16:06:03] [HTMLBot] Translating text batch 2/2 for CSE 340 | Setup: Tools.
+[2026-10-05 16:06:09] [HTMLBot] Changed 81/108 visible text nodes for CSE 340 | Learning Activities.
+[2026-10-05 16:06:09] [HTMLBot] Changed 71/83 visible text nodes for CSE 340 | Assignment.
+[2026-10-05 16:06:10] [HTMLBot] Changed 77/90 visible text nodes for CSE 340 | Setup: Tools.
+[GitHub] Translated week02/assignment.html.
+[2026-10-05 16:06:11] [HTMLBot] Translating 44 visible text nodes in 1 batch(es) for CSE 340 | Coaching Session.
+[2026-10-05 16:06:11] [HTMLBot] Translating text batch 1/1 for CSE 340 | Coaching Session.
+[GitHub] Progress: 29% - Translated or checked 21/80 files
+[GitHub] Translated week01/tools.html.
+[2026-10-05 16:06:13] [HTMLBot] Translating 33 visible text nodes in 1 batch(es) for CSE 340.
+[2026-10-05 16:06:13] [HTMLBot] Translating text batch 1/1 for CSE 340.
+[GitHub] Progress: 30% - Translated or checked 22/80 files
+[GitHub] Translated week01/prepare-server-side.html.
+[2026-10-05 16:06:15] [HTMLBot] Translating 25 visible text nodes in 1 batch(es) for CSE 340 | Reflection.
+[2026-10-05 16:06:15] [HTMLBot] Translating text batch 1/1 for CSE 340 | Reflection.
+[GitHub] Progress: 31% - Translated or checked 23/80 files
+[2026-10-05 16:06:22] [HTMLBot] Changed 21/33 visible text nodes for CSE 340.
+[GitHub] Translated week02/index.html.
+[2026-10-05 16:06:23] [HTMLBot] Translating 173 visible text nodes in 3 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:06:23] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activities.
+[GitHub] Progress: 32% - Translated or checked 24/80 files
+[2026-10-05 16:06:24] [HTMLBot] Changed 16/25 visible text nodes for CSE 340 | Reflection.
+[2026-10-05 16:06:25] [HTMLBot] Changed 35/44 visible text nodes for CSE 340 | Coaching Session.
+[GitHub] Translated week02/ponder.html.
+[GitHub] Progress: 32% - Translated or checked 25/80 files
+[2026-10-05 16:06:26] [HTMLBot] Translating 149 visible text nodes in 3 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:06:26] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activities.
+[GitHub] Translated week02/coaching.html.
+[2026-10-05 16:06:27] [HTMLBot] Translating 118 visible text nodes in 3 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:06:27] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activities.
+[GitHub] Progress: 33% - Translated or checked 26/80 files
+[2026-10-05 16:06:42] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:06:44] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:06:48] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:07:00] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:07:05] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:07:17] [HTMLBot] Changed 108/118 visible text nodes for CSE 340 | Learning Activities.
+[2026-10-05 16:07:17] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activities.
+[GitHub] Translated week02/prepare-db-review.html.
+[2026-10-05 16:07:19] [HTMLBot] Translating 107 visible text nodes in 2 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:07:19] [HTMLBot] Translating text batch 1/2 for CSE 340 | Learning Activities.
+[GitHub] Progress: 34% - Translated or checked 27/80 files
+[2026-10-05 16:07:23] [HTMLBot] Changed 117/149 visible text nodes for CSE 340 | Learning Activities.
+[2026-10-05 16:07:24] [HTMLBot] Changed 137/173 visible text nodes for CSE 340 | Learning Activities.
+[GitHub] Translated week02/prepare-db-create.html.
+[2026-10-05 16:07:25] [HTMLBot] Translating 131 visible text nodes in 3 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:07:25] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activities.
+[GitHub] Progress: 34% - Translated or checked 28/80 files
+[GitHub] Translated week02/prepare-create-tables.html.
+[2026-10-05 16:07:25] [HTMLBot] Translating 26 visible text nodes in 1 batch(es) for CSE 340 | Learning Activities.
+[2026-10-05 16:07:25] [HTMLBot] Translating text batch 1/1 for CSE 340 | Learning Activities.
+[GitHub] Progress: 35% - Translated or checked 29/80 files
+[2026-10-05 16:07:33] [HTMLBot] Changed 17/26 visible text nodes for CSE 340 | Learning Activities.
+[GitHub] Translated week02/prepare-template.html.
+[2026-10-05 16:07:34] [HTMLBot] Translating 37 visible text nodes in 1 batch(es) for CSE 340 | Absent from Meeting Checklist.
+[2026-10-05 16:07:34] [HTMLBot] Translating text batch 1/1 for CSE 340 | Absent from Meeting Checklist.
+[GitHub] Progress: 36% - Translated or checked 30/80 files
+[2026-10-05 16:07:36] [HTMLBot] Translating text batch 2/2 for CSE 340 | Learning Activities.
+[2026-10-05 16:07:45] [HTMLBot] Changed 28/37 visible text nodes for CSE 340 | Absent from Meeting Checklist.
+[2026-10-05 16:07:45] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activities.
+[GitHub] Translated week02/team-absent.html.
+[GitHub] Progress: 36% - Translated or checked 31/80 files
+[2026-10-05 16:07:46] [HTMLBot] Translating 104 visible text nodes in 2 batch(es) for CSE 340 | Team Activity.
+[2026-10-05 16:07:46] [HTMLBot] Translating text batch 1/2 for CSE 340 | Team Activity.
+[2026-10-05 16:07:47] [HTMLBot] Changed 94/107 visible text nodes for CSE 340 | Learning Activities.
+[GitHub] Translated week02/prepare-ejs-display-results.html.
+[GitHub] Progress: 37% - Translated or checked 32/80 files
+[2026-10-05 16:08:07] [HTMLBot] Translating text batch 2/2 for CSE 340 | Team Activity.
+[GitHub] Translated week02/week02-coaching-session-compact.txt.
+[2026-10-05 16:08:07] [HTMLBot] Translating 116 visible text nodes in 3 batch(es) for CSE 340 | Assignment.
+[2026-10-05 16:08:07] [HTMLBot] Translating text batch 1/3 for CSE 340 | Assignment.
+[GitHub] Progress: 38% - Translated or checked 33/80 files
+[2026-10-05 16:08:10] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activities.
+[2026-10-05 16:08:14] [HTMLBot] Changed 115/131 visible text nodes for CSE 340 | Learning Activities.
+[GitHub] Translated week02/prepare-node-connect-db.html.
+[GitHub] Progress: 38% - Translated or checked 34/80 files
+[2026-10-05 16:08:16] [HTMLBot] Translating 44 visible text nodes in 1 batch(es) for CSE 340 | Coaching Session.
+[2026-10-05 16:08:16] [HTMLBot] Translating text batch 1/1 for CSE 340 | Coaching Session.
+[2026-10-05 16:08:17] [HTMLBot] Changed 90/104 visible text nodes for CSE 340 | Team Activity.
+[GitHub] Translated week02/team-activity.html.
+[2026-10-05 16:08:18] [HTMLBot] Translating 32 visible text nodes in 1 batch(es) for CSE 340.
+[2026-10-05 16:08:18] [HTMLBot] Translating text batch 1/1 for CSE 340.
+[GitHub] Progress: 39% - Translated or checked 35/80 files
+[2026-10-05 16:08:27] [HTMLBot] Translating text batch 2/3 for CSE 340 | Assignment.
+[2026-10-05 16:08:27] [HTMLBot] Changed 19/32 visible text nodes for CSE 340.
+[GitHub] Translated week03/index.html.
+[2026-10-05 16:08:29] [HTMLBot] Translating 86 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:08:29] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[GitHub] Progress: 40% - Translated or checked 36/80 files
+[2026-10-05 16:08:30] [HTMLBot] Changed 33/44 visible text nodes for CSE 340 | Coaching Session.
+[GitHub] Translated week03/coaching.html.
+[2026-10-05 16:08:33] [HTMLBot] Translating 25 visible text nodes in 1 batch(es) for CSE 340 | Reflection.
+[2026-10-05 16:08:33] [HTMLBot] Translating text batch 1/1 for CSE 340 | Reflection.
+[GitHub] Progress: 40% - Translated or checked 37/80 files
+[2026-10-05 16:08:41] [HTMLBot] Changed 23/25 visible text nodes for CSE 340 | Reflection.
+[2026-10-05 16:08:42] [HTMLBot] Text-batch error on attempt 1: Model left English text unchanged for item(s): 104='If your assignment is graded as'
+[GitHub] Translated week03/ponder.html.
+[2026-10-05 16:08:43] [HTMLBot] Translating 126 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:08:43] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[GitHub] Progress: 41% - Translated or checked 38/80 files
+[2026-10-05 16:08:48] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:08:59] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:02] [HTMLBot] Translating text batch 3/3 for CSE 340 | Assignment.
+[2026-10-05 16:09:04] [HTMLBot] Changed 106/116 visible text nodes for CSE 340 | Assignment.
+[GitHub] Translated week03/assignment.html.
+[2026-10-05 16:09:06] [HTMLBot] Translating 202 visible text nodes in 5 batch(es) for CSE 340 | Learning Activity.
+[GitHub] Progress: 42% - Translated or checked 39/80 files
+[2026-10-05 16:09:06] [HTMLBot] Translating text batch 1/5 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:06] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:14] [HTMLBot] Changed 73/86 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week03/nav-test-jb.html.
+[2026-10-05 16:09:16] [HTMLBot] Translating 217 visible text nodes in 4 batch(es) for CSE 340 | Learning Activity.
+[GitHub] Progress: 42% - Translated or checked 40/80 files
+[2026-10-05 16:09:16] [HTMLBot] Translating text batch 1/4 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:24] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:25] [HTMLBot] Translating text batch 2/5 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:34] [HTMLBot] Translating text batch 2/4 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:36] [HTMLBot] Changed 117/126 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week03/prepare-middleware.html.
+[GitHub] Progress: 43% - Translated or checked 41/80 files
+[2026-10-05 16:09:37] [HTMLBot] Translating 133 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:09:37] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:45] [HTMLBot] Translating text batch 3/5 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:52] [HTMLBot] Translating text batch 3/4 for CSE 340 | Learning Activity.
+[2026-10-05 16:09:56] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:10:07] [HTMLBot] Translating text batch 4/4 for CSE 340 | Learning Activity.
+[2026-10-05 16:10:12] [HTMLBot] Translating text batch 4/5 for CSE 340 | Learning Activity.
+[2026-10-05 16:10:20] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:10:29] [HTMLBot] Translating text batch 5/5 for CSE 340 | Learning Activity.
+[2026-10-05 16:10:31] [HTMLBot] Changed 208/217 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week03/prepare-route-parameters.html.
+[2026-10-05 16:10:32] [HTMLBot] Translating 19 visible text nodes in 1 batch(es) for CSE 340 | Learning Activity.
+[GitHub] Progress: 44% - Translated or checked 42/80 files
+[2026-10-05 16:10:32] [HTMLBot] Translating text batch 1/1 for CSE 340 | Learning Activity.
+[2026-10-05 16:10:34] [HTMLBot] Changed 119/133 visible text nodes for CSE 340 | Learning Activity.
+[2026-10-05 16:10:35] [HTMLBot] Changed 188/202 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week03/prepare-mvc.html.
+[2026-10-05 16:10:37] [HTMLBot] Translating 37 visible text nodes in 1 batch(es) for CSE 340 | Absent from Meeting Checklist.
+[2026-10-05 16:10:37] [HTMLBot] Translating text batch 1/1 for CSE 340 | Absent from Meeting Checklist.
+[GitHub] Progress: 45% - Translated or checked 43/80 files
+[GitHub] Translated week03/prepare-status-codes.html.
+[2026-10-05 16:10:39] [HTMLBot] Translating 153 visible text nodes in 3 batch(es) for CSE 340 | Team Activity.
+[2026-10-05 16:10:39] [HTMLBot] Translating text batch 1/3 for CSE 340 | Team Activity.
+[GitHub] Progress: 45% - Translated or checked 44/80 files
+[2026-10-05 16:10:40] [HTMLBot] Changed 10/19 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week03/prepare-template.html.
+[2026-10-05 16:10:41] [HTMLBot] Translating 88 visible text nodes in 2 batch(es) for CSE 340 | Assignment.
+[2026-10-05 16:10:41] [HTMLBot] Translating text batch 1/2 for CSE 340 | Assignment.
+[GitHub] Progress: 46% - Translated or checked 45/80 files
+[2026-10-05 16:10:47] [HTMLBot] Changed 28/37 visible text nodes for CSE 340 | Absent from Meeting Checklist.
+[GitHub] Translated week03/team-absent.html.
+[2026-10-05 16:10:49] [HTMLBot] Translating 44 visible text nodes in 1 batch(es) for CSE 340 | Coaching Session.
+[2026-10-05 16:10:49] [HTMLBot] Translating text batch 1/1 for CSE 340 | Coaching Session.
+[GitHub] Progress: 47% - Translated or checked 46/80 files
+[2026-10-05 16:10:55] [HTMLBot] Translating text batch 2/2 for CSE 340 | Assignment.
+[2026-10-05 16:10:57] [HTMLBot] Translating text batch 2/3 for CSE 340 | Team Activity.
+[2026-10-05 16:11:00] [HTMLBot] Changed 35/44 visible text nodes for CSE 340 | Coaching Session.
+[GitHub] Translated week04/coaching.html.
+[2026-10-05 16:11:02] [HTMLBot] Translating 34 visible text nodes in 1 batch(es) for CSE 340.
+[2026-10-05 16:11:02] [HTMLBot] Translating text batch 1/1 for CSE 340.
+[GitHub] Progress: 47% - Translated or checked 47/80 files
+[2026-10-05 16:11:05] [HTMLBot] Changed 79/88 visible text nodes for CSE 340 | Assignment.
+[GitHub] Translated week04/assignment.html.
+[2026-10-05 16:11:07] [HTMLBot] Translating 17 visible text nodes in 1 batch(es) for Course Progress Navigation.
+[2026-10-05 16:11:07] [HTMLBot] Translating text batch 1/1 for Course Progress Navigation.
+[GitHub] Progress: 48% - Translated or checked 48/80 files
+[2026-10-05 16:11:14] [HTMLBot] Changed 23/34 visible text nodes for CSE 340.
+[2026-10-05 16:11:15] [HTMLBot] Changed 15/17 visible text nodes for Course Progress Navigation.
+[GitHub] Translated week04/nav-test-1.html.
+[2026-10-05 16:11:15] [HTMLBot] Translating 10 visible text nodes in 1 batch(es) for Learning Activity Navigation.
+[2026-10-05 16:11:15] [HTMLBot] Translating text batch 1/1 for Learning Activity Navigation.
+[GitHub] Progress: 49% - Translated or checked 49/80 files
+[GitHub] Translated week04/index.html.
+[2026-10-05 16:11:16] [HTMLBot] Translating 59 visible text nodes in 2 batch(es) for CSE 340: Web Backend Development.
+[GitHub] Progress: 49% - Translated or checked 50/80 files
+[2026-10-05 16:11:16] [HTMLBot] Translating text batch 1/2 for CSE 340: Web Backend Development.
+[2026-10-05 16:11:18] [HTMLBot] Translating text batch 3/3 for CSE 340 | Team Activity.
+[2026-10-05 16:11:19] [HTMLBot] Changed 8/10 visible text nodes for Learning Activity Navigation.
+[GitHub] Translated week04/nav-test-2.html.
+[2026-10-05 16:11:19] [HTMLBot] Translating 85 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[GitHub] Progress: 50% - Translated or checked 51/80 files
+[2026-10-05 16:11:19] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:11:28] [HTMLBot] Changed 144/153 visible text nodes for CSE 340 | Team Activity.
+[GitHub] Translated week03/team-activity.html.
+[2026-10-05 16:11:30] [HTMLBot] Translating 80 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[GitHub] Progress: 51% - Translated or checked 52/80 files
+[2026-10-05 16:11:30] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:11:45] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:11:55] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:12:03] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:12:07] [HTMLBot] Changed 71/85 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week04/nav-test-4.html.
+[2026-10-05 16:12:09] [HTMLBot] Translating 25 visible text nodes in 1 batch(es) for CSE 340 | Reflection.
+[2026-10-05 16:12:09] [HTMLBot] Translating text batch 1/1 for CSE 340 | Reflection.
+[GitHub] Progress: 51% - Translated or checked 53/80 files
+[2026-10-05 16:12:14] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:12:16] [HTMLBot] Changed 67/80 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week04/nav-test-jb.html.
+[2026-10-05 16:12:18] [HTMLBot] Translating 107 visible text nodes in 2 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:12:18] [HTMLBot] Translating text batch 1/2 for CSE 340 | Learning Activity.
+[GitHub] Progress: 52% - Translated or checked 54/80 files
+[2026-10-05 16:12:19] [HTMLBot] Changed 16/25 visible text nodes for CSE 340 | Reflection.
+[GitHub] Translated week04/ponder.html.
+[2026-10-05 16:12:21] [HTMLBot] Translating 152 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[GitHub] Progress: 53% - Translated or checked 55/80 files
+[2026-10-05 16:12:21] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:12:37] [HTMLBot] Translating text batch 2/2 for CSE 340 | Learning Activity.
+[2026-10-05 16:12:41] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:12:53] [HTMLBot] Changed 98/107 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week04/prepare-assign-categories.html.
+[2026-10-05 16:12:54] [HTMLBot] Translating 144 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:12:54] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[GitHub] Progress: 54% - Translated or checked 56/80 files
+[2026-10-05 16:12:59] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:13:13] [HTMLBot] Changed 140/152 visible text nodes for CSE 340 | Learning Activity.
+[2026-10-05 16:13:13] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[GitHub] Translated week04/prepare-form-submissions.html.
+[GitHub] Progress: 54% - Translated or checked 57/80 files
+[2026-10-05 16:13:15] [HTMLBot] Translating 35 visible text nodes in 1 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:13:15] [HTMLBot] Translating text batch 1/1 for CSE 340 | Learning Activity.
+[2026-10-05 16:13:26] [HTMLBot] Changed 26/35 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week04/prepare-preserving-input.html.
+[GitHub] Progress: 55% - Translated or checked 58/80 files
+[2026-10-05 16:13:28] [HTMLBot] Translating 188 visible text nodes in 5 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:13:28] [HTMLBot] Translating text batch 1/5 for CSE 340 | Learning Activity.
+[2026-10-05 16:13:35] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:13:43] [HTMLBot] Changed 130/144 visible text nodes for CSE 340 | Learning Activity.
+[2026-10-05 16:13:44] [HTMLBot] Translating text batch 2/5 for CSE 340 | Learning Activity.
+[GitHub] Translated week04/prepare-insert-projects.html.
+[2026-10-05 16:13:45] [HTMLBot] Translating 172 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:13:45] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[GitHub] Progress: 56% - Translated or checked 59/80 files
+[2026-10-05 16:14:04] [HTMLBot] Translating text batch 3/5 for CSE 340 | Learning Activity.
+[2026-10-05 16:14:11] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:14:22] [HTMLBot] Text-batch error on attempt 1: Model omitted 19 text node(s).
+[2026-10-05 16:14:23] [HTMLBot] Translating text batch 4/5 for CSE 340 | Learning Activity.
+[2026-10-05 16:14:29] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:14:38] [HTMLBot] Translating text batch 2/2 for CSE 340: Web Backend Development.
+[2026-10-05 16:14:40] [HTMLBot] Translating text batch 5/5 for CSE 340 | Learning Activity.
+[2026-10-05 16:14:43] [HTMLBot] Changed 160/172 visible text nodes for CSE 340 | Learning Activity.
+[2026-10-05 16:14:44] [HTMLBot] Changed 46/59 visible text nodes for CSE 340: Web Backend Development.
+[GitHub] Translated week04/nav-test-3.html.
+[2026-10-05 16:14:46] [HTMLBot] Translating 159 visible text nodes in 4 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:14:46] [HTMLBot] Translating text batch 1/4 for CSE 340 | Learning Activity.
+[GitHub] Progress: 56% - Translated or checked 60/80 files
+[GitHub] Translated week04/prepare-update.html.
+[2026-10-05 16:14:53] [HTMLBot] Translating 37 visible text nodes in 1 batch(es) for CSE 340 | Absent from Meeting Checklist.
+[2026-10-05 16:14:53] [HTMLBot] Translating text batch 1/1 for CSE 340 | Absent from Meeting Checklist.
+[GitHub] Progress: 57% - Translated or checked 61/80 files
+[2026-10-05 16:14:56] [HTMLBot] Changed 179/188 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week04/prepare-sessions.html.
+[2026-10-05 16:15:00] [HTMLBot] Translating 108 visible text nodes in 2 batch(es) for CSE 340 | Team Activity.
+[2026-10-05 16:15:00] [HTMLBot] Translating text batch 1/2 for CSE 340 | Team Activity.
+[GitHub] Progress: 58% - Translated or checked 62/80 files
+[2026-10-05 16:15:02] [HTMLBot] Translating text batch 2/4 for CSE 340 | Learning Activity.
+[2026-10-05 16:15:03] [HTMLBot] Changed 28/37 visible text nodes for CSE 340 | Absent from Meeting Checklist.
+[GitHub] Translated week04/team-absent.html.
+[2026-10-05 16:15:05] [HTMLBot] Translating 73 visible text nodes in 2 batch(es) for CSE 340 | Assignment.
+[2026-10-05 16:15:05] [HTMLBot] Translating text batch 1/2 for CSE 340 | Assignment.
+[GitHub] Progress: 58% - Translated or checked 63/80 files
+[2026-10-05 16:15:18] [HTMLBot] Translating text batch 2/2 for CSE 340 | Team Activity.
+[2026-10-05 16:15:24] [HTMLBot] Translating text batch 2/2 for CSE 340 | Assignment.
+[2026-10-05 16:15:24] [HTMLBot] Translating text batch 3/4 for CSE 340 | Learning Activity.
+[2026-10-05 16:15:27] [HTMLBot] Changed 64/73 visible text nodes for CSE 340 | Assignment.
+[GitHub] Translated week05/assignment.html.
+[GitHub] Progress: 59% - Translated or checked 64/80 files
+[2026-10-05 16:15:29] [HTMLBot] Translating 44 visible text nodes in 1 batch(es) for CSE 340 | Coaching Session.
+[2026-10-05 16:15:29] [HTMLBot] Translating text batch 1/1 for CSE 340 | Coaching Session.
+[2026-10-05 16:15:35] [HTMLBot] Changed 99/108 visible text nodes for CSE 340 | Team Activity.
+[GitHub] Translated week04/team-activity.html.
+[2026-10-05 16:15:37] [HTMLBot] Translating 33 visible text nodes in 1 batch(es) for CSE 340.
+[2026-10-05 16:15:37] [HTMLBot] Translating text batch 1/1 for CSE 340.
+[GitHub] Progress: 60% - Translated or checked 65/80 files
+[2026-10-05 16:15:40] [HTMLBot] Changed 35/44 visible text nodes for CSE 340 | Coaching Session.
+[2026-10-05 16:15:41] [HTMLBot] Translating text batch 4/4 for CSE 340 | Learning Activity.
+[GitHub] Translated week05/coaching.html.
+[2026-10-05 16:15:42] [HTMLBot] Translating 25 visible text nodes in 1 batch(es) for CSE 340 | Reflection.
+[2026-10-05 16:15:42] [HTMLBot] Translating text batch 1/1 for CSE 340 | Reflection.
+[GitHub] Progress: 60% - Translated or checked 66/80 files
+[2026-10-05 16:15:48] [HTMLBot] Changed 22/33 visible text nodes for CSE 340.
+[GitHub] Translated week05/index.html.
+[2026-10-05 16:15:50] [HTMLBot] Translating 135 visible text nodes in 4 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:15:50] [HTMLBot] Translating text batch 1/4 for CSE 340 | Learning Activity.
+[GitHub] Progress: 61% - Translated or checked 67/80 files
+[2026-10-05 16:15:50] [HTMLBot] Changed 150/159 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week04/prepare-validation.html.
+[2026-10-05 16:15:52] [HTMLBot] Translating 115 visible text nodes in 2 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:15:52] [HTMLBot] Translating text batch 1/2 for CSE 340 | Learning Activity.
+[GitHub] Progress: 62% - Translated or checked 68/80 files
+[2026-10-05 16:15:52] [HTMLBot] Changed 16/25 visible text nodes for CSE 340 | Reflection.
+[GitHub] Translated week05/ponder.html.
+[2026-10-05 16:15:54] [HTMLBot] Translating 156 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:15:54] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[GitHub] Progress: 62% - Translated or checked 69/80 files
+[2026-10-05 16:16:05] [HTMLBot] Translating text batch 2/4 for CSE 340 | Learning Activity.
+[2026-10-05 16:16:18] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:16:22] [HTMLBot] Translating text batch 3/4 for CSE 340 | Learning Activity.
+[2026-10-05 16:16:36] [HTMLBot] Translating text batch 2/2 for CSE 340 | Learning Activity.
+[2026-10-05 16:16:36] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:16:45] [HTMLBot] Changed 145/156 visible text nodes for CSE 340 | Learning Activity.
+[2026-10-05 16:16:45] [HTMLBot] Translating text batch 4/4 for CSE 340 | Learning Activity.
+[GitHub] Translated week05/prepare-login.html.
+[GitHub] Progress: 63% - Translated or checked 70/80 files
+[2026-10-05 16:16:47] [HTMLBot] Translating 124 visible text nodes in 2 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:16:47] [HTMLBot] Translating text batch 1/2 for CSE 340 | Learning Activity.
+[2026-10-05 16:16:47] [HTMLBot] Changed 96/115 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week05/prepare-db-refresh.html.
+[2026-10-05 16:16:49] [HTMLBot] Translating 161 visible text nodes in 3 batch(es) for CSE 340 | Learning Activity.
+[2026-10-05 16:16:49] [HTMLBot] Translating text batch 1/3 for CSE 340 | Learning Activity.
+[GitHub] Progress: 64% - Translated or checked 71/80 files
+[2026-10-05 16:16:58] [HTMLBot] Changed 126/135 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week05/prepare-auth.html.
+[2026-10-05 16:17:00] [HTMLBot] Translating 37 visible text nodes in 1 batch(es) for CSE 340 | Absent from Meeting Checklist.
+[2026-10-05 16:17:00] [HTMLBot] Translating text batch 1/1 for CSE 340 | Absent from Meeting Checklist.
+[GitHub] Progress: 64% - Translated or checked 72/80 files
+[2026-10-05 16:17:06] [HTMLBot] Translating text batch 2/2 for CSE 340 | Learning Activity.
+[2026-10-05 16:17:10] [HTMLBot] Changed 28/37 visible text nodes for CSE 340 | Absent from Meeting Checklist.
+[GitHub] Translated week05/team-absent.html.
+[GitHub] Progress: 65% - Translated or checked 73/80 files
+[2026-10-05 16:17:12] [HTMLBot] Translating 159 visible text nodes in 3 batch(es) for CSE 340 | Team Activity.
+[2026-10-05 16:17:12] [HTMLBot] Translating text batch 1/3 for CSE 340 | Team Activity.
+[2026-10-05 16:17:21] [HTMLBot] Translating text batch 2/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:17:26] [HTMLBot] Changed 115/124 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week05/prepare-protected-routes.html.
+[2026-10-05 16:17:28] [HTMLBot] Translating 71 visible text nodes in 2 batch(es) for CSE 340 | Assignment.
+[2026-10-05 16:17:28] [HTMLBot] Translating text batch 1/2 for CSE 340 | Assignment.
+[GitHub] Progress: 66% - Translated or checked 74/80 files
+[2026-10-05 16:17:30] [HTMLBot] Translating text batch 2/3 for CSE 340 | Team Activity.
+[2026-10-05 16:17:39] [HTMLBot] Translating text batch 3/3 for CSE 340 | Learning Activity.
+[2026-10-05 16:17:44] [HTMLBot] Translating text batch 2/2 for CSE 340 | Assignment.
+[2026-10-05 16:17:50] [HTMLBot] Changed 61/71 visible text nodes for CSE 340 | Assignment.
+[GitHub] Translated week06/assignment.html.
+[2026-10-05 16:17:52] [HTMLBot] Translating 22 visible text nodes in 1 batch(es) for CSE 340.
+[2026-10-05 16:17:52] [HTMLBot] Translating text batch 1/1 for CSE 340.
+[GitHub] Progress: 67% - Translated or checked 75/80 files
+[2026-10-05 16:17:54] [HTMLBot] Translating text batch 3/3 for CSE 340 | Team Activity.
+[2026-10-05 16:17:57] [HTMLBot] Changed 152/161 visible text nodes for CSE 340 | Learning Activity.
+[GitHub] Translated week05/prepare-register.html.
+[2026-10-05 16:17:59] [HTMLBot] Translating 25 visible text nodes in 1 batch(es) for CSE 340 | Reflection.
+[2026-10-05 16:17:59] [HTMLBot] Translating text batch 1/1 for CSE 340 | Reflection.
+[GitHub] Progress: 67% - Translated or checked 76/80 files
+[2026-10-05 16:18:02] [HTMLBot] Changed 11/22 visible text nodes for CSE 340.
+[GitHub] Translated week06/index.html.
+[2026-10-05 16:18:04] [HTMLBot] Translating 19 visible text nodes in 1 batch(es) for CSE 340.
+[2026-10-05 16:18:04] [HTMLBot] Translating text batch 1/1 for CSE 340.
+[GitHub] Progress: 68% - Translated or checked 77/80 files
+[2026-10-05 16:18:04] [HTMLBot] Changed 156/159 visible text nodes for CSE 340 | Team Activity.
+[GitHub] Translated week05/team-activity.html.
+[GitHub] Progress: 69% - Translated or checked 78/80 files
+[2026-10-05 16:18:09] [HTMLBot] Changed 23/25 visible text nodes for CSE 340 | Reflection.
+[GitHub] Translated week06/ponder.html.
+[GitHub] Progress: 69% - Translated or checked 79/80 files
+[2026-10-05 16:18:12] [HTMLBot] Changed 16/19 visible text nodes for CSE 340.
+[GitHub] Translated week07/index.html.
+[GitHub] Progress: 70% - Translated or checked 80/80 files
+[GitHub] Progress: 75% - Analyzed variables in 1/80 files
+[GitHub] Progress: 75% - Analyzed variables in 2/80 files
+[GitHub] Progress: 75% - Analyzed variables in 3/80 files
+[GitHub] Progress: 76% - Analyzed variables in 4/80 files
+[GitHub] Progress: 76% - Analyzed variables in 5/80 files
+[GitHub] Progress: 76% - Analyzed variables in 6/80 files
+[GitHub] Progress: 76% - Analyzed variables in 7/80 files
+[GitHub] Progress: 76% - Analyzed variables in 8/80 files
+[GitHub] Progress: 76% - Analyzed variables in 9/80 files
+[GitHub] Progress: 76% - Analyzed variables in 10/80 files
+[GitHub] Progress: 76% - Analyzed variables in 11/80 files
+[GitHub] Progress: 76% - Analyzed variables in 12/80 files
+[GitHub] Progress: 77% - Analyzed variables in 13/80 files
+[GitHub] Progress: 77% - Analyzed variables in 14/80 files
+[GitHub] Progress: 77% - Analyzed variables in 15/80 files
+[GitHub] Progress: 77% - Analyzed variables in 16/80 files
+[GitHub] Progress: 77% - Analyzed variables in 17/80 files
+[GitHub] Progress: 77% - Analyzed variables in 18/80 files
+[GitHub] Progress: 77% - Analyzed variables in 19/80 files
+[GitHub] Progress: 78% - Analyzed variables in 20/80 files
+[GitHub] Progress: 78% - Analyzed variables in 21/80 files
+[GitHub] Progress: 78% - Analyzed variables in 22/80 files
+[GitHub] Progress: 78% - Analyzed variables in 23/80 files
+[GitHub] Progress: 78% - Analyzed variables in 24/80 files
+[GitHub] Progress: 78% - Analyzed variables in 25/80 files
+[GitHub] Progress: 78% - Analyzed variables in 26/80 files
+[GitHub] Progress: 78% - Analyzed variables in 27/80 files
+[GitHub] Progress: 78% - Analyzed variables in 28/80 files
+[GitHub] Progress: 79% - Analyzed variables in 29/80 files
+[GitHub] Progress: 79% - Analyzed variables in 30/80 files
+[GitHub] Progress: 79% - Analyzed variables in 31/80 files
+[GitHub] Progress: 79% - Analyzed variables in 32/80 files
+[GitHub] Progress: 79% - Analyzed variables in 33/80 files
+[GitHub] Progress: 79% - Analyzed variables in 34/80 files
+[GitHub] Progress: 79% - Analyzed variables in 35/80 files
+[GitHub] Progress: 80% - Analyzed variables in 36/80 files
+[GitHub] Progress: 80% - Analyzed variables in 37/80 files
+[GitHub] Progress: 80% - Analyzed variables in 38/80 files
+[GitHub] Progress: 80% - Analyzed variables in 39/80 files
+[GitHub] Progress: 80% - Analyzed variables in 40/80 files
+[GitHub] Progress: 80% - Analyzed variables in 41/80 files
+[GitHub] Progress: 80% - Analyzed variables in 42/80 files
+[GitHub] Progress: 80% - Analyzed variables in 43/80 files
+[GitHub] Progress: 80% - Analyzed variables in 44/80 files
+[GitHub] Progress: 81% - Analyzed variables in 45/80 files
+[GitHub] Progress: 81% - Analyzed variables in 46/80 files
+[GitHub] Progress: 81% - Analyzed variables in 47/80 files
+[GitHub] Progress: 81% - Analyzed variables in 48/80 files
+[GitHub] Progress: 81% - Analyzed variables in 49/80 files
+[GitHub] Progress: 81% - Analyzed variables in 50/80 files
+[GitHub] Progress: 81% - Analyzed variables in 51/80 files
+[GitHub] Progress: 82% - Analyzed variables in 52/80 files
+[GitHub] Progress: 82% - Analyzed variables in 53/80 files
+[GitHub] Progress: 82% - Analyzed variables in 54/80 files
+[GitHub] Progress: 82% - Analyzed variables in 55/80 files
+[GitHub] Progress: 82% - Analyzed variables in 56/80 files
+[GitHub] Progress: 82% - Analyzed variables in 57/80 files
+[GitHub] Progress: 82% - Analyzed variables in 58/80 files
+[GitHub] Progress: 82% - Analyzed variables in 59/80 files
+[GitHub] Progress: 82% - Analyzed variables in 60/80 files
+[GitHub] Progress: 83% - Analyzed variables in 61/80 files
+[GitHub] Progress: 83% - Analyzed variables in 62/80 files
+[GitHub] Progress: 83% - Analyzed variables in 63/80 files
+[GitHub] Progress: 83% - Analyzed variables in 64/80 files
+[GitHub] Progress: 83% - Analyzed variables in 65/80 files
+[GitHub] Progress: 83% - Analyzed variables in 66/80 files
+[GitHub] Progress: 83% - Analyzed variables in 67/80 files
+[GitHub] Progress: 84% - Analyzed variables in 68/80 files
+[GitHub] Progress: 84% - Analyzed variables in 69/80 files
+[GitHub] Progress: 84% - Analyzed variables in 70/80 files
+[GitHub] Progress: 84% - Analyzed variables in 71/80 files
+[GitHub] Progress: 84% - Analyzed variables in 72/80 files
+[GitHub] Progress: 84% - Analyzed variables in 73/80 files
+[GitHub] Progress: 84% - Analyzed variables in 74/80 files
+[GitHub] Progress: 84% - Analyzed variables in 75/80 files
+[GitHub] Progress: 84% - Analyzed variables in 76/80 files
+[GitHub] Progress: 85% - Analyzed variables in 77/80 files
+[GitHub] Progress: 85% - Analyzed variables in 78/80 files
+[GitHub] Progress: 85% - Analyzed variables in 79/80 files
+[GitHub] Progress: 85% - Analyzed variables in 80/80 files
+[GitHub] Progress: 87% - Validating translated repository
+[GitHub] Report generated: C:\Users\vscaran\Desktop\DevProjects\WWOTranslationHUB\Reports\cse340-ww-course-test1-pt GitHub Translation Report.xlsx
+[GitHub] Progress: 95% - Report generated
+[GitHub] Progress: 100% - Repository published and GitHub Pages configured
