@@ -426,5 +426,22 @@
   "https://players.brightcove.net/5745608613001/default_default/index.html?videoId=6388401127112": {
     "PTBR": "http://www.kaltura.com/tiny/9wh6n1gu",
     "SPA": ""
+  },
+  "https://sites.google.com/byui.edu/wwonline-whatsapp/home?authuser=3": {
+    "PTBR": "https://sites.google.com/byui.edu/wwonlinewhatsapp-pt/home?authuser=3",
+    "SPA": ""
+  },
+  "https://sites.google.com/byui.edu/wwonline-whatsapp/home": {
+    "PTBR": "https://sites.google.com/byui.edu/wwonlinewhatsapp-pt/home",
+    "SPA": ""
+  },
+  "https://sites.google.com/byui.edu/wwonlinewhatsappresourcecenter/home": {
+    "PTBR": "https://sites.google.com/byui.edu/wwonlinewhatsapplibrary/home?authuser=3",
+    "SPA": ""
+  },
+  "https://sites.google.com/byui.edu/wwonlinewhatsappresourcecenter/home?authuser=3": {
+    "PTBR": "https://sites.google.com/byui.edu/wwonlinewhatsapplibrary/home?authuser=3",
+    "SPA": ""
   }
 }
+

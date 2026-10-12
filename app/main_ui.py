@@ -1175,7 +1175,7 @@ class CourseTranslationHubUI:
             "Review the Translation Dashboard Report (in the Reports folder) for any warnings or untranslated items."
         ]
 
-        gradebook_reference_path = Path(self.hub_dir, "Gradebook Settigns.png")
+        gradebook_reference_path = Path(self.hub_dir, "Gradebook Settings.png")
 
         def open_gradebook_reference(_event=None):
             if not gradebook_reference_path.is_file():
@@ -1199,7 +1199,7 @@ class CourseTranslationHubUI:
             if item == gradebook_options_item:
                 reference_link = ttk.Label(
                     checks_frame,
-                    text="Open reference: Gradebook Settigns.png",
+                    text="Open reference: Gradebook Settings.png",
                     foreground="#0563C1",
                     cursor="hand2"
                 )
