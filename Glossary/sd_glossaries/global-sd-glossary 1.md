@@ -1,6 +1,7 @@
 <!-- prettier-ignore -->
 | **English** | **Portuguese (Brazil)** | **Context** |
 | --- | --- | --- |
+| Activity Instructions | Instruções da Atividade | Directions for completing a learning activity |
 | abstractions | abstrações | Software design and object-oriented programming |
 | algorithm | algoritmo | Programming logic and problem solving |
 | align | alinhar | Interface layout, CSS, and visual positioning |
@@ -9,8 +10,10 @@
 | argument | argumento | Value passed to a function, method, or command |
 | array | array | Indexed data structure |
 | assign | atribuir | Assigning a value to a variable or property |
+| Assignment | Tarefa | Graded course work assigned to a student |
 | authentication | autenticação | Verifying user or system identity |
 | authorization | autorização | Permission control and access to resources |
+| Audit and Submission | Auditoria e Envio | Course section covering self-audit and submission steps |
 | backend | back-end | Server layer, business rules, and APIs |
 | bandwidth | largura de banda | Networks, data traffic, and performance |
 | boolean | booleano | True/false data type |
@@ -24,6 +27,7 @@
 | calculate | calcular | Mathematical or logical operations in code |
 | certified graders | avaliadores certificados | personnel responsible for evaluating work and providing feedback |
 | checkpoint | ponto de verificação | Intermediate milestone in an activity, process, or development workflow |
+| Check Your Understanding | Avalie Seu Conhecimento | Formative section that asks students to verify their understanding |
 | class | classe | Object-oriented programming |
 | clone | clonar | Copying a repository, project, or object |
 | cloud | nuvem | Remotely hosted services and infrastructure |
@@ -39,6 +43,7 @@
 | context | contexto | Technical situation in which a term or translation applies |
 | conversion | conversão | Changing a data type, format, or unit |
 | cookies | cookies | Data stored in the browser |
+| Course Content | Conteúdo do Curso | Main collection of instructional material in a course |
 | Course Expectations | Expectativas do Curso | They clarify what students must do to succeed and what they can expect from the instructor in return |
 | Course Home | Página Inicial do Curso | Main navigation area in the course environment |
 | curly brace | chave | curly brace in syntax and notation |
@@ -63,16 +68,20 @@
 | enumerate | enumerar | Listing items or iterating with an index |
 | environment variable | variável de ambiente | Configuration defined in the operating system or process |
 | exception | exceção | Error handled by a language mechanism |
+| Exam | Prova | Summative course assessment |
+| Exam Instructions | Instruções para a Prova | Directions for completing a course exam |
 | execute | executar | Running a program, command, query, or function |
 | fallback | alternativa de contingência | Behavior used when the main option fails |
 | feature | funcionalidade | Functionality implemented in software |
 | filename | nome de arquivo | File identifier in the system |
+| Final Exam | Prova Final | Final summative assessment in a course |
 | folder | pasta | Organization of files and directories |
 | framework | framework | Reusable structure for developing software |
 | frontend | front-end | User-facing interface layer |
 | function | função | Reusable block of code |
 | foundation | fundamento | Conceptual basis of a technology or discipline |
 | generator | gerador | Feature that produces values, code, or artifacts |
+| Getting Help | Obtendo Ajuda | Course section explaining how students can receive assistance |
 | handler | manipulador | Function responsible for handling an event, route, or request |
 | hash | hash | Cryptographic digest or derived identifier |
 | hosting | hospedagem | Infrastructure where the system is made available |
@@ -83,6 +92,7 @@
 | indexes | índices | Plural of index in data structures and databases |
 | infrastructure | infraestrutura | Servers, networking, storage, and supporting services |
 | input | entrada | Data provided by the user, system, or function |
+| Instructions | Instruções | Directions for completing an activity, assignment, or process |
 | instructor | instrutor | course facilitator responsible for overall instruction and final guidance |
 | integer | inteiro | Numeric type without a decimal part |
 | interface | interface | Technical contract or user interaction layer |
@@ -116,18 +126,24 @@
 | numeric | numérico | Related to numbers or quantitative data |
 | object | objeto | Structure containing data and behavior |
 | open source | código aberto | Software with publicly available source code |
+| Optional Resources | Recursos Opcionais | Supplemental resources that are not required |
 | output | saída | Data produced by a function, program, or process |
 | overload | sobrecarga | Same name with different behaviors |
 | override | sobrescrever | Replacing inherited behavior or a previous value |
+| Overview | Visão Geral | Introductory summary section for a page or activity |
 | package | pacote | Distributable unit of code or dependencies |
 | parameter | parâmetro | Variable defined in a function or method declaration |
 | parser | analisador sintático | Component that interprets structured input |
 | patch | correção | Small code change or update |
+| Page Audit | Auditoria de Páginas | Review used to verify that a course page meets its requirements |
 | payload | carga útil | Data sent in a request, event, or message |
 | performance | desempenho | Execution efficiency and resource usage |
 | pipeline | pipeline | Automated sequence of processing or delivery steps |
 | pointer | ponteiro | Direct reference to a memory address |
+| Prepare | Preparação | Course section containing preparatory material or work |
 | property | propriedade | Field associated with an object, class, or configuration |
+| Project | Projeto | Extended course work that produces a larger deliverable |
+| Project Requirements | Requisitos do Projeto | Required criteria for completing a course project |
 | pull request | pull request | Proposal to integrate changes into a repository |
 | push | enviar | Sending local changes to a remote repository |
 | queue | fila | FIFO structure or asynchronous processing mechanism |
@@ -149,14 +165,17 @@
 | serialization | serialização | Converting an object into a storable or transmissible format |
 | server | servidor | Machine or process that handles requests |
 | session | sessão | Temporary state of user interaction |
+| Setup | Configuração | Course activity for preparing tools, accounts, or an environment |
 | source code | código-fonte | Original code written by developers |
 | square bracket | colchete | Syntax with `[` and `]` |
 | stack | pilha | Data structure or set of technologies |
 | state | estado | Current condition of a component, system, or process |
 | stretch activity | desafio adicional | additional learning task or assignment designed to push individuals beyond their current comfort zone and baseline comprehension |
 | string | string | Sequence of characters |
+| Submission | Envio | Course section or action for turning in completed work |
 | syllabus | programa do curso | The master document of the course. It defines policies, grading criteria, deadlines, and the learning roadmap. |
 | syntax | sintaxe | Formal rules of writing in a language |
+| Task | Tarefa | Specific unit of work a student must complete |
 | teaching assistants | assistentes do instrutor | academic support staff who assist with course content and grading |
 | team | equipe | a group of people working together toward the same objective |
 | template | modelo | layout or model to be followed |

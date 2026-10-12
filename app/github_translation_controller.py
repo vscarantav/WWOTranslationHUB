@@ -18,6 +18,7 @@ from bots.txt_bot import TextTranslationBot
 from bots.variable_extraction import VariableAnalysisBot
 from bots.xml_bot import XMLTranslationBot
 from core.github_content_validator import GitHubContentValidator
+from core.github_naming_normalizer import GitHubNamingNormalizer
 from core.github_report_generator import GitHubTranslationReportGenerator
 from core.github_repository_manager import GitHubRepositoryManager
 from core.github_repository_scanner import GitHubRepositoryScanner
@@ -52,6 +53,7 @@ class GitHubTranslationController:
         repository_manager=None,
         scanner=None,
         validator=None,
+        naming_normalizer=None,
         report_generator=None,
         bot_factory=None,
         max_workers=3,
@@ -76,6 +78,7 @@ class GitHubTranslationController:
         self.repository_manager = repository_manager or GitHubRepositoryManager(token, log_func=self._log)
         self.scanner = scanner or GitHubRepositoryScanner()
         self.validator = validator or GitHubContentValidator()
+        self.naming_normalizer = naming_normalizer or GitHubNamingNormalizer()
         self.report_generator = report_generator or GitHubTranslationReportGenerator(self.hub_dir / "Reports")
         self.bot_factory = bot_factory
 
@@ -157,8 +160,21 @@ class GitHubTranslationController:
         original = source_path.read_text(encoding="utf-8", errors="strict")
         page_title = self.scanner.extract_page_title(original, item.extension, source_path.stem)
         if not self._has_translatable_text(original, item.extension):
-            self._log(f"[GitHub] Preserved {item.relative_path}: no translatable prose.")
-            return page_title, original, original
+            normalized = self.naming_normalizer.normalize(
+                original, original, item.extension, item.relative_path
+            )
+            if normalized != original:
+                target_path.write_text(normalized, encoding="utf-8", newline="")
+                self._log(
+                    f"[GitHub] Normalized naming in {item.relative_path}; "
+                    "no other translatable prose was present."
+                )
+            else:
+                self._log(f"[GitHub] Preserved {item.relative_path}: no translatable prose.")
+            normalized_title = self.scanner.extract_page_title(
+                normalized, item.extension, source_path.stem
+            )
+            return normalized_title, original, normalized
 
         glossary_entries = glossary.relevant_entries(original)
         glossary_mapping = glossary.relevant_mapping(original)
@@ -184,6 +200,9 @@ class GitHubTranslationController:
                 original, glossary_mapping, scriptures
             )
 
+        translated = self.naming_normalizer.normalize(
+            original, translated, item.extension, item.relative_path
+        )
         if translated == original:
             raise RuntimeError("Translation returned the source content unchanged.")
         errors = self.validator.validate(original, translated, item.extension)
@@ -191,7 +210,10 @@ class GitHubTranslationController:
             raise RuntimeError(" ".join(errors))
         target_path.write_text(translated, encoding="utf-8", newline="")
         self._log(f"[GitHub] Translated {item.relative_path}.")
-        return page_title, original, translated
+        translated_page_title = self.scanner.extract_page_title(
+            translated, item.extension, source_path.stem
+        )
+        return translated_page_title, original, translated
 
     @staticmethod
     def _blob_url(owner, repository, reference, relative_path):
@@ -423,6 +445,41 @@ class GitHubTranslationController:
                 self._progress(
                     70 + (retry_completed / max(1, retry_total)) * 5,
                     f"Retried {retry_completed}/{retry_total} failed files",
+                )
+
+        successful_manifest = [
+            item
+            for item in translated_items
+            if item.relative_path in successes and item.relative_path not in failures
+        ]
+        try:
+            synchronized_files = self.naming_normalizer.normalize_tree(
+                source_root, translated_root, successful_manifest
+            )
+            if synchronized_files:
+                self._log(
+                    "[GitHub] Synchronized normalized titles in internal links for: "
+                    + ", ".join(synchronized_files)
+                )
+        except Exception as error:
+            failures["Naming normalization"] = str(error)
+            self._log(f"[GitHub] Repository naming normalization failed: {error}")
+
+        for item in successful_manifest:
+            if item.relative_path in failures:
+                continue
+            source_path = source_root / item.relative_path
+            translated_path = translated_root / item.relative_path
+            post_normalization_errors = self.validator.validate(
+                source_path.read_text(encoding="utf-8", errors="strict"),
+                translated_path.read_text(encoding="utf-8", errors="strict"),
+                item.extension,
+            )
+            if post_normalization_errors:
+                failures[item.relative_path] = " ".join(post_normalization_errors)
+                self._log(
+                    f"[GitHub] Post-normalization validation failed for "
+                    f"{item.relative_path}: {failures[item.relative_path]}"
                 )
 
         variable_rows = []
