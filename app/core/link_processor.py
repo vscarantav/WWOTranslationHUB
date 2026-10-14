@@ -108,9 +108,19 @@ class LinkProcessor:
                 else:
                     return url
 
-            if 'byui-cse.github.io' in clean_url and '-course' in clean_url:
-                if self.target_language == 'PTBR' and '-course-pt' not in clean_url:
-                    localized_url = clean_url.replace('-course', '-course-pt')
+            parsed_clean_url = urllib.parse.urlparse(clean_url)
+            if parsed_clean_url.hostname == 'byui-cse.github.io':
+                path_segments = parsed_clean_url.path.split('/')
+                if (
+                    self.target_language == 'PTBR'
+                    and len(path_segments) > 1
+                    and path_segments[1].endswith('-course')
+                    and not path_segments[1].endswith('-course-pt')
+                ):
+                    path_segments[1] = f"{path_segments[1]}-pt"
+                    localized_url = urllib.parse.urlunparse(
+                        parsed_clean_url._replace(path='/'.join(path_segments))
+                    )
                     return html.escape(localized_url) if is_escaped else localized_url
 
             if clean_url in mapping and mapping[clean_url].get(self.target_language):

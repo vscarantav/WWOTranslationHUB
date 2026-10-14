@@ -10,6 +10,21 @@ import google.generativeai as genai  # type: ignore
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 class XMLTranslationBot:
+    @staticmethod
+    def _is_unchanged_english_text(source: str, translated: str) -> bool:
+        source_text = BeautifulSoup(source, "html.parser").get_text(" ", strip=True)
+        translated_text = BeautifulSoup(translated, "html.parser").get_text(
+            " ", strip=True
+        )
+        if source_text.casefold() != translated_text.casefold():
+            return False
+        words = re.findall(r"[A-Za-z]+", source_text.casefold())
+        markers = {
+            "the", "and", "to", "of", "in", "is", "that", "for", "with",
+            "this", "you", "your", "from", "will", "are", "on", "as",
+        }
+        return len(words) >= 4 and any(word in markers for word in words)
+
     def __init__(self, api_key=None, target_language="PTBR", log_lock=None, workspace_dir=None):
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if self.api_key:
@@ -51,7 +66,7 @@ class XMLTranslationBot:
 
     def _translate_batch(self, batch: dict, constraints: str) -> dict:
         if not self.client_ready:
-            return batch
+            raise RuntimeError("XML translation cannot run because no API key is configured.")
         if not batch:
             return {}
 
@@ -82,14 +97,29 @@ class XMLTranslationBot:
                     if item_id is not None:
                         translated_batch[item_id] = item.decode_contents().strip()
                         
-                # Check if we got at least some translations back
+                # Every requested node must be returned. Partial XML translations
+                # are unsafe because they otherwise look like successful files.
                 if not translated_batch:
                     raise ValueError("Could not extract any translations.")
-                    
-                # For any missing keys, fall back to the original
-                for k, v in batch.items():
-                    if k not in translated_batch:
-                        translated_batch[k] = v
+
+                missing_keys = sorted(set(batch) - set(translated_batch))
+                if missing_keys:
+                    raise ValueError(
+                        f"Model omitted {len(missing_keys)} XML node(s): "
+                        + ", ".join(missing_keys[:10])
+                    )
+                unchanged_keys = [
+                    key
+                    for key, source_text in batch.items()
+                    if self._is_unchanged_english_text(
+                        source_text, translated_batch.get(key, "")
+                    )
+                ]
+                if unchanged_keys:
+                    raise ValueError(
+                        "Model left English XML text unchanged for item(s): "
+                        + ", ".join(unchanged_keys[:10])
+                    )
                         
                 return translated_batch
             except Exception as e:
@@ -97,14 +127,13 @@ class XMLTranslationBot:
                 self._log(msg)
                 time.sleep(2)
                 
-        # If it fails completely, return original English batch so we don't crash
-        return batch
+        raise RuntimeError("Unable to translate XML batch after 3 attempts.")
 
     def translate_xml_content(self, xml_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None, page_title: str = "Unknown") -> str:
         if not self.client_ready:
-            msg = "[XMLBot] WARNING: No API key provided. Returning original content."
+            msg = "[XMLBot] ERROR: No API key provided."
             self._log(msg)
-            return xml_content
+            raise RuntimeError("XML translation cannot run because no API key is configured.")
 
         msg = "[XMLBot] Parsing XML safely with BeautifulSoup..."
         self._log(msg)

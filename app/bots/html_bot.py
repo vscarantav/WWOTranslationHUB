@@ -335,10 +335,10 @@ class HTMLTranslationBot:
 
     def translate_html_content(self, html_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None, page_title: str = "Unknown") -> str:
         if not self.client_ready:
-            msg = "[HTMLBot] WARNING: No API key provided. Returning original content."
+            msg = "[HTMLBot] ERROR: No API key provided."
             print(msg)
             self._log(msg)
-            return html_content
+            raise RuntimeError("HTML translation cannot run because no API key is configured.")
 
         # Protect URLs by swapping them with UUIDs
         soup = BeautifulSoup(html_content, 'html.parser')
@@ -381,6 +381,16 @@ class HTMLTranslationBot:
             for placeholder, original_url in url_map.items():
                 output = output.replace(placeholder, original_url)
 
+            source_visible_text = soup.get_text(" ", strip=True)
+            translated_visible_text = BeautifulSoup(output, "html.parser").get_text(
+                " ", strip=True
+            )
+            if self._is_unchanged_english_text(
+                source_visible_text,
+                translated_visible_text,
+            ):
+                raise ValueError("Gemini returned the HTML page unchanged in English.")
+
             # Strict whitespace normalization: replace non-breaking spaces and &nbsp; with regular spaces
             output = output.replace('\u00A0', ' ')
             output = output.replace('&nbsp;', ' ')
@@ -399,7 +409,7 @@ class HTMLTranslationBot:
             msg = f"[HTMLBot] Error during translation: {e}"
             print(msg)
             self._log(msg)
-            return html_content
+            raise RuntimeError(f"HTML translation failed: {e}") from e
 
     def process_file(self, filepath: str, relevant_glossary: dict = None) -> str:
         with open(filepath, "r", encoding="utf-8") as f:

@@ -1,9 +1,21 @@
 import os
 import json
+import re
 import google.generativeai as genai  # type: ignore
 
 
 class TextTranslationBot:
+    @staticmethod
+    def _is_unchanged_english_text(source: str, translated: str) -> bool:
+        if source.strip().casefold() != translated.strip().casefold():
+            return False
+        words = re.findall(r"[A-Za-z]+", source.casefold())
+        markers = {
+            "the", "and", "to", "of", "in", "is", "that", "for", "with",
+            "this", "you", "your", "from", "will", "are", "on", "as",
+        }
+        return len(words) >= 4 and any(word in markers for word in words)
+
     def __init__(self, api_key=None, target_language="PTBR", log_lock=None):
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if self.api_key:
@@ -59,10 +71,10 @@ class TextTranslationBot:
 
     def translate_txt_content(self, text_content: str, relevant_glossary: dict = None, relevant_scriptures: dict = None) -> str:
         if not self.client_ready:
-            msg = "[TextBot] WARNING: No Gemini API key provided. Returning original content."
+            msg = "[TextBot] ERROR: No Gemini API key provided."
             print(msg)
             self._log(msg)
-            return text_content
+            raise RuntimeError("Text translation cannot run because no API key is configured.")
 
         try:
             # We pass the system prompt along with the user content
@@ -88,6 +100,10 @@ class TextTranslationBot:
                 output = (response.text or "").strip()
                 if not output:
                     raise ValueError(f"Gemini returned an empty text chunk ({index}/{len(chunks)}).")
+                if self._is_unchanged_english_text(chunk, output):
+                    raise ValueError(
+                        f"Gemini returned text chunk {index}/{len(chunks)} unchanged in English."
+                    )
                 leading = chunk[:len(chunk) - len(chunk.lstrip())]
                 trailing = chunk[len(chunk.rstrip()):]
                 translated_chunks.append(f"{leading}{output}{trailing}")
@@ -100,7 +116,7 @@ class TextTranslationBot:
             msg = f"[TextBot] Error during translation: {e}"
             print(msg)
             self._log(msg)
-            return text_content
+            raise RuntimeError(f"Text translation failed: {e}") from e
 
     def process_file(self, filepath: str) -> str:
         with open(filepath, "r", encoding="utf-8") as f:

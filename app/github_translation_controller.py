@@ -15,7 +15,11 @@ from bots.image_bot import ImageProcessorBot
 from bots.markdown_bot import MarkdownTranslationBot
 from bots.scripturecheck_bot import ScriptureCheckBot
 from bots.txt_bot import TextTranslationBot
-from bots.variable_extraction import VariableAnalysisBot
+from bots.variable_extraction import (
+    VariableAnalysisBot,
+    VariableApplicationError,
+    VariableTranslator,
+)
 from bots.xml_bot import XMLTranslationBot
 from core.github_content_validator import GitHubContentValidator
 from core.github_naming_normalizer import GitHubNamingNormalizer
@@ -320,18 +324,30 @@ class GitHubTranslationController:
         published_site_url = self._published_site_url(destination_owner, destination_name)
         rows = []
         for item in settings:
-            provider = item.get("provider", "External service")
-            setting = item.get("setting", "Configuration")
-            value = item.get("value", "")
+            provider = APISettingsAnalysisBot._redact_secrets(
+                item.get("provider", "External service")
+            )
+            setting = APISettingsAnalysisBot._redact_secrets(
+                item.get("setting", "Configuration")
+            )
+            value = APISettingsAnalysisBot._safe_report_value(
+                setting, item.get("value", "")
+            )
             label = f"API Setting — {provider}: {setting}"
             if value:
                 label += f" = {value}"
-            source_file = str(item.get("source_file", "")).lstrip("/")
+            source_file = APISettingsAnalysisBot._redact_secrets(
+                item.get("source_file", "")
+            ).lstrip("/")
             resource_link = published_site_url.rstrip("/")
             if source_file:
                 resource_link += "/" + quote(source_file, safe="/")
-            context = item.get("context_summary", "")
-            page_title = item.get("page_title", "")
+            context = APISettingsAnalysisBot._redact_secrets(
+                item.get("context_summary", "")
+            )
+            page_title = APISettingsAnalysisBot._redact_secrets(
+                item.get("page_title", "")
+            )
             notes = f"API/service configuration on {page_title}: {context}".strip()
             rows.append({
                 "asset_path": label,
@@ -483,6 +499,7 @@ class GitHubTranslationController:
                 )
 
         variable_rows = []
+        pending_variable_rows = {}
         api_setting_rows = []
         variable_mapping = {}
         analyzable_items = [
@@ -501,9 +518,20 @@ class GitHubTranslationController:
                     item.relative_path,
                     variable_mapping,
                 )
-                variable_rows.extend(rows)
+                pending_variable_rows[item.relative_path] = rows
                 for row in rows:
-                    variable_mapping.setdefault(row["variable_en"], row["variable_pt"])
+                    original_identifier = row["variable_en"]
+                    translated_identifier = row["variable_pt"]
+                    existing_translation = variable_mapping.get(original_identifier)
+                    if (
+                        existing_translation is not None
+                        and existing_translation != translated_identifier
+                    ):
+                        raise VariableApplicationError(
+                            f"Inconsistent repository mapping for {original_identifier!r}: "
+                            f"{existing_translation!r} and {translated_identifier!r}."
+                        )
+                    variable_mapping.setdefault(original_identifier, translated_identifier)
             except Exception as error:
                 failures[item.relative_path] = f"Variable analysis failed: {error}"
                 self._log(f"[GitHub] Variable analysis failed for {item.relative_path}: {error}")
@@ -526,9 +554,101 @@ class GitHubTranslationController:
             finally:
                 analyzed_items += 1
                 self._progress(
-                    75 + (analyzed_items / max(1, len(analyzable_items))) * 10,
+                    75 + (analyzed_items / max(1, len(analyzable_items))) * 8,
                     f"Analyzed variables in {analyzed_items}/{len(analyzable_items)} files",
                 )
+
+        applicable_items = [
+            item
+            for item in translated_items
+            if item.relative_path not in failures
+        ]
+        try:
+            VariableTranslator.validate_mapping(variable_mapping)
+        except Exception as error:
+            failures["Variable mapping"] = f"Repository variable mapping failed: {error}"
+            self._log(f"[GitHub] Repository variable mapping failed: {error}")
+
+        expected_replacement_counts = {
+            original: 0
+            for original, translated in variable_mapping.items()
+            if original != translated
+        }
+        applied_replacement_counts = dict(expected_replacement_counts)
+        applied_items = 0
+        for item in applicable_items:
+            rows = pending_variable_rows.get(item.relative_path, [])
+            try:
+                if variable_mapping:
+                    target_path = translated_root / item.relative_path
+                    translated = target_path.read_text(encoding="utf-8", errors="strict")
+                    page_title, original, _ = successes[item.relative_path]
+                    _, expected_counts = VariableTranslator.apply(
+                        original, item.extension, variable_mapping
+                    )
+                    rewritten, replacement_counts = VariableTranslator.apply(
+                        translated, item.extension, variable_mapping
+                    )
+                    count_mismatches = [
+                        original_identifier
+                        for original_identifier in expected_counts
+                        if expected_counts.get(original_identifier, 0)
+                        != replacement_counts.get(original_identifier, 0)
+                    ]
+                    if count_mismatches:
+                        raise VariableApplicationError(
+                            "Identifier replacement counts differ from the English source for: "
+                            + ", ".join(sorted(count_mismatches, key=str.casefold))
+                        )
+                    validation_errors = self.validator.validate(
+                        original,
+                        rewritten,
+                        item.extension,
+                        variable_mapping=variable_mapping,
+                    )
+                    if validation_errors:
+                        raise VariableApplicationError(" ".join(validation_errors))
+                    target_path.write_text(rewritten, encoding="utf-8", newline="")
+                    successes[item.relative_path] = (page_title, original, rewritten)
+                    changed_count = sum(replacement_counts.values())
+                    for original_identifier, count in expected_counts.items():
+                        expected_replacement_counts[original_identifier] = (
+                            expected_replacement_counts.get(original_identifier, 0) + count
+                        )
+                    for original_identifier, count in replacement_counts.items():
+                        applied_replacement_counts[original_identifier] = (
+                            applied_replacement_counts.get(original_identifier, 0) + count
+                        )
+                    self._log(
+                        f"[GitHub] Applied {changed_count} Portuguese variable reference(s) "
+                        f"in {item.relative_path}."
+                    )
+                variable_rows.extend(rows)
+            except Exception as error:
+                failures[item.relative_path] = f"Variable application failed: {error}"
+                self._log(
+                    f"[GitHub] Variable application failed for {item.relative_path}: {error}"
+                )
+            finally:
+                applied_items += 1
+                self._progress(
+                    83 + (applied_items / max(1, len(applicable_items))) * 4,
+                    f"Applied variables in {applied_items}/{len(applicable_items)} files",
+                )
+
+        repository_count_mismatches = [
+            original_identifier
+            for original_identifier in expected_replacement_counts
+            if expected_replacement_counts.get(original_identifier, 0)
+            != applied_replacement_counts.get(original_identifier, 0)
+        ]
+        if repository_count_mismatches:
+            detail = (
+                "Repository-wide identifier replacement counts differ for: "
+                + ", ".join(sorted(repository_count_mismatches, key=str.casefold))
+            )
+            failures["Variable mapping"] = detail
+            self._log(f"[GitHub] {detail}")
 
         self._progress(87, "Validating translated repository")
         tree_errors = self.validator.validate_tree(source_root, translated_root, manifest)
@@ -576,6 +696,13 @@ class GitHubTranslationController:
                 "type": "Validation",
                 "status": "Failed",
                 "notes": failures["Repository validation"],
+            })
+        if "Variable mapping" in failures:
+            review_rows.append({
+                "page_name": "Variable mapping",
+                "type": "Validation",
+                "status": "Failed",
+                "notes": failures["Variable mapping"],
             })
 
         report_path = self.report_generator.generate(

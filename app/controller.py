@@ -71,9 +71,8 @@ class TranslationController:
         self._gemini_translation_pages_lock = threading.Lock()
         self.app_dir = os.path.dirname(os.path.abspath(__file__))
         self.hub_dir = os.path.dirname(self.app_dir)
-        self._clear_logs()
-        
         self.instructions = self._load_instructions()
+        self._clear_logs()
         
         self.log_lock = threading.Lock()
         
@@ -243,24 +242,41 @@ class TranslationController:
         )
 
     def _load_instructions(self) -> dict:
-        filepath = os.path.join(self.app_dir, "Course_Translation_Hub_ArchitectureAndInstructions.json")
-        if os.path.exists(filepath):
-            with open(filepath, "r", encoding="utf-8") as f:
-                return json.load(f)
-        print("[Controller] WARNING: Instructions JSON not found.")
-        return {}
+        filenames = (
+            "App_Architecture.json",
+            # Backward-compatible fallback for workspaces created before the rename.
+            "Course_Translation_Hub_ArchitectureAndInstructions.json",
+        )
+        for filename in filenames:
+            filepath = os.path.join(self.app_dir, filename)
+            if os.path.exists(filepath):
+                with open(filepath, "r", encoding="utf-8") as f:
+                    return json.load(f)
+        raise FileNotFoundError(
+            "Translation instructions are required, but neither "
+            "App_Architecture.json nor its legacy filename was found in the app directory."
+        )
 
     def _apply_custom_prompts(self):
-        try:
-            prompts = self.instructions.get("bot_instructions", {}).get("agent_prompts", {})
-            for ext, bot_key in [("html", "HTMLTranslationAgent"), ("xml", "XMLTranslationAgent"), ("qti", "QTITranslationAgent"), ("txt", "TextTranslationAgent")]:
-                prompt_key = f"{bot_key}_{self.target_language}"
-                if prompt_key in prompts:
-                    self.bots[ext].set_system_prompt(prompts[prompt_key])
-                else:
-                    print(f"[Controller] WARNING: No custom prompt found for '{prompt_key}'. Bot '{ext}' will use its default prompt.")
-        except Exception as e:
-            print(f"[Controller] Error applying custom prompts: {e}")
+        prompts = self.instructions.get("bot_instructions", {}).get("agent_prompts", {})
+        missing = []
+        for ext, bot_key in [
+            ("html", "HTMLTranslationAgent"),
+            ("xml", "XMLTranslationAgent"),
+            ("qti", "QTITranslationAgent"),
+            ("txt", "TextTranslationAgent"),
+        ]:
+            prompt_key = f"{bot_key}_{self.target_language}"
+            prompt = prompts.get(prompt_key)
+            if not prompt:
+                missing.append(prompt_key)
+                continue
+            self.bots[ext].set_system_prompt(prompt)
+        if missing:
+            raise RuntimeError(
+                "Required translation prompts are missing from App_Architecture.json: "
+                + ", ".join(missing)
+            )
 
     def process_directory(self):
         msg = f"Starting batch processing for directory: {self.workspace.output_dir}"
@@ -710,6 +726,13 @@ class TranslationController:
                 with open(target_filepath, "w", encoding="utf-8") as f:
                     f.write(translated_content)
                 self._log("Translation complete for this file.")
+                translated_page_title = self._extract_page_title(translated_content, ext)
+                if not translated_page_title:
+                    translated_page_title = os.path.splitext(os.path.basename(filepath))[0]
+                self._log(
+                    f"[System] TranslatedPage: {translated_page_title} | "
+                    f"{target_filepath}"
+                )
                 return
             
         is_setup_notes = "setup-notes" in target_filepath.lower()
@@ -831,6 +854,11 @@ class TranslationController:
                 with track_successful_gemini_calls(mark_gemini_call_succeeded):
                     translated_content = bot.translate_html_content(original_content, relevant_glossary, relevant_scriptures, page_title)
 
+        if gemini_call_succeeded and translated_content == original_content:
+            raise RuntimeError(
+                f"Translation for {filepath} returned the source content unchanged."
+            )
+
         title_corrected_content = self._enforce_teaching_notes_title(translated_content)
         if title_corrected_content != translated_content:
             self._log(f"[Controller] Enforced translated Teaching Notes title in {os.path.basename(filepath)}")
@@ -845,18 +873,25 @@ class TranslationController:
                 )
             except Exception as e:
                 self._log(
-                    "[Controller] Warning: Could not enforce Teaching Notes "
+                    "[Controller] Error: Could not enforce Teaching Notes "
                     f"accordion rules: {e}"
                 )
+                raise RuntimeError(
+                    f"Teaching Notes accordion enforcement failed for {filepath}: {e}"
+                ) from e
 
         translated_content = self.link_processor.rewrite_church_links(translated_content)
         
         # Validation Check
-        if not translated_content or len(translated_content) < len(original_content) * 0.2:
+        original_size = len(original_content.encode("utf-8"))
+        translated_size = len(translated_content.encode("utf-8")) if translated_content else 0
+        if not translated_content or translated_size < original_size * 0.2:
             self._log(f"[System] Error: Translation for {filepath} returned empty or dangerously short content. Restoring original.")
             with open(target_filepath, "w", encoding="utf-8") as f:
                 f.write(original_content)
-            return
+            raise RuntimeError(
+                f"Translation for {filepath} returned empty or dangerously short content."
+            )
             
         if ext in ["html", "xml", "qti"]:
             try:
@@ -866,7 +901,9 @@ class TranslationController:
                 self._log(f"[System] Error: Translation for {filepath} produced invalid markup: {e}. Restoring original.")
                 with open(target_filepath, "w", encoding="utf-8") as f:
                     f.write(original_content)
-                return
+                raise RuntimeError(
+                    f"Translation for {filepath} produced invalid markup: {e}"
+                ) from e
                 
         self._log(f"Saving translated content to {target_filepath}")
         with open(target_filepath, "w", encoding="utf-8") as f:

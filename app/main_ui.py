@@ -476,6 +476,14 @@ class CourseTranslationHubUI:
         self.audit_frame = ttk.LabelFrame(self.top_frame, text="Quality Assurance Audit", padding="10")
         self.audit_frame.pack(fill="x", pady=10)
 
+        self.audit_lang_var = tk.StringVar(value="PTBR")
+        ttk.Radiobutton(
+            self.audit_frame, text="Portuguese (PTBR)", variable=self.audit_lang_var, value="PTBR"
+        ).pack(side="left", padx=10)
+        ttk.Radiobutton(
+            self.audit_frame, text="Spanish (SPA)", variable=self.audit_lang_var, value="SPA"
+        ).pack(side="left", padx=10)
+
         self.audit_btn = ttk.Button(self.audit_frame, text="Select Courses & Audit", command=self.run_audit)
         self.audit_btn.pack(side="right", padx=10)
 
@@ -1293,7 +1301,11 @@ class CourseTranslationHubUI:
                 en_workspace_path = self._copy_to_workspace(en_imscc, "Courses to Audit")
                 pt_workspace_path = self._copy_to_workspace(pt_imscc, "Courses to Audit")
                 
-                auditor = CourseAuditor(en_workspace_path, pt_workspace_path)
+                auditor = CourseAuditor(
+                    en_workspace_path,
+                    pt_workspace_path,
+                    target_language=self.audit_lang_var.get(),
+                )
                 auditor.run_audit()
                 self.progress['value'] = 100
                 print("\n=== Audit Completed Successfully! ===")

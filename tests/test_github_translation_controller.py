@@ -39,6 +39,10 @@ class _RepositoryManager:
             "# Student name\n\nUse this lesson.\n\n```python\nstudent_name = input()\n```\n",
             encoding="utf-8",
         )
+        (destination / "docs" / "reference.md").write_text(
+            "# Reference\n\n```python\nprint(student_name)\n```\n",
+            encoding="utf-8",
+        )
         (destination / "unused").mkdir()
         (destination / "unused" / "archive.md").write_text(
             "# This archived source must not be translated.\n",
@@ -69,6 +73,8 @@ class _Markdown:
 
 class _Variables:
     def analyze(self, content, extension, page_title, source_file, mapping):
+        if "student_name =" not in content:
+            return []
         return [{
             "page_title": page_title,
             "context_summary": "Student input variable",
@@ -154,8 +160,13 @@ class GitHubTranslationControllerTests(unittest.TestCase):
         self.assertFalse((translated / "unused").exists())
         output = (translated / "README.md").read_text(encoding="utf-8")
         self.assertIn("Nome do aluno", output)
-        self.assertIn("student_name = input()", output)
+        self.assertIn("nome_aluno = input()", output)
+        self.assertNotIn("student_name = input()", output)
+        reference_output = (translated / "reference.md").read_text(encoding="utf-8")
+        self.assertIn("print(nome_aluno)", reference_output)
+        self.assertNotIn("print(student_name)", reference_output)
         self.assertEqual(report.calls[0][2][0]["variable_en"], "student_name")
+        self.assertEqual(report.calls[0][2][0]["variable_pt"], "nome_aluno")
         api_setting = report.calls[0][3][0]
         self.assertEqual(
             api_setting["asset_path"],
@@ -222,3 +233,26 @@ class GitHubTranslationControllerTests(unittest.TestCase):
 
         self.assertTrue(GitHubTranslationController._exclude_asset_from_report(logo))
         self.assertFalse(GitHubTranslationController._exclude_asset_from_report(course_image))
+
+    def test_api_report_rows_redact_credentials_defensively(self):
+        secret = "unstructured-secret-value"
+        token = "ghp_1234567890abcdefghijklmnop"
+        controller = GitHubTranslationController.__new__(GitHubTranslationController)
+
+        rows = controller._api_setting_rows(
+            [{
+                "page_title": "Deployment",
+                "source_file": "deploy.md",
+                "provider": "GitHub",
+                "setting": "API token",
+                "value": secret,
+                "context_summary": f"Use {token} for deployment.",
+            }],
+            "personal-user",
+            "course-test1-pt",
+        )
+
+        serialized = repr(rows)
+        self.assertNotIn(secret, serialized)
+        self.assertNotIn(token, serialized)
+        self.assertIn("[REDACTED]", serialized)

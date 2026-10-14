@@ -8,7 +8,7 @@ from tqdm import tqdm
 from bots.qa_audit_bot import QAAuditBot
 
 class CourseAuditor:
-    def __init__(self, english_imscc, translated_imscc):
+    def __init__(self, english_imscc, translated_imscc, target_language=None):
         self.english_imscc = english_imscc
         self.translated_imscc = translated_imscc
         self.app_dir = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +19,25 @@ class CourseAuditor:
         self.pt_dir = os.path.join(self.audit_dir, "temp_pt")
         
         # Use flash as requested
-        self.bot = QAAuditBot(model_name="gemini-3.5-flash")
+        self.target_language = (
+            target_language or self._infer_target_language(translated_imscc)
+        ).upper()
+        self.target_suffix = "SPA" if self.target_language == "SPA" else "PT"
+        self.language_name = "Spanish" if self.target_language == "SPA" else "Portuguese"
+        self.bot = QAAuditBot(
+            model_name="gemini-3.5-flash",
+            target_language=self.target_language,
+        )
+
+    @staticmethod
+    def _infer_target_language(filepath):
+        filename = os.path.basename(str(filepath)).casefold()
+        if any(
+            marker in filename
+            for marker in ("_spa", "-spa", "_es", "-es", "spanish", "espanol", "español")
+        ):
+            return "SPA"
+        return "PTBR"
         
     def _extract_imscc(self, path, dest):
         if os.path.exists(dest):
@@ -149,7 +167,7 @@ class CourseAuditor:
         content_report = []
         
         # Match using Manifest IDs + Fallback to relative path
-        matched_pairs = [] # (en_rel_path, pt_rel_path, method)
+        matched_pairs = []  # (English path, translated path, match method)
         processed_en = set()
         processed_pt = set()
         
@@ -183,7 +201,10 @@ class CourseAuditor:
                 unmatched_pt_titles[pt_rel_path] = pt_titles.get(pt_rel_path) or self._get_file_title(pt_files[pt_rel_path])
                 
         if unmatched_en_titles and unmatched_pt_titles:
-            print(f"  [AI] Pairing {len(unmatched_en_titles)} unmatched EN files with {len(unmatched_pt_titles)} PT files...")
+            print(
+                f"  [AI] Pairing {len(unmatched_en_titles)} unmatched EN files with "
+                f"{len(unmatched_pt_titles)} {self.target_language} files..."
+            )
             paired_files = self.bot.pair_unmatched_files(unmatched_en_titles, unmatched_pt_titles)
             for en_rel, pt_rel in paired_files.items():
                 if en_rel in unmatched_en_titles and pt_rel in unmatched_pt_titles:
@@ -197,10 +218,12 @@ class CourseAuditor:
                 matched_pairs.append((en_rel_path, None, "Unmatched (EN only)"))
                 processed_en.add(en_rel_path)
                     
-        # 5. Add remaining PT files as Extra
+        # 5. Add remaining translated files as Extra
         for pt_rel_path in pt_files.keys():
             if pt_rel_path not in processed_pt:
-                matched_pairs.append((None, pt_rel_path, "Unmatched (PT only)"))
+                matched_pairs.append(
+                    (None, pt_rel_path, f"Unmatched ({self.target_language} only)")
+                )
                 processed_pt.add(pt_rel_path)
                 
         print(f"Auditing {len(matched_pairs)} files...")
@@ -227,7 +250,7 @@ class CourseAuditor:
                 
             page_report.append({
                 "Page Name (EN)": en_title,
-                "Page Name (PT)": pt_title,
+                f"Page Name ({self.target_suffix})": pt_title,
                 "English Exists": "Yes" if en_exists else "No",
                 "Translated Exists": "Yes" if pt_exists else "No",
                 "Status": status
@@ -261,7 +284,7 @@ class CourseAuditor:
                     for disc in discrepancies:
                         ordered_disc = {
                             "Page Name (EN)": en_title, 
-                            "Page Name (PT)": pt_title
+                            f"Page Name ({self.target_suffix})": pt_title
                         }
                         for k, v in disc.items():
                             ordered_disc[k] = self._clean_text(v)
@@ -281,7 +304,7 @@ class CourseAuditor:
         print(f"\nSaving reports to {out_path}...")
         
         df_page = pd.DataFrame(page_report)
-        df_content = pd.DataFrame(content_report) if content_report else pd.DataFrame([{"Message": "Comparison complete: The Portuguese translation perfectly matches the English canon."}])
+        df_content = pd.DataFrame(content_report) if content_report else pd.DataFrame([{"Message": f"Comparison complete: The {self.language_name} translation perfectly matches the English canon."}])
         df_links = pd.DataFrame(links_report) if links_report else pd.DataFrame([{"Message": "Comparison complete: No link discrepancies found."}])
         
         with pd.ExcelWriter(out_path, engine='xlsxwriter') as writer:
@@ -337,7 +360,7 @@ class CourseAuditor:
         for url in missing_urls:
             links_report.append({
                 "Page Name (EN)": en_title,
-                "Page Name (PT)": pt_title,
+                f"Page Name ({self.target_suffix})": pt_title,
                 "URL": url,
                 "Issue": "Missing in Translated"
             })
@@ -345,7 +368,7 @@ class CourseAuditor:
         for url in extra_urls:
             links_report.append({
                 "Page Name (EN)": en_title,
-                "Page Name (PT)": pt_title,
+                f"Page Name ({self.target_suffix})": pt_title,
                 "URL": url,
                 "Issue": "Extra in Translated"
             })
@@ -354,6 +377,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Course Translation Auditor")
     parser.add_argument("--en", help="Path to English IMSCC")
     parser.add_argument("--pt", help="Path to Translated IMSCC")
+    parser.add_argument("--lang", choices=["PTBR", "SPA"], help="Translated course language")
     args = parser.parse_args()
     
     app_dir = os.path.dirname(os.path.abspath(__file__))
@@ -372,7 +396,10 @@ if __name__ == "__main__":
         imsccs = [f for f in os.listdir(audit_dir) if f.endswith('.imscc')]
         if len(imsccs) == 2:
             # Assume one is PT or ES
-            if 'PTBR' in imsccs[0] or 'ES' in imsccs[0] or 'translated' in imsccs[0].lower():
+            if any(
+                marker in imsccs[0].casefold()
+                for marker in ('ptbr', 'spa', '_es', '-es', 'translated', 'traduzido', 'traducido')
+            ):
                 pt_imscc = os.path.join(audit_dir, imsccs[0])
                 en_imscc = os.path.join(audit_dir, imsccs[1])
             else:
@@ -391,5 +418,5 @@ if __name__ == "__main__":
         print(f"Error: {pt_imscc} not found.")
         exit(1)
                 
-    auditor = CourseAuditor(en_imscc, pt_imscc)
+    auditor = CourseAuditor(en_imscc, pt_imscc, target_language=args.lang)
     auditor.run_audit()

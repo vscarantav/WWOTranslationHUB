@@ -70,3 +70,33 @@ class APISettingsAnalysisBotTests(unittest.TestCase):
         )
         self.assertEqual(rows, [])
         self.assertEqual(model.prompts, [])
+
+    def test_redacts_secrets_before_model_submission_and_reporting(self):
+        secret = "ghp_1234567890abcdefghijklmnop"
+        model = _SettingsModel({
+            "api_settings": [{
+                "provider": "GitHub",
+                "setting": "API token",
+                "value": secret,
+                "context_summary_pt": f"Use o token {secret} no painel.",
+            }]
+        })
+
+        rows = APISettingsAnalysisBot(model=model).analyze(
+            f"Set API_TOKEN={secret} in the environment.",
+            ".md",
+            "Deployment",
+            "deploy.md",
+        )
+
+        self.assertNotIn(secret, model.prompts[0])
+        self.assertEqual(rows[0]["value"], "[REDACTED]")
+        self.assertNotIn(secret, rows[0]["context_summary"])
+        self.assertIn("[REDACTED]", rows[0]["context_summary"])
+
+    def test_redacts_natural_language_password_assignments(self):
+        redacted = APISettingsAnalysisBot._redact_secrets(
+            "The deployment password is correct-horse-battery-staple."
+        )
+        self.assertNotIn("correct-horse-battery-staple", redacted)
+        self.assertIn("password is [REDACTED]", redacted)

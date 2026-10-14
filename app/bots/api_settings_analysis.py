@@ -17,6 +17,33 @@ class APISettingsAnalysisBot:
         r"start command|deployment settings?|render\.com|web service|static site)",
         flags=re.IGNORECASE,
     )
+    SENSITIVE_NAME_PATTERN = re.compile(
+        r"(?:password|passwd|secret|token|api[_ -]?key|private[_ -]?key|credential)",
+        flags=re.IGNORECASE,
+    )
+    SECRET_ASSIGNMENT_PATTERN = re.compile(
+        r"(?P<prefix>\b(?:[A-Za-z_][A-Za-z0-9_.-]*[_.-])?"
+        r"(?:password|passwd|secret|token|api[_-]?key|private[_-]?key|credential)"
+        r"[A-Za-z0-9_.-]*(?:\s*[:=]\s*|\s+is\s+))"
+        r"(?P<quote>['\"]?)(?P<value>[^\s'\"<>;,]+)(?P=quote)",
+        flags=re.IGNORECASE,
+    )
+    SECRET_VALUE_PATTERNS = (
+        re.compile(
+            r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----.*?"
+            r"-----END (?:RSA |EC |OPENSSH )?PRIVATE KEY-----",
+            flags=re.DOTALL,
+        ),
+        re.compile(r"\bghp_[A-Za-z0-9]{20,}\b"),
+        re.compile(r"\bgithub_pat_[A-Za-z0-9_]{20,}\b"),
+        re.compile(r"\bsk-[A-Za-z0-9_-]{16,}\b"),
+        re.compile(r"\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,}\b"),
+        re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{16,}\b"),
+        re.compile(r"\bAKIA[A-Z0-9]{16}\b"),
+        re.compile(r"\bAIza[A-Za-z0-9_-]{20,}\b"),
+        re.compile(r"\beyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\b"),
+        re.compile(r"(?i)(?:token|api[_-]?key|secret|password)=([^&\s]+)"),
+    )
 
     def __init__(self, api_key=None, target_language="PTBR", log_func=print, model=None):
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
@@ -50,13 +77,49 @@ class APISettingsAnalysisBot:
     def is_candidate(cls, content: str, extension: str) -> bool:
         return bool(cls.CANDIDATE_PATTERN.search(cls._analysis_text(content, extension)))
 
+    @classmethod
+    def _redact_secrets(cls, text: str) -> str:
+        """Remove credential values before model submission or report creation."""
+        redacted = cls.SECRET_ASSIGNMENT_PATTERN.sub(
+            lambda match: f"{match.group('prefix')}[REDACTED]",
+            str(text or ""),
+        )
+        for pattern in cls.SECRET_VALUE_PATTERNS:
+            redacted = pattern.sub(
+                lambda match: (
+                    match.group(0).split("=", 1)[0] + "=[REDACTED]"
+                    if "=" in match.group(0)
+                    else "[REDACTED]"
+                ),
+                redacted,
+            )
+        return redacted
+
+    @classmethod
+    def _safe_report_value(cls, setting: str, value: str) -> str:
+        value = cls._redact_secrets(value).strip()
+        if not value:
+            return ""
+        if cls.SENSITIVE_NAME_PATTERN.search(setting):
+            # Environment-variable and field names are safe metadata, but their
+            # assigned values never belong in a translation report.
+            if re.fullmatch(r"\$?\{?[A-Z][A-Z0-9_]+\}?", value):
+                return value
+            return "[REDACTED]"
+        if "[REDACTED]" in value:
+            return "[REDACTED]"
+        return value
+
     def analyze(self, content: str, extension: str, page_title: str, source_file: str):
-        analysis_text = self._analysis_text(content, extension)
-        if not self.CANDIDATE_PATTERN.search(analysis_text):
+        source_analysis_text = self._analysis_text(content, extension)
+        if not self.CANDIDATE_PATTERN.search(source_analysis_text):
             return []
         if not self.client_ready:
             raise RuntimeError("API settings analysis cannot run because GEMINI_API_KEY is missing.")
 
+        analysis_text = self._redact_secrets(source_analysis_text)
+        safe_page_title = self._redact_secrets(page_title)
+        safe_source_file = self._redact_secrets(source_file)
         prompt = (
             "You audit software-development course pages for actionable API, deployment, and "
             "external-service configuration settings. Identify settings a translator or course "
@@ -74,7 +137,8 @@ class APISettingsAnalysisBot:
             "return an actual password, secret, token, private key, or credential value; report "
             "only its variable/field name and an instruction such as 'copiar do .env'. Return an "
             "empty array when the page has no actionable settings.\n\n"
-            f"PAGE TITLE: {page_title}\nSOURCE FILE: {source_file}\nCONTENT:\n{analysis_text}"
+            f"PAGE TITLE: {safe_page_title}\nSOURCE FILE: {safe_source_file}\n"
+            f"CONTENT:\n{analysis_text}"
         )
 
         last_error = None
@@ -89,10 +153,14 @@ class APISettingsAnalysisBot:
                 rows = []
                 seen = set()
                 for item in settings:
-                    provider = str(item.get("provider", "")).strip()
-                    setting = str(item.get("setting", "")).strip()
-                    value = str(item.get("value", "")).strip()
-                    context = str(item.get("context_summary_pt", "")).strip()
+                    provider = self._redact_secrets(str(item.get("provider", ""))).strip()
+                    setting = self._redact_secrets(str(item.get("setting", ""))).strip()
+                    value = self._safe_report_value(
+                        setting, str(item.get("value", "")).strip()
+                    )
+                    context = self._redact_secrets(
+                        str(item.get("context_summary_pt", ""))
+                    ).strip()
                     if not provider or not setting or not context:
                         continue
                     key = (provider.casefold(), setting.casefold(), value.casefold())
@@ -100,8 +168,8 @@ class APISettingsAnalysisBot:
                         continue
                     seen.add(key)
                     rows.append({
-                        "page_title": page_title,
-                        "source_file": source_file,
+                        "page_title": safe_page_title,
+                        "source_file": safe_source_file,
                         "provider": provider,
                         "setting": setting,
                         "value": value,
