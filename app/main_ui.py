@@ -944,7 +944,8 @@ class CourseTranslationHubUI:
         for p in imscc_paths:
             print(f"Preparing {os.path.basename(p)} for translation...")
             temp_workspace = WorkspaceManager(lang, self.hub_dir, imscc_path=p)
-            temp_workspace.setup_workspace("temp")
+            # Read metadata directly from the selected archive. Creating the
+            # translation workspace here could reuse or disturb an older run.
             temp_workspace.extract_course_info(lambda x: None)
             
             source_course_id = getattr(temp_workspace, 'source_course_id', None)
@@ -972,12 +973,22 @@ class CourseTranslationHubUI:
 
                 entered_source_id = match.group(1)
                 if source_course_id and entered_source_id != source_course_id:
-                    messagebox.showerror(
-                        "Validation Failed",
-                        f"The URL provided does not match the internal Source ID of this package "
-                        f"({source_course_id}). Please try again."
+                    source_description = (
+                        "the package export metadata"
+                        if getattr(temp_workspace, 'source_course_id_source', None) == 'context.xml'
+                        else "the package's consistent embedded endpoints"
                     )
-                    continue
+                    use_entered_url = messagebox.askyesno(
+                        "Course ID Mismatch",
+                        f"This package identifies course {source_course_id} in {source_description}, "
+                        f"but the URL points to course {entered_source_id}.\n\n"
+                        "This can be legitimate if the package was copied or moved between Canvas "
+                        "courses. Group migration will read from the course in the URL.\n\n"
+                        f"Use course {entered_source_id} anyway?",
+                        parent=self.root,
+                    )
+                    if not use_entered_url:
+                        continue
 
                 source_course_id = entered_source_id
                 break
