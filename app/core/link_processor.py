@@ -125,6 +125,7 @@ class LinkProcessor:
 
             if clean_url in mapping and mapping[clean_url].get(self.target_language):
                 pt_link = mapping[clean_url][self.target_language]
+                _log_func(f"[LinkBot] MappedLink: {display_name},{clean_url},{pt_link}")
                 return html.escape(pt_link) if is_escaped else pt_link
                 
             # Check if this URL is already a translated value
@@ -158,6 +159,7 @@ class LinkProcessor:
                         mapping[clean_url] = {"PTBR": "", "SPA": ""}
                     mapping[clean_url][self.target_language] = pt_link
                     save_mapping()
+                    _log_func(f"[LinkBot] MappedLink: {display_name},{clean_url},{pt_link}")
                     
                     if comment:
                         _log_func(f"[LinkBot] CommentedLink: {display_name},{clean_url},{comment}")
@@ -199,12 +201,15 @@ class LinkProcessor:
                             return f'<url>{check_and_prompt(match.group(1), filepath, page_title)}</url>'
                         new_content = re.sub(r'<url>([^<]+)</url>', xml_url_replacer, new_content)
                     
-                    # Prevent double processing: collect href and url tag contents
+                    # Prevent double processing: collect the current href and URL
+                    # tag contents after their targeted replacement passes. Using
+                    # the original content here caused rewritten links to be seen
+                    # as new bare URLs and prompted for a second time.
                     already_processed = set()
-                    for m in re.finditer(r'href=(["\'])([^"\']+)\1', content):
+                    for m in re.finditer(r'href=(["\'])([^"\']+)\1', new_content):
                         already_processed.add(m.group(2))
                     if ext == 'xml' or ext == 'qti':
-                        for m in re.finditer(r'<url>([^<]+)</url>', content):
+                        for m in re.finditer(r'<url>([^<]+)</url>', new_content):
                             already_processed.add(m.group(1))
                     
                     def universal_replacer(match):

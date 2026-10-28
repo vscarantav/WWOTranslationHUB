@@ -165,6 +165,14 @@ class DashboardGenerator:
                                 entry['File Name'] = parts[0]
                                 entry['Message'] = f"{parts[1]} | {parts[2]}"
                             entry['Status'] = 'Success'
+                        elif message.startswith('MappedLink: '):
+                            entry['Event Type'] = 'Mapped Link'
+                            entry['Bot'] = 'LinkBot'
+                            parts = message.replace('MappedLink: ', '').split(',', 2)
+                            if len(parts) == 3:
+                                entry['File Name'] = parts[0]
+                                entry['Message'] = f"{parts[1]} | {parts[2]}"
+                            entry['Status'] = 'Success'
                         elif message.startswith('CommentedLink: ') or message.startswith('SkippedLinkWithComment: '):
                             entry['Event Type'] = 'Commented Link'
                             entry['Bot'] = 'LinkBot'
@@ -472,7 +480,7 @@ class DashboardGenerator:
             review_sheet.autofilter(0, 0, last_review_row, 4)
 
         # SHEET 6: Link Actions (Consolidated)
-        action_links_df = df[df['Event Type'].isin(['Google Link Stripped', 'Skipped Link', 'Commented Link', 'Obsolete Link'])].copy()
+        action_links_df = df[df['Event Type'].isin(['Mapped Link', 'Google Link Stripped', 'Skipped Link', 'Commented Link', 'Obsolete Link'])].copy()
         
         if not action_links_df.empty:
             action_sheet = workbook.add_worksheet('Link Actions')
@@ -498,11 +506,12 @@ class DashboardGenerator:
                 clean_url = ""
                 notes = ""
                 
-                if event_type == 'Google Link Stripped':
+                if event_type in ['Mapped Link', 'Google Link Stripped']:
                     parts = msg_val.split(' | ', 1)
                     orig_url = parts[0] if len(parts) > 0 else ""
                     clean_url = parts[1] if len(parts) > 1 else ""
-                    notes = "FIX EN Course"
+                    if event_type == 'Google Link Stripped':
+                        notes = "FIX EN Course"
                 elif event_type == 'Skipped Link':
                     orig_url = msg_val
                 elif event_type in ['Commented Link', 'Obsolete Link']:

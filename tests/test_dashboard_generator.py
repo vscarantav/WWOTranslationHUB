@@ -15,6 +15,40 @@ from core.dashboard_generator import DashboardGenerator
 
 
 class DashboardGeneratorReviewSheetTests(unittest.TestCase):
+    def test_mapped_links_are_included_in_link_actions(self):
+        hub_dir = Path.cwd() / "tests" / f"_dashboard_test_{uuid.uuid4().hex}"
+        hub_dir.mkdir(parents=True)
+        try:
+            log_path = hub_dir / "translation_log.txt"
+            log_path.write_text(
+                "\n".join([
+                    "--- New Session (Target: PTBR) ---",
+                    "[2026-09-18 10:00:00] [System] CourseInfo: Demo Course|DEMO101",
+                    "[2026-09-18 10:00:01] [LinkBot] MappedLink: Welcome (page.html),https://example.com/en,https://example.com/pt",
+                ]),
+                encoding="utf-8",
+            )
+
+            report_path = DashboardGenerator(
+                str(log_path), str(hub_dir), "PTBR"
+            ).generate(lambda _message: None)
+
+            workbook = load_workbook(report_path)
+            self.assertIn("Link Actions", workbook.sheetnames)
+            sheet = workbook["Link Actions"]
+            self.assertEqual(
+                [sheet.cell(row=2, column=column).value for column in range(1, 6)],
+                [
+                    "Mapped Link",
+                    "Welcome (page.html)",
+                    "https://example.com/en",
+                    "https://example.com/pt",
+                    None,
+                ],
+            )
+        finally:
+            shutil.rmtree(hub_dir, ignore_errors=True)
+
     def test_report_identity_can_be_overridden_for_edtech(self):
         hub_dir = Path.cwd() / "tests" / f"_dashboard_test_{uuid.uuid4().hex}"
         hub_dir.mkdir(parents=True)
