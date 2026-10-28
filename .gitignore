@@ -27,6 +27,7 @@ __pycache__/
 *.zip
 
 # Extracted course folders
+Courses to Translate/
 *-export/
 *-export_PTBR/
 
