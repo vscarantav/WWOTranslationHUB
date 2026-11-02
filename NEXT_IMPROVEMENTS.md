@@ -10,6 +10,7 @@ This is the single source of truth for planned improvements that are not yet com
 - [ ] Implement localized image-file translation for JPG, PNG, GIF, and SVG assets; inline alt-text translation already exists.
 - [ ] Preserve every question bank's English name exactly as it appears in the original export package.
 - [ ] Add an interactive recovery flow when an XML/QTI file still fails after three translation attempts (for example, `Unable to translate XML batch after 3 attempts`). Do not terminate the translation run or immediately abandon IMSCC creation. Show the failed file and error, prompt the user to translate or correct that file manually, and then offer an option to validate the corrected file and continue the remaining translation and packaging workflow.
+- [ ] Add a safe multi-computer auto-update flow controlled by the public master Git repository. Provide an `Update Translation HUB` interface button (no separate batch file) that pulls `main`, shows update status in the HUB, and automatically restarts the application after a successful update. Send newly added links to the shared mapping database immediately after the user completes the link-mapping flow. When one English link has conflicting Portuguese links, show every candidate in that flow with a copy button and single-select checkbox, require exactly one selection, and permanently save the selected link as the correct mapping without losing unrelated mappings.
 
 ## Needs user details before implementation
 
