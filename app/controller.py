@@ -23,6 +23,7 @@ from bots.api_utils import track_successful_gemini_calls
 from core.workspace_manager import WorkspaceManager
 from core.link_processor import LinkProcessor
 from core.dashboard_generator import DashboardGenerator
+from core.canvas_assignment_template import W07AssignmentTemplateInstaller
 
 class TranslationController:
     ATTENTION_PAGE_FILENAME = "attention-messaging-instructors-and-graders.html"
@@ -69,6 +70,8 @@ class TranslationController:
         self._attention_page_present = False
         self._gemini_translation_pages = {}
         self._gemini_translation_pages_lock = threading.Lock()
+        self._w07_template_installation = None
+        self._w07_template_paths = set()
         self.app_dir = os.path.dirname(os.path.abspath(__file__))
         self.hub_dir = os.path.dirname(self.app_dir)
         self.instructions = self._load_instructions()
@@ -100,6 +103,7 @@ class TranslationController:
         self._apply_custom_prompts()
             
         self.link_processor = LinkProcessor(self.target_language, self.app_dir, [], self.link_prompt_callback)
+        self.w07_template_installer = W07AssignmentTemplateInstaller()
 
     def _clear_logs(self):
         log_files = ["translation_log.txt"]
@@ -287,11 +291,13 @@ class TranslationController:
         # imsmanifest.xml is one of the translated files, so modifying it from
         # the attention-page worker would create a write race.
         self._prepare_attention_messaging_package()
+        self._prepare_w07_template_assignment()
 
         self.filepaths = self.workspace.collect_files(self._log)
         self.link_processor.filepaths = self.filepaths
         self.link_processor.pre_process_links(self._log)
         self.translate_files()
+        self._enforce_w07_template_references()
         self.workspace.compress_to_imscc(self._log)
         
 
@@ -352,6 +358,44 @@ class TranslationController:
     def _is_teaching_notes_page(self, filepath: str) -> bool:
         filename = os.path.basename(filepath).lower()
         return filename.endswith(".html") and "teaching-notes" in filename
+
+    def _prepare_w07_template_assignment(self):
+        if self.target_language != "PTBR":
+            return
+
+        self._log(
+            "[Controller] Fetching the approved W07 Portuguese assignment "
+            "from Canvas template course 11564, assignment 816997."
+        )
+        installation = self.w07_template_installer.install(
+            self.workspace.output_dir
+        )
+        self._w07_template_installation = installation
+        self._w07_template_paths = {
+            os.path.abspath(str(path)) for path in installation.protected_paths
+        }
+        self._log(
+            "[Controller] Installed approved Canvas template assignment "
+            f"'{installation.title}' for IMSCC resource "
+            f"{installation.identifier}."
+        )
+
+    def _enforce_w07_template_references(self):
+        if not self._w07_template_installation:
+            return
+        updated_files = self.w07_template_installer.enforce_package_references(
+            self.workspace.output_dir,
+            self._w07_template_installation,
+        )
+        if updated_files < 1:
+            raise RuntimeError(
+                "The W07 Portuguese assignment was installed, but no IMSCC "
+                "module or manifest reference could be updated."
+            )
+        self._log(
+            "[Controller] Enforced the approved W07 Portuguese title and "
+            f"launch behavior in {updated_files} package metadata file(s)."
+        )
 
     def _is_attention_messaging_page(self, filepath: str, content: str = "") -> bool:
         if self.target_language != "PTBR":
@@ -698,6 +742,17 @@ class TranslationController:
 
         if not os.path.exists(target_filepath):
             self._log(f"File not found: {target_filepath}")
+            return
+
+        if os.path.abspath(target_filepath) in getattr(
+            self,
+            "_w07_template_paths",
+            set(),
+        ):
+            self._log(
+                "Skipping Gemini translation for Canvas-template W07 assignment "
+                f"file: {target_filepath}"
+            )
             return
 
         ext = target_filepath.split('.')[-1].lower()

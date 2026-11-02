@@ -15,11 +15,10 @@ This is the single source of truth for planned improvements that are not yet com
 
 - [ ] Update the special Setup Notes page flow so specified parts of its text remain dark red.
   - Do not implement until the user identifies the exact text segments and provides the required color/style rules.
-- [ ] Add a special flow for the `W07 End of Course Evaluation` assignment: fetch the approved Portuguese version from the PT template through the Canvas API instead of translating the English assignment. Every course should receive the template version; when the assignment exists in the English package, ignore that source file and replace it with the fetched version.
-  - Do not implement until the user provides the PT template details, assignment identification rules, and any required Canvas API/import information.
-
 ## Completed
 
+- [x] Add a special flow for the `W07 End of Course Evaluation` assignment: fetch the approved Portuguese version from the PT template through the Canvas API instead of translating the English assignment. Every course should receive the template version; when the assignment exists in the English package, ignore that source file and replace it with the fetched version.
+  - Completed 2026-11-02: Added tolerant W07 matching and live Canvas API retrieval from course 11564 assignment 816997; the PT title, description, settings, and LTI launch replace the English package files while course-specific IMSCC linkage is preserved. Verified against a disposable copy of the tracked sample and all 136 staged-tree tests pass.
 - [x] Investigate and fix why the link-mapping flow does not save user-added Portuguese external links to the database.
   - Completed 2026-11-02: Reproduced stale full-file rewrites erasing mappings from overlapping flows; user-added links now merge with the latest mapping store under a write lock, save through atomic replacement, and fail visibly on persistence errors. Regression coverage added; all 141 repository tests pass.
 
