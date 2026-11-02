@@ -77,33 +77,28 @@ class HubUpdater:
                 f"the current branch is {current_branch or 'detached HEAD'!r}."
             )
 
-        tracked_status = self._git(
-            "status",
-            "--porcelain",
-            "--untracked-files=no",
-        ).stdout.rstrip()
-        if tracked_status.strip():
-            changed_paths = "\n".join(
-                line[3:] if len(line) > 3 else line
-                for line in tracked_status.splitlines()
-            )
-            raise HubUpdateError(
-                "The update was stopped because tracked files have local changes. "
-                "No files were overwritten. Ask the HUB administrator to review:\n"
-                f"{changed_paths}"
-            )
-
         previous_revision = self._git("rev-parse", "HEAD").stdout.strip()
         report(f"Checking {self.remote}/{self.branch} for updates...")
         self._git("fetch", self.remote, self.branch)
         upstream_revision = self._git("rev-parse", "FETCH_HEAD").stdout.strip()
 
         if previous_revision == upstream_revision:
-            report("Translation HUB is already up to date.")
+            report("Your software is up to date.")
             return HubUpdateResult(
                 updated=False,
                 previous_revision=previous_revision,
                 current_revision=previous_revision,
+            )
+
+        tracked_status = self._git(
+            "status",
+            "--porcelain",
+            "--untracked-files=no",
+        ).stdout.rstrip()
+        if tracked_status.strip():
+            raise HubUpdateError(
+                "An update is available, but it could not be installed because this "
+                "installation has local changes. Ask the HUB administrator for help."
             )
 
         ancestry = self._git(

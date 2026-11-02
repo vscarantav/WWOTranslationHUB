@@ -75,7 +75,7 @@ class HubUpdaterTests(unittest.TestCase):
             ["git", "pull", "--ff-only", "origin", "main"],
             runner.commands,
         )
-        self.assertEqual(messages[-1], "Translation HUB is already up to date.")
+        self.assertEqual(messages[-1], "Your software is up to date.")
 
     def test_fast_forwards_origin_main_and_reports_restart_status(self):
         runner = FakeGitRunner(fetched_revision="new")
@@ -96,12 +96,32 @@ class HubUpdaterTests(unittest.TestCase):
         )
 
     def test_refuses_to_overwrite_tracked_local_changes(self):
-        runner = FakeGitRunner(dirty=" M app/main_ui.py\n")
+        runner = FakeGitRunner(
+            dirty=" M app/main_ui.py\n",
+            fetched_revision="new",
+        )
 
-        with self.assertRaisesRegex(HubUpdateError, "app/main_ui.py"):
+        with self.assertRaisesRegex(HubUpdateError, "local changes") as raised:
             HubUpdater(self.repository, runner=runner).update()
 
-        self.assertNotIn(["git", "fetch", "origin", "main"], runner.commands)
+        self.assertNotIn("app/main_ui.py", str(raised.exception))
+        self.assertNotIn(
+            ["git", "pull", "--ff-only", "origin", "main"],
+            runner.commands,
+        )
+
+    def test_reports_current_version_without_listing_local_changes(self):
+        runner = FakeGitRunner(dirty=" M app/main_ui.py\n", fetched_revision="old")
+        messages = []
+
+        result = HubUpdater(self.repository, runner=runner).update(messages.append)
+
+        self.assertFalse(result.updated)
+        self.assertEqual(messages[-1], "Your software is up to date.")
+        self.assertNotIn(
+            ["git", "status", "--porcelain", "--untracked-files=no"],
+            runner.commands,
+        )
 
     def test_refuses_diverged_history_without_pulling(self):
         runner = FakeGitRunner(fetched_revision="new", diverged=True)

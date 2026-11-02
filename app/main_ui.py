@@ -593,7 +593,7 @@ class CourseTranslationHubUI:
                 self.root.after(
                     0,
                     finish_without_restart,
-                    "Translation HUB is already up to date.",
+                    "Your software is up to date.",
                 )
                 return
 
