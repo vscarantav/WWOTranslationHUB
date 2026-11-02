@@ -3,7 +3,17 @@ import json
 import urllib.parse
 import html
 import re
+import tempfile
+import threading
 from tqdm import tqdm
+
+
+_MAPPING_WRITE_LOCK = threading.Lock()
+
+
+class LinkMappingPersistenceError(RuntimeError):
+    """Raised when a user-supplied link mapping cannot be saved safely."""
+
 
 class LinkProcessor:
     def __init__(self, target_language: str, app_dir: str, filepaths: list, link_prompt_callback=None):
@@ -57,14 +67,78 @@ class LinkProcessor:
         _log_func(msg)
         
         mapping_file = os.path.join(self.app_dir, "link_mapping.json")
-        mapping = {}
-        if os.path.exists(mapping_file):
+
+        def load_mapping():
+            if not os.path.exists(mapping_file):
+                return {}
             with open(mapping_file, 'r', encoding='utf-8') as f:
-                mapping = json.load(f)
-                
-        def save_mapping():
-            with open(mapping_file, 'w', encoding='utf-8') as f:
-                json.dump(mapping, f, indent=2)
+                loaded_mapping = json.load(f)
+            if not isinstance(loaded_mapping, dict):
+                raise ValueError(
+                    f"Link mapping store must contain a JSON object: {mapping_file}"
+                )
+            return loaded_mapping
+
+        mapping = load_mapping()
+
+        def save_mapping(source_url, localized_url):
+            nonlocal mapping
+            temporary_path = None
+            try:
+                # Another course flow may have added mappings since this flow
+                # loaded its snapshot. Re-read under the process-wide lock and
+                # merge only this entry so those additions are not overwritten.
+                with _MAPPING_WRITE_LOCK:
+                    latest_mapping = load_mapping()
+                    translations = latest_mapping.setdefault(
+                        source_url,
+                        {"PTBR": "", "SPA": ""},
+                    )
+                    if not isinstance(translations, dict):
+                        raise ValueError(
+                            f"Mapping entry for {source_url!r} must be a JSON object"
+                        )
+                    translations.setdefault("PTBR", "")
+                    translations.setdefault("SPA", "")
+                    translations[self.target_language] = localized_url
+
+                    file_descriptor, temporary_path = tempfile.mkstemp(
+                        prefix=".link_mapping_",
+                        suffix=".tmp",
+                        dir=os.path.dirname(mapping_file) or ".",
+                        text=True,
+                    )
+                    with os.fdopen(
+                        file_descriptor,
+                        'w',
+                        encoding='utf-8',
+                        newline='\n',
+                    ) as f:
+                        json.dump(
+                            latest_mapping,
+                            f,
+                            indent=2,
+                            ensure_ascii=False,
+                        )
+                        f.write("\n")
+                        f.flush()
+                        os.fsync(f.fileno())
+                    os.replace(temporary_path, mapping_file)
+                    temporary_path = None
+                    mapping = latest_mapping
+            except Exception as error:
+                message = (
+                    "Unable to persist the user-added localized link "
+                    f"for {source_url}: {error}"
+                )
+                _log_func(f"[LinkBot] MappingSaveFailed: {message}")
+                raise LinkMappingPersistenceError(message) from error
+            finally:
+                if temporary_path and os.path.exists(temporary_path):
+                    try:
+                        os.remove(temporary_path)
+                    except OSError:
+                        pass
         
         session_skipped_urls = set()
 
@@ -155,10 +229,7 @@ class LinkProcessor:
                     if 'google.com' in pt_link:
                         pt_link = re.sub(r'/u/\d+/', '/', pt_link)
                         
-                    if clean_url not in mapping:
-                        mapping[clean_url] = {"PTBR": "", "SPA": ""}
-                    mapping[clean_url][self.target_language] = pt_link
-                    save_mapping()
+                    save_mapping(clean_url, pt_link)
                     _log_func(f"[LinkBot] MappedLink: {display_name},{clean_url},{pt_link}")
                     
                     if comment:
@@ -222,6 +293,8 @@ class LinkProcessor:
                     if new_content != content:
                         with open(filepath, 'w', encoding='utf-8') as f:
                             f.write(new_content)
+                except LinkMappingPersistenceError:
+                    raise
                 except Exception as e:
                     print(f"[LinkProcessor] Error processing links in {filepath}: {e}")
                     
@@ -238,5 +311,7 @@ class LinkProcessor:
                     if new_content != content:
                         with open(filepath, 'w', encoding='utf-8') as f:
                             f.write(new_content)
+                except LinkMappingPersistenceError:
+                    raise
                 except Exception as e:
                     print(f"[LinkProcessor] Error processing txt links in {filepath}: {e}")
