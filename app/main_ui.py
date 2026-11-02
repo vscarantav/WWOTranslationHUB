@@ -18,6 +18,7 @@ from urllib.parse import unquote, urlparse
 # Import the processors
 from controller import TranslationController
 from course_auditor import CourseAuditor
+from core.hub_updater import HubUpdateError, HubUpdater, restart_hub
 
 
 REQUIRED_ENV_VARIABLES = (
@@ -423,6 +424,22 @@ class CourseTranslationHubUI:
         self.title_label = ttk.Label(self.top_frame, text="Course Translation Hub", font=("Helvetica", 18, "bold"))
         self.title_label.pack(pady=10)
 
+        # Application Update Section
+        self.update_frame = ttk.LabelFrame(self.top_frame, text="Translation HUB Updates", padding="10")
+        self.update_frame.pack(fill="x", pady=10)
+
+        self.update_status_var = tk.StringVar(value="Ready to check origin/main.")
+        ttk.Label(
+            self.update_frame,
+            textvariable=self.update_status_var,
+        ).pack(side="left", fill="x", expand=True, padx=10)
+        self.update_btn = ttk.Button(
+            self.update_frame,
+            text="Update Translation HUB",
+            command=self.run_hub_update,
+        )
+        self.update_btn.pack(side="right", padx=10)
+
         # Translation Section
         self.trans_frame = ttk.LabelFrame(self.top_frame, text="Canvas IMSCC file Translation", padding="10")
         self.trans_frame.pack(fill="x", pady=10)
@@ -519,6 +536,7 @@ class CourseTranslationHubUI:
         self.audit_btn.config(state="disabled")
         self.edtech_btn.config(state="disabled")
         self.github_btn.config(state="disabled")
+        self.update_btn.config(state="disabled")
         self.progress['value'] = 0
 
     def enable_buttons(self):
@@ -526,6 +544,70 @@ class CourseTranslationHubUI:
         self.audit_btn.config(state="normal")
         self.edtech_btn.config(state="normal")
         self.github_btn.config(state="normal")
+        self.update_btn.config(state="normal")
+
+    def _set_update_status(self, message):
+        self.update_status_var.set(message)
+        print(f"[HUB Update] {message}")
+
+    def run_hub_update(self):
+        """Fast-forward this installation from public origin/main and restart."""
+        self.disable_buttons()
+        self.progress.configure(mode="indeterminate")
+        self.progress.start(12)
+        self._set_update_status("Starting update check...")
+
+        def report_status(message):
+            self.root.after(0, self._set_update_status, message)
+
+        def finish_without_restart(message):
+            self.progress.stop()
+            self.progress.configure(mode="determinate")
+            self.progress['value'] = 100
+            self._set_update_status(message)
+            self.enable_buttons()
+
+        def show_failure(message):
+            self.progress.stop()
+            self.progress.configure(mode="determinate")
+            self.progress['value'] = 0
+            self._set_update_status("Update stopped. No files were overwritten.")
+            self.enable_buttons()
+            messagebox.showerror("Translation HUB Update Failed", message, parent=self.root)
+
+        def perform_update():
+            try:
+                result = HubUpdater(self.hub_dir).update(report_status)
+            except HubUpdateError as error:
+                self.root.after(0, show_failure, str(error))
+                return
+            except Exception as error:
+                self.root.after(
+                    0,
+                    show_failure,
+                    f"Unexpected update error: {error}",
+                )
+                return
+
+            if not result.updated:
+                self.root.after(
+                    0,
+                    finish_without_restart,
+                    "Translation HUB is already up to date.",
+                )
+                return
+
+            def restart_updated_hub():
+                self.progress.stop()
+                self.progress.configure(mode="determinate")
+                self.progress['value'] = 100
+                self._set_update_status("Update installed. Restarting Translation HUB...")
+                self.root.update_idletasks()
+                restart_hub(os.path.join(self.app_dir, "main_ui.py"))
+
+            self.root.after(0, restart_updated_hub)
+
+        threading.Thread(target=perform_update, daemon=True).start()
 
     def _copy_to_workspace(self, src_path, target_folder):
         """Copies the selected file into the internal workspace folder and returns the new path."""
