@@ -3,6 +3,7 @@ import argparse
 import concurrent.futures
 import hashlib
 import shutil
+import tempfile
 from tqdm import tqdm
 import json
 import re
@@ -16,6 +17,8 @@ load_dotenv(env_path)
 from bots.html_bot import HTMLTranslationBot
 from bots.xml_bot import XMLTranslationBot
 from bots.txt_bot import TextTranslationBot
+from bots.docx_bot import DOCXTranslationBot
+from bots.xlsx_bot import XLSXTranslationBot
 from bots.auditor_bot import GlossaryAuditBot
 from bots.scripturecheck_bot import ScriptureCheckBot
 from bots.api_utils import track_successful_gemini_calls
@@ -72,6 +75,7 @@ class TranslationController:
         self._gemini_translation_pages_lock = threading.Lock()
         self._w07_template_installation = None
         self._w07_template_paths = set()
+        self.manual_review_failures = []
         self.app_dir = os.path.dirname(os.path.abspath(__file__))
         self.hub_dir = os.path.dirname(self.app_dir)
         self.instructions = self._load_instructions()
@@ -93,11 +97,18 @@ class TranslationController:
             self.workspace.extract_course_info(self._log)
             workspace_dir = self.workspace.output_dir
             
+        xml_bot = XMLTranslationBot(
+            target_language=self.target_language,
+            log_lock=self.log_lock,
+            workspace_dir=workspace_dir,
+        )
         self.bots = {
             "html": HTMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock, workspace_dir=workspace_dir),
-            "xml": XMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock, workspace_dir=workspace_dir),
+            "xml": xml_bot,
             "qti": XMLTranslationBot(target_language=self.target_language, log_lock=self.log_lock, workspace_dir=workspace_dir), 
-            "txt": TextTranslationBot(target_language=self.target_language, log_lock=self.log_lock)
+            "txt": TextTranslationBot(target_language=self.target_language, log_lock=self.log_lock),
+            "docx": DOCXTranslationBot(xml_bot, log_func=self._log),
+            "xlsx": XLSXTranslationBot(xml_bot, log_func=self._log),
         }
         
         self._apply_custom_prompts()
@@ -141,7 +152,7 @@ class TranslationController:
             return False
         if extension in (".html", ".htm") and "setup-notes" in basename:
             return False
-        if extension in (".html", ".htm", ".txt"):
+        if extension in (".html", ".htm", ".txt", ".docx", ".xlsx"):
             return True
         if extension not in (".xml", ".qti") or basename == "imsmanifest.xml":
             return False
@@ -183,6 +194,30 @@ class TranslationController:
                     return True
         return False
 
+    def _extract_title_from_filepath(self, filepath: str) -> str:
+        """Extract a readable title from an XML, QTI, or HTML file, falling back to basename."""
+        extension = os.path.splitext(filepath)[1].lower().lstrip(".")
+        title_filepath = filepath
+        if os.path.basename(filepath).lower() == "assessment_qti.xml":
+            sibling_meta = os.path.join(
+                os.path.dirname(filepath),
+                "assessment_meta.xml",
+            )
+            if os.path.exists(sibling_meta):
+                title_filepath = sibling_meta
+                extension = "xml"
+        try:
+            with open(title_filepath, "r", encoding="utf-8", errors="ignore") as title_file:
+                translated_title = self._extract_page_title(
+                    title_file.read(),
+                    extension,
+                )
+                if translated_title:
+                    return translated_title
+        except OSError:
+            pass
+        return os.path.basename(filepath)
+
     def get_gemini_translation_pages(self):
         """Return a stable list of items actually sent through Gemini."""
         with self._gemini_translation_pages_lock:
@@ -194,25 +229,11 @@ class TranslationController:
         for page in pages:
             filepath = str(page.get("filepath", ""))
             extension = os.path.splitext(filepath)[1].lower().lstrip(".")
-            title_filepath = filepath
-            if os.path.basename(filepath).lower() == "assessment_qti.xml":
-                sibling_meta = os.path.join(
-                    os.path.dirname(filepath),
-                    "assessment_meta.xml",
-                )
-                if os.path.exists(sibling_meta):
-                    title_filepath = sibling_meta
-                    extension = "xml"
-            try:
-                with open(title_filepath, "r", encoding="utf-8", errors="ignore") as title_file:
-                    translated_title = self._extract_page_title(
-                        title_file.read(),
-                        extension,
-                    )
-                if translated_title:
-                    page["title"] = translated_title
-            except OSError:
-                pass
+            if extension in ("docx", "xlsx"):
+                continue
+            extracted = self._extract_title_from_filepath(filepath)
+            if extracted and extracted != os.path.basename(filepath):
+                page["title"] = extracted
         expanded_pages = []
         for page in pages:
             filepath = str(page.get("filepath", ""))
@@ -237,6 +258,17 @@ class TranslationController:
                 pass
             expanded_pages.append(page)
         pages = expanded_pages
+
+        for failed_filepath, exc in getattr(self, "manual_review_failures", []):
+            filepath = os.path.abspath(failed_filepath)
+            extracted_title = self._extract_title_from_filepath(filepath)
+            pages.append({
+                "title": extracted_title,
+                "filepath": filepath,
+                "status": "Failed",
+                "details": f"Manual review required: {exc}",
+            })
+
         return sorted(
             pages,
             key=lambda page: (
@@ -297,6 +329,17 @@ class TranslationController:
         self.link_processor.filepaths = self.filepaths
         self.link_processor.pre_process_links(self._log)
         self.translate_files()
+        if self.manual_review_failures:
+            count = len(self.manual_review_failures)
+            self._log(
+                f"[System] {count} file(s) require manual review before the "
+                "translated IMSCC can be considered complete. The IMSCC has been "
+                "created with the untranslated file(s) in place as a placeholder."
+            )
+            print(
+                f"\n[Controller] {count} file(s) could not be auto-translated and "
+                "require manual correction. See the recovery dialog."
+            )
         self._enforce_w07_template_references()
         self.workspace.compress_to_imscc(self._log)
         
@@ -338,22 +381,69 @@ class TranslationController:
                     self._log(f"[System] Retry failed for {filepath}: {exc}")
 
             if retry_failures:
-                failure_details = "; ".join(
-                    f"{os.path.basename(filepath)}: {exc}"
-                    for filepath, exc in retry_failures
-                )
-                is_imscc_run = bool(
-                    getattr(getattr(self, "workspace", None), "imscc_path", None)
-                )
-                outcome = (
-                    "The IMSCC package was not created"
-                    if is_imscc_run
-                    else "The translated output was not completed"
-                )
-                raise RuntimeError(
-                    f"Translation failed for {len(retry_failures)} file(s) after retry. "
-                    f"{outcome}. Failed file details: {failure_details}"
-                )
+                # XML/QTI files that still fail after all retries are routed to
+                # the manual-review recovery flow so the run can continue.
+                # All other failure types (HTML, DOCX, XLSX, etc.) still abort
+                # immediately because they represent unexpected bot errors.
+                xml_qti_failures = [
+                    (fp, exc)
+                    for fp, exc in retry_failures
+                    if os.path.splitext(fp)[1].lower() in (".xml", ".qti")
+                ]
+                hard_failures = [
+                    (fp, exc)
+                    for fp, exc in retry_failures
+                    if os.path.splitext(fp)[1].lower() not in (".xml", ".qti")
+                ]
+
+                if xml_qti_failures:
+                    for filepath, exc in xml_qti_failures:
+                        self.manual_review_failures.append((filepath, exc))
+                        self._log(
+                            f"[System] ManualReviewRequired: {os.path.basename(filepath)} "
+                            f"could not be translated after all retries and will require "
+                            f"manual correction. Error: {exc}"
+                        )
+
+                if hard_failures:
+                    failure_details = "; ".join(
+                        f"{os.path.basename(filepath)}: {exc}"
+                        for filepath, exc in hard_failures
+                    )
+                    office_failure_report = ""
+                    if any(
+                        os.path.splitext(filepath)[1].lower() in (".docx", ".xlsx")
+                        for filepath, _exc in hard_failures
+                    ):
+                        try:
+                            office_failure_report = self.update_excel_dashboard() or ""
+                            if office_failure_report:
+                                self._log(
+                                    "[System] Office failure report generated: "
+                                    f"{office_failure_report}"
+                                )
+                        except Exception as report_exc:
+                            self._log(
+                                "[System] Error: Could not generate Office failure report: "
+                                f"{report_exc}"
+                            )
+                    is_imscc_run = bool(
+                        getattr(getattr(self, "workspace", None), "imscc_path", None)
+                    )
+                    outcome = (
+                        "The IMSCC package was not created"
+                        if is_imscc_run
+                        else "The translated output was not completed"
+                    )
+                    raise RuntimeError(
+                        f"Translation failed for {len(hard_failures)} file(s) after retry. "
+                        f"{outcome}. Failed file details: {failure_details}"
+                        + (
+                            f". Office outcome report: {office_failure_report}"
+                            if office_failure_report
+                            else ""
+                        )
+                    )
 
     def _is_teaching_notes_page(self, filepath: str) -> bool:
         filename = os.path.basename(filepath).lower()
@@ -737,6 +827,111 @@ class TranslationController:
             pass
         return ""
 
+    def _log_office_document_outcome(
+        self,
+        status: str,
+        document_type: str,
+        filepath: str,
+        translated_nodes: int = 0,
+        translated_parts: int = 0,
+        detail: str = "",
+    ):
+        outcome = {
+            "status": status,
+            "document_type": document_type.upper(),
+            "filepath": os.path.abspath(filepath),
+            "translated_nodes": translated_nodes,
+            "translated_parts": translated_parts,
+            "detail": detail,
+        }
+        self._log(
+            "[System] OfficeDocumentOutcome: "
+            + json.dumps(outcome, ensure_ascii=False)
+        )
+
+    def _process_office_document(self, filepath: str, target_filepath: str, ext: str, bot):
+        document_type = ext.upper()
+        self._log(f"Delegating {target_filepath} to {bot.__class__.__name__}")
+        temporary_path = ""
+
+        try:
+            with open(target_filepath, "rb") as source_file:
+                original_content = source_file.read()
+
+            extracted_text = bot.extract_text(original_content)
+            relevant_glossary = self.auditor.get_relevant_terms(extracted_text)
+            relevant_scriptures = self.scripture_checker.get_scriptures_for_text(
+                extracted_text
+            )
+            gemini_call_succeeded = False
+
+            def mark_gemini_call_succeeded():
+                nonlocal gemini_call_succeeded
+                gemini_call_succeeded = True
+
+            with track_successful_gemini_calls(mark_gemini_call_succeeded):
+                result = bot.translate_document(
+                    original_content,
+                    relevant_glossary,
+                    relevant_scriptures,
+                    document_name=os.path.basename(filepath),
+                )
+
+            if result.outcome == "Translated" and not gemini_call_succeeded:
+                raise RuntimeError(
+                    f"{document_type} translation completed without a successful "
+                    "Gemini XML-agent call."
+                )
+            if gemini_call_succeeded and result.content == original_content:
+                raise RuntimeError(
+                    f"{document_type} translation returned the source package unchanged."
+                )
+
+            if result.content != original_content:
+                with tempfile.NamedTemporaryFile(
+                    mode="wb",
+                    delete=False,
+                    dir=os.path.dirname(target_filepath),
+                    prefix=f".{os.path.basename(target_filepath)}.",
+                    suffix=".tmp",
+                ) as temporary_file:
+                    temporary_file.write(result.content)
+                    temporary_path = temporary_file.name
+                os.replace(temporary_path, target_filepath)
+                temporary_path = ""
+
+            status = "Success" if result.outcome == "Translated" else "Skipped"
+            self._log_office_document_outcome(
+                status,
+                document_type,
+                target_filepath,
+                result.translated_nodes,
+                result.translated_parts,
+                result.outcome,
+            )
+            self._log("Translation complete for this file.")
+
+            if gemini_call_succeeded:
+                title = os.path.basename(filepath)
+                self._record_gemini_translation_page(title, target_filepath)
+                self._log(
+                    f"[System] TranslatedPage: {title} | {target_filepath}"
+                )
+        except Exception as exc:
+            self._log_office_document_outcome(
+                "Failed",
+                document_type,
+                target_filepath,
+                detail=str(exc),
+            )
+            raise
+        finally:
+            if temporary_path and os.path.exists(temporary_path):
+                try:
+                    os.remove(temporary_path)
+                except OSError:
+                    pass
+
     def process_file(self, filepath: str):
         target_filepath = self.workspace.get_target_filepath(filepath)
 
@@ -758,6 +953,17 @@ class TranslationController:
         ext = target_filepath.split('.')[-1].lower()
         if ext in ["ds_store"]:
             self._log(f"Skipping ignored system file: {filepath}")
+            return
+
+        if ext in ("docx", "xlsx"):
+            bot = self.bots.get(ext)
+            if not bot:
+                self._log(
+                    f"Skipping unsupported file architecture for extension '{ext}': "
+                    f"{filepath}"
+                )
+                return
+            self._process_office_document(filepath, target_filepath, ext, bot)
             return
 
         if ext == "html" and self.target_language == "PTBR":

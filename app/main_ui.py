@@ -152,11 +152,35 @@ def get_edtech_report_name(shell_url):
     return f"{book_name.title()} EdTech Master"
 
 
-def generate_edtech_excel_report(controller, shell_url, language, extracted_pages):
+def generate_edtech_excel_report(
+    controller,
+    shell_url,
+    language,
+    extracted_pages,
+    translation_error=None,
+):
     """Generate a focused workbook containing every extracted EdTech chapter."""
+    translated_paths = {
+        os.path.normcase(os.path.abspath(str(page.get("filepath", ""))))
+        for page in controller.get_gemini_translation_pages()
+        if page.get("filepath")
+    }
     review_pages = []
     for item in extracted_pages:
-        filepath = item.get("translated_filepath", "") or item.get("raw_filepath", "")
+        translated_filepath = item.get("translated_filepath", "")
+        translation_succeeded = (
+            not translation_error
+            or (
+                translated_filepath
+                and os.path.normcase(os.path.abspath(translated_filepath))
+                in translated_paths
+            )
+        )
+        filepath = (
+            translated_filepath
+            if translation_succeeded
+            else item.get("raw_filepath", "")
+        )
         title = ""
         if filepath and os.path.exists(filepath):
             try:
@@ -167,6 +191,8 @@ def generate_edtech_excel_report(controller, shell_url, language, extracted_page
         review_pages.append({
             "title": title or item.get("filename", "Untitled page"),
             "filepath": filepath,
+            "status": "Translated" if translation_succeeded else "Failed",
+            "details": "" if translation_succeeded else str(translation_error),
         })
 
     return controller.update_excel_dashboard(
@@ -175,6 +201,54 @@ def generate_edtech_excel_report(controller, shell_url, language, extracted_page
         review_pages=review_pages,
         excluded_sheets=("Dashboard", "Bot Analysis", "Raw Logs"),
     )
+
+
+def translate_edtech_files_and_generate_report(
+    controller,
+    shell_url,
+    language,
+    extracted_pages,
+):
+    """Translate EdTech pages, report every result, and return safe injection work."""
+    translation_error = None
+    try:
+        controller.translate_files()
+    except Exception as error:
+        translation_error = error
+
+    report_path = generate_edtech_excel_report(
+        controller,
+        shell_url,
+        language,
+        extracted_pages,
+        translation_error=translation_error,
+    )
+    translated_paths = {
+        os.path.normcase(os.path.abspath(str(page.get("filepath", ""))))
+        for page in controller.get_gemini_translation_pages()
+        if page.get("filepath")
+    }
+    if translation_error:
+        translated_pages = [
+            item
+            for item in extracted_pages
+            if item.get("translated_filepath")
+            and os.path.normcase(os.path.abspath(item["translated_filepath"]))
+            in translated_paths
+        ]
+    else:
+        translated_pages = list(extracted_pages)
+
+    translated_page_ids = {id(item) for item in translated_pages}
+    failed_pages = [
+        item for item in extracted_pages if id(item) not in translated_page_ids
+    ]
+    return {
+        "report_path": report_path,
+        "translated_pages": translated_pages,
+        "failed_pages": failed_pages,
+        "translation_error": translation_error,
+    }
 
 class RedirectText:
     def __init__(self, text_ctrl, progress_bar, root):
@@ -747,6 +821,7 @@ class CourseTranslationHubUI:
             )
         
         def process():
+            failed_pages = []
             try:
                 if resume_injection:
                     extracted = resumable_pages
@@ -779,21 +854,43 @@ class CourseTranslationHubUI:
 
                     # Collect files and translate
                     controller.filepaths = controller.workspace.collect_files(controller._log)
-                    controller.translate_files()
-                    print("Translation complete.")
-
-                    report_path = generate_edtech_excel_report(
+                    translation_outcome = translate_edtech_files_and_generate_report(
                         controller,
                         target_shell_url,
                         lang,
                         extracted,
                     )
+                    report_path = translation_outcome["report_path"]
+                    failed_pages = translation_outcome["failed_pages"]
+                    extracted = translation_outcome["translated_pages"]
+                    if failed_pages:
+                        print(
+                            f"[EdTech] Translation completed with {len(failed_pages)} "
+                            "failed page(s). They will remain unchanged in the target "
+                            "book while successful pages continue to injection."
+                        )
+                        for failed_page in failed_pages:
+                            print(
+                                "[EdTech] Skipping failed page during injection: "
+                                f"{failed_page.get('filename', failed_page.get('url', 'Unknown page'))}"
+                            )
+                    else:
+                        print("Translation complete.")
                     print(f"EdTech Excel report created: {report_path}")
                 
                 # 3. Inject
-                bot.run_injection(extracted_files=extracted)
+                if extracted:
+                    bot.run_injection(extracted_files=extracted)
+                else:
+                    print(
+                        "[EdTech] No successfully translated pages are available for "
+                        "injection. The target book was left unchanged."
+                    )
                 
-                print("\n--- EdTech Master Translator Complete ---")
+                if failed_pages:
+                    print("\n--- EdTech Master Translator Complete With Warnings ---")
+                else:
+                    print("\n--- EdTech Master Translator Complete ---")
                 self.root.after(0, self._show_edtech_checklist_dialog)
             except Exception as e:
                 print(f"Error in EdTech process: {e}")
@@ -1196,6 +1293,93 @@ class CourseTranslationHubUI:
             self.root.after(0, show_dialog)
             return result_queue.get()
 
+        def _show_manual_review_dialog(failures):
+            """Show a non-blocking dialog notifying the user about files requiring manual correction."""
+            def show_dialog():
+                dialog = tk.Toplevel(self.root)
+                dialog.title("Manual Review Required")
+                dialog_width = 680
+                dialog_height = 420
+                screen_width = dialog.winfo_screenwidth()
+                screen_height = dialog.winfo_screenheight()
+                x = int((screen_width - dialog_width) / 2)
+                y = int((screen_height - dialog_height) / 2)
+                dialog.geometry(f"{dialog_width}x{dialog_height}+{x}+{y}")
+                dialog.transient(self.root)
+                dialog.resizable(True, True)
+
+                ttk.Label(
+                    dialog,
+                    text="⚠  Files Could Not Be Auto-Translated",
+                    font=("Helvetica", 12, "bold"),
+                ).pack(pady=(16, 4), padx=15, anchor="w")
+
+                ttk.Label(
+                    dialog,
+                    text=(
+                        f"{len(failures)} XML/QTI file(s) exhausted all translation attempts. "
+                        "The IMSCC package was built with the English original, and each file "
+                        "has been marked as 'Failed' in the Translation Report for manual correction."
+                    ),
+                    wraplength=640,
+                    justify="left",
+                ).pack(pady=(0, 10), padx=15, anchor="w")
+
+                list_frame = ttk.Frame(dialog)
+                list_frame.pack(fill="both", expand=True, padx=15, pady=4)
+
+                tree = ttk.Treeview(list_frame, columns=("file", "reason"), show="headings", height=8)
+                tree.heading("file", text="File Name")
+                tree.heading("reason", text="Failure Detail")
+                tree.column("file", width=220, anchor="w")
+                tree.column("reason", width=400, anchor="w")
+
+                scrollbar = ttk.Scrollbar(list_frame, orient="vertical", command=tree.yview)
+                tree.configure(yscrollcommand=scrollbar.set)
+                tree.pack(side="left", fill="both", expand=True)
+                scrollbar.pack(side="right", fill="y")
+
+                for fp, exc in failures:
+                    tree.insert("", "end", values=(os.path.basename(fp), str(exc)))
+
+                def open_selected_folder():
+                    selected = tree.selection()
+                    if selected:
+                        item = tree.item(selected[0])
+                        fname = item["values"][0]
+                        for fp, _ in failures:
+                            if os.path.basename(fp) == fname:
+                                folder = os.path.dirname(fp)
+                                if os.path.isdir(folder):
+                                    import subprocess
+                                    subprocess.Popen(f'explorer "{folder}"')
+                                break
+                    elif failures:
+                        folder = os.path.dirname(failures[0][0])
+                        if os.path.isdir(folder):
+                            import subprocess
+                            subprocess.Popen(f'explorer "{folder}"')
+
+                def open_reports_folder():
+                    reports_dir = os.path.join(self.hub_dir, "Reports")
+                    if os.path.isdir(reports_dir):
+                        import subprocess
+                        subprocess.Popen(f'explorer "{reports_dir}"')
+
+                btn_frame = ttk.Frame(dialog)
+                btn_frame.pack(pady=12)
+                ttk.Button(
+                    btn_frame, text="Open File Location", command=open_selected_folder
+                ).pack(side="left", padx=8)
+                ttk.Button(
+                    btn_frame, text="Open Reports Folder", command=open_reports_folder
+                ).pack(side="left", padx=8)
+                ttk.Button(
+                    btn_frame, text="Dismiss", command=dialog.destroy
+                ).pack(side="left", padx=8)
+
+            self.root.after(0, show_dialog)
+
         def thread_target():
             try:
                 for idx, imscc_path in enumerate(imscc_paths, 1):
@@ -1203,27 +1387,37 @@ class CourseTranslationHubUI:
                     workspace_path = self._copy_to_workspace(imscc_path, "Courses to Translate")
                     conf = course_configs[imscc_path]
                     controller = TranslationController(
-                        target_language=lang, 
+                        target_language=lang,
                         imscc_path=workspace_path,
                         link_prompt_callback=ask_user_for_link,
                         target_course_id=conf['target_id']
                     )
                     controller.process_directory()
                     controller.update_excel_dashboard()
-                    
+
+                    # Show a non-blocking recovery notice if any XML/QTI file could not be auto-translated.
+                    # The run continues; the IMSCC and the report are already generated with the English placeholder.
+                    if controller.manual_review_failures:
+                        for failed_path, failed_exc in controller.manual_review_failures:
+                            print(
+                                f"\n[Hub] Manual review required for "
+                                f"{os.path.basename(failed_path)}: {failed_exc}"
+                            )
+                        _show_manual_review_dialog(controller.manual_review_failures)
+
                     if conf['has_groups'] and conf['target_id']:
                         def wait_for_import():
                             result_queue = queue.Queue()
                             def show_msg():
                                 res = messagebox.showinfo(
-                                    "Manual Import Required", 
+                                    "Manual Import Required",
                                     f"Please import the translated .imscc file into Canvas for {os.path.basename(imscc_path)}.\n\nClick OK once the import is 100% complete so we can migrate the groups.",
                                     parent=self.root
                                 )
                                 result_queue.put(res)
                             self.root.after(0, show_msg)
                             return result_queue.get()
-                            
+
                         wait_for_import()
                         print(f"\n[Hub] Running Group Migration for {os.path.basename(imscc_path)}...")
                         run_migration(conf['source_id'], conf['target_id'], lang, print, conf['target_domain'])
