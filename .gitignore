@@ -22,6 +22,10 @@ __pycache__/
 # Type checking
 .mypy_cache/
 
+# Test caches and temporary workspaces
+.pytest_cache/
+/tests/tmp*/
+
 # Large binaries / exports
 *.imscc
 *.zip
