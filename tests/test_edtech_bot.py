@@ -18,6 +18,7 @@ from controller import TranslationController
 from main_ui import (
     generate_edtech_excel_report,
     get_edtech_report_name,
+    translate_edtech_files_and_generate_report,
     validate_edtech_shell_details,
 )
 
@@ -41,7 +42,10 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
             actual_browser, actual_context = bot._launch_anonymous_context(playwright)
 
             playwright.chromium.launch.assert_called_once_with(headless=False)
-            browser.new_context.assert_called_once_with(no_viewport=True)
+            browser.new_context.assert_called_once_with(
+                no_viewport=True,
+                permissions=["clipboard-read", "clipboard-write"],
+            )
             context.clear_cookies.assert_called_once_with()
             self.assertIs(actual_browser, browser)
             self.assertIs(actual_context, context)
@@ -139,6 +143,36 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
             self.assertEqual(resumable[0]["raw_filepath"], str(raw_path))
             self.assertEqual(resumable[0]["translated_filepath"], str(translated_path))
 
+            failed_raw_path = raw_dir / "lesson_2.html"
+            failed_translated_path = translated_dir / "lesson_2.html"
+            failed_html = (
+                '<div id="edtech-meta-title">Failed English title</div>'
+                '<p>Untranslated English text</p>'
+            )
+            failed_raw_path.write_text(failed_html, encoding="utf-8")
+            failed_translated_path.write_text(failed_html, encoding="utf-8")
+            partial_mapping = [
+                mapping[0],
+                {
+                    "url": "https://books.byui.edu/current_book/lesson_two",
+                    "filename": "lesson_2.html",
+                    "source_title": "Failed English title",
+                    "source_subtitle": "",
+                    "toc_scope": "all_chapters",
+                    "raw_filepath": "stale/path-2.html",
+                    "translated_filepath": "stale/translated-2.html",
+                },
+            ]
+            (workspace / "edtech_mapping.json").write_text(
+                json.dumps(partial_mapping),
+                encoding="utf-8",
+            )
+            partial_resume = bot.load_resumable_injection()
+            self.assertEqual(
+                [item["filename"] for item in partial_resume],
+                ["lesson_1.html"],
+            )
+
             legacy_mapping = [dict(mapping[0])]
             legacy_mapping[0].pop("source_subtitle")
             (workspace / "edtech_mapping.json").write_text(
@@ -190,6 +224,208 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
 
         self.assertEqual(hrefs, ["/book/parent", "/book/leaf"])
 
+    def test_extraction_uses_visible_edit_link_and_complete_codemirror_html(self):
+        workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
+        workspace.mkdir(parents=True)
+        try:
+            bot = EdTechScraperBot(
+                "https://books.byui.edu/current_book",
+                "PTBR",
+                str(workspace),
+                print_callback=Mock(),
+            )
+            page = MagicMock()
+            html_source = MagicMock()
+            html_source.inner_text.return_value = "<p>Visible partial</p>"
+            complete_html = (
+                "<p>Visible partial</p>"
+                "<section><p>Complete virtualized remainder</p></section>"
+            )
+
+            bot._open_editor = Mock()
+            bot._read_chapter_title = Mock(return_value="")
+            bot._read_chapter_subtitle = Mock(return_value="Subtitle")
+            bot._open_html_source = Mock(return_value=html_source)
+            bot._copy_full_html_source = Mock(return_value=complete_html)
+            bot._close_editor = Mock()
+
+            result = bot._extract_chapter(
+                page,
+                "https://books.byui.edu/current_book/lesson_one",
+                1,
+                toc_title="Title & Overview",
+            )
+
+            extracted_html = Path(result["raw_filepath"]).read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("Title &amp; Overview", extracted_html)
+            self.assertIn(complete_html, extracted_html)
+            self.assertIn(
+                'a.btn-edit[aria-label="Edit chapter"]',
+                bot.EDIT_SELECTOR,
+            )
+            self.assertIn('[href^="/editor/"]', bot.EDIT_SELECTOR)
+            self.assertEqual(
+                bot.SAVE_SELECTOR,
+                'button.btn.bi-floppy2-fill:visible',
+            )
+            self.assertEqual(
+                bot.CLOSE_SELECTOR,
+                'button.btn.bi-x-lg.float-end:visible',
+            )
+            bot._open_editor.assert_called_once_with(page)
+            bot._open_html_source.assert_called_once_with(page)
+            bot._copy_full_html_source.assert_called_once_with(page, html_source)
+            bot._close_editor.assert_called_once_with(
+                page,
+                "https://books.byui.edu/current_book/lesson_one",
+            )
+        finally:
+            shutil.rmtree(workspace, ignore_errors=True)
+
+    def test_current_editor_controls_open_edit_and_html_source(self):
+        workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
+        workspace.mkdir(parents=True)
+        try:
+            bot = EdTechScraperBot(
+                "https://books.byui.edu/current_book",
+                "PTBR",
+                str(workspace),
+                print_callback=Mock(),
+            )
+            page = MagicMock()
+            edit_button = MagicMock()
+            html_button = MagicMock()
+            html_source = MagicMock()
+
+            def locator(selector):
+                if selector == bot.EDIT_SELECTOR:
+                    result = MagicMock()
+                    result.first = edit_button
+                    return result
+                if selector == bot.HTML_SOURCE_SELECTOR:
+                    return html_source
+                raise AssertionError(f"Unexpected selector: {selector}")
+
+            page.locator.side_effect = locator
+            page.get_by_role.return_value = html_button
+
+            bot._open_editor(page)
+            actual_source = bot._open_html_source(page)
+
+            self.assertIs(actual_source, html_source)
+            edit_button.wait_for.assert_called_once_with(
+                timeout=20000,
+                state="visible",
+            )
+            edit_button.click.assert_called_once_with()
+            page.wait_for_url.assert_called_once_with(
+                "**/editor/**",
+                timeout=60000,
+                wait_until="domcontentloaded",
+            )
+            page.get_by_role.assert_called_once_with(
+                "button",
+                name="HTML",
+                exact=True,
+            )
+            html_button.click.assert_called_once_with()
+            html_source.wait_for.assert_called_once_with(
+                timeout=10000,
+                state="visible",
+            )
+        finally:
+            shutil.rmtree(workspace, ignore_errors=True)
+
+    def test_refreshes_stale_slug_from_live_toc_for_partial_resume(self):
+        workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
+        translated_dir = workspace / "raw_html_PTBR"
+        translated_dir.mkdir(parents=True)
+        translated_path = translated_dir / "lesson_2.html"
+        translated_path.write_text(
+            '<div id="edtech-meta-title">Título traduzido</div><p>Texto</p>',
+            encoding="utf-8",
+        )
+        mapping = [
+            {
+                "url": "https://books.byui.edu/current_book/old-one",
+                "filename": "lesson_1.html",
+                "source_title": "First source title",
+            },
+            {
+                "url": "https://books.byui.edu/current_book/old-two",
+                "filename": "lesson_2.html",
+                "source_title": "Second source title",
+                "translated_filepath": str(translated_path),
+            },
+        ]
+        (workspace / "edtech_mapping.json").write_text(
+            json.dumps(mapping),
+            encoding="utf-8",
+        )
+        try:
+            bot = EdTechScraperBot(
+                "https://books.byui.edu/current_book",
+                "PTBR",
+                str(workspace),
+                print_callback=Mock(),
+            )
+            bot._read_live_toc = Mock(return_value=[
+                {
+                    "url": "https://books.byui.edu/current_book/new-one",
+                    "title": "First source title",
+                },
+                {
+                    "url": "https://books.byui.edu/current_book/new-two",
+                    "title": "Título traduzido",
+                },
+            ])
+
+            refreshed = bot._refresh_injection_urls(MagicMock(), [mapping[1]])
+
+            self.assertEqual(
+                refreshed[0]["url"],
+                "https://books.byui.edu/current_book/new-two",
+            )
+            saved_mapping = json.loads(
+                (workspace / "edtech_mapping.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                [item["url"] for item in saved_mapping],
+                [
+                    "https://books.byui.edu/current_book/new-one",
+                    "https://books.byui.edu/current_book/new-two",
+                ],
+            )
+        finally:
+            shutil.rmtree(workspace, ignore_errors=True)
+
+    def test_refuses_live_toc_remap_when_title_identity_changed(self):
+        workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
+        workspace.mkdir(parents=True)
+        try:
+            bot = EdTechScraperBot(
+                "https://books.byui.edu/current_book",
+                "PTBR",
+                str(workspace),
+                print_callback=Mock(),
+            )
+            bot._read_live_toc = Mock(return_value=[{
+                "url": "https://books.byui.edu/current_book/unrelated",
+                "title": "A different chapter",
+            }])
+            item = {
+                "url": "https://books.byui.edu/current_book/old-one",
+                "filename": "lesson_1.html",
+                "source_title": "Expected chapter",
+            }
+
+            with self.assertRaisesRegex(RuntimeError, "TOC mismatch"):
+                bot._refresh_injection_urls(MagicMock(), [item])
+        finally:
+            shutil.rmtree(workspace, ignore_errors=True)
+
     def test_injection_action_waits_for_callback_approval(self):
         workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
         workspace.mkdir(parents=True)
@@ -208,7 +444,7 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
                 url="https://books.byui.edu/current_book/lesson_one",
                 page_number=1,
                 page_total=2,
-                selector='button[data-ribbon-action="Save"]',
+                selector=bot.SAVE_SELECTOR,
                 details="Save this page.",
                 text_to_copy="translated text",
             )
@@ -354,31 +590,8 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
                 print_callback=Mock(),
             )
             page = MagicMock()
-            login_locator = MagicMock()
-            login_locator.is_visible.return_value = False
-            logged_in_locator = MagicMock()
-            logged_in_locator.is_visible.return_value = True
-            editable_locator = MagicMock()
-
-            def locator(selector):
-                if selector == 'button#user-link[data-target-template="modal-login"]':
-                    return login_locator
-                if selector == 'button#user-link[data-bs-toggle="dropdown"]':
-                    return logged_in_locator
-                return editable_locator
-
-            page.locator.side_effect = locator
-
-            def evaluate(script, *args):
-                if not args and 'document.getElementById("code-box").innerText' in script:
-                    return "<p>Texto traduzido</p>"
-                if not args and 'document.getElementById("chapter-title")' in script:
-                    return "Título traduzido"
-                if not args and 'document.getElementById("chapter-subtitle")' in script:
-                    return "Carta de Agradecimento"
-                return None
-
-            page.evaluate.side_effect = evaluate
+            save_button = MagicMock()
+            page.locator.return_value.first = save_button
             playwright = MagicMock()
             browser = playwright.chromium.launch.return_value
             context = browser.new_context.return_value
@@ -386,72 +599,133 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
             manager = MagicMock()
             manager.__enter__.return_value = playwright
             actions = []
+            extracted_item = {
+                "url": "https://books.byui.edu/current_book/lesson_one",
+                "filename": "lesson_1.html",
+                "source_title": "English title",
+                "source_subtitle": "Letter of Appreciation",
+                "translated_filepath": str(translated_file),
+            }
 
-            with (
-                patch("bots.edtech_bot.sync_playwright", return_value=manager),
-                patch("bots.edtech_bot.time.sleep"),
-            ):
+            bot._ensure_login = Mock()
+            bot._refresh_injection_urls = Mock(return_value=[extracted_item])
+            bot._open_toc_item = Mock()
+            bot._open_editor = Mock()
+            bot._set_chapter_title = Mock()
+            bot._set_chapter_subtitle = Mock()
+            html_source = MagicMock()
+            bot._open_html_source = Mock(return_value=html_source)
+            bot._replace_full_html_source = Mock()
+            bot._close_editor = Mock()
+            bot._read_chapter_title = Mock(return_value="Título traduzido")
+            bot._read_chapter_subtitle = Mock(
+                return_value="Carta de Agradecimento"
+            )
+            bot._copy_full_html_source = Mock(return_value="<p>Texto traduzido</p>")
+            bot._verify_saved_html = Mock()
+
+            with patch("bots.edtech_bot.sync_playwright", return_value=manager):
                 bot.run_injection(
-                    extracted_files=[{
-                        "url": "https://books.byui.edu/current_book/lesson_one",
-                        "filename": "lesson_1.html",
-                        "source_title": "English title",
-                        "source_subtitle": "Letter of Appreciation",
-                        "translated_filepath": str(translated_file),
-                    }],
+                    extracted_files=[extracted_item],
                     step_callback=lambda payload: actions.append(payload) or True,
                 )
 
             action_names = [action["action"] for action in actions]
             self.assertNotIn("Open EdTech for the login check", action_names)
-            self.assertIn('Click "Save" and wait five seconds', action_names)
-            self.assertIn("Reload the saved page for verification", action_names)
-            self.assertIn("Compare the saved HTML, title, and subtitle", action_names)
+            self.assertIn('Click "Save"', action_names)
+            self.assertIn("Close the editor", action_names)
+            self.assertIn("Reopen the editor for save verification", action_names)
+            self.assertIn('Click "HTML" for save verification', action_names)
+            self.assertIn("Close the verified editor", action_names)
             self.assertLess(
-                action_names.index("Copy translated HTML into the code box"),
-                action_names.index("Copy the translated chapter title"),
+                action_names.index("Replace the translated chapter title"),
+                action_names.index('Click "HTML"'),
             )
             self.assertLess(
-                action_names.index("Copy the translated chapter title"),
-                action_names.index("Copy the translated chapter subtitle"),
+                action_names.index('Click "HTML"'),
+                action_names.index("Replace the complete HTML source"),
             )
             self.assertLess(
-                action_names.index("Copy the translated chapter subtitle"),
-                action_names.index('Click "Save" and wait five seconds'),
+                action_names.index("Replace the complete HTML source"),
+                action_names.index('Click "Save"'),
             )
             self.assertEqual(
-                actions[action_names.index("Copy translated HTML into the code box")]["text_to_copy"],
+                actions[action_names.index("Replace the complete HTML source")]["text_to_copy"],
                 "<p>Texto traduzido</p>",
             )
-            self.assertGreaterEqual(page.goto.call_count, 3)
-            page.locator.assert_any_call("#chapter-title")
-            page.locator.assert_any_call("#chapter-subtitle")
-            editable_locator.fill.assert_any_call("Título traduzido")
-            editable_locator.fill.assert_any_call("Carta de Agradecimento")
+            bot._ensure_login.assert_called_once_with(page)
+            bot._refresh_injection_urls.assert_called_once_with(page, [extracted_item])
+            bot._open_toc_item.assert_called_once_with(page, extracted_item)
+            self.assertEqual(bot._open_editor.call_count, 2)
+            bot._set_chapter_title.assert_called_once_with(page, "Título traduzido")
+            bot._set_chapter_subtitle.assert_called_once_with(
+                page,
+                "Carta de Agradecimento",
+            )
+            self.assertEqual(bot._open_html_source.call_count, 2)
+            bot._replace_full_html_source.assert_called_once_with(
+                page,
+                html_source,
+                "<p>Texto traduzido</p>",
+            )
+            save_button.click.assert_called_once_with()
+            self.assertEqual(bot._close_editor.call_count, 2)
+            bot._verify_saved_html.assert_called_once_with(
+                extracted_item,
+                extracted_item["url"],
+                "<p>Texto traduzido</p>",
+                "<p>Texto traduzido</p>",
+            )
             context.close.assert_called_once_with()
             browser.close.assert_called_once_with()
         finally:
             shutil.rmtree(workspace, ignore_errors=True)
 
     def test_reads_title_from_the_editable_chapter_heading(self):
+        workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
+        workspace.mkdir(parents=True)
+        self.addCleanup(shutil.rmtree, workspace, True)
+        bot = EdTechScraperBot(
+            "https://books.byui.edu/current_book",
+            "PTBR",
+            str(workspace),
+            print_callback=Mock(),
+        )
         page = MagicMock()
-        page.evaluate.return_value = "Academic Honesty, Ethics and Integrity"
+        title_field = MagicMock()
+        title_field.count.return_value = 1
+        title_field.evaluate.return_value = "Academic Honesty, Ethics and Integrity"
+        page.locator.return_value.first = title_field
 
-        title = EdTechScraperBot._read_chapter_title(page)
+        title = bot._read_chapter_title(page)
 
         self.assertEqual(title, "Academic Honesty, Ethics and Integrity")
-        script = page.evaluate.call_args.args[0]
-        self.assertIn('document.getElementById("chapter-title")', script)
+        page.locator.assert_called_once_with(bot.TITLE_SELECTOR)
+        script = title_field.evaluate.call_args.args[0]
+        self.assertIn("element.innerText", script)
 
     def test_reads_subtitle_from_the_optional_editable_chapter_paragraph(self):
+        workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
+        workspace.mkdir(parents=True)
+        self.addCleanup(shutil.rmtree, workspace, True)
+        bot = EdTechScraperBot(
+            "https://books.byui.edu/current_book",
+            "PTBR",
+            str(workspace),
+            print_callback=Mock(),
+        )
         page = MagicMock()
-        page.evaluate.return_value = "Letter of Appreciation"
+        subtitle_field = MagicMock()
+        subtitle_field.count.return_value = 1
+        subtitle_field.evaluate.return_value = "Letter of Appreciation"
+        page.locator.return_value.first = subtitle_field
 
-        subtitle = EdTechScraperBot._read_chapter_subtitle(page)
+        subtitle = bot._read_chapter_subtitle(page)
 
         self.assertEqual(subtitle, "Letter of Appreciation")
-        script = page.evaluate.call_args.args[0]
-        self.assertIn('document.getElementById("chapter-subtitle")', script)
+        page.locator.assert_called_once_with(bot.SUBTITLE_SELECTOR)
+        script = subtitle_field.evaluate.call_args.args[0]
+        self.assertIn("element.innerText", script)
 
     def test_translated_title_carrier_decodes_html_entities_before_injection(self):
         title_html = "Ética &amp; Integridade"
@@ -630,6 +904,10 @@ class EdTechExcelReportTests(unittest.TestCase):
                 ).group(1)
             )
             controller.update_excel_dashboard.return_value = "report.xlsx"
+            controller.get_gemini_translation_pages.return_value = [
+                {"filepath": str(first_translated_page)},
+                {"filepath": str(second_translated_page)},
+            ]
 
             report_path = generate_edtech_excel_report(
                 controller,
@@ -654,8 +932,100 @@ class EdTechExcelReportTests(unittest.TestCase):
                 report_name="Web Frontend Development Ii EdTech Master",
                 report_code="EDTECH-SPA",
                 review_pages=[
-                    {"title": "Introdução", "filepath": str(first_translated_page)},
-                    {"title": "Planejando seu projeto", "filepath": str(second_translated_page)},
+                    {
+                        "title": "Introdução",
+                        "filepath": str(first_translated_page),
+                        "status": "Translated",
+                        "details": "",
+                    },
+                    {
+                        "title": "Planejando seu projeto",
+                        "filepath": str(second_translated_page),
+                        "status": "Translated",
+                        "details": "",
+                    },
+                ],
+                excluded_sheets=("Dashboard", "Bot Analysis", "Raw Logs"),
+            )
+        finally:
+            shutil.rmtree(workspace, ignore_errors=True)
+
+    def test_translation_failure_reports_and_returns_successful_injection_subset(self):
+        workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
+        workspace.mkdir(parents=True)
+        try:
+            successful_raw_page = workspace / "lesson_1.html"
+            failed_raw_page = workspace / "lesson_2.html"
+            successful_translated_page = workspace / "translated" / "lesson_1.html"
+            failed_translated_page = workspace / "translated" / "lesson_2.html"
+            successful_raw_page.write_text(
+                '<div id="edtech-meta-title">First Source Lesson</div>',
+                encoding="utf-8",
+            )
+            failed_raw_page.write_text(
+                '<div id="edtech-meta-title">Source Lesson</div>',
+                encoding="utf-8",
+            )
+            successful_translated_page.parent.mkdir()
+            successful_translated_page.write_text(
+                '<div id="edtech-meta-title">Primeira lição</div>',
+                encoding="utf-8",
+            )
+            failed_translated_page.write_text(
+                failed_raw_page.read_text(encoding="utf-8"),
+                encoding="utf-8",
+            )
+
+            controller = Mock()
+            controller.translate_files.side_effect = RuntimeError("batch failed")
+            controller.get_gemini_translation_pages.return_value = [{
+                "filepath": str(successful_translated_page),
+            }]
+            controller._extract_page_title.side_effect = [
+                "Primeira lição",
+                "Source Lesson",
+            ]
+            controller.update_excel_dashboard.return_value = "failed-report.xlsx"
+            successful_item = {
+                "filename": "lesson_1.html",
+                "raw_filepath": str(successful_raw_page),
+                "translated_filepath": str(successful_translated_page),
+            }
+            failed_item = {
+                "filename": "lesson_2.html",
+                "raw_filepath": str(failed_raw_page),
+                "translated_filepath": str(failed_translated_page),
+            }
+            extracted = [successful_item, failed_item]
+
+            outcome = translate_edtech_files_and_generate_report(
+                controller,
+                "https://books.byui.edu/demo",
+                "PTBR",
+                extracted,
+            )
+
+            self.assertEqual(outcome["report_path"], "failed-report.xlsx")
+            self.assertEqual(outcome["translated_pages"], [successful_item])
+            self.assertEqual(outcome["failed_pages"], [failed_item])
+            self.assertEqual(str(outcome["translation_error"]), "batch failed")
+
+            controller.update_excel_dashboard.assert_called_once_with(
+                report_name="Demo EdTech Master",
+                report_code="EDTECH-PTBR",
+                review_pages=[
+                    {
+                        "title": "Primeira lição",
+                        "filepath": str(successful_translated_page),
+                        "status": "Translated",
+                        "details": "",
+                    },
+                    {
+                        "title": "Source Lesson",
+                        "filepath": str(failed_raw_page),
+                        "status": "Failed",
+                        "details": "batch failed",
+                    },
                 ],
                 excluded_sheets=("Dashboard", "Bot Analysis", "Raw Logs"),
             )

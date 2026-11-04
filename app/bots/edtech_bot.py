@@ -14,6 +14,22 @@ class EdTechScraperBot:
     TOC_CHAPTER_LINK_SELECTOR = (
         'div#toc > div.toc-row[data-entity-type="chapter"] > a.btn.text-start'
     )
+    EDIT_SELECTOR = (
+        'a.btn-edit[aria-label="Edit chapter"][href^="/editor/"]:visible'
+    )
+    HTML_SOURCE_SELECTOR = (
+        'div.cm-content[role="textbox"]'
+        '[aria-label="Document HTML source"]'
+        '[data-language="html"]'
+    )
+    TITLE_SELECTOR = (
+        'h1[contenteditable="plaintext-only"], '
+        'h1[contenteditable="true"], '
+        '#chapter-title[contenteditable]'
+    )
+    SUBTITLE_SELECTOR = '#chapter-subtitle[contenteditable]'
+    SAVE_SELECTOR = 'button.btn.bi-floppy2-fill:visible'
+    CLOSE_SELECTOR = 'button.btn.bi-x-lg.float-end:visible'
 
     def __init__(self, book_url, target_language, workspace_dir, print_callback=print):
         self.book_url = book_url
@@ -66,7 +82,7 @@ class EdTechScraperBot:
             self._log_troubleshoot("No stale translation output was present.")
 
     def load_resumable_injection(self):
-        """Return a complete, same-book translated mapping that is safe to resume."""
+        """Return every same-book translated page that is safe to resume."""
         mapping_file = os.path.join(self.workspace_dir, "edtech_mapping.json")
         if not os.path.isfile(mapping_file):
             return []
@@ -105,25 +121,46 @@ class EdTechScraperBot:
 
             raw_path = os.path.join(self.raw_dir, filename)
             translated_path = os.path.join(self.translated_dir, filename)
-            if not os.path.isfile(raw_path) or not os.path.isfile(translated_path):
+            if not os.path.isfile(raw_path):
                 return []
+            if not os.path.isfile(translated_path):
+                self._log_troubleshoot(
+                    f"Skipping {filename} during injection resume because its "
+                    "translated file is missing."
+                )
+                continue
 
             try:
                 with open(raw_path, "r", encoding="utf-8") as input_file:
                     raw_html = input_file.read()
-                with open(translated_path, "r", encoding="utf-8") as input_file:
-                    translated_html = input_file.read()
+                try:
+                    with open(translated_path, "r", encoding="utf-8") as input_file:
+                        translated_html = input_file.read()
+                except OSError as error:
+                    self._log_troubleshoot(
+                        f"Skipping {filename} during injection resume because its "
+                        f"translated file could not be read: {error}"
+                    )
+                    continue
             except OSError:
                 return []
 
             if raw_html.strip() == translated_html.strip():
-                return []
+                self._log_troubleshoot(
+                    f"Skipping {filename} during injection resume because it has no "
+                    "completed translation."
+                )
+                continue
             if item.get("source_title") and not re.search(
                 r'<div id="edtech-meta-title"[^>]*>.*?</div>',
                 translated_html,
                 flags=re.IGNORECASE | re.DOTALL,
             ):
-                return []
+                self._log_troubleshoot(
+                    f"Skipping {filename} during injection resume because translated "
+                    "title metadata is missing."
+                )
+                continue
             if item.get("source_subtitle") and not re.search(
                 r'<div id="edtech-meta-subtitle"[^>]*>.*?</div>',
                 translated_html,
@@ -131,9 +168,9 @@ class EdTechScraperBot:
             ):
                 self._log_troubleshoot(
                     f"Translated subtitle metadata is missing from {filename}; "
-                    "the saved injection cannot be resumed safely."
+                    "that page will be skipped during injection resume."
                 )
-                return []
+                continue
 
             safe_item = dict(item)
             safe_item["raw_filepath"] = raw_path
@@ -372,8 +409,8 @@ class EdTechScraperBot:
 
     def _set_chapter_title(self, page, translated_title):
         """Update EdTech's editable title field and commit its change events."""
-        title_selector = "#chapter-title"
-        title_field = page.locator(title_selector)
+        title_field = page.locator(self.TITLE_SELECTOR).first
+        title_field.wait_for(timeout=10000, state="visible")
         try:
             title_field.fill(translated_title)
             self._log_troubleshoot(
@@ -381,39 +418,37 @@ class EdTechScraperBot:
             )
         except Exception as fill_error:
             self._log_troubleshoot(
-                f"Title fill() was unavailable ({fill_error}); using the DOM fallback."
+                f"Title fill() was unavailable ({fill_error}); using keyboard input."
             )
-            page.evaluate('''(title) => {
-                const el = document.getElementById("chapter-title");
-                if (!el) throw new Error("chapter-title was not found");
-                if ("value" in el) el.value = title;
-                el.textContent = title;
-                el.innerText = title;
-                el.dispatchEvent(new Event('input', { bubbles: true }));
-            }''', translated_title)
+            title_field.click()
+            title_field.press("Control+A")
+            title_field.press_sequentially(translated_title, delay=1)
 
-        page.evaluate('''() => {
-            const el = document.getElementById("chapter-title");
-            if (!el) throw new Error("chapter-title was not found");
-            el.dispatchEvent(new Event('input', { bubbles: true }));
-            el.dispatchEvent(new Event('change', { bubbles: true }));
-            el.blur();
+        title_field.evaluate('''element => {
+            element.dispatchEvent(new Event('change', { bubbles: true }));
+            element.blur();
         }''')
-        page.wait_for_timeout(500)
+        page.wait_for_timeout(1500)
+        saved_value = self._normalized_text(self._read_chapter_title(page))
+        if saved_value != self._normalized_text(translated_title):
+            raise RuntimeError(
+                "The EdTech editor title field rejected the translated title: "
+                f"expected {translated_title!r}; field contains {saved_value!r}."
+            )
 
-    @staticmethod
-    def _read_chapter_title(page):
-        return page.evaluate('''() => {
-            const el = document.getElementById("chapter-title");
-            if (!el) return "";
-            if ("value" in el && el.value) return el.value;
-            return el.innerText || el.textContent || "";
+    def _read_chapter_title(self, page):
+        title_field = page.locator(self.TITLE_SELECTOR).first
+        if title_field.count() == 0:
+            return ""
+        return title_field.evaluate('''element => {
+            if ("value" in element && element.value) return element.value;
+            return element.innerText || element.textContent || "";
         }''')
 
     def _set_chapter_subtitle(self, page, translated_subtitle):
         """Update EdTech's optional editable subtitle and commit its change events."""
-        subtitle_selector = "#chapter-subtitle"
-        subtitle_field = page.locator(subtitle_selector)
+        subtitle_field = page.locator(self.SUBTITLE_SELECTOR).first
+        subtitle_field.wait_for(timeout=10000, state="visible")
         try:
             subtitle_field.fill(translated_subtitle)
             self._log_troubleshoot(
@@ -421,45 +456,348 @@ class EdTechScraperBot:
             )
         except Exception as fill_error:
             self._log_troubleshoot(
-                f"Subtitle fill() was unavailable ({fill_error}); using the DOM fallback."
+                f"Subtitle fill() was unavailable ({fill_error}); using keyboard input."
             )
-            page.evaluate('''(subtitle) => {
-                const el = document.getElementById("chapter-subtitle");
-                if (!el) throw new Error("chapter-subtitle was not found");
-                if ("value" in el) el.value = subtitle;
-                el.textContent = subtitle;
-                el.innerText = subtitle;
-                el.dispatchEvent(new Event('input', { bubbles: true }));
-            }''', translated_subtitle)
+            subtitle_field.click()
+            subtitle_field.press("Control+A")
+            subtitle_field.press_sequentially(translated_subtitle, delay=1)
 
-        page.evaluate('''() => {
-            const el = document.getElementById("chapter-subtitle");
-            if (!el) throw new Error("chapter-subtitle was not found");
-            el.dispatchEvent(new Event('input', { bubbles: true }));
-            el.dispatchEvent(new Event('change', { bubbles: true }));
-            el.blur();
+        subtitle_field.evaluate('''element => {
+            element.dispatchEvent(new Event('change', { bubbles: true }));
+            element.blur();
         }''')
-        page.wait_for_timeout(500)
+        page.wait_for_timeout(1500)
+
+    def _read_chapter_subtitle(self, page):
+        subtitle_field = page.locator(self.SUBTITLE_SELECTOR).first
+        if subtitle_field.count() == 0:
+            return ""
+        return subtitle_field.evaluate('''element => {
+            if ("value" in element && element.value) return element.value;
+            return element.innerText || element.textContent || "";
+        }''')
+
+    def _open_editor(self, page):
+        edit_button = page.locator(self.EDIT_SELECTOR).first
+        edit_button.wait_for(timeout=20000, state="visible")
+        edit_button.click()
+        page.wait_for_url(
+            "**/editor/**",
+            timeout=60000,
+            wait_until="domcontentloaded",
+        )
+
+    def _open_html_source(self, page):
+        html_button = page.get_by_role("button", name="HTML", exact=True)
+        html_button.wait_for(timeout=10000, state="visible")
+        html_button.click()
+        html_source = page.locator(self.HTML_SOURCE_SELECTOR)
+        html_source.wait_for(timeout=10000, state="visible")
+        return html_source
 
     @staticmethod
-    def _read_chapter_subtitle(page):
-        return page.evaluate('''() => {
-            const el = document.getElementById("chapter-subtitle");
-            if (!el) return "";
-            if ("value" in el && el.value) return el.value;
-            return el.innerText || el.textContent || "";
-        }''')
+    def _copy_full_html_source(page, html_source):
+        page.evaluate("() => navigator.clipboard.writeText('')")
+        html_source.click()
+        html_source.press("Control+A")
+        html_source.press("Control+C")
+        page.wait_for_function(
+            """async () => Boolean((await navigator.clipboard.readText()).trim())""",
+            timeout=10000,
+        )
+        return page.evaluate("() => navigator.clipboard.readText()")
+
+    def _replace_full_html_source(self, page, html_source, translated_html):
+        page.evaluate("(html) => navigator.clipboard.writeText(html)", translated_html)
+        html_source.click()
+        html_source.press("Control+A")
+        html_source.press("Control+V")
+        page.wait_for_timeout(750)
+        pasted_html = self._copy_full_html_source(page, html_source)
+        normalize = lambda value: (value or "").replace("\r\n", "\n").strip()
+        if normalize(pasted_html) != normalize(translated_html):
+            raise RuntimeError(
+                "CodeMirror did not retain the complete translated HTML."
+            )
+
+    def _close_editor(self, page, public_url):
+        close_button = page.locator(self.CLOSE_SELECTOR).first
+        close_button.wait_for(timeout=10000, state="visible")
+        close_button.click()
+        page.wait_for_url(
+            lambda url: str(url).rstrip("/") == public_url.rstrip("/"),
+            timeout=60000,
+            wait_until="domcontentloaded",
+        )
+
+    @staticmethod
+    def _lesson_number(item):
+        match = re.fullmatch(
+            r"lesson_(\d+)\.html",
+            item.get("filename", ""),
+            flags=re.IGNORECASE,
+        )
+        if not match:
+            raise RuntimeError(
+                f"Invalid EdTech lesson filename: {item.get('filename', '')!r}."
+            )
+        return int(match.group(1))
+
+    def _read_live_toc(self, page):
+        page.goto(
+            self.book_url,
+            wait_until="domcontentloaded",
+            timeout=60000,
+        )
+        page.wait_for_selector("#toc", timeout=60000, state="visible")
+        links = page.locator(self.TOC_CHAPTER_LINK_SELECTOR)
+        entries = []
+        for index in range(links.count()):
+            link = links.nth(index)
+            href = link.get_attribute("href")
+            url = self._resolve_lesson_url(href) if href else None
+            if not url:
+                raise RuntimeError(
+                    f"The live TOC contains an invalid chapter link at position {index + 1}."
+                )
+            entries.append({
+                "url": url,
+                "title": self._normalized_text(link.inner_text()),
+            })
+        if not entries:
+            raise RuntimeError("The selected EdTech book has no chapter links in its TOC.")
+        return entries
+
+    def _translated_title_from_file(self, item):
+        translated_path = item.get("translated_filepath", "")
+        if not translated_path or not os.path.isfile(translated_path):
+            return ""
+        try:
+            with open(translated_path, "r", encoding="utf-8") as input_file:
+                translated_html = input_file.read()
+        except OSError:
+            return ""
+        match = re.search(
+            r'<div id="edtech-meta-title"[^>]*>(.*?)</div>',
+            translated_html,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+        if not match:
+            return ""
+        return self._normalized_text(
+            BeautifulSoup(match.group(1), "html.parser").get_text(" ", strip=True)
+        )
+
+    def _refresh_injection_urls(self, page, extracted_files):
+        """Remap lesson_N files to the current TOC after validating their titles."""
+        live_entries = self._read_live_toc(page)
+        refreshed = []
+        for item in extracted_files:
+            lesson_number = self._lesson_number(item)
+            if lesson_number > len(live_entries):
+                raise RuntimeError(
+                    f"{item['filename']} expects TOC position {lesson_number}, but the "
+                    f"live book has only {len(live_entries)} chapter(s)."
+                )
+            live_entry = live_entries[lesson_number - 1]
+            expected_titles = {
+                self._normalized_text(item.get("source_title", "")).casefold(),
+                self._translated_title_from_file(item).casefold(),
+            } - {""}
+            live_title = self._normalized_text(live_entry["title"])
+            if expected_titles and live_title.casefold() not in expected_titles:
+                raise RuntimeError(
+                    f"TOC mismatch for {item['filename']}: the live title "
+                    f"{live_title!r} matches neither its source nor translated title."
+                )
+            current_item = dict(item)
+            current_item["url"] = live_entry["url"]
+            refreshed.append(current_item)
+
+        mapping_path = os.path.join(self.workspace_dir, "edtech_mapping.json")
+        try:
+            with open(mapping_path, "r", encoding="utf-8") as input_file:
+                full_mapping = json.load(input_file)
+        except (OSError, json.JSONDecodeError):
+            full_mapping = list(refreshed)
+        if isinstance(full_mapping, list):
+            for mapped_item in full_mapping:
+                try:
+                    lesson_number = self._lesson_number(mapped_item)
+                except RuntimeError:
+                    continue
+                if lesson_number <= len(live_entries):
+                    mapped_item["url"] = live_entries[lesson_number - 1]["url"]
+            self._write_extraction_mapping(full_mapping)
+
+        self._log_troubleshoot(
+            f"Validated the live TOC and refreshed {len(refreshed)} injection URL(s)."
+        )
+        return refreshed
+
+    def _open_toc_item(self, page, item):
+        toc_index = self._lesson_number(item) - 1
+        page.goto(
+            self.book_url,
+            wait_until="domcontentloaded",
+            timeout=60000,
+        )
+        page.wait_for_selector("#toc", timeout=60000, state="visible")
+        link = page.locator(self.TOC_CHAPTER_LINK_SELECTOR).nth(toc_index)
+        link.wait_for(timeout=20000, state="visible")
+        link.click()
+        page.wait_for_url(
+            lambda url: str(url).rstrip("/") == item["url"].rstrip("/"),
+            timeout=60000,
+            wait_until="domcontentloaded",
+        )
+
+    def _prepare_translated_page(self, item):
+        translated_path = item.get("translated_filepath", "")
+        if not os.path.isfile(translated_path):
+            raise RuntimeError(
+                f"Translated file not found for {item.get('url', '')}: {translated_path}"
+            )
+        with open(translated_path, "r", encoding="utf-8") as input_file:
+            translated_html = self._clean_translated_html_for_injection(
+                input_file.read()
+            )
+
+        def extract_metadata(element_id, required, label):
+            nonlocal translated_html
+            match = re.search(
+                rf'<div id="{element_id}"[^>]*>(.*?)</div>',
+                translated_html,
+                flags=re.IGNORECASE | re.DOTALL,
+            )
+            if not match:
+                if required:
+                    raise RuntimeError(
+                        f"Translated {label} is missing for {item.get('url', '')}."
+                    )
+                return None
+            value = self._normalized_text(
+                BeautifulSoup(match.group(1), "html.parser").get_text(" ", strip=True)
+            )
+            if not value:
+                raise RuntimeError(
+                    f"Translated {label} is empty for {item.get('url', '')}."
+                )
+            translated_html = (
+                translated_html[:match.start()] + translated_html[match.end():]
+            ).strip()
+            return value
+
+        translated_title = extract_metadata(
+            "edtech-meta-title",
+            bool(item.get("source_title")),
+            "title",
+        )
+        translated_subtitle = extract_metadata(
+            "edtech-meta-subtitle",
+            bool(item.get("source_subtitle")),
+            "subtitle",
+        )
+        return translated_title, translated_subtitle, translated_html
 
     def _launch_anonymous_context(self, playwright):
         """Launch a fresh, non-persistent browser context with no saved session data."""
         browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context(no_viewport=True)
+        context = browser.new_context(
+            no_viewport=True,
+            permissions=["clipboard-read", "clipboard-write"],
+        )
         context.clear_cookies()
         self.print_callback(
             "Launched a fresh anonymous browser session. "
             "Cookies and login state will not be saved."
         )
         return browser, context
+
+    def _extract_chapter(self, page, url, index, toc_title=""):
+        """Read one chapter through EdTech's current HTML editor."""
+        page.goto(url, timeout=60000, wait_until="domcontentloaded")
+        self._open_editor(page)
+
+        title_text = ""
+        try:
+            page.locator(self.TITLE_SELECTOR).first.wait_for(
+                timeout=10000,
+                state="visible",
+            )
+            title_text = self._normalized_text(self._read_chapter_title(page))
+        except Exception as title_error:
+            self._log_troubleshoot(
+                f"Could not read the editor title for {url} ({title_error}); "
+                "using the validated TOC title."
+            )
+        title_text = title_text or self._normalized_text(toc_title)
+        if not title_text:
+            raise RuntimeError(f"No chapter title was available for {url}.")
+
+        subtitle_text = ""
+        subtitle_field = page.locator(self.SUBTITLE_SELECTOR).first
+        if subtitle_field.count():
+            try:
+                subtitle_text = self._normalized_text(
+                    self._read_chapter_subtitle(page)
+                )
+            except Exception as subtitle_error:
+                self._log_troubleshoot(
+                    f"Could not read the optional subtitle for {url}: {subtitle_error}"
+                )
+
+        html_source = self._open_html_source(page)
+        visible_html = html_source.inner_text()
+        html_content = self._copy_full_html_source(page, html_source)
+        if not html_content or not html_content.strip():
+            raise RuntimeError("CodeMirror did not copy any HTML to the clipboard.")
+        if len(html_content) < len(visible_html):
+            raise RuntimeError(
+                "The copied HTML was shorter than CodeMirror's visible DOM; "
+                "refusing to save an incomplete page."
+            )
+        self._close_editor(page, url)
+
+        metadata_parts = [
+            '<div id="edtech-meta-title" style="display:none;">'
+            f'{escape(title_text, quote=False)}</div>'
+        ]
+        if subtitle_text:
+            metadata_parts.append(
+                '<div id="edtech-meta-subtitle" style="display:none;">'
+                f'{escape(subtitle_text, quote=False)}</div>'
+            )
+        html_content = f"{chr(10).join(metadata_parts)}\n{html_content}"
+
+        filename = f"lesson_{index}.html"
+        filepath = os.path.join(self.raw_dir, filename)
+        with open(filepath, "w", encoding="utf-8") as output_file:
+            output_file.write(html_content)
+
+        self._log_troubleshoot(
+            f"Copied {len(html_content)} HTML character(s) for {filename}."
+        )
+        return {
+            "url": url,
+            "filename": filename,
+            "source_title": title_text,
+            "source_subtitle": subtitle_text,
+            "toc_scope": "all_chapters",
+            "raw_filepath": filepath,
+            "translated_filepath": os.path.join(self.translated_dir, filename),
+        }
+    def _write_extraction_mapping(self, extracted_files):
+        mapping_path = os.path.join(self.workspace_dir, "edtech_mapping.json")
+        temporary_path = mapping_path + ".tmp"
+        with open(temporary_path, "w", encoding="utf-8") as mapping_file:
+            json.dump(
+                extracted_files,
+                mapping_file,
+                ensure_ascii=False,
+                indent=4,
+            )
+        os.replace(temporary_path, mapping_path)
 
     def _google_login_transition_started(self, page, logged_in_selector):
         """Return True when a click error was caused by OAuth navigation starting."""
@@ -583,248 +921,146 @@ class EdTechScraperBot:
     def run_extraction(self):
         """Extracts all HTML from the book lessons."""
         extracted_files = []
+        failures = []
         self._clear_extraction_files()
         self.print_callback(f"Starting Playwright for EdTech extraction...")
 
         with sync_playwright() as p:
             self.print_callback("Launching browser. Please log in if prompted...")
             browser, context = self._launch_anonymous_context(p)
-            page = context.new_page()
-            
-            # Ensure logged in before navigating to the specific book URL
-            self._ensure_login(page)
-            
-            self.print_callback(f"Navigating to target book shell: {self.book_url}")
-            page.goto(self.book_url, timeout=60000)
-            
             try:
-                page.wait_for_selector('div#toc', timeout=10000)
-            except:
-                self.print_callback("TOC not found immediately. Waiting...")
-                page.wait_for_selector('div#toc', timeout=60000)
+                page = context.new_page()
 
-            self.print_callback("Parsing Table of Contents...")
-            
-            # Every chapter row is an editable page. Include both parent chapters
-            # (nonempty data-children) and leaf lessons (empty data-children).
-            page.wait_for_selector(
-                self.TOC_CHAPTER_LINK_SELECTOR,
-                timeout=20000,
-                state="visible",
-            )
-            locators = page.locator(self.TOC_CHAPTER_LINK_SELECTOR).all()
-            
-            lesson_urls = []
-            for loc in locators:
-                href = loc.get_attribute('href')
-                if href:
-                    lesson_url = self._resolve_lesson_url(href)
-                    if lesson_url and lesson_url not in lesson_urls:
-                        lesson_urls.append(lesson_url)
-            
-            self.print_callback(
-                f"Found {len(lesson_urls)} chapter page(s) to extract."
-            )
-            
-            for index, url in enumerate(lesson_urls):
-                self.print_callback(f"Extracting [{index+1}/{len(lesson_urls)}]: {url}")
-                page.goto(url)
-                
-                # 1. Click "Edit"
-                try:
-                    page.wait_for_selector('button[data-action="ToggleEditor"]', timeout=10000)
-                    page.click('button[data-action="ToggleEditor"]')
-                except:
-                    self.print_callback(f"Could not find Edit button on {url}. Skipping.")
-                    continue
+                # Ensure logged in before navigating to the specific book URL.
+                self._ensure_login(page)
 
-                # Read the editable chapter title from the same h1 that will be
-                # updated during injection. Do this before opening the HTML tray.
+                self.print_callback(
+                    f"Navigating to target book shell: {self.book_url}"
+                )
+                page.goto(
+                    self.book_url,
+                    timeout=60000,
+                    wait_until="domcontentloaded",
+                )
+
                 try:
-                    page.wait_for_selector(
-                        'h1#chapter-title[contenteditable]',
-                        timeout=5000,
-                        state="visible",
-                    )
-                    title_text = self._normalized_text(
-                        self._read_chapter_title(page)
-                    )
-                    if not title_text:
-                        raise RuntimeError("the editable chapter title is empty")
-                    self._log_troubleshoot(
-                        f"Extracted chapter title from h1#chapter-title: {title_text!r}"
-                    )
-                    subtitle_text = self._normalized_text(
-                        self._read_chapter_subtitle(page)
-                    )
-                    if subtitle_text:
-                        self._log_troubleshoot(
-                            "Extracted chapter subtitle from "
-                            f"p#chapter-subtitle: {subtitle_text!r}"
-                        )
-                except Exception as title_error:
+                    page.wait_for_selector('div#toc', timeout=10000)
+                except Exception:
+                    self.print_callback("TOC not found immediately. Waiting...")
+                    page.wait_for_selector('div#toc', timeout=60000)
+
+                self.print_callback("Parsing Table of Contents...")
+
+                # Every chapter row is an editable page. Include both parent
+                # chapters and leaf lessons, and retain TOC text as a title fallback.
+                page.wait_for_selector(
+                    self.TOC_CHAPTER_LINK_SELECTOR,
+                    timeout=20000,
+                    state="visible",
+                )
+                locators = page.locator(self.TOC_CHAPTER_LINK_SELECTOR).all()
+
+                chapters = []
+                seen_urls = set()
+                for locator in locators:
+                    href = locator.get_attribute('href')
+                    lesson_url = self._resolve_lesson_url(href) if href else None
+                    if lesson_url and lesson_url not in seen_urls:
+                        seen_urls.add(lesson_url)
+                        chapters.append({
+                            "url": lesson_url,
+                            "title": self._normalized_text(locator.inner_text()),
+                        })
+
+                self.print_callback(
+                    f"Found {len(chapters)} chapter page(s) to extract."
+                )
+
+                for index, chapter in enumerate(chapters, start=1):
+                    url = chapter["url"]
                     self.print_callback(
-                        f"Could not extract the editable chapter title on {url}: "
-                        f"{title_error}. Skipping."
+                        f"Extracting [{index}/{len(chapters)}]: {url}"
                     )
-                    continue
-                
-                # 2. Click "Edit HTML"
-                try:
-                    page.wait_for_selector('button.bi-code[data-target="#editor-tray-code-box"]', timeout=5000)
-                    page.click('button.bi-code[data-target="#editor-tray-code-box"]')
-                except:
-                    self.print_callback(f"Could not find Edit HTML button on {url}. Skipping.")
-                    continue
-                
-                # 3. Extract HTML from code-box
-                try:
-                    page.wait_for_selector('div#code-box', timeout=5000)
-                    html_content = page.evaluate('document.getElementById("code-box").innerText')
-                    
-                    # Prepend the title as a hidden tag so the TranslationController
-                    # translates it along with the chapter body. Escape it because the
-                    # source h1 is plaintext-only while this carrier is HTML.
-                    title_for_html = escape(title_text, quote=False)
-                    metadata_html = (
-                        '<div id="edtech-meta-title" style="display:none;">'
-                        f'{title_for_html}</div>'
-                    )
-                    if subtitle_text:
-                        subtitle_for_html = escape(subtitle_text, quote=False)
-                        metadata_html += (
-                            '\n<div id="edtech-meta-subtitle" style="display:none;">'
-                            f'{subtitle_for_html}</div>'
+                    try:
+                        extracted_files.append(
+                            self._extract_chapter(
+                                page,
+                                url,
+                                index,
+                                toc_title=chapter["title"],
+                            )
                         )
-                    html_content = f"{metadata_html}\n{html_content}"
-                    
-                    filename = f"lesson_{index+1}.html"
-                    filepath = os.path.join(self.raw_dir, filename)
-                    with open(filepath, 'w', encoding='utf-8') as f:
-                        f.write(html_content)
-                    
-                    extracted_files.append({
-                        "url": url,
-                        "filename": filename,
-                        "source_title": title_text,
-                        "source_subtitle": subtitle_text,
-                        "toc_scope": "all_chapters",
-                        "raw_filepath": filepath,
-                        "translated_filepath": os.path.join(self.translated_dir, filename)
-                    })
-                except Exception as e:
-                    self.print_callback(f"Error extracting HTML on {url}: {e}")
-                    
-            context.close()
-            browser.close()
-            
-            with open(os.path.join(self.workspace_dir, "edtech_mapping.json"), 'w', encoding='utf-8') as f:
-                json.dump(extracted_files, f, indent=4)
-                
+                        self._write_extraction_mapping(extracted_files)
+                    except Exception as extraction_error:
+                        failures.append(f"{url}: {extraction_error}")
+                        self.print_callback(
+                            f"FAILED [{index}/{len(chapters)}]: {extraction_error}"
+                        )
+                        if page.is_closed():
+                            self.print_callback(
+                                "Browser window was closed; stopping extraction."
+                            )
+                            break
+            finally:
+                try:
+                    context.close()
+                except Exception:
+                    pass
+                try:
+                    browser.close()
+                except Exception:
+                    pass
+
+        self._write_extraction_mapping(extracted_files)
+        if failures:
+            failure_details = "\n".join(f"- {failure}" for failure in failures)
+            raise RuntimeError(
+                f"Extracted {len(extracted_files)} page(s), but "
+                f"{len(failures)} page(s) failed:\n{failure_details}"
+            )
+
         return extracted_files
 
     def run_injection(self, extracted_files=None, step_callback=None):
-        """Inject translated HTML automatically and verify each saved page."""
+        """Inject translated HTML through EdTech's current editor and verify it."""
         self.print_callback("Starting Playwright injection into the target book shell...")
 
         if extracted_files is None:
             mapping_file = os.path.join(self.workspace_dir, "edtech_mapping.json")
             if not os.path.exists(mapping_file):
                 raise RuntimeError("Mapping file not found. Cannot inject.")
-            with open(mapping_file, 'r', encoding='utf-8') as f:
-                extracted_files = json.load(f)
+            with open(mapping_file, "r", encoding="utf-8") as input_file:
+                extracted_files = json.load(input_file)
         else:
-            # Use the current run's in-memory mapping. This prevents an old mapping
-            # from another book from being injected accidentally.
             extracted_files = list(extracted_files)
 
         if not extracted_files:
             raise RuntimeError("No current-run EdTech pages are available to inject.")
-
         for item in extracted_files:
-            if not self._is_url_in_current_book(item.get('url', '')):
+            if not self._is_url_in_current_book(item.get("url", "")):
                 raise RuntimeError(
-                    f"Refusing to inject a page outside the selected book: {item.get('url', '')}"
+                    "Refusing to inject a page outside the selected book: "
+                    f"{item.get('url', '')}"
                 )
 
-        edit_selector = 'button[data-action="ToggleEditor"]'
-        html_selector = 'button.bi-code[data-target="#editor-tray-code-box"]'
-        code_selector = 'div#code-box'
-        apply_selector = 'button[data-custom-action="ApplyCode"]'
-        save_selector = 'button[data-ribbon-action="Save"]'
-
-        with sync_playwright() as p:
-            browser, context = self._launch_anonymous_context(p)
+        with sync_playwright() as playwright:
+            browser, context = self._launch_anonymous_context(playwright)
             page = context.new_page()
             try:
-                # Complete browser setup and authentication before presenting any
-                # controlled injection actions in the troubleshooting window.
                 self._ensure_login(page)
+                extracted_files = self._refresh_injection_urls(
+                    page,
+                    extracted_files,
+                )
                 page_total = len(extracted_files)
 
                 for page_number, item in enumerate(extracted_files, start=1):
-                    url = item['url']
-                    translated_path = item['translated_filepath']
-                    if not os.path.isfile(translated_path):
-                        raise RuntimeError(f"Translated file not found for {url}: {translated_path}")
-
-                    with open(translated_path, 'r', encoding='utf-8') as f:
-                        translated_html = self._clean_translated_html_for_injection(
-                            f.read()
-                        )
-
-                    title_match = re.search(
-                        r'<div id="edtech-meta-title"[^>]*>(.*?)</div>',
+                    url = item["url"]
+                    (
+                        translated_title,
+                        translated_subtitle,
                         translated_html,
-                        flags=re.IGNORECASE | re.DOTALL,
-                    )
-                    translated_title = None
-                    if title_match:
-                        translated_title = self._normalized_text(
-                            BeautifulSoup(
-                                title_match.group(1),
-                                "html.parser",
-                            ).get_text(" ", strip=True)
-                        )
-                        if not translated_title:
-                            raise RuntimeError(
-                                f"Translated title is empty for {url}; refusing to leave its English title in place."
-                            )
-                        translated_html = (
-                            translated_html[:title_match.start()]
-                            + translated_html[title_match.end():]
-                        ).strip()
-                    elif item.get("source_title"):
-                        raise RuntimeError(
-                            f"Translated title is missing for {url}; refusing to leave its English title in place."
-                        )
-
-                    subtitle_match = re.search(
-                        r'<div id="edtech-meta-subtitle"[^>]*>(.*?)</div>',
-                        translated_html,
-                        flags=re.IGNORECASE | re.DOTALL,
-                    )
-                    translated_subtitle = None
-                    if subtitle_match:
-                        translated_subtitle = self._normalized_text(
-                            BeautifulSoup(
-                                subtitle_match.group(1),
-                                "html.parser",
-                            ).get_text(" ", strip=True)
-                        )
-                        if not translated_subtitle:
-                            raise RuntimeError(
-                                f"Translated subtitle is empty for {url}; refusing to leave its English subtitle in place."
-                            )
-                        translated_html = (
-                            translated_html[:subtitle_match.start()]
-                            + translated_html[subtitle_match.end():]
-                        ).strip()
-                    elif item.get("source_subtitle"):
-                        raise RuntimeError(
-                            f"Translated subtitle is missing for {url}; refusing to leave its English subtitle in place."
-                        )
-
+                    ) = self._prepare_translated_page(item)
                     self._current_page_title = (
                         translated_title
                         or item.get("source_title")
@@ -834,13 +1070,17 @@ class EdTechScraperBot:
 
                     self._request_action(
                         step_callback,
-                        action="Navigate to the target EdTech page",
+                        action="Open the current chapter from the live TOC",
                         url=url,
                         page_number=page_number,
                         page_total=page_total,
-                        details="Open this exact URL from the current book mapping.",
+                        selector=self.TOC_CHAPTER_LINK_SELECTOR,
+                        details=(
+                            "Open the target book and select the chapter at the "
+                            "validated lesson_N TOC position."
+                        ),
                     )
-                    page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                    self._open_toc_item(page, item)
 
                     self._request_action(
                         step_callback,
@@ -848,164 +1088,128 @@ class EdTechScraperBot:
                         url=url,
                         page_number=page_number,
                         page_total=page_total,
-                        selector=edit_selector,
-                        details="Open the chapter editor.",
+                        selector=self.EDIT_SELECTOR,
+                        details="Open the current chapter editor.",
                     )
-                    page.wait_for_selector(edit_selector, timeout=20000, state="visible")
-                    page.click(edit_selector)
-
-                    self._request_action(
-                        step_callback,
-                        action='Click "Edit HTML"',
-                        url=url,
-                        page_number=page_number,
-                        page_total=page_total,
-                        selector=html_selector,
-                        details="Open the raw HTML code box.",
-                    )
-                    page.wait_for_selector(html_selector, timeout=10000, state="visible")
-                    page.click(html_selector)
-
-                    self._request_action(
-                        step_callback,
-                        action="Copy translated HTML into the code box",
-                        url=url,
-                        page_number=page_number,
-                        page_total=page_total,
-                        selector=code_selector,
-                        details="Replace the code-box text with the exact HTML shown below.",
-                        text_to_copy=translated_html,
-                    )
-                    page.wait_for_selector(code_selector, timeout=10000, state="visible")
-                    page.evaluate('''(htmlContent) => {
-                        const box = document.getElementById("code-box");
-                        box.innerText = htmlContent;
-                        box.dispatchEvent(new Event('input', { bubbles: true }));
-                    }''', translated_html)
-
-                    self._request_action(
-                        step_callback,
-                        action='Click "Apply"',
-                        url=url,
-                        page_number=page_number,
-                        page_total=page_total,
-                        selector=apply_selector,
-                        details="Apply the raw HTML to the visual editor.",
-                    )
-                    page.wait_for_selector(apply_selector, timeout=10000, state="visible")
-                    page.click(apply_selector)
-                    page.wait_for_timeout(1500)
+                    self._open_editor(page)
 
                     if translated_title:
                         self._request_action(
                             step_callback,
-                            action="Copy the translated chapter title",
+                            action="Replace the translated chapter title",
                             url=url,
                             page_number=page_number,
                             page_total=page_total,
-                            selector="h1#chapter-title[contenteditable]",
+                            selector=self.TITLE_SELECTOR,
                             details=(
-                                "After applying the translated HTML, replace the editable "
-                                "chapter title and commit its input/change events before Save."
+                                "Fill the editor's contenteditable h1 and commit "
+                                "its change event before Save."
                             ),
                             text_to_copy=translated_title,
-                        )
-                        page.wait_for_selector(
-                            'h1#chapter-title[contenteditable]',
-                            timeout=10000,
-                            state="visible",
                         )
                         self._set_chapter_title(page, translated_title)
 
                     if translated_subtitle:
                         self._request_action(
                             step_callback,
-                            action="Copy the translated chapter subtitle",
+                            action="Replace the translated chapter subtitle",
                             url=url,
                             page_number=page_number,
                             page_total=page_total,
-                            selector="p#chapter-subtitle[contenteditable]",
+                            selector=self.SUBTITLE_SELECTOR,
                             details=(
-                                "After applying the translated HTML, replace the editable "
-                                "chapter subtitle and commit its input/change events before Save."
+                                "Fill the optional subtitle and commit its change "
+                                "event before Save."
                             ),
                             text_to_copy=translated_subtitle,
-                        )
-                        page.wait_for_selector(
-                            'p#chapter-subtitle[contenteditable]',
-                            timeout=10000,
-                            state="visible",
                         )
                         self._set_chapter_subtitle(page, translated_subtitle)
 
                     self._request_action(
                         step_callback,
-                        action='Click "Save" and wait five seconds',
+                        action='Click "HTML"',
                         url=url,
                         page_number=page_number,
                         page_total=page_total,
-                        selector=save_selector,
+                        selector='button:has-text("HTML")',
+                        details="Open the CodeMirror HTML source editor.",
+                    )
+                    html_source = self._open_html_source(page)
+
+                    self._request_action(
+                        step_callback,
+                        action="Replace the complete HTML source",
+                        url=url,
+                        page_number=page_number,
+                        page_total=page_total,
+                        selector=self.HTML_SOURCE_SELECTOR,
                         details=(
-                            "Save this chapter. The next action will verify the persisted "
-                            "HTML, title, and optional subtitle."
+                            "Select all CodeMirror content and paste the complete "
+                            "translated HTML through the clipboard."
                         ),
+                        text_to_copy=translated_html,
                     )
-                    page.wait_for_selector(save_selector, timeout=10000, state="visible")
-                    page.click(save_selector)
-                    page.wait_for_timeout(5000)
+                    self._replace_full_html_source(
+                        page,
+                        html_source,
+                        translated_html,
+                    )
 
                     self._request_action(
                         step_callback,
-                        action="Reload the saved page for verification",
+                        action='Click "Save"',
                         url=url,
                         page_number=page_number,
                         page_total=page_total,
-                        details="Reload the same URL after Save before inspecting persisted content.",
+                        selector=self.SAVE_SELECTOR,
+                        details="Save the translated title, subtitle, and HTML.",
                     )
-                    page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                    save_button = page.locator(self.SAVE_SELECTOR).first
+                    save_button.wait_for(timeout=10000, state="visible")
+                    save_button.click()
+                    page.wait_for_timeout(3000)
 
                     self._request_action(
                         step_callback,
-                        action='Click "Edit" for save verification',
+                        action="Close the editor",
                         url=url,
                         page_number=page_number,
                         page_total=page_total,
-                        selector=edit_selector,
-                        details="Reopen the chapter editor without changing content.",
+                        selector=self.CLOSE_SELECTOR,
+                        details="Return to the public chapter before verification.",
                     )
-                    page.wait_for_selector(edit_selector, timeout=20000, state="visible")
-                    page.click(edit_selector)
+                    self._close_editor(page, url)
 
                     self._request_action(
                         step_callback,
-                        action='Click "Edit HTML" for save verification',
+                        action="Reopen the editor for save verification",
                         url=url,
                         page_number=page_number,
                         page_total=page_total,
-                        selector=html_selector,
-                        details="Reopen the saved raw HTML without changing content.",
+                        selector=self.EDIT_SELECTOR,
+                        details="Reopen the saved chapter without changing it.",
                     )
-                    page.wait_for_selector(html_selector, timeout=10000, state="visible")
-                    page.click(html_selector)
+                    self._open_editor(page)
 
-                    self._request_action(
-                        step_callback,
-                        action="Compare the saved HTML, title, and subtitle",
-                        url=url,
-                        page_number=page_number,
-                        page_total=page_total,
-                        selector=f"{code_selector}, #chapter-title, #chapter-subtitle",
-                        details=(
-                            "Read the persisted values and compare them with the translated "
-                            "HTML and chapter metadata. Injection stops on any mismatch."
-                        ),
-                    )
-                    page.wait_for_selector(code_selector, timeout=10000, state="visible")
-                    saved_html = page.evaluate(
-                        'document.getElementById("code-box").innerText'
-                    )
+                    if translated_title:
+                        page.locator(self.TITLE_SELECTOR).first.wait_for(
+                            timeout=10000,
+                            state="visible",
+                        )
                     saved_title = self._read_chapter_title(page)
                     saved_subtitle = self._read_chapter_subtitle(page)
+
+                    self._request_action(
+                        step_callback,
+                        action='Click "HTML" for save verification',
+                        url=url,
+                        page_number=page_number,
+                        page_total=page_total,
+                        selector='button:has-text("HTML")',
+                        details="Open the persisted CodeMirror HTML source.",
+                    )
+                    saved_source = self._open_html_source(page)
+                    saved_html = self._copy_full_html_source(page, saved_source)
 
                     self._verify_saved_html(
                         item,
@@ -1018,30 +1222,35 @@ class EdTechScraperBot:
                         and self._normalized_text(saved_title)
                         != self._normalized_text(translated_title)
                     ):
-                        self._log_troubleshoot(
-                            "Title verification mismatch: "
-                            f"expected={translated_title!r}; saved={saved_title!r}"
-                        )
                         raise RuntimeError(
-                            f"Save verification failed for {url}: persisted title does not match. "
-                            f"Expected {translated_title!r}; saved {saved_title!r}."
+                            f"Save verification failed for {url}: persisted title "
+                            f"does not match. Expected {translated_title!r}; "
+                            f"saved {saved_title!r}."
                         )
                     if (
                         translated_subtitle
                         and self._normalized_text(saved_subtitle)
                         != self._normalized_text(translated_subtitle)
                     ):
-                        self._log_troubleshoot(
-                            "Subtitle verification mismatch: "
-                            f"expected={translated_subtitle!r}; saved={saved_subtitle!r}"
-                        )
                         raise RuntimeError(
-                            f"Save verification failed for {url}: persisted subtitle does not match. "
-                            f"Expected {translated_subtitle!r}; saved {saved_subtitle!r}."
+                            f"Save verification failed for {url}: persisted subtitle "
+                            f"does not match. Expected {translated_subtitle!r}; "
+                            f"saved {saved_subtitle!r}."
                         )
+
+                    self._request_action(
+                        step_callback,
+                        action="Close the verified editor",
+                        url=url,
+                        page_number=page_number,
+                        page_total=page_total,
+                        selector=self.CLOSE_SELECTOR,
+                        details="Close the verified chapter before continuing.",
+                    )
+                    self._close_editor(page, url)
                     self._log_troubleshoot(
-                        f"VERIFIED page {page_number}/{page_total}: saved HTML, title, "
-                        "and optional subtitle match."
+                        f"VERIFIED page {page_number}/{page_total}: saved HTML, "
+                        "title, and optional subtitle match."
                     )
             except Exception as exc:
                 self._log_troubleshoot(f"STOPPED: {type(exc).__name__}: {exc}")

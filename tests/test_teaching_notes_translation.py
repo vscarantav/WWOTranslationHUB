@@ -14,6 +14,34 @@ from controller import TranslationController
 
 
 class TeachingNotesChunkTranslationTests(unittest.TestCase):
+    def test_preserves_marked_bibliography_citations_without_validating_them(self):
+        bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
+        bot._log = Mock()
+        seen_source_text = []
+
+        def translate(batch, _constraints):
+            seen_source_text.extend(batch.values())
+            return {
+                item_id: "Texto principal traduzido."
+                for item_id in batch
+            }
+
+        bot._translate_text_batch = Mock(side_effect=translate)
+        citation = (
+            "Williams, R. (2023). The non-designer's presentation book: "
+            "Principles for effective presentation design. Peachpit Press."
+        )
+        source = (
+            "<p>Main instructional text.</p>"
+            f"<p class='reference'>{citation}</p>"
+        )
+
+        translated = bot.translate_html_content_in_chunks(source)
+
+        self.assertIn("Texto principal traduzido.", translated)
+        self.assertIn(citation, translated)
+        self.assertNotIn(citation, seen_source_text)
+
     def test_detects_a_long_english_node_left_unchanged(self):
         self.assertTrue(HTMLTranslationBot._is_unchanged_english_text(
             "You will write the final project in this course.",

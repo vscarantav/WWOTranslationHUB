@@ -89,6 +89,18 @@ class HTMLTranslationBot:
     def _is_preserved_product_ui_label(cls, text: str) -> bool:
         return text.strip().casefold() in cls.PRESERVED_PRODUCT_UI_LABELS
 
+    @staticmethod
+    def _is_bibliography_citation_node(node: NavigableString) -> bool:
+        """Return whether a text node is explicitly marked as a source citation."""
+        for ancestor in node.parents:
+            classes = {
+                str(class_name).strip().casefold()
+                for class_name in (ancestor.get("class") or [])
+            }
+            if classes & {"reference", "references", "bibliography", "citation"}:
+                return True
+        return False
+
     def _translate_text_batch(self, batch: dict, constraints: str) -> dict:
         """Translate isolated visible-text nodes while retaining stable IDs."""
         if not batch:
@@ -244,6 +256,8 @@ class HTMLTranslationBot:
             if self._is_lorem_ipsum_text(stripped_text):
                 continue
             if self._is_preserved_product_ui_label(stripped_text):
+                continue
+            if self._is_bibliography_citation_node(node):
                 continue
             if node.find_parent(list(ignored_parents)) is not None:
                 continue

@@ -9,7 +9,7 @@ This is the single source of truth for planned improvements that are not yet com
 - [ ] Implement localized image-file translation for JPG, PNG, GIF, and SVG assets; inline alt-text translation already exists.
 - [ ] Preserve every question bank's English name exactly as it appears in the original export package.
 - [ ] Migrate the translation bots from the deprecated `google.generativeai` SDK to `google.genai`, preserving and verifying the existing retry, validation, and successful-call tracking behavior.
-- [ ] Exempt legitimate source-language bibliography citations from unchanged-English failure detection so an untranslated publication title does not fail an otherwise valid HTML translation.
+- [ ] Add a `Continue Previous Process` button that saves durable progress checkpoints during long-running workflows and safely resumes the most recent incomplete process from its last verified stopping point after the user leaves or closes the HUB.
 - [ ] Add a safe multi-computer auto-update flow controlled by the public master Git repository. Provide an `Update Translation HUB` interface button (no separate batch file) that pulls `main`, shows update status in the HUB, and automatically restarts the application after a successful update. Send newly added links to the shared mapping database immediately after the user completes the link-mapping flow. When one English link has conflicting Portuguese links, show every candidate in that flow with a copy button and single-select checkbox, require exactly one selection, and permanently save the selected link as the correct mapping without losing unrelated mappings.
 
 ## Needs user details before implementation
@@ -20,6 +20,12 @@ This is the single source of truth for planned improvements that are not yet com
   - Before implementation, confirm the required Sergio-flow changes, identify the two report models to merge, and document the expected shared report structure and workflow.
 
 ## Completed
+
+- [x] Update the production EdTech extraction and injection flow for the current books.byui.edu TOC and editor controls.
+  - Completed 2026-11-04: The Translation Hub now fetches through the live TOC, visible Edit link, HTML role button, and complete CodeMirror clipboard source; repopulation uses the current title, Save, and Close controls, refreshes stale chapter slugs with title validation, and reopens every saved page for persisted HTML/title verification. The established Google login flow was left unchanged. Verified with 28 focused EdTech tests, the full 167-test suite plus 4 subtests, and the same selector sequence that completed the live 28/28 BUS115-PT recovery.
+
+- [x] Exempt legitimate source-language bibliography citations from unchanged-English failure detection so an untranslated publication title does not fail an otherwise valid HTML translation.
+  - Completed 2026-11-04: Explicitly marked bibliography/reference nodes are preserved outside HTML translation batches, while unchanged-English validation remains active for instructional content. Verified with focused bot tests, successful regeneration of the previously failed BUS115-PT Chapter 1 translation, and live save/reopen verification during the 28-page EdTech recovery.
 
 - [x] Add an interactive recovery flow when an XML/QTI file still fails after three translation attempts (for example, `Unable to translate XML batch after 3 attempts`). Do not terminate the translation run or immediately abandon IMSCC creation. Show the failed file and error, prompt the user to translate or correct that file manually, and then offer an option to validate the corrected file and continue the remaining translation and packaging workflow.
   - Completed 2026-11-02: Isolated XML/QTI failures from hard aborts during translation retries; failed XML/QTI files retain the English source placeholder, allow IMSCC repackaging and translation to complete uninterrupted, are recorded in the Translation Review dashboard report with `Failed` status and error details, and are presented in a non-blocking recovery window with direct folder and report actions. Verified with unit and flow tests; all 163 repository tests pass.
