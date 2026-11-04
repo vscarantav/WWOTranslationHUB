@@ -209,7 +209,10 @@ def translate_edtech_files_and_generate_report(
     language,
     extracted_pages,
 ):
-    """Translate EdTech pages, report every result, and return safe injection work."""
+    """Map links, translate EdTech pages, and return safe injection work."""
+    controller.link_processor.filepaths = controller.filepaths
+    controller.link_processor.pre_process_links(controller._log)
+
     translation_error = None
     try:
         controller.translate_files()
@@ -792,6 +795,116 @@ class CourseTranslationHubUI:
         self.root.wait_window(dialog)
         return result["url"]
 
+    def _ask_user_for_link(self, unmapped_url, context_file):
+        """Prompt for one localized URL from any translation workflow."""
+        result_queue = queue.Queue()
+
+        def show_dialog():
+            dialog = tk.Toplevel(self.root)
+            dialog.title("Unmapped Link Found")
+            dialog_width = 550
+            dialog_height = 320
+            screen_width = dialog.winfo_screenwidth()
+            screen_height = dialog.winfo_screenheight()
+            x = int((screen_width - dialog_width) / 2)
+            y = int((screen_height - dialog_height) / 2)
+            dialog.geometry(f"{dialog_width}x{dialog_height}+{x}+{y}")
+            dialog.transient(self.root)
+            dialog.grab_set()
+
+            lbl1 = ttk.Label(
+                dialog,
+                text=f"Found unmapped English link in {context_file}:",
+            )
+            lbl1.pack(pady=(15, 5), padx=15, anchor="w")
+
+            url_frame = ttk.Frame(dialog)
+            url_frame.pack(fill="x", padx=15, pady=5)
+
+            url_entry = ttk.Entry(url_frame)
+            url_entry.insert(0, unmapped_url)
+            url_entry.configure(state="readonly")
+            url_entry.pack(side="left", fill="x", expand=True)
+
+            def copy_link():
+                self.root.clipboard_clear()
+                self.root.clipboard_append(unmapped_url)
+                self.root.update()
+
+            copy_btn = ttk.Button(
+                url_frame,
+                text="Copy",
+                command=copy_link,
+                width=6,
+            )
+            copy_btn.pack(side="left", padx=(5, 0))
+
+            lbl2 = ttk.Label(dialog, text="Please enter the translated version:")
+            lbl2.pack(pady=(10, 5), padx=15, anchor="w")
+
+            input_entry = ttk.Entry(dialog)
+            input_entry.pack(fill="x", padx=15, pady=5)
+            input_entry.focus_set()
+
+            lbl3 = ttk.Label(
+                dialog,
+                text="Optional Comment (will appear in report):",
+            )
+            lbl3.pack(pady=(10, 5), padx=15, anchor="w")
+
+            comment_entry = ttk.Entry(dialog)
+            comment_entry.pack(fill="x", padx=15, pady=5)
+
+            result = [None]
+
+            def on_ok(event=None):
+                val = input_entry.get().strip()
+                comment = comment_entry.get().strip()
+                if not val and not comment:
+                    messagebox.showwarning(
+                        "Missing Input",
+                        "Please enter a link, a comment, or click Skip.",
+                        parent=dialog,
+                    )
+                    return
+
+                if val and not re.match(r"^https?://\S+$", val):
+                    messagebox.showwarning(
+                        "Invalid Link",
+                        "Please enter a valid link starting with http:// or "
+                        "https://, and containing no spaces.",
+                        parent=dialog,
+                    )
+                    return
+
+                result[0] = (val, comment)
+                dialog.destroy()
+
+            def on_skip(event=None):
+                comment = comment_entry.get().strip()
+                result[0] = (None, comment)
+                dialog.destroy()
+
+            btn_frame = ttk.Frame(dialog)
+            btn_frame.pack(pady=15)
+            ttk.Button(btn_frame, text="OK", command=on_ok).pack(
+                side="left",
+                padx=5,
+            )
+            ttk.Button(btn_frame, text="Skip", command=on_skip).pack(
+                side="left",
+                padx=5,
+            )
+
+            dialog.bind("<Return>", on_ok)
+            dialog.bind("<Escape>", on_skip)
+
+            self.root.wait_window(dialog)
+            result_queue.put(result[0])
+
+        self.root.after(0, show_dialog)
+        return result_queue.get()
+
     def run_edtech(self):
         lang = self.edtech_lang_var.get()
         target_book_label = {
@@ -844,7 +957,11 @@ class CourseTranslationHubUI:
 
                     # 2. Translate using Controller
                     print("\nStarting Translation Controller...")
-                    controller = TranslationController(target_language=lang, input_dir=bot.raw_dir)
+                    controller = TranslationController(
+                        target_language=lang,
+                        input_dir=bot.raw_dir,
+                        link_prompt_callback=self._ask_user_for_link,
+                    )
 
                     # Update the mapping file with the correct translated_filepath
                     for item in extracted:
@@ -1211,88 +1328,6 @@ class CourseTranslationHubUI:
             print(f" - {os.path.basename(p)} -> Target Course ID: {tid if tid else 'None'}")
         print(f"======================================\n")
 
-        def ask_user_for_link(unmapped_url, context_file):
-            result_queue = queue.Queue()
-            def show_dialog():
-                dialog = tk.Toplevel(self.root)
-                dialog.title("Unmapped Link Found")
-                dialog_width = 550
-                dialog_height = 320
-                screen_width = dialog.winfo_screenwidth()
-                screen_height = dialog.winfo_screenheight()
-                x = int((screen_width - dialog_width) / 2)
-                y = int((screen_height - dialog_height) / 2)
-                dialog.geometry(f"{dialog_width}x{dialog_height}+{x}+{y}")
-                dialog.transient(self.root)
-                dialog.grab_set()
-
-                lbl1 = ttk.Label(dialog, text=f"Found unmapped English link in {context_file}:")
-                lbl1.pack(pady=(15, 5), padx=15, anchor="w")
-
-                url_frame = ttk.Frame(dialog)
-                url_frame.pack(fill='x', padx=15, pady=5)
-
-                url_entry = ttk.Entry(url_frame)
-                url_entry.insert(0, unmapped_url)
-                url_entry.configure(state='readonly')
-                url_entry.pack(side='left', fill='x', expand=True)
-
-                def copy_link():
-                    self.root.clipboard_clear()
-                    self.root.clipboard_append(unmapped_url)
-                    self.root.update()
-                    
-                copy_btn = ttk.Button(url_frame, text="Copy", command=copy_link, width=6)
-                copy_btn.pack(side='left', padx=(5, 0))
-
-                lbl2 = ttk.Label(dialog, text="Please enter the translated version:")
-                lbl2.pack(pady=(10, 5), padx=15, anchor="w")
-
-                input_entry = ttk.Entry(dialog)
-                input_entry.pack(fill='x', padx=15, pady=5)
-                input_entry.focus_set()
-
-                lbl3 = ttk.Label(dialog, text="Optional Comment (will appear in report):")
-                lbl3.pack(pady=(10, 5), padx=15, anchor="w")
-
-                comment_entry = ttk.Entry(dialog)
-                comment_entry.pack(fill='x', padx=15, pady=5)
-
-                result = [None]
-                def on_ok(event=None):
-                    val = input_entry.get().strip()
-                    comment = comment_entry.get().strip()
-                    if not val and not comment:
-                        from tkinter import messagebox
-                        messagebox.showwarning("Missing Input", "Please enter a link, a comment, or click Skip.", parent=dialog)
-                        return
-                    
-                    if val and not re.match(r'^https?://\S+$', val):
-                        from tkinter import messagebox
-                        messagebox.showwarning("Invalid Link", "Please enter a valid link starting with http:// or https://, and containing no spaces.", parent=dialog)
-                        return
-
-                    result[0] = (val, comment)
-                    dialog.destroy()
-                    
-                def on_skip(event=None):
-                    comment = comment_entry.get().strip()
-                    result[0] = (None, comment)
-                    dialog.destroy()
-
-                btn_frame = ttk.Frame(dialog)
-                btn_frame.pack(pady=15)
-                ttk.Button(btn_frame, text="OK", command=on_ok).pack(side="left", padx=5)
-                ttk.Button(btn_frame, text="Skip", command=on_skip).pack(side="left", padx=5)
-
-                dialog.bind('<Return>', on_ok)
-                dialog.bind('<Escape>', on_skip)
-
-                self.root.wait_window(dialog)
-                result_queue.put(result[0])
-            self.root.after(0, show_dialog)
-            return result_queue.get()
-
         def _show_manual_review_dialog(failures):
             """Show a non-blocking dialog notifying the user about files requiring manual correction."""
             def show_dialog():
@@ -1389,7 +1424,7 @@ class CourseTranslationHubUI:
                     controller = TranslationController(
                         target_language=lang,
                         imscc_path=workspace_path,
-                        link_prompt_callback=ask_user_for_link,
+                        link_prompt_callback=self._ask_user_for_link,
                         target_course_id=conf['target_id']
                     )
                     controller.process_directory()

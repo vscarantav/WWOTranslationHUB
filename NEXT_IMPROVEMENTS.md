@@ -21,6 +21,9 @@ This is the single source of truth for planned improvements that are not yet com
 
 ## Completed
 
+- [x] Apply the IMSCC link-mapping and commented-link reporting flow to EdTech book translation.
+  - Completed 2026-11-04: EdTech now runs the shared `LinkProcessor` against every extracted HTML file before translation and uses the same unmapped-link dialog, persistent mapping store, automatic rewrites, skip/comment behavior, logging, save-failure handling, and dedicated `Commented Links` report tab as IMSCC. The tab includes both mapped links with comments and skipped links with comments. Verified with 34 focused EdTech/report tests and all 169 repository tests.
+
 - [x] Update the production EdTech extraction and injection flow for the current books.byui.edu TOC and editor controls.
   - Completed 2026-11-04: The Translation Hub now fetches through the live TOC, visible Edit link, HTML role button, and complete CodeMirror clipboard source; repopulation uses the current title, Save, and Close controls, refreshes stale chapter slugs with title validation, and reopens every saved page for persisted HTML/title verification. It also opens the optional current subtitle accordion during extraction, repopulation, and verification. The established Google login flow was left unchanged. Verified with 30 focused EdTech tests, the full repository suite, and the same selector sequence that completed the live 28/28 BUS115-PT recovery.
 

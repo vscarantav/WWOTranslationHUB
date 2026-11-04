@@ -61,6 +61,8 @@ class DashboardGeneratorReviewSheetTests(unittest.TestCase):
                 "\n".join([
                     "--- New Session (Target: PTBR) ---",
                     f"[2026-09-18 10:00:00] [System] TranslatedPage: First Lesson | {lesson_path}",
+                    "[2026-09-18 10:00:01] [LinkBot] CommentedLink: First Lesson (lesson_1.html),https://example.com/en,Confirm this localized resource",
+                    "[2026-09-18 10:00:02] [LinkBot] SkippedLinkWithComment: Second Lesson (lesson_2.html),https://example.org/en,No localized version exists",
                 ]),
                 encoding="utf-8",
             )
@@ -87,6 +89,34 @@ class DashboardGeneratorReviewSheetTests(unittest.TestCase):
             self.assertNotIn("Bot Analysis", workbook.sheetnames)
             self.assertNotIn("Raw Logs", workbook.sheetnames)
             self.assertIn("Translation Review", workbook.sheetnames)
+            self.assertIn("Commented Links", workbook.sheetnames)
+            comments_sheet = workbook["Commented Links"]
+            self.assertEqual(
+                [cell.value for cell in comments_sheet[1]],
+                ["Page Name", "URL", "Comment"],
+            )
+            self.assertEqual(
+                [
+                    comments_sheet.cell(row=2, column=column).value
+                    for column in range(1, 4)
+                ],
+                [
+                    "First Lesson (lesson_1.html)",
+                    "https://example.com/en",
+                    "Confirm this localized resource",
+                ],
+            )
+            self.assertEqual(
+                [
+                    comments_sheet.cell(row=3, column=column).value
+                    for column in range(1, 4)
+                ],
+                [
+                    "Second Lesson (lesson_2.html)",
+                    "https://example.org/en",
+                    "No localized version exists",
+                ],
+            )
             review_sheet = workbook["Translation Review"]
             self.assertEqual(review_sheet.max_row, 3)
             self.assertEqual(

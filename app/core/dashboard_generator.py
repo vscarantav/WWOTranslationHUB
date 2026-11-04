@@ -531,7 +531,34 @@ class DashboardGenerator:
                     
                 r_idx += 1
 
-        # SHEET 7: Missing Alt Texts
+        # SHEET 7: Commented Links
+        commented_links_df = df[df['Event Type'] == 'Commented Link'].copy()
+
+        if not commented_links_df.empty:
+            comments_sheet = workbook.add_worksheet('Commented Links')
+            comments_sheet.set_column('A:A', 30)
+            comments_sheet.set_column('B:B', 60)
+            comments_sheet.set_column('C:C', 60)
+
+            comments_sheet.write('A1', 'Page Name', header_fmt)
+            comments_sheet.write('B1', 'URL', header_fmt)
+            comments_sheet.write('C1', 'Comment', header_fmt)
+
+            for r_idx, (_, row) in enumerate(
+                commented_links_df.iterrows(),
+                start=1,
+            ):
+                parts = str(row['Message']).split(' | ', 1)
+                link_url = parts[0] if parts else ''
+                comment = parts[1] if len(parts) > 1 else ''
+
+                comments_sheet.write(r_idx, 0, str(row['File Name']), cell_fmt)
+                comments_sheet.write(r_idx, 1, link_url, cell_fmt)
+                comments_sheet.write(r_idx, 2, comment, cell_fmt)
+
+            comments_sheet.autofilter(0, 0, len(commented_links_df), 2)
+
+        # SHEET 8: Missing Alt Texts
         missing_alt_df = df[df['Event Type'] == 'Missing Alt Text'].copy()
         
         if not missing_alt_df.empty:

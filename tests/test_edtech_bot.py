@@ -1065,7 +1065,20 @@ class EdTechExcelReportTests(unittest.TestCase):
             )
 
             controller = Mock()
-            controller.translate_files.side_effect = RuntimeError("batch failed")
+            controller.filepaths = [
+                str(successful_translated_page),
+                str(failed_translated_page),
+            ]
+            call_order = []
+            controller.link_processor.pre_process_links.side_effect = (
+                lambda _log: call_order.append("map links")
+            )
+
+            def fail_translation():
+                call_order.append("translate")
+                raise RuntimeError("batch failed")
+
+            controller.translate_files.side_effect = fail_translation
             controller.get_gemini_translation_pages.return_value = [{
                 "filepath": str(successful_translated_page),
             }]
@@ -1097,6 +1110,14 @@ class EdTechExcelReportTests(unittest.TestCase):
             self.assertEqual(outcome["translated_pages"], [successful_item])
             self.assertEqual(outcome["failed_pages"], [failed_item])
             self.assertEqual(str(outcome["translation_error"]), "batch failed")
+            self.assertEqual(call_order, ["map links", "translate"])
+            self.assertEqual(
+                controller.link_processor.filepaths,
+                controller.filepaths,
+            )
+            controller.link_processor.pre_process_links.assert_called_once_with(
+                controller._log
+            )
 
             controller.update_excel_dashboard.assert_called_once_with(
                 report_name="Demo EdTech Master",
