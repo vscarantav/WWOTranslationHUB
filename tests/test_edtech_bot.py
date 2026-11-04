@@ -260,6 +260,10 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
                 encoding="utf-8"
             )
             self.assertIn("Title &amp; Overview", extracted_html)
+            self.assertIn(
+                '<div id="edtech-meta-subtitle" style="display:none;">Subtitle</div>',
+                extracted_html,
+            )
             self.assertIn(complete_html, extracted_html)
             self.assertIn(
                 'a.btn-edit[aria-label="Edit chapter"]',
@@ -704,7 +708,7 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
         script = title_field.evaluate.call_args.args[0]
         self.assertIn("element.innerText", script)
 
-    def test_reads_subtitle_from_the_optional_editable_chapter_paragraph(self):
+    def test_opens_subtitle_accordion_and_reads_editable_field(self):
         workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
         workspace.mkdir(parents=True)
         self.addCleanup(shutil.rmtree, workspace, True)
@@ -715,17 +719,101 @@ class EdTechAnonymousBrowserTests(unittest.TestCase):
             print_callback=Mock(),
         )
         page = MagicMock()
+        container = MagicMock()
+        container.count.return_value = 1
+        container_query = MagicMock()
+        container_query.first = container
+        subtitle_button = MagicMock()
+        subtitle_button.count.return_value = 1
+        subtitle_button.get_attribute.return_value = "false"
+        button_query = MagicMock()
+        button_query.first = subtitle_button
         subtitle_field = MagicMock()
         subtitle_field.count.return_value = 1
         subtitle_field.evaluate.return_value = "Letter of Appreciation"
-        page.locator.return_value.first = subtitle_field
+        field_query = MagicMock()
+        field_query.first = subtitle_field
+
+        def locator(selector):
+            return {
+                bot.SUBTITLE_CONTAINER_SELECTOR: container_query,
+                bot.SUBTITLE_BUTTON_SELECTOR: button_query,
+                bot.SUBTITLE_SELECTOR: field_query,
+            }[selector]
+
+        page.locator.side_effect = locator
 
         subtitle = bot._read_chapter_subtitle(page)
 
         self.assertEqual(subtitle, "Letter of Appreciation")
-        page.locator.assert_called_once_with(bot.SUBTITLE_SELECTOR)
+        subtitle_button.click.assert_called_once_with()
+        subtitle_field.wait_for.assert_called_once_with(
+            timeout=10000,
+            state="visible",
+        )
         script = subtitle_field.evaluate.call_args.args[0]
         self.assertIn("element.innerText", script)
+
+    def test_repopulates_subtitle_after_opening_collapsed_accordion(self):
+        workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
+        workspace.mkdir(parents=True)
+        self.addCleanup(shutil.rmtree, workspace, True)
+        bot = EdTechScraperBot(
+            "https://books.byui.edu/current_book",
+            "PTBR",
+            str(workspace),
+            print_callback=Mock(),
+        )
+        page = MagicMock()
+        container = MagicMock()
+        container.count.return_value = 1
+        container_query = MagicMock()
+        container_query.first = container
+        subtitle_button = MagicMock()
+        subtitle_button.count.return_value = 1
+        subtitle_button.get_attribute.return_value = "false"
+        button_query = MagicMock()
+        button_query.first = subtitle_button
+        subtitle_field = MagicMock()
+        field_query = MagicMock()
+        field_query.first = subtitle_field
+
+        def locator(selector):
+            return {
+                bot.SUBTITLE_CONTAINER_SELECTOR: container_query,
+                bot.SUBTITLE_BUTTON_SELECTOR: button_query,
+                bot.SUBTITLE_SELECTOR: field_query,
+            }[selector]
+
+        page.locator.side_effect = locator
+
+        bot._set_chapter_subtitle(page, "Por que as habilidades exigem integridade")
+
+        subtitle_button.click.assert_called_once_with()
+        subtitle_field.fill.assert_called_once_with(
+            "Por que as habilidades exigem integridade"
+        )
+        subtitle_field.evaluate.assert_called_once()
+        page.wait_for_timeout.assert_called_once_with(1500)
+
+    def test_page_without_subtitle_container_remains_optional(self):
+        workspace = Path.cwd() / "tests" / f"_edtech_test_{uuid.uuid4().hex}"
+        workspace.mkdir(parents=True)
+        self.addCleanup(shutil.rmtree, workspace, True)
+        bot = EdTechScraperBot(
+            "https://books.byui.edu/current_book",
+            "PTBR",
+            str(workspace),
+            print_callback=Mock(),
+        )
+        page = MagicMock()
+        missing = MagicMock()
+        missing.count.return_value = 0
+        query = MagicMock()
+        query.first = missing
+        page.locator.return_value = query
+
+        self.assertEqual(bot._read_chapter_subtitle(page), "")
 
     def test_translated_title_carrier_decodes_html_entities_before_injection(self):
         title_html = "Ética &amp; Integridade"

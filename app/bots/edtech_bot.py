@@ -27,7 +27,13 @@ class EdTechScraperBot:
         'h1[contenteditable="true"], '
         '#chapter-title[contenteditable]'
     )
-    SUBTITLE_SELECTOR = '#chapter-subtitle[contenteditable]'
+    SUBTITLE_CONTAINER_SELECTOR = '#subtitle-container'
+    SUBTITLE_BUTTON_SELECTOR = '#subtitle-button'
+    SUBTITLE_SELECTOR = (
+        '#subtitle-wrapper [contenteditable="plaintext-only"], '
+        '#subtitle-wrapper [contenteditable="true"], '
+        '#chapter-subtitle[contenteditable]'
+    )
     SAVE_SELECTOR = 'button.btn.bi-floppy2-fill:visible'
     CLOSE_SELECTOR = 'button.btn.bi-x-lg.float-end:visible'
 
@@ -447,8 +453,7 @@ class EdTechScraperBot:
 
     def _set_chapter_subtitle(self, page, translated_subtitle):
         """Update EdTech's optional editable subtitle and commit its change events."""
-        subtitle_field = page.locator(self.SUBTITLE_SELECTOR).first
-        subtitle_field.wait_for(timeout=10000, state="visible")
+        subtitle_field = self._open_subtitle_field(page, required=True)
         try:
             subtitle_field.fill(translated_subtitle)
             self._log_troubleshoot(
@@ -469,13 +474,46 @@ class EdTechScraperBot:
         page.wait_for_timeout(1500)
 
     def _read_chapter_subtitle(self, page):
-        subtitle_field = page.locator(self.SUBTITLE_SELECTOR).first
-        if subtitle_field.count() == 0:
+        subtitle_field = self._open_subtitle_field(page)
+        if subtitle_field is None:
             return ""
         return subtitle_field.evaluate('''element => {
             if ("value" in element && element.value) return element.value;
             return element.innerText || element.textContent || "";
         }''')
+
+    def _open_subtitle_field(self, page, required=False):
+        """Open the current subtitle accordion and return its editable field."""
+        container = page.locator(self.SUBTITLE_CONTAINER_SELECTOR).first
+        if container.count():
+            subtitle_button = page.locator(self.SUBTITLE_BUTTON_SELECTOR).first
+            if subtitle_button.count() == 0:
+                if required:
+                    raise RuntimeError(
+                        "The subtitle container is present, but its accordion "
+                        "button was not found."
+                    )
+                return None
+
+            expanded = (subtitle_button.get_attribute("aria-expanded") or "").lower()
+            if expanded != "true":
+                subtitle_button.click()
+
+            subtitle_field = page.locator(self.SUBTITLE_SELECTOR).first
+            subtitle_field.wait_for(timeout=10000, state="visible")
+            return subtitle_field
+
+        # Retain compatibility with books that still expose the legacy field.
+        subtitle_field = page.locator(self.SUBTITLE_SELECTOR).first
+        if subtitle_field.count():
+            subtitle_field.wait_for(timeout=10000, state="visible")
+            return subtitle_field
+        if required:
+            raise RuntimeError(
+                "The translated page includes a subtitle, but the EdTech editor "
+                "does not expose a subtitle field."
+            )
+        return None
 
     def _open_editor(self, page):
         edit_button = page.locator(self.EDIT_SELECTOR).first
@@ -736,16 +774,14 @@ class EdTechScraperBot:
             raise RuntimeError(f"No chapter title was available for {url}.")
 
         subtitle_text = ""
-        subtitle_field = page.locator(self.SUBTITLE_SELECTOR).first
-        if subtitle_field.count():
-            try:
-                subtitle_text = self._normalized_text(
-                    self._read_chapter_subtitle(page)
-                )
-            except Exception as subtitle_error:
-                self._log_troubleshoot(
-                    f"Could not read the optional subtitle for {url}: {subtitle_error}"
-                )
+        try:
+            subtitle_text = self._normalized_text(
+                self._read_chapter_subtitle(page)
+            )
+        except Exception as subtitle_error:
+            self._log_troubleshoot(
+                f"Could not read the optional subtitle for {url}: {subtitle_error}"
+            )
 
         html_source = self._open_html_source(page)
         visible_html = html_source.inner_text()

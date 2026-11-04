@@ -31,6 +31,9 @@ Courses to Translate/
 *-export/
 *-export_PTBR/
 
+# Generated EdTech workspace
+/edtech_workspace/
+
 # Excel temp files
 ~$*.xlsx
 Courses to Audit/
