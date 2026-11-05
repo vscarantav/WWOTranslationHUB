@@ -27,6 +27,36 @@ class VariableTranslator:
     """Apply approved variable mappings only inside supported code contexts."""
 
     CODE_TAGS = {"pre", "code", "script"}
+    ALWAYS_PROTECTED_IDENTIFIERS = {
+        "NODE_ENV": "Node.js environment contract",
+        "PORT": "deployment environment contract",
+        "__dirname": "Node.js platform identifier",
+        "__filename": "Node.js platform identifier",
+    }
+    EXTERNAL_ENVIRONMENT_PATTERNS = (
+        (
+            re.compile(
+                r"\b(?:process|import\s*\.\s*meta)\s*\.\s*env\s*"
+                r"(?:\?\.|\.)\s*(?P<name>[A-Za-z_$][A-Za-z0-9_$]*)"
+            ),
+            "external JavaScript environment key",
+        ),
+        (
+            re.compile(
+                r"\bos\s*\.\s*environ\s*\[\s*['\"]"
+                r"(?P<name>[A-Za-z_][A-Za-z0-9_]*)['\"]\s*\]"
+            ),
+            "external Python environment key",
+        ),
+        (
+            re.compile(
+                r"\b(?:os\s*\.\s*getenv|System\s*\.\s*getenv|"
+                r"Deno\s*\.\s*env\s*\.\s*get|getenv)\s*\(\s*['\"]"
+                r"(?P<name>[A-Za-z_][A-Za-z0-9_]*)['\"]"
+            ),
+            "external environment key",
+        ),
+    )
     LINKED_ATTRIBUTES = {
         "id", "name", "for", "aria-controls", "aria-labelledby", "aria-describedby"
     }
@@ -131,6 +161,40 @@ class VariableTranslator:
             str(original).strip(): str(translated).strip()
             for original, translated in dict(mapping or {}).items()
             if str(original).strip() and str(original).strip() != str(translated).strip()
+        }
+
+    @classmethod
+    def protected_identifiers(cls, content: str, extension: str) -> dict[str, str]:
+        """Return extracted identifiers that must keep their source spelling."""
+        fragments, candidates = VariableExtractor.extract(content, extension)
+        candidate_set = set(candidates)
+        protected = {
+            identifier: reason
+            for identifier, reason in cls.ALWAYS_PROTECTED_IDENTIFIERS.items()
+            if identifier in candidate_set
+        }
+        code = "\n".join(fragments)
+        for pattern, reason in cls.EXTERNAL_ENVIRONMENT_PATTERNS:
+            for match in pattern.finditer(code):
+                identifier = match.group("name")
+                if identifier in candidate_set:
+                    protected.setdefault(identifier, reason)
+        return protected
+
+    @staticmethod
+    def enforce_protected_mapping(
+        mapping: dict[str, str],
+        protected_identifiers,
+    ) -> dict[str, str]:
+        """Force protected report/application mappings to be explicit no-ops."""
+        protected = set(protected_identifiers or ())
+        return {
+            str(original).strip(): (
+                str(original).strip()
+                if str(original).strip() in protected
+                else str(translated).strip()
+            )
+            for original, translated in dict(mapping or {}).items()
         }
 
     @classmethod
@@ -413,6 +477,10 @@ class VariableAnalysisBot:
             raise RuntimeError("Variable analysis cannot run because GEMINI_API_KEY is missing.")
 
         existing_mapping = dict(existing_mapping or {})
+        protected_identifiers = VariableTranslator.protected_identifiers(
+            content,
+            extension,
+        )
         code_payload = "\n\n--- CODE FRAGMENT ---\n".join(fragments)
         prompt = (
             "Analyze the programming/configuration/database identifiers in the supplied code. "
@@ -421,7 +489,9 @@ class VariableAnalysisBot:
             "'translated', and 'context_summary'. Suggest a concise Brazilian Portuguese "
             "identifier using ASCII characters only and the same naming style as the original. "
             "The translated identifier will be applied to executable examples, so it must be a "
-            "valid non-reserved identifier. Reuse EXISTING MAPPINGS exactly whenever present.\n\n"
+            "valid non-reserved identifier. Reuse EXISTING MAPPINGS exactly whenever present. "
+            "Any candidate whose existing mapping is identical to the source is protected and "
+            "must remain identical.\n\n"
             f"PAGE TITLE: {page_title}\nSOURCE FILE: {source_file}\n"
             f"CANDIDATES: {json.dumps(candidates, ensure_ascii=False)}\n"
             f"EXISTING MAPPINGS: {json.dumps(existing_mapping, ensure_ascii=False)}\n"
@@ -442,7 +512,11 @@ class VariableAnalysisBot:
                     translated = str(item.get("translated", "")).strip()
                     context = str(item.get("context_summary", "")).strip()
                     if original in expected and translated and context:
-                        selected_translation = existing_mapping.get(original, translated)
+                        selected_translation = (
+                            original
+                            if original in protected_identifiers
+                            else existing_mapping.get(original, translated)
+                        )
                         VariableTranslator.validate_mapping({original: selected_translation})
                         by_original[original] = {
                             "page_title": page_title,

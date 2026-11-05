@@ -501,10 +501,30 @@ class GitHubTranslationController:
         variable_rows = []
         pending_variable_rows = {}
         api_setting_rows = []
-        variable_mapping = {}
         analyzable_items = [
             item for item in translated_items if item.relative_path not in failures
         ]
+        protected_identifiers = {}
+        for item in analyzable_items:
+            _page_title, original, _translated = successes[item.relative_path]
+            for identifier, reason in VariableTranslator.protected_identifiers(
+                original,
+                item.extension,
+            ).items():
+                protected_identifiers.setdefault(identifier, reason)
+        variable_mapping = {
+            identifier: identifier
+            for identifier in protected_identifiers
+        }
+        if protected_identifiers:
+            protected_summary = ", ".join(
+                f"{identifier} ({protected_identifiers[identifier]})"
+                for identifier in sorted(protected_identifiers, key=str.casefold)
+            )
+            self._log(
+                "[GitHub] Protected external/platform identifier(s): "
+                + protected_summary
+            )
         analyzed_items = 0
         for item in translated_items:
             if item.relative_path in failures:
@@ -522,6 +542,20 @@ class GitHubTranslationController:
                 for row in rows:
                     original_identifier = row["variable_en"]
                     translated_identifier = row["variable_pt"]
+                    if original_identifier in protected_identifiers:
+                        translated_identifier = original_identifier
+                        row["variable_pt"] = original_identifier
+                        protection_note = (
+                            "Protected identifier kept unchanged: "
+                            + protected_identifiers[original_identifier]
+                        )
+                        context_summary = str(row.get("context_summary", "")).strip()
+                        if protection_note not in context_summary:
+                            row["context_summary"] = (
+                                f"{context_summary} — {protection_note}"
+                                if context_summary
+                                else protection_note
+                            )
                     existing_translation = variable_mapping.get(original_identifier)
                     if (
                         existing_translation is not None
@@ -563,6 +597,10 @@ class GitHubTranslationController:
             for item in translated_items
             if item.relative_path not in failures
         ]
+        variable_mapping = VariableTranslator.enforce_protected_mapping(
+            variable_mapping,
+            protected_identifiers,
+        )
         try:
             VariableTranslator.validate_mapping(variable_mapping)
         except Exception as error:

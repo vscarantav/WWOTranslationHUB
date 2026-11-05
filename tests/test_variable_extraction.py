@@ -80,6 +80,49 @@ class VariableTranslatorTests(unittest.TestCase):
         with self.assertRaises(VariableApplicationError):
             VariableTranslator.validate_mapping({"student_name": "class"})
 
+    def test_protects_platform_and_external_environment_identifiers(self):
+        source = (
+            "<pre><code class='javascript'>"
+            "const NODE_ENV = process.env.NODE_ENV || 'production';\n"
+            "const PORT = process.env.PORT || 3000;\n"
+            "const DATABASE_URL = process.env.DATABASE_URL;\n"
+            "const __filename = fileURLToPath(import.meta.url);\n"
+            "const __dirname = path.dirname(__filename);\n"
+            "let message = 'Ready';\n"
+            "console.log(message);"
+            "</code></pre>"
+        )
+
+        protected = VariableTranslator.protected_identifiers(source, ".html")
+
+        self.assertEqual(
+            set(protected),
+            {"NODE_ENV", "PORT", "DATABASE_URL", "__filename", "__dirname"},
+        )
+        self.assertNotIn("message", protected)
+
+        mapping = VariableTranslator.enforce_protected_mapping(
+            {
+                "NODE_ENV": "AMBIENTE_NODE",
+                "PORT": "PORTA",
+                "DATABASE_URL": "URL_BANCO_DADOS",
+                "__filename": "__nome_arquivo",
+                "__dirname": "__nome_diretorio",
+                "message": "mensagem",
+            },
+            protected,
+        )
+        translated, counts = VariableTranslator.apply(source, ".html", mapping)
+
+        self.assertIn("const NODE_ENV = process.env.NODE_ENV", translated)
+        self.assertIn("const PORT = process.env.PORT", translated)
+        self.assertIn("const DATABASE_URL = process.env.DATABASE_URL", translated)
+        self.assertIn("const __filename = fileURLToPath", translated)
+        self.assertIn("const __dirname = path.dirname(__filename)", translated)
+        self.assertIn("let mensagem = 'Ready'", translated)
+        self.assertIn("console.log(mensagem)", translated)
+        self.assertEqual(counts, {"message": 2})
+
     def test_extracts_lowercase_sql_table_and_column_identifiers(self):
         _fragments, candidates = VariableExtractor.extract(
             "```sql\ncreate table student_record (student_name TEXT, course_id INTEGER);\n```",

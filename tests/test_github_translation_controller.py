@@ -84,6 +84,31 @@ class _Variables:
         }]
 
 
+class _ProtectedIdentifierVariables:
+    MAPPING = {
+        "NODE_ENV": "AMBIENTE_NODE",
+        "PORT": "PORTA",
+        "DATABASE_URL": "URL_BANCO_DADOS",
+        "__filename": "__nome_arquivo",
+        "__dirname": "__nome_diretorio",
+        "message": "mensagem",
+    }
+
+    def analyze(self, content, extension, page_title, source_file, mapping):
+        rows = []
+        for original, translated in self.MAPPING.items():
+            if original not in content:
+                continue
+            rows.append({
+                "page_title": page_title,
+                "context_summary": f"Example identifier {original}",
+                "variable_en": original,
+                "variable_pt": translated,
+                "source_file": source_file,
+            })
+        return rows
+
+
 class _APISettings:
     def analyze(self, content, extension, page_title, source_file):
         return [{
@@ -125,7 +150,14 @@ class GitHubTranslationControllerTests(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(self.root, ignore_errors=True)
 
-    def _controller(self, manager, report, fail=False, progress_func=None):
+    def _controller(
+        self,
+        manager,
+        report,
+        fail=False,
+        progress_func=None,
+        variable_bot=None,
+    ):
         return GitHubTranslationController(
             self.root,
             "unused-token",
@@ -133,13 +165,73 @@ class GitHubTranslationControllerTests(unittest.TestCase):
             report_generator=report,
             bot_factory=lambda: {
                 "markdown": _Markdown(fail),
-                "variables": _Variables(),
+                "variables": variable_bot or _Variables(),
                 "api_settings": _APISettings(),
                 "scriptures": _Scriptures(),
             },
             max_workers=1,
             log_func=lambda _message: None,
             progress_func=progress_func,
+        )
+
+    def test_protects_runtime_identifiers_and_applies_ordinary_variable_pt(self):
+        manager = _RepositoryManager()
+        original_clone_source = manager.clone_source
+
+        def clone_with_runtime_identifiers(url, destination, branch=None):
+            metadata = original_clone_source(url, destination, branch=branch)
+            (destination / "docs" / "README.md").write_text(
+                "# Student name\n\nUse this lesson.\n\n"
+                "```javascript\n"
+                "const NODE_ENV = process.env.NODE_ENV || 'production';\n"
+                "const PORT = process.env.PORT || 3000;\n"
+                "const DATABASE_URL = process.env.DATABASE_URL;\n"
+                "const __filename = fileURLToPath(import.meta.url);\n"
+                "const __dirname = path.dirname(__filename);\n"
+                "let message = 'Ready';\n"
+                "console.log(message);\n"
+                "```\n",
+                encoding="utf-8",
+            )
+            return metadata
+
+        manager.clone_source = clone_with_runtime_identifiers
+        report = _Report(self.root)
+
+        self._controller(
+            manager,
+            report,
+            variable_bot=_ProtectedIdentifierVariables(),
+        ).run("https://github.com/byui-cse/cse340-ww-course-v2")
+
+        translated_root = manager.published[0][0]
+        output = (translated_root / "README.md").read_text(encoding="utf-8")
+        self.assertIn("const NODE_ENV = process.env.NODE_ENV", output)
+        self.assertIn("const PORT = process.env.PORT", output)
+        self.assertIn("const DATABASE_URL = process.env.DATABASE_URL", output)
+        self.assertIn("const __filename = fileURLToPath", output)
+        self.assertIn("const __dirname = path.dirname(__filename)", output)
+        self.assertIn("let mensagem = 'Ready'", output)
+        self.assertIn("console.log(mensagem)", output)
+        self.assertNotIn("let message =", output)
+
+        reported_mapping = {
+            row["variable_en"]: row["variable_pt"]
+            for row in report.calls[0][2]
+        }
+        reported_rows = {
+            row["variable_en"]: row
+            for row in report.calls[0][2]
+        }
+        self.assertEqual(reported_mapping["NODE_ENV"], "NODE_ENV")
+        self.assertEqual(reported_mapping["PORT"], "PORT")
+        self.assertEqual(reported_mapping["DATABASE_URL"], "DATABASE_URL")
+        self.assertEqual(reported_mapping["__filename"], "__filename")
+        self.assertEqual(reported_mapping["__dirname"], "__dirname")
+        self.assertEqual(reported_mapping["message"], "mensagem")
+        self.assertIn(
+            "Protected identifier kept unchanged",
+            reported_rows["NODE_ENV"]["context_summary"],
         )
 
     def test_success_publishes_only_to_new_personal_repository(self):

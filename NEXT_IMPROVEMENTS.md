@@ -17,7 +17,14 @@ This is the single source of truth for planned improvements that are not yet com
 - [ ] Update the special Setup Notes page flow so specified parts of its text remain dark red.
   - Do not implement until the user identifies the exact text segments and provides the required color/style rules.
 - [ ] Implement the requested changes to Sergio's flow and merge the two report models into one standardized report that matches the shared process used for everyone.
-  - Before implementation, confirm the required Sergio-flow changes, identify the two report models to merge, and document the expected shared report structure and workflow.
+  - [x] Apply each approved `Variable PT` identifier throughout the translated GitHub repository while preserving external environment keys and platform-defined identifiers.
+    - Completed 2026-11-04: The GitHub flow now inventories protected identifiers repository-wide before analysis, seeds explicit no-op mappings for Node.js/deployment/environment contracts, applies ordinary Portuguese identifiers to every supported definition and reference, reports only the value actually applied, and blocks publication on inconsistent or unsafe mappings. Verified with 48 focused GitHub/variable/architecture tests, all 171 repository tests, and an in-memory audit of the 254-row CSE340 Variables report.
+  - [ ] Rename the `Images and Files` tab to `Resources`, and rename its first cell from `Images` to `Resources`.
+  - [ ] Remove the `In U.Images` column.
+  - [ ] Move the `Num` column so it is the first column.
+  - [ ] Add `Fix Link` as an option in the `Plan` column dropdown.
+  - [ ] Add `Status` as the second report column, with a `To Do` / `Done` dropdown that defaults to `To Do`.
+  - Before implementation, identify the two report models to merge and document the expected standardized report structure and shared workflow.
 
 ## Completed
 
