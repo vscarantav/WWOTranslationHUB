@@ -1,12 +1,14 @@
 import ast
 import json
 import re
+import textwrap
 from pathlib import Path
 
 from bs4 import BeautifulSoup
 from lxml import etree
 
 from bots.variable_extraction import VariableApplicationError, VariableTranslator
+from core.language_config import language_config, normalize_language_code
 
 
 class GitHubContentValidator:
@@ -18,6 +20,10 @@ class GitHubContentValidator:
         r"\batividades?\s+de\s+aprendizado\b",
         re.IGNORECASE,
     )
+
+    def __init__(self, target_language="PTBR"):
+        self.target_language = normalize_language_code(target_language)
+        self.html_language = language_config(self.target_language)["html_language"]
 
     @staticmethod
     def _markdown_code(content: str) -> list[str]:
@@ -48,13 +54,40 @@ class GitHubContentValidator:
             parents = tuple(parent.name for parent in tag.parents if parent.name != "[document]")
             attributes = []
             for name, value in sorted(tag.attrs.items()):
-                if name in ignored_text_attributes:
+                if name in ignored_text_attributes or (
+                    extension in {".html", ".htm"}
+                    and tag.name == "html"
+                    and name == "lang"
+                ):
                     continue
                 if isinstance(value, list):
                     value = " ".join(value)
                 attributes.append((name, str(value)))
             structure.append((parents, tag.name, tuple(attributes)))
         return structure
+
+    def _html_language_errors(
+        self,
+        original_content: str,
+        translated_content: str,
+    ) -> list[str]:
+        """Allow only the GitHub flow's required root language localization."""
+        original_html = BeautifulSoup(original_content, "html.parser").find("html")
+        if original_html is None:
+            return []
+
+        translated_html = BeautifulSoup(translated_content, "html.parser").find("html")
+        translated_language = (
+            str(translated_html.get("lang") or "").strip()
+            if translated_html is not None
+            else ""
+        )
+        if translated_language.casefold() != self.html_language.casefold():
+            return [
+                "Translated HTML root language must be localized to "
+                f"{self.html_language}."
+            ]
+        return []
 
     @staticmethod
     def _markdown_structure(content: str) -> list[tuple]:
@@ -96,15 +129,7 @@ class GitHubContentValidator:
         return structure
 
     @staticmethod
-    def _syntax_errors(content: str, extension: str) -> list[str]:
-        """Use available parsers, falling back to approved-delta checks elsewhere."""
-        errors = []
-        if extension == ".xml":
-            try:
-                etree.fromstring(content.encode("utf-8"))
-            except etree.XMLSyntaxError as error:
-                errors.append(f"Translated XML is not well formed: {error}")
-
+    def _syntax_snippets(content: str, extension: str) -> list[tuple[str, str]]:
         snippets = []
         if extension in {".md", ".markdown", ".mdx"}:
             pattern = re.compile(
@@ -121,15 +146,58 @@ class GitHubContentValidator:
                 language = str(tag.get("type") or "").casefold()
                 classes = " ".join(tag.get("class") or []).casefold()
                 snippets.append((f"{language} {classes}", tag.get_text("\n", strip=False)))
+        return snippets
 
-        for language, snippet in snippets:
+    @staticmethod
+    def _snippet_syntax_error(language: str, snippet: str):
+        try:
+            if language in {"py", "python"} or "python" in language:
+                ast.parse(textwrap.dedent(snippet).strip("\n"))
+            elif language == "json" or "json" in language:
+                json.loads(snippet)
+        except (SyntaxError, json.JSONDecodeError) as error:
+            return error
+        return None
+
+    @classmethod
+    def _syntax_errors(
+        cls,
+        content: str,
+        extension: str,
+        baseline_content: str | None = None,
+    ) -> list[str]:
+        """Report only syntax damage introduced beyond the source baseline."""
+        errors = []
+        if extension == ".xml":
             try:
-                if language in {"py", "python"} or "python" in language:
-                    ast.parse(snippet)
-                elif language == "json" or "json" in language:
-                    json.loads(snippet)
-            except (SyntaxError, json.JSONDecodeError) as error:
-                errors.append(f"Translated {language.strip() or 'code'} is invalid: {error}")
+                etree.fromstring(content.encode("utf-8"))
+            except etree.XMLSyntaxError as error:
+                errors.append(f"Translated XML is not well formed: {error}")
+
+        snippets = cls._syntax_snippets(content, extension)
+        baseline_snippets = (
+            cls._syntax_snippets(baseline_content, extension)
+            if baseline_content is not None
+            else []
+        )
+        for index, (language, snippet) in enumerate(snippets):
+            error = cls._snippet_syntax_error(language, snippet)
+            if error is None:
+                continue
+            if index < len(baseline_snippets):
+                baseline_language, baseline_snippet = baseline_snippets[index]
+                same_language = (
+                    ("python" in language or language in {"py", "python"})
+                    == ("python" in baseline_language or baseline_language in {"py", "python"})
+                    and ("json" in language or language == "json")
+                    == ("json" in baseline_language or baseline_language == "json")
+                )
+                if same_language and cls._snippet_syntax_error(
+                    baseline_language,
+                    baseline_snippet,
+                ) is not None:
+                    continue
+            errors.append(f"Translated {language.strip() or 'code'} is invalid: {error}")
         return errors
 
     @staticmethod
@@ -195,6 +263,7 @@ class GitHubContentValidator:
             if self._markdown_structure(original_content) != self._markdown_structure(translated_content):
                 errors.append("Markdown delimiters, list structure, or link destinations changed.")
         elif extension in {".html", ".htm"}:
+            errors.extend(self._html_language_errors(original_content, translated_content))
             if self._html_code(expected_code_content) != self._html_code(translated_content):
                 if variable_mapping:
                     errors.append(
@@ -249,7 +318,13 @@ class GitHubContentValidator:
                 translated_content, extension
             ):
                 errors.append("XML tags or protected attributes changed during translation.")
-        errors.extend(self._syntax_errors(translated_content, extension))
+        errors.extend(
+            self._syntax_errors(
+                translated_content,
+                extension,
+                baseline_content=expected_code_content,
+            )
+        )
         return errors
 
     @staticmethod

@@ -42,6 +42,23 @@ class TeachingNotesChunkTranslationTests(unittest.TestCase):
         self.assertIn(citation, translated)
         self.assertNotIn(citation, seen_source_text)
 
+    def test_preserves_third_party_product_interface_labels(self):
+        bot = HTMLTranslationBot(api_key="test-key", target_language="PTBR")
+        bot._log = Mock()
+        seen_source_text = []
+
+        def translate(batch, _constraints):
+            seen_source_text.extend(batch.values())
+            return {item_id: "Texto traduzido." for item_id in batch}
+
+        bot._translate_text_batch = Mock(side_effect=translate)
+        translated = bot.translate_html_content_in_chunks(
+            "<p>Select <strong>Database and Network Access</strong> in the menu.</p>"
+        )
+
+        self.assertIn("Database and Network Access", translated)
+        self.assertNotIn("Database and Network Access", seen_source_text)
+
     def test_detects_a_long_english_node_left_unchanged(self):
         self.assertTrue(HTMLTranslationBot._is_unchanged_english_text(
             "You will write the final project in this course.",

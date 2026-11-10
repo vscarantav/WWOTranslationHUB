@@ -1,6 +1,7 @@
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import Mock, patch
 
 
 APP_DIR = Path(__file__).resolve().parents[1] / "app"
@@ -8,6 +9,7 @@ sys.path.insert(0, str(APP_DIR))
 
 from bots.variable_extraction import (
     VariableApplicationError,
+    VariableAnalysisBot,
     VariableExtractor,
     VariableTranslator,
 )
@@ -80,6 +82,21 @@ class VariableTranslatorTests(unittest.TestCase):
         with self.assertRaises(VariableApplicationError):
             VariableTranslator.validate_mapping({"student_name": "class"})
 
+    def test_normalizes_model_suggestions_to_the_source_identifier_style(self):
+        self.assertEqual(
+            VariableTranslator.preserve_identifier_style("database", "bancoDeDados"),
+            "bancodedados",
+        )
+        self.assertEqual(
+            VariableTranslator.preserve_identifier_style("student_name", "nomeAluno"),
+            "nome_aluno",
+        )
+        self.assertEqual(
+            VariableTranslator.preserve_identifier_style("lastName", "sobrenome"),
+            "sobrenome",
+        )
+        VariableTranslator.validate_mapping({"lastName": "sobrenome"})
+
     def test_protects_platform_and_external_environment_identifiers(self):
         source = (
             "<pre><code class='javascript'>"
@@ -132,6 +149,59 @@ class VariableTranslatorTests(unittest.TestCase):
             candidates,
             ["course_id", "student_name", "student_record"],
         )
+
+    def test_does_not_apply_repository_variables_to_plain_text_prose(self):
+        source = "What did you learn from sharing your work?\nAnswer:"
+
+        translated, counts = VariableTranslator.apply(
+            source,
+            ".txt",
+            {"sharing": "compartilhamento", "your": "seu"},
+        )
+
+        self.assertEqual(translated, source)
+        self.assertEqual(counts, {"sharing": 0, "your": 0})
+        self.assertEqual(VariableExtractor.extract(source, ".txt"), ([], []))
+
+    def test_applies_variables_only_inside_explicit_txt_code(self):
+        source = (
+            "Explain the student_name variable.\n\n"
+            "```python\nstudent_name = input()\nprint(student_name)\n```\n"
+        )
+
+        translated, counts = VariableTranslator.apply(
+            source,
+            ".txt",
+            {"student_name": "nome_aluno"},
+        )
+
+        self.assertIn("Explain the student_name variable.", translated)
+        self.assertIn("nome_aluno = input()", translated)
+        self.assertEqual(counts, {"student_name": 2})
+
+    @patch("bots.variable_extraction.call_gemini_with_retry")
+    def test_analysis_normalizes_repeated_invalid_model_styles(self, call_gemini):
+        call_gemini.return_value = Mock(
+            text=(
+                '{"variables": ['
+                '{"original": "database", "translated": "bancoDeDados", '
+                '"context_summary": "Database variable"},'
+                '{"original": "lastName", "translated": "sobrenome", '
+                '"context_summary": "Last name field"}'
+                "]}"
+            )
+        )
+        bot = VariableAnalysisBot(model=object(), target_language="PTBR")
+        rows = bot.analyze(
+            "<code>const database = connect();\nconst lastName = input;</code>",
+            ".html",
+            "Variables",
+            "variables.html",
+        )
+
+        mapping = {row["variable_en"]: row["variable_pt"] for row in rows}
+        self.assertEqual(mapping, {"database": "bancodedados", "lastName": "sobrenome"})
+        self.assertEqual(call_gemini.call_count, 1)
 
 
 if __name__ == "__main__":

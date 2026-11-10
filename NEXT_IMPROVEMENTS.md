@@ -19,14 +19,34 @@ This is the single source of truth for planned improvements that are not yet com
 - [ ] Implement the requested changes to Sergio's flow and merge the two report models into one standardized report that matches the shared process used for everyone.
   - [x] Apply each approved `Variable PT` identifier throughout the translated GitHub repository while preserving external environment keys and platform-defined identifiers.
     - Completed 2026-11-04: The GitHub flow now inventories protected identifiers repository-wide before analysis, seeds explicit no-op mappings for Node.js/deployment/environment contracts, applies ordinary Portuguese identifiers to every supported definition and reference, reports only the value actually applied, and blocks publication on inconsistent or unsafe mappings. Verified with 48 focused GitHub/variable/architecture tests, all 171 repository tests, and an in-memory audit of the 254-row CSE340 Variables report.
-  - [ ] Rename the `Images and Files` tab to `Resources`, and rename its first cell from `Images` to `Resources`.
-  - [ ] Remove the `In U.Images` column.
-  - [ ] Move the `Num` column so it is the first column.
-  - [ ] Add `Fix Link` as an option in the `Plan` column dropdown.
-  - [ ] Add `Status` as the second report column, with a `To Do` / `Done` dropdown that defaults to `To Do`.
-  - Before implementation, identify the two report models to merge and document the expected standardized report structure and shared workflow.
+  - [x] Rename the `Images and Files` tab to `Resources`, and rename its first cell from `Images` to `Resources`.
+    - Completed 2026-11-09: Future GitHub reports and the recovered CSE341 report now use `Resources` for both the worksheet and title cell.
+  - [x] Remove the `In U.Images` column.
+    - Completed 2026-11-09: The obsolete column was removed from the GitHub resource schema and regression coverage.
+  - [x] Move the `Num` column so it is the first column.
+    - Completed 2026-11-09: Resource rows are numbered sequentially in the first column.
+  - [x] Add `Fix Link` as an option in the `Plan` column dropdown.
+    - Completed 2026-11-09: The Plan validation list now includes `Fix Link` in every generated GitHub report.
+  - [x] Add `Status` as the second report column, with a `To Do` / `Done` dropdown that defaults to `To Do`.
+    - Completed 2026-11-09: Every resource row defaults to `To Do`, supports `To Do` / `Done`, and uses status-specific formatting.
+  - The two report models are documented in `app/App_Architecture.json`: `DashboardGenerator` serves IMSCC/EdTech and `GitHubTranslationReportGenerator` serves GitHub. The explicit GitHub resource-layout standard is complete; consolidating the two generator implementations into one cross-flow model remains part of this parent improvement.
 
 ## Completed
+
+- [x] Make GitHub embedded-code syntax validation baseline-aware and normalize standalone indentation so source-authored Python and JSON examples are not misreported as translation damage.
+  - Completed 2026-11-09: Standalone Python snippets are dedented before parsing, and translated snippet errors are reported only when the corresponding source snippet parsed successfully. Verified against all four CSE 341 source-baseline failures, all 41 GitHub tests, and all 199 repository tests.
+
+- [x] Preserve source-exact third-party product interface labels during GitHub translation, including `Database and Network Access`, without triggering unchanged-English failures.
+  - Completed 2026-11-09: Approved product UI labels are excluded from translation batches and unchanged-English detection while surrounding instructional prose remains translatable. Verified against the exact CSE 341 MongoDB instruction, focused HTML bot coverage, and the full repository suite.
+
+- [x] Restrict GitHub variable analysis and application to identifier-bearing code contexts so prose-only TXT reflection templates and ordinary English words are never treated as variables.
+  - Completed 2026-11-09: TXT mappings now apply only inside explicit fenced/inline code or files with strong raw-code syntax. Verified with the failed run's 211-entry mapping across all seven CSE 341 reflection files with zero replacement-count mismatches, plus focused and full-suite tests.
+
+- [x] Make GitHub variable-analysis retries preserve the source identifier's naming style deterministically instead of repeating invalid lower/camel-case suggestions.
+  - Completed 2026-11-09: Model suggestions are normalized to the source identifier convention before validation, single-word lowercase targets are accepted as valid camelCase, and retry prompts include the prior validation error. Verified against the failed `database` and `lastName` suggestions, collision-free integration with the prior report mapping, and all 199 repository tests.
+
+- [x] Fix GitHub HTML validation so the approved target-language `<html lang>` localization is not rejected as protected-attribute drift, with regression coverage for the normalizer-to-validator handoff.
+  - Completed 2026-11-09: Root HTML language localization is driven by shared language metadata (`pt-BR` for PTBR, `es` for future SPA, and `fr` for future FRA) and excluded narrowly from generic protected-attribute equality, while nested language and other attribute changes remain blocked. Verified with all 38 GitHub tests, all 191 repository tests, and a scan of all 58 HTML files in the cancelled CSE 341 workspace with zero false structural failures.
 
 - [x] Apply the IMSCC link-mapping and commented-link reporting flow to EdTech book translation.
   - Completed 2026-11-04: EdTech now runs the shared `LinkProcessor` against every extracted HTML file before translation and uses the same unmapped-link dialog, persistent mapping store, automatic rewrites, skip/comment behavior, logging, save-failure handling, and dedicated `Commented Links` report tab as IMSCC. The tab includes both mapped links with comments and skipped links with comments. Verified with 34 focused EdTech/report tests and all 169 repository tests.

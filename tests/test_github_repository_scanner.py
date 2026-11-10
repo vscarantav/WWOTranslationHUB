@@ -66,3 +66,18 @@ class GitHubRepositoryScannerTests(unittest.TestCase):
         )
         youtube = next(asset for asset in assets if "youtube" in asset.asset_path)
         self.assertEqual(youtube.alt_text, "YouTube lesson")
+
+    def test_inventories_codepen_links_and_embeds(self):
+        lesson = self.root / "lesson.html"
+        lesson.write_text(
+            '<a href="https://codepen.io/example/pen/abc">CodePen example</a>'
+            '<iframe src="https://codepen.io/example/embed/def"></iframe>',
+            encoding="utf-8",
+        )
+
+        scanner = GitHubRepositoryScanner()
+        assets = scanner.extract_assets(lesson, self.root)
+
+        self.assertEqual(len(assets), 2)
+        self.assertTrue(all(asset.asset_type == "Codepen" for asset in assets))
+        self.assertTrue(all(scanner.is_codepen(asset.asset_path) for asset in assets))

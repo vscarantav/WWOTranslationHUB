@@ -6,11 +6,14 @@ import html as html_lib
 from bs4 import BeautifulSoup, Comment, NavigableString
 import google.generativeai as genai  # type: ignore
 
+from core.language_config import language_config, normalize_language_code
+
 class HTMLTranslationBot:
     # Product interface labels should remain exactly as students see them in the
     # application. Translating these labels can make the instructions harder to
     # follow when the product itself is using an English interface.
     PRESERVED_PRODUCT_UI_LABELS = {
+        "database and network access",
         "select as repository destination",
     }
 
@@ -24,7 +27,7 @@ class HTMLTranslationBot:
             
         self.workspace_dir = workspace_dir
             
-        self.target_language = target_language
+        self.target_language = normalize_language_code(target_language)
         self.model = genai.GenerativeModel("gemini-3.5-flash")
         self.system_prompt = self._get_system_prompt()
         self.log_lock = log_lock
@@ -48,7 +51,8 @@ class HTMLTranslationBot:
                 f.write(f"[{timestamp}] {message}\n")
 
     def _get_system_prompt(self):
-        return f"You are an expert HTML translator. Translate text into {self.target_language}. Do not modify tags or layout. Output strictly the translated HTML block. Do not translate URLs, UUID placeholders, or internal variable names."
+        target_name = language_config(self.target_language)["name"]
+        return f"You are an expert HTML translator. Translate text into {target_name}. Do not modify tags or layout. Output strictly the translated HTML block. Do not translate URLs, UUID placeholders, or internal variable names."
 
     def set_system_prompt(self, prompt: str):
         self.system_prompt = prompt

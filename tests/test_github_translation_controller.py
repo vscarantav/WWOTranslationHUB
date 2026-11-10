@@ -9,7 +9,7 @@ APP_DIR = Path(__file__).resolve().parents[1] / "app"
 sys.path.insert(0, str(APP_DIR))
 
 from core.github_repository_manager import GitHubRepositoryManager
-from core.github_repository_scanner import AssetReference
+from core.github_repository_scanner import AssetReference, GitHubRepositoryScanner
 from github_translation_controller import GitHubTranslationController, GitHubTranslationRunError
 
 
@@ -265,7 +265,10 @@ class GitHubTranslationControllerTests(unittest.TestCase):
             "API Setting — Render: Build Command = npm install && npm run build",
         )
         self.assertTrue(api_setting["resource_link"].endswith("/README.md"))
-        self.assertEqual(api_setting["package"], "External")
+        self.assertTrue(
+            api_setting["target_language_link"].endswith("/README.md")
+        )
+        self.assertEqual(api_setting["package"], "API Setting")
         review_row = report.calls[0][1][0]
         self.assertIn("/docs/README.md", review_row["link_en"])
         self.assertTrue(review_row["link_pt"].endswith("/README.md"))
@@ -308,6 +311,13 @@ class GitHubTranslationControllerTests(unittest.TestCase):
             GitHubTranslationController._published_resource_url(site, external),
             external.asset_path,
         )
+        self.assertEqual(
+            GitHubTranslationController._published_page_url(
+                site,
+                "week01/lesson one.html",
+            ),
+            "https://personal-user.github.io/course-test1-pt/week01/lesson%20one.html",
+        )
 
     def test_byui_logo_is_excluded_from_images_report_case_insensitively(self):
         logo = AssetReference(
@@ -325,6 +335,47 @@ class GitHubTranslationControllerTests(unittest.TestCase):
 
         self.assertTrue(GitHubTranslationController._exclude_asset_from_report(logo))
         self.assertFalse(GitHubTranslationController._exclude_asset_from_report(course_image))
+
+    def test_supported_video_providers_use_video_package(self):
+        controller = GitHubTranslationController.__new__(GitHubTranslationController)
+        controller.scanner = GitHubRepositoryScanner()
+        providers = (
+            "https://www.youtube.com/watch?v=demo",
+            "https://www.loom.com/embed/demo",
+            "https://video.byui.brightspotcdn.com/demo",
+            "https://cdnapisec.kaltura.com/p/demo",
+        )
+
+        for asset_path in providers:
+            with self.subTest(asset_path=asset_path):
+                asset = AssetReference(
+                    source_file="week01/index.html",
+                    page_title="Week 1",
+                    asset_path=asset_path,
+                    asset_type="Video",
+                    external=True,
+                )
+                self.assertEqual(controller._asset_package(asset), "Video")
+
+    def test_images_and_codepen_use_dedicated_packages(self):
+        controller = GitHubTranslationController.__new__(GitHubTranslationController)
+        controller.scanner = GitHubRepositoryScanner()
+        image = AssetReference(
+            source_file="week01/index.html",
+            page_title="Week 1",
+            asset_path="../images/diagram.png",
+            asset_type="Image",
+        )
+        codepen = AssetReference(
+            source_file="week01/index.html",
+            page_title="Week 1",
+            asset_path="https://codepen.io/example/pen/demo",
+            asset_type="Codepen",
+            external=True,
+        )
+
+        self.assertEqual(controller._asset_package(image), "Image")
+        self.assertEqual(controller._asset_package(codepen), "Codepen")
 
     def test_api_report_rows_redact_credentials_defensively(self):
         secret = "unstructured-secret-value"

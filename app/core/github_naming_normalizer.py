@@ -5,9 +5,15 @@ from urllib.parse import unquote, urlparse
 
 from bs4 import BeautifulSoup
 
+from core.language_config import language_config, normalize_language_code
+
 
 class GitHubNamingNormalizer:
-    """Apply the canonical PT-BR course-title structure after translation."""
+    """Apply canonical PT-BR titles and target-aware HTML metadata."""
+
+    def __init__(self, target_language="PTBR"):
+        self.target_language = normalize_language_code(target_language)
+        self.html_language = language_config(self.target_language)["html_language"]
 
     ENGLISH_TO_PORTUGUESE_HEADINGS = {
         "activity instructions": "Instruções da Atividade",
@@ -222,7 +228,7 @@ class GitHubNamingNormalizer:
         return ""
 
     @classmethod
-    def _normalize_html(cls, source, translated, relative_path):
+    def _normalize_html(cls, source, translated, relative_path, html_language="pt-BR"):
         source_soup = BeautifulSoup(source, "html.parser")
         translated_soup = BeautifulSoup(translated, "html.parser")
         source_headings = source_soup.find_all(["h1", "h2", "h3", "h4"])
@@ -270,7 +276,7 @@ class GitHubNamingNormalizer:
 
         html_tag = translated_soup.find("html")
         if html_tag:
-            html_tag["lang"] = "pt-BR"
+            html_tag["lang"] = html_language
 
         title_tag = translated_soup.find("title")
         if title_tag and canonical:
@@ -383,7 +389,12 @@ class GitHubNamingNormalizer:
     def normalize(self, source, translated, extension, relative_path):
         extension = extension.lower()
         if extension in {".html", ".htm"}:
-            return self._normalize_html(source, translated, relative_path)[0]
+            return self._normalize_html(
+                source,
+                translated,
+                relative_path,
+                self.html_language,
+            )[0]
         if extension in {".md", ".markdown", ".mdx"}:
             return self._normalize_markdown(source, translated, relative_path)[0]
         return translated
@@ -433,7 +444,10 @@ class GitHubNamingNormalizer:
                 week = self._week_number(source_text, item.relative_path)
                 kind = self._source_kind(source_text, item.relative_path)
                 normalized, data = self._normalize_html(
-                    source, translated, item.relative_path
+                    source,
+                    translated,
+                    item.relative_path,
+                    self.html_language,
                 )
                 primary_index = (
                     self._primary_heading_index(source_headings, kind, week)

@@ -53,6 +53,7 @@ class GitHubRepositoryScanner:
         "Loom": ("loom.com",),
         "Kaltura": ("kaltura.com",),
     }
+    CODEPEN_DOMAINS = ("codepen.io",)
 
     def __init__(self, ignored_directories=None):
         self.ignored_directories = set(ignored_directories or IGNORED_DIRECTORIES)
@@ -134,8 +135,18 @@ class GitHubRepositoryScanner:
         return ""
 
     @classmethod
+    def is_codepen(cls, asset_path: str) -> bool:
+        hostname = (urlparse(asset_path).hostname or "").casefold()
+        return any(
+            hostname == domain or hostname.endswith(f".{domain}")
+            for domain in cls.CODEPEN_DOMAINS
+        )
+
+    @classmethod
     def _asset_kind(cls, asset_path: str) -> str | None:
         parsed = urlparse(asset_path)
+        if cls.is_codepen(asset_path):
+            return "Codepen"
         if cls.video_provider(asset_path):
             return "Video"
         extension = Path(unquote(parsed.path)).suffix.lower()
@@ -197,7 +208,7 @@ class GitHubRepositoryScanner:
                     link.get("href", ""),
                     "",
                 )
-                if reference and reference.asset_type in {"File", "Video"}:
+                if reference and reference.asset_type in {"File", "Video", "Codepen"}:
                     references.append(reference)
             for media in soup.find_all(["iframe", "video", "source", "embed"], src=True):
                 reference = self._reference(
@@ -206,7 +217,7 @@ class GitHubRepositoryScanner:
                     media.get("src", ""),
                     media.get("title", ""),
                 )
-                if reference and reference.asset_type == "Video":
+                if reference and reference.asset_type in {"Video", "Codepen"}:
                     references.append(reference)
 
         if extension in {".md", ".markdown", ".mdx"}:
@@ -221,7 +232,7 @@ class GitHubRepositoryScanner:
                     references.append(reference)
             for match in re.finditer(r"(?<!!)\[[^\]]+\]\(([^)\s]+)(?:\s+['\"][^)]*['\"])?\)", content):
                 reference = self._reference(relative_path, page_title, match.group(1), "")
-                if reference and reference.asset_type in {"File", "Video"}:
+                if reference and reference.asset_type in {"File", "Video", "Codepen"}:
                     references.append(reference)
 
         seen = set()

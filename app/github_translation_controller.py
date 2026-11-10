@@ -81,8 +81,10 @@ class GitHubTranslationController:
         self.max_workers = max_workers
         self.repository_manager = repository_manager or GitHubRepositoryManager(token, log_func=self._log)
         self.scanner = scanner or GitHubRepositoryScanner()
-        self.validator = validator or GitHubContentValidator()
-        self.naming_normalizer = naming_normalizer or GitHubNamingNormalizer()
+        self.validator = validator or GitHubContentValidator(self.target_language)
+        self.naming_normalizer = naming_normalizer or GitHubNamingNormalizer(
+            self.target_language
+        )
         self.report_generator = report_generator or GitHubTranslationReportGenerator(self.hub_dir / "Reports")
         self.bot_factory = bot_factory
 
@@ -245,6 +247,14 @@ class GitHubTranslationController:
         return f"https://{owner}.github.io/{quote(repository, safe='')}/"
 
     @staticmethod
+    def _published_page_url(published_site_url, source_file):
+        decoded_path = unquote(str(source_file or "").strip()).lstrip("/")
+        relative_path = posixpath.normpath(decoded_path)
+        if not relative_path or relative_path == "." or relative_path.startswith("../"):
+            return published_site_url
+        return published_site_url.rstrip("/") + "/" + quote(relative_path, safe="/")
+
+    @staticmethod
     def _published_resource_url(published_site_url, asset):
         if asset.external:
             return asset.asset_path
@@ -273,9 +283,13 @@ class GitHubTranslationController:
         return filename.casefold() == "byui-logo.svg"
 
     def _asset_package(self, asset):
+        if self.scanner.is_codepen(asset.asset_path):
+            return "Codepen"
         provider = self.scanner.video_provider(asset.asset_path)
-        if provider == "BrightSpot":
-            return "BrightSpot"
+        if provider:
+            return "Video"
+        if asset.asset_type == "Image":
+            return "Image"
         if asset.external:
             return "External"
         return "GitHub"
@@ -312,7 +326,10 @@ class GitHubTranslationController:
             rows.append({
                 "asset_path": asset.asset_path,
                 "package": self._asset_package(asset),
-                "tl_link": published_site_url,
+                "target_language_link": self._published_page_url(
+                    published_site_url,
+                    asset.source_file,
+                ),
                 "resource_link": self._published_resource_url(published_site_url, asset),
                 "notes": notes,
                 "alt_text_en": asset.alt_text,
@@ -351,8 +368,11 @@ class GitHubTranslationController:
             notes = f"API/service configuration on {page_title}: {context}".strip()
             rows.append({
                 "asset_path": label,
-                "package": "External",
-                "tl_link": published_site_url,
+                "package": "API Setting",
+                "target_language_link": self._published_page_url(
+                    published_site_url,
+                    source_file,
+                ),
                 "resource_link": resource_link,
                 "notes": notes,
                 "alt_text_en": "",

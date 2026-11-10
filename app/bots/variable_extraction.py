@@ -101,6 +101,60 @@ class VariableTranslator:
             return f"{prefix}camel"
         return f"{prefix}lower"
 
+    @staticmethod
+    def _identifier_words(value: str) -> list[str]:
+        value = value.lstrip("$")
+        value = re.sub(r"([A-Z]+)([A-Z][a-z])", r"\1 \2", value)
+        value = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", value)
+        return [word.casefold() for word in re.split(r"_+|\s+", value) if word]
+
+    @classmethod
+    def preserve_identifier_style(cls, original: str, translated: str) -> str:
+        """Return a valid target identifier shaped like the source identifier."""
+        original_segments = str(original).strip().split(".")
+        translated_segments = str(translated).strip().split(".")
+        if len(original_segments) != len(translated_segments):
+            return str(translated).strip()
+
+        normalized_segments = []
+        for source_segment, target_segment in zip(original_segments, translated_segments):
+            source_style = cls._identifier_style(source_segment)
+            prefix = "$" if source_style.startswith("$") else ""
+            style = source_style[len(prefix):]
+            words = cls._identifier_words(target_segment)
+            if not words or style == "invalid":
+                return str(translated).strip()
+            if style == "lower":
+                normalized = "".join(words)
+            elif style == "upper":
+                normalized = "".join(words).upper()
+            elif style == "snake":
+                normalized = "_".join(words)
+            elif style == "upper_snake":
+                normalized = "_".join(words).upper()
+            elif style == "camel":
+                normalized = words[0] + "".join(word.title() for word in words[1:])
+            elif style == "pascal":
+                normalized = "".join(word.title() for word in words)
+            else:
+                return str(translated).strip()
+            normalized_segments.append(prefix + normalized)
+        return ".".join(normalized_segments)
+
+    @classmethod
+    def _styles_compatible(cls, source_segment: str, target_segment: str) -> bool:
+        source_style = cls._identifier_style(source_segment)
+        target_style = cls._identifier_style(target_segment)
+        if source_style == target_style:
+            return True
+        source_prefix = "$" if source_style.startswith("$") else ""
+        target_prefix = "$" if target_style.startswith("$") else ""
+        return (
+            source_prefix == target_prefix
+            and source_style[len(source_prefix):] == "camel"
+            and target_style[len(target_prefix):] == "lower"
+        )
+
     @classmethod
     def validate_mapping(cls, mapping: dict[str, str]) -> None:
         normalized = {
@@ -134,7 +188,7 @@ class VariableTranslator:
             for source_segment, target_segment in zip(original_segments, translated_segments):
                 source_style = cls._identifier_style(source_segment)
                 target_style = cls._identifier_style(target_segment)
-                if source_style != target_style:
+                if not cls._styles_compatible(source_segment, target_segment):
                     raise VariableApplicationError(
                         f"Portuguese identifier for {original!r} changes naming style "
                         f"from {source_style!r} to {target_style!r}."
@@ -372,7 +426,13 @@ class VariableTranslator:
         if extension in {".html", ".htm", ".xml"}:
             return cls._apply_markup(content, extension, mapping)
         if extension == ".txt":
-            return cls._replace_code_text(content, mapping)
+            if cls._markdown_spans(content):
+                return cls._apply_markdown(content, mapping)
+            if VariableExtractor.looks_like_raw_code(content):
+                return cls._replace_code_text(content, mapping)
+            return content, {
+                original: 0 for original in cls._effective_mapping(mapping)
+            }
         raise VariableApplicationError(
             f"Variable translation is not supported for {extension or 'this file type'}."
         )
@@ -381,8 +441,22 @@ class VariableTranslator:
 class VariableExtractor:
     """Find likely variable identifiers in instructional code examples."""
 
-    @staticmethod
-    def code_fragments(content: str, extension: str) -> list[str]:
+    RAW_CODE_PATTERNS = (
+        re.compile(r"(?m)^\s*(?:const|let|var)\s+[A-Za-z_$][\w$]*"),
+        re.compile(r"(?m)^\s*(?:def|class|function)\s+[A-Za-z_$][\w$]*"),
+        re.compile(r"(?m)^\s*[A-Za-z_][\w]*\s*=(?!=)"),
+        re.compile(
+            r"\b(?:CREATE\s+TABLE|ALTER\s+TABLE|INSERT\s+INTO|SELECT\s+.+\s+FROM)\b",
+            re.IGNORECASE,
+        ),
+    )
+
+    @classmethod
+    def looks_like_raw_code(cls, content: str) -> bool:
+        return any(pattern.search(content) for pattern in cls.RAW_CODE_PATTERNS)
+
+    @classmethod
+    def code_fragments(cls, content: str, extension: str) -> list[str]:
         extension = extension.lower()
         fragments = []
         if extension in {".md", ".markdown", ".mdx"}:
@@ -393,7 +467,10 @@ class VariableExtractor:
             soup = BeautifulSoup(content, "xml" if extension == ".xml" else "html.parser")
             fragments.extend(tag.get_text("\n", strip=False) for tag in soup.find_all(["pre", "code", "script"]))
         elif extension == ".txt":
-            fragments.append(content)
+            spans = VariableTranslator._markdown_spans(content)
+            fragments.extend(content[start:end] for start, end in spans)
+            if not spans and cls.looks_like_raw_code(content):
+                fragments.append(content)
         return [fragment for fragment in fragments if fragment.strip()]
 
     @staticmethod
@@ -498,10 +575,15 @@ class VariableAnalysisBot:
             f"CODE:\n{code_payload}"
         )
         last_error = None
+        retry_feedback = ""
         expected = set(candidates)
         for attempt in range(3):
             try:
-                response = call_gemini_with_retry(self.model, prompt, log_func=self.log)
+                response = call_gemini_with_retry(
+                    self.model,
+                    prompt + retry_feedback,
+                    log_func=self.log,
+                )
                 payload = self._parse_json(response.text or "")
                 variables = payload.get("variables")
                 if not isinstance(variables, list):
@@ -517,6 +599,14 @@ class VariableAnalysisBot:
                             if original in protected_identifiers
                             else existing_mapping.get(original, translated)
                         )
+                        if (
+                            original not in protected_identifiers
+                            and original not in existing_mapping
+                        ):
+                            selected_translation = VariableTranslator.preserve_identifier_style(
+                                original,
+                                selected_translation,
+                            )
                         VariableTranslator.validate_mapping({original: selected_translation})
                         by_original[original] = {
                             "page_title": page_title,
@@ -537,5 +627,9 @@ class VariableAnalysisBot:
                 return [by_original[candidate] for candidate in candidates]
             except Exception as error:
                 last_error = error
+                retry_feedback = (
+                    "\n\nPREVIOUS RESPONSE ERROR: "
+                    f"{error}\nReturn a corrected complete JSON response that resolves this error."
+                )
                 self.log(f"[VariableBot] Attempt {attempt + 1}/3 failed for {source_file}: {error}")
         raise RuntimeError(f"Variable analysis failed for {source_file}: {last_error}")

@@ -32,32 +32,51 @@ class GitHubReportGeneratorTests(unittest.TestCase):
             [{
                 "asset_path": "images/a.png",
                 "package": "External",
-                "tl_link": "https://personal-user.github.io/course-test1-pt/",
+                "target_language_link": "https://personal-user.github.io/course-test1-pt/week01/lesson.html",
                 "resource_link": "https://personal-user.github.io/course-test1-pt/images/a.png",
                 "alt_text_en": "A",
                 "alt_text_pt": "Um",
             }],
         )
         workbook = load_workbook(path)
-        self.assertEqual(workbook.sheetnames, ["Reviewing", "Variables", "Images and Files"])
-        images = workbook["Images and Files"]
-        self.assertEqual([images.cell(3, column).value for column in range(1, 12)], [
-            "In U.Images", "Images (Copy from UniqueImages)", "Package", "Has Text",
-            "Plan", "TL Link", "Resource Link", "Notes", "Num", "Alt Text EN", "Alt Text PT",
+        self.assertEqual(workbook.sheetnames, ["Reviewing", "Variables", "Resources"])
+        resources = workbook["Resources"]
+        self.assertEqual(resources["A1"].value, "Resources")
+        self.assertEqual([resources.cell(3, column).value for column in range(1, 12)], [
+            "Num", "Status", "Images (Copy from UniqueImages)", "Package",
+            "Has Text", "Plan", "Target Language Link", "Resource Link", "Notes",
+            "Alt Text EN", "Alt Text PT",
         ])
-        self.assertIsNone(images["A4"].value)
-        self.assertEqual(images["C4"].value, "External")
-        self.assertIsNone(images["D4"].value)
-        self.assertIsNone(images["E4"].value)
+        self.assertEqual(resources["A4"].value, 1)
+        self.assertEqual(resources["B4"].value, "To Do")
+        self.assertEqual(resources["C4"].value, "images/a.png")
+        self.assertEqual(resources["D4"].value, "External")
+        self.assertIsNone(resources["E4"].value)
+        self.assertIsNone(resources["F4"].value)
         self.assertEqual(
-            images["F4"].hyperlink.target,
-            "https://personal-user.github.io/course-test1-pt/",
+            resources["G4"].hyperlink.target,
+            "https://personal-user.github.io/course-test1-pt/week01/lesson.html",
         )
         self.assertEqual(
-            images["G4"].hyperlink.target,
+            resources["H4"].hyperlink.target,
             "https://personal-user.github.io/course-test1-pt/images/a.png",
         )
-        formulas = [validation.formula1 for validation in images.data_validations.dataValidation]
-        self.assertTrue(any("BrightSpot" in formula and "GitHub" in formula for formula in formulas))
-        self.assertTrue(any("Find Equivalent" in formula and "Use Current" in formula for formula in formulas))
+        formulas = [
+            validation.formula1
+            for validation in resources.data_validations.dataValidation
+        ]
+        self.assertTrue(any("To Do" in formula and "Done" in formula for formula in formulas))
+        self.assertTrue(any(
+            all(option in formula for option in (
+                "Canvas", "External", "GitHub", "API Setting",
+                "Video", "Image", "Codepen",
+            ))
+            and "LLDOC" not in formula
+            for formula in formulas
+        ))
+        self.assertTrue(any(
+            "Find Equivalent" in formula and "Fix Link" in formula and "Use Current" in formula
+            for formula in formulas
+        ))
+        self.assertTrue(resources.conditional_formatting)
         self.assertTrue(workbook["Variables"].conditional_formatting)
