@@ -47,6 +47,7 @@ class StartupEnvironmentTests(unittest.TestCase):
                 "gemini-value",
                 "https://canvas.example.edu",
                 "canvas-value",
+                "personal-user",
             ],
         ) as askstring, patch("main_ui.messagebox.showerror") as showerror:
             self.assertTrue(ensure_required_environment(parent, str(env_file)))
@@ -57,6 +58,7 @@ class StartupEnvironmentTests(unittest.TestCase):
                 "https://canvas.example.edu",
             )
             self.assertEqual(os.environ["CANVAS_API_TOKEN"], "canvas-value")
+            self.assertEqual(os.environ["GITHUB_USERNAME"], "personal-user")
 
         saved_values = dotenv_values(env_file)
         self.assertEqual(saved_values["GEMINI_API_KEY"], "gemini-value")
@@ -65,10 +67,12 @@ class StartupEnvironmentTests(unittest.TestCase):
             "https://canvas.example.edu",
         )
         self.assertEqual(saved_values["CANVAS_API_TOKEN"], "canvas-value")
-        self.assertEqual(askstring.call_count, 3)
+        self.assertEqual(saved_values["GITHUB_USERNAME"], "personal-user")
+        self.assertEqual(askstring.call_count, 4)
         self.assertEqual(askstring.call_args_list[0].kwargs["show"], "*")
         self.assertNotIn("show", askstring.call_args_list[1].kwargs)
         self.assertEqual(askstring.call_args_list[2].kwargs["show"], "*")
+        self.assertNotIn("show", askstring.call_args_list[3].kwargs)
         showerror.assert_not_called()
 
     def test_cancellation_blocks_startup_without_saving_partial_values(self):
@@ -101,14 +105,43 @@ class StartupEnvironmentTests(unittest.TestCase):
 
         with patch.dict(os.environ, {}, clear=True), patch(
             "main_ui.simpledialog.askstring",
-            side_effect=["gemini", "https://canvas.example.edu", "canvas", "extra"],
+            side_effect=[
+                "gemini",
+                "https://canvas.example.edu",
+                "canvas",
+                "personal-user",
+                "extra",
+            ],
         ) as askstring, patch("main_ui.messagebox.showerror"):
             self.assertTrue(ensure_required_environment(parent, str(env_file)))
 
-        self.assertEqual(askstring.call_count, 4)
+        self.assertEqual(askstring.call_count, 5)
         self.assertEqual(
             dotenv_values(env_file)["EXTRA_SERVICE_SECRET"],
             "extra",
+        )
+
+    def test_github_flow_allows_course_glossary_to_be_skipped_before_branch(self):
+        ui = CourseTranslationHubUI.__new__(CourseTranslationHubUI)
+        ui.root = Mock()
+
+        with patch(
+            "main_ui.simpledialog.askstring",
+            side_effect=["https://github.com/byui-cse/cse341-course", None],
+        ) as askstring, patch(
+            "main_ui.filedialog.askopenfilename",
+        ) as askopenfilename, patch(
+            "main_ui.messagebox.askyesno",
+            return_value=False,
+        ) as askyesno:
+            ui.run_github_translation()
+
+        self.assertEqual(askstring.call_count, 2)
+        askyesno.assert_called_once()
+        askopenfilename.assert_not_called()
+        self.assertEqual(
+            askyesno.call_args.args[0],
+            "Course-Specific Glossary (Optional)",
         )
 
 

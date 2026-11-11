@@ -52,14 +52,14 @@ class GitHubRepositoryManagerTests(unittest.TestCase):
                 return "a" * 40
             return ""
 
-        manager = GitHubRepositoryManager("token", git_runner=git_runner)
+        manager = GitHubRepositoryManager("token", "personal-user", git_runner=git_runner)
         manager.clone_source(pages_url, self.temp_dir / "source")
         clone_command = commands[0][0]
         self.assertIn("https://github.com/byui-cse/cse340-ww-course-v2.git", clone_command)
         self.assertNotIn(pages_url, clone_command)
 
     def test_numbered_name_never_reuses_an_existing_repository(self):
-        manager = GitHubRepositoryManager("token")
+        manager = GitHubRepositoryManager("token", "personal-user")
         manager.repository_exists = lambda _owner, repo: repo in {
             "course-test1-pt", "course-test1-pt-2"
         }
@@ -80,7 +80,7 @@ class GitHubRepositoryManagerTests(unittest.TestCase):
                 "source": {"branch": "live", "path": "/docs"},
             }
 
-        manager = GitHubRepositoryManager("token", api_request=api_request)
+        manager = GitHubRepositoryManager("token", "personal-user", api_request=api_request)
         self.assertEqual(
             manager.get_pages_configuration("byui-cse", "cse340-ww-course-v2"),
             {"branch": "live", "path": "/docs", "build_type": "legacy"},
@@ -103,6 +103,7 @@ class GitHubRepositoryManagerTests(unittest.TestCase):
 
         manager = GitHubRepositoryManager(
             "token",
+            "personal-user",
             api_request=api_request,
             log_func=lambda _message: None,
         )
@@ -123,6 +124,7 @@ class GitHubRepositoryManagerTests(unittest.TestCase):
     def test_pages_build_failure_stops_publication_confirmation(self):
         manager = GitHubRepositoryManager(
             "token",
+            "personal-user",
             api_request=lambda _method, _path, _payload: {"status": "errored"},
             log_func=lambda _message: None,
         )
@@ -134,6 +136,19 @@ class GitHubRepositoryManagerTests(unittest.TestCase):
                 timeout_seconds=10,
                 poll_interval=0,
             )
+
+    def test_rejects_token_for_a_different_configured_username(self):
+        manager = GitHubRepositoryManager(
+            "token",
+            "configured-user",
+            api_request=lambda _method, _path, _payload: {"login": "different-user"},
+        )
+
+        with self.assertRaisesRegex(
+            GitHubRepositoryError,
+            "GITHUB_TOKEN authenticates.*GITHUB_USERNAME",
+        ):
+            manager.authenticated_user()
 
     def test_translation_tree_has_no_source_git_or_workflows(self):
         source = self.temp_dir / "source"

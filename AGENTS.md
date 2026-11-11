@@ -12,3 +12,13 @@ These instructions apply to every agent working anywhere in this repository.
 6. In the final response, include an `Outstanding improvements` reminder whenever unchecked items remain. If none remain, say that the improvements list is clear.
 
 `NEXT_IMPROVEMENTS.md` is the single source of truth for the project's future-work backlog. Detailed architecture and current implementation contracts remain in `app/App_Architecture.json`.
+
+## Commit classification
+
+Every commit created by an agent must identify exactly one primary category at the start of its subject:
+
+- `fix:` corrects defective behavior, a regression, or an incorrect result.
+- `maintenance:` covers documentation, refactoring, tests, dependencies, configuration, cleanup, and generated-artifact maintenance without adding an intended user-facing capability.
+- `improvement:` adds a capability or materially enhances existing behavior.
+
+Use the format `<category>: <imperative summary>`. When a commit contains mixed work, choose the category that represents its primary purpose and describe secondary work in the commit body.

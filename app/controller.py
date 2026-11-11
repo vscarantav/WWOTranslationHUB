@@ -27,6 +27,12 @@ from core.workspace_manager import WorkspaceManager
 from core.link_processor import LinkProcessor
 from core.dashboard_generator import DashboardGenerator
 from core.canvas_assignment_template import W07AssignmentTemplateInstaller
+from core.cse_glossary import CSEGlossaryStack
+from core.language_config import (
+    SUPPORTED_TARGET_LANGUAGES,
+    language_config,
+    normalize_language_code,
+)
 
 class TranslationController:
     ATTENTION_PAGE_FILENAME = "attention-messaging-instructors-and-graders.html"
@@ -63,12 +69,31 @@ class TranslationController:
                 "lista.)"
             ),
         },
+        "FRA": {
+            "title": "Notes de version",
+            "content": (
+                "Les notes de version résument les changements les plus importants "
+                "apportés au cours lors de chaque projet d’amélioration. (Les notes "
+                "de version les plus récentes doivent être insérées en haut de la liste.)"
+            ),
+        },
     }
 
-    def __init__(self, target_language="PTBR", input_dir=None, imscc_path=None, link_prompt_callback=None, target_course_id=None):
-        self.target_language = target_language
+    def __init__(
+        self,
+        target_language="PTBR",
+        input_dir=None,
+        imscc_path=None,
+        link_prompt_callback=None,
+        target_course_id=None,
+        is_cse_course=False,
+        course_glossary_path=None,
+    ):
+        self.target_language = normalize_language_code(target_language)
         self.link_prompt_callback = link_prompt_callback
         self.target_course_id = target_course_id
+        self.is_cse_course = bool(is_cse_course)
+        self.course_glossary_path = course_glossary_path
         self._attention_package_prepared = False
         self._attention_page_present = False
         self._gemini_translation_pages = {}
@@ -110,6 +135,28 @@ class TranslationController:
             "docx": DOCXTranslationBot(xml_bot, log_func=self._log),
             "xlsx": XLSXTranslationBot(xml_bot, log_func=self._log),
         }
+
+        self.cse_glossary_agents = []
+        if self.is_cse_course:
+            from bots.cse_glossary_agent import CSEGlossaryAgent
+
+            glossary_stack = CSEGlossaryStack.load(
+                self.hub_dir,
+                self.target_language,
+                self.course_glossary_path,
+            )
+            self.cse_glossary_agents = [
+                CSEGlossaryAgent(
+                    layer,
+                    self.target_language,
+                    log_func=self._log,
+                )
+                for layer in glossary_stack.layers
+            ]
+            self._log(
+                "[CSE Glossary] Enabled agents in priority order: "
+                + " -> ".join(agent.layer.name for agent in self.cse_glossary_agents)
+            )
         
         self._apply_custom_prompts()
             
@@ -679,6 +726,10 @@ class TranslationController:
                 "Teaching Notes and Student Outreach": "Notas de enseñanza y contacto con los estudiantes",
                 "Teaching Notes": "Notas de enseñanza",
             },
+            "FRA": {
+                "Teaching Notes and Student Outreach": "Notes pédagogiques et suivi des étudiants",
+                "Teaching Notes": "Notes pédagogiques",
+            },
         }
         translations = title_translations.get(self.target_language)
         if not translations:
@@ -790,9 +841,15 @@ class TranslationController:
             en_stopwords = {"the", "and", "to", "of", "a", "in", "is", "that", "it", "with", "as", "for", "on", "this", "be"}
             pt_stopwords = {"de", "que", "o", "e", "do", "da", "em", "um", "para", "com", "nao", "os", "uma", "as", "se"}
             es_stopwords = {"de", "que", "el", "en", "y", "a", "los", "se", "del", "las", "un", "por", "con", "no", "una"}
+            fr_stopwords = {"de", "la", "le", "les", "des", "un", "une", "et", "a", "en", "que", "qui", "pour", "dans", "est"}
             
             en_count = sum(1 for w in words if w in en_stopwords)
-            target_count = sum(1 for w in words if w in (pt_stopwords if self.target_language == "PTBR" else es_stopwords))
+            target_stopwords = {
+                "PTBR": pt_stopwords,
+                "SPA": es_stopwords,
+                "FRA": fr_stopwords,
+            }[self.target_language]
+            target_count = sum(1 for w in words if w in target_stopwords)
                 
             if target_count > (en_count + 5): return True
             return False
@@ -1021,6 +1078,7 @@ class TranslationController:
         )
 
         original_content = self.link_processor.clean_pre_translation_links(original_content, target_filepath, self._log)
+        english_glossary_source = original_content
             
         relevant_glossary = self.auditor.get_relevant_terms(original_content)
         relevant_scriptures = self.scripture_checker.get_scriptures_for_text(original_content)
@@ -1049,6 +1107,17 @@ class TranslationController:
                     "Settings": "Configuraciones", "Teaching Notes": "Notas de enseñanza",
                     "Teaching Notes and Student Outreach": "Notas de enseñanza y contacto con estudiantes"
                 }
+            elif self.target_language == "FRA":
+                custom_glossary = {
+                    "Dashboard": "Tableau de bord", "Courses": "Cours", "Calendar": "Calendrier",
+                    "Inbox": "Boîte de réception", "History": "Historique", "Help": "Aide",
+                    "Syllabus": "Programme", "Modules": "Modules", "Announcements": "Annonces",
+                    "Grades": "Notes", "People": "Personnes", "Assignments": "Devoirs",
+                    "Discussions": "Discussions", "Files": "Fichiers", "Outcomes": "Résultats",
+                    "Pages": "Pages", "Quizzes": "Questionnaires", "Rubrics": "Barèmes",
+                    "Settings": "Paramètres", "Teaching Notes": "Notes pédagogiques",
+                    "Teaching Notes and Student Outreach": "Notes pédagogiques et suivi des étudiants"
+                }
             else:
                 custom_glossary = {}
 
@@ -1074,6 +1143,9 @@ class TranslationController:
             elif self.target_language == "SPA":
                 original_content = re.sub(r'\bMissing\b', 'No Entregado', original_content)
                 original_content = re.sub(r'\bmissing\b', 'no entregado', original_content)
+            elif self.target_language == "FRA":
+                original_content = re.sub(r'\bMissing\b', 'Non remis', original_content)
+                original_content = re.sub(r'\bmissing\b', 'non remis', original_content)
             with track_successful_gemini_calls(mark_gemini_call_succeeded):
                 translated_content = bot.translate_xml_content(original_content, relevant_glossary, relevant_scriptures, page_title)
         elif ext == "txt":
@@ -1082,11 +1154,17 @@ class TranslationController:
         else:
             if is_setup_notes and hasattr(bot, 'set_system_prompt'):
                 original_prompt = bot.system_prompt
+                setup_examples = {
+                    "PTBR": "'Modules / Módulos', 'Due / Prazo de entrega: Day/Dia', 'Available From / Disponível a partir de: N/A'",
+                    "SPA": "'Modules / Módulos', 'Due / Fecha de entrega: Day/Día', 'Available From / Disponible desde: N/A'",
+                    "FRA": "'Modules / Modules', 'Due / Échéance : Day/Jour', 'Available From / Disponible à partir de : N/A'",
+                }
+                target_name = language_config(self.target_language)["name"]
                 custom_prompt = (
                     f"You are an expert HTML translator. For this specific 'setup notes' page, you must translate ONLY the text inside the table cells (<td> and <th> tags). "
                     f"Do NOT translate any headers, titles, or paragraphs outside the tables. "
-                    f"Furthermore, instead of replacing the English text in the table cells, you must APPEND the {self.target_language} translation after the English text, separated by ' / ' (e.g., 'Modules / Módulos', 'Due / Prazo de entrega: Day/Dia', 'Available From / Disponível a partir de: N/A'). "
-                    f"Keep 'N/A' as is, and translate variables like 'Day' to 'Dia' etc. "
+                    f"Furthermore, instead of replacing the English text in the table cells, you must APPEND the {target_name} translation after the English text, separated by ' / ' (e.g., {setup_examples[self.target_language]}). "
+                    f"Keep 'N/A' as is, and translate variables like 'Day' naturally into {target_name}. "
                     f"Do not modify tags or layout. Output strictly the HTML block."
                 )
                 bot.set_system_prompt(custom_prompt)
@@ -1140,6 +1218,17 @@ class TranslationController:
                 raise RuntimeError(
                     f"Teaching Notes accordion enforcement failed for {filepath}: {e}"
                 ) from e
+
+        cse_glossary_agents = getattr(self, "cse_glossary_agents", ())
+        if cse_glossary_agents and not is_setup_notes:
+            for glossary_agent in cse_glossary_agents:
+                with track_successful_gemini_calls(mark_gemini_call_succeeded):
+                    translated_content = glossary_agent.enforce(
+                        english_glossary_source,
+                        translated_content,
+                        ext,
+                        page_title,
+                    )
 
         translated_content = self.link_processor.rewrite_church_links(translated_content)
         
@@ -1216,10 +1305,7 @@ class TranslationController:
         print("Please complete the following manual steps in Canvas after importing the translated IMSCC.")
         print("Press Enter to check off each item.\n")
         
-        canvas_language = {
-            "PTBR": "Português",
-            "SPA": "Spanish"
-        }.get(self.target_language, self.target_language)
+        canvas_language = language_config(self.target_language)["canvas_language"]
 
         checklist = [
             "Import the translated .imscc course package into Canvas.",
@@ -1243,14 +1329,14 @@ if __name__ == "__main__":
     parser.add_argument("--file", help="Specific file to translate")
     parser.add_argument("--dir", help="Directory folder to process")
     parser.add_argument("--imscc", help="IMSCC course package to process")
-    parser.add_argument("--lang", choices=["PTBR", "SPA"], help="Target Language")
+    parser.add_argument("--lang", choices=SUPPORTED_TARGET_LANGUAGES, help="Target Language")
     
     args = parser.parse_args()
     
     target_language = args.lang
     if not target_language:
-        lang_input = input("Which language would you like to translate to? (Enter 'PTBR' or 'SPA'): ").strip().upper()
-        if lang_input in ["PTBR", "SPA"]:
+        lang_input = input("Which language would you like to translate to? (Enter 'PTBR', 'SPA', or 'FRA'): ").strip().upper()
+        if lang_input in SUPPORTED_TARGET_LANGUAGES:
             target_language = lang_input
         else:
             print("Invalid language selected. Defaulting to PTBR.")

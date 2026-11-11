@@ -9,7 +9,11 @@ This is the single source of truth for planned improvements that are not yet com
 - [ ] Implement localized image-file translation for JPG, PNG, GIF, and SVG assets; inline alt-text translation already exists.
 - [ ] Preserve every question bank's English name exactly as it appears in the original export package.
 - [ ] Migrate the translation bots from the deprecated `google.generativeai` SDK to `google.genai`, preserving and verifying the existing retry, validation, and successful-call tracking behavior.
+- [ ] Protect platform-defined code identifiers such as MongoDB's `_id` during GitHub variable analysis so they are emitted as explicit no-op mappings and never require manual page recovery.
+- [ ] Populate and approve `FRA` entries in `Glossary/glossary.json` so French translations receive the same curated terminology constraints as Portuguese and Spanish; the French runtime currently falls back to its approved agent prompts when no French glossary value exists.
+- [ ] Populate and approve native Spanish and French translation columns in the Global Software Development Markdown glossary so CSE agents can use curated target-language values instead of deriving equivalents from labeled PT-BR references.
 - [ ] Add a `Continue Previous Process` button that saves durable progress checkpoints during long-running workflows and safely resumes the most recent incomplete process from its last verified stopping point after the user leaves or closes the HUB.
+- [ ] Surface source-course Canvas references during IMSCC link processing. The `instructure.com/api/` ignore rule silently drops `data-api-endpoint` URLs that still point at the source course ID, so stale cross-course references survive into the translated package without appearing in any report.
 - [ ] Add a safe multi-computer auto-update flow controlled by the public master Git repository. Provide an `Update Translation HUB` interface button (no separate batch file) that pulls `main`, shows update status in the HUB, and automatically restarts the application after a successful update. Send newly added links to the shared mapping database immediately after the user completes the link-mapping flow. When one English link has conflicting Portuguese links, show every candidate in that flow with a copy button and single-select checkbox, require exactly one selection, and permanently save the selected link as the correct mapping without losing unrelated mappings.
 
 ## Needs user details before implementation
@@ -32,6 +36,9 @@ This is the single source of truth for planned improvements that are not yet com
   - The two report models are documented in `app/App_Architecture.json`: `DashboardGenerator` serves IMSCC/EdTech and `GitHubTranslationReportGenerator` serves GitHub. The explicit GitHub resource-layout standard is complete; consolidating the two generator implementations into one cross-flow model remains part of this parent improvement.
 
 ## Completed
+
+- [x] Add the CSE-only IMSCC glossary-agent flow with an optional course-specific Markdown glossary.
+  - Completed 2026-11-11: `Select Course & Translate` now asks whether the course is CSE before opening the IMSCC picker; CSE runs independent General, Global Software Development, and optional course-specific agents in low-to-high priority for PTBR, SPA, and FRA. Each agent matches the English source, sends matched translations/context plus the English and current target page to Gemini, and applies only explicit visible-text replacements. Verified the attached 227-entry WDD 430 glossary in all three language flows and all 215 repository tests.
 
 - [x] Separate API-related instructions from general technical setup instructions in GitHub Resources reports.
   - Completed 2026-11-11: Added `Technical Setup Instruction` to the Package dropdown; defined `API Setting` as instructions that configure, expose, test, document, secure, store data for, or deploy an API; defined the new category for general tooling, repository, linting, project-setup, and workflow guidance; added model classification plus deterministic legacy fallback; and regenerated the CSE341 report with 161 API Setting and 29 Technical Setup Instruction rows. Verified all 208 repository tests.

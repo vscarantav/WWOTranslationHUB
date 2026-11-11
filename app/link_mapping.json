@@ -442,6 +442,57 @@
   "https://sites.google.com/byui.edu/wwonlinewhatsappresourcecenter/home?authuser=3": {
     "PTBR": "https://sites.google.com/byui.edu/wwonlinewhatsapplibrary/home?authuser=3",
     "SPA": ""
+  },
+  "https://www.edu-apps.org/redirect": {
+    "PTBR": "https://www.edu-apps.org/redirect",
+    "SPA": ""
+  },
+  "https://www.edu-apps.org/assets/lti_redirect_engine/redirect_icon.png": {
+    "PTBR": "https://www.edu-apps.org/assets/lti_redirect_engine/redirect_icon.png",
+    "SPA": ""
+  },
+  "https://instructor.byupathway.edu/": {
+    "PTBR": "https://instructor.byupathway.edu/",
+    "SPA": ""
+  },
+  "https://www.byupathway.edu/student-support": {
+    "PTBR": "https://www.byupathway.edu/pt/suporte-ao-estudante",
+    "SPA": ""
+  },
+  "https://byu-idaho.screenstepslive.com/s/16998/m/65436/l/1215037-how-do-i-find-assignment-feedback-copied?token=qFM5FwQ58hAh15jjX9U5WF2v0MXTI2-m": {
+    "PTBR": "https://community.instructure.com/pt/kb/articles/661229-how-do-i-view-assignment-comments-from-my-instructor",
+    "SPA": ""
+  },
+  "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=1&CMG=1&CourseCode=BUS%20115": {
+    "PTBR": "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=1&CMG=1&CourseCode=BUS%20115",
+    "SPA": ""
+  },
+  "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=2&CMG=1&CourseCode=BUS%20115": {
+    "PTBR": "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=2&CMG=1&CourseCode=BUS%20115",
+    "SPA": ""
+  },
+  "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=3&CMG=1&CourseCode=BUS%20115": {
+    "PTBR": "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=3&CMG=1&CourseCode=BUS%20115",
+    "SPA": ""
+  },
+  "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=4&CMG=1&CourseCode=BUS%20115": {
+    "PTBR": "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=4&CMG=1&CourseCode=BUS%20115",
+    "SPA": ""
+  },
+  "https://docs.google.com/document/d/1R65TJx_uQF3s_zGWAUDknNpQoXtUDHzLzgyoLfIlyAo/edit?usp=sharing": {
+    "PTBR": "https://docs.google.com/document/d/1R65TJx_uQF3s_zGWAUDknNpQoXtUDHzLzgyoLfIlyAo/edit?usp=sharing",
+    "SPA": ""
+  },
+  "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=5&CMG=1&CourseCode=BUS%20115": {
+    "PTBR": "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=5&CMG=1&CourseCode=BUS%20115",
+    "SPA": ""
+  },
+  "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=6&CMG=1&CourseCode=BUS%20115": {
+    "PTBR": "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=6&CMG=1&CourseCode=BUS%20115",
+    "SPA": ""
+  },
+  "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=7&CMG=1&CourseCode=BUS%20115": {
+    "PTBR": "https://byui.az1.qualtrics.com/jfe/form/SV_8oF267U5kSJoLY2?WeekNo=7&CMG=1&CourseCode=BUS%20115",
+    "SPA": ""
   }
 }
-

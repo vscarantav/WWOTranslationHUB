@@ -7,6 +7,8 @@ import tempfile
 import threading
 from tqdm import tqdm
 
+from core.language_config import language_config, normalize_language_code
+
 
 _MAPPING_WRITE_LOCK = threading.Lock()
 
@@ -17,7 +19,7 @@ class LinkMappingPersistenceError(RuntimeError):
 
 class LinkProcessor:
     def __init__(self, target_language: str, app_dir: str, filepaths: list, link_prompt_callback=None):
-        self.target_language = target_language
+        self.target_language = normalize_language_code(target_language)
         self.app_dir = app_dir
         self.filepaths = filepaths
         self.link_prompt_callback = link_prompt_callback
@@ -48,7 +50,7 @@ class LinkProcessor:
         return content
 
     def rewrite_church_links(self, content: str) -> str:
-        lang_code = "por" if self.target_language == "PTBR" else ("spa" if self.target_language == "SPA" else "por")
+        lang_code = language_config(self.target_language)["church_code"]
         
         def replacer(match):
             url = match.group(0)
@@ -92,7 +94,7 @@ class LinkProcessor:
                     latest_mapping = load_mapping()
                     translations = latest_mapping.setdefault(
                         source_url,
-                        {"PTBR": "", "SPA": ""},
+                        {"PTBR": "", "SPA": "", "FRA": ""},
                     )
                     if not isinstance(translations, dict):
                         raise ValueError(
@@ -100,6 +102,7 @@ class LinkProcessor:
                         )
                     translations.setdefault("PTBR", "")
                     translations.setdefault("SPA", "")
+                    translations.setdefault("FRA", "")
                     translations[self.target_language] = localized_url
 
                     file_descriptor, temporary_path = tempfile.mkstemp(
@@ -176,7 +179,7 @@ class LinkProcessor:
 
             if clean_url.startswith('https://www.churchofjesuschrist.org/study/scriptures'):
                 if 'lang=eng' in clean_url:
-                    lang_code = 'por' if self.target_language == 'PTBR' else 'spa'
+                    lang_code = language_config(self.target_language)["church_code"]
                     localized_url = clean_url.replace('lang=eng', f'lang={lang_code}')
                     return html.escape(localized_url) if is_escaped else localized_url
                 else:

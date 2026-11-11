@@ -36,6 +36,8 @@ class FakeGitRunner:
             stdout = "main\n"
         elif arguments == ["status", "--porcelain", "--untracked-files=no"]:
             stdout = self.dirty
+        elif arguments == ["remote", "get-url", "origin"]:
+            stdout = "https://github.com/personal-user/WWOTranslationHUB.git\n"
         elif arguments == ["rev-parse", "HEAD"]:
             stdout = f"{'new' if self.updated else 'old'}\n"
         elif arguments == ["fetch", "origin", "main"]:
@@ -66,7 +68,11 @@ class HubUpdaterTests(unittest.TestCase):
         runner = FakeGitRunner(fetched_revision="old")
         messages = []
 
-        result = HubUpdater(self.repository, runner=runner).update(messages.append)
+        result = HubUpdater(
+            self.repository,
+            github_username="personal-user",
+            runner=runner,
+        ).update(messages.append)
 
         self.assertFalse(result.updated)
         self.assertEqual(result.previous_revision, "old")
@@ -81,7 +87,11 @@ class HubUpdaterTests(unittest.TestCase):
         runner = FakeGitRunner(fetched_revision="new")
         messages = []
 
-        result = HubUpdater(self.repository, runner=runner).update(messages.append)
+        result = HubUpdater(
+            self.repository,
+            github_username="personal-user",
+            runner=runner,
+        ).update(messages.append)
 
         self.assertTrue(result.updated)
         self.assertEqual(result.previous_revision, "old")
@@ -102,7 +112,11 @@ class HubUpdaterTests(unittest.TestCase):
         )
 
         with self.assertRaisesRegex(HubUpdateError, "local changes") as raised:
-            HubUpdater(self.repository, runner=runner).update()
+            HubUpdater(
+                self.repository,
+                github_username="personal-user",
+                runner=runner,
+            ).update()
 
         self.assertNotIn("app/main_ui.py", str(raised.exception))
         self.assertNotIn(
@@ -114,7 +128,11 @@ class HubUpdaterTests(unittest.TestCase):
         runner = FakeGitRunner(dirty=" M app/main_ui.py\n", fetched_revision="old")
         messages = []
 
-        result = HubUpdater(self.repository, runner=runner).update(messages.append)
+        result = HubUpdater(
+            self.repository,
+            github_username="personal-user",
+            runner=runner,
+        ).update(messages.append)
 
         self.assertFalse(result.updated)
         self.assertEqual(messages[-1], "Your software is up to date.")
@@ -127,7 +145,11 @@ class HubUpdaterTests(unittest.TestCase):
         runner = FakeGitRunner(fetched_revision="new", diverged=True)
 
         with self.assertRaisesRegex(HubUpdateError, "diverged"):
-            HubUpdater(self.repository, runner=runner).update()
+            HubUpdater(
+                self.repository,
+                github_username="personal-user",
+                runner=runner,
+            ).update()
 
         self.assertNotIn(
             ["git", "pull", "--ff-only", "origin", "main"],
@@ -139,7 +161,11 @@ class HubUpdaterTests(unittest.TestCase):
         non_repository.mkdir()
         try:
             with self.assertRaisesRegex(HubUpdateError, "not a Git checkout"):
-                HubUpdater(non_repository, runner=FakeGitRunner()).update()
+                HubUpdater(
+                    non_repository,
+                    github_username="personal-user",
+                    runner=FakeGitRunner(),
+                ).update()
         finally:
             shutil.rmtree(non_repository, ignore_errors=True)
 
@@ -150,6 +176,16 @@ class HubUpdaterTests(unittest.TestCase):
             command = build_restart_command(entry_script)
 
         self.assertEqual(command, [sys.executable, str(entry_script.resolve())])
+
+    def test_rejects_update_remote_owned_by_a_different_account(self):
+        runner = FakeGitRunner()
+
+        with self.assertRaisesRegex(HubUpdateError, "GITHUB_USERNAME"):
+            HubUpdater(
+                self.repository,
+                github_username="configured-user",
+                runner=runner,
+            ).update()
 
 
 if __name__ == "__main__":

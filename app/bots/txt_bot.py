@@ -3,6 +3,8 @@ import json
 import re
 import google.generativeai as genai  # type: ignore
 
+from core.language_config import language_config, normalize_language_code
+
 
 class TextTranslationBot:
     @staticmethod
@@ -24,9 +26,10 @@ class TextTranslationBot:
         else:
             self.client_ready = False
 
-        self.target_language = target_language
+        self.target_language = normalize_language_code(target_language)
         self.model = genai.GenerativeModel("gemini-3.5-flash")
-        self.system_prompt = f"You are an expert academic translator. Translate the given text accurately into {self.target_language}."
+        target_name = language_config(self.target_language)["name"]
+        self.system_prompt = f"You are an expert academic translator. Translate the given text accurately into {target_name}."
         self.log_lock = log_lock
         
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")

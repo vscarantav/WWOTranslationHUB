@@ -52,6 +52,7 @@ class GitHubTranslationController:
         self,
         hub_dir,
         token,
+        github_username,
         target_language="PTBR",
         *,
         repository_manager=None,
@@ -79,7 +80,11 @@ class GitHubTranslationController:
             encoding="utf-8",
         )
         self.max_workers = max_workers
-        self.repository_manager = repository_manager or GitHubRepositoryManager(token, log_func=self._log)
+        self.repository_manager = repository_manager or GitHubRepositoryManager(
+            token,
+            github_username,
+            log_func=self._log,
+        )
         self.scanner = scanner or GitHubRepositoryScanner()
         self.validator = validator or GitHubContentValidator(self.target_language)
         self.naming_normalizer = naming_normalizer or GitHubNamingNormalizer(
@@ -391,8 +396,18 @@ class GitHubTranslationController:
             })
         return rows
 
-    def run(self, repository_url, branch=None):
+    def run(self, repository_url, branch=None, course_glossary_path=None):
         self._progress_value = 0
+        try:
+            glossary = SoftwareDevelopmentGlossary.load_github_stack(
+                self.hub_dir,
+                course_glossary_path,
+                self.target_language,
+            )
+        except (OSError, ValueError) as error:
+            raise GitHubTranslationRunError(
+                f"Could not load the GitHub glossaries: {error}"
+            ) from error
         self._progress(0, "Checking repository access")
         source_owner, source_repository = self.repository_manager.parse_repository_url(repository_url)
         authenticated = self.repository_manager.authenticated_user()
@@ -443,8 +458,6 @@ class GitHubTranslationController:
         source_metadata["pages_source_path"] = pages_path
         manifest = self.scanner.scan(source_root)
         self.repository_manager.prepare_translation_tree(source_root, translated_root)
-        glossary_path = SoftwareDevelopmentGlossary.default_path(self.hub_dir)
-        glossary = SoftwareDevelopmentGlossary.load(glossary_path, "PTBR")
         bots = self._bots()
         self._progress(15, "Translation workspace prepared")
 

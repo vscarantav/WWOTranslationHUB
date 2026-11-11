@@ -4,10 +4,12 @@ import urllib.request
 import urllib.parse
 import google.generativeai as genai
 from bots.api_utils import call_gemini_with_retry
+from core.language_config import language_config, normalize_language_code
 
 class ImageProcessorBot:
     def __init__(self, target_language: str, workspace_dir: str, log_lock=None, log_filepath=None, api_key=None):
-        self.target_language = target_language
+        self.target_language = normalize_language_code(target_language)
+        self.target_language_name = language_config(self.target_language)["name"]
         self.workspace_dir = workspace_dir
         self.log_lock = log_lock
         self.log_filepath = log_filepath or os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
@@ -76,7 +78,7 @@ class ImageProcessorBot:
             return
             
         if alt:
-            prompt = f"Translate the following image alt text to {self.target_language}. Return only the translated text, no quotes or additional formatting:\n{alt}"
+            prompt = f"Translate the following image alt text to {self.target_language_name}. Return only the translated text, no quotes or additional formatting:\n{alt}"
             try:
                 response = call_gemini_with_retry(self.model, prompt, log_func=self._log)
                 if response and response.text:
@@ -103,7 +105,7 @@ class ImageProcessorBot:
                 
                 # Step 2: Translate the English description to the target language
                 if en_alt_text:
-                    prompt_trans = f"Translate the following image alt text to {self.target_language}. Return only the translated text, no quotes or additional formatting:\n{en_alt_text}"
+                    prompt_trans = f"Translate the following image alt text to {self.target_language_name}. Return only the translated text, no quotes or additional formatting:\n{en_alt_text}"
                     response_trans = call_gemini_with_retry(self.model, prompt_trans, log_func=self._log)
                     if response_trans and response_trans.text:
                         img_tag['alt'] = response_trans.text.strip()

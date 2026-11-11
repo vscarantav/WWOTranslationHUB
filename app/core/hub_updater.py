@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 from typing import Callable, Sequence
@@ -28,11 +29,15 @@ class HubUpdater:
         self,
         repository_dir: str | os.PathLike[str],
         *,
+        github_username: str,
         remote: str = "origin",
         branch: str = "main",
         runner: Callable[..., subprocess.CompletedProcess[str]] = subprocess.run,
     ):
         self.repository_dir = Path(repository_dir).resolve()
+        self.github_username = (github_username or "").strip()
+        if not self.github_username:
+            raise ValueError("GITHUB_USERNAME is required.")
         self.remote = remote
         self.branch = branch
         self._runner = runner
@@ -61,6 +66,25 @@ class HubUpdater:
             raise HubUpdateError(detail)
         return result
 
+    def _validate_remote_owner(self) -> None:
+        remote_url = self._git("remote", "get-url", self.remote).stdout.strip()
+        match = re.match(
+            r"^(?:https://github\.com/|git@github\.com:|ssh://git@github\.com/)"
+            r"(?P<owner>[^/]+)/[^/]+?(?:\.git)?/?$",
+            remote_url,
+            flags=re.IGNORECASE,
+        )
+        if not match:
+            raise HubUpdateError(
+                f"The {self.remote!r} remote is not a supported GitHub repository URL."
+            )
+        owner = match.group("owner")
+        if owner.casefold() != self.github_username.casefold():
+            raise HubUpdateError(
+                f"The {self.remote!r} remote belongs to {owner!r}, but GITHUB_USERNAME "
+                f"is {self.github_username!r}."
+            )
+
     def update(self, status_callback: Callable[[str], None] | None = None) -> HubUpdateResult:
         """Fetch and fast-forward from the configured branch without overwriting edits."""
 
@@ -69,6 +93,8 @@ class HubUpdater:
             raise HubUpdateError(
                 f"Translation HUB is not a Git checkout: {self.repository_dir}"
             )
+
+        self._validate_remote_owner()
 
         current_branch = self._git("branch", "--show-current").stdout.strip()
         if current_branch != self.branch:

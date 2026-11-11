@@ -35,8 +35,9 @@ Courses to Translate/
 *-export/
 *-export_PTBR/
 
-# Generated EdTech workspace
+# Generated translation workspaces and reports
 /edtech_workspace/
+Reports/
 
 # Excel temp files
 ~$*.xlsx

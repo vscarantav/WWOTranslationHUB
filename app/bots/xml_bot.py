@@ -7,7 +7,13 @@ from bs4 import BeautifulSoup, CData, XMLParsedAsHTMLWarning
 import warnings
 import google.generativeai as genai  # type: ignore
 
+from core.language_config import language_config, normalize_language_code
+
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
+
+XML_BATCH_MAX_LINES = 600
+XML_BATCH_TARGET_CHARACTERS = 8000
+
 
 class XMLTranslationBot:
     @staticmethod
@@ -35,12 +41,13 @@ class XMLTranslationBot:
             
         self.workspace_dir = workspace_dir
             
-        self.target_language = target_language
+        self.target_language = normalize_language_code(target_language)
         self.log_lock = log_lock
         self.model = genai.GenerativeModel(
             "gemini-3.5-flash"
         )
-        self.system_prompt = f"You are an expert academic text translator. Translate ALL human-readable text inside each <translate_item> to {self.target_language}. You MUST translate all words, including prefixes, labels, or words wrapped inside inline HTML tags (like <strong>Purpose:</strong> or <b>Task:</b>). Maintain any HTML tags within the strings exactly as they are without translating the tag names themselves. Do not translate URLs or filenames. Return exactly the same XML-like structure with the translated text, ensuring you keep the 'id' attributes intact. Do NOT modify the 'id' attribute."
+        target_name = language_config(self.target_language)["name"]
+        self.system_prompt = f"You are an expert academic text translator. Translate ALL human-readable text inside each <translate_item> to {target_name}. You MUST translate all words, including prefixes, labels, or words wrapped inside inline HTML tags (like <strong>Purpose:</strong> or <b>Task:</b>). Maintain any HTML tags within the strings exactly as they are without translating the tag names themselves. Do not translate URLs or filenames. Return exactly the same XML-like structure with the translated text, ensuring you keep the 'id' attributes intact. Do NOT modify the 'id' attribute."
         
         self.log_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "translation_log.txt")
             
@@ -64,6 +71,134 @@ class XMLTranslationBot:
     def set_system_prompt(self, prompt: str):
         self.system_prompt = prompt
 
+    @staticmethod
+    def _content_line_count(content: str) -> int:
+        return max(1, len(content.splitlines()))
+
+    @classmethod
+    def _split_items_by_line_limit(cls, items: dict) -> tuple[list[tuple[str, str]], dict[str, list[str]]]:
+        split_items = []
+        source_chunks = {}
+
+        for source_id, content in items.items():
+            lines = content.splitlines()
+            if not lines:
+                lines = [content]
+
+            chunks = [
+                "\n".join(lines[index:index + XML_BATCH_MAX_LINES])
+                for index in range(0, len(lines), XML_BATCH_MAX_LINES)
+            ]
+            if len(chunks) == 1:
+                chunk_ids = [source_id]
+            else:
+                chunk_ids = [
+                    f"{source_id}__line_chunk_{index}"
+                    for index in range(1, len(chunks) + 1)
+                ]
+
+            source_chunks[source_id] = chunk_ids
+            split_items.extend(zip(chunk_ids, chunks))
+
+        return split_items, source_chunks
+
+    @classmethod
+    def _build_line_limited_batches(cls, items: dict) -> tuple[list[dict], dict[str, list[str]]]:
+        split_items, source_chunks = cls._split_items_by_line_limit(items)
+        batches = []
+        current_batch = {}
+        current_line_count = 0
+        current_character_count = 0
+
+        for item_id, content in split_items:
+            item_line_count = cls._content_line_count(content)
+            item_character_count = len(item_id) + len(content) + 10
+            exceeds_limit = current_batch and (
+                current_line_count + item_line_count > XML_BATCH_MAX_LINES
+                or current_character_count + item_character_count
+                > XML_BATCH_TARGET_CHARACTERS
+            )
+            if exceeds_limit:
+                batches.append(current_batch)
+                current_batch = {}
+                current_line_count = 0
+                current_character_count = 0
+
+            current_batch[item_id] = content
+            current_line_count += item_line_count
+            current_character_count += item_character_count
+
+        if current_batch:
+            batches.append(current_batch)
+
+        return batches, source_chunks
+
+    @staticmethod
+    def _translation_constraints(
+        relevant_glossary: dict = None,
+        relevant_scriptures: dict = None,
+    ) -> str:
+        constraints = ""
+        if relevant_glossary:
+            constraints += (
+                "\n\nGLOSSARY CONSTRAINTS: You MUST use the following "
+                "translated terms for these English words:\n"
+                + json.dumps(relevant_glossary, indent=2, ensure_ascii=False)
+            )
+        if relevant_scriptures:
+            constraints += (
+                "\n\nSCRIPTURE CONSTRAINTS: When translating scriptures, use "
+                "these exact official translations instead of translating them "
+                "yourself:\n"
+                + json.dumps(relevant_scriptures, indent=2, ensure_ascii=False)
+            )
+        return constraints
+
+    def translate_text_items(
+        self,
+        items: dict[str, str],
+        relevant_glossary: dict = None,
+        relevant_scriptures: dict = None,
+        context_label: str = "XML content",
+    ) -> dict[str, str]:
+        """Translate keyed text fragments through the configured XML agent."""
+        if not self.client_ready:
+            self._log("[XMLBot] ERROR: No API key provided.")
+            raise RuntimeError(
+                "XML translation cannot run because no API key is configured."
+            )
+        if not items:
+            return {}
+
+        constraints = self._translation_constraints(
+            relevant_glossary,
+            relevant_scriptures,
+        )
+        self._log(
+            f"[XMLBot] Found {len(items)} translatable nodes in {context_label}. "
+            f"Processing in batches of at most {XML_BATCH_MAX_LINES} content lines..."
+        )
+
+        translated_chunks = {}
+        batches, source_chunks = self._build_line_limited_batches(items)
+        for index, batch in enumerate(batches, start=1):
+            batch_line_count = sum(
+                self._content_line_count(content) for content in batch.values()
+            )
+            self._log(
+                f"[XMLBot] Translating batch {index}/{len(batches)} "
+                f"({batch_line_count}/{XML_BATCH_MAX_LINES} content lines; "
+                f"approx {len(json.dumps(batch))} chars)..."
+            )
+            translated_chunks.update(self._translate_batch(batch, constraints))
+
+        return {
+            source_id: "\n".join(
+                translated_chunks[chunk_id] for chunk_id in chunk_ids
+            )
+            for source_id, chunk_ids in source_chunks.items()
+        }
+
     def _translate_batch(self, batch: dict, constraints: str) -> dict:
         if not self.client_ready:
             raise RuntimeError("XML translation cannot run because no API key is configured.")
@@ -76,6 +211,13 @@ class XMLTranslationBot:
         payload = ""
         for k, v in batch.items():
             payload += f'<translate_item id="{k}">{v}</translate_item>\n'
+
+        payload_line_count = len(payload.splitlines())
+        if payload_line_count > XML_BATCH_MAX_LINES:
+            raise ValueError(
+                "XML translation payload exceeds the "
+                f"{XML_BATCH_MAX_LINES}-line limit: {payload_line_count} lines."
+            )
             
         full_prompt = f"System Instructions:\n{self.system_prompt}{constraints}\n\nContent:\n{payload}"
         
@@ -196,43 +338,12 @@ class XMLTranslationBot:
         if not strings_to_translate:
             return str(soup)
             
-        constraints = ""
-        if relevant_glossary:
-            constraints += f"\n\nGLOSSARY CONSTRAINTS: You MUST use the following translated terms for these English words:\n{json.dumps(relevant_glossary, indent=2, ensure_ascii=False)}"
-        if relevant_scriptures:
-            constraints += f"\n\nSCRIPTURE CONSTRAINTS: When translating scriptures, use these exact official translations instead of translating them yourself:\n{json.dumps(relevant_scriptures, indent=2, ensure_ascii=False)}"
-
-        msg = f"[XMLBot] Found {len(strings_to_translate)} translatable nodes. Processing via character-based JSON batches..."
-        self._log(msg)
-        
-        translated_strings = {}
-        
-        items = list(strings_to_translate.items())
-        
-        current_batch = {}
-        current_batch_size = 0
-        batch_limit = 8000 # Character limit
-        
-        batches = []
-        for k, v in items:
-            item_size = len(k) + len(v) + 10
-            if current_batch_size + item_size > batch_limit and current_batch:
-                batches.append(current_batch)
-                current_batch = {}
-                current_batch_size = 0
-                
-            current_batch[k] = v
-            current_batch_size += item_size
-            
-        if current_batch:
-            batches.append(current_batch)
-            
-        for i, batch in enumerate(batches):
-            msg = f"[XMLBot] Translating batch {i + 1}/{len(batches)} (approx {len(json.dumps(batch))} chars)..."
-            self._log(msg)
-            
-            translated_batch = self._translate_batch(batch, constraints)
-            translated_strings.update(translated_batch)
+        translated_strings = self.translate_text_items(
+            strings_to_translate,
+            relevant_glossary,
+            relevant_scriptures,
+            context_label=page_title,
+        )
             
         for key, ref in tag_references.items():
             if key in translated_strings:

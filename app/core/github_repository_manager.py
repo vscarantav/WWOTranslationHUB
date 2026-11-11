@@ -22,10 +22,22 @@ class GitHubRepositoryManager:
     API_ROOT = "https://api.github.com"
     PROTECTED_SOURCE_OWNERS = {"byui-cse"}
 
-    def __init__(self, token: str, log_func=print, api_request=None, git_runner=None):
+    def __init__(
+        self,
+        token: str,
+        github_username: str,
+        log_func=print,
+        api_request=None,
+        git_runner=None,
+    ):
         self.token = (token or "").strip()
         if not self.token:
             raise ValueError("A GitHub personal access token is required.")
+        self.github_username = (github_username or "").strip()
+        if not self.github_username:
+            raise ValueError("GITHUB_USERNAME is required.")
+        if not re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?", self.github_username):
+            raise ValueError("GITHUB_USERNAME is not a valid GitHub username.")
         self.log = log_func
         self._api_request_override = api_request
         self._git_runner_override = git_runner
@@ -124,6 +136,11 @@ class GitHubRepositoryManager:
         login = str(user.get("login", "")).strip()
         if not login:
             raise GitHubRepositoryError("The GitHub token did not return an authenticated user.")
+        if login.casefold() != self.github_username.casefold():
+            raise GitHubRepositoryError(
+                "GITHUB_TOKEN authenticates as "
+                f"{login!r}, but GITHUB_USERNAME is {self.github_username!r}."
+            )
         return user
 
     def get_pages_configuration(self, owner: str, repository: str) -> dict:

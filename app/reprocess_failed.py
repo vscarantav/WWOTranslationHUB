@@ -7,14 +7,14 @@ def _infer_translation_context(filepath):
     """Return the original workspace name and language from an output path."""
     normalized = os.path.normpath(filepath)
     match = re.search(
-        r"(?:^|[\\/])(?P<name>[^\\/]+)_(?P<lang>PTBR|SPA)(?:[\\/]|$)",
+        r"(?:^|[\\/])(?P<name>[^\\/]+)_(?P<lang>PTBR|SPA|FRA)(?:[\\/]|$)",
         normalized,
         flags=re.IGNORECASE,
     )
     if not match:
         raise ValueError(
             "Could not infer the translated workspace and language from "
-            f"{filepath!r}. Expected a directory ending in _PTBR or _SPA."
+            f"{filepath!r}. Expected a directory ending in _PTBR, _SPA, or _FRA."
         )
     return match.group("name"), match.group("lang").upper()
 

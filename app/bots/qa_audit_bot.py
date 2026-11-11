@@ -3,7 +3,7 @@ import google.generativeai as genai # type: ignore
 from bots.api_utils import call_gemini_with_retry
 
 class QAAuditBot:
-    LANGUAGE_NAMES = {"PTBR": "Portuguese", "SPA": "Spanish"}
+    LANGUAGE_NAMES = {"PTBR": "Portuguese", "SPA": "Spanish", "FRA": "French"}
 
     def __init__(
         self,
@@ -15,7 +15,7 @@ class QAAuditBot:
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         self.target_language = target_language.upper()
         if self.target_language not in self.LANGUAGE_NAMES:
-            raise ValueError("QA auditing supports PTBR or SPA.")
+            raise ValueError("QA auditing supports PTBR, SPA, or FRA.")
         self.language_name = self.LANGUAGE_NAMES[self.target_language]
         self.translated_column = f"{self.language_name} (Translated)"
         if self.api_key:

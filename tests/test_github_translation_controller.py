@@ -142,9 +142,20 @@ class GitHubTranslationControllerTests(unittest.TestCase):
     def setUp(self):
         self.root = Path.cwd() / "tests" / f"_github_controller_{uuid.uuid4().hex}"
         (self.root / "Glossary" / "sd_glossaries").mkdir(parents=True)
+        (self.root / "Glossary" / "glossary.json").write_text(
+            '{"Student": {"PTBR": "Estudante geral"}}',
+            encoding="utf-8",
+        )
         (self.root / "Glossary" / "sd_glossaries" / "global-sd-glossary.md").write_text(
             "| English | Portuguese (Brazil) | Context |\n"
             "| --- | --- | --- |\n| Student | Aluno | Education |\n",
+            encoding="utf-8",
+        )
+        self.course_glossary = self.root / "course-glossary.md"
+        self.course_glossary.write_text(
+            "| English Term | PT-BR Translation | Context |\n"
+            "| --- | --- | --- |\n"
+            "| Student | Estudante do curso | Course terminology |\n",
             encoding="utf-8",
         )
 
@@ -162,6 +173,7 @@ class GitHubTranslationControllerTests(unittest.TestCase):
         return GitHubTranslationController(
             self.root,
             "unused-token",
+            "personal-user",
             repository_manager=manager,
             report_generator=report,
             bot_factory=lambda: {
@@ -203,7 +215,10 @@ class GitHubTranslationControllerTests(unittest.TestCase):
             manager,
             report,
             variable_bot=_ProtectedIdentifierVariables(),
-        ).run("https://github.com/byui-cse/cse340-ww-course-v2")
+        ).run(
+            "https://github.com/byui-cse/cse340-ww-course-v2",
+            course_glossary_path=self.course_glossary,
+        )
 
         translated_root = manager.published[0][0]
         output = (translated_root / "README.md").read_text(encoding="utf-8")
@@ -282,7 +297,8 @@ class GitHubTranslationControllerTests(unittest.TestCase):
         report = _Report(self.root)
         with self.assertRaises(GitHubTranslationRunError) as raised:
             self._controller(manager, report, fail=True).run(
-                "https://github.com/byui-cse/cse340-ww-course-v2"
+                "https://github.com/byui-cse/cse340-ww-course-v2",
+                course_glossary_path=self.course_glossary,
             )
         self.assertFalse(manager.published)
         self.assertEqual(raised.exception.report_path, report.path)

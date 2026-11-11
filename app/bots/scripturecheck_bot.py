@@ -2,16 +2,18 @@ import json
 import os
 import re
 
+from core.language_config import language_config, normalize_language_code
+
 class ScriptureCheckBot:
     def __init__(self, target_language="PTBR", hub_dir=None, log_lock=None):
-        self.target_language = target_language
+        self.target_language = normalize_language_code(target_language)
         self.app_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.hub_dir = hub_dir or os.path.dirname(self.app_dir)
         self.log_lock = log_lock
         
         self.log_filepath = os.path.join(self.app_dir, "bots", "translation_log.txt")
             
-        self.lang_folder = "por" if self.target_language.upper() == "PTBR" else ("spa" if self.target_language.upper() == "SPA" else "por")
+        self.lang_folder = language_config(self.target_language)["scripture_folder"]
         self.scriptures_path = os.path.join(self.hub_dir, "Glossary", "scriptures", self.lang_folder)
 
     def _log(self, message: str):
@@ -130,6 +132,13 @@ class ScriptureCheckBot:
                 continue
                 
             json_file = os.path.join(self.scriptures_path, f"{volume}.json")
+            if (
+                not os.path.exists(json_file)
+                and self.target_language == "FRA"
+                and volume == "pearlofgreatprice"
+            ):
+                # The shipped French asset uses this legacy filename.
+                json_file = os.path.join(self.scriptures_path, "perlofgreatprice.json")
             if not os.path.exists(json_file):
                 self._log(f"[ScriptureCheckBot] JSON file not found: {json_file}")
                 continue

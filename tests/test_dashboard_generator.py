@@ -1,4 +1,5 @@
 import os
+import json
 import shutil
 import sys
 import unittest
@@ -15,6 +16,71 @@ from core.dashboard_generator import DashboardGenerator
 
 
 class DashboardGeneratorReviewSheetTests(unittest.TestCase):
+    def test_office_documents_sheet_reports_final_outcome_for_every_file(self):
+        hub_dir = Path.cwd() / "tests" / f"_dashboard_test_{uuid.uuid4().hex}"
+        hub_dir.mkdir(parents=True)
+        try:
+            docx_path = hub_dir / "lesson.docx"
+            xlsx_path = hub_dir / "scores.xlsx"
+            outcomes = [
+                {
+                    "status": "Failed",
+                    "document_type": "DOCX",
+                    "filepath": str(docx_path),
+                    "translated_nodes": 0,
+                    "translated_parts": 0,
+                    "detail": "temporary failure",
+                },
+                {
+                    "status": "Success",
+                    "document_type": "DOCX",
+                    "filepath": str(docx_path),
+                    "translated_nodes": 12,
+                    "translated_parts": 2,
+                    "detail": "Translated",
+                },
+                {
+                    "status": "Skipped",
+                    "document_type": "XLSX",
+                    "filepath": str(xlsx_path),
+                    "translated_nodes": 0,
+                    "translated_parts": 0,
+                    "detail": "Skipped (No Translatable Text)",
+                },
+            ]
+            log_lines = [
+                "--- New Session (Target: PTBR) ---",
+                "[2026-11-02 10:00:00] [System] CourseInfo: Demo Course|DEMO101",
+            ]
+            for index, outcome in enumerate(outcomes, start=1):
+                log_lines.append(
+                    f"[2026-11-02 10:00:0{index}] [System] "
+                    "OfficeDocumentOutcome: "
+                    + json.dumps(outcome)
+                )
+            log_path = hub_dir / "translation_log.txt"
+            log_path.write_text("\n".join(log_lines), encoding="utf-8")
+
+            report_path = DashboardGenerator(
+                str(log_path), str(hub_dir), "PTBR"
+            ).generate(lambda _message: None)
+
+            workbook = load_workbook(report_path)
+            self.assertIn("Office Documents", workbook.sheetnames)
+            sheet = workbook["Office Documents"]
+            self.assertEqual(sheet.max_row, 3)
+            rows = {
+                sheet.cell(row=row, column=1).value: [
+                    sheet.cell(row=row, column=column).value
+                    for column in range(2, 8)
+                ]
+                for row in range(2, 4)
+            }
+            self.assertEqual(rows["lesson.docx"][:4], ["DOCX", "Success", 12, 2])
+            self.assertEqual(rows["scores.xlsx"][:4], ["XLSX", "Skipped", 0, 0])
+        finally:
+            shutil.rmtree(hub_dir, ignore_errors=True)
+
     def test_mapped_links_are_included_in_link_actions(self):
         hub_dir = Path.cwd() / "tests" / f"_dashboard_test_{uuid.uuid4().hex}"
         hub_dir.mkdir(parents=True)
@@ -75,7 +141,12 @@ class DashboardGeneratorReviewSheetTests(unittest.TestCase):
                 report_code="EDTECH-PTBR",
                 review_pages=[
                     {"title": "First Lesson", "filepath": str(lesson_path)},
-                    {"title": "Second Lesson", "filepath": str(hub_dir / "raw_html" / "lesson_2.html")},
+                    {
+                        "title": "Second Lesson",
+                        "filepath": str(hub_dir / "raw_html" / "lesson_2.html"),
+                        "status": "Failed",
+                        "details": "Translation batch failed",
+                    },
                 ],
                 excluded_sheets=("Dashboard", "Bot Analysis", "Raw Logs"),
             )
@@ -125,7 +196,7 @@ class DashboardGeneratorReviewSheetTests(unittest.TestCase):
             )
             self.assertEqual(
                 [cell.value for cell in review_sheet[1]],
-                ["Page Name", "Type", "Link EN", "Link PT", "Status"],
+                ["Page Name", "Type", "Link EN", "Link PT", "Status", "Details"],
             )
             self.assertTrue(
                 all(
@@ -136,7 +207,14 @@ class DashboardGeneratorReviewSheetTests(unittest.TestCase):
             )
             self.assertEqual(
                 [review_sheet.cell(row=row, column=5).value for row in range(2, 4)],
-                ["Translated", "Translated"],
+                ["Translated", "Failed"],
+            )
+            self.assertEqual(
+                review_sheet.cell(row=3, column=6).value,
+                "Translation batch failed",
+            )
+            self.assertTrue(
+                review_sheet.cell(row=3, column=5).fill.fgColor.rgb.endswith("FFCDD2")
             )
         finally:
             shutil.rmtree(hub_dir, ignore_errors=True)
@@ -181,7 +259,7 @@ class DashboardGeneratorReviewSheetTests(unittest.TestCase):
             sheet = workbook["Translation Review"]
             self.assertEqual(
                 [cell.value for cell in sheet[1]],
-                ["Page Name", "Type", "Link EN", "Link PT", "Status"],
+                ["Page Name", "Type", "Link EN", "Link PT", "Status", "Details"],
             )
             self.assertEqual(
                 [sheet.cell(row=row, column=1).value for row in range(2, 6)],
@@ -214,7 +292,7 @@ class DashboardGeneratorReviewSheetTests(unittest.TestCase):
             self.assertEqual(str(validations[0].sqref), "E2:E5")
             self.assertEqual(
                 validations[0].formula1,
-                '"Translated,Student Reviewed,Professionally Reviewed"',
+                '"Translated,Student Reviewed,Professionally Reviewed,Failed"',
             )
 
             conditional_rules = [
@@ -222,15 +300,21 @@ class DashboardGeneratorReviewSheetTests(unittest.TestCase):
                 for conditional_range in sheet.conditional_formatting
                 for rule in sheet.conditional_formatting[conditional_range]
             ]
-            self.assertEqual(len(conditional_rules), 3)
+            self.assertEqual(len(conditional_rules), 4)
             self.assertEqual(
                 {rule.formula[0] for rule in conditional_rules},
-                {'"Translated"', '"Student Reviewed"', '"Professionally Reviewed"'},
+                {
+                    '"Translated"',
+                    '"Student Reviewed"',
+                    '"Professionally Reviewed"',
+                    '"Failed"',
+                },
             )
             expected_rule_colors = {
                 '"Translated"': "FFD9D9D9",
                 '"Student Reviewed"': "FFFFF2CC",
                 '"Professionally Reviewed"': "FFC6E0B4",
+                '"Failed"': "FFFFCDD2",
             }
             actual_rule_colors = {
                 rule.formula[0]: rule.dxf.fill.bgColor.rgb

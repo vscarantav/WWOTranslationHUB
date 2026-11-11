@@ -19,12 +19,14 @@ from urllib.parse import unquote, urlparse
 from controller import TranslationController
 from course_auditor import CourseAuditor
 from core.hub_updater import HubUpdateError, HubUpdater, restart_hub
+from core.language_config import language_config
 
 
 REQUIRED_ENV_VARIABLES = (
     "GEMINI_API_KEY",
     "CANVAS_API_URL",
     "CANVAS_API_TOKEN",
+    "GITHUB_USERNAME",
 )
 
 
@@ -525,6 +527,7 @@ class CourseTranslationHubUI:
         
         ttk.Radiobutton(self.trans_frame, text="Portuguese (PTBR)", variable=self.lang_var, value="PTBR").pack(side="left", padx=10)
         ttk.Radiobutton(self.trans_frame, text="Spanish (SPA)", variable=self.lang_var, value="SPA").pack(side="left", padx=10)
+        ttk.Radiobutton(self.trans_frame, text="French (FRA)", variable=self.lang_var, value="FRA").pack(side="left", padx=10)
         
         self.trans_btn = ttk.Button(self.trans_frame, text="Select Course & Translate", command=self.run_translation)
         self.trans_btn.pack(side="right", padx=10)
@@ -537,6 +540,7 @@ class CourseTranslationHubUI:
         
         ttk.Radiobutton(self.edtech_frame, text="Portuguese (PTBR)", variable=self.edtech_lang_var, value="PTBR").pack(side="left", padx=10)
         ttk.Radiobutton(self.edtech_frame, text="Spanish (SPA)", variable=self.edtech_lang_var, value="SPA").pack(side="left", padx=10)
+        ttk.Radiobutton(self.edtech_frame, text="French (FRA)", variable=self.edtech_lang_var, value="FRA").pack(side="left", padx=10)
 
         self.edtech_btn = ttk.Button(self.edtech_frame, text="Translate Book Shell", command=self.run_edtech)
         self.edtech_btn.pack(side="right", padx=10, pady=5)
@@ -559,6 +563,13 @@ class CourseTranslationHubUI:
             value="SPA",
             state="disabled",
         ).pack(side="left", padx=10)
+        ttk.Radiobutton(
+            self.github_frame,
+            text="French (FRA) — glossary pending",
+            variable=self.github_lang_var,
+            value="FRA",
+            state="disabled",
+        ).pack(side="left", padx=10)
         self.github_btn = ttk.Button(
             self.github_frame,
             text="Select Repository & Translate",
@@ -576,6 +587,9 @@ class CourseTranslationHubUI:
         ).pack(side="left", padx=10)
         ttk.Radiobutton(
             self.audit_frame, text="Spanish (SPA)", variable=self.audit_lang_var, value="SPA"
+        ).pack(side="left", padx=10)
+        ttk.Radiobutton(
+            self.audit_frame, text="French (FRA)", variable=self.audit_lang_var, value="FRA"
         ).pack(side="left", padx=10)
 
         self.audit_btn = ttk.Button(self.audit_frame, text="Select Courses & Audit", command=self.run_audit)
@@ -654,7 +668,10 @@ class CourseTranslationHubUI:
 
         def perform_update():
             try:
-                result = HubUpdater(self.hub_dir).update(report_status)
+                result = HubUpdater(
+                    self.hub_dir,
+                    github_username=os.environ["GITHUB_USERNAME"],
+                ).update(report_status)
             except HubUpdateError as error:
                 self.root.after(0, show_failure, str(error))
                 return
@@ -907,10 +924,7 @@ class CourseTranslationHubUI:
 
     def run_edtech(self):
         lang = self.edtech_lang_var.get()
-        target_book_label = {
-            "PTBR": "PT",
-            "SPA": "Spanish"
-        }.get(lang, lang)
+        target_book_label = language_config(lang)["book_label"]
         target_shell_url = self._show_edtech_pretranslation_checklist(target_book_label)
         if not target_shell_url:
             return
@@ -1041,6 +1055,24 @@ class CourseTranslationHubUI:
             messagebox.showerror("Invalid Repository URL", str(error), parent=self.root)
             return
 
+        course_glossary_path = None
+        use_course_glossary = messagebox.askyesno(
+            "Course-Specific Glossary (Optional)",
+            "Would you like to select a course-specific Markdown glossary?\n\n"
+            "Choose No to skip it and continue with the software-development and "
+            "general glossaries.",
+            parent=self.root,
+        )
+        if use_course_glossary:
+            course_glossary_path = filedialog.askopenfilename(
+                title="Select Course-Specific GitHub Glossary",
+                filetypes=[
+                    ("Markdown glossary", "*.md *.markdown"),
+                    ("All files", "*.*"),
+                ],
+                parent=self.root,
+            ) or None
+
         branch = simpledialog.askstring(
             "Source Branch (Optional)",
             "Enter a source branch, or leave blank to use the branch configured for GitHub Pages:",
@@ -1068,6 +1100,8 @@ class CourseTranslationHubUI:
             "Confirm Safe GitHub Translation",
             f"Source: {source_owner}/{source_repository}\n"
             "Language: Portuguese (PTBR)\n\n"
+            f"Course glossary: "
+            f"{Path(course_glossary_path).name if course_glossary_path else 'Skipped'}\n\n"
             "Translation Hub will never write to the source repository. It will create a "
             "new public, numbered repository in your authenticated personal GitHub account, "
             "push to its main branch, and enable GitHub Pages. Continue?",
@@ -1080,6 +1114,7 @@ class CourseTranslationHubUI:
         print("\n======================================")
         print("Starting GitHub Translation")
         print(f"Read-only source: {repository_url}")
+        print(f"Course glossary: {course_glossary_path or 'Skipped'}")
         print("Target language: PTBR")
         print("======================================\n")
 
@@ -1088,6 +1123,7 @@ class CourseTranslationHubUI:
                 controller = GitHubTranslationController(
                     self.hub_dir,
                     token,
+                    os.environ["GITHUB_USERNAME"],
                     target_language="PTBR",
                     log_func=print,
                     progress_func=lambda value: self.root.after(
@@ -1095,7 +1131,7 @@ class CourseTranslationHubUI:
                         lambda value=value: self.progress.configure(value=value),
                     ),
                 )
-                result = controller.run(repository_url, branch)
+                result = controller.run(repository_url, branch, course_glossary_path)
                 self.root.after(0, lambda: self.progress.configure(value=100))
                 print("\n=== GitHub Translation Completed Successfully! ===")
                 print(f"Repository: {result.repository_url}")
@@ -1216,13 +1252,56 @@ class CourseTranslationHubUI:
         repository_entry.focus_set()
 
     def run_translation(self):
+        is_cse_course = messagebox.askyesno(
+            "CSE Course",
+            "Is this a CSE course?",
+            parent=self.root,
+        )
+        course_glossary_path = None
+        if is_cse_course:
+            use_course_glossary = messagebox.askyesno(
+                "Course-Specific Glossary (Optional)",
+                "Would you like to select a course-specific Markdown glossary?\n\n"
+                "Choose No to continue with the General and Global Software "
+                "Development glossary agents.",
+                parent=self.root,
+            )
+            if use_course_glossary:
+                course_glossary_path = filedialog.askopenfilename(
+                    title="Select Course-Specific CSE Glossary",
+                    filetypes=[
+                        ("Markdown glossary", "*.md *.markdown"),
+                        ("All files", "*.*"),
+                    ],
+                    parent=self.root,
+                )
+                if not course_glossary_path:
+                    return
+
+            try:
+                from core.cse_glossary import CSEGlossaryStack
+
+                CSEGlossaryStack.load(
+                    self.hub_dir,
+                    self.lang_var.get(),
+                    course_glossary_path,
+                )
+            except (OSError, ValueError) as error:
+                messagebox.showerror(
+                    "Invalid CSE Glossary",
+                    str(error),
+                    parent=self.root,
+                )
+                return
+
         translate_dir = os.path.join(self.hub_dir, "Courses to Translate")
         os.makedirs(translate_dir, exist_ok=True)
         
         imscc_path = filedialog.askopenfilename(
             initialdir=translate_dir,
             title="Select an IMSCC File to Translate",
-            filetypes=[("IMSCC Files", "*.imscc")]
+            filetypes=[("IMSCC Files", "*.imscc")],
+            parent=self.root,
         )
         if not imscc_path:
             return
@@ -1234,6 +1313,7 @@ class CourseTranslationHubUI:
         from scripts.migrate_groups import run_migration
 
         lang = self.lang_var.get()
+        target_master_label = language_config(lang)["book_label"]
         self.disable_buttons()
         
         course_configs = {}
@@ -1301,12 +1381,12 @@ class CourseTranslationHubUI:
             if has_groups:
                 while True:
                     course_url = simpledialog.askstring(
-                        "PT Master URL Required", 
-                        f"Enter the full Canvas PT Master URL for:\n{os.path.basename(p)}\n(e.g., https://byui.instructure.com/courses/12345)",
+                        f"{target_master_label} Master URL Required",
+                        f"Enter the full Canvas {target_master_label} Master URL for:\n{os.path.basename(p)}\n(e.g., https://byui.instructure.com/courses/12345)",
                         parent=self.root
                     )
                     if not course_url:
-                        messagebox.showerror("Cancelled", "Translation cancelled. PT Master URL is required.")
+                        messagebox.showerror("Cancelled", f"Translation cancelled. {target_master_label} Master URL is required.")
                         self.enable_buttons()
                         return
                     
@@ -1425,7 +1505,9 @@ class CourseTranslationHubUI:
                         target_language=lang,
                         imscc_path=workspace_path,
                         link_prompt_callback=self._ask_user_for_link,
-                        target_course_id=conf['target_id']
+                        target_course_id=conf['target_id'],
+                        is_cse_course=is_cse_course,
+                        course_glossary_path=course_glossary_path,
                     )
                     controller.process_directory()
                     controller.update_excel_dashboard()
@@ -1485,10 +1567,9 @@ class CourseTranslationHubUI:
         ttk.Label(dialog, text="Translation Complete!", font=("Helvetica", 14, "bold")).pack(pady=(15, 5))
         ttk.Label(dialog, text="Please complete these manual steps in Canvas after importing the translated IMSCC:").pack(pady=(0, 10), padx=15)
 
-        canvas_language = {
-            "PTBR": "Português",
-            "SPA": "Spanish"
-        }.get(language or self.lang_var.get(), language or self.lang_var.get())
+        canvas_language = language_config(
+            language or self.lang_var.get()
+        )["canvas_language"]
 
         gradebook_options_item = (
             "In Grades > Settings > View Options, enable 'Notes' and "

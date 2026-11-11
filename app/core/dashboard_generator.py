@@ -1,8 +1,11 @@
 import os
 import re
+import json
 import pandas as pd
 from datetime import datetime
 import xlsxwriter
+
+from core.language_config import language_config
 
 class DashboardGenerator:
     def __init__(self, log_filepath: str, hub_dir: str, default_target: str):
@@ -25,6 +28,10 @@ class DashboardGenerator:
         normalized_path = str(filepath or "").replace('\\', '/').lower()
         basename = os.path.basename(normalized_path)
         extension = os.path.splitext(basename)[1]
+        if extension == '.docx':
+            return 'Word Document'
+        if extension == '.xlsx':
+            return 'Excel Workbook'
         content_sample = cls._read_content_sample(filepath)
 
         if '/wiki_content/' in normalized_path:
@@ -219,6 +226,32 @@ class DashboardGenerator:
                                 entry['File Name'] = os.path.basename(parts[1])
                             else:
                                 entry['Message'] = message.replace('TranslatedPage: ', '')
+                        elif message.startswith('OfficeDocumentOutcome: '):
+                            entry['Event Type'] = 'Office Document Outcome'
+                            try:
+                                outcome = json.loads(
+                                    message.replace('OfficeDocumentOutcome: ', '', 1)
+                                )
+                                entry['Status'] = str(outcome.get('status', 'Info'))
+                                entry['File Path'] = str(outcome.get('filepath', ''))
+                                entry['File Name'] = os.path.basename(entry['File Path'])
+                                entry['Bot'] = (
+                                    str(outcome.get('document_type', 'Office'))
+                                    + 'TranslationBot'
+                                )
+                                entry['Document Type'] = str(
+                                    outcome.get('document_type', '')
+                                )
+                                entry['Translated Nodes'] = int(
+                                    outcome.get('translated_nodes', 0) or 0
+                                )
+                                entry['Translated XML Parts'] = int(
+                                    outcome.get('translated_parts', 0) or 0
+                                )
+                                entry['Message'] = str(outcome.get('detail', ''))
+                            except (json.JSONDecodeError, TypeError, ValueError):
+                                entry['Status'] = 'Error'
+                                entry['Message'] = 'Malformed Office document outcome log.'
                         elif 'error' in message.lower() or 'exception' in message.lower():
                             entry['Status'] = 'Error'
                             entry['Event Type'] = 'Error'
@@ -393,11 +426,15 @@ class DashboardGenerator:
         # SHEET 4: Translated Pages
         if review_pages is None:
             translated_pages_df = df[df['Event Type'] == 'Translated Page'].copy()
+            translated_pages_df['Review Status'] = 'Translated'
+            translated_pages_df['Details'] = ''
         else:
             translated_pages_df = pd.DataFrame([
                 {
                     'Message': page.get('title', ''),
                     'File Path': page.get('filepath', ''),
+                    'Review Status': page.get('status', 'Translated'),
+                    'Details': page.get('details', ''),
                 }
                 for page in review_pages
             ])
@@ -433,10 +470,18 @@ class DashboardGenerator:
         review_sheet.set_column('B:B', 22)
         review_sheet.set_column('C:D', 45)
         review_sheet.set_column('E:E', 26)
+        review_sheet.set_column('F:F', 80)
         review_sheet.freeze_panes(1, 0)
         review_sheet.write_row(
             'A1',
-            ['Page Name', 'Type', 'Link EN', 'Link PT', 'Status'],
+            [
+                'Page Name',
+                'Type',
+                'Link EN',
+                f"Link {language_config(self.default_target)['report_suffix']}",
+                'Status',
+                'Details',
+            ],
             header_fmt,
         )
 
@@ -446,19 +491,33 @@ class DashboardGenerator:
                 filepath = str(row.get('File Path', '') or '')
                 review_rows.append((
                     self._link_actions_page_name(row.get('Message', ''), filepath),
-                    self._infer_content_type(filepath)
+                    self._infer_content_type(filepath),
+                    str(row.get('Review Status', '') or 'Translated'),
+                    str(row.get('Details', '') or ''),
                 ))
 
-        for r_idx, (page_name, content_type) in enumerate(review_rows, start=1):
+        for r_idx, (page_name, content_type, review_status, details) in enumerate(
+            review_rows,
+            start=1,
+        ):
             review_sheet.write(r_idx, 0, page_name, cell_fmt)
             review_sheet.write(r_idx, 1, content_type, cell_fmt)
             review_sheet.write_blank(r_idx, 2, None, cell_fmt)
             review_sheet.write_blank(r_idx, 3, None, cell_fmt)
-            review_sheet.write(r_idx, 4, 'Translated', translated_review_fmt)
+            status_format = (
+                error_fmt if review_status == 'Failed' else translated_review_fmt
+            )
+            review_sheet.write(r_idx, 4, review_status, status_format)
+            review_sheet.write(r_idx, 5, details, cell_fmt)
 
         if review_rows:
             last_review_row = len(review_rows)
-            status_options = ['Translated', 'Student Reviewed', 'Professionally Reviewed']
+            status_options = [
+                'Translated',
+                'Student Reviewed',
+                'Professionally Reviewed',
+                'Failed',
+            ]
             review_sheet.data_validation(1, 4, last_review_row, 4, {
                 'validate': 'list',
                 'source': status_options,
@@ -477,7 +536,72 @@ class DashboardGenerator:
                 'type': 'cell', 'criteria': '==', 'value': '"Professionally Reviewed"',
                 'format': professional_review_fmt
             })
-            review_sheet.autofilter(0, 0, last_review_row, 4)
+            review_sheet.conditional_format(1, 4, last_review_row, 4, {
+                'type': 'cell', 'criteria': '==', 'value': '"Failed"',
+                'format': error_fmt
+            })
+            review_sheet.autofilter(0, 0, last_review_row, 5)
+
+        # Office round-trip outcomes. Retried files appear once with their final
+        # outcome so every DOCX/XLSX has one authoritative report row.
+        office_documents_df = df[
+            df['Event Type'] == 'Office Document Outcome'
+        ].copy()
+        if not office_documents_df.empty:
+            office_documents_df = office_documents_df.sort_values(
+                by='Timestamp',
+                na_position='first',
+            ).drop_duplicates(subset=['File Path'], keep='last')
+            office_sheet = workbook.add_worksheet('Office Documents')
+            office_sheet.freeze_panes(1, 0)
+            office_sheet.set_column('A:A', 38)
+            office_sheet.set_column('B:C', 18)
+            office_sheet.set_column('D:E', 22)
+            office_sheet.set_column('F:F', 80)
+            office_sheet.set_column('G:G', 60)
+            office_sheet.write_row(
+                'A1',
+                [
+                    'File Name',
+                    'Document Type',
+                    'Outcome',
+                    'Translated Text Nodes',
+                    'Translated XML Parts',
+                    'File Path',
+                    'Details',
+                ],
+                header_fmt,
+            )
+            for row_index, (_, row) in enumerate(
+                office_documents_df.iterrows(),
+                start=1,
+            ):
+                status = str(row.get('Status', '') or '')
+                status_format = cell_fmt
+                if status == 'Success':
+                    status_format = success_fmt
+                elif status == 'Failed':
+                    status_format = error_fmt
+                elif status == 'Skipped':
+                    status_format = warning_fmt
+                office_sheet.write(row_index, 0, str(row.get('File Name', '')), cell_fmt)
+                office_sheet.write(row_index, 1, str(row.get('Document Type', '')), cell_fmt)
+                office_sheet.write(row_index, 2, status, status_format)
+                office_sheet.write(
+                    row_index,
+                    3,
+                    int(row.get('Translated Nodes', 0) or 0),
+                    cell_fmt,
+                )
+                office_sheet.write(
+                    row_index,
+                    4,
+                    int(row.get('Translated XML Parts', 0) or 0),
+                    cell_fmt,
+                )
+                office_sheet.write(row_index, 5, str(row.get('File Path', '')), cell_fmt)
+                office_sheet.write(row_index, 6, str(row.get('Message', '')), cell_fmt)
+            office_sheet.autofilter(0, 0, len(office_documents_df), 6)
 
         # SHEET 6: Link Actions (Consolidated)
         action_links_df = df[df['Event Type'].isin(['Mapped Link', 'Google Link Stripped', 'Skipped Link', 'Commented Link', 'Obsolete Link'])].copy()

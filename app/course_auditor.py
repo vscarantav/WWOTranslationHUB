@@ -6,6 +6,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 from bots.qa_audit_bot import QAAuditBot
+from core.language_config import SUPPORTED_TARGET_LANGUAGES, language_config, normalize_language_code
 
 class CourseAuditor:
     def __init__(self, english_imscc, translated_imscc, target_language=None):
@@ -19,11 +20,12 @@ class CourseAuditor:
         self.pt_dir = os.path.join(self.audit_dir, "temp_pt")
         
         # Use flash as requested
-        self.target_language = (
+        self.target_language = normalize_language_code(
             target_language or self._infer_target_language(translated_imscc)
-        ).upper()
-        self.target_suffix = "SPA" if self.target_language == "SPA" else "PT"
-        self.language_name = "Spanish" if self.target_language == "SPA" else "Portuguese"
+        )
+        target_config = language_config(self.target_language)
+        self.target_suffix = target_config["report_suffix"]
+        self.language_name = target_config["name"]
         self.bot = QAAuditBot(
             model_name="gemini-3.5-flash",
             target_language=self.target_language,
@@ -37,6 +39,11 @@ class CourseAuditor:
             for marker in ("_spa", "-spa", "_es", "-es", "spanish", "espanol", "español")
         ):
             return "SPA"
+        if any(
+            marker in filename
+            for marker in ("_fra", "-fra", "_fr", "-fr", "french", "francais", "français")
+        ):
+            return "FRA"
         return "PTBR"
         
     def _extract_imscc(self, path, dest):
@@ -377,7 +384,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Course Translation Auditor")
     parser.add_argument("--en", help="Path to English IMSCC")
     parser.add_argument("--pt", help="Path to Translated IMSCC")
-    parser.add_argument("--lang", choices=["PTBR", "SPA"], help="Translated course language")
+    parser.add_argument("--lang", choices=SUPPORTED_TARGET_LANGUAGES, help="Translated course language")
     args = parser.parse_args()
     
     app_dir = os.path.dirname(os.path.abspath(__file__))
