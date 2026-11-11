@@ -118,6 +118,7 @@ class _APISettings:
             "setting": "Build Command",
             "value": "npm install && npm run build",
             "context_summary": "Configuração da implantação.",
+            "package": "API Setting",
         }]
 
 
@@ -377,6 +378,30 @@ class GitHubTranslationControllerTests(unittest.TestCase):
         self.assertEqual(controller._asset_package(image), "Image")
         self.assertEqual(controller._asset_package(codepen), "Codepen")
 
+    def test_public_links_use_canvas_github_and_external_packages(self):
+        controller = GitHubTranslationController.__new__(GitHubTranslationController)
+        controller.scanner = GitHubRepositoryScanner()
+        cases = (
+            ("https://school.instructure.com/courses/123", "Canvas"),
+            ("https://github.com/byui-cse/course", "GitHub"),
+            ("https://byui-cse.github.io/course/", "GitHub"),
+            ("https://example.org/reference", "External"),
+        )
+
+        for asset_path, expected_package in cases:
+            with self.subTest(asset_path=asset_path):
+                asset = AssetReference(
+                    source_file="week01/index.html",
+                    page_title="Week 1",
+                    asset_path=asset_path,
+                    asset_type="Link",
+                    external=True,
+                )
+                self.assertEqual(
+                    controller._asset_package(asset),
+                    expected_package,
+                )
+
     def test_api_report_rows_redact_credentials_defensively(self):
         secret = "unstructured-secret-value"
         token = "ghp_1234567890abcdefghijklmnop"
@@ -399,3 +424,39 @@ class GitHubTranslationControllerTests(unittest.TestCase):
         self.assertNotIn(secret, serialized)
         self.assertNotIn(token, serialized)
         self.assertIn("[REDACTED]", serialized)
+
+    def test_report_rows_preserve_api_and_technical_setup_categories(self):
+        controller = GitHubTranslationController.__new__(GitHubTranslationController)
+        rows = controller._api_setting_rows(
+            [
+                {
+                    "page_title": "API Setup",
+                    "source_file": "setup.md",
+                    "provider": "REST API",
+                    "setting": "Endpoint",
+                    "value": "GET /books",
+                    "context_summary": "Endpoint para listar livros.",
+                    "package": "API Setting",
+                },
+                {
+                    "page_title": "Repository Setup",
+                    "source_file": "setup.md",
+                    "provider": "Git",
+                    "setting": "Branch",
+                    "value": "main",
+                    "context_summary": "Branch usada no fluxo de trabalho.",
+                    "package": "Technical Setup Instruction",
+                },
+            ],
+            "personal-user",
+            "course-test1-pt",
+        )
+
+        self.assertEqual(
+            [row["package"] for row in rows],
+            ["API Setting", "Technical Setup Instruction"],
+        )
+        self.assertTrue(rows[0]["asset_path"].startswith("API Setting —"))
+        self.assertTrue(
+            rows[1]["asset_path"].startswith("Technical Setup Instruction —")
+        )

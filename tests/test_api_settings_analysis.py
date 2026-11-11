@@ -28,14 +28,16 @@ class _SettingsModel:
 class APISettingsAnalysisBotTests(unittest.TestCase):
     def test_extracts_render_configuration_from_course_page(self):
         model = _SettingsModel({
-            "api_settings": [
+            "instructions": [
                 {
+                    "category": "API Setting",
                     "provider": "Render",
                     "setting": "Build Command",
                     "value": "npm install && npm run build",
                     "context_summary_pt": "Comando usado para construir o site.",
                 },
                 {
+                    "category": "API Setting",
                     "provider": "Render",
                     "setting": "Publish Directory",
                     "value": "dist",
@@ -56,8 +58,10 @@ class APISettingsAnalysisBotTests(unittest.TestCase):
         self.assertEqual(len(rows), 2)
         self.assertEqual(rows[0]["provider"], "Render")
         self.assertEqual(rows[0]["setting"], "Build Command")
+        self.assertEqual(rows[0]["package"], "API Setting")
         self.assertEqual(rows[1]["value"], "dist")
-        self.assertIn("Render deployment settings count", model.prompts[0])
+        self.assertIn("GET /books", model.prompts[0])
+        self.assertIn("Technical Setup Instruction", model.prompts[0])
         self.assertIn("NEVER return an actual password", model.prompts[0])
 
     def test_skips_pages_without_configuration_indicators(self):
@@ -70,6 +74,77 @@ class APISettingsAnalysisBotTests(unittest.TestCase):
         )
         self.assertEqual(rows, [])
         self.assertEqual(model.prompts, [])
+
+    def test_distinguishes_api_settings_from_general_technical_setup(self):
+        model = _SettingsModel({
+            "instructions": [
+                {
+                    "category": "API Setting",
+                    "provider": "REST API",
+                    "setting": "Endpoint",
+                    "value": "GET /books",
+                    "context_summary_pt": "Endpoint para listar livros.",
+                },
+                {
+                    "category": "Technical Setup Instruction",
+                    "provider": "Git",
+                    "setting": "Branch",
+                    "value": "main",
+                    "context_summary_pt": "Branch usada no fluxo de trabalho.",
+                },
+            ]
+        })
+
+        rows = APISettingsAnalysisBot(model=model).analyze(
+            "Configure the REST API endpoint, then switch the Git branch.",
+            ".md",
+            "API Setup",
+            "setup.md",
+        )
+
+        self.assertEqual(
+            [row["package"] for row in rows],
+            ["API Setting", "Technical Setup Instruction"],
+        )
+
+    def test_legacy_missing_category_uses_deterministic_fallback(self):
+        self.assertEqual(
+            APISettingsAnalysisBot.classify_package(
+                "REST API", "Endpoint", "GET /books"
+            ),
+            "API Setting",
+        )
+        self.assertEqual(
+            APISettingsAnalysisBot.classify_package(
+                "Git", "Branch", "main"
+            ),
+            "Technical Setup Instruction",
+        )
+        self.assertEqual(
+            APISettingsAnalysisBot.classify_package(
+                "npm",
+                "lint script",
+                "npm run lint",
+                "Executado no projeto de API.",
+                "API Setting",
+            ),
+            "Technical Setup Instruction",
+        )
+        self.assertEqual(
+            APISettingsAnalysisBot.classify_package(
+                "npm", "package installation", "npm install express-session"
+            ),
+            "API Setting",
+        )
+        self.assertEqual(
+            APISettingsAnalysisBot.classify_package(
+                "Node.js",
+                "Environment Variable",
+                "PORT",
+                "The same page also discusses ESLint.",
+            ),
+            "API Setting",
+        )
 
     def test_redacts_secrets_before_model_submission_and_reporting(self):
         secret = "ghp_1234567890abcdefghijklmnop"
@@ -91,6 +166,7 @@ class APISettingsAnalysisBotTests(unittest.TestCase):
 
         self.assertNotIn(secret, model.prompts[0])
         self.assertEqual(rows[0]["value"], "[REDACTED]")
+        self.assertEqual(rows[0]["package"], "API Setting")
         self.assertNotIn(secret, rows[0]["context_summary"])
         self.assertIn("[REDACTED]", rows[0]["context_summary"])
 

@@ -9,12 +9,40 @@ from bots.api_utils import call_gemini_with_retry
 
 
 class APISettingsAnalysisBot:
-    """Identify actionable API and external-service configuration instructions."""
+    """Identify and classify API-related and general technical setup instructions."""
+
+    API_SETTING = "API Setting"
+    TECHNICAL_SETUP = "Technical Setup Instruction"
+    PACKAGES = (API_SETTING, TECHNICAL_SETUP)
 
     CANDIDATE_PATTERN = re.compile(
         r"(?:\bapi\b|api[_ -]?(?:key|token|endpoint)|\.env\b|environment variables?|"
         r"client[_ -]?(?:id|secret)|access token|base url|build command|publish directory|"
-        r"start command|deployment settings?|render\.com|web service|static site)",
+        r"start command|deployment settings?|render\.com|web service|static site|"
+        r"\bnpm\b|\bnode(?:\.js)?\b|\bgit(?:hub)?\b|repository|branch|package\.json|"
+        r"eslint|lint(?:ing)?|test configuration)",
+        flags=re.IGNORECASE,
+    )
+    API_PROVIDER_PATTERN = re.compile(
+        r"(?:\bapi\b|express|mongodb|mongoose|render|swagger|openapi|oauth|"
+        r"jsonwebtoken|bcrypt|session|rate[- ]?limit|\bhttp\b|vitest)",
+        flags=re.IGNORECASE,
+    )
+    TECHNICAL_PROVIDER_PATTERN = re.compile(
+        r"^(?:git|github|eslint)$",
+        flags=re.IGNORECASE,
+    )
+    TECHNICAL_DETAIL_PATTERN = re.compile(
+        r"(?:\beslint\b|\blint(?::fix|ing)?\b)",
+        flags=re.IGNORECASE,
+    )
+    API_DETAIL_PATTERN = re.compile(
+        r"(?:\bapi\b|endpoint|route|content-type|header|database|collection|"
+        r"mongodb|mongoose|swagger|openapi|oauth|auth(?:entication|orization)?|"
+        r"jwt|session|secret|token|callback|rate[- ]?limit|request|response|"
+        r"\bport\b|web service|deployment|build command|start command|"
+        r"express-session|jsonwebtoken|bcrypt|swagger-jsdoc|swagger-ui|vitest|"
+        r"db:import)",
         flags=re.IGNORECASE,
     )
     SENSITIVE_NAME_PATTERN = re.compile(
@@ -78,6 +106,47 @@ class APISettingsAnalysisBot:
         return bool(cls.CANDIDATE_PATTERN.search(cls._analysis_text(content, extension)))
 
     @classmethod
+    def classify_package(
+        cls,
+        provider: str,
+        setting: str,
+        value: str = "",
+        context: str = "",
+        proposed_category: str = "",
+    ) -> str:
+        """Return one of the two report categories, with deterministic fallback rules."""
+        normalized = {
+            package.casefold(): package for package in cls.PACKAGES
+        }.get(str(proposed_category or "").strip().casefold())
+        provider_text = str(provider or "").strip()
+        instruction_text = " ".join((
+            str(setting or ""),
+            str(value or ""),
+        ))
+        context_text = str(context or "")
+        if cls.TECHNICAL_PROVIDER_PATTERN.fullmatch(provider_text):
+            if re.search(
+                r"(?:\bapi\b|endpoint|token|secret|oauth|authentication)",
+                str(setting or ""),
+                flags=re.IGNORECASE,
+            ):
+                return cls.API_SETTING
+            return cls.TECHNICAL_SETUP
+        if cls.API_DETAIL_PATTERN.search(instruction_text):
+            return cls.API_SETTING
+        if cls.TECHNICAL_DETAIL_PATTERN.search(instruction_text):
+            return cls.TECHNICAL_SETUP
+        if normalized:
+            return normalized
+        if cls.API_PROVIDER_PATTERN.search(provider_text):
+            return cls.API_SETTING
+        if cls.API_DETAIL_PATTERN.search(context_text):
+            return cls.API_SETTING
+        if cls.TECHNICAL_DETAIL_PATTERN.search(context_text):
+            return cls.TECHNICAL_SETUP
+        return cls.TECHNICAL_SETUP
+
+    @classmethod
     def _redact_secrets(cls, text: str) -> str:
         """Remove credential values before model submission or report creation."""
         redacted = cls.SECRET_ASSIGNMENT_PATTERN.sub(
@@ -121,16 +190,24 @@ class APISettingsAnalysisBot:
         safe_page_title = self._redact_secrets(page_title)
         safe_source_file = self._redact_secrets(source_file)
         prompt = (
-            "You audit software-development course pages for actionable API, deployment, and "
-            "external-service configuration settings. Identify settings a translator or course "
-            "maintainer must verify in a provider dashboard, configuration file, environment, or "
-            "API client. This includes provider choices, service types, branches, build/start "
-            "commands, publish directories, endpoints, environment-variable names, authentication "
-            "requirements, and similar setup values. Render deployment settings count even when "
-            "the page does not call them API settings. Do not report generic conceptual mentions "
-            "of an API without an actionable configuration instruction.\n\n"
-            "Return ONLY a JSON object with an 'api_settings' array. Each distinct setting must be "
-            "one item containing 'provider', 'setting', 'value', and 'context_summary_pt'. Use the "
+            "You audit software-development course pages for actionable API-related instructions "
+            "and general technical setup instructions that a translator or course maintainer must "
+            "verify. Classify every returned item as exactly one of these categories:\n"
+            "- API Setting: an instruction that directly configures, exposes, tests, documents, "
+            "secures, stores data for, or deploys an API. This includes REST endpoints and Express "
+            "routes; request headers; Swagger/OpenAPI; API databases and collections; API "
+            "environment variables; authentication, sessions, JWT, and rate limits; API deployment "
+            "settings; packages or commands required for a specific API feature; and API test "
+            "configuration. For example, 'GET /books' is an API Setting.\n"
+            "- Technical Setup Instruction: general development-environment, repository, tooling, "
+            "linting, project-scaffolding, or workflow guidance that is not specifically about API "
+            "behavior. Generic Git clone/pull/switch instructions, branch workflow, repository "
+            "visibility or protection, ESLint commands, and unrelated npm scripts belong here.\n"
+            "Do not report generic conceptual mentions or ordinary code that is not an actionable "
+            "API or technical setup instruction.\n\n"
+            "Return ONLY a JSON object with an 'instructions' array. Each distinct instruction must "
+            "contain 'category', 'provider', 'setting', 'value', and 'context_summary_pt'. Category "
+            "must be exactly 'API Setting' or 'Technical Setup Instruction'. Use the "
             "product or service name as provider (for example, Render). Preserve commands, setting "
             "names, environment-variable names, endpoints, filenames, and literal selectable "
             "values exactly as written. Write context_summary_pt in Brazilian Portuguese. NEVER "
@@ -146,9 +223,9 @@ class APISettingsAnalysisBot:
             try:
                 response = call_gemini_with_retry(self.model, prompt, log_func=self.log)
                 payload = self._parse_json(response.text or "")
-                settings = payload.get("api_settings")
+                settings = payload.get("instructions", payload.get("api_settings"))
                 if not isinstance(settings, list):
-                    raise ValueError("Response has no api_settings array.")
+                    raise ValueError("Response has no instructions array.")
 
                 rows = []
                 seen = set()
@@ -163,6 +240,13 @@ class APISettingsAnalysisBot:
                     ).strip()
                     if not provider or not setting or not context:
                         continue
+                    package = self.classify_package(
+                        provider,
+                        setting,
+                        value,
+                        context,
+                        item.get("category", ""),
+                    )
                     key = (provider.casefold(), setting.casefold(), value.casefold())
                     if key in seen:
                         continue
@@ -174,6 +258,7 @@ class APISettingsAnalysisBot:
                         "setting": setting,
                         "value": value,
                         "context_summary": context,
+                        "package": package,
                     })
                 return rows
             except Exception as error:

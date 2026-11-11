@@ -1,5 +1,6 @@
 import mimetypes
 import os
+import posixpath
 import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -40,6 +41,7 @@ class AssetReference:
     asset_type: str
     alt_text: str = ""
     external: bool = False
+    css_selector: str = ""
 
     def to_dict(self):
         return asdict(self)
@@ -54,6 +56,9 @@ class GitHubRepositoryScanner:
         "Kaltura": ("kaltura.com",),
     }
     CODEPEN_DOMAINS = ("codepen.io",)
+    GITHUB_DOMAINS = ("github.com", "github.io", "githubusercontent.com")
+    CANVAS_DOMAINS = ("instructure.com",)
+    LOCAL_DEVELOPMENT_HOSTS = {"localhost", "127.0.0.1", "::1"}
 
     def __init__(self, ignored_directories=None):
         self.ignored_directories = set(ignored_directories or IGNORED_DIRECTORIES)
@@ -143,6 +148,26 @@ class GitHubRepositoryScanner:
         )
 
     @classmethod
+    def is_github(cls, asset_path: str) -> bool:
+        hostname = (urlparse(asset_path).hostname or "").casefold()
+        return any(
+            hostname == domain or hostname.endswith(f".{domain}")
+            for domain in cls.GITHUB_DOMAINS
+        )
+
+    @classmethod
+    def is_canvas(cls, asset_path: str) -> bool:
+        hostname = (urlparse(asset_path).hostname or "").casefold()
+        return (
+            hostname == "canvas.byui.edu"
+            or hostname.startswith("canvas.")
+            or any(
+                hostname == domain or hostname.endswith(f".{domain}")
+                for domain in cls.CANVAS_DOMAINS
+            )
+        )
+
+    @classmethod
     def _asset_kind(cls, asset_path: str) -> str | None:
         parsed = urlparse(asset_path)
         if cls.is_codepen(asset_path):
@@ -157,10 +182,24 @@ class GitHubRepositoryScanner:
         mime_type, _ = mimetypes.guess_type(parsed.path)
         if mime_type and mime_type.startswith("image/"):
             return "Image"
+        hostname = (parsed.hostname or "").casefold()
+        if (
+            parsed.scheme in {"http", "https"}
+            and hostname
+            and hostname not in cls.LOCAL_DEVELOPMENT_HOSTS
+        ):
+            return "Link"
         return None
 
     @classmethod
-    def _reference(cls, source_file, page_title, asset_path, alt_text=""):
+    def _reference(
+        cls,
+        source_file,
+        page_title,
+        asset_path,
+        alt_text="",
+        css_selector="",
+    ):
         asset_path = (asset_path or "").strip()
         if asset_path.startswith("//"):
             asset_path = f"https:{asset_path}"
@@ -175,7 +214,92 @@ class GitHubRepositoryScanner:
             asset_type=kind,
             alt_text=(alt_text or "").strip(),
             external=parsed.scheme in {"http", "https"} or bool(parsed.netloc),
+            css_selector=(css_selector or "").strip(),
         )
+
+    @staticmethod
+    def _repository_relative_path(source_file: str, reference: str) -> str:
+        parsed = urlparse(reference)
+        if parsed.scheme in {"http", "https"} or parsed.netloc:
+            return ""
+        decoded_path = unquote(parsed.path)
+        if decoded_path.startswith("/"):
+            relative_path = posixpath.normpath(decoded_path.lstrip("/"))
+        else:
+            relative_path = posixpath.normpath(
+                posixpath.join(posixpath.dirname(source_file), decoded_path)
+            )
+        if not relative_path or relative_path == "." or relative_path.startswith("../"):
+            return ""
+        return relative_path
+
+    @staticmethod
+    def _css_selector_matches(soup, selector: str) -> bool:
+        for candidate in selector.split(","):
+            candidate = candidate.strip()
+            if not candidate or candidate.startswith("@"):
+                continue
+            candidate = re.sub(
+                r":{1,2}[-\w]+(?:\([^)]*\))?",
+                "",
+                candidate,
+            ).strip()
+            if not candidate:
+                continue
+            try:
+                if soup.select_one(candidate):
+                    return True
+            except Exception:
+                continue
+        return False
+
+    def _css_assets_used_by_pages(self, root, manifest, css_assets):
+        assets_by_stylesheet = {}
+        for asset in css_assets:
+            assets_by_stylesheet.setdefault(asset.source_file, []).append(asset)
+
+        references = []
+        for item in manifest:
+            if item.action != "translate" or item.extension not in {".html", ".htm"}:
+                continue
+            path = root / item.relative_path
+            try:
+                content = path.read_text(encoding="utf-8", errors="ignore")
+            except OSError:
+                continue
+            soup = BeautifulSoup(content, "html.parser")
+            page_title = self.extract_page_title(content, item.extension, path.stem)
+            stylesheets = set()
+            for link in soup.find_all("link", href=True):
+                rel = {str(value).casefold() for value in (link.get("rel") or [])}
+                if "stylesheet" not in rel:
+                    continue
+                stylesheet = self._repository_relative_path(
+                    item.relative_path,
+                    link.get("href", ""),
+                )
+                if stylesheet:
+                    stylesheets.add(stylesheet)
+
+            for stylesheet in sorted(stylesheets):
+                for asset in assets_by_stylesheet.get(stylesheet, []):
+                    if not self._css_selector_matches(soup, asset.css_selector):
+                        continue
+                    repository_path = self._repository_relative_path(
+                        asset.source_file,
+                        asset.asset_path,
+                    )
+                    if not repository_path:
+                        continue
+                    references.append(AssetReference(
+                        source_file=item.relative_path,
+                        page_title=page_title,
+                        asset_path=f"/{repository_path}",
+                        asset_type=asset.asset_type,
+                        external=False,
+                        css_selector=asset.css_selector,
+                    ))
+        return references
 
     def extract_assets(self, filepath, repository_root) -> list[AssetReference]:
         path = Path(filepath)
@@ -208,7 +332,7 @@ class GitHubRepositoryScanner:
                     link.get("href", ""),
                     "",
                 )
-                if reference and reference.asset_type in {"File", "Video", "Codepen"}:
+                if reference:
                     references.append(reference)
             for media in soup.find_all(["iframe", "video", "source", "embed"], src=True):
                 reference = self._reference(
@@ -217,7 +341,7 @@ class GitHubRepositoryScanner:
                     media.get("src", ""),
                     media.get("title", ""),
                 )
-                if reference and reference.asset_type in {"Video", "Codepen"}:
+                if reference:
                     references.append(reference)
 
         if extension in {".md", ".markdown", ".mdx"}:
@@ -232,13 +356,37 @@ class GitHubRepositoryScanner:
                     references.append(reference)
             for match in re.finditer(r"(?<!!)\[[^\]]+\]\(([^)\s]+)(?:\s+['\"][^)]*['\"])?\)", content):
                 reference = self._reference(relative_path, page_title, match.group(1), "")
-                if reference and reference.asset_type in {"File", "Video", "Codepen"}:
+                if reference:
                     references.append(reference)
+
+        if extension == ".css":
+            without_comments = re.sub(r"/\*.*?\*/", "", content, flags=re.DOTALL)
+            for block in re.finditer(r"([^{}]+)\{([^{}]*)\}", without_comments, re.DOTALL):
+                selector = block.group(1).strip()
+                declarations = block.group(2)
+                for match in re.finditer(
+                    r"url\(\s*(['\"]?)(.*?)\1\s*\)",
+                    declarations,
+                    re.IGNORECASE,
+                ):
+                    reference = self._reference(
+                        relative_path,
+                        page_title,
+                        match.group(2),
+                        css_selector=selector,
+                    )
+                    if reference and reference.asset_type in {"Image", "File"}:
+                        references.append(reference)
 
         seen = set()
         unique = []
         for reference in references:
-            key = (reference.source_file, reference.asset_path, reference.asset_type)
+            key = (
+                reference.source_file,
+                reference.asset_path,
+                reference.asset_type,
+                reference.css_selector,
+            )
             if key not in seen:
                 seen.add(key)
                 unique.append(reference)
@@ -248,8 +396,24 @@ class GitHubRepositoryScanner:
         root = Path(root_dir).resolve()
         manifest = manifest if manifest is not None else self.scan(root)
         references = []
+        css_assets = []
         for item in manifest:
-            if item.action != "translate":
-                continue
-            references.extend(self.extract_assets(root / item.relative_path, root))
-        return references
+            if item.action == "translate":
+                references.extend(self.extract_assets(root / item.relative_path, root))
+            elif item.extension == ".css":
+                css_assets.extend(self.extract_assets(root / item.relative_path, root))
+        references.extend(
+            self._css_assets_used_by_pages(root, manifest, css_assets)
+        )
+        seen = set()
+        unique = []
+        for reference in references:
+            key = (
+                reference.source_file,
+                reference.asset_path,
+                reference.asset_type,
+            )
+            if key not in seen:
+                seen.add(key)
+                unique.append(reference)
+        return unique

@@ -9,7 +9,8 @@ class GitHubTranslationReportGenerator:
 
     REVIEW_STATUSES = ["Translated", "Student Reviewed", "Professionally Reviewed", "Failed"]
     PACKAGE_OPTIONS = [
-        "Canvas", "External", "GitHub", "API Setting", "Video", "Image", "Codepen",
+        "Canvas", "External", "GitHub", "API Setting", "Technical Setup Instruction",
+        "Video", "Image", "Codepen",
     ]
     HAS_TEXT_OPTIONS = ["- NA", "No", "Yes"]
     RESOURCE_STATUSES = ["To Do", "Done"]
@@ -162,15 +163,19 @@ class GitHubTranslationReportGenerator:
             "This includes screenshots of application menus, spreadsheet or document content, "
             "whiteboard writing, slide labels, etc. Decide whether the image needs to be "
             "recreated with translated text. Some external images may need to point to an "
-            "alternate URL for the translated version of the course. External videos and "
-            "API/service configuration settings are also listed here; use Resource Link to "
+            "alternate URL for the translated version of the course. Public external, GitHub, "
+            "Canvas, and video resources are also listed here. API Setting means an instruction "
+            "that directly configures, exposes, tests, documents, secures, stores data for, or "
+            "deploys an API. Technical Setup Instruction means general tooling, repository, "
+            "linting, project-setup, or workflow guidance not specifically about API behavior. "
+            "Use Resource Link to "
             "open the video, file, image, or published instruction page that must be reviewed."
         )
         sheet.merge_range(1, 0, 1, len(headers) - 1, instructions, instruction)
         sheet.set_row(1, 52)
         sheet.write_row(2, 0, headers, header)
         sheet.freeze_panes(3, 0)
-        widths = [8, 14, 58, 14, 14, 22, 48, 58, 45, 55, 55]
+        widths = [8, 14, 58, 30, 14, 22, 48, 58, 45, 55, 55]
         for column, width in enumerate(widths):
             sheet.set_column(column, column, width)
 

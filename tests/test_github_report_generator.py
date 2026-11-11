@@ -69,7 +69,7 @@ class GitHubReportGeneratorTests(unittest.TestCase):
         self.assertTrue(any(
             all(option in formula for option in (
                 "Canvas", "External", "GitHub", "API Setting",
-                "Video", "Image", "Codepen",
+                "Technical Setup Instruction", "Video", "Image", "Codepen",
             ))
             and "LLDOC" not in formula
             for formula in formulas
@@ -78,5 +78,7 @@ class GitHubReportGeneratorTests(unittest.TestCase):
             "Find Equivalent" in formula and "Fix Link" in formula and "Use Current" in formula
             for formula in formulas
         ))
+        self.assertIn("API Setting means", resources["A2"].value)
+        self.assertIn("Technical Setup Instruction means", resources["A2"].value)
         self.assertTrue(resources.conditional_formatting)
         self.assertTrue(workbook["Variables"].conditional_formatting)

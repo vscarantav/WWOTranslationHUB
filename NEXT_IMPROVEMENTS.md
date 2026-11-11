@@ -33,6 +33,12 @@ This is the single source of truth for planned improvements that are not yet com
 
 ## Completed
 
+- [x] Separate API-related instructions from general technical setup instructions in GitHub Resources reports.
+  - Completed 2026-11-11: Added `Technical Setup Instruction` to the Package dropdown; defined `API Setting` as instructions that configure, expose, test, document, secure, store data for, or deploy an API; defined the new category for general tooling, repository, linting, project-setup, and workflow guidance; added model classification plus deterministic legacy fallback; and regenerated the CSE341 report with 161 API Setting and 29 Technical Setup Instruction rows. Verified all 208 repository tests.
+
+- [x] Include public links and page-used CSS assets in GitHub Resources reports with accurate package and page-link classifications.
+  - Completed 2026-11-11: GitHub report inventory now includes public hyperlinks, GitHub/GitHub Pages, Canvas destinations, and CSS images only on pages whose linked stylesheet selector uses them, while excluding internal navigation, fragments, localhost examples, unused files, and shared BYUI logo references. Regenerated the CSE341 report with 224 rows (190 API Setting, 13 External, 12 GitHub, and 9 Image) and verified all 47 GitHub tests plus all 205 repository tests.
+
 - [x] Make GitHub embedded-code syntax validation baseline-aware and normalize standalone indentation so source-authored Python and JSON examples are not misreported as translation damage.
   - Completed 2026-11-09: Standalone Python snippets are dedented before parsing, and translated snippet errors are reported only when the corresponding source snippet parsed successfully. Verified against all four CSE 341 source-baseline failures, all 41 GitHub tests, and all 199 repository tests.
 

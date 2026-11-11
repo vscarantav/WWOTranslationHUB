@@ -57,15 +57,18 @@ class GitHubRepositoryScannerTests(unittest.TestCase):
         scanner = GitHubRepositoryScanner()
         assets = scanner.extract_assets(lesson, self.root)
 
-        self.assertEqual(len(assets), 4)
-        self.assertTrue(all(asset.asset_type == "Video" for asset in assets))
+        self.assertEqual(len(assets), 5)
+        videos = [asset for asset in assets if asset.asset_type == "Video"]
+        self.assertEqual(len(videos), 4)
         self.assertTrue(all(asset.external for asset in assets))
         self.assertEqual(
-            [scanner.video_provider(asset.asset_path) for asset in assets],
+            [scanner.video_provider(asset.asset_path) for asset in videos],
             ["BrightSpot", "YouTube", "Loom", "Kaltura"],
         )
         youtube = next(asset for asset in assets if "youtube" in asset.asset_path)
         self.assertEqual(youtube.alt_text, "YouTube lesson")
+        ordinary = next(asset for asset in assets if "ordinary-page" in asset.asset_path)
+        self.assertEqual(ordinary.asset_type, "Link")
 
     def test_inventories_codepen_links_and_embeds(self):
         lesson = self.root / "lesson.html"
@@ -81,3 +84,66 @@ class GitHubRepositoryScannerTests(unittest.TestCase):
         self.assertEqual(len(assets), 2)
         self.assertTrue(all(asset.asset_type == "Codepen" for asset in assets))
         self.assertTrue(all(scanner.is_codepen(asset.asset_path) for asset in assets))
+
+    def test_inventories_public_links_but_excludes_local_development_links(self):
+        lesson = self.root / "lesson.html"
+        lesson.write_text(
+            '<a href="https://github.com/byui-cse/course">Repository</a>'
+            '<a href="https://school.instructure.com/courses/123">Canvas</a>'
+            '<a href="https://example.org/reference">Reference</a>'
+            '<a href="http://localhost:3000/api">Localhost</a>'
+            '<a href="http://127.0.0.1:3000/api">Loopback</a>'
+            '<a href="week02.html">Internal navigation</a>'
+            '<a href="#details">Page fragment</a>',
+            encoding="utf-8",
+        )
+
+        scanner = GitHubRepositoryScanner()
+        assets = scanner.extract_assets(lesson, self.root)
+
+        self.assertEqual(
+            [asset.asset_path for asset in assets],
+            [
+                "https://github.com/byui-cse/course",
+                "https://school.instructure.com/courses/123",
+                "https://example.org/reference",
+            ],
+        )
+        self.assertTrue(scanner.is_github(assets[0].asset_path))
+        self.assertTrue(scanner.is_canvas(assets[1].asset_path))
+        self.assertFalse(scanner.is_github(assets[2].asset_path))
+        self.assertFalse(scanner.is_canvas(assets[2].asset_path))
+
+    def test_maps_css_image_to_each_page_that_uses_its_selector(self):
+        (self.root / "styles").mkdir()
+        (self.root / "images").mkdir()
+        (self.root / "week01").mkdir()
+        (self.root / "styles" / "course.css").write_text(
+            ".disciples { background-image: url(../images/disciples.png); }",
+            encoding="utf-8",
+        )
+        (self.root / "images" / "disciples.png").write_bytes(b"png")
+        (self.root / "week01" / "lesson.html").write_text(
+            '<html><head><title>Lesson</title>'
+            '<link rel="stylesheet" href="../styles/course.css"></head>'
+            '<body><div class="callout disciples">Visible callout</div></body></html>',
+            encoding="utf-8",
+        )
+        (self.root / "week01" / "unused.html").write_text(
+            '<html><head><title>Unused</title>'
+            '<link rel="stylesheet" href="../styles/course.css"></head>'
+            '<body><p>No matching class</p></body></html>',
+            encoding="utf-8",
+        )
+
+        scanner = GitHubRepositoryScanner()
+        assets = scanner.inventory_assets(self.root)
+
+        css_asset = next(
+            asset for asset in assets if asset.asset_path == "/images/disciples.png"
+        )
+        self.assertEqual(css_asset.source_file, "week01/lesson.html")
+        self.assertEqual(css_asset.page_title, "Lesson")
+        self.assertEqual(css_asset.asset_type, "Image")
+        self.assertEqual(css_asset.css_selector, ".disciples")
+        self.assertFalse(any(asset.source_file == "week01/unused.html" for asset in assets))

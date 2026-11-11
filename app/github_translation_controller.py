@@ -290,6 +290,10 @@ class GitHubTranslationController:
             return "Video"
         if asset.asset_type == "Image":
             return "Image"
+        if self.scanner.is_canvas(asset.asset_path):
+            return "Canvas"
+        if self.scanner.is_github(asset.asset_path):
+            return "GitHub"
         if asset.external:
             return "External"
         return "GitHub"
@@ -321,7 +325,7 @@ class GitHubTranslationController:
                 issues.setdefault(asset.source_file, []).append(
                     f"Missing asset: {asset.asset_path}"
                 )
-            if translated is None:
+            if translated is None and not asset.external:
                 notes = (notes + " Translated reference was not found.").strip()
             rows.append({
                 "asset_path": asset.asset_path,
@@ -350,9 +354,6 @@ class GitHubTranslationController:
             value = APISettingsAnalysisBot._safe_report_value(
                 setting, item.get("value", "")
             )
-            label = f"API Setting — {provider}: {setting}"
-            if value:
-                label += f" = {value}"
             source_file = APISettingsAnalysisBot._redact_secrets(
                 item.get("source_file", "")
             ).lstrip("/")
@@ -365,10 +366,20 @@ class GitHubTranslationController:
             page_title = APISettingsAnalysisBot._redact_secrets(
                 item.get("page_title", "")
             )
-            notes = f"API/service configuration on {page_title}: {context}".strip()
+            package = APISettingsAnalysisBot.classify_package(
+                provider,
+                setting,
+                value,
+                context,
+                item.get("package", item.get("category", "")),
+            )
+            label = f"{package} — {provider}: {setting}"
+            if value:
+                label += f" = {value}"
+            notes = f"{package} on {page_title}: {context}".strip()
             rows.append({
                 "asset_path": label,
-                "package": "API Setting",
+                "package": package,
                 "target_language_link": self._published_page_url(
                     published_site_url,
                     source_file,
