@@ -4,6 +4,7 @@ This is the single source of truth for planned improvements that are not yet com
 
 ## Backlog
 
+- [ ] Review the versioned `app/bots/playwright_profile/` data, preserve only authentication state that must remain portable, and ignore and stop tracking transient browser cache, metrics, and session artifacts; eight such tracked files are currently missing locally while other profile files change during browser use.
 - [ ] Extend `ScriptureCheckBot` to recognize and resolve Bible references.
 - [ ] Implement and approve Microsoft PowerPoint (`.pptx`) translation and repackaging.
 - [ ] Implement localized image-file translation for JPG, PNG, GIF, and SVG assets; inline alt-text translation already exists.
