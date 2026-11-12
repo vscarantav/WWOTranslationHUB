@@ -37,6 +37,9 @@ This is the single source of truth for planned improvements that are not yet com
 
 ## Completed
 
+- [x] Stop tracking generated artifacts already covered by `.gitignore` while preserving local copies.
+  - Completed 2026-11-11: Removed all 446 tracked artifacts under `Courses to Translate/`, `Reports/`, and `edtech_workspace/` from the Git index. Verified zero target paths remain tracked, all 446 removals were isolated for commit, and all 74 target paths that existed locally before cleanup remain present and ignored.
+
 - [x] Add the CSE-only IMSCC glossary-agent flow with an optional course-specific Markdown glossary.
   - Completed 2026-11-11: `Select Course & Translate` now asks whether the course is CSE before opening the IMSCC picker; CSE runs independent General, Global Software Development, and optional course-specific agents in low-to-high priority for PTBR, SPA, and FRA. Each agent matches the English source, sends matched translations/context plus the English and current target page to Gemini, and applies only explicit visible-text replacements. Verified the attached 227-entry WDD 430 glossary in all three language flows and all 215 repository tests.
 
