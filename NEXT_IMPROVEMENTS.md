@@ -38,6 +38,9 @@ This is the single source of truth for planned improvements that are not yet com
 
 ## Completed
 
+- [x] Extend `XLSXTranslationBot` to translate worksheet tab names and safely update every dependent formula, defined name, chart reference, and document-property title.
+  - Completed 2026-11-18: XLSX runs now send worksheet titles through the configured XML translation agent with Excel-specific constraints, enforce valid unique 31-character names, and rewrite formula, defined-name, chart, validation, hyperlink, pivot-source, and document-property references before package verification. Verified with 14 focused Office/XML tests and all 224 repository tests.
+
 - [x] Stop tracking generated artifacts already covered by `.gitignore` while preserving local copies.
   - Completed 2026-11-11: Removed all 446 tracked artifacts under `Courses to Translate/`, `Reports/`, and `edtech_workspace/` from the Git index. Verified zero target paths remain tracked, all 446 removals were isolated for commit, and all 74 target paths that existed locally before cleanup remain present and ignored.
 

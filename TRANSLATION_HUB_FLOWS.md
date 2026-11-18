@@ -143,7 +143,7 @@ flowchart TD
         
         FILE_ROUTER -- ".xml / .qti" --> XML_TRANS["XMLTranslationAgent / QTITranslationAgent<br/>Max 600 lines per payload<br/>Preserve CDATA and True/False markers<br/>Map Missing to Não Entregue / No Entregado"]
         
-        FILE_ROUTER -- ".docx / .xlsx" --> OFFICE_TRANS["DOCXTranslationBot / XLSXTranslationBot<br/>Extract WordprocessingML / SharedStrings<br/>Translate via XMLTranslationAgent<br/>Rebuild in-memory ZIP byte-for-byte"]
+        FILE_ROUTER -- ".docx / .xlsx" --> OFFICE_TRANS["DOCXTranslationBot / XLSXTranslationBot<br/>Extract WordprocessingML / SharedStrings / worksheet tabs<br/>Translate via XMLTranslationAgent<br/>Rewrite XLSX sheet-name references<br/>Validate and rebuild the in-memory ZIP"]
         
         FILE_ROUTER -- ".txt" --> TXT_TRANS["TextTranslationAgent plain text translation"]
 

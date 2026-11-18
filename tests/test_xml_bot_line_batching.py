@@ -85,6 +85,21 @@ class XmlBotLineBatchingTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "600-line limit"):
             bot._translate_batch({"0": oversized_content}, "")
 
+    def test_translate_text_items_passes_additional_content_constraints(self):
+        bot = XMLTranslationBot(api_key="test-key")
+        bot._log = Mock()
+        bot._translate_batch = Mock(return_value={"0": "Planilha1"})
+
+        translated = bot.translate_text_items(
+            {"0": "Sheet1"},
+            additional_constraints="Use an Excel-valid worksheet tab name.",
+        )
+
+        self.assertEqual(translated, {"0": "Planilha1"})
+        constraints = bot._translate_batch.call_args.args[1]
+        self.assertIn("ADDITIONAL CONTENT RULES", constraints)
+        self.assertIn("Excel-valid worksheet tab name", constraints)
+
 
 if __name__ == "__main__":
     unittest.main()

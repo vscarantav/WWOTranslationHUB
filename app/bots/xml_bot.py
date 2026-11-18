@@ -160,6 +160,7 @@ class XMLTranslationBot:
         relevant_glossary: dict = None,
         relevant_scriptures: dict = None,
         context_label: str = "XML content",
+        additional_constraints: str = "",
     ) -> dict[str, str]:
         """Translate keyed text fragments through the configured XML agent."""
         if not self.client_ready:
@@ -174,6 +175,11 @@ class XMLTranslationBot:
             relevant_glossary,
             relevant_scriptures,
         )
+        if additional_constraints:
+            constraints += (
+                "\n\nADDITIONAL CONTENT RULES:\n"
+                + additional_constraints.strip()
+            )
         self._log(
             f"[XMLBot] Found {len(items)} translatable nodes in {context_label}. "
             f"Processing in batches of at most {XML_BATCH_MAX_LINES} content lines..."
