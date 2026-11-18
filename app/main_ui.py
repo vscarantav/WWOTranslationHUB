@@ -482,7 +482,7 @@ class CourseTranslationHubUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Course Translation Hub")
-        self.root.geometry("850x700")
+        self.root.geometry("900x780")
 
         if not ensure_required_environment(self.root):
             self.root.destroy()
@@ -531,6 +531,40 @@ class CourseTranslationHubUI:
         
         self.trans_btn = ttk.Button(self.trans_frame, text="Select Course & Translate", command=self.run_translation)
         self.trans_btn.pack(side="right", padx=10)
+
+        # Standalone Word and Excel Translation Section
+        self.office_frame = ttk.LabelFrame(
+            self.top_frame,
+            text="Word and Excel Document Translation",
+            padding="10",
+        )
+        self.office_frame.pack(fill="x", pady=10)
+
+        self.office_lang_var = tk.StringVar(value="PTBR")
+        ttk.Radiobutton(
+            self.office_frame,
+            text="Portuguese (PTBR)",
+            variable=self.office_lang_var,
+            value="PTBR",
+        ).pack(side="left", padx=10)
+        ttk.Radiobutton(
+            self.office_frame,
+            text="Spanish (SPA)",
+            variable=self.office_lang_var,
+            value="SPA",
+        ).pack(side="left", padx=10)
+        ttk.Radiobutton(
+            self.office_frame,
+            text="French (FRA)",
+            variable=self.office_lang_var,
+            value="FRA",
+        ).pack(side="left", padx=10)
+        self.office_btn = ttk.Button(
+            self.office_frame,
+            text="Translate Excel or Word Documents",
+            command=self.run_office_document_translation,
+        )
+        self.office_btn.pack(side="right", padx=10)
 
         # EdTech Section
         self.edtech_frame = ttk.LabelFrame(self.top_frame, text="EdTech Master Translator", padding="10")
@@ -624,6 +658,7 @@ class CourseTranslationHubUI:
 
     def disable_buttons(self):
         self.trans_btn.config(state="disabled")
+        self.office_btn.config(state="disabled")
         self.audit_btn.config(state="disabled")
         self.edtech_btn.config(state="disabled")
         self.github_btn.config(state="disabled")
@@ -632,6 +667,7 @@ class CourseTranslationHubUI:
 
     def enable_buttons(self):
         self.trans_btn.config(state="normal")
+        self.office_btn.config(state="normal")
         self.audit_btn.config(state="normal")
         self.edtech_btn.config(state="normal")
         self.github_btn.config(state="normal")
@@ -1250,6 +1286,158 @@ class CourseTranslationHubUI:
 
         dialog.protocol("WM_DELETE_WINDOW", dialog.destroy)
         repository_entry.focus_set()
+
+    def run_office_document_translation(self):
+        selected_paths = tuple(
+            filedialog.askopenfilenames(
+                title="Select up to 20 Word or Excel Documents",
+                filetypes=[
+                    (
+                        "Word and Excel Documents",
+                        "*.docx *.xlsx *.doc *.xls",
+                    ),
+                    ("Current Office Documents", "*.docx *.xlsx"),
+                    ("Older Office Documents", "*.doc *.xls"),
+                    ("All Files", "*.*"),
+                ],
+                parent=self.root,
+            )
+        )
+        if not selected_paths:
+            return
+
+        legacy_paths = [
+            path
+            for path in selected_paths
+            if Path(path).suffix.lower() in {".doc", ".xls"}
+        ]
+        if legacy_paths:
+            messagebox.showerror(
+                "Older Office Formats Not Accepted",
+                "Older Microsoft Word (.doc) and Excel (.xls) files are not "
+                "accepted. Please update or convert them to the current Word "
+                "(.docx) or Excel (.xlsx) format, then select the updated files.",
+                parent=self.root,
+            )
+            return
+
+        if len(selected_paths) > TranslationController.MAX_STANDALONE_OFFICE_DOCUMENTS:
+            messagebox.showerror(
+                "Too Many Documents",
+                "Select no more than 20 Word or Excel documents at one time.",
+                parent=self.root,
+            )
+            return
+
+        unsupported_paths = [
+            path
+            for path in selected_paths
+            if Path(path).suffix.lower()
+            not in TranslationController.SUPPORTED_STANDALONE_OFFICE_EXTENSIONS
+        ]
+        if unsupported_paths:
+            unsupported_types = sorted(
+                {Path(path).suffix.lower() or "(no extension)" for path in unsupported_paths}
+            )
+            messagebox.showerror(
+                "Unsupported Document Type",
+                "Only current Word (.docx) and Excel (.xlsx) files are accepted.\n\n"
+                "Unsupported type(s): " + ", ".join(unsupported_types),
+                parent=self.root,
+            )
+            return
+
+        language = self.office_lang_var.get()
+        self.disable_buttons()
+        print(
+            f"Translating {len(selected_paths)} standalone Office document(s) "
+            f"to {language}..."
+        )
+
+        def report_progress(index, total, record):
+            self.root.after(
+                0,
+                self._update_office_document_progress,
+                index,
+                total,
+                record,
+            )
+
+        def worker():
+            try:
+                controller = TranslationController(
+                    target_language=language,
+                    initialize_workspace=False,
+                )
+                summary = controller.translate_office_documents(
+                    selected_paths,
+                    progress_callback=report_progress,
+                )
+                self.root.after(
+                    0,
+                    self._show_office_document_summary,
+                    summary,
+                    language,
+                )
+            except Exception as error:
+                self.root.after(
+                    0,
+                    self._show_office_document_error,
+                    str(error),
+                )
+            finally:
+                self.root.after(0, self.enable_buttons)
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _show_office_document_error(self, error):
+        messagebox.showerror(
+            "Office Document Translation Failed",
+            error,
+            parent=self.root,
+        )
+
+    def _update_office_document_progress(self, index, total, record):
+        self.progress["value"] = (index / total) * 100
+        print(
+            f"[{index}/{total}] {record['status']}: "
+            f"{os.path.basename(record['source_path'])}"
+        )
+        if record["status"] == "Failed":
+            print(f"    {record['detail']}")
+
+    def _show_office_document_summary(self, summary, language):
+        output_directories = summary.get("output_directories", [])
+        lines = [
+            f"Language: {language}",
+            f"Translated: {summary.get('success_count', 0)}",
+            f"Skipped (no translatable text): {summary.get('skipped_count', 0)}",
+            f"Failed: {summary.get('failure_count', 0)}",
+        ]
+        if output_directories:
+            lines.extend(["", "Output folder(s):", *output_directories])
+        if summary.get("report_path"):
+            lines.extend(["", f"Report: {summary['report_path']}"])
+        if summary.get("report_error"):
+            lines.extend(
+                ["", f"The translations finished, but the report failed: {summary['report_error']}"]
+            )
+
+        message = "\n".join(lines)
+        print("\nOffice document batch complete.")
+        print(message)
+        if summary.get("failure_count", 0) or summary.get("report_error"):
+            messagebox.showwarning(
+                "Office Document Translation Complete with Warnings",
+                message,
+                parent=self.root,
+            )
+        else:
+            messagebox.showinfo(
+                "Office Document Translation Complete",
+                message,
+                parent=self.root,
+            )
 
     def run_translation(self):
         is_cse_course = messagebox.askyesno(

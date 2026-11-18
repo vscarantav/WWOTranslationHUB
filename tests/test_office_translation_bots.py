@@ -442,6 +442,77 @@ class ControllerOfficeRoutingTests(unittest.TestCase):
         self.assertEqual(controller.process_file.call_count, 2)
         controller.update_excel_dashboard.assert_called_once_with()
 
+    def test_standalone_batch_preserves_sources_and_continues_after_failure(self):
+        source_docx = self.root / "lesson.docx"
+        source_xlsx = self.root / "scores.xlsx"
+        source_docx.write_bytes(b"source-docx")
+        source_xlsx.write_bytes(b"source-xlsx")
+        output_directory = self.root / "Translated PTBR"
+        output_directory.mkdir()
+        existing_failed_output = output_directory / source_xlsx.name
+        existing_failed_output.write_bytes(b"previous-good-output")
+
+        controller = object.__new__(TranslationController)
+        controller.target_language = "PTBR"
+        controller.bots = {"docx": Mock(), "xlsx": Mock()}
+        controller._log = Mock()
+        controller._log_office_document_outcome = Mock()
+        controller.update_excel_dashboard = Mock(return_value="office-report.xlsx")
+        progress = Mock()
+
+        def process_document(
+            source_path,
+            working_path,
+            extension,
+            bot,
+            outcome_filepath=None,
+        ):
+            self.assertEqual(
+                Path(outcome_filepath).parent,
+                output_directory,
+            )
+            if extension == "xlsx":
+                raise RuntimeError("spreadsheet translation failed")
+            Path(working_path).write_bytes(b"translated-docx")
+            return OfficeTranslationResult(
+                b"translated-docx",
+                translated_nodes=2,
+                translated_parts=1,
+                outcome="Translated",
+            )
+
+        controller._process_office_document = Mock(side_effect=process_document)
+
+        summary = controller.translate_office_documents(
+            [source_docx, source_xlsx],
+            progress_callback=progress,
+        )
+
+        self.assertEqual(source_docx.read_bytes(), b"source-docx")
+        self.assertEqual(source_xlsx.read_bytes(), b"source-xlsx")
+        self.assertEqual(
+            (output_directory / source_docx.name).read_bytes(),
+            b"translated-docx",
+        )
+        self.assertEqual(
+            existing_failed_output.read_bytes(),
+            b"previous-good-output",
+        )
+        self.assertEqual(summary["success_count"], 1)
+        self.assertEqual(summary["failure_count"], 1)
+        self.assertEqual(summary["report_path"], "office-report.xlsx")
+        self.assertEqual(progress.call_count, 2)
+        controller.update_excel_dashboard.assert_called_once()
+
+    def test_standalone_batch_rejects_legacy_office_formats(self):
+        controller = object.__new__(TranslationController)
+
+        with self.assertRaisesRegex(
+            ValueError,
+            r"Older \.doc and \.xls files are not accepted",
+        ):
+            controller.translate_office_documents([self.root / "legacy.doc"])
+
 
 if __name__ == "__main__":
     unittest.main()

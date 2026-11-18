@@ -15,6 +15,7 @@ flowchart TD
         ENV[".env & Environment Checker"]
         UPD_BTN["HUB Updates"]
         IMSCC_BTN["Canvas IMSCC Translation"]
+        OFFICE_BTN["Translate Excel or Word Documents"]
         EDTECH_BTN["EdTech Master Translator"]
         GITHUB_BTN["GitHub Translation"]
         AUDIT_BTN["QA Audit"]
@@ -59,6 +60,7 @@ flowchart TD
     MAIN --> ENV
     MAIN --> UPD_BTN --> UPDATER --> PUBLIC_GIT
     MAIN --> IMSCC_BTN --> CONTROLLER
+    MAIN --> OFFICE_BTN --> CONTROLLER
     MAIN --> EDTECH_BTN --> EDTECH_BOT --> CONTROLLER
     MAIN --> GITHUB_BTN --> GITHUB_CTRL
     MAIN --> AUDIT_BTN --> AUDITOR
@@ -76,6 +78,31 @@ flowchart TD
     CONTROLLER --> CANVAS_API
     EDTECH_BOT --> EDTECH_SITE
     GITHUB_CTRL --> GITHUB_API
+```
+
+---
+
+## 1A. Standalone Excel and Word Translation Flow
+
+This UI path translates up to 20 mixed current-format Word and Excel documents without requiring an IMSCC workspace. The existing DOCX/XLSX bots and Gemini API flow are reused.
+
+```mermaid
+flowchart TD
+    START(["User clicks 'Translate Excel or Word Documents'"]) --> PICK["Select 1-20 files"]
+    PICK --> LEGACY{"Any .doc or .xls?"}
+    LEGACY -- "Yes" --> LEGACY_MSG["Show message: older formats are not accepted<br/>Convert to .docx or .xlsx"]
+    LEGACY -- "No" --> CURRENT{"All files are .docx or .xlsx?"}
+    CURRENT -- "No" --> TYPE_MSG["Show unsupported-file message"]
+    CURRENT -- "Yes" --> ROUTE{"Extension"}
+    ROUTE -- ".docx" --> DOCX["DOCXTranslationBot"]
+    ROUTE -- ".xlsx" --> XLSX["XLSXTranslationBot<br/>including worksheet-tab translation"]
+    DOCX & XLSX --> TEMP["Translate and validate a temporary copy<br/>inside sibling 'Translated &lt;LANG&gt;' folder"]
+    TEMP --> RESULT{"File succeeded?"}
+    RESULT -- "Yes / no text" --> PUBLISH["Atomically publish same filename<br/>Original remains untouched"]
+    RESULT -- "No" --> KEEP["Keep any prior output intact<br/>Record failure"]
+    PUBLISH & KEEP --> MORE{"More selected files?"}
+    MORE -- "Yes" --> ROUTE
+    MORE -- "No" --> REPORT["Create focused Office Documents report<br/>Show translated / skipped / failed summary"]
 ```
 
 ---

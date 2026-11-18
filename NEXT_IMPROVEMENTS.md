@@ -38,6 +38,9 @@ This is the single source of truth for planned improvements that are not yet com
 
 ## Completed
 
+- [x] Add a standalone UI flow for translating up to 20 mixed current-format Word and Excel documents.
+  - Completed 2026-11-18: Added the `Translate Excel or Word Documents` option for PTBR, SPA, and FRA; routed `.docx` and `.xlsx` files through the existing controller bots and API calls; preserved originals; atomically published same-named files to sibling `Translated <LANG>` folders; continued after individual failures; generated a focused batch report; and explicitly rejected `.doc`/`.xls` with conversion guidance. Verified with 13 focused Office/UI tests and all 228 repository tests.
+
 - [x] Extend `XLSXTranslationBot` to translate worksheet tab names and safely update every dependent formula, defined name, chart reference, and document-property title.
   - Completed 2026-11-18: XLSX runs now send worksheet titles through the configured XML translation agent with Excel-specific constraints, enforce valid unique 31-character names, and rewrite formula, defined-name, chart, validation, hyperlink, pivot-source, and document-property references before package verification. Verified with 14 focused Office/XML tests and all 224 repository tests.
 

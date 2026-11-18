@@ -8,6 +8,7 @@ from tqdm import tqdm
 import json
 import re
 import threading
+from datetime import datetime
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
@@ -35,6 +36,9 @@ from core.language_config import (
 )
 
 class TranslationController:
+    MAX_STANDALONE_OFFICE_DOCUMENTS = 20
+    SUPPORTED_STANDALONE_OFFICE_EXTENSIONS = {".docx", ".xlsx"}
+    LEGACY_STANDALONE_OFFICE_EXTENSIONS = {".doc", ".xls"}
     ATTENTION_PAGE_FILENAME = "attention-messaging-instructors-and-graders.html"
     ATTENTION_PAGE_EN_TITLE = "Attention: Messaging Instructors and Graders"
     ATTENTION_PAGE_PTBR_TITLE = "Atenção: Mensagens para instrutores e avaliadores"
@@ -88,6 +92,7 @@ class TranslationController:
         target_course_id=None,
         is_cse_course=False,
         course_glossary_path=None,
+        initialize_workspace=True,
     ):
         self.target_language = normalize_language_code(target_language)
         self.link_prompt_callback = link_prompt_callback
@@ -118,7 +123,7 @@ class TranslationController:
         self.workspace = WorkspaceManager(self.target_language, self.hub_dir, input_dir, imscc_path)
         default_root = self.instructions.get("project_overview", {}).get("root_directory", "career-development-english-master-export")
         workspace_dir = None
-        if self.workspace.setup_workspace(default_root):
+        if initialize_workspace and self.workspace.setup_workspace(default_root):
             self.workspace.extract_course_info(self._log)
             workspace_dir = self.workspace.output_dir
             
@@ -906,8 +911,16 @@ class TranslationController:
             + json.dumps(outcome, ensure_ascii=False)
         )
 
-    def _process_office_document(self, filepath: str, target_filepath: str, ext: str, bot):
+    def _process_office_document(
+        self,
+        filepath: str,
+        target_filepath: str,
+        ext: str,
+        bot,
+        outcome_filepath=None,
+    ):
         document_type = ext.upper()
+        reported_filepath = outcome_filepath or target_filepath
         self._log(f"Delegating {target_filepath} to {bot.__class__.__name__}")
         temporary_path = ""
 
@@ -961,7 +974,7 @@ class TranslationController:
             self._log_office_document_outcome(
                 status,
                 document_type,
-                target_filepath,
+                reported_filepath,
                 result.translated_nodes,
                 result.translated_parts,
                 result.outcome,
@@ -970,15 +983,16 @@ class TranslationController:
 
             if gemini_call_succeeded:
                 title = os.path.basename(filepath)
-                self._record_gemini_translation_page(title, target_filepath)
+                self._record_gemini_translation_page(title, reported_filepath)
                 self._log(
-                    f"[System] TranslatedPage: {title} | {target_filepath}"
+                    f"[System] TranslatedPage: {title} | {reported_filepath}"
                 )
+            return result
         except Exception as exc:
             self._log_office_document_outcome(
                 "Failed",
                 document_type,
-                target_filepath,
+                reported_filepath,
                 detail=str(exc),
             )
             raise
@@ -988,6 +1002,159 @@ class TranslationController:
                     os.remove(temporary_path)
                 except OSError:
                     pass
+
+    def translate_office_documents(self, filepaths, progress_callback=None):
+        """Translate a standalone DOCX/XLSX batch without changing its sources."""
+        selected_paths = [os.path.abspath(os.fspath(path)) for path in filepaths]
+        if not selected_paths:
+            raise ValueError("Select at least one DOCX or XLSX file.")
+        if len(selected_paths) > self.MAX_STANDALONE_OFFICE_DOCUMENTS:
+            raise ValueError(
+                "Select no more than "
+                f"{self.MAX_STANDALONE_OFFICE_DOCUMENTS} documents at one time."
+            )
+
+        extensions = {
+            os.path.splitext(path)[1].lower()
+            for path in selected_paths
+        }
+        legacy_extensions = extensions & self.LEGACY_STANDALONE_OFFICE_EXTENSIONS
+        if legacy_extensions:
+            raise ValueError(
+                "Older .doc and .xls files are not accepted. Convert or save them "
+                "as current .docx or .xlsx files and try again."
+            )
+        unsupported_extensions = (
+            extensions - self.SUPPORTED_STANDALONE_OFFICE_EXTENSIONS
+        )
+        if unsupported_extensions:
+            formatted_extensions = ", ".join(sorted(unsupported_extensions))
+            raise ValueError(
+                "Only .docx and .xlsx documents are accepted. Unsupported file "
+                f"type(s): {formatted_extensions or '(no extension)'}"
+            )
+
+        results = []
+        output_directories = set()
+        total = len(selected_paths)
+        for index, source_path in enumerate(selected_paths, start=1):
+            extension = os.path.splitext(source_path)[1].lower()
+            document_type = extension[1:]
+            output_directory = os.path.join(
+                os.path.dirname(source_path),
+                f"Translated {self.target_language}",
+            )
+            destination_path = os.path.join(
+                output_directory,
+                os.path.basename(source_path),
+            )
+            output_directories.add(output_directory)
+            record = {
+                "source_path": source_path,
+                "output_path": destination_path,
+                "document_type": document_type.upper(),
+                "status": "Failed",
+                "detail": "",
+            }
+            working_path = ""
+            processing_called = False
+            processing_succeeded = False
+
+            try:
+                if not os.path.isfile(source_path):
+                    raise FileNotFoundError(f"File not found: {source_path}")
+                os.makedirs(output_directory, exist_ok=True)
+                with tempfile.NamedTemporaryFile(
+                    mode="wb",
+                    delete=False,
+                    dir=output_directory,
+                    prefix=f".{os.path.basename(source_path)}.",
+                    suffix=".tmp",
+                ) as working_file:
+                    working_path = working_file.name
+                    with open(source_path, "rb") as source_file:
+                        shutil.copyfileobj(source_file, working_file)
+
+                bot = self.bots[document_type]
+                processing_called = True
+                result = self._process_office_document(
+                    source_path,
+                    working_path,
+                    document_type,
+                    bot,
+                    outcome_filepath=destination_path,
+                )
+                processing_succeeded = True
+                os.replace(working_path, destination_path)
+                working_path = ""
+                record["status"] = (
+                    "Success" if result.outcome == "Translated" else "Skipped"
+                )
+                record["detail"] = result.outcome
+            except Exception as exc:
+                record["detail"] = str(exc)
+                if not processing_called or processing_succeeded:
+                    self._log_office_document_outcome(
+                        "Failed",
+                        document_type,
+                        destination_path,
+                        detail=str(exc),
+                    )
+            finally:
+                if working_path and os.path.exists(working_path):
+                    try:
+                        os.remove(working_path)
+                    except OSError:
+                        pass
+
+            results.append(record)
+            if progress_callback:
+                try:
+                    progress_callback(index, total, dict(record))
+                except Exception as exc:
+                    self._log(
+                        "[System] Office batch progress callback failed: "
+                        f"{exc}"
+                    )
+
+        summary = {
+            "results": results,
+            "success_count": sum(
+                result["status"] == "Success" for result in results
+            ),
+            "skipped_count": sum(
+                result["status"] == "Skipped" for result in results
+            ),
+            "failure_count": sum(
+                result["status"] == "Failed" for result in results
+            ),
+            "output_directories": sorted(output_directories),
+            "report_path": None,
+            "report_error": "",
+        }
+        try:
+            summary["report_path"] = self.update_excel_dashboard(
+                report_name=(
+                    "Office Documents "
+                    f"{self.target_language} {datetime.now():%Y%m%d %H%M%S}"
+                ),
+                report_code=self.target_language,
+                review_pages=[],
+                excluded_sheets=(
+                    "Dashboard",
+                    "Bot Analysis",
+                    "Raw Logs",
+                    "Translated Pages",
+                    "Translation Review",
+                    "Link Actions",
+                    "Commented Links",
+                    "Missing Alt Texts",
+                ),
+            )
+        except Exception as exc:
+            summary["report_error"] = str(exc)
+            self._log(f"[System] Office batch report generation failed: {exc}")
+        return summary
 
     def process_file(self, filepath: str):
         target_filepath = self.workspace.get_target_filepath(filepath)
