@@ -567,7 +567,7 @@ class CourseTranslationHubUI:
         self.office_btn.pack(side="right", padx=10)
 
         # EdTech Section
-        self.edtech_frame = ttk.LabelFrame(self.top_frame, text="EdTech Master Translator", padding="10")
+        self.edtech_frame = ttk.LabelFrame(self.top_frame, text="Edtech Translation", padding="10")
         self.edtech_frame.pack(fill="x", pady=10)
         
         self.edtech_lang_var = tk.StringVar(value="PTBR")
@@ -576,7 +576,7 @@ class CourseTranslationHubUI:
         ttk.Radiobutton(self.edtech_frame, text="Spanish (SPA)", variable=self.edtech_lang_var, value="SPA").pack(side="left", padx=10)
         ttk.Radiobutton(self.edtech_frame, text="French (FRA)", variable=self.edtech_lang_var, value="FRA").pack(side="left", padx=10)
 
-        self.edtech_btn = ttk.Button(self.edtech_frame, text="Translate Book Shell", command=self.run_edtech)
+        self.edtech_btn = ttk.Button(self.edtech_frame, text="Translate Edtech Book", command=self.run_edtech)
         self.edtech_btn.pack(side="right", padx=10, pady=5)
 
         # GitHub Translation Section
