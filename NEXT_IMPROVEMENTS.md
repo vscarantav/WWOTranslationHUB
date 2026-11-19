@@ -8,13 +8,14 @@ This is the single source of truth for planned improvements that are not yet com
 - [ ] Extend `ScriptureCheckBot` to recognize and resolve Bible references.
 - [ ] Implement and approve Microsoft PowerPoint (`.pptx`) translation and repackaging.
 - [ ] Implement localized image-file translation for JPG, PNG, GIF, and SVG assets; inline alt-text translation already exists.
-- [ ] Preserve every question bank's English name exactly as it appears in the original export package.
 - [ ] Migrate the translation bots from the deprecated `google.generativeai` SDK to `google.genai`, preserving and verifying the existing retry, validation, and successful-call tracking behavior.
+- [ ] Exclude URLs and filesystem paths from Office/XML translation batches and unchanged-English validation so protected locator values do not emit BeautifulSoup warnings or falsely fail DOCX/XLSX translation.
 - [ ] Protect platform-defined code identifiers such as MongoDB's `_id` during GitHub variable analysis so they are emitted as explicit no-op mappings and never require manual page recovery.
 - [ ] Populate and approve `FRA` entries in `Glossary/glossary.json` so French translations receive the same curated terminology constraints as Portuguese and Spanish; the French runtime currently falls back to its approved agent prompts when no French glossary value exists.
 - [ ] Populate and approve native Spanish and French translation columns in the Global Software Development Markdown glossary so CSE agents can use curated target-language values instead of deriving equivalents from labeled PT-BR references.
 - [ ] Add a `Continue Previous Process` button that saves durable progress checkpoints during long-running workflows and safely resumes the most recent incomplete process from its last verified stopping point after the user leaves or closes the HUB.
 - [ ] Surface source-course Canvas references during IMSCC link processing. The `instructure.com/api/` ignore rule silently drops `data-api-endpoint` URLs that still point at the source course ID, so stale cross-course references survive into the translated package without appearing in any report.
+- [ ] Reconcile PTBR IMSCC auto-localization for BYUI-CSE GitHub Pages links with versioned source repositories (for example, `-course-v2`) and the actual translated Pages destination so supported CSE links do not prompt page-by-page or generate guessed invalid URLs.
 - [ ] Add a safe multi-computer auto-update flow controlled by the public master Git repository. Provide an `Update Translation HUB` interface button (no separate batch file) that pulls `main`, shows update status in the HUB, and automatically restarts the application after a successful update. Send newly added links to the shared mapping database immediately after the user completes the link-mapping flow. When one English link has conflicting Portuguese links, show every candidate in that flow with a copy button and single-select checkbox, require exactly one selection, and permanently save the selected link as the correct mapping without losing unrelated mappings.
 
 ## Needs user details before implementation
@@ -39,10 +40,19 @@ This is the single source of truth for planned improvements that are not yet com
 ## Completed
 
 - [x] Add a standalone UI flow for translating up to 20 mixed current-format Word and Excel documents.
-  - Completed 2026-11-18: Added the `Translate Excel or Word Documents` option for PTBR, SPA, and FRA; routed `.docx` and `.xlsx` files through the existing controller bots and API calls; preserved originals; atomically published same-named files to sibling `Translated <LANG>` folders; continued after individual failures; generated a focused batch report; and explicitly rejected `.doc`/`.xls` with conversion guidance. Verified with 13 focused Office/UI tests and all 228 repository tests.
+  - Completed 2026-11-18: Added the `Translate Excel or Word Documents` option for PTBR, SPA, and FRA; routed `.docx` and `.xlsx` files through the existing controller bots and API calls; preserved originals; atomically published same-named files to the HUB-root `Word and Excel Translations` folder; continued after individual failures; generated a focused batch report; and explicitly rejected `.doc`/`.xls` with conversion guidance. Duplicate output filenames and sources inside the output folder are rejected before processing. Verified with 15 focused Office/UI tests and all 230 repository tests.
 
 - [x] Extend `XLSXTranslationBot` to translate worksheet tab names and safely update every dependent formula, defined name, chart reference, and document-property title.
   - Completed 2026-11-18: XLSX runs now send worksheet titles through the configured XML translation agent with Excel-specific constraints, enforce valid unique 31-character names, and rewrite formula, defined-name, chart, validation, hyperlink, pivot-source, and document-property references before package verification. Verified with 14 focused Office/XML tests and all 224 repository tests.
+
+- [x] Protect spreadsheet formulas in XML/QTI translation so formula-only `mattext` values are never translated or misreported as unchanged English prose.
+  - Completed 2026-11-16: The XML agent now preserves `=`-prefixed formulas before batching. Verified with focused regression coverage and the recovered W05 question bank: all four formulas remained exact, all 15 items and scoring identifiers matched the source, no untranslated English prose remained, and all 219 repository tests passed.
+
+- [x] Preserve every question bank's English name exactly as it appears in the original export package.
+  - Completed 2026-11-16: XML/QTI agents no longer submit bank-title metadata or object-bank titles for translation, and the controller restores and verifies every bank name from the selected source IMSCC before packaging. Verified all 16 bank names in the recovered Applied Spreadsheets PT-BR package with zero mismatches, plus focused coverage and all 219 repository tests.
+
+- [x] Preserve exact IMSCC archive member paths across Windows extraction and repackaging, including colon-containing names and case-only path variants, and fail preflight when any manifest-referenced member would be missing from the final archive.
+  - Completed 2026-11-16: WorkspaceManager now rebuilds source archive names, restores distinct case-only members, rejects ambiguous modified collisions, adds new workspace files, validates every manifest reference, and atomically publishes the IMSCC. Verified 13 colon-containing paths, distinct `Gateway.png` and `gateway.png`, all 223 manifest references, zero missing members, focused packaging tests, and all 219 repository tests.
 
 - [x] Stop tracking generated artifacts already covered by `.gitignore` while preserving local copies.
   - Completed 2026-11-11: Removed all 446 tracked artifacts under `Courses to Translate/`, `Reports/`, and `edtech_workspace/` from the Git index. Verified zero target paths remain tracked, all 446 removals were isolated for commit, and all 74 target paths that existed locally before cleanup remain present and ignored.

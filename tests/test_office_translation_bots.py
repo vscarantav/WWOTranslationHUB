@@ -447,13 +447,15 @@ class ControllerOfficeRoutingTests(unittest.TestCase):
         source_xlsx = self.root / "scores.xlsx"
         source_docx.write_bytes(b"source-docx")
         source_xlsx.write_bytes(b"source-xlsx")
-        output_directory = self.root / "Translated PTBR"
-        output_directory.mkdir()
+        hub_directory = self.root / "hub"
+        output_directory = hub_directory / "Word and Excel Translations"
+        output_directory.mkdir(parents=True)
         existing_failed_output = output_directory / source_xlsx.name
         existing_failed_output.write_bytes(b"previous-good-output")
 
         controller = object.__new__(TranslationController)
         controller.target_language = "PTBR"
+        controller.hub_dir = str(hub_directory)
         controller.bots = {"docx": Mock(), "xlsx": Mock()}
         controller._log = Mock()
         controller._log_office_document_outcome = Mock()
@@ -503,6 +505,26 @@ class ControllerOfficeRoutingTests(unittest.TestCase):
         self.assertEqual(summary["report_path"], "office-report.xlsx")
         self.assertEqual(progress.call_count, 2)
         controller.update_excel_dashboard.assert_called_once()
+
+    def test_standalone_batch_rejects_duplicate_filenames_for_shared_output(self):
+        first = self.root / "first" / "lesson.docx"
+        second = self.root / "second" / "lesson.docx"
+        controller = object.__new__(TranslationController)
+        controller.hub_dir = str(self.root)
+
+        with self.assertRaisesRegex(
+            ValueError,
+            r"unique filenames.*lesson\.docx",
+        ):
+            controller.translate_office_documents([first, second])
+
+    def test_standalone_batch_rejects_source_inside_shared_output_folder(self):
+        controller = object.__new__(TranslationController)
+        controller.hub_dir = str(self.root)
+        source = self.root / "Word and Excel Translations" / "lesson.docx"
+
+        with self.assertRaisesRegex(ValueError, "originals remain untouched"):
+            controller.translate_office_documents([source])
 
     def test_standalone_batch_rejects_legacy_office_formats(self):
         controller = object.__new__(TranslationController)

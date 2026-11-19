@@ -39,6 +39,7 @@ class TranslationController:
     MAX_STANDALONE_OFFICE_DOCUMENTS = 20
     SUPPORTED_STANDALONE_OFFICE_EXTENSIONS = {".docx", ".xlsx"}
     LEGACY_STANDALONE_OFFICE_EXTENSIONS = {".doc", ".xls"}
+    STANDALONE_OFFICE_OUTPUT_DIRECTORY = "Word and Excel Translations"
     ATTENTION_PAGE_FILENAME = "attention-messaging-instructors-and-graders.html"
     ATTENTION_PAGE_EN_TITLE = "Attention: Messaging Instructors and Graders"
     ATTENTION_PAGE_PTBR_TITLE = "Atenção: Mensagens para instrutores e avaliadores"
@@ -392,6 +393,7 @@ class TranslationController:
                 f"\n[Controller] {count} file(s) could not be auto-translated and "
                 "require manual correction. See the recovery dialog."
             )
+        self._preserve_question_bank_titles()
         self._enforce_w07_template_references()
         self.workspace.compress_to_imscc(self._log)
         
@@ -500,6 +502,81 @@ class TranslationController:
     def _is_teaching_notes_page(self, filepath: str) -> bool:
         filename = os.path.basename(filepath).lower()
         return filename.endswith(".html") and "teaching-notes" in filename
+
+    @staticmethod
+    def _question_bank_title_entry(soup):
+        for field_entry in soup.find_all("fieldentry"):
+            field_label = field_entry.find_previous_sibling("fieldlabel")
+            if (
+                field_label
+                and field_label.get_text(strip=True) == "bank_title"
+            ):
+                return field_entry
+        return None
+
+    def _preserve_question_bank_titles(self):
+        """Restore every Canvas question-bank name from the English export."""
+        output_dir = getattr(self.workspace, "output_dir", None)
+        if not output_dir or not os.path.isdir(output_dir):
+            self._log(
+                "[Controller] Question-bank name verification skipped because "
+                "the translated workspace is unavailable."
+            )
+            return 0
+
+        restored = 0
+        verified = 0
+        for root, _dirs, files in os.walk(output_dir):
+            for filename in files:
+                if not filename.lower().endswith(".qti"):
+                    continue
+
+                target_path = os.path.join(root, filename)
+                with open(target_path, "r", encoding="utf-8-sig") as target_file:
+                    target_content = target_file.read()
+                target_soup = BeautifulSoup(target_content, "xml")
+                if not target_soup.find("objectbank"):
+                    continue
+
+                relative_path = os.path.relpath(target_path, output_dir).replace(
+                    os.sep,
+                    "/",
+                )
+                source_content = self.workspace._read_source_text(relative_path)
+                if source_content is None:
+                    raise RuntimeError(
+                        "Cannot verify the English question-bank name because "
+                        f"the source archive member is missing: {relative_path}"
+                    )
+
+                source_soup = BeautifulSoup(source_content, "xml")
+                source_entry = self._question_bank_title_entry(source_soup)
+                target_entry = self._question_bank_title_entry(target_soup)
+                if source_entry is None:
+                    continue
+                if target_entry is None:
+                    raise RuntimeError(
+                        "Translated question bank is missing its bank_title "
+                        f"metadata: {relative_path}"
+                    )
+
+                source_title = source_entry.get_text()
+                target_title = target_entry.get_text()
+                verified += 1
+                if target_title == source_title:
+                    continue
+
+                target_entry.clear()
+                target_entry.append(source_title)
+                with open(target_path, "w", encoding="utf-8") as target_file:
+                    target_file.write(str(target_soup))
+                restored += 1
+
+        self._log(
+            "[Controller] Verified source-exact English names for "
+            f"{verified} question bank(s); restored {restored}."
+        )
+        return restored
 
     def _prepare_w07_template_assignment(self):
         if self.target_language != "PTBR":
@@ -1034,21 +1111,44 @@ class TranslationController:
                 f"type(s): {formatted_extensions or '(no extension)'}"
             )
 
+        output_directory = os.path.join(
+            self.hub_dir,
+            self.STANDALONE_OFFICE_OUTPUT_DIRECTORY,
+        )
+        normalized_output_directory = os.path.normcase(
+            os.path.abspath(output_directory)
+        )
+        if any(
+            os.path.normcase(os.path.dirname(path)) == normalized_output_directory
+            for path in selected_paths
+        ):
+            raise ValueError(
+                "Select source documents outside the 'Word and Excel Translations' "
+                "output folder so the originals remain untouched."
+            )
+
+        filenames = [os.path.basename(path).casefold() for path in selected_paths]
+        duplicate_filenames = sorted({
+            os.path.basename(path)
+            for path in selected_paths
+            if filenames.count(os.path.basename(path).casefold()) > 1
+        })
+        if duplicate_filenames:
+            raise ValueError(
+                "Documents selected together must have unique filenames because "
+                "all translated files use one output folder. Duplicate filename(s): "
+                + ", ".join(duplicate_filenames)
+            )
+
         results = []
-        output_directories = set()
         total = len(selected_paths)
         for index, source_path in enumerate(selected_paths, start=1):
             extension = os.path.splitext(source_path)[1].lower()
             document_type = extension[1:]
-            output_directory = os.path.join(
-                os.path.dirname(source_path),
-                f"Translated {self.target_language}",
-            )
             destination_path = os.path.join(
                 output_directory,
                 os.path.basename(source_path),
             )
-            output_directories.add(output_directory)
             record = {
                 "source_path": source_path,
                 "output_path": destination_path,
@@ -1128,7 +1228,7 @@ class TranslationController:
             "failure_count": sum(
                 result["status"] == "Failed" for result in results
             ),
-            "output_directories": sorted(output_directories),
+            "output_directories": [output_directory],
             "report_path": None,
             "report_error": "",
         }

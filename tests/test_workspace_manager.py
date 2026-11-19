@@ -119,6 +119,70 @@ class WorkspaceManagerCourseInfoTests(unittest.TestCase):
             self.assertEqual((stale_source / "version.txt").read_text(), "new")
             self.assertEqual((stale_output / "version.txt").read_text(), "new")
 
+    def test_repackaging_restores_exact_source_member_names_and_collisions(self):
+        with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as temp_dir:
+            hub_dir = Path(temp_dir)
+            courses_dir = hub_dir / "Courses to Translate"
+            courses_dir.mkdir()
+            package = courses_dir / "course.imscc"
+            write_imscc(
+                package,
+                {
+                    "imsmanifest.xml": (
+                        "<manifest><resources><resource>"
+                        '<file href="assets/name:one.txt"/>'
+                        '<file href="assets/Gateway.png"/>'
+                        '<file href="assets/gateway.png"/>'
+                        '<file href="content.html"/>'
+                        "</resource></resources></manifest>"
+                    ),
+                    "assets/name:one.txt": "colon asset",
+                    "assets/Gateway.png": "upper asset",
+                    "assets/gateway.png": "lower asset",
+                    "content.html": "English source",
+                },
+            )
+
+            manager = WorkspaceManager("PTBR", str(hub_dir), imscc_path=str(package))
+            self.assertTrue(manager.setup_workspace("unused"))
+            (Path(manager.output_dir) / "content.html").write_text(
+                "Conteúdo traduzido",
+                encoding="utf-8",
+            )
+
+            output = manager.compress_to_imscc(lambda _message: None)
+
+            with zipfile.ZipFile(output, "r") as archive:
+                names = set(archive.namelist())
+                self.assertIn("assets/name:one.txt", names)
+                self.assertIn("assets/Gateway.png", names)
+                self.assertIn("assets/gateway.png", names)
+                self.assertEqual(archive.read("assets/Gateway.png"), b"upper asset")
+                self.assertEqual(archive.read("assets/gateway.png"), b"lower asset")
+                self.assertEqual(
+                    archive.read("content.html").decode("utf-8"),
+                    "Conteúdo traduzido",
+                )
+
+    def test_repackaging_fails_when_manifest_member_is_missing(self):
+        with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as temp_dir:
+            output_dir = Path(temp_dir) / "course_PTBR"
+            output_dir.mkdir()
+            (output_dir / "imsmanifest.xml").write_text(
+                "<manifest><resources><resource>"
+                '<file href="missing.html"/>'
+                "</resource></resources></manifest>",
+                encoding="utf-8",
+            )
+            manager = WorkspaceManager("PTBR", temp_dir)
+            manager.output_dir = str(output_dir)
+
+            with self.assertRaisesRegex(
+                RuntimeError,
+                "missing manifest-referenced member",
+            ):
+                manager.compress_to_imscc(lambda _message: None)
+
 
 if __name__ == "__main__":
     unittest.main()

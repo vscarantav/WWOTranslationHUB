@@ -17,6 +17,14 @@ XML_BATCH_TARGET_CHARACTERS = 8000
 
 class XMLTranslationBot:
     @staticmethod
+    def _is_formula_text(value: str) -> bool:
+        visible_text = BeautifulSoup(
+            html.unescape(value),
+            "html.parser",
+        ).get_text(" ", strip=True)
+        return visible_text.startswith("=")
+
+    @staticmethod
     def _is_unchanged_english_text(source: str, translated: str) -> bool:
         source_text = BeautifulSoup(source, "html.parser").get_text(" ", strip=True)
         translated_text = BeautifulSoup(translated, "html.parser").get_text(
@@ -288,7 +296,10 @@ class XMLTranslationBot:
         
         soup = BeautifulSoup(xml_content, 'xml')
         
-        target_tags = ['title', 'mattext', 'description', 'long_description', 'fieldentry', 'text']
+        # Question-bank display names are package identity metadata. Canvas
+        # content inside the bank is localized, but the English bank name must
+        # remain byte-for-byte semantically equivalent to the source export.
+        target_tags = ['title', 'mattext', 'description', 'long_description', 'text']
         
         strings_to_translate = {}
         tag_references = {}
@@ -296,15 +307,16 @@ class XMLTranslationBot:
         
         counter = 0
         for tag in soup.find_all(target_tags):
-            if tag.name == 'fieldentry':
-                label = tag.find_previous_sibling('fieldlabel')
-                if not (label and label.text.strip() == 'bank_title'):
-                    continue
-                    
             inner_str = tag.decode_contents().strip()
             
             # Prevent Canvas from converting True/False questions to Multiple Choice
             if tag.name == 'mattext' and inner_str in ["True", "False"]:
+                continue
+            # Spreadsheet formulas and code-like expressions are protected
+            # assessment data. Sending them to the translator can corrupt the
+            # formula, while unchanged-English validation can mistake function
+            # names such as AND for English prose.
+            if tag.name == 'mattext' and self._is_formula_text(inner_str):
                 continue
                 
             if inner_str:
@@ -331,7 +343,10 @@ class XMLTranslationBot:
                 
                 counter += 1
                 
-        for titled_node in soup.find_all(['item', 'assessment', 'objectbank']):
+        # Item and assessment titles are visible localized content. Object-bank
+        # titles, like bank_title metadata, identify the source bank and stay
+        # in English.
+        for titled_node in soup.find_all(['item', 'assessment']):
             if titled_node.has_attr('title'):
                 title_val = titled_node['title'].strip()
                 if title_val:

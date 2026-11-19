@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMSCC Link Mapping Flow</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --background: #08111f;
+            --panel: #101d31;
+            --panel-border: #29415f;
+            --text: #e8f0fa;
+            --muted: #9fb0c5;
+            --accent: #59c3ff;
+            --human: #fbbf77;
+            --store: #b8a1ff;
+            --success: #75dfa1;
+            --failure: #ff8f9b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 15% 0%, rgba(43, 111, 180, 0.22), transparent 38rem),
+                var(--background);
+            color: var(--text);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            width: min(1500px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 36px 0 48px;
+        }
+
+        header {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            line-height: 1.08;
+        }
+
+        .summary {
+            max-width: 76ch;
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .toolbar,
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toolbar {
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .swatch {
+            width: 12px;
+            height: 12px;
+            border: 2px solid currentColor;
+            border-radius: 3px;
+        }
+
+        .swatch.automatic { color: var(--accent); }
+        .swatch.human { color: var(--human); }
+        .swatch.store { color: var(--store); }
+        .swatch.success { color: var(--success); }
+        .swatch.failure { color: var(--failure); }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        button {
+            min-width: 42px;
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 8px 11px;
+            background: #152740;
+            color: var(--text);
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+        }
+
+        button:hover,
+        button:focus-visible {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .diagram-shell {
+            overflow: auto;
+            min-height: 70vh;
+            border: 1px solid var(--panel-border);
+            border-radius: 16px;
+            background: rgba(16, 29, 49, 0.9);
+            box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+        }
+
+        .diagram-scale {
+            width: max-content;
+            min-width: 100%;
+            padding: 24px;
+            transform-origin: top left;
+            transition: transform 120ms ease;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            min-width: 1180px;
+        }
+
+        .mermaid svg {
+            max-width: none !important;
+            height: auto;
+        }
+
+        .note {
+            margin: 14px 2px 0;
+            color: var(--muted);
+            font-size: 0.84rem;
+            line-height: 1.5;
+        }
+
+        code {
+            color: #c9dcf5;
+        }
+
+        @media (max-width: 700px) {
+            main {
+                width: min(100% - 20px, 1500px);
+                padding-top: 24px;
+            }
+
+            .toolbar {
+                align-items: flex-start;
+            }
+
+            .controls {
+                width: 100%;
+            }
+
+            button {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="eyebrow">TranslationHUB · Canvas IMSCC</div>
+            <h1>Link mapping process</h1>
+            <p class="summary">
+                How extracted course files are scanned, normalized, mapped from the shared store,
+                resolved by the user when necessary, written back into the IMSCC workspace, and
+                represented in the final translation report.
+            </p>
+        </header>
+
+        <div class="toolbar">
+            <div class="legend" aria-label="Diagram legend">
+                <span class="legend-item"><span class="swatch automatic"></span>Automated</span>
+                <span class="legend-item"><span class="swatch human"></span>User decision</span>
+                <span class="legend-item"><span class="swatch store"></span>Persistent data</span>
+                <span class="legend-item"><span class="swatch success"></span>Successful output</span>
+                <span class="legend-item"><span class="swatch failure"></span>Stop condition</span>
+            </div>
+            <div class="controls" aria-label="Zoom controls">
+                <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+                <button type="button" id="zoom-reset" aria-label="Reset zoom">100%</button>
+                <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+            </div>
+        </div>
+
+        <section class="diagram-shell" aria-label="IMSCC link mapping flowchart">
+            <div class="diagram-scale" id="diagram-scale">
+                <pre class="mermaid">
+flowchart TD
+    START([IMSCC extracted into workspace]) --> PREP[Prepare approved special-page content]
+    PREP --> COLLECT[Collect package files]
+    COLLECT --> INIT[Initialize LinkProcessor with target language]
+    INIT --> LOAD[(Load app/link_mapping.json)]
+    LOAD --> FILE{More package files?}
+
+    FILE -- No --> TRANSLATE[Continue into file translation]
+    TRANSLATE --> LINK_CLEAN[Per-file cleanup: unwrap Google redirects and remove obsolete LTI redirect icons]
+    LINK_CLEAN --> CHURCH_POST[After translation, enforce target language on Church links]
+    CHURCH_POST --> REPORT[Build Link Actions and optional Commented Links report tabs]
+    REPORT --> DONE([Translated IMSCC and report])
+
+    FILE -- Yes --> TYPE{HTML, HTM, XML, QTI, or TXT?}
+    TYPE -- No --> FILE
+    TYPE -- Yes --> READ[Read file and derive human-readable page title]
+    READ --> SCAN[Scan href values, XML/QTI url elements, and bare HTTP URLs]
+    SCAN --> URL{More URLs in this file?}
+    URL -- No --> WRITE{Did content change?}
+    WRITE -- Yes --> SAVE_FILE[Write updated content to workspace file]
+    WRITE -- No --> FILE
+    SAVE_FILE --> FILE
+
+    URL -- Yes --> NORMALIZE[HTML-unescape URL and normalize Google account or redirect forms]
+    NORMALIZE --> IGNORE{Ignored namespace, Canvas backend or file URL?}
+    IGNORE -- Yes --> KEEP[Keep URL unchanged]
+
+    IGNORE -- No --> OBSOLETE{Known obsolete tool link?}
+    OBSOLETE -- Yes --> LOG_OBSOLETE[Log FIX EN Course action]
+    LOG_OBSOLETE --> KEEP
+
+    OBSOLETE -- No --> AUTO{Automatic localization rule applies?}
+    AUTO -- Yes --> AUTO_REPLACE[Localize Church scripture lang or PT course repository path]
+    AUTO_REPLACE --> REPLACE[Replace URL in working content]
+
+    AUTO -- No --> MAPPED{Source URL has a target-language mapping?}
+    MAPPED -- Yes --> STORED[(Read localized URL from mapping store)]
+    STORED --> LOG_MAP[Log MappedLink]
+    LOG_MAP --> REPLACE
+
+    MAPPED -- No --> PASS{Already localized, non-HTTP, or skipped earlier this session?}
+    PASS -- Yes --> KEEP
+    PASS -- No --> PROMPT[Show Unmapped Link Found dialog]
+    PROMPT --> CHOICE{User action}
+
+    CHOICE -- Enter localized URL --> VALIDATE{Valid HTTP or HTTPS URL?}
+    VALIDATE -- No --> PROMPT
+    VALIDATE -- Yes --> COMMENT_MAP[Capture optional report comment]
+    COMMENT_MAP --> LOCK[Acquire process-wide write lock]
+    LOCK --> RELOAD[(Reload latest mapping store)]
+    RELOAD --> MERGE[Merge only source URL and current target language]
+    MERGE --> ATOMIC[Write temporary JSON, flush and fsync, then atomically replace store]
+    ATOMIC --> PERSIST{Save succeeded?}
+    PERSIST -- No --> LOG_FAIL[Log MappingSaveFailed]
+    LOG_FAIL --> STOP([Stop link processing; do not start translation])
+    PERSIST -- Yes --> LOG_USER[Log MappedLink and optional CommentedLink]
+    LOG_USER --> REPLACE
+
+    CHOICE -- Skip --> SESSION[Remember URL in session skip set]
+    SESSION --> COMMENT_SKIP{Comment supplied?}
+    COMMENT_SKIP -- Yes --> LOG_SKIP_COMMENT[Log SkippedLinkWithComment]
+    COMMENT_SKIP -- No --> LOG_SKIP[Log SkippedLink]
+    LOG_SKIP_COMMENT --> KEEP
+    LOG_SKIP --> KEEP
+
+    KEEP --> URL
+    REPLACE --> URL
+
+    classDef automatic fill:#102c45,stroke:#59c3ff,color:#ecf7ff,stroke-width:2px;
+    classDef human fill:#3a2a1d,stroke:#fbbf77,color:#fff5e8,stroke-width:2px;
+    classDef store fill:#282044,stroke:#b8a1ff,color:#f3efff,stroke-width:2px;
+    classDef success fill:#173426,stroke:#75dfa1,color:#edfff3,stroke-width:2px;
+    classDef failure fill:#411e2a,stroke:#ff8f9b,color:#fff0f2,stroke-width:2px;
+
+    class PREP,COLLECT,INIT,FILE,TYPE,READ,SCAN,URL,WRITE,SAVE_FILE,NORMALIZE,IGNORE,OBSOLETE,LOG_OBSOLETE,AUTO,AUTO_REPLACE,MAPPED,LOG_MAP,PASS,VALIDATE,LOCK,MERGE,ATOMIC,PERSIST,SESSION,COMMENT_SKIP,LOG_SKIP_COMMENT,LOG_SKIP,KEEP,REPLACE,TRANSLATE,LINK_CLEAN,CHURCH_POST automatic;
+    class PROMPT,CHOICE,COMMENT_MAP human;
+    class LOAD,STORED,RELOAD store;
+    class REPORT,DONE,LOG_USER success;
+    class LOG_FAIL,STOP failure;
+                </pre>
+            </div>
+        </section>
+
+        <p class="note">
+            Source of truth: <code>app/core/link_processor.py</code>,
+            <code>app/controller.py</code>, and <code>app/main_ui.py</code>.
+            The persistent mapping store keeps independent <code>PTBR</code>, <code>SPA</code>, and
+            <code>FRA</code> values for each English source URL.
+        </p>
+    </main>
+
+    <script type="module">
+        import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: "base",
+            securityLevel: "strict",
+            flowchart: {
+                curve: "basis",
+                htmlLabels: true,
+                nodeSpacing: 28,
+                rankSpacing: 42,
+                useMaxWidth: false
+            },
+            themeVariables: {
+                background: "#101d31",
+                primaryColor: "#102c45",
+                primaryBorderColor: "#59c3ff",
+                primaryTextColor: "#ecf7ff",
+                lineColor: "#91a9c3",
+                secondaryColor: "#282044",
+                tertiaryColor: "#173426",
+                clusterBkg: "#0d192a",
+                clusterBorder: "#29415f",
+                edgeLabelBackground: "#101d31",
+                fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
+                fontSize: "15px"
+            }
+        });
+
+        await mermaid.run({ querySelector: ".mermaid" });
+
+        const scaleTarget = document.getElementById("diagram-scale");
+        const resetButton = document.getElementById("zoom-reset");
+        let scale = 1;
+
+        function applyScale(nextScale) {
+            scale = Math.min(1.6, Math.max(0.55, nextScale));
+            scaleTarget.style.zoom = scale;
+            resetButton.textContent = `${Math.round(scale * 100)}%`;
+        }
+
+        document.getElementById("zoom-in").addEventListener("click", () => applyScale(scale + 0.1));
+        document.getElementById("zoom-out").addEventListener("click", () => applyScale(scale - 0.1));
+        resetButton.addEventListener("click", () => applyScale(1));
+    </script>
+</body>
+</html>

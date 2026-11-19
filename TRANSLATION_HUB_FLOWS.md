@@ -96,7 +96,7 @@ flowchart TD
     CURRENT -- "Yes" --> ROUTE{"Extension"}
     ROUTE -- ".docx" --> DOCX["DOCXTranslationBot"]
     ROUTE -- ".xlsx" --> XLSX["XLSXTranslationBot<br/>including worksheet-tab translation"]
-    DOCX & XLSX --> TEMP["Translate and validate a temporary copy<br/>inside sibling 'Translated &lt;LANG&gt;' folder"]
+    DOCX & XLSX --> TEMP["Translate and validate a temporary copy<br/>inside HUB-root 'Word and Excel Translations'"]
     TEMP --> RESULT{"File succeeded?"}
     RESULT -- "Yes / no text" --> PUBLISH["Atomically publish same filename<br/>Original remains untouched"]
     RESULT -- "No" --> KEEP["Keep any prior output intact<br/>Record failure"]
@@ -110,6 +110,8 @@ flowchart TD
 ## 2. Canvas IMSCC Course Translation Flow
 
 This pipeline handles Canvas Course Cartridges (`.imscc`). It features pre-translation inspections, link localization, special page template handling, concurrent translation, automated recovery, Canvas group migration, and reporting.
+
+For the URL-level decisions, persistence behavior, and reporting outcomes, open the focused [IMSCC Link Mapping Flow](./IMSCC_Link_Mapping_Flow.html) Mermaid.js visual.
 
 ```mermaid
 flowchart TD
@@ -134,17 +136,21 @@ flowchart TD
     PROMPT_TARGET --> LINK_PHASE
 
     subgraph PHASE2["Phase 2: Link Pre-Processing (LinkProcessor)"]
-        LINK_PHASE["Scan all HTML and XML files for external URLs"]
-        LINK_PHASE --> CLEAN_LINKS["Remove LTI redirect icons<br/>Strip Google /u/n/ account paths<br/>Check ignore domain list"]
-        CLEAN_LINKS --> AUTO_RULES["Auto Rules:<br/>- byui-cse -course to -course-pt<br/>- churchofjesuschrist.org append lang=por/spa/fra"]
+        LINK_PHASE["Scan HTML, HTM, XML, QTI, and TXT files<br/>href values, XML url elements, and bare HTTP URLs"]
+        LINK_PHASE --> CLEAN_LINKS["Normalize Google URL forms<br/>Check ignore domains and Canvas file URLs"]
+        CLEAN_LINKS --> AUTO_RULES["Apply automatic rules when eligible:<br/>- Church scripture language<br/>- PT course-repository path<br/>- Obsolete-link warning"]
         AUTO_RULES --> MAP_CHECK{"URL in link_mapping.json?"}
-        MAP_CHECK -- "Yes" --> REWRITE_LINK["Replace URL in source content"]
-        MAP_CHECK -- "No" --> USER_LINK_PROMPT["Interactive Link Dialog:<br/>User enters localized URL or skips with optional comment"]
-        USER_LINK_PROMPT --> ATOMIC_SAVE["Atomic write with process-wide lock to app/link_mapping.json"]
+        MAP_CHECK -- "Yes" --> REWRITE_LINK["Replace URL in source content<br/>and log MappedLink"]
+        MAP_CHECK -- "No" --> USER_LINK_PROMPT["Interactive Link Dialog:<br/>Enter localized URL or skip; optional comment"]
+        USER_LINK_PROMPT --> USER_LINK_ACTION{"User maps or skips?"}
+        USER_LINK_ACTION -- "Map" --> ATOMIC_SAVE["Merge latest store under process-wide lock<br/>and atomically replace app/link_mapping.json"]
         ATOMIC_SAVE --> REWRITE_LINK
+        USER_LINK_ACTION -- "Skip" --> SKIP_LINK["Keep URL unchanged<br/>Log skip and optional comment"]
+        REWRITE_LINK --> LINK_PHASE_DONE["Finish link pass"]
+        SKIP_LINK --> LINK_PHASE_DONE
     end
 
-    REWRITE_LINK --> SPECIAL_TEMPLATES
+    LINK_PHASE_DONE --> SPECIAL_TEMPLATES
 
     subgraph SPECIAL["Special Course Page Pre-Processing"]
         SPECIAL_TEMPLATES{"Target is PTBR?"}

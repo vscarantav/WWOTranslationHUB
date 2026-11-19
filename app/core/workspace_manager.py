@@ -4,6 +4,7 @@ import shutil
 import tempfile
 import zipfile
 import collections
+from urllib.parse import unquote
 from bs4 import BeautifulSoup
 
 class WorkspaceManager:
@@ -246,6 +247,7 @@ class WorkspaceManager:
         
         # Verify structure before zipping: imsmanifest.xml MUST be at root
         manifest_path = os.path.join(self.output_dir, 'imsmanifest.xml')
+        archive_root = self.output_dir
         if not os.path.exists(manifest_path):
             # Check if it was nested one level deep
             subdirs = [os.path.join(self.output_dir, d) for d in os.listdir(self.output_dir) if os.path.isdir(os.path.join(self.output_dir, d))]
@@ -253,23 +255,193 @@ class WorkspaceManager:
                 nested_manifest = os.path.join(subdirs[0], 'imsmanifest.xml')
                 if os.path.exists(nested_manifest):
                     _log_func("[WorkspaceManager] WARNING: Nested directory structure detected. Correcting for IMSCC...")
-                    # The archive root should be the nested folder
-                    zip_path = shutil.make_archive(self.output_dir, 'zip', subdirs[0])
+                    archive_root = subdirs[0]
                 else:
-                    _log_func("[WorkspaceManager] ERROR: imsmanifest.xml not found. Resulting IMSCC may be invalid.")
-                    zip_path = shutil.make_archive(self.output_dir, 'zip', self.output_dir)
+                    raise RuntimeError(
+                        "imsmanifest.xml was not found in the translated IMSCC workspace."
+                    )
             else:
-                _log_func("[WorkspaceManager] ERROR: imsmanifest.xml not found. Resulting IMSCC may be invalid.")
-                zip_path = shutil.make_archive(self.output_dir, 'zip', self.output_dir)
-        else:
-            zip_path = shutil.make_archive(self.output_dir, 'zip', self.output_dir)
-            
+                raise RuntimeError(
+                    "imsmanifest.xml was not found in the translated IMSCC workspace."
+                )
+
         imscc_path = self.output_dir + ".imscc"
-        if os.path.exists(imscc_path):
-            os.remove(imscc_path)
-            
-        os.rename(zip_path, imscc_path)
+        temporary_path = ""
+        try:
+            with tempfile.NamedTemporaryFile(
+                mode="wb",
+                delete=False,
+                dir=os.path.dirname(self.output_dir),
+                prefix=f".{os.path.basename(self.output_dir)}.",
+                suffix=".imscc.tmp",
+            ) as temporary_file:
+                temporary_path = temporary_file.name
+
+            self._write_imscc_archive(archive_root, temporary_path)
+            self._validate_imscc_archive(temporary_path)
+            os.replace(temporary_path, imscc_path)
+            temporary_path = ""
+        finally:
+            if temporary_path and os.path.exists(temporary_path):
+                os.remove(temporary_path)
         
         msg = f"Successfully created course package: {imscc_path}"
         print(f"[WorkspaceManager] {msg}")
         _log_func(msg)
+        return imscc_path
+
+    @staticmethod
+    def _safe_archive_name(name):
+        normalized = str(name).replace('\\', '/').lstrip('/')
+        parts = [part for part in normalized.split('/') if part not in ('', '.')]
+        if not parts or any(part == '..' for part in parts):
+            raise RuntimeError(f"Unsafe IMSCC archive member path: {name}")
+        return '/'.join(parts)
+
+    @staticmethod
+    def _workspace_relative_path_for_member(name):
+        """Mirror ZipFile.extractall's Windows filename sanitization."""
+        normalized = WorkspaceManager._safe_archive_name(name)
+        parts = normalized.split('/')
+        if os.path.sep == '\\':
+            table = str.maketrans(':<>|"?*', '_______')
+            parts = [part.translate(table).rstrip('.') for part in parts]
+        return os.path.join(*parts)
+
+    def _source_archive_members(self):
+        if not self.imscc_path or not zipfile.is_zipfile(self.imscc_path):
+            return None
+
+        with zipfile.ZipFile(self.imscc_path, 'r') as source_archive:
+            file_names = [
+                info.filename.replace('\\', '/')
+                for info in source_archive.infolist()
+                if not info.is_dir()
+            ]
+            manifests = [
+                name for name in file_names
+                if name.casefold().endswith('/imsmanifest.xml')
+                or name.casefold() == 'imsmanifest.xml'
+            ]
+            if len(manifests) != 1:
+                raise RuntimeError(
+                    "The source IMSCC must contain exactly one imsmanifest.xml."
+                )
+            manifest_name = manifests[0]
+            prefix = manifest_name[:-len('imsmanifest.xml')]
+
+            members = []
+            for info in source_archive.infolist():
+                name = info.filename.replace('\\', '/')
+                if info.is_dir() or not name.startswith(prefix):
+                    continue
+                logical_name = name[len(prefix):]
+                if not logical_name:
+                    continue
+                members.append(
+                    (
+                        self._safe_archive_name(logical_name),
+                        source_archive.read(info),
+                    )
+                )
+            return members
+
+    def _write_imscc_archive(self, archive_root, destination):
+        archive_root = os.path.abspath(archive_root)
+        disk_files = {}
+        for root, _dirs, files in os.walk(archive_root):
+            for filename in files:
+                full_path = os.path.join(root, filename)
+                relative_path = os.path.relpath(full_path, archive_root).replace(
+                    os.sep,
+                    '/',
+                )
+                key = relative_path.casefold() if os.name == 'nt' else relative_path
+                disk_files[key] = (relative_path, full_path)
+
+        source_members = self._source_archive_members()
+        with zipfile.ZipFile(destination, 'w', zipfile.ZIP_DEFLATED) as archive:
+            if source_members is None:
+                for relative_path, full_path in sorted(disk_files.values()):
+                    archive.write(full_path, relative_path)
+                return
+
+            grouped_members = collections.defaultdict(list)
+            source_workspace_keys = set()
+            seen_archive_names = set()
+            for archive_name, source_content in source_members:
+                if archive_name in seen_archive_names:
+                    raise RuntimeError(
+                        f"Duplicate IMSCC archive member path: {archive_name}"
+                    )
+                seen_archive_names.add(archive_name)
+                workspace_relative = self._workspace_relative_path_for_member(
+                    archive_name
+                ).replace(os.sep, '/')
+                key = (
+                    workspace_relative.casefold()
+                    if os.name == 'nt'
+                    else workspace_relative
+                )
+                source_workspace_keys.add(key)
+                grouped_members[key].append((archive_name, source_content))
+
+            for key, members in grouped_members.items():
+                disk_record = disk_files.get(key)
+                if disk_record is None:
+                    raise RuntimeError(
+                        "Translated IMSCC workspace is missing source member: "
+                        + ', '.join(name for name, _content in members)
+                    )
+                _relative_path, full_path = disk_record
+                with open(full_path, 'rb') as workspace_file:
+                    workspace_content = workspace_file.read()
+
+                if len(members) == 1:
+                    archive.writestr(members[0][0], workspace_content)
+                    continue
+
+                source_contents = [content for _name, content in members]
+                if workspace_content not in source_contents:
+                    raise RuntimeError(
+                        "Windows path collision was modified ambiguously; cannot "
+                        "safely reconstruct source members: "
+                        + ', '.join(name for name, _content in members)
+                    )
+                for archive_name, source_content in members:
+                    archive.writestr(archive_name, source_content)
+
+            for key, (relative_path, full_path) in sorted(disk_files.items()):
+                if key not in source_workspace_keys:
+                    archive.write(full_path, relative_path)
+
+    @staticmethod
+    def _validate_imscc_archive(path):
+        with zipfile.ZipFile(path, 'r') as archive:
+            file_names = {
+                info.filename.replace('\\', '/')
+                for info in archive.infolist()
+                if not info.is_dir()
+            }
+            if 'imsmanifest.xml' not in file_names:
+                raise RuntimeError(
+                    "Packaged IMSCC does not contain imsmanifest.xml at its root."
+                )
+
+            manifest = BeautifulSoup(
+                archive.read('imsmanifest.xml').decode('utf-8-sig'),
+                'xml',
+            )
+            referenced_files = set()
+            for file_tag in manifest.find_all('file'):
+                href = file_tag.get('href')
+                if not href or href.startswith(('http://', 'https://')):
+                    continue
+                referenced_files.add(unquote(href).replace('\\', '/'))
+
+            missing = sorted(referenced_files - file_names)
+            if missing:
+                raise RuntimeError(
+                    "Packaged IMSCC is missing manifest-referenced member(s): "
+                    + ', '.join(missing[:20])
+                )
