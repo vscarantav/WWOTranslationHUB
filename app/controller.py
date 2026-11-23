@@ -34,6 +34,17 @@ from core.language_config import (
     language_config,
     normalize_language_code,
 )
+from core.translation_id_registry import (
+    TranslationIdRegistry,
+    TranslationIdRegistryBuilder,
+    normalize_course_code,
+)
+from core.translation_id_embedder import TranslationIdEmbedder
+from core.canvas_translation_id_reconciler import (
+    APPROVAL_PHRASE,
+    CanvasTranslationIdReconciler,
+)
+from core.canvas_question_bank_renamer import CanvasQuestionBankRenamer
 
 class TranslationController:
     MAX_STANDALONE_OFFICE_DOCUMENTS = 20
@@ -93,6 +104,13 @@ class TranslationController:
         target_course_id=None,
         is_cse_course=False,
         course_glossary_path=None,
+        enable_translation_ids=False,
+        translation_id_course_code=None,
+        source_course_id=None,
+        source_course_url=None,
+        target_course_url=None,
+        translation_id_interaction_callback=None,
+        translation_id_live_writes_enabled=None,
         initialize_workspace=True,
     ):
         self.target_language = normalize_language_code(target_language)
@@ -100,6 +118,25 @@ class TranslationController:
         self.target_course_id = target_course_id
         self.is_cse_course = bool(is_cse_course)
         self.course_glossary_path = course_glossary_path
+        self.enable_translation_ids = bool(enable_translation_ids)
+        self.translation_id_course_code = (
+            normalize_course_code(translation_id_course_code)
+            if translation_id_course_code
+            else None
+        )
+        self.source_course_id = str(source_course_id).strip() if source_course_id else None
+        self.source_course_url = str(source_course_url).strip() if source_course_url else None
+        self.target_course_url = str(target_course_url).strip() if target_course_url else None
+        self.translation_id_interaction_callback = translation_id_interaction_callback
+        if translation_id_live_writes_enabled is None:
+            translation_id_live_writes_enabled = os.getenv(
+                "TRANSLATION_ID_LIVE_WRITES_ENABLED", ""
+            ).strip().casefold() in {"1", "true", "yes", "on"}
+        self.translation_id_live_writes_enabled = bool(
+            translation_id_live_writes_enabled
+        )
+        self.translation_id_registry = None
+        self.translation_id_registry_path = None
         self._attention_package_prepared = False
         self._attention_page_present = False
         self._gemini_translation_pages = {}
@@ -168,6 +205,249 @@ class TranslationController:
             
         self.link_processor = LinkProcessor(self.target_language, self.app_dir, [], self.link_prompt_callback)
         self.w07_template_installer = W07AssignmentTemplateInstaller()
+
+    def build_translation_id_registry(self):
+        """Build/reconcile and atomically save the package-wide ID registry."""
+        if not getattr(self, "enable_translation_ids", False):
+            return None
+        if not self.workspace.output_dir:
+            raise RuntimeError("Translation ID inventory requires an extracted IMSCC workspace.")
+        course_code = self.translation_id_course_code or normalize_course_code(
+            getattr(self.workspace, "course_code", "")
+        )
+        source_course_id = self.source_course_id or getattr(
+            self.workspace, "source_course_id", None
+        )
+        registry_dir = os.path.join(self.hub_dir, "Translation ID Registries")
+        registry_path = os.path.join(registry_dir, f"{course_code}.json")
+        persisted_registry = (
+            TranslationIdRegistry.load(registry_path)
+            if os.path.exists(registry_path)
+            else None
+        )
+        source_registry = TranslationIdRegistryBuilder(
+            self.workspace.original_dir,
+            course_code,
+            source_course_id=source_course_id,
+        ).build()
+        existing_registry = persisted_registry or source_registry
+        registry = TranslationIdRegistryBuilder(
+            self.workspace.output_dir,
+            course_code,
+            source_course_id=source_course_id,
+            existing_registry=existing_registry,
+        ).build()
+        source_keys = {item["stable_key"] for item in source_registry.items}
+        for item in registry.items:
+            source_present = item["stable_key"] in source_keys
+            item["source_present"] = source_present
+            if not source_present:
+                item["instances"]["EN"]["presence"] = "missing"
+                item["instances"]["EN"]["id_status"] = "not_applicable"
+        self.translation_id_registry_path = registry.save(registry_path)
+        self.translation_id_registry = registry
+        active_count = sum(not item.get("retired", False) for item in registry.items)
+        retired_count = len(registry.items) - active_count
+        self._log(
+            "[Translation IDs] Registry reconciled: "
+            f"{active_count} active logical item(s), {retired_count} retired item(s), "
+            f"{self.translation_id_registry_path}"
+        )
+        return registry
+
+    def embed_translation_ids(self):
+        """Embed IDs only after every model and deterministic post-processor."""
+        if not getattr(self, "enable_translation_ids", False):
+            return None
+        if self.translation_id_registry is None:
+            raise RuntimeError("Translation ID registry was not built before embedding.")
+        result = TranslationIdEmbedder(
+            self.workspace.output_dir,
+            self.translation_id_registry,
+            language=self.target_language,
+            target_course_id=self.target_course_id,
+        ).embed_all()
+        self.translation_id_registry.save(self.translation_id_registry_path)
+        self._log(
+            "[Translation IDs] Local embedding verified: "
+            f"{result['embedded']} inserted, {result['already_present']} already present, "
+            f"{result['skipped']} skipped by design."
+        )
+        return result
+
+    def _translation_id_interaction(self, kind, **payload):
+        if self.translation_id_interaction_callback is None:
+            raise RuntimeError(
+                "Translation ID live work requires an interactive approval callback."
+            )
+        return self.translation_id_interaction_callback({"kind": kind, **payload})
+
+    def _question_bank_login_checkpoint(self, payload):
+        return bool(
+            self._translation_id_interaction(
+                "canvas_login_checkpoint",
+                checkpoint=payload,
+            )
+        )
+
+    def _require_translation_id_live_writes(self):
+        if getattr(self, "translation_id_live_writes_enabled", False):
+            return
+        raise RuntimeError(
+            "Translation ID live writes are disabled until the disposable-course "
+            "staging verification is complete. Set "
+            "TRANSLATION_ID_LIVE_WRITES_ENABLED=true only for that controlled "
+            "verification or after it has been approved for production."
+        )
+
+    def _plan_question_bank_registration(self, course_url, language, mode, stage):
+        expected_banks = [
+            item
+            for item in self.translation_id_registry.items
+            if item.get("item_type") == "Question Bank" and not item.get("retired")
+        ]
+        if not expected_banks:
+            self._log(f"[Translation IDs] {stage}: no Question Banks to register.")
+            return None, {"status": "not_applicable", "changes": []}
+        renamer = CanvasQuestionBankRenamer(
+            self.translation_id_registry,
+            course_url,
+            language,
+            mode,
+            rollback_root=os.path.join(self.hub_dir, "Translation ID Rollbacks"),
+        )
+        live_banks = renamer.discover(self._question_bank_login_checkpoint)
+        plan = renamer.plan(live_banks)
+        return renamer, plan
+
+    def _approve_question_bank_plan(self, plan, stage):
+        if plan.get("status") == "not_applicable":
+            return APPROVAL_PHRASE
+        return self._translation_id_interaction(
+            "question_bank_plan",
+            stage=stage,
+            plan=plan,
+            approval_phrase=APPROVAL_PHRASE,
+        )
+
+    def _apply_question_bank_registration(self, renamer, plan, stage):
+        if renamer is None:
+            return {"status": "not_applicable"}
+        result = renamer.apply(
+            plan,
+            APPROVAL_PHRASE,
+            self._question_bank_login_checkpoint,
+        )
+        self.translation_id_registry.save(self.translation_id_registry_path)
+        self._log(f"[Translation IDs] {stage}: Question Bank writes verified.")
+        return result
+
+    def _request_question_bank_approval(self, plan, stage, mode):
+        approval = self._approve_question_bank_plan(plan, stage)
+        if approval != APPROVAL_PHRASE:
+            if mode == "source-register":
+                raise RuntimeError(
+                    "English Question Bank registration was not approved; translation stopped before link mapping."
+                )
+            self._log(f"[Translation IDs] {stage}: Question Bank changes deferred.")
+            return False
+        return True
+
+    def register_source_canvas_ids(self):
+        """Register and verify English REST objects and Question Banks."""
+        if not getattr(self, "enable_translation_ids", False):
+            return None
+        if not self.source_course_url:
+            raise RuntimeError("English Canvas course URL is required for Translation IDs.")
+        reconciler = CanvasTranslationIdReconciler(
+            self.translation_id_registry,
+            self.source_course_url,
+            "EN",
+            "source-register",
+            rollback_root=os.path.join(self.hub_dir, "Translation ID Rollbacks"),
+        )
+        rest_plan = reconciler.plan()
+        bank_renamer, bank_plan = self._plan_question_bank_registration(
+            self.source_course_url,
+            "EN",
+            "source-register",
+            "English master registration",
+        )
+        self.translation_id_registry.save(self.translation_id_registry_path)
+        rest_approval = self._translation_id_interaction(
+            "rest_plan",
+            stage="English master registration",
+            plan=rest_plan,
+            approval_phrase=APPROVAL_PHRASE,
+        )
+        if rest_approval != APPROVAL_PHRASE:
+            raise RuntimeError(
+                "English master registration was not approved; translation stopped before link mapping."
+            )
+        self._request_question_bank_approval(
+            bank_plan,
+            "English master registration",
+            "source-register",
+        )
+        self._require_translation_id_live_writes()
+        if bank_renamer is not None:
+            bank_renamer.validate_plan_for_apply(bank_plan)
+        rest_result = reconciler.apply(rest_plan, rest_approval)
+        self.translation_id_registry.save(self.translation_id_registry_path)
+        bank_result = self._apply_question_bank_registration(
+            bank_renamer,
+            bank_plan,
+            "English master registration",
+        )
+        return {"rest": rest_result, "question_banks": bank_result}
+
+    def reconcile_target_canvas_ids(self):
+        """Verify/repair the imported target course after the import checkpoint."""
+        if not getattr(self, "enable_translation_ids", False):
+            return None
+        if not self.target_course_url:
+            raise RuntimeError("Target Canvas course URL is required for Translation IDs.")
+        reconciler = CanvasTranslationIdReconciler(
+            self.translation_id_registry,
+            self.target_course_url,
+            self.target_language,
+            "target-reconcile",
+            rollback_root=os.path.join(self.hub_dir, "Translation ID Rollbacks"),
+        )
+        rest_plan = reconciler.plan()
+        bank_renamer, bank_plan = self._plan_question_bank_registration(
+            self.target_course_url,
+            self.target_language,
+            "target-reconcile",
+            f"{self.target_language} target reconciliation",
+        )
+        self.translation_id_registry.save(self.translation_id_registry_path)
+        rest_approval = self._translation_id_interaction(
+            "rest_plan",
+            stage=f"{self.target_language} target reconciliation",
+            plan=rest_plan,
+            approval_phrase=APPROVAL_PHRASE,
+        )
+        if rest_approval != APPROVAL_PHRASE:
+            self._log("[Translation IDs] Target REST changes deferred by the user.")
+            return {"status": "deferred", "rest_plan": rest_plan, "question_bank_plan": bank_plan}
+        if not self._request_question_bank_approval(
+            bank_plan,
+            f"{self.target_language} target reconciliation",
+            "target-reconcile",
+        ):
+            return {"status": "deferred", "rest_plan": rest_plan, "question_bank_plan": bank_plan}
+        self._require_translation_id_live_writes()
+        if bank_renamer is not None:
+            bank_renamer.validate_plan_for_apply(bank_plan)
+        rest_result = reconciler.apply(rest_plan, rest_approval)
+        self.translation_id_registry.save(self.translation_id_registry_path)
+        bank_result = self._apply_question_bank_registration(
+            bank_renamer,
+            bank_plan,
+            f"{self.target_language} target reconciliation",
+        )
+        return {"rest": rest_result, "question_banks": bank_result}
 
     def _clear_logs(self):
         log_files = ["translation_log.txt"]
@@ -378,6 +658,9 @@ class TranslationController:
         self._prepare_attention_messaging_package()
         self._prepare_w07_template_assignment()
 
+        self.build_translation_id_registry()
+        self.register_source_canvas_ids()
+
         self.filepaths = self.workspace.collect_files(self._log)
         self.link_processor.filepaths = self.filepaths
         self.link_processor.pre_process_links(self._log)
@@ -395,6 +678,7 @@ class TranslationController:
             )
         self._preserve_question_bank_titles()
         self._enforce_w07_template_references()
+        self.embed_translation_ids()
         self.workspace.compress_to_imscc(self._log)
         
 
@@ -1557,13 +1841,16 @@ class TranslationController:
                     "Missing Alt Texts",
                 )
         generator = DashboardGenerator(self.log_filepath, self.hub_dir, self.target_language)
-        return generator.generate(
-            self._log,
-            report_name=report_name,
-            report_code=report_code,
-            review_pages=review_pages,
-            excluded_sheets=excluded_sheets,
-        )
+        generate_kwargs = {
+            "report_name": report_name,
+            "report_code": report_code,
+            "review_pages": review_pages,
+            "excluded_sheets": excluded_sheets,
+        }
+        translation_id_registry = getattr(self, "translation_id_registry", None)
+        if translation_id_registry is not None:
+            generate_kwargs["translation_id_registry"] = translation_id_registry
+        return generator.generate(self._log, **generate_kwargs)
 
     def present_checklist(self):
         print("\n" + "="*60)

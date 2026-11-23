@@ -17,6 +17,8 @@ class WorkspaceManager:
         self.output_dir = None
         self.filepaths = []
         self.canvas_url = None
+        self.course_name = None
+        self.course_code = None
         self.source_course_id = None
         self.source_course_id_source = None
         self.source_course_id_candidates = []
@@ -209,6 +211,8 @@ class WorkspaceManager:
             )
 
         _log_func(f"[System] CourseInfo: {course_name}|{course_code}")
+        self.course_name = course_name
+        self.course_code = course_code
         if self.canvas_url:
             _log_func(f"[System] Canvas URL: {self.canvas_url}")
         if self.source_course_id:

@@ -16,6 +16,69 @@ from core.dashboard_generator import DashboardGenerator
 
 
 class DashboardGeneratorReviewSheetTests(unittest.TestCase):
+    def test_translation_ids_sheet_has_one_row_per_id_and_grouped_languages(self):
+        hub_dir = Path.cwd() / "tests" / f"_dashboard_test_{uuid.uuid4().hex}"
+        hub_dir.mkdir(parents=True)
+        try:
+            log_path = hub_dir / "translation_log.txt"
+            log_path.write_text(
+                "\n".join([
+                    "--- New Session (Target: PTBR) ---",
+                    "[2026-11-23 10:00:00] [System] CourseInfo: Demo Course|GS170",
+                ]),
+                encoding="utf-8",
+            )
+            instances = {
+                language: {
+                    "course_id": "123" if language == "EN" else None,
+                    "content_id": None,
+                    "module_item_id": None,
+                    "title": "Teaching Notes" if language == "EN" else None,
+                    "url": "https://canvas.test/courses/123/pages/teaching-notes" if language == "EN" else None,
+                    "presence": "present" if language == "EN" else "not_translated",
+                    "id_status": "verified" if language == "EN" else "not_checked",
+                }
+                for language in ("EN", "PTBR", "SPA", "FRA")
+            }
+            registry = {
+                "schema_version": 2,
+                "course_code": "GS170",
+                "source_course_id": "123",
+                "languages": ["EN", "PTBR", "SPA", "FRA"],
+                "items": [{
+                    "translation_id": "GS170-PG-001",
+                    "short_id": "PG-001",
+                    "item_type": "Page",
+                    "source_title": "Teaching Notes",
+                    "stable_key": "manifest:page-1",
+                    "package_paths": ["wiki_content/teaching-notes.html"],
+                    "placement": "html_body_end",
+                    "local_embed_status": "Inserted",
+                    "instances": instances,
+                }],
+            }
+
+            report_path = DashboardGenerator(
+                str(log_path), str(hub_dir), "PTBR"
+            ).generate(
+                lambda _message: None,
+                translation_id_registry=registry,
+            )
+
+            workbook = load_workbook(report_path)
+            self.assertIn("Translation IDs", workbook.sheetnames)
+            sheet = workbook["Translation IDs"]
+            self.assertEqual(sheet.max_row, 3)
+            self.assertEqual(sheet["A3"].value, "GS170-PG-001")
+            self.assertEqual(sheet["F1"].value, "EN")
+            self.assertEqual(sheet["J1"].value, "PTBR")
+            self.assertEqual(sheet["N1"].value, "SPA")
+            self.assertEqual(sheet["R1"].value, "FRA")
+            self.assertEqual(sheet["V3"].value, "Complete")
+            self.assertEqual(sheet["D3"].value, "wiki_content/teaching-notes.html")
+        finally:
+            shutil.rmtree(hub_dir, ignore_errors=True)
+
     def test_office_documents_sheet_reports_final_outcome_for_every_file(self):
         hub_dir = Path.cwd() / "tests" / f"_dashboard_test_{uuid.uuid4().hex}"
         hub_dir.mkdir(parents=True)

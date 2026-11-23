@@ -40,6 +40,8 @@ Courses to Translate/
 /Excel Files/
 /Word and Excel Translations/
 Reports/
+/Translation ID Registries/
+/Translation ID Rollbacks/
 
 # Excel temp files
 ~$*.xlsx
@@ -47,3 +49,6 @@ Courses to Audit/
 
 # Per-run GitHub clones and translated working trees
 github_workspace/
+
+# Side quests
+SideQuests/

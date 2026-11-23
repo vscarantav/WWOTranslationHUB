@@ -59,6 +59,16 @@ class ArchitectureRuntimeTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "Required translation prompts"):
             controller._apply_custom_prompts()
 
+    def test_translation_id_live_write_gate_is_disabled_by_default(self):
+        controller = TranslationController.__new__(TranslationController)
+        with self.assertRaisesRegex(RuntimeError, "staging verification"):
+            controller._require_translation_id_live_writes()
+
+    def test_translation_id_live_write_gate_can_be_explicitly_enabled(self):
+        controller = TranslationController.__new__(TranslationController)
+        controller.translation_id_live_writes_enabled = True
+        self.assertIsNone(controller._require_translation_id_live_writes())
+
     def test_recovery_understands_windows_output_path_and_language(self):
         name, language = _infer_translation_context(
             r"C:\hub\Courses to Translate\course_one_SPA\quiz\assessment_qti.xml"

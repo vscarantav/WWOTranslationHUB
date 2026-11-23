@@ -113,6 +113,36 @@ This pipeline handles Canvas Course Cartridges (`.imscc`). It features pre-trans
 
 For the URL-level decisions, persistence behavior, and reporting outcomes, open the focused [IMSCC Link Mapping Flow](./IMSCC_Link_Mapping_Flow.html) Mermaid.js visual.
 
+### Translation ID lifecycle for new translations
+
+When `Enable Translation IDs` is selected, the following lifecycle wraps the ordinary IMSCC flow. Production writes remain disabled by default until a disposable-course staging run succeeds; the controlled staging run uses `TRANSLATION_ID_LIVE_WRITES_ENABLED=true`. Every write still requires the exact phrase `APPLY TRANSLATION ID CHANGES` after the dry-run is reviewed.
+
+```mermaid
+flowchart TD
+    SOURCE["Untouched English IMSCC"] --> SPECIAL["Prepare deterministic special content"]
+    SPECIAL --> INVENTORY["Inventory all logical Canvas items"]
+    INVENTORY --> REGISTRY["Create or reconcile shared EN/PTBR/SPA/FRA registry"]
+    REGISTRY --> ENREST["English Canvas REST dry-run"]
+    ENREST --> ENQB["English Classic Question Bank browser dry-run"]
+    ENQB --> ENAPPROVE{"Approved and live-write gate enabled?"}
+    ENAPPROVE -- "No" --> STOP["Stop before link mapping"]
+    ENAPPROVE -- "Yes" --> ENVERIFY["Write sequentially and read-after-write verify"]
+    ENVERIFY --> LINKS["Link mapping"]
+    LINKS --> GEMINI["Gemini translation without visible IDs"]
+    GEMINI --> POST["Deterministic post-processing"]
+    POST --> EMBED["Embed and validate IDs in local package"]
+    EMBED --> PACKAGE["Create translated IMSCC"]
+    PACKAGE --> IMPORT["User imports package and confirms completion"]
+    IMPORT --> TARGETREST["Target Canvas REST verify/repair dry-run"]
+    TARGETREST --> TARGETQB["Target Question Bank browser dry-run"]
+    TARGETQB --> TARGETAPPROVE{"Approve target changes?"}
+    TARGETAPPROVE -- "No" --> AUDIT["Record deferred evidence in audit"]
+    TARGETAPPROVE -- "Yes" --> TARGETVERIFY["Write sequentially and verify"]
+    TARGETVERIFY --> AUDIT["One row per ID with language evidence"]
+```
+
+The canonical visible marker is `TranslationID: COURSE-TYPE-000`. Canvas file display names use `Original Name [COURSE-FI-000].ext`; the extension is preserved and file bytes are not replaced. Registries and rollback artifacts are stored outside the IMSCC in ignored runtime directories.
+
 ```mermaid
 flowchart TD
     START(["User clicks 'Select Course & Translate'"]) --> Q_CSE{"Is this a CSE course?"}

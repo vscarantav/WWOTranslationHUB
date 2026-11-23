@@ -20,6 +20,10 @@ from controller import TranslationController
 from course_auditor import CourseAuditor
 from core.hub_updater import HubUpdateError, HubUpdater, restart_hub
 from core.language_config import language_config
+from core.translation_id_registry import (
+    TranslationIdRegistryError,
+    normalize_course_code,
+)
 
 
 REQUIRED_ENV_VARIABLES = (
@@ -528,6 +532,13 @@ class CourseTranslationHubUI:
         ttk.Radiobutton(self.trans_frame, text="Portuguese (PTBR)", variable=self.lang_var, value="PTBR").pack(side="left", padx=10)
         ttk.Radiobutton(self.trans_frame, text="Spanish (SPA)", variable=self.lang_var, value="SPA").pack(side="left", padx=10)
         ttk.Radiobutton(self.trans_frame, text="French (FRA)", variable=self.lang_var, value="FRA").pack(side="left", padx=10)
+
+        self.translation_ids_var = tk.BooleanVar(value=True)
+        ttk.Checkbutton(
+            self.trans_frame,
+            text="Enable Translation IDs",
+            variable=self.translation_ids_var,
+        ).pack(side="left", padx=10)
         
         self.trans_btn = ttk.Button(self.trans_frame, text="Select Course & Translate", command=self.run_translation)
         self.trans_btn.pack(side="right", padx=10)
@@ -1439,6 +1450,146 @@ class CourseTranslationHubUI:
                 parent=self.root,
             )
 
+    def _request_translation_id_interaction(self, payload):
+        """Marshal controller approvals/login checkpoints onto Tk's main thread."""
+        result_queue = queue.Queue(maxsize=1)
+
+        def resolve(value):
+            if result_queue.empty():
+                result_queue.put(value)
+
+        def show_login_checkpoint():
+            checkpoint = payload.get("checkpoint", {})
+            proceed = messagebox.askokcancel(
+                "Canvas Login Checkpoint",
+                checkpoint.get("details", "Complete Canvas/SSO login in the visible browser.")
+                + "\n\nClick OK only after the Question Banks page is visible.",
+                parent=self.root,
+            )
+            resolve(proceed)
+
+        def show_plan_dialog():
+            plan = payload.get("plan", {})
+            stage = payload.get("stage", "Translation ID changes")
+            kind = payload.get("kind")
+            dialog = tk.Toplevel(self.root)
+            dialog.title(stage)
+            dialog.geometry("1180x650")
+            dialog.minsize(900, 500)
+            dialog.transient(self.root)
+
+            container = ttk.Frame(dialog, padding=12)
+            container.pack(fill="both", expand=True)
+            ttk.Label(
+                container,
+                text=stage,
+                font=("Helvetica", 14, "bold"),
+            ).pack(anchor="w")
+            summary = ", ".join(
+                f"{status}: {count}"
+                for status, count in sorted(plan.get("summary", {}).items())
+            ) or "No changes"
+            ttk.Label(
+                container,
+                text=(
+                    f"Dry-run only — {summary}. Review every row before approving. "
+                    "Approval applies only Missing REST markers or proposed Question Bank renames."
+                ),
+                wraplength=1120,
+                justify="left",
+            ).pack(anchor="w", pady=(4, 10))
+
+            if kind == "question_bank_plan":
+                columns = ("id", "status", "old", "new", "detail")
+                headings = {
+                    "id": "Translation ID",
+                    "status": "Status",
+                    "old": "Current Name",
+                    "new": "Proposed Name",
+                    "detail": "Detail",
+                }
+                rows = [
+                    (
+                        change.get("translation_id", ""),
+                        change.get("status", ""),
+                        change.get("old_name", ""),
+                        change.get("new_name", ""),
+                        change.get("detail", ""),
+                    )
+                    for change in plan.get("changes", [])
+                ]
+            else:
+                columns = ("id", "type", "status", "current", "proposed", "detail")
+                headings = {
+                    "id": "Translation ID",
+                    "type": "Canvas Type",
+                    "status": "Status",
+                    "current": "Current Value",
+                    "proposed": "Proposed Value",
+                    "detail": "Detail",
+                }
+                rows = [
+                    (
+                        change.get("translation_id", ""),
+                        change.get("item_type", ""),
+                        change.get("status", ""),
+                        change.get("original_value", ""),
+                        change.get("proposed_value", ""),
+                        change.get("detail", ""),
+                    )
+                    for change in plan.get("changes", [])
+                ]
+
+            tree_frame = ttk.Frame(container)
+            tree_frame.pack(fill="both", expand=True)
+            tree = ttk.Treeview(tree_frame, columns=columns, show="headings")
+            y_scroll = ttk.Scrollbar(tree_frame, orient="vertical", command=tree.yview)
+            x_scroll = ttk.Scrollbar(tree_frame, orient="horizontal", command=tree.xview)
+            tree.configure(yscrollcommand=y_scroll.set, xscrollcommand=x_scroll.set)
+            tree.grid(row=0, column=0, sticky="nsew")
+            y_scroll.grid(row=0, column=1, sticky="ns")
+            x_scroll.grid(row=1, column=0, sticky="ew")
+            tree_frame.rowconfigure(0, weight=1)
+            tree_frame.columnconfigure(0, weight=1)
+            for column in columns:
+                tree.heading(column, text=headings[column])
+                tree.column(
+                    column,
+                    width=150 if column in {"id", "type", "status"} else 300,
+                    minwidth=100,
+                    stretch=True,
+                )
+            for row in rows:
+                tree.insert("", "end", values=row)
+
+            footer = ttk.Frame(container)
+            footer.pack(fill="x", pady=(10, 0))
+
+            def finish(value):
+                resolve(value)
+                dialog.destroy()
+
+            ttk.Button(
+                footer,
+                text="Stop / Defer",
+                command=lambda: finish(None),
+            ).pack(side="right")
+            ttk.Button(
+                footer,
+                text="Approve Exact Proposed Changes",
+                command=lambda: finish(payload.get("approval_phrase")),
+            ).pack(side="right", padx=(0, 8))
+            dialog.protocol("WM_DELETE_WINDOW", lambda: finish(None))
+
+        def show():
+            if payload.get("kind") == "canvas_login_checkpoint":
+                show_login_checkpoint()
+            else:
+                show_plan_dialog()
+
+        self.root.after(0, show)
+        return result_queue.get()
+
     def run_translation(self):
         is_cse_course = messagebox.askyesno(
             "CSE Course",
@@ -1505,6 +1656,7 @@ class CourseTranslationHubUI:
         self.disable_buttons()
         
         course_configs = {}
+        enable_translation_ids = self.translation_ids_var.get()
         for p in imscc_paths:
             print(f"Preparing {os.path.basename(p)} for translation...")
             temp_workspace = WorkspaceManager(lang, self.hub_dir, imscc_path=p)
@@ -1513,6 +1665,41 @@ class CourseTranslationHubUI:
             temp_workspace.extract_course_info(lambda x: None)
             
             source_course_id = getattr(temp_workspace, 'source_course_id', None)
+
+            translation_id_course_code = None
+            if enable_translation_ids:
+                suggested_course_code = re.sub(
+                    r"[\s_-]+",
+                    "",
+                    str(getattr(temp_workspace, 'course_code', '') or '').upper(),
+                )
+                while True:
+                    entered_course_code = simpledialog.askstring(
+                        "Translation ID Course Code",
+                        "Confirm the permanent Translation ID course code.\n\n"
+                        "Use uppercase letters and numbers only (for example, GS170).",
+                        initialvalue=suggested_course_code,
+                        parent=self.root,
+                    )
+                    if entered_course_code is None:
+                        messagebox.showerror(
+                            "Cancelled",
+                            "Translation cancelled. A course code is required when Translation IDs are enabled.",
+                            parent=self.root,
+                        )
+                        self.enable_buttons()
+                        return
+                    try:
+                        translation_id_course_code = normalize_course_code(
+                            entered_course_code
+                        )
+                        break
+                    except TranslationIdRegistryError as error:
+                        messagebox.showerror(
+                            "Invalid Course Code",
+                            str(error),
+                            parent=self.root,
+                        )
 
             while True:
                 en_url = simpledialog.askstring(
@@ -1555,6 +1742,7 @@ class CourseTranslationHubUI:
                         continue
 
                 source_course_id = entered_source_id
+                source_domain = urlparse(en_url.strip()).netloc
                 break
 
             has_groups = check_course_has_groups(source_course_id)
@@ -1562,11 +1750,16 @@ class CourseTranslationHubUI:
             config = {
                 'has_groups': has_groups,
                 'source_id': source_course_id,
+                'source_domain': source_domain,
+                'source_url': en_url.strip(),
                 'target_id': None,
-                'target_domain': None
+                'target_domain': None,
+                'target_url': None,
+                'enable_translation_ids': enable_translation_ids,
+                'translation_id_course_code': translation_id_course_code,
             }
 
-            if has_groups:
+            if has_groups or enable_translation_ids:
                 while True:
                     course_url = simpledialog.askstring(
                         f"{target_master_label} Master URL Required",
@@ -1582,6 +1775,7 @@ class CourseTranslationHubUI:
                     if match:
                         config['target_domain'] = match.group(1)
                         config['target_id'] = match.group(2)
+                        config['target_url'] = course_url.strip()
                         break
                     else:
                         messagebox.showerror("Invalid URL", "You must provide a full Canvas course URL containing '/courses/<id>'.\nExample: https://byui.instructure.com/courses/12345")
@@ -1696,9 +1890,14 @@ class CourseTranslationHubUI:
                         target_course_id=conf['target_id'],
                         is_cse_course=is_cse_course,
                         course_glossary_path=course_glossary_path,
+                        enable_translation_ids=conf['enable_translation_ids'],
+                        translation_id_course_code=conf['translation_id_course_code'],
+                        source_course_id=conf['source_id'],
+                        source_course_url=conf['source_url'],
+                        target_course_url=conf['target_url'],
+                        translation_id_interaction_callback=self._request_translation_id_interaction,
                     )
                     controller.process_directory()
-                    controller.update_excel_dashboard()
 
                     # Show a non-blocking recovery notice if any XML/QTI file could not be auto-translated.
                     # The run continues; the IMSCC and the report are already generated with the English placeholder.
@@ -1710,22 +1909,31 @@ class CourseTranslationHubUI:
                             )
                         _show_manual_review_dialog(controller.manual_review_failures)
 
-                    if conf['has_groups'] and conf['target_id']:
+                    if (conf['enable_translation_ids'] or conf['has_groups']) and conf['target_id']:
                         def wait_for_import():
                             result_queue = queue.Queue()
                             def show_msg():
-                                res = messagebox.showinfo(
-                                    "Manual Import Required",
-                                    f"Please import the translated .imscc file into Canvas for {os.path.basename(imscc_path)}.\n\nClick OK once the import is 100% complete so we can migrate the groups.",
+                                res = messagebox.askokcancel(
+                                    "Continue After Canvas Import",
+                                    f"Please import the translated .imscc file into Canvas for {os.path.basename(imscc_path)}.\n\n"
+                                    "Click OK only after Canvas reports the import is 100% complete. "
+                                    "Cancel defers target reconciliation and group migration.",
                                     parent=self.root
                                 )
                                 result_queue.put(res)
                             self.root.after(0, show_msg)
                             return result_queue.get()
 
-                        wait_for_import()
-                        print(f"\n[Hub] Running Group Migration for {os.path.basename(imscc_path)}...")
-                        run_migration(conf['source_id'], conf['target_id'], lang, print, conf['target_domain'])
+                        import_ready = wait_for_import()
+                        if import_ready and conf['enable_translation_ids']:
+                            controller.reconcile_target_canvas_ids()
+                        if import_ready and conf['has_groups']:
+                            print(f"\n[Hub] Running Group Migration for {os.path.basename(imscc_path)}...")
+                            run_migration(conf['source_id'], conf['target_id'], lang, print, conf['target_domain'])
+                        if not import_ready:
+                            print("[Translation IDs] Target reconciliation deferred until Canvas import is complete.")
+
+                    controller.update_excel_dashboard()
 
                 self.progress['value'] = 100
                 print("\n=== All Translations Completed Successfully! ===")

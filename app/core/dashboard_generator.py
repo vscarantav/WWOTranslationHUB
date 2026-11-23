@@ -86,6 +86,7 @@ class DashboardGenerator:
         report_code=None,
         review_pages=None,
         excluded_sheets=None,
+        translation_id_registry=None,
     ):
         msg = "Generating Excel Analytics Dashboard..."
         print(f"\n[DashboardGenerator] {msg}")
@@ -708,6 +709,116 @@ class DashboardGenerator:
                 
                 alt_sheet.write(r_idx, 3, "FIX EN Course", warning_fmt)
                 r_idx += 1
+
+        if translation_id_registry is not None:
+            registry_data = (
+                translation_id_registry.to_dict()
+                if hasattr(translation_id_registry, "to_dict")
+                else dict(translation_id_registry)
+            )
+            id_sheet = workbook.add_worksheet('Translation IDs')
+            id_sheet.freeze_panes(2, 5)
+            id_sheet.autofilter(1, 0, max(1, len(registry_data.get('items', [])) + 1), 23)
+            id_sheet.set_column('A:A', 24)
+            id_sheet.set_column('B:B', 20)
+            id_sheet.set_column('C:C', 38)
+            id_sheet.set_column('D:D', 60)
+            id_sheet.set_column('E:E', 20)
+            id_sheet.set_column('F:U', 24)
+            id_sheet.set_column('V:V', 20)
+            id_sheet.set_column('W:W', 34)
+            id_sheet.set_column('X:X', 55)
+
+            static_headers = (
+                'Translation ID',
+                'Canvas Item Type',
+                'Canonical English Title',
+                'Package Paths',
+                'Local Embed Status',
+            )
+            for column, value in enumerate(static_headers):
+                id_sheet.merge_range(0, column, 1, column, value, header_fmt)
+
+            language_columns = {'EN': 5, 'PTBR': 9, 'SPA': 13, 'FRA': 17}
+            evidence_headers = ('Title', 'URL', 'Present', 'ID Status')
+            for language, start_column in language_columns.items():
+                id_sheet.merge_range(
+                    0,
+                    start_column,
+                    0,
+                    start_column + 3,
+                    language,
+                    header_fmt,
+                )
+                for offset, value in enumerate(evidence_headers):
+                    id_sheet.write(1, start_column + offset, value, header_fmt)
+
+            trailing_headers = (
+                'Overall Audit Status',
+                'Original Value Backup',
+                'Detail',
+            )
+            for offset, value in enumerate(trailing_headers, 21):
+                id_sheet.merge_range(0, offset, 1, offset, value, header_fmt)
+
+            def overall_status(item):
+                instances = item.get('instances', {})
+                statuses = [
+                    str(instance.get('id_status', '')).casefold()
+                    for instance in instances.values()
+                ]
+                presences = [
+                    str(instance.get('presence', '')).casefold()
+                    for instance in instances.values()
+                ]
+                if item.get('retired') or 'unmatched' in statuses:
+                    return 'Unmatched'
+                if any('conflict' in status for status in statuses):
+                    return 'ID Conflict'
+                if 'missing' in presences:
+                    return 'Missing Language'
+                produced = [
+                    instance
+                    for instance in instances.values()
+                    if instance.get('presence') not in {'not_translated', 'not_checked'}
+                ]
+                if produced and all(
+                    str(instance.get('id_status', '')).casefold()
+                    in {'verified', 'correct', 'skipped'}
+                    for instance in produced
+                ):
+                    return 'Complete'
+                return 'Not Yet Translated'
+
+            for row_index, item in enumerate(registry_data.get('items', []), 2):
+                placement = item.get('placement', '')
+                embed_status = item.get('local_embed_status') or (
+                    'Skipped by design'
+                    if placement in {'registry_only', 'module_meta_audit', 'module_item_audit', 'canvas_display_filename'}
+                    else 'Pending'
+                )
+                row_values = [
+                    item.get('translation_id', ''),
+                    item.get('item_type', ''),
+                    item.get('source_title', ''),
+                    '\n'.join(item.get('package_paths', [])),
+                    embed_status,
+                ]
+                for language in ('EN', 'PTBR', 'SPA', 'FRA'):
+                    instance = item.get('instances', {}).get(language, {})
+                    row_values.extend((
+                        instance.get('title') or '',
+                        instance.get('url') or '',
+                        instance.get('presence') or '',
+                        instance.get('id_status') or '',
+                    ))
+                row_values.extend((
+                    overall_status(item),
+                    item.get('original_value_backup') or item.get('rollback_artifact') or '',
+                    item.get('detail') or '',
+                ))
+                for column, value in enumerate(row_values):
+                    id_sheet.write(row_index, column, value, cell_fmt)
 
         workbook.close()
 
