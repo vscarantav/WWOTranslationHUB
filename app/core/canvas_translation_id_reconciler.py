@@ -55,12 +55,34 @@ def parse_canvas_course_url(course_url: str) -> Dict[str, str]:
     }
 
 
-def append_visible_marker(content: str, translation_id: str) -> str:
+def trusted_canvas_domain_aliases(first_domain: str, second_domain: str) -> bool:
+    """Return whether two distinct hosts are Canvas-managed Instructure aliases."""
+    domains = {
+        str(first_domain or "").strip().casefold().rstrip("."),
+        str(second_domain or "").strip().casefold().rstrip("."),
+    }
+    return len(domains) == 2 and all(
+        domain.endswith(".instructure.com") for domain in domains
+    )
+
+
+def append_visible_marker(
+    content: str,
+    translation_id: str,
+    retired_ids: Optional[Iterable[str]] = None,
+) -> str:
     """Append one plain marker paragraph while preserving existing markup."""
     content = str(content or "")
     markers = {marker.upper() for marker in VISIBLE_MARKER_RE.findall(content)}
-    if markers == {translation_id}:
+    if markers == {translation_id.upper()}:
         return content
+    if retired_ids:
+        retired_set = {str(r).upper() for r in retired_ids}
+        if markers and markers.issubset(retired_set):
+            for ret_id in markers:
+                pattern = rf"\s*<p>TranslationID:\s*{re.escape(ret_id)}</p>\s*"
+                content = re.sub(pattern, "", content, flags=re.IGNORECASE)
+            markers = set()
     if markers:
         raise CanvasTranslationIdError(
             f"Content already contains a different Translation ID: {', '.join(sorted(markers))}."
@@ -68,16 +90,45 @@ def append_visible_marker(content: str, translation_id: str) -> str:
     marker_html = f"<p>TranslationID: {translation_id}</p>"
     if "</body" in content.casefold():
         match = re.search(r"</body\s*>", content, re.IGNORECASE)
-        return content[: match.start()] + marker_html + content[match.start() :]
+        prefix = content[: match.start()]
+        suffix = content[match.start() :]
+        script_match = re.search(
+            r"(\s*(?:<script\b[^>]*>.*?</script>\s*)+)$", prefix, re.IGNORECASE | re.DOTALL
+        )
+        if script_match:
+            return prefix[: script_match.start(1)] + marker_html + script_match.group(1) + suffix
+        return prefix + marker_html + suffix
+    script_match = re.search(
+        r"(\s*(?:<script\b[^>]*>.*?</script>\s*)+)$", content, re.IGNORECASE | re.DOTALL
+    )
+    if script_match:
+        return (
+            content[: script_match.start(1)]
+            + marker_html
+            + script_match.group(1)
+        )
     return content + marker_html
 
 
-def format_canvas_filename(filename: str, translation_id: str) -> str:
+def format_canvas_filename(
+    filename: str,
+    translation_id: str,
+    retired_ids: Optional[Iterable[str]] = None,
+) -> str:
     """Insert the confirmed bracketed ID before the final extension."""
     filename = str(filename or "")
     markers = {marker.upper() for marker in FILENAME_MARKER_RE.findall(filename)}
-    if markers == {translation_id}:
+    if markers == {translation_id.upper()}:
         return filename
+    if retired_ids:
+        retired_set = {str(r).upper() for r in retired_ids}
+        if markers and markers.issubset(retired_set):
+            cleaned = FILENAME_MARKER_RE.sub("", filename)
+            stem, extension = os.path.splitext(cleaned)
+            stem = stem.strip()
+            if not stem:
+                raise CanvasTranslationIdError("Canvas file display name is empty.")
+            return f"{stem} [{translation_id}]{extension}"
     if markers:
         raise CanvasTranslationIdError(
             f"File name already contains a different Translation ID: {', '.join(sorted(markers))}."
@@ -130,11 +181,23 @@ class CanvasTranslationIdReconciler:
         if not configured_api:
             raise CanvasTranslationIdError("CANVAS_API_URL is required for Canvas verification.")
         api_origin = urlparse(configured_api)
-        if not api_origin.netloc or api_origin.netloc.casefold() != self.course["domain"]:
-            raise CanvasTranslationIdError(
-                "The selected Canvas course domain does not match CANVAS_API_URL."
+        configured_domain = api_origin.netloc.casefold()
+        if not configured_domain:
+            raise CanvasTranslationIdError("CANVAS_API_URL must contain a valid host.")
+        if (
+            configured_domain != self.course["domain"]
+            and not trusted_canvas_domain_aliases(
+                configured_domain,
+                self.course["domain"],
             )
-        self.api_origin = f"{api_origin.scheme or 'https'}://{api_origin.netloc}"
+        ):
+            raise CanvasTranslationIdError(
+                "The selected Canvas course domain does not match CANVAS_API_URL and "
+                "the hosts are not trusted Instructure aliases."
+            )
+        # The explicit, user-reviewed course URL is authoritative. Canvas aliases
+        # can expose different course inventories even when the same token works.
+        self.api_origin = self.course["origin"]
         self.request_func = request_func or requests.request
         self.rollback_root = Path(
             rollback_root or Path.cwd() / "Translation ID Rollbacks"
@@ -178,9 +241,7 @@ class CanvasTranslationIdReconciler:
                 f"/api/v1/courses/{self.course['course_id']}/pages",
                 params={"include[]": "body"},
             ),
-            "Assignment": self._get_all(
-                f"/api/v1/courses/{self.course['course_id']}/assignments"
-            ),
+            "Assignment": [],
             "Quiz": self._get_all(f"/api/v1/courses/{self.course['course_id']}/quizzes"),
             "Discussion": self._get_all(
                 f"/api/v1/courses/{self.course['course_id']}/discussion_topics",
@@ -193,6 +254,27 @@ class CanvasTranslationIdReconciler:
             "File": self._get_all(f"/api/v1/courses/{self.course['course_id']}/files"),
             "Module": self._discover_modules(),
         }
+        inventory["Assignment"] = self._get_all(
+            f"/api/v1/courses/{self.course['course_id']}/assignments"
+        )
+        known_discussion_ids = {
+            str(topic.get("id"))
+            for topic in inventory["Discussion"]
+            if topic.get("id") is not None
+        }
+        for assignment in inventory["Assignment"]:
+            topic = assignment.get("discussion_topic")
+            if not isinstance(topic, Mapping) or topic.get("id") is None:
+                continue
+            topic_id = str(topic["id"])
+            if topic_id in known_discussion_ids:
+                continue
+            discussion = deepcopy(dict(topic))
+            discussion.setdefault("title", assignment.get("name"))
+            discussion.setdefault("html_url", assignment.get("html_url"))
+            discussion["assignment_id"] = assignment.get("id")
+            inventory["Discussion"].append(discussion)
+            known_discussion_ids.add(topic_id)
         self._last_inventory = inventory
         return deepcopy(inventory)
 
@@ -202,7 +284,7 @@ class CanvasTranslationIdReconciler:
         plans = []
         for item in self.registry.items:
             if item.get("retired"):
-                plans.append(self._unsupported_plan(item, "Unmatched", "Registry item is retired."))
+                plans.append(self._unsupported_plan(item, "Retired", "Registry item is retired."))
                 continue
             if self.mode == "source-register" and item.get("source_present") is False:
                 plans.append(
@@ -298,7 +380,13 @@ class CanvasTranslationIdReconciler:
             verified = self._request_json("GET", change["verify_endpoint"], **verify_kwargs)
             verified_value = self._live_value(change["item_type"], verified)
             expected_value = change["proposed_value"]
-            if verified_value != expected_value:
+            if not self._is_verified_value(
+                change["item_type"],
+                change["translation_id"],
+                verified_value,
+                expected_value,
+                change.get("original_value", ""),
+            ):
                 self._write_json(
                     rollback_dir / "failed-verification.json",
                     {
@@ -357,19 +445,76 @@ class CanvasTranslationIdReconciler:
         )
         verified = self._request_json("GET", change["verify_endpoint"], **verify_kwargs)
         actual = self._live_value(change["item_type"], verified)
-        if actual != change["original_value"]:
+        if not self._is_restoration_verified(
+            change["item_type"],
+            change["translation_id"],
+            actual,
+            change["original_value"],
+        ):
             raise CanvasTranslationIdError(
                 f"Canvas did not verify restoration for {change['translation_id']}."
             )
         return verified
 
+    @classmethod
+    def _is_verified_value(
+        cls,
+        item_type: str,
+        translation_id: str,
+        verified_value: str,
+        expected_value: str,
+        original_value: str = "",
+    ) -> bool:
+        if verified_value == expected_value:
+            return True
+        if item_type == "File":
+            return False
+        markers = {marker.upper() for marker in VISIBLE_MARKER_RE.findall(verified_value)}
+        if markers != {translation_id.upper()}:
+            return False
+        marker_pattern = rf"\s*<p>TranslationID:\s*{re.escape(translation_id)}</p>\s*"
+        stripped_verified = re.sub(marker_pattern, "", verified_value, flags=re.IGNORECASE).strip()
+        stripped_expected = re.sub(marker_pattern, "", expected_value, flags=re.IGNORECASE).strip()
+        stripped_original = re.sub(marker_pattern, "", original_value, flags=re.IGNORECASE).strip()
+        return (
+            stripped_verified == stripped_expected
+            or stripped_verified == stripped_original
+        )
+
+    @classmethod
+    def _is_restoration_verified(
+        cls,
+        item_type: str,
+        translation_id: str,
+        actual_value: str,
+        original_value: str,
+    ) -> bool:
+        if actual_value == original_value:
+            return True
+        if item_type == "File":
+            return False
+        markers = {marker.upper() for marker in VISIBLE_MARKER_RE.findall(actual_value)}
+        if translation_id.upper() in markers:
+            return False
+        marker_pattern = rf"\s*<p>TranslationID:\s*{re.escape(translation_id)}</p>\s*"
+        stripped_actual = re.sub(marker_pattern, "", actual_value, flags=re.IGNORECASE).strip()
+        stripped_original = re.sub(marker_pattern, "", original_value, flags=re.IGNORECASE).strip()
+        return stripped_actual == stripped_original
+
     def _classify_live_item(self, item, live, inventory):
         item_type = item["item_type"]
         translation_id = item["translation_id"]
         original = self._live_value(item_type, live)
+        retired_ids = {
+            entry["translation_id"].upper()
+            for entry in self.registry.items
+            if entry.get("retired")
+        }
         if item_type == "File":
             markers = {value.upper() for value in FILENAME_MARKER_RE.findall(original)}
-            proposed = format_canvas_filename(original, translation_id)
+            proposed = format_canvas_filename(
+                original, translation_id, retired_ids=retired_ids
+            )
             folder_id = live.get("folder_id")
             collisions = [
                 other
@@ -385,11 +530,13 @@ class CanvasTranslationIdReconciler:
                 )
         else:
             markers = {value.upper() for value in VISIBLE_MARKER_RE.findall(original)}
-            proposed = append_visible_marker(original, translation_id)
+            proposed = append_visible_marker(
+                original, translation_id, retired_ids=retired_ids
+            )
 
-        if markers == {translation_id}:
+        if markers == {translation_id.upper()}:
             status = "Correct"
-        elif markers:
+        elif markers and not markers.issubset(retired_ids):
             status = "Conflict"
         else:
             status = "Missing"
@@ -604,6 +751,7 @@ class CanvasTranslationIdReconciler:
     def _normalize_title(value):
         value = VISIBLE_MARKER_RE.sub("", str(value or ""))
         value = FILENAME_MARKER_RE.sub("", value)
+        value = re.sub(r"[:_]+", " ", value)
         value = re.sub(r"\s+(\.[^.\s]+)$", r"\1", value)
         return re.sub(r"\s+", " ", value).strip().casefold()
 

@@ -454,7 +454,7 @@ For a target run, require:
 
 - Launch Chromium in visible/headful mode.
 - Use a dedicated local persistent profile outside tracked repository data.
-- Pause at a login checkpoint while the user enters Canvas/SSO credentials.
+- Open `https://byui.instructure.com/login/canvas` and pause while the user enters Canvas/SSO credentials. Require the exact successful-login URL `https://byui.instructure.com/?login_success=1`; after verification, open `https://byupw.instructure.com/accounts/139` before navigating to the selected course's Question Banks page.
 - Never request the password through Tkinter, CLI arguments, `.env`, logs, or configuration files.
 - Never commit cookies, local storage, browser cache, or session artifacts.
 - If the session expires, return to the login checkpoint.
@@ -508,7 +508,7 @@ Update the IMSCC flow in `app/main_ui.py`:
 
 1. Prompt for/confirm the Translation ID course code.
 2. Collect and verify the English master Canvas course URL.
-3. Add `Enable Translation IDs` checkbox, enabled by default for new translation projects.
+3. Translation IDs are mandatory for new IMSCC translation projects; do not show an enable/disable checkbox.
 4. Show the complete registry summary before any live source write.
 5. Run the English REST registration dry-run and require approval.
 6. Launch the English Question Bank Playwright dry-run, pause for the user's normal Canvas/SSO login, and require approval before writes.
@@ -793,7 +793,7 @@ This preserves the canonical ID while avoiding the colon in `TranslationID:`, wh
 
 Implemented on 2026-11-23 across the registry/inventory, source and target Canvas REST reconciliation, credential-safe Classic Question Bank reconciliation, post-translation package embedding, UI checkpoints, multilingual dashboard reporting, rollback artifacts, and architecture/flow documentation.
 
-Automated verification: all 266 repository tests and 15 subtests pass. The registry was also inventoried against the local Applied Spreadsheets IMSCC workspace, producing 207 stable logical-item records across content, modules, files, assessments, metadata, and settings.
+Automated verification: all 279 repository tests and 15 subtests pass. The registry was also inventoried against the local Applied Spreadsheets IMSCC workspace, producing 207 stable logical-item records across content, modules, files, assessments, metadata, and settings.
 
 Production writes remain disabled by default through the `TRANSLATION_ID_LIVE_WRITES_ENABLED` gate. The acceptance checklist remains open until a disposable English/target Canvas course pair completes the documented write, import, rerun/idempotency, rollback, and audit checks.
 

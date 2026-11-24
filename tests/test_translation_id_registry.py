@@ -216,6 +216,33 @@ class TranslationIdRegistryTests(unittest.TestCase):
             sorted((item["stable_key"], item["translation_id"]) for item in second["items"]),
         )
 
+    def test_groups_byte_identical_assessment_image_copies_with_canonical_file(self):
+        manifest_path = self.root / "imsmanifest.xml"
+        manifest = manifest_path.read_text(encoding="utf-8")
+        manifest = manifest.replace(
+            "  </resources>",
+            "    <resource identifier=\"assessment-image-copy\" type=\"webcontent\" "
+            "href=\"web_resources/assessment_questions/image.png\">"
+            "<file href=\"web_resources/assessment_questions/image.png\" />"
+            "</resource>\n  </resources>",
+        )
+        manifest_path.write_text(manifest, encoding="utf-8")
+        self._write("web_resources/assessment_questions/image.png", "image")
+
+        registry = self._build()
+        by_key = {item["stable_key"]: item for item in registry.items}
+
+        self.assertNotIn("manifest:assessment-image-copy", by_key)
+        canonical = by_key["manifest:file-2"]
+        self.assertIn(
+            "web_resources/assessment_questions/image.png",
+            canonical["package_paths"],
+        )
+        self.assertEqual(
+            canonical["duplicate_package_paths"],
+            ["web_resources/assessment_questions/image.png"],
+        )
+
     def test_reuses_ids_never_renumbers_and_never_reuses_retired_sequence(self):
         first = self._build()
         original = {

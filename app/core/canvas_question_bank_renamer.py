@@ -28,6 +28,11 @@ class CanvasQuestionBankError(RuntimeError):
     """Raised when Question Bank discovery or renaming is unsafe."""
 
 
+CANVAS_LOGIN_URL = "https://byui.instructure.com/login/canvas"
+CANVAS_LOGIN_SUCCESS_URL = "https://byui.instructure.com/?login_success=1"
+CANVAS_ACCOUNT_BOOTSTRAP_URL = "https://byupw.instructure.com/accounts/139"
+
+
 def format_question_bank_name(name: str, translation_id: str) -> str:
     name = str(name or "").strip()
     markers = {marker.upper() for marker in VISIBLE_MARKER_RE.findall(name)}
@@ -217,18 +222,7 @@ class CanvasQuestionBankRenamer:
             )
             try:
                 page = context.pages[0] if context.pages else context.new_page()
-                manage_url = self.course["course_url"] + "/question_banks"
-                page.goto(manage_url, wait_until="domcontentloaded")
-                if login_checkpoint(
-                    {
-                        "action": "Complete Canvas/SSO login in the visible browser",
-                        "url": manage_url,
-                        "details": "The HUB does not read or store your password. Continue only after the Question Banks page is visible.",
-                    }
-                ) is False:
-                    raise CanvasQuestionBankError("Canvas login checkpoint was cancelled.")
-                page.goto(manage_url, wait_until="domcontentloaded")
-                page.wait_for_load_state("networkidle")
+                self._open_question_banks_after_login(page, login_checkpoint)
                 return self._enumerate_page_banks(page)
             finally:
                 context.close()
@@ -254,16 +248,7 @@ class CanvasQuestionBankRenamer:
             )
             try:
                 page = context.pages[0] if context.pages else context.new_page()
-                manage_url = self.course["course_url"] + "/question_banks"
-                page.goto(manage_url, wait_until="domcontentloaded")
-                if login_checkpoint(
-                    {
-                        "action": "Confirm Canvas/SSO login",
-                        "url": manage_url,
-                        "details": "Continue only after the Question Banks page is visible.",
-                    }
-                ) is False:
-                    raise CanvasQuestionBankError("Canvas login checkpoint was cancelled.")
+                self._open_question_banks_after_login(page, login_checkpoint)
                 for change in plan.get("changes", []):
                     if change.get("status") != "Rename":
                         results.append({**deepcopy(change), "write_result": "Skipped"})
@@ -300,6 +285,60 @@ class CanvasQuestionBankRenamer:
         self._write_json(rollback_dir / "final-results.json", output)
         return output
 
+    def _open_question_banks_after_login(self, page, login_checkpoint) -> str:
+        """Follow the required BYU-I login, account bootstrap, and course order."""
+        if login_checkpoint is None:
+            raise CanvasQuestionBankError(
+                "A user-controlled Canvas/SSO login checkpoint is required."
+            )
+        manage_url = self.course["course_url"] + "/question_banks"
+        page.goto(CANVAS_LOGIN_URL, wait_until="domcontentloaded")
+        login_attempt = 0
+        while self._live_page_url(page) != CANVAS_LOGIN_SUCCESS_URL:
+            login_attempt += 1
+            details = (
+                "Complete login at https://byui.instructure.com/login/canvas. "
+                "The HUB does not read or store your password. Click OK only "
+                "after the browser reaches "
+                "https://byui.instructure.com/?login_success=1. The HUB will "
+                "verify that exact successful-login URL, then open Canvas account "
+                "139 before proceeding to the course Question Banks page."
+            )
+            if login_attempt > 1:
+                details = (
+                    "Login was not verified because the browser has not reached "
+                    "https://byui.instructure.com/?login_success=1. Complete login "
+                    "in the still-open browser, then click OK to check again."
+                )
+            if login_checkpoint(
+                {
+                    "action": "Complete BYU-Idaho Canvas login in the visible browser",
+                    "url": CANVAS_LOGIN_URL,
+                    "success_url": CANVAS_LOGIN_SUCCESS_URL,
+                    "next_url": CANVAS_ACCOUNT_BOOTSTRAP_URL,
+                    "attempt": login_attempt,
+                    "details": details,
+                }
+            ) is False:
+                raise CanvasQuestionBankError("Canvas login checkpoint was cancelled.")
+
+        page.goto(CANVAS_ACCOUNT_BOOTSTRAP_URL, wait_until="domcontentloaded")
+        page.goto(manage_url, wait_until="domcontentloaded")
+        page.wait_for_load_state("networkidle")
+        if "/login" in self._live_page_url(page).casefold():
+            raise CanvasQuestionBankError(
+                "Canvas returned to a login page after the account 139 bootstrap."
+            )
+        return manage_url
+
+    @staticmethod
+    def _live_page_url(page) -> str:
+        """Query the browser directly because page.url can be stale after a Tk wait."""
+        evaluate = getattr(page, "evaluate", None)
+        if callable(evaluate):
+            return str(evaluate("window.location.href") or "").strip()
+        return str(getattr(page, "url", "") or "").strip()
+
     def validate_plan_for_apply(self, plan) -> None:
         """Reject any dry-run state that could cause a partial registration."""
         if str(plan.get("course_id")) != self.course["course_id"]:
@@ -328,44 +367,142 @@ class CanvasQuestionBankRenamer:
         shutil.rmtree(self.profile_dir)
         return True
 
+    @staticmethod
+    def _element_text(locator) -> str:
+        if locator is None or locator.count() == 0:
+            return ""
+        text_func = getattr(locator, "text_content", None) or getattr(locator, "inner_text", None)
+        if callable(text_func):
+            try:
+                return str(text_func() or "").strip()
+            except Exception:
+                return ""
+        return ""
+
+    @staticmethod
+    def _wait_page(page, ms: int) -> None:
+        wait_func = getattr(page, "wait_for_timeout", None)
+        if callable(wait_func):
+            wait_func(ms)
+
     def _rename_one(self, page, change):
-        if not change.get("url"):
+        manage_url = self.course["course_url"] + "/question_banks"
+        if not self._live_page_url(page).startswith(manage_url):
+            page.goto(manage_url, wait_until="domcontentloaded")
+            page.wait_for_load_state("networkidle")
+
+        bank_id = str(change.get("live_id") or "").strip()
+        bank_container = None
+        if bank_id:
+            candidate = page.locator(f"#question_bank_{bank_id}")
+            if candidate.count() > 0:
+                bank_container = candidate.first
+            else:
+                candidate = page.locator(f'.question_bank:has(a[href*="/question_banks/{bank_id}"])')
+                if candidate.count() > 0:
+                    bank_container = candidate.first
+        if bank_container is None:
+            old_name = change.get("old_name") or change.get("source_title") or ""
+            if old_name:
+                candidate = page.locator(f'.question_bank:has(a.title:text-is("{old_name}"))')
+                if candidate.count() > 0:
+                    bank_container = candidate.first
+
+        if bank_container is None or bank_container.count() == 0:
             raise CanvasQuestionBankError(
-                f"Question Bank {change['translation_id']} has no verified Canvas URL."
+                f"Question Bank container not found on manage page for {change['translation_id']}."
             )
-        page.goto(change["url"], wait_until="domcontentloaded")
-        edit_control = page.get_by_role(
-            "button", name=re.compile(r"edit.*(bank|name)|rename", re.IGNORECASE)
+
+        title_elem = bank_container.locator("a.title")
+        initial_text = self._element_text(title_elem)
+        if change["new_name"] in initial_text:
+            return
+
+        edit_control = bank_container.locator(
+            ".edit_bank_link, button:has(.icon-edit), button[title*='Edit'], a.edit_bank_link"
         )
-        if edit_control.count() != 1:
-            edit_control = page.get_by_role(
-                "link", name=re.compile(r"edit.*(bank|name)|rename", re.IGNORECASE)
-            )
-        if edit_control.count() != 1:
+        if edit_control.count() == 0:
             raise CanvasQuestionBankError(
-                f"Canvas edit-name control is missing or ambiguous for {change['translation_id']}."
+                f"Canvas edit-name control is missing for {change['translation_id']}."
             )
-        edit_control.click()
-        name_input = page.get_by_role(
-            "textbox", name=re.compile(r"bank.*name|name", re.IGNORECASE)
-        )
-        if name_input.count() != 1:
+        edit_control.first.click()
+
+        # Canvas opens an inline form, typically with id 'edit_bank_form'
+        form = bank_container.locator("#edit_bank_form, form")
+        if form.count() == 0:
+            form = page.locator("#edit_bank_form, form.edit_bank_form")
+        if form.count() > 0:
+            try:
+                form.first.wait_for(state="visible", timeout=5000)
+            except Exception:
+                pass
+
+        # Locate the text input for the title
+        name_input = None
+        if form.count() > 0:
+            inputs = form.first.locator(
+                'input[type="text"], input[name*="title"], input[name*="name"], input:not([type="hidden"]):not([type="submit"]):not([type="button"])'
+            )
+            if inputs.count() > 0:
+                name_input = inputs.first
+        if name_input is None or name_input.count() == 0:
+            name_input = bank_container.locator(
+                'input[type="text"], input:not([type="hidden"]):not([type="submit"]):not([type="button"])'
+            ).first
+
+        if name_input is None or name_input.count() == 0:
             raise CanvasQuestionBankError(
-                f"Canvas bank-name field is missing or ambiguous for {change['translation_id']}."
+                f"Canvas bank-name field is missing for {change['translation_id']}."
             )
+
+        name_input.wait_for(state="visible", timeout=1500)
         name_input.fill(change["new_name"])
-        save_button = page.get_by_role(
-            "button", name=re.compile(r"save|update", re.IGNORECASE)
-        )
-        if save_button.count() != 1:
-            raise CanvasQuestionBankError(
-                f"Canvas save control is missing or ambiguous for {change['translation_id']}."
+
+        # Check for submit button or press Enter
+        submit_button = None
+        if form.count() > 0:
+            candidates = form.first.locator(
+                'button[type="submit"], input[type="submit"], button.Button--primary, button:has-text("Save"), button:has-text("Update")'
             )
-        save_button.click()
-        page.wait_for_load_state("networkidle")
-        page.reload(wait_until="domcontentloaded")
-        names = [bank["name"] for bank in self._enumerate_page_banks(page)]
-        if change["new_name"] not in names and change["new_name"] not in page.locator("body").inner_text():
+            if candidates.count() > 0 and candidates.first.is_visible():
+                submit_button = candidates.first
+
+        if submit_button:
+            submit_button.click()
+        else:
+            name_input.press("Enter")
+
+        # Wait for form to close / disappear
+        if form.count() > 0:
+            try:
+                form.first.wait_for(state="hidden", timeout=1500)
+            except Exception:
+                pass
+
+        # Verify update: allow Canvas to complete the asynchronous write and update the DOM
+        verified = False
+        title_elem = bank_container.locator("a.title")
+        for _ in range(30):
+            current_text = self._element_text(title_elem)
+            if change["new_name"] in current_text:
+                verified = True
+                break
+            self._wait_page(page, 100)
+
+        if not verified:
+            # If not yet reflected in DOM, wait briefly and reload to verify
+            self._wait_page(page, 250)
+            page.reload(wait_until="domcontentloaded")
+            for _ in range(15):
+                names = [bank["name"] for bank in self._enumerate_page_banks(page)]
+                body_elem = page.locator("body")
+                body_text = self._element_text(body_elem)
+                if change["new_name"] in names or change["new_name"] in body_text:
+                    verified = True
+                    break
+                self._wait_page(page, 100)
+
+        if not verified:
             raise CanvasQuestionBankError(
                 f"Canvas did not verify the new name for {change['translation_id']}; write run stopped."
             )

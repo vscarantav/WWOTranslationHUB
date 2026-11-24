@@ -1,3 +1,4 @@
+import inspect
 import sys
 import unittest
 from pathlib import Path
@@ -11,9 +12,29 @@ if str(APP_DIR) not in sys.path:
 from controller import TranslationController  # noqa: E402
 from core.canvas_question_bank_renamer import CanvasQuestionBankError  # noqa: E402
 from core.canvas_translation_id_reconciler import APPROVAL_PHRASE  # noqa: E402
+from main_ui import CourseTranslationHubUI  # noqa: E402
+from scripts.migrate_groups import normalize_canvas_domain_url  # noqa: E402
 
 
 class TranslationIdControllerFlowTests(unittest.TestCase):
+    def test_imscc_ui_makes_translation_ids_mandatory_without_checkbox(self):
+        init_source = inspect.getsource(CourseTranslationHubUI.__init__)
+        run_source = inspect.getsource(CourseTranslationHubUI.run_translation)
+
+        self.assertNotIn("Enable Translation IDs", init_source)
+        self.assertNotIn("translation_ids_var", init_source)
+        self.assertIn("enable_translation_ids = True", run_source)
+
+    def test_canvas_domain_normalizer_uses_explicit_course_host(self):
+        self.assertEqual(
+            normalize_canvas_domain_url("byui.instructure.com"),
+            "https://byui.instructure.com",
+        )
+        self.assertEqual(
+            normalize_canvas_domain_url("https://byupw.instructure.com/"),
+            "https://byupw.instructure.com",
+        )
+
     def test_source_bank_blocker_is_checked_before_any_rest_write(self):
         controller = TranslationController.__new__(TranslationController)
         controller.enable_translation_ids = True

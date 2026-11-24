@@ -533,13 +533,6 @@ class CourseTranslationHubUI:
         ttk.Radiobutton(self.trans_frame, text="Spanish (SPA)", variable=self.lang_var, value="SPA").pack(side="left", padx=10)
         ttk.Radiobutton(self.trans_frame, text="French (FRA)", variable=self.lang_var, value="FRA").pack(side="left", padx=10)
 
-        self.translation_ids_var = tk.BooleanVar(value=True)
-        ttk.Checkbutton(
-            self.trans_frame,
-            text="Enable Translation IDs",
-            variable=self.translation_ids_var,
-        ).pack(side="left", padx=10)
-        
         self.trans_btn = ttk.Button(self.trans_frame, text="Select Course & Translate", command=self.run_translation)
         self.trans_btn.pack(side="right", padx=10)
 
@@ -1462,8 +1455,10 @@ class CourseTranslationHubUI:
             checkpoint = payload.get("checkpoint", {})
             proceed = messagebox.askokcancel(
                 "Canvas Login Checkpoint",
-                checkpoint.get("details", "Complete Canvas/SSO login in the visible browser.")
-                + "\n\nClick OK only after the Question Banks page is visible.",
+                checkpoint.get(
+                    "details",
+                    "Complete Canvas/SSO login in the visible browser, then click OK.",
+                ),
                 parent=self.root,
             )
             resolve(proceed)
@@ -1656,7 +1651,8 @@ class CourseTranslationHubUI:
         self.disable_buttons()
         
         course_configs = {}
-        enable_translation_ids = self.translation_ids_var.get()
+        # Translation IDs are mandatory for every new IMSCC translation.
+        enable_translation_ids = True
         for p in imscc_paths:
             print(f"Preparing {os.path.basename(p)} for translation...")
             temp_workspace = WorkspaceManager(lang, self.hub_dir, imscc_path=p)
@@ -1745,7 +1741,7 @@ class CourseTranslationHubUI:
                 source_domain = urlparse(en_url.strip()).netloc
                 break
 
-            has_groups = check_course_has_groups(source_course_id)
+            has_groups = check_course_has_groups(source_course_id, source_domain)
                 
             config = {
                 'has_groups': has_groups,
@@ -1929,7 +1925,14 @@ class CourseTranslationHubUI:
                             controller.reconcile_target_canvas_ids()
                         if import_ready and conf['has_groups']:
                             print(f"\n[Hub] Running Group Migration for {os.path.basename(imscc_path)}...")
-                            run_migration(conf['source_id'], conf['target_id'], lang, print, conf['target_domain'])
+                            run_migration(
+                                conf['source_id'],
+                                conf['target_id'],
+                                lang,
+                                print,
+                                conf['target_domain'],
+                                source_domain=conf['source_domain'],
+                            )
                         if not import_ready:
                             print("[Translation IDs] Target reconciliation deferred until Canvas import is complete.")
 
@@ -1941,6 +1944,15 @@ class CourseTranslationHubUI:
                 self.root.after(0, lambda language=lang: self._show_checklist_dialog(language))
             except Exception as e:
                 print(f"\n=== Error during translation: {e} ===")
+                error_message = str(e)
+                self.root.after(
+                    0,
+                    lambda message=error_message: messagebox.showerror(
+                        "Translation Error",
+                        message,
+                        parent=self.root,
+                    ),
+                )
             finally:
                 self.root.after(0, self.enable_buttons)
 

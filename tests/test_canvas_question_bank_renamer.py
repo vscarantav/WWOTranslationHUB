@@ -8,6 +8,9 @@ if str(APP_DIR) not in sys.path:
     sys.path.insert(0, str(APP_DIR))
 
 from core.canvas_question_bank_renamer import (  # noqa: E402
+    CANVAS_ACCOUNT_BOOTSTRAP_URL,
+    CANVAS_LOGIN_URL,
+    CANVAS_LOGIN_SUCCESS_URL,
     CanvasQuestionBankError,
     CanvasQuestionBankRenamer,
     format_question_bank_name,
@@ -150,6 +153,203 @@ class CanvasQuestionBankRenamerTests(unittest.TestCase):
         )
         with self.assertRaisesRegex(CanvasQuestionBankError, "outside the repository"):
             unsafe._ensure_profile_is_outside_repository()
+
+    def test_browser_uses_required_login_account_and_question_bank_order(self):
+        class FakePage:
+            def __init__(self):
+                self.gotos = []
+                self.waits = []
+                self.url = ""
+                self.live_url = ""
+
+            def goto(self, url, wait_until=None):
+                self.gotos.append((url, wait_until))
+                self.url = url
+                self.live_url = url
+
+            def evaluate(self, script):
+                self.asserted_script = script
+                return self.live_url
+
+            def wait_for_load_state(self, state):
+                self.waits.append(state)
+
+        page = FakePage()
+        checkpoints = []
+
+        def complete_login(payload):
+            checkpoints.append(payload)
+            # Reproduce the real bug: Playwright's cached page.url remains on
+            # the login page while the browser's window.location has advanced.
+            page.live_url = CANVAS_LOGIN_SUCCESS_URL
+            return True
+
+        manage_url = self.service._open_question_banks_after_login(
+            page,
+            complete_login,
+        )
+
+        self.assertEqual(
+            [url for url, _wait in page.gotos],
+            [
+                CANVAS_LOGIN_URL,
+                CANVAS_ACCOUNT_BOOTSTRAP_URL,
+                "https://canvas.test/courses/123/question_banks",
+            ],
+        )
+        self.assertEqual(manage_url, page.gotos[-1][0])
+        self.assertEqual(page.asserted_script, "window.location.href")
+        self.assertEqual(page.waits, ["networkidle"])
+        self.assertEqual(checkpoints[0]["url"], CANVAS_LOGIN_URL)
+        self.assertEqual(
+            checkpoints[0]["success_url"],
+            CANVAS_LOGIN_SUCCESS_URL,
+        )
+        self.assertEqual(
+            checkpoints[0]["next_url"],
+            CANVAS_ACCOUNT_BOOTSTRAP_URL,
+        )
+
+    def test_cancelled_login_does_not_open_account_or_course(self):
+        class FakePage:
+            def __init__(self):
+                self.gotos = []
+
+            def goto(self, url, wait_until=None):
+                self.gotos.append(url)
+
+        page = FakePage()
+        with self.assertRaisesRegex(CanvasQuestionBankError, "cancelled"):
+            self.service._open_question_banks_after_login(
+                page,
+                lambda _payload: False,
+            )
+        self.assertEqual(page.gotos, [CANVAS_LOGIN_URL])
+
+    def test_unverified_login_reprompts_without_closing_browser(self):
+        class FakePage:
+            def __init__(self):
+                self.gotos = []
+                self.url = ""
+                self.live_url = ""
+
+            def goto(self, url, wait_until=None):
+                self.gotos.append(url)
+                self.url = url
+                self.live_url = url
+
+            def evaluate(self, _script):
+                return self.live_url
+
+            def wait_for_load_state(self, _state):
+                pass
+
+        page = FakePage()
+        checkpoints = []
+
+        def complete_on_second_prompt(payload):
+            checkpoints.append(payload)
+            if len(checkpoints) == 2:
+                page.live_url = CANVAS_LOGIN_SUCCESS_URL
+            return True
+
+        self.service._open_question_banks_after_login(
+            page,
+            complete_on_second_prompt,
+        )
+
+        self.assertEqual(len(checkpoints), 2)
+        self.assertEqual(checkpoints[0]["attempt"], 1)
+        self.assertEqual(checkpoints[1]["attempt"], 2)
+        self.assertIn("not verified", checkpoints[1]["details"])
+        self.assertEqual(
+            page.gotos,
+            [
+                CANVAS_LOGIN_URL,
+                CANVAS_ACCOUNT_BOOTSTRAP_URL,
+                "https://canvas.test/courses/123/question_banks",
+            ],
+        )
+
+    def test_rename_one_in_page_flow(self):
+        class FakeLocator:
+            def __init__(self, elements=None, count_val=1):
+                self._elements = elements or {}
+                self._count = count_val
+
+            def count(self):
+                return self._count
+
+            @property
+            def first(self):
+                return self
+
+            def locator(self, selector):
+                if ".edit_bank_link" in selector:
+                    return FakeLocator(count_val=1)
+                if "#edit_bank_form" in selector or "form" in selector:
+                    return FakeLocator(count_val=1)
+                if 'input' in selector:
+                    return FakeLocator(count_val=1)
+                if "submit" in selector:
+                    return FakeLocator(count_val=1)
+                if "a.title" in selector:
+                    return FakeLocator(count_val=1, elements={"text": "QB New Name TranslationID: GS170-QB-001"})
+                return FakeLocator(count_val=0)
+
+            def click(self):
+                pass
+
+            def fill(self, val):
+                self.filled_val = val
+
+            def press(self, key):
+                self.pressed_key = key
+
+            def is_visible(self):
+                return True
+
+            def wait_for(self, **kwargs):
+                pass
+
+            def inner_text(self):
+                return self._elements.get("text", "")
+
+            def text_content(self):
+                return self._elements.get("text", "")
+
+        class FakePage:
+            def __init__(self):
+                self.live_url = "https://canvas.test/courses/123/question_banks"
+                self.reloaded = False
+
+            def locator(self, selector):
+                if "#question_bank_10" in selector:
+                    return FakeLocator(count_val=1)
+                if "#edit_bank_form" in selector:
+                    return FakeLocator(count_val=1)
+                return FakeLocator(count_val=0)
+
+            def evaluate(self, _script):
+                return self.live_url
+
+            def wait_for_load_state(self, _state):
+                pass
+
+            def wait_for_timeout(self, _ms):
+                pass
+
+            def reload(self, **kwargs):
+                self.reloaded = True
+
+        page = FakePage()
+        change = {
+            "translation_id": "GS170-QB-001",
+            "live_id": "10",
+            "old_name": "QB: GS 170 W01 Questions",
+            "new_name": "QB New Name TranslationID: GS170-QB-001",
+        }
+        self.service._rename_one(page, change)
 
 
 if __name__ == "__main__":

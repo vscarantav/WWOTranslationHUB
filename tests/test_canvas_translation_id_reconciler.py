@@ -15,6 +15,7 @@ from core.canvas_translation_id_reconciler import (  # noqa: E402
     CanvasTranslationIdReconciler,
     append_visible_marker,
     format_canvas_filename,
+    trusted_canvas_domain_aliases,
 )
 from core.translation_id_registry import (  # noqa: E402
     LANGUAGES,
@@ -97,6 +98,40 @@ class CanvasTranslationIdReconcilerTests(unittest.TestCase):
             rollback_root=self.rollback_root,
         )
 
+    def test_selected_instructure_alias_is_authoritative_api_origin(self):
+        reconciler = CanvasTranslationIdReconciler(
+            self.registry,
+            "https://byui.instructure.com/courses/123",
+            "EN",
+            "source-register",
+            token="secret-token",
+            api_url="https://byupw.instructure.com",
+            rollback_root=self.rollback_root,
+        )
+
+        self.assertTrue(
+            trusted_canvas_domain_aliases(
+                "byupw.instructure.com",
+                "byui.instructure.com",
+            )
+        )
+        self.assertEqual(reconciler.api_origin, "https://byui.instructure.com")
+
+    def test_unrelated_configured_domain_mismatch_is_rejected(self):
+        with self.assertRaisesRegex(
+            CanvasTranslationIdError,
+            "not trusted Instructure aliases",
+        ):
+            CanvasTranslationIdReconciler(
+                self.registry,
+                "https://canvas.other.edu/courses/123",
+                "EN",
+                "source-register",
+                token="secret-token",
+                api_url="https://byupw.instructure.com",
+                rollback_root=self.rollback_root,
+            )
+
     def inventory(self, page_body="<p>Notes</p>", filename="Study Guide.docx"):
         return {
             "Course": [{"id": 123, "name": "GS 170", "syllabus_body": ""}],
@@ -156,6 +191,49 @@ class CanvasTranslationIdReconcilerTests(unittest.TestCase):
         plan = self.reconciler().plan(conflict)
         page = next(change for change in plan["changes"] if change["item_type"] == "Page")
         self.assertEqual(page["status"], "Conflict")
+
+    def test_title_matching_treats_export_underscore_as_canvas_colon(self):
+        self.assertEqual(
+            CanvasTranslationIdReconciler._normalize_title(
+                "W01 Quiz_ Syllabus Clock.PNG"
+            ),
+            CanvasTranslationIdReconciler._normalize_title(
+                "W01 Quiz: Syllabus Clock.PNG"
+            ),
+        )
+
+    def test_assignment_discussions_are_added_to_discussion_inventory(self):
+        responses = {
+            "/api/v1/courses/123": {"id": 123},
+            "/api/v1/courses/123/permissions": {
+                "manage_wiki_update": True,
+                "manage_files_edit": True,
+            },
+            "/api/v1/courses/123/pages": [],
+            "/api/v1/courses/123/assignments": [{
+                "id": 50,
+                "name": "W01 Share",
+                "discussion_topic": {
+                    "id": 70,
+                    "title": "W01 Share",
+                    "message": "Discuss",
+                },
+            }],
+            "/api/v1/courses/123/quizzes": [],
+            "/api/v1/courses/123/discussion_topics": [],
+            "/api/v1/courses/123/files": [],
+            "/api/v1/courses/123/modules": [],
+        }
+
+        def request(method, url, **kwargs):
+            path = url.split("canvas.test", 1)[1]
+            return FakeResponse(responses[path])
+
+        inventory = self.reconciler(request_func=request).discover()
+
+        self.assertEqual(len(inventory["Discussion"]), 1)
+        self.assertEqual(inventory["Discussion"][0]["id"], 70)
+        self.assertEqual(inventory["Discussion"][0]["assignment_id"], 50)
 
     def test_file_collision_blocks_rename(self):
         inventory = self.inventory()
@@ -241,9 +319,122 @@ class CanvasTranslationIdReconcilerTests(unittest.TestCase):
         with self.assertRaises(CanvasTranslationIdError):
             format_canvas_filename("Guide [GS170-FI-002].docx", "GS170-FI-001")
         self.assertEqual(
+            format_canvas_filename(
+                "Guide [GS170-FI-002].docx",
+                "GS170-FI-001",
+                retired_ids=["GS170-FI-002"],
+            ),
+            "Guide [GS170-FI-001].docx",
+        )
+        self.assertEqual(
             append_visible_marker("<body>Text</body>", "GS170-PG-001"),
             "<body>Text<p>TranslationID: GS170-PG-001</p></body>",
         )
+        self.assertEqual(
+            append_visible_marker(
+                "<body>Text<p>TranslationID: GS170-PG-002</p></body>",
+                "GS170-PG-001",
+                retired_ids=["GS170-PG-002"],
+            ),
+            "<body>Text<p>TranslationID: GS170-PG-001</p></body>",
+        )
+        self.assertEqual(
+            append_visible_marker(
+                '<p>Overview</p><script src="mobile.js"></script>',
+                "GS170-AS-001",
+            ),
+            '<p>Overview</p><p>TranslationID: GS170-AS-001</p><script src="mobile.js"></script>',
+        )
+        self.assertEqual(
+            append_visible_marker(
+                '<body><p>Overview</p><script src="mobile.js"></script></body>',
+                "GS170-PG-001",
+            ),
+            '<body><p>Overview</p><p>TranslationID: GS170-PG-001</p><script src="mobile.js"></script></body>',
+        )
+
+    def test_apply_verifies_when_canvas_reorders_trailing_script(self):
+        live_page = self.inventory()["Page"][0]
+        live_page["body"] = '<p>Overview</p><script src="mobile.js"></script>'
+        live_file = self.inventory()["File"][0]
+
+        def request(method, url, **kwargs):
+            if method == "PUT" and "/pages/" in url:
+                # Simulate Canvas sanitizer placing script after the added paragraph
+                live_page["body"] = (
+                    '<p>Overview</p><p>TranslationID: GS170-PG-001</p><script src="mobile.js"></script>'
+                )
+                return FakeResponse(dict(live_page))
+            if method == "GET" and "/pages/" in url:
+                return FakeResponse(dict(live_page))
+            if method == "PUT" and "/files/" in url:
+                live_file["display_name"] = kwargs["data"]["name"]
+                live_file["filename"] = kwargs["data"]["name"]
+                return FakeResponse(dict(live_file))
+            if method == "GET" and "/files/" in url:
+                return FakeResponse(dict(live_file))
+            raise AssertionError((method, url, kwargs))
+
+        reconciler = self.reconciler(request_func=request)
+        plan = reconciler.plan(self.inventory(page_body='<p>Overview</p><script src="mobile.js"></script>'))
+        result = reconciler.apply(plan, APPROVAL_PHRASE)
+        self.assertIn("rollback_directory", result)
+        self.assertEqual(
+            self.registry.items[0]["instances"]["EN"]["id_status"],
+            "verified",
+        )
+
+    def test_plan_and_apply_replaces_retired_ids_without_conflict(self):
+        retired_item = {
+            "item_type": "File",
+            "source_title": "Old Guide.docx",
+            "stable_key": "path:old-guide.docx",
+            "package_paths": ["old-guide.docx"],
+            "placement": "canvas_display_filename",
+            "translation_id": "GS170-FI-099",
+            "short_id": "FI-099",
+            "retired": True,
+            "instances": {
+                "EN": {"course_id": "123", "content_id": None, "presence": "missing", "id_status": "not_checked"},
+                "PTBR": {"course_id": None, "content_id": None, "presence": "not_translated", "id_status": "not_checked"},
+                "SPA": {"course_id": None, "content_id": None, "presence": "not_translated", "id_status": "not_checked"},
+                "FRA": {"course_id": None, "content_id": None, "presence": "not_translated", "id_status": "not_checked"},
+            },
+        }
+        self.registry.items.append(retired_item)
+        inventory = self.inventory()
+        inventory["File"][0]["display_name"] = "Study Guide [GS170-FI-099].docx"
+        inventory["File"][0]["filename"] = "Study Guide [GS170-FI-099].docx"
+
+        live_file = inventory["File"][0]
+        live_page = inventory["Page"][0]
+
+        def request(method, url, **kwargs):
+            if method == "PUT" and "/files/" in url:
+                live_file["display_name"] = kwargs["data"]["name"]
+                live_file["filename"] = kwargs["data"]["name"]
+                return FakeResponse(dict(live_file))
+            if method == "GET" and "/files/" in url:
+                return FakeResponse(dict(live_file))
+            if method == "PUT" and "/pages/" in url:
+                live_page["body"] = kwargs["data"]["wiki_page[body]"]
+                return FakeResponse(dict(live_page))
+            if method == "GET" and "/pages/" in url:
+                return FakeResponse(dict(live_page))
+            raise AssertionError((method, url, kwargs))
+
+        reconciler = self.reconciler(request_func=request)
+        plan = reconciler.plan(inventory)
+        file_change = next(change for change in plan["changes"] if change["translation_id"] == "GS170-FI-001")
+        self.assertEqual(file_change["status"], "Missing")
+        self.assertEqual(file_change["proposed_value"], "Study Guide [GS170-FI-001].docx")
+
+        retired_change = next(change for change in plan["changes"] if change["translation_id"] == "GS170-FI-099")
+        self.assertEqual(retired_change["status"], "Retired")
+
+        result = reconciler.apply(plan, APPROVAL_PHRASE)
+        self.assertIn("rollback_directory", result)
+        self.assertEqual(live_file["display_name"], "Study Guide [GS170-FI-001].docx")
 
     def test_domain_and_source_course_mismatches_block_initialization(self):
         with self.assertRaisesRegex(CanvasTranslationIdError, "domain"):

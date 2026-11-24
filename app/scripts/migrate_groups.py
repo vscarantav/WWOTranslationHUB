@@ -16,6 +16,15 @@ def get_source_credentials():
         raise ValueError("CANVAS_API_URL or CANVAS_API_TOKEN is not set in .env")
     return url.rstrip('/'), token
 
+
+def normalize_canvas_domain_url(domain):
+    value = str(domain or "").strip().rstrip("/")
+    if not value:
+        return None
+    if not value.startswith(("http://", "https://")):
+        value = f"https://{value}"
+    return value
+
 def fetch_paginated(url, token):
     results = []
     headers = {"Authorization": f"Bearer {token}"}
@@ -58,21 +67,31 @@ def create_group(category_id, name, base_url, token):
     response.raise_for_status()
     return response.json()
 
-def check_course_has_groups(course_id):
+def check_course_has_groups(course_id, source_domain=None):
     """Utility function for the UI to quickly check if a course has groups."""
     try:
         url, token = get_source_credentials()
+        url = normalize_canvas_domain_url(source_domain) or url
         categories = fetch_group_categories(course_id, url, token)
         return len(categories) > 0
     except Exception as e:
         print(f"[GroupMigrator] Error checking for groups in {course_id}: {e}")
         return False
 
-def run_migration(source_id, target_id, lang, log_func, target_domain=None, target_token=None):
+def run_migration(
+    source_id,
+    target_id,
+    lang,
+    log_func,
+    target_domain=None,
+    target_token=None,
+    source_domain=None,
+):
     log_func(f"[GroupMigrator] Initializing TextTranslationBot for {lang}...")
     translator = TextTranslationBot(target_language=lang)
 
     source_url, source_token = get_source_credentials()
+    source_url = normalize_canvas_domain_url(source_domain) or source_url
 
     log_func(f"[GroupMigrator] Fetching group categories for source course {source_id}...")
     try:
@@ -131,9 +150,7 @@ def run_migration(source_id, target_id, lang, log_func, target_domain=None, targ
         t_token = source_token
         
         if target_domain:
-            if not target_domain.startswith("http"):
-                target_domain = f"https://{target_domain}"
-            t_url = target_domain.rstrip('/')
+            t_url = normalize_canvas_domain_url(target_domain)
             
         if target_token:
             t_token = target_token

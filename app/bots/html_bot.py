@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup, Comment, NavigableString
 import google.generativeai as genai  # type: ignore
 
 from core.language_config import language_config, normalize_language_code
+from core.translation_id_registry import VISIBLE_MARKER_RE
 
 class HTMLTranslationBot:
     # Product interface labels should remain exactly as students see them in the
@@ -262,6 +263,8 @@ class HTMLTranslationBot:
             if self._is_preserved_product_ui_label(stripped_text):
                 continue
             if self._is_bibliography_citation_node(node):
+                continue
+            if VISIBLE_MARKER_RE.search(stripped_text):
                 continue
             if node.find_parent(list(ignored_parents)) is not None:
                 continue

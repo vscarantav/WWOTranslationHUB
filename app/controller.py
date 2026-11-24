@@ -229,6 +229,7 @@ class TranslationController:
             self.workspace.original_dir,
             course_code,
             source_course_id=source_course_id,
+            existing_registry=persisted_registry,
         ).build()
         existing_registry = persisted_registry or source_registry
         registry = TranslationIdRegistryBuilder(
@@ -237,7 +238,11 @@ class TranslationController:
             source_course_id=source_course_id,
             existing_registry=existing_registry,
         ).build()
-        source_keys = {item["stable_key"] for item in source_registry.items}
+        source_keys = {
+            item["stable_key"]
+            for item in source_registry.items
+            if not item.get("retired")
+        }
         for item in registry.items:
             source_present = item["stable_key"] in source_keys
             item["source_present"] = source_present
@@ -660,6 +665,7 @@ class TranslationController:
 
         self.build_translation_id_registry()
         self.register_source_canvas_ids()
+        self.embed_translation_ids()
 
         self.filepaths = self.workspace.collect_files(self._log)
         self.link_processor.filepaths = self.filepaths

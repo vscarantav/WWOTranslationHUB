@@ -115,7 +115,7 @@ For the URL-level decisions, persistence behavior, and reporting outcomes, open 
 
 ### Translation ID lifecycle for new translations
 
-When `Enable Translation IDs` is selected, the following lifecycle wraps the ordinary IMSCC flow. Production writes remain disabled by default until a disposable-course staging run succeeds; the controlled staging run uses `TRANSLATION_ID_LIVE_WRITES_ENABLED=true`. Every write still requires the exact phrase `APPLY TRANSLATION ID CHANGES` after the dry-run is reviewed.
+The following Translation ID lifecycle is mandatory for every new IMSCC translation; the UI does not provide an opt-out checkbox. Production writes remain disabled by default until a disposable-course staging run succeeds; the controlled staging run uses `TRANSLATION_ID_LIVE_WRITES_ENABLED=true`. Every write still requires the exact phrase `APPLY TRANSLATION ID CHANGES` after the dry-run is reviewed.
 
 ```mermaid
 flowchart TD

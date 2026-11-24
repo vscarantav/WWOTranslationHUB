@@ -8,6 +8,7 @@ module only reads the IMSCC workspace and writes a sidecar JSON registry.
 from __future__ import annotations
 
 import json
+import hashlib
 import os
 import re
 import tempfile
@@ -469,7 +470,13 @@ class TranslationIdRegistryBuilder:
                 continue
             if not paths and href:
                 paths = [href]
-            consumed_paths.update(paths)
+            for p in list(paths):
+                sanitized = self._disk_sanitized_path(p)
+                consumed_paths.add(p)
+                consumed_paths.add(sanitized)
+                if (self.course_root / Path(sanitized)).is_file() and not (self.course_root / Path(p)).is_file():
+                    if sanitized not in paths:
+                        paths.append(sanitized)
             self._add_candidate(
                 candidates,
                 item_type,
@@ -483,7 +490,78 @@ class TranslationIdRegistryBuilder:
         self._inventory_question_banks(candidates, consumed_paths)
         self._inventory_structured_metadata(candidates, consumed_paths)
         self._inventory_unclaimed_files(candidates, consumed_paths, files_meta_names)
+        self._merge_duplicate_assessment_files(candidates)
         return sorted(candidates.values(), key=self._candidate_sort_key)
+
+    def _merge_duplicate_assessment_files(
+        self,
+        candidates: Dict[str, Dict[str, Any]],
+    ) -> None:
+        """Group byte-identical assessment export copies with one canonical file."""
+        file_candidates = {
+            key: candidate
+            for key, candidate in candidates.items()
+            if candidate.get("item_type") == "File"
+        }
+        digest_groups: Dict[str, List[str]] = {}
+        for stable_key, candidate in file_candidates.items():
+            paths = candidate.get("package_paths", [])
+            if not paths:
+                continue
+            digests = {
+                self._file_digest(self.course_root / Path(path))
+                for path in paths
+                if (self.course_root / Path(path)).is_file()
+            }
+            digests.discard(None)
+            if len(digests) == 1:
+                digest_groups.setdefault(next(iter(digests)), []).append(stable_key)
+
+        assessment_prefix = "web_resources/assessment_questions/"
+        for stable_keys in digest_groups.values():
+            canonical_keys = [
+                key
+                for key in stable_keys
+                if not all(
+                    path.startswith(assessment_prefix)
+                    for path in file_candidates[key].get("package_paths", [])
+                )
+            ]
+            if len(canonical_keys) != 1:
+                continue
+            canonical = candidates[canonical_keys[0]]
+            duplicate_keys = [
+                key
+                for key in stable_keys
+                if key != canonical_keys[0]
+                and all(
+                    path.startswith(assessment_prefix)
+                    for path in file_candidates[key].get("package_paths", [])
+                )
+            ]
+            for duplicate_key in duplicate_keys:
+                duplicate = candidates.pop(duplicate_key)
+                canonical["package_paths"] = sorted(
+                    set(canonical.get("package_paths", []))
+                    | set(duplicate.get("package_paths", [])),
+                    key=str.casefold,
+                )
+                canonical["duplicate_package_paths"] = sorted(
+                    set(canonical.get("duplicate_package_paths", []))
+                    | set(duplicate.get("package_paths", [])),
+                    key=str.casefold,
+                )
+
+    @staticmethod
+    def _file_digest(path: Path) -> Optional[str]:
+        try:
+            digest = hashlib.sha256()
+            with open(path, "rb") as source:
+                for chunk in iter(lambda: source.read(1024 * 1024), b""):
+                    digest.update(chunk)
+            return digest.hexdigest()
+        except OSError:
+            return None
 
     def _inventory_modules(self, candidates: Dict[str, Dict[str, Any]]):
         module_path = self.course_root / "course_settings" / "module_meta.xml"
@@ -629,6 +707,13 @@ class TranslationIdRegistryBuilder:
             )
             consumed_paths.add(relpath)
 
+    @staticmethod
+    def _disk_sanitized_path(posix_path: str) -> str:
+        parts = PurePosixPath(posix_path).parts
+        table = str.maketrans(':<>|"?*', '_______')
+        sanitized_parts = [part.translate(table).rstrip('.') for part in parts]
+        return '/'.join(sanitized_parts)
+
     def _inventory_unclaimed_files(
         self,
         candidates: Dict[str, Dict[str, Any]],
@@ -643,7 +728,7 @@ class TranslationIdRegistryBuilder:
             key=lambda value: self._relative(value).casefold(),
         ):
             relpath = self._relative(path)
-            if relpath in consumed_paths:
+            if relpath in consumed_paths or self._disk_sanitized_path(relpath) in consumed_paths:
                 continue
             posix = PurePosixPath(relpath)
             if relpath.startswith(excluded_prefixes) or posix.name in excluded_names:
@@ -850,8 +935,8 @@ class TranslationIdRegistryBuilder:
     def _candidate_sort_key(item: Mapping[str, Any]):
         return (
             TYPE_CODES[item["item_type"]],
-            str(item["stable_key"]).casefold(),
             str(item["source_title"]).casefold(),
+            str(item["stable_key"]).casefold(),
         )
 
     @staticmethod
